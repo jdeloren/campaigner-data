@@ -1,0 +1,289 @@
+[
+  {
+    "name": "Attack",
+    "description": "Attack a specified target using available attacks",
+    "category": "combat",
+    "requires_target": true,
+    "target": {
+      "type": "creature",
+      "count": 1
+    },
+    "action_cost": "action",
+    "parameters": {
+      "target": {
+        "type": "creature",
+        "required": true
+      },
+      "weapon": {
+        "type": "weapon",
+        "required": false,
+        "default": "preferred"
+      }
+    }
+  },
+  {
+    "name": "Move",
+    "description": "Move to a specified location",
+    "category": "movement",
+    "requires_target": true,
+    "target": {
+      "type": "location"
+    },
+    "action_cost": "movement",
+    "parameters": {
+      "destination": {
+        "type": "location",
+        "required": true
+      }
+    }
+  },
+  {
+    "name": "Dash",
+    "description": "Take the Dash action to double movement speed",
+    "category": "movement",
+    "requires_target": false,
+    "action_cost": "action",
+    "parameters": {}
+  },
+  {
+    "name": "Dodge",
+    "description": "Take the Dodge action, granting disadvantage on attacks against you",
+    "category": "defense",
+    "requires_target": false,
+    "action_cost": "action",
+    "parameters": {}
+  },
+  {
+    "name": "Help",
+    "description": "Take the Help action to assist an ally",
+    "category": "support",
+    "requires_target": true,
+    "target": {
+      "type": "creature",
+      "count": 1,
+      "disposition": "friendly"
+    },
+    "action_cost": "action",
+    "parameters": {
+      "ally": {
+        "type": "creature",
+        "required": true,
+        "filter": "allied"
+      },
+      "task": {
+        "type": "string",
+        "required": false,
+        "options": ["attack", "ability_check"]
+      }
+    }
+  },
+  {
+    "name": "Guard",
+    "description": "Protect a creature or item, attacking enemies that approach",
+    "category": "defense",
+    "requires_target": true,
+    "target": {
+      "type": "creature",
+      "count": 1,
+      "disposition": "any"
+    },
+    "action_cost": "action",
+    "parameters": {
+      "target": {
+        "type": ["creature", "object"],
+        "required": true
+      },
+      "radius": {
+        "type": "distance",
+        "required": false,
+        "default": 5,
+        "unit": "feet"
+      }
+    }
+  },
+  {
+    "name": "Follow",
+    "description": "Follow a specified creature, maintaining distance",
+    "category": "movement",
+    "requires_target": true,
+    "target": {
+      "type": "creature",
+      "count": 1
+    },
+    "action_cost": "movement",
+    "parameters": {
+      "target": {
+        "type": "creature",
+        "required": true
+      },
+      "distance": {
+        "type": "distance",
+        "required": false,
+        "default": 5,
+        "unit": "feet"
+      }
+    }
+  },
+  {
+    "name": "Stay",
+    "description": "Remain in current position, taking no movement",
+    "category": "movement",
+    "requires_target": false,
+    "action_cost": "none",
+    "parameters": {}
+  },
+  {
+    "name": "Halt",
+    "description": "Take no actions on your turn",
+    "category": "control",
+    "requires_target": false,
+    "action_cost": "all",
+    "parameters": {}
+  },
+  {
+    "name": "Grovel",
+    "description": "Fall prone and remain in place",
+    "category": "control",
+    "requires_target": false,
+    "action_cost": "none",
+    "parameters": {},
+    "effects": [
+      {
+        "apply_status": {
+          "name": "prone"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Flee",
+    "description": "Move away from combat or a specified threat",
+    "category": "movement",
+    "requires_target": false,
+    "action_cost": "movement",
+    "parameters": {
+      "threat": {
+        "type": "creature",
+        "required": false,
+        "description": "Specific creature to flee from; if omitted, flees from all enemies"
+      }
+    }
+  },
+  {
+    "name": "Hide",
+    "description": "Attempt to hide from enemies",
+    "category": "stealth",
+    "requires_target": false,
+    "action_cost": "action",
+    "parameters": {
+      "location": {
+        "type": "location",
+        "required": false,
+        "description": "Specific location to hide; if omitted, uses nearest cover"
+      }
+    }
+  },
+  {
+    "name": "Use Object",
+    "description": "Interact with a specified object",
+    "category": "interaction",
+    "requires_target": true,
+    "target": {
+      "type": "object"
+    },
+    "action_cost": "action",
+    "parameters": {
+      "object": {
+        "type": "object",
+        "required": true
+      },
+      "interaction": {
+        "type": "string",
+        "required": false,
+        "description": "Specific interaction; if omitted, uses default interaction"
+      }
+    }
+  },
+  {
+    "name": "Disengage",
+    "description": "Take the Disengage action, preventing opportunity attacks",
+    "category": "movement",
+    "requires_target": false,
+    "action_cost": "action",
+    "parameters": {}
+  },
+  {
+    "name": "Ready",
+    "description": "Ready an action to trigger on a specified condition",
+    "category": "combat",
+    "requires_target": false,
+    "action_cost": "action",
+    "parameters": {
+      "trigger": {
+        "type": "string",
+        "required": true,
+        "description": "The condition that triggers the readied action"
+      },
+      "action": {
+        "type": "command",
+        "required": true,
+        "description": "The action to take when triggered"
+      }
+    }
+  },
+  {
+    "name": "Grapple",
+    "description": "Attempt to grapple a creature",
+    "category": "combat",
+    "requires_target": true,
+    "target": {
+      "type": "creature",
+      "count": 1
+    },
+    "action_cost": "action",
+    "parameters": {
+      "target": {
+        "type": "creature",
+        "required": true
+      }
+    },
+    "requirements": [
+      {
+        "type": "size",
+        "value": "within_one_category"
+      },
+      {
+        "type": "free_hand",
+        "value": true
+      }
+    ]
+  },
+  {
+    "name": "Shove",
+    "description": "Attempt to shove a creature prone or away",
+    "category": "combat",
+    "requires_target": true,
+    "target": {
+      "type": "creature",
+      "count": 1
+    },
+    "action_cost": "action",
+    "parameters": {
+      "target": {
+        "type": "creature",
+        "required": true
+      },
+      "direction": {
+        "type": "string",
+        "required": true,
+        "options": ["prone", "away"]
+      }
+    },
+    "requirements": [
+      {
+        "type": "size",
+        "value": "within_one_category"
+      }
+    ]
+  }
+]

@@ -1,0 +1,130 @@
+[
+  {
+    "class": "Battle Master",
+    "level": 3,
+    "name": "Combat Superiority",
+    "description": "You learn maneuvers that are fueled by special dice called superiority dice. You learn three maneuvers of your choice. You learn two additional maneuvers of your choice at 7th, 10th, and 15th level. Each time you learn new maneuvers, you can also replace one maneuver you know with a different one.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "query",
+        "query": {
+          "endpoint": "maneuvers"
+        },
+        "scaling": {
+          "components": {
+            "dice_count": {
+              "by_level": {
+                "3": 3,
+                "7": 5,
+                "10": 7,
+                "15": 9
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "resource",
+        "id": "superiority_dice",
+        "name": "Superiority Dice",
+        "count": {
+          "type": "level_table",
+          "values": {
+            "3": 4,
+            "7": 5,
+            "15": 6
+          }
+        },
+        "recharge": "short_rest",
+        "dice_sides": 8,
+        "scaling": {
+          "components": {
+            "dice_sides": {
+              "by_level": {
+                "10": 10,
+                "18": 12
+              }
+            }
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Battle Master",
+    "level": 3,
+    "name": "Student of War",
+    "description": "You gain proficiency with one type of artisan's tools of your choice.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "query",
+        "query": {
+          "endpoint": "equipment",
+          "params": {
+            "category": "Artisan's Tools"
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Battle Master",
+    "level": 7,
+    "name": "Know Your Enemy",
+    "description": "If you spend at least 1 minute observing or interacting with another creature outside combat, you can learn certain information about its capabilities compared to your own. The DM tells you if the creature is your equal, superior, or inferior in regard to two of the following characteristics of your choice: Strength score, Dexterity score, Constitution score, Armor Class, Current hit points, Total class levels (if any), Fighter class levels (if any).",
+    "mechanics": [],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Battle Master",
+    "level": 10,
+    "name": "Improved Combat Superiority",
+    "description": "Your superiority dice turn into d10s. At 18th level, they turn into d12s.",
+    "enhances": "Combat Superiority",
+    "mechanics": [],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Battle Master",
+    "level": 15,
+    "name": "Relentless",
+    "description": "When you roll initiative and have no superiority dice remaining, you regain 1 superiority die.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "relentless_recovery",
+        "trigger": {
+          "event": [
+            "initiative_roll"
+          ]
+        },
+        "requirements": [
+          {
+            "type": "resource",
+            "resource": "superiority_dice",
+            "comparison": "equals",
+            "value": 0
+          }
+        ],
+        "effects": [
+          {
+            "recover": {
+              "target": "superiority_dice",
+              "count": 1
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

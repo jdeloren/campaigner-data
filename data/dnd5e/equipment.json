@@ -1,0 +1,2870 @@
+[
+  {
+    "name": "Club",
+    "cost": {
+      "amount": 1.0,
+      "currency": "SP"
+    },
+    "damage": {
+      "dice": "1d4",
+      "type": ["bludgeoning"]
+    },
+    "weight": 2.0,
+    "properties": ["Light"],
+    "subcategory": "simple_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Dagger",
+    "cost": {
+      "amount": 2.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d4",
+      "type": ["piercing"]
+    },
+    "weight": 1.0,
+    "properties": ["Finesse", "light", "thrown (20/60)"],
+    "subcategory": "simple_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Greatclub",
+    "cost": {
+      "amount": 2.0,
+      "currency": "SP"
+    },
+    "damage": {
+      "dice": "1d8",
+      "type": ["bludgeoning"]
+    },
+    "weight": 10.0,
+    "properties": ["Two-handed"],
+    "subcategory": "simple_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Handaxe",
+    "cost": {
+      "amount": 5.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d6",
+      "type": ["slashing"]
+    },
+    "weight": 2.0,
+    "properties": ["Light", "thrown (20/60)"],
+    "subcategory": "simple_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Javelin",
+    "cost": {
+      "amount": 5.0,
+      "currency": "SP"
+    },
+    "damage": {
+      "dice": "1d6",
+      "type": ["piercing"]
+    },
+    "weight": 2.0,
+    "properties": ["Thrown (30/120)"],
+    "subcategory": "simple_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Light hammer",
+    "cost": {
+      "amount": 2.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d4",
+      "type": ["bludgeoning"]
+    },
+    "weight": 2.0,
+    "properties": ["Light", "thrown (20/60)"],
+    "subcategory": "simple_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Mace",
+    "cost": {
+      "amount": 5.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d6",
+      "type": ["bludgeoning"]
+    },
+    "weight": 4.0,
+    "properties": [],
+    "subcategory": "simple_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Quarterstaff",
+    "cost": {
+      "amount": 2.0,
+      "currency": "SP"
+    },
+    "damage": {
+      "dice": "1d6",
+      "type": ["bludgeoning"]
+    },
+    "weight": 4.0,
+    "properties": ["Versatile (1d8)"],
+    "subcategory": "simple_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Sickle",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d4",
+      "type": ["slashing"]
+    },
+    "weight": 2.0,
+    "properties": ["Light"],
+    "subcategory": "simple_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Spear",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d6",
+      "type": ["piercing"]
+    },
+    "weight": 3.0,
+    "properties": ["Thrown (20/60)", "versatile (1d8)"],
+    "subcategory": "simple_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Light Crossbow",
+    "cost": {
+      "amount": 25.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d8",
+      "type": ["piercing"]
+    },
+    "weight": 5.0,
+    "properties": ["Ammunition", "range (80/320)", "loading", "two-handed"],
+    "subcategory": "simple_ranged",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Dart",
+    "cost": {
+      "amount": 5.0,
+      "currency": "CP"
+    },
+    "damage": {
+      "dice": "1d4",
+      "type": ["piercing"]
+    },
+    "weight": 0.25,
+    "properties": ["Finesse", "thrown (20/60)"],
+    "subcategory": "simple_ranged",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Shortbow",
+    "cost": {
+      "amount": 25.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d6",
+      "type": ["piercing"]
+    },
+    "weight": 2.0,
+    "properties": ["Ammunition", "range (80/320)", "two-handed"],
+    "subcategory": "simple_ranged",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Sling",
+    "cost": {
+      "amount": 1.0,
+      "currency": "SP"
+    },
+    "damage": {
+      "dice": "1d4",
+      "type": ["bludgeoning"]
+    },
+    "weight": 0.0,
+    "properties": ["Ammunition", "range (30/120)"],
+    "subcategory": "simple_ranged",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Padded",
+    "armor_class": {
+      "base": 11,
+      "dex_bonus": true,
+      "max_dex_bonus": null
+    },
+    "strength_requirement": null,
+    "stealth_disadvantage": true,
+    "weight": 8.0,
+    "cost": {
+      "amount": 5.0,
+      "currency": "GP"
+    },
+    "type": "armor",
+    "category": "armor",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Leather Armor",
+    "armor_class": {
+      "base": 11,
+      "dex_bonus": true,
+      "max_dex_bonus": null
+    },
+    "strength_requirement": null,
+    "stealth_disadvantage": false,
+    "weight": 10.0,
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "type": "armor",
+    "category": "armor",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Studded Leather",
+    "armor_class": {
+      "base": 12,
+      "dex_bonus": true,
+      "max_dex_bonus": null
+    },
+    "strength_requirement": null,
+    "stealth_disadvantage": false,
+    "weight": 13.0,
+    "cost": {
+      "amount": 45.0,
+      "currency": "GP"
+    },
+    "type": "armor",
+    "category": "armor",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Hide Armor",
+    "armor_class": {
+      "base": 12,
+      "dex_bonus": true,
+      "max_dex_bonus": 2
+    },
+    "strength_requirement": null,
+    "stealth_disadvantage": false,
+    "weight": 12.0,
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "type": "armor",
+    "category": "armor",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Chain Shirt",
+    "armor_class": {
+      "base": 13,
+      "dex_bonus": true,
+      "max_dex_bonus": 2
+    },
+    "strength_requirement": null,
+    "stealth_disadvantage": false,
+    "weight": 20.0,
+    "cost": {
+      "amount": 50.0,
+      "currency": "GP"
+    },
+    "type": "armor",
+    "category": "armor",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Scale Mail",
+    "armor_class": {
+      "base": 14,
+      "dex_bonus": true,
+      "max_dex_bonus": 2
+    },
+    "strength_requirement": null,
+    "stealth_disadvantage": true,
+    "weight": 45.0,
+    "cost": {
+      "amount": 50.0,
+      "currency": "GP"
+    },
+    "type": "armor",
+    "category": "armor",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Spiked Armor",
+    "armor_class": {
+      "base": 14,
+      "dex_bonus": true,
+      "max_dex_bonus": 2
+    },
+    "strength_requirement": null,
+    "stealth_disadvantage": true,
+    "weight": 45.0,
+    "cost": {
+      "amount": 75.0,
+      "currency": "GP"
+    },
+    "type": "armor",
+    "category": "armor",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Breastplate",
+    "armor_class": {
+      "base": 14,
+      "dex_bonus": true,
+      "max_dex_bonus": 2
+    },
+    "strength_requirement": null,
+    "stealth_disadvantage": false,
+    "weight": 20.0,
+    "cost": {
+      "amount": 400.0,
+      "currency": "GP"
+    },
+    "type": "armor",
+    "category": "armor",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Halfplate",
+    "armor_class": {
+      "base": 15,
+      "dex_bonus": true,
+      "max_dex_bonus": 2
+    },
+    "strength_requirement": null,
+    "stealth_disadvantage": true,
+    "weight": 40.0,
+    "cost": {
+      "amount": 750.0,
+      "currency": "GP"
+    },
+    "type": "armor",
+    "category": "armor",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Ring Mail",
+    "armor_class": {
+      "base": 14,
+      "dex_bonus": false,
+      "max_dex_bonus": null
+    },
+    "strength_requirement": null,
+    "stealth_disadvantage": true,
+    "weight": 40.0,
+    "cost": {
+      "amount": 30.0,
+      "currency": "GP"
+    },
+    "type": "armor",
+    "category": "armor",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Chain Mail",
+    "armor_class": {
+      "base": 16,
+      "dex_bonus": false,
+      "max_dex_bonus": null
+    },
+    "strength_requirement": 13,
+    "stealth_disadvantage": true,
+    "weight": 55.0,
+    "cost": {
+      "amount": 75.0,
+      "currency": "GP"
+    },
+    "type": "armor",
+    "category": "armor",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Splint Mail",
+    "armor_class": {
+      "base": 17,
+      "dex_bonus": false,
+      "max_dex_bonus": null
+    },
+    "strength_requirement": 15,
+    "stealth_disadvantage": true,
+    "weight": 60.0,
+    "cost": {
+      "amount": 200.0,
+      "currency": "GP"
+    },
+    "type": "armor",
+    "category": "armor",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Plate Mail",
+    "armor_class": {
+      "base": 18,
+      "dex_bonus": false,
+      "max_dex_bonus": null
+    },
+    "strength_requirement": 15,
+    "stealth_disadvantage": true,
+    "weight": 65.0,
+    "cost": {
+      "amount": 1500.0,
+      "currency": "GP"
+    },
+    "type": "armor",
+    "category": "armor",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Shield",
+    "armor_class": {
+      "base": 2,
+      "dex_bonus": false,
+      "max_dex_bonus": null
+    },
+    "strength_requirement": null,
+    "stealth_disadvantage": false,
+    "weight": 6.0,
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "type": "shield",
+    "category": "armor",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Burglar's Pack",
+    "cost": {
+      "amount": 16.0,
+      "currency": "GP"
+    },
+    "contents": [
+      "Backpack",
+      "a bag of 1,000 ball bearings",
+      "10 feet of string",
+      "a bell",
+      "5 candles",
+      "a crowbar",
+      "a hammer",
+      "10 pitons",
+      "a hooded lantern",
+      "2 flasks of oil",
+      "5 days rations",
+      "a tinderbox",
+      "a waterskin",
+      "50 feet of hempen rope"
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Diplomat's Pack",
+    "cost": {
+      "amount": 39.0,
+      "currency": "GP"
+    },
+    "contents": [
+      "Chest",
+      "2 cases for maps and scrolls",
+      "a set of fine clothes",
+      "a bottle of ink",
+      "an ink pen",
+      "a lamp",
+      "2 flasks of oil",
+      "5 sheets of paper",
+      "a vial of perfume",
+      "sealing wax",
+      "soap"
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Dungeoneer's Pack",
+    "cost": {
+      "amount": 12.0,
+      "currency": "GP"
+    },
+    "contents": [
+      "Backpack",
+      "a crowbar",
+      "a hammer",
+      "10 pitons",
+      "10 torches",
+      "a tinderbox",
+      "10 days of rations",
+      "a waterskin",
+      "50 feet of hempen rope"
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Entertainer's Pack",
+    "cost": {
+      "amount": 40.0,
+      "currency": "GP"
+    },
+    "contents": [
+      "Backpack",
+      "a bedroll",
+      "2 costumes",
+      "5 candles",
+      "5 days of rations",
+      "a waterskin",
+      "a disguise kit"
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Explorer's Pack",
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "contents": [
+      "Backpack",
+      "a bedroll",
+      "a mess kit",
+      "a tinderbox",
+      "10 torches",
+      "10 days of rations",
+      "a waterskin",
+      "50 feet of hempen rope"
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Priest's Pack",
+    "cost": {
+      "amount": 19.0,
+      "currency": "GP"
+    },
+    "contents": [
+      "Backpack",
+      "a blanket",
+      "10 candles",
+      "a tinderbox",
+      "an alms box",
+      "2 blocks of incense",
+      "a censer",
+      "vestments",
+      "2 days of rations",
+      "a waterskin"
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Scholar's Pack",
+    "cost": {
+      "amount": 40.0,
+      "currency": "GP"
+    },
+    "contents": [
+      "Backpack",
+      "a book of lore",
+      "a bottle of ink",
+      "an ink pen",
+      "10 sheets of parchment",
+      "a little bag of sand",
+      "a small knife"
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Abacus",
+    "cost": {
+      "amount": 2.0,
+      "currency": "GP"
+    },
+    "weight": 2.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Bedroll",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "weight": 2.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Bell",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "weight": 0.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Blanket",
+    "cost": {
+      "amount": 5.0,
+      "currency": "SP"
+    },
+    "weight": 5.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Block and Tackle",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "weight": 5.0,
+    "description": "A set of pulleys with a cable threaded through them and a hook to attach to objects, a block and tackle allows you to hoist up to four times the weight you can normally lift.",
+    "mechanics": [
+      {
+        "type": "special",
+        "description": "Allows you to hoist up to four times the weight you can normally lift."
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Book",
+    "cost": {
+      "amount": 25.0,
+      "currency": "GP"
+    },
+    "weight": 5.0,
+    "description": "A book might contain poetry, historical accounts, information pertaining to a particular field of lore, diagrams and notes on gnomish contraptions, or just about anything else that can be represented sing text or pictures. A book of spells is a spellbook.",
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Candle",
+    "cost": {
+      "amount": 1.0,
+      "currency": "CP"
+    },
+    "weight": 0.0,
+    "description": "For 1 hour, a candle sheds bright light in a 5-foot radius and dim light for another 5 feet.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "environment": {
+              "area": {
+                "shape": "radius",
+                "size": 5,
+                "unit": "feet"
+              },
+              "lighting": {
+                "level": "bright",
+                "radius": 5,
+                "dim_radius": 5
+              }
+            }
+          }
+        ],
+        "duration": {
+          "value": 1,
+          "unit": "hours"
+        }
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Chain (10 ft)",
+    "cost": {
+      "amount": 5.0,
+      "currency": "GP"
+    },
+    "weight": 10.0,
+    "description": "A chain has 10 hit points. It can be burst with a successful DC 20 Strength check.",
+    "hp": 10,
+    "mechanics": [
+      {
+        "type": "special",
+        "description": "AC 19, 10 hit points. Can be burst with a successful DC 20 Strength check."
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Chalk (1 pc)",
+    "cost": {
+      "amount": 1.0,
+      "currency": "CP"
+    },
+    "weight": 0.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Component Pouch",
+    "cost": {
+      "amount": 25.0,
+      "currency": "GP"
+    },
+    "weight": 2.0,
+    "description": "A component pouch is a small, watertight leather belt pouch that has compartments to hold all the material components and other special items you need to cast your spells, except for those components that have a specific cost (as indicated in a spell's description).",
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Fishing Tackle",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "weight": 4.0,
+    "description": "This kit includes a wooden rod, silken line, corkwood bobbers, steel hooks, lead sinkers, velvet lures, and narrow netting.",
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Grappling Hook",
+    "cost": {
+      "amount": 2.0,
+      "currency": "GP"
+    },
+    "weight": 4.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Hammer",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "weight": 3.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Hempen Rope",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "saving_throw": {
+      "ability": "Strength",
+      "dc": {
+        "base": 17
+      }
+    },
+    "hp": 2,
+    "weight": 10.0,
+    "description": "Rope, whether made of hemp or silk, has 2 hit points and can be burst with a DC 17 Strength check.",
+    "mechanics": [
+      {
+        "type": "special",
+        "description": "2 hit points. Can be burst with a DC 17 Strength check."
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Hourglass",
+    "cost": {
+      "amount": 25.0,
+      "currency": "GP"
+    },
+    "weight": 1.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Ink (1 oz)",
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "weight": 0.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Ink Pen",
+    "cost": {
+      "amount": 2.0,
+      "currency": "CP"
+    },
+    "weight": 0.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Ladder (10 ft)",
+    "cost": {
+      "amount": 1.0,
+      "currency": "SP"
+    },
+    "weight": 25.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Lock",
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "weight": 1.0,
+    "description": "A key is provided with the lock. Without the key, a creature proficient with thieves' tools can pick this lock with a successful DC 15 Dexterity check. Your DM may decide that better locks are available for higher prices.",
+    "mechanics": [
+      {
+        "type": "special",
+        "description": "Requires a DC 15 Dexterity check with thieves' tools to pick without the key."
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Magnifying Glass",
+    "cost": {
+      "amount": 100.0,
+      "currency": "GP"
+    },
+    "weight": 0.0,
+    "description": "This lens allows a closer look at small objects. It is also useful as a substitute or flint and steel when starting fires. Lighting a fire with a magnifying glass requires light as bright as sunlight to focus, tinder to ignite, and about 5 minutes for the fire to ignite. A magnifying glass grants advantage on any ability check made to appraise or inspect an item that is small or highly detailed.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "advantage": {
+              "ability": "Intelligence"
+            },
+            "description": "When appraising or inspecting a small or highly detailed item"
+          }
+        ]
+      },
+      {
+        "type": "special",
+        "description": "Can start a fire by focusing sunlight on tinder. Takes about 5 minutes."
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Manacles",
+    "cost": {
+      "amount": 2.0,
+      "currency": "GP"
+    },
+    "hp": 15,
+    "weight": 6.0,
+    "description": "These metal restraints can bind a Small or Medium creature. Escaping the manacles requires a successful DC 20 Dexterity check. Breaking them requires a successful DC 20 Strength check. Each set of manacles comes with one key. Without the key, a creature proficient with thieves' tools can pick the manacles' lock with a successful DC 15 Dexterity check. Manacles have 15 hit points.",
+    "mechanics": [
+      {
+        "type": "special",
+        "description": "Escaping requires a DC 20 Dexterity check. Breaking requires a DC 20 Strength check. Picking the lock requires a DC 15 Dexterity check with thieves' tools."
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Mess Kit",
+    "cost": {
+      "amount": 2.0,
+      "currency": "SP"
+    },
+    "weight": 1.0,
+    "description": "This tin box contains a cup and simple cutlery. The box clamps together, and one side can be used as a cooking pan and the other as a plate or shallow bowl.",
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Miner's Pick",
+    "cost": {
+      "amount": 2.0,
+      "currency": "GP"
+    },
+    "weight": 10.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Paper (1 sheet)",
+    "cost": {
+      "amount": 2.0,
+      "currency": "SP"
+    },
+    "weight": 0.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Parchment (1 sheet)",
+    "cost": {
+      "amount": 1.0,
+      "currency": "SP"
+    },
+    "weight": 0.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Perfume (vial)",
+    "cost": {
+      "amount": 5.0,
+      "currency": "GP"
+    },
+    "weight": 0.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Piton",
+    "cost": {
+      "amount": 5.0,
+      "currency": "CP"
+    },
+    "weight": 0.25,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Pole (10 ft)",
+    "cost": {
+      "amount": 5.0,
+      "currency": "CP"
+    },
+    "weight": 7.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Ram, Portable",
+    "cost": {
+      "amount": 4.0,
+      "currency": "GP"
+    },
+    "weight": 35.0,
+    "description": "You can use a portable ram to break down doors. When doing so, you gain a +4 bonus on the Strength check. One other character can help you use the ram, giving you advantage on this check.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "calculation": {
+              "operation": "add",
+              "operators": [
+                {
+                  "type": "integer",
+                  "value": 4
+                }
+              ]
+            },
+            "description": "Bonus to Strength checks to break open doors"
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "advantage": {
+              "ability": "Strength"
+            },
+            "description": "When another character helps use the ram"
+          }
+        ]
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Rations (1 day)",
+    "cost": {
+      "amount": 5.0,
+      "currency": "SP"
+    },
+    "weight": 2.0,
+    "description": "Rations consist of dry foods suitable for extended travel, including jerky, dried fruit, hardtack, and nuts.",
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Rope",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "hp": 2,
+    "weight": 10.0,
+    "description": "Rope, whether made of hemp or silk, has 2 hit points and can be burst with a DC 17 Strength check.",
+    "mechanics": [
+      {
+        "type": "special",
+        "description": "2 hit points. Can be burst with a DC 17 Strength check."
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Sealing Wax",
+    "cost": {
+      "amount": 5.0,
+      "currency": "SP"
+    },
+    "weight": 0.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Shovel",
+    "cost": {
+      "amount": 2.0,
+      "currency": "GP"
+    },
+    "weight": 5.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Signal Whistle",
+    "cost": {
+      "amount": 5.0,
+      "currency": "CP"
+    },
+    "weight": 0.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Signet Ring",
+    "cost": {
+      "amount": 5.0,
+      "currency": "GP"
+    },
+    "weight": 0.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Sledgehammer",
+    "cost": {
+      "amount": 2.0,
+      "currency": "GP"
+    },
+    "weight": 10.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Spellbook",
+    "cost": {
+      "amount": 50.0,
+      "currency": "GP"
+    },
+    "weight": 3.0,
+    "description": "Essential for wizards, a spellbook is a leather-bound tome with 100 blank vellum pages suitable for recording spells.",
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Spikes, Iron (10)",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "weight": 5.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Spyglass",
+    "cost": {
+      "amount": 1000.0,
+      "currency": "GP"
+    },
+    "weight": 1.0,
+    "description": "Objects viewed through a spyglass are magnified to twice their size.",
+    "mechanics": [
+      {
+        "type": "special",
+        "description": "Magnifies objects viewed through it to twice their size."
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Tent, Two-person",
+    "cost": {
+      "amount": 2.0,
+      "currency": "GP"
+    },
+    "weight": 20.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Whetstone",
+    "cost": {
+      "amount": 1.0,
+      "currency": "CP"
+    },
+    "weight": 1.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Acid (vial)",
+    "cost": {
+      "amount": 25.0,
+      "currency": "GP"
+    },
+    "weight": 1.0,
+    "description": "As an action, you can splash the contents of this vial onto a creature within 5 feet of you or throw the vial up to 20 feet, shattering it on impact. In either case, make a ranged attack against a creature or object, treating the acid as an improvised weapon. On a hit, the target takes 2d6 acid damage.",
+    "mechanics": [
+      {
+        "type": "action",
+        "description": "Improvised ranged weapon",
+        "range": {
+          "value": 20,
+          "unit": "feet"
+        },
+        "effects": [
+          {
+            "attack": {
+              "type": "ranged"
+            },
+            "on_hit": {
+              "damage": {
+                "dice": "2d6",
+                "type": ["acid"]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Alchemist's Fire (flask)",
+    "cost": {
+      "amount": 50.0,
+      "currency": "GP"
+    },
+    "weight": 1.0,
+    "description": "This sticky, adhesive fluid ignites when exposed to air. As an action, you can throw this flask up to 20 feet, shattering it on impact. Make a ranged attack against a creature or object, treating the alchemist's fire as an improvised weapon. On a hit, the target takes 1d4 fire damage at the start of each of its turns. A creature can end this damage by using its action to make a DC 10 Dexterity check to extinguish the flames.",
+    "mechanics": [
+      {
+        "type": "action",
+        "description": "Improvised ranged weapon",
+        "range": {
+          "value": 20,
+          "unit": "feet"
+        },
+        "effects": [
+          {
+            "attack": {
+              "type": "ranged"
+            },
+            "on_hit": {
+              "damage": {
+                "dice": "1d4",
+                "type": ["fire"]
+              },
+              "apply_status": {
+                "name": "burning",
+                "escape": {
+                  "ability": "Dexterity",
+                  "dc": {
+                    "base": 10
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Antitoxin (vial)",
+    "cost": {
+      "amount": 50.0,
+      "currency": "GP"
+    },
+    "weight": 0.0,
+    "description": "A creature that drinks this vial of liquid gains advantage on saving throws against poison for 1 hour. It confers no benefits to undead or constructs.",
+    "mechanics": [
+      {
+        "type": "action",
+        "effects": [
+          {
+            "advantage": {
+              "saving_throw": ["Constitution"],
+              "against": { "damage_type": "poison" }
+            },
+            "duration": {
+              "value": 1,
+              "unit": "hours"
+            }
+          }
+        ]
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Ball Bearings (bag of 1,000)",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "weight": 2.0,
+    "description": "As an action, you can spill these tiny balls from their pouch to cover a level area 10 feet square. A creature moving across the covered area must succeed on a DC 10 Dexterity saving throw or fall prone. A creature moving through the area at half speed doesn't need to make the saving throw.",
+    "mechanics": [
+      {
+        "type": "action",
+        "area": {
+          "shape": "square",
+          "size": 10,
+          "unit": "feet"
+        },
+        "effects": [
+          {
+            "saving_throw": {
+              "ability": "Dexterity",
+              "dc": {
+                "base": 10
+              }
+            },
+            "on_failure": {
+              "apply_status": {
+                "name": "prone"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Caltrops (bag of 20)",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "weight": 2.0,
+    "description": "As an action, you can spread a single bag of caltrops to cover a 5-foot-square area. Any creature that enters the area must succeed on a DC 15 Dexterity saving throw or stop moving and take 1 piercing damage. Until the creature regains at least 1 hit point, its walking speed is reduced by 10 feet. A creature moving through the area at half speed doesn't need to make the saving throw.",
+    "mechanics": [
+      {
+        "type": "action",
+        "area": {
+          "shape": "square",
+          "size": 5,
+          "unit": "feet"
+        },
+        "effects": [
+          {
+            "trigger": {
+              "event": ["enter_area"]
+            },
+            "saving_throw": {
+              "ability": "Dexterity",
+              "dc": {
+                "base": 15
+              }
+            },
+            "on_failure": {
+              "damage": {
+                "dice": "1",
+                "type": ["piercing"]
+              },
+              "apply_status": {
+                "name": "speed_reduced",
+                "value": -10
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Climber's Kit",
+    "cost": {
+      "amount": 25.0,
+      "currency": "GP"
+    },
+    "weight": 12.0,
+    "description": "A climber's kit includes special pitons, boot tips, gloves, and a harness. You can use the climber's kit as an action to anchor yourself; when you do, you can't fall more than 25 feet from the point where you anchored yourself, and you can't climb more than 25 feet away from that point without undoing the anchor.",
+    "mechanics": [
+      {
+        "type": "action",
+        "description": "Anchor yourself. You can't fall more than 25 feet from the point where you anchored, and you can't climb more than 25 feet away from that point without undoing the anchor."
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Crowbar",
+    "cost": {
+      "amount": 2.0,
+      "currency": "GP"
+    },
+    "weight": 5.0,
+    "description": "Using a crowbar grants advantage to Strength checks where the crowbar's leverage can be applied.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "advantage": {
+              "ability": "Strength"
+            },
+            "description": "On Strength checks where the crowbar's leverage can be applied"
+          }
+        ]
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Healer's Kit",
+    "cost": {
+      "amount": 5.0,
+      "currency": "GP"
+    },
+    "weight": 3.0,
+    "description": "This kit is a leather pouch containing bandages, salves, and splints. The kit has ten uses.",
+    "mechanics": [
+      {
+        "type": "action",
+        "description": "Stabilize a creature at 0 hit points without a Wisdom (Medicine) check.",
+        "effects": [
+          {
+            "apply_status": {
+              "name": "stabilized"
+            },
+            "target": {
+              "type": "creature",
+              "requirements": [
+                {
+                  "type": "hit_points",
+                  "attribute": "current",
+                  "comparison": "equals",
+                  "value": 0
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Holy Water (flask)",
+    "cost": {
+      "amount": 25.0,
+      "currency": "GP"
+    },
+    "weight": 1.0,
+    "description": "As an action, you can splash the contents of this flask onto a creature within 5 feet of you or throw it up to 20 feet, shattering it on impact. In either case, make a ranged attack against a target creature, treating the holy water as an improvised weapon. If the target is a fiend or undead, it takes 2d6 radiant damage.",
+    "mechanics": [
+      {
+        "type": "action",
+        "description": "Improvised ranged weapon",
+        "range": {
+          "value": 20,
+          "unit": "feet"
+        },
+        "effects": [
+          {
+            "attack": {
+              "type": "ranged"
+            },
+            "on_hit": {
+              "damage": {
+                "dice": "2d6",
+                "type": ["radiant"]
+              }
+            },
+            "requirements": [
+              {
+                "type": "creature_type",
+                "value": ["Fiend", "Undead"]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Hunting Trap",
+    "cost": {
+      "amount": 5.0,
+      "currency": "GP"
+    },
+    "weight": 25.0,
+    "description": "When you use your action to set it, this trap forms a saw-toothed steel ring that snaps shut when a creature steps on a pressure plate in the center. The trap is affixed by a heavy chain to an immobile object, such as a tree or a spike driven into the ground. A creature that steps on the plate must succeed on a DC 13 Dexterity saving throw or take 1d4 piercing damage and stop moving. Thereafter, until the creature breaks free of the trap, its movement is limited by the length of chain (typically 3 feet long). A creature can use its action to make a DC 13 Strength check, freeing itself or another creature within its reach on a success. Each failed check deals 1 piercing damage to the trapped creature.",
+    "mechanics": [
+      {
+        "type": "action",
+        "description": "Set a trap that restrains a creature stepping on it.",
+        "effects": [
+          {
+            "trigger": {
+              "event": ["enter_area"]
+            },
+            "saving_throw": {
+              "ability": "Dexterity",
+              "dc": {
+                "base": 13
+              }
+            },
+            "on_failure": {
+              "damage": {
+                "dice": "1d4",
+                "type": ["piercing"]
+              },
+              "apply_status": {
+                "name": "restrained",
+                "escape": {
+                  "ability": "Strength",
+                  "dc": {
+                    "base": 13
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Lamp",
+    "cost": {
+      "amount": 5.0,
+      "currency": "SP"
+    },
+    "weight": 1.0,
+    "description": "A lamp casts bright light in a 15-foot radius and dim light for an additional 30 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil.",
+    "mechanics": [
+      {
+        "type": "action",
+        "effects": [
+          {
+            "environment": {
+              "area": {
+                "shape": "radius",
+                "size": 15,
+                "unit": "feet"
+              },
+              "lighting": {
+                "level": "bright",
+                "radius": 15,
+                "dim_radius": 30
+              }
+            },
+            "duration": {
+              "value": 6,
+              "unit": "hours"
+            }
+          }
+        ]
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Lantern - Bullseye",
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "weight": 2.0,
+    "description": "A bullseye lantern casts bright light in a 60-foot cone and dim light for an additional 60 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil.",
+    "mechanics": [
+      {
+        "type": "action",
+        "effects": [
+          {
+            "environment": {
+              "area": {
+                "shape": "cone",
+                "size": 60,
+                "unit": "feet"
+              },
+              "lighting": {
+                "level": "bright",
+                "radius": 60,
+                "dim_radius": 120
+              }
+            },
+            "duration": {
+              "value": 6,
+              "unit": "hours"
+            }
+          }
+        ]
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Lantern - Hooded",
+    "cost": {
+      "amount": 5.0,
+      "currency": "GP"
+    },
+    "weight": 2.0,
+    "description": "A hooded lantern casts bright light in a 30-foot radius and dim light for an additional 30 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil. As an action, you can lower the hood, reducing the light to dim light in a 5-foot radius.",
+    "mechanics": [
+      {
+        "type": "action",
+        "effects": [
+          {
+            "environment": {
+              "area": {
+                "shape": "radius",
+                "size": 30,
+                "unit": "feet"
+              },
+              "lighting": {
+                "level": "bright",
+                "radius": 30,
+                "dim_radius": 60
+              }
+            },
+            "duration": {
+              "value": 6,
+              "unit": "hours"
+            }
+          }
+        ]
+      },
+      {
+        "type": "bonus_action",
+        "description": "Lower the hood, reducing the light to dim light in a 5-foot radius."
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Oil (flask)",
+    "cost": {
+      "amount": 1.0,
+      "currency": "SP"
+    },
+    "weight": 1.0,
+    "description": "Oil usually comes in a clay flask that holds 1 pint. As an action, you can splash the oil in this flask onto a creature within 5 feet of you or throw it up to 20 feet, shattering it on impact. Make a ranged attack against a target creature or object, treating the oil as an improvised weapon. On a hit, the target is covered in oil. If the target takes any fire damage before the oil dries (after 1 minute), the target takes an additional 5 fire damage from the burning oil. You can also pour a flask of oil on the ground to cover a 5-foot-square area, provided that the surface is level. If lit, the oil burns for 2 rounds and deals 5 fire damage to any creature that enters the area or ends its turn in the area. A creature can take this damage only once per turn.",
+    "mechanics": [
+      {
+        "type": "action",
+        "description": "Splash oil on a creature within 5 feet or throw up to 20 feet as an improvised weapon. If the target takes fire damage before the oil dries, it takes an additional 5 fire damage.",
+        "range": {
+          "value": 20,
+          "unit": "feet"
+        },
+        "effects": [
+          {
+            "trigger": {
+              "event": ["damaged_by"],
+              "damage_type": "fire"
+            },
+            "damage": {
+              "dice": "5",
+              "type": ["fire"]
+            },
+            "duration": {
+              "value": 1,
+              "unit": "minutes"
+            }
+          }
+        ]
+      },
+      {
+        "type": "action",
+        "description": "Pour on ground to cover a 5-foot-square area. If lit, it burns for 2 rounds and deals 5 fire damage to any creature that enters or ends its turn in the area.",
+        "area": {
+          "shape": "square",
+          "size": 5,
+          "unit": "feet"
+        },
+        "effects": [
+          {
+            "trigger": {
+              "event": ["enter_area", "end_turn"]
+            },
+            "damage": {
+              "dice": "5",
+              "type": ["fire"]
+            },
+            "duration": {
+              "value": 2,
+              "unit": "rounds"
+            }
+          }
+        ]
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Poison, basic (vial)",
+    "cost": {
+      "amount": 100.0,
+      "currency": "GP"
+    },
+    "weight": 0.0,
+    "description": "You can use the poison in this vial to coat one slashing or piercing weapon or up to three pieces of ammunition. Applying the poison takes an action. A creature hit by the poisoned weapon or ammunition must make a DC 10 Constitution saving throw or take 1d4 poison damage. Once applied, the poison retains potency for 1 minute before drying.",
+    "mechanics": [
+      {
+        "type": "action",
+        "description": "Apply to one slashing or piercing weapon or up to three pieces of ammunition. Lasts 1 minute.",
+        "effects": [
+          {
+            "trigger": {
+              "event": ["hit"]
+            },
+            "saving_throw": {
+              "ability": "Constitution",
+              "dc": {
+                "base": 10
+              }
+            },
+            "on_failure": {
+              "damage": {
+                "dice": "1d4",
+                "type": ["poison"]
+              }
+            },
+            "duration": {
+              "value": 1,
+              "unit": "minutes"
+            }
+          }
+        ]
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Potion of Healing (common)",
+    "cost": {
+      "amount": 50.0,
+      "currency": "GP"
+    },
+    "weight": 0.5,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Tinderbox",
+    "cost": {
+      "amount": 5.0,
+      "currency": "SP"
+    },
+    "weight": 1.0,
+    "description": "This small container holds flint, fire steel, an tinder (usually dry cloth soaked in light oil) used to kindle a fire.",
+    "mechanics": [
+      {
+        "type": "action",
+        "description": "Light a torch or anything with abundant, exposed fuel. Lighting any other fire takes 1 minute."
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Torch",
+    "cost": {
+      "amount": 1.0,
+      "currency": "CP"
+    },
+    "weight": 1.0,
+    "description": "A torch burns for 1 hour, providing bright light in a 20-foot radius and dim light for an additional 20 feet. If you make a melee attack with a burning torch and hit, it deals 1 fire damage.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "environment": {
+              "area": {
+                "shape": "radius",
+                "size": 20,
+                "unit": "feet"
+              },
+              "lighting": {
+                "level": "bright",
+                "radius": 20,
+                "dim_radius": 40
+              }
+            },
+            "duration": {
+              "value": 1,
+              "unit": "hours"
+            }
+          }
+        ]
+      },
+      {
+        "type": "action",
+        "description": "Improvised melee weapon",
+        "effects": [
+          {
+            "attack": {
+              "type": "melee"
+            },
+            "on_hit": {
+              "damage": {
+                "dice": "1",
+                "type": ["fire"]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Backpack",
+    "cost": {
+      "amount": 2.0,
+      "currency": "GP"
+    },
+    "capacity": [
+      {
+        "amount": 1.0,
+        "unit": "cubic_foot"
+      },
+      {
+        "amount": 30.0,
+        "unit": "lb"
+      }
+    ],
+    "weight": 5.0,
+    "description": "You can also strap items, such as a bedroll or a coil of rope, to the outside of a backpack.",
+    "type": "container",
+    "category": "container",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Barrel",
+    "cost": {
+      "amount": 2.0,
+      "currency": "GP"
+    },
+    "capacity": [
+      {
+        "amount": 40.0,
+        "unit": "gallons"
+      },
+      {
+        "amount": 4.0,
+        "unit": "cubic_foot"
+      }
+    ],
+    "weight": 70.0,
+    "type": "container",
+    "category": "container",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Basket",
+    "cost": {
+      "amount": 4.0,
+      "currency": "SP"
+    },
+    "capacity": [
+      {
+        "amount": 2.0,
+        "unit": "cubic_foot"
+      },
+      {
+        "amount": 40.0,
+        "unit": "lb"
+      }
+    ],
+    "weight": 2.0,
+    "type": "container",
+    "category": "container",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Bucket",
+    "cost": {
+      "amount": 5.0,
+      "currency": "CP"
+    },
+    "capacity": [
+      {
+        "amount": 3.0,
+        "unit": "gallons"
+      },
+      {
+        "amount": 0.5,
+        "unit": "cubic_foot"
+      }
+    ],
+    "weight": 2.0,
+    "type": "container",
+    "category": "container",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Case, Crossbow Bolt",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "capacity": [
+      {
+        "amount": 20.0,
+        "unit": "crossbow_bolts"
+      }
+    ],
+    "weight": 1.0,
+    "type": "container",
+    "category": "container",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Case, Map/Scroll",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "capacity": [],
+    "weight": 1.0,
+    "type": "container",
+    "category": "container",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Chest",
+    "cost": {
+      "amount": 5.0,
+      "currency": "GP"
+    },
+    "capacity": [
+      {
+        "amount": 12.0,
+        "unit": "cubic_foot"
+      },
+      {
+        "amount": 300.0,
+        "unit": "lb"
+      }
+    ],
+    "weight": 25.0,
+    "type": "container",
+    "category": "container",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Flask or Tankard",
+    "cost": {
+      "amount": 2.0,
+      "currency": "CP"
+    },
+    "capacity": [
+      {
+        "amount": 1.0,
+        "unit": "pints"
+      }
+    ],
+    "weight": 1.0,
+    "type": "container",
+    "category": "container",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Glass Bottle",
+    "cost": {
+      "amount": 2.0,
+      "currency": "GP"
+    },
+    "capacity": [
+      {
+        "amount": 1.5,
+        "unit": "pints"
+      }
+    ],
+    "weight": 2.0,
+    "type": "container",
+    "category": "container",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Jug or Pitcher",
+    "cost": {
+      "amount": 2.0,
+      "currency": "CP"
+    },
+    "capacity": [
+      {
+        "amount": 1.0,
+        "unit": "gallons"
+      }
+    ],
+    "weight": 4.0,
+    "type": "container",
+    "category": "container",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Pot, iron",
+    "cost": {
+      "amount": 2.0,
+      "currency": "GP"
+    },
+    "capacity": [
+      {
+        "amount": 1.0,
+        "unit": "gallons"
+      }
+    ],
+    "weight": 10.0,
+    "type": "container",
+    "category": "container",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Pouch",
+    "cost": {
+      "amount": 5.0,
+      "currency": "SP"
+    },
+    "capacity": [
+      {
+        "amount": 0.2,
+        "unit": "cubic_foot"
+      },
+      {
+        "amount": 6.0,
+        "unit": "lb"
+      }
+    ],
+    "weight": 1.0,
+    "description": "A cloth or leather pouch can hold up to 20 sling bullets or 50 blowgun needles, among other things. A compartmentalized pouch for holding spell components is called a component pouch.",
+    "type": "container",
+    "category": "container",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Quiver",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "capacity": [
+      {
+        "amount": 20.0,
+        "unit": "arrows"
+      }
+    ],
+    "weight": 1.0,
+    "type": "container",
+    "category": "container",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Sack",
+    "cost": {
+      "amount": 1.0,
+      "currency": "CP"
+    },
+    "capacity": [
+      {
+        "amount": 1.0,
+        "unit": "cubic_foot"
+      },
+      {
+        "amount": 30.0,
+        "unit": "lb"
+      }
+    ],
+    "weight": 0.5,
+    "type": "container",
+    "category": "container",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Vial",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "capacity": [
+      {
+        "amount": 4.0,
+        "unit": "ounces"
+      }
+    ],
+    "weight": 0.0,
+    "type": "container",
+    "category": "container",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Waterskin",
+    "cost": {
+      "amount": 2.0,
+      "currency": "SP"
+    },
+    "capacity": [
+      {
+        "amount": 4.0,
+        "unit": "pints"
+      }
+    ],
+    "weight": 5.0,
+    "type": "container",
+    "category": "container",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Crystal",
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "weight": 1.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "is_focus": true,
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Orb",
+    "cost": {
+      "amount": 20.0,
+      "currency": "GP"
+    },
+    "weight": 3.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "is_focus": true,
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Rod",
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "weight": 2.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "is_focus": true,
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Staff",
+    "cost": {
+      "amount": 5.0,
+      "currency": "GP"
+    },
+    "weight": 4.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "is_focus": true,
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Wand",
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "weight": 1.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "is_focus": true,
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Sprig of Mistletoe",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "weight": 0.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "is_focus": true,
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Totem",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "weight": 0.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "is_focus": true,
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Wooden Staff",
+    "cost": {
+      "amount": 5.0,
+      "currency": "GP"
+    },
+    "weight": 4.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "is_focus": true,
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Yew Wand",
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "weight": 1.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "is_focus": true,
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Amulet",
+    "cost": {
+      "amount": 5.0,
+      "currency": "GP"
+    },
+    "weight": 1.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "is_focus": true,
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Emblem",
+    "cost": {
+      "amount": 5.0,
+      "currency": "GP"
+    },
+    "weight": 0.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "is_focus": true,
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Reliquary",
+    "cost": {
+      "amount": 5.0,
+      "currency": "GP"
+    },
+    "weight": 2.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "is_focus": true,
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Battleaxe",
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d8",
+      "type": ["slashing"]
+    },
+    "weight": 4.0,
+    "properties": ["Versatile (1d10)"],
+    "subcategory": "martial_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Flail",
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d8",
+      "type": ["bludgeoning"]
+    },
+    "weight": 2.0,
+    "properties": [],
+    "subcategory": "martial_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Glaive",
+    "cost": {
+      "amount": 20.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d10",
+      "type": ["slashing"]
+    },
+    "weight": 6.0,
+    "properties": ["Heavy", "reach", "two-handed"],
+    "subcategory": "martial_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Greataxe",
+    "cost": {
+      "amount": 30.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d12",
+      "type": ["slashing"]
+    },
+    "weight": 7.0,
+    "properties": ["Heavy", "two-handed"],
+    "subcategory": "martial_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Greatsword",
+    "cost": {
+      "amount": 50.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "2d6",
+      "type": ["slashing"]
+    },
+    "weight": 6.0,
+    "properties": ["Heavy", "two-handed"],
+    "subcategory": "martial_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Halberd",
+    "cost": {
+      "amount": 20.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d10",
+      "type": ["slashing"]
+    },
+    "weight": 6.0,
+    "properties": ["Heavy", "reach", "two-handed"],
+    "subcategory": "martial_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Lance",
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d12",
+      "type": ["piercing"]
+    },
+    "weight": 6.0,
+    "properties": ["Reach", "special"],
+    "subcategory": "martial_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Longsword",
+    "cost": {
+      "amount": 15.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d8",
+      "type": ["slashing"]
+    },
+    "weight": 3.0,
+    "properties": ["Versatile (1d10)"],
+    "subcategory": "martial_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Maul",
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "2d6",
+      "type": ["bludgeoning"]
+    },
+    "weight": 10.0,
+    "properties": ["Heavy", "two-handed"],
+    "subcategory": "martial_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Morningstar",
+    "cost": {
+      "amount": 15.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d8",
+      "type": ["piercing"]
+    },
+    "weight": 4.0,
+    "properties": [],
+    "subcategory": "martial_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Pike",
+    "cost": {
+      "amount": 5.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d10",
+      "type": ["piercing"]
+    },
+    "weight": 18.0,
+    "properties": ["Heavy", "reach", "two-handed"],
+    "subcategory": "martial_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Rapier",
+    "cost": {
+      "amount": 25.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d8",
+      "type": ["piercing"]
+    },
+    "weight": 2.0,
+    "properties": ["Finesse"],
+    "subcategory": "martial_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Scimitar",
+    "cost": {
+      "amount": 25.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d6",
+      "type": ["slashing"]
+    },
+    "weight": 3.0,
+    "properties": ["Finesse", "light"],
+    "subcategory": "martial_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Shortsword",
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d6",
+      "type": ["piercing"]
+    },
+    "weight": 2.0,
+    "properties": ["Finesse", "light"],
+    "subcategory": "martial_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Trident",
+    "cost": {
+      "amount": 5.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d6",
+      "type": ["piercing"]
+    },
+    "weight": 4.0,
+    "properties": ["Thrown (20/60)", "versatile (1d8)"],
+    "subcategory": "martial_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "War pick",
+    "cost": {
+      "amount": 5.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d8",
+      "type": ["piercing"]
+    },
+    "weight": 2.0,
+    "properties": [],
+    "subcategory": "martial_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Warhammer",
+    "cost": {
+      "amount": 15.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d8",
+      "type": ["bludgeoning"]
+    },
+    "weight": 2.0,
+    "properties": ["Versatile (1d10)"],
+    "subcategory": "martial_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Whip",
+    "cost": {
+      "amount": 2.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d4",
+      "type": ["slashing"]
+    },
+    "weight": 3.0,
+    "properties": ["Finesse", "reach"],
+    "subcategory": "martial_melee",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Blowgun",
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1",
+      "type": ["piercing"]
+    },
+    "weight": 1.0,
+    "properties": ["Ammunition", "range (25/100)", "loading"],
+    "subcategory": "martial_ranged",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Hand Crossbow",
+    "cost": {
+      "amount": 75.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d6",
+      "type": ["piercing"]
+    },
+    "weight": 3.0,
+    "properties": ["Ammunition", "range (30/120)", "light", "loading"],
+    "subcategory": "martial_ranged",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Heavy Crossbow",
+    "cost": {
+      "amount": 50.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d10",
+      "type": ["piercing"]
+    },
+    "weight": 18.0,
+    "properties": [
+      "Ammunition",
+      "range (100/400)",
+      "heavy",
+      "loading",
+      "two-handed"
+    ],
+    "subcategory": "martial_ranged",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Longbow",
+    "cost": {
+      "amount": 50.0,
+      "currency": "GP"
+    },
+    "damage": {
+      "dice": "1d8",
+      "type": ["piercing"]
+    },
+    "weight": 2.0,
+    "properties": ["Ammunition", "range (150/600)", "heavy", "two-Handed"],
+    "subcategory": "martial_ranged",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Net",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "damage": null,
+    "weight": 3.0,
+    "properties": ["Special", "thrown (5/15)"],
+    "subcategory": "martial_ranged",
+    "type": "weapon",
+    "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

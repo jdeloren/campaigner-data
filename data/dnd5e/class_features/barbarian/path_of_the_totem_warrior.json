@@ -1,0 +1,784 @@
+[
+  {
+    "class": "Path of the Totem Warrior",
+    "level": 3,
+    "name": "Spirit Seeker",
+    "description": "Yours is a path that seeks attunement with the natural world, giving you a kinship with beasts. You gain the ability to cast the Beast Sense and Speak with Animals spells, but only as rituals.",
+    "mechanics": [
+      {
+        "type": "granted_spells",
+        "ritual_only": true,
+        "spells": [
+          "Beast Sense",
+          "Speak with Animals"
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Path of the Totem Warrior",
+    "level": 3,
+    "name": "Totem Spirit",
+    "description": "At 3rd level, when you adopt this path, you choose a totem spirit and gain its feature. You must make or acquire a physical totem object that incorporates fur or feathers, claws, teeth, or bones of the totem animal. At your option, you also gain minor physical attributes that are reminiscent of your totem spirit.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "subfeature",
+        "count": 1,
+        "options_ref": "subfeatures"
+      }
+    ],
+    "subfeatures": [
+      {
+        "name": "Bear",
+        "description": "While raging, you have resistance to all damage except psychic damage. The spirit of the bear makes you tough enough to stand up to any punishment.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "requirements": [
+              {
+                "type": "status",
+                "value": "raging"
+              },
+              {
+                "type": "inventory_item",
+                "name_contains": [
+                  "Bear",
+                  "Totem"
+                ]
+              }
+            ],
+            "effects": [
+              {
+                "damage_response": {
+                  "category": "resistance",
+                  "to": [
+                    "acid",
+                    "cold",
+                    "fire",
+                    "force",
+                    "lightning",
+                    "necrotic",
+                    "poison",
+                    "radiant",
+                    "thunder"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Eagle",
+        "description": "While raging and not wearing heavy armor, other creatures have disadvantage on opportunity attack rolls against you, and you can use the Dash action as a bonus action on your turn. The spirit of the eagle makes you into a predator who can weave through the fray with ease.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "requirements": [
+              {
+                "type": "status",
+                "value": "raging"
+              },
+              {
+                "type": "equipment",
+                "function": "equipment.is_wearing_heavy_armor",
+                "negate": true
+              },
+              {
+                "type": "inventory_item",
+                "name_contains": [
+                  "Eagle",
+                  "Totem"
+                ]
+              }
+            ],
+            "effects": [
+              {
+                "disadvantage": {
+                  "attack": "all",
+                  "target": {
+                    "type": "attackers"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "bonus_action",
+            "name": "Dash",
+            "requirements": [
+              {
+                "type": "status",
+                "value": "raging"
+              },
+              {
+                "type": "equipment",
+                "function": "equipment.is_wearing_heavy_armor",
+                "negate": true
+              },
+              {
+                "type": "inventory_item",
+                "name_contains": [
+                  "Eagle",
+                  "Totem"
+                ]
+              }
+            ],
+            "grants": {
+              "name": "Dash"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Elk",
+        "description": "While raging and not wearing heavy armor, your walking speed increases by 15 feet. The spirit of the elk makes you extraordinarily swift.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "requirements": [
+              {
+                "type": "status",
+                "value": "raging"
+              },
+              {
+                "type": "equipment",
+                "function": "equipment.is_wearing_heavy_armor",
+                "negate": true
+              },
+              {
+                "type": "inventory_item",
+                "name_contains": [
+                  "Elk",
+                  "Totem"
+                ]
+              }
+            ],
+            "effects": [
+              {
+                "attribute": {
+                  "target": "movement.speed",
+                  "calculation": {
+                    "operation": "add",
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 15
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Tiger",
+        "description": "While raging, you can add 10 feet to your long jump distance and 3 feet to your high jump distance. The spirit of the tiger empowers your leaps.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "requirements": [
+              {
+                "type": "status",
+                "value": "raging"
+              },
+              {
+                "type": "inventory_item",
+                "name_contains": [
+                  "Tiger",
+                  "Totem"
+                ]
+              }
+            ],
+            "effects": [
+              {
+                "attribute": {
+                  "target": "movement.jump.long",
+                  "calculation": {
+                    "operation": "add",
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 10
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "attribute": {
+                  "target": "movement.jump.high",
+                  "calculation": {
+                    "operation": "add",
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 3
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Wolf",
+        "description": "While raging, your friends have advantage on melee attack rolls against any creature within 5 feet of you that is hostile to you. The spirit of the wolf makes you a leader of hunters.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "requirements": [
+              {
+                "type": "status",
+                "value": "raging"
+              },
+              {
+                "type": "inventory_item",
+                "name_contains": [
+                  "Wolf",
+                  "Totem"
+                ]
+              }
+            ],
+            "effects": [
+              {
+                "aura": {
+                  "radius": 5,
+                  "unit": "feet",
+                  "target": {
+                    "type": "creatures",
+                    "disposition": "friendly",
+                    "include_self": false
+                  },
+                  "grants": {
+                    "advantage": {
+                      "attack": "melee",
+                      "against": {
+                        "disposition": "hostile"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Path of the Totem Warrior",
+    "level": 6,
+    "name": "Aspect of the Beast",
+    "description": "At 6th level, you gain a magical benefit based on the totem animal of your choice. You can choose the same animal you selected at 3rd level or a different one.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "subfeature",
+        "count": 1,
+        "options_ref": "subfeatures"
+      }
+    ],
+    "subfeatures": [
+      {
+        "name": "Bear",
+        "description": "You gain the might of a bear. Your carrying capacity is doubled, and you have advantage on Strength checks made to push, pull, lift, or break objects.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "requirements": [
+              {
+                "type": "inventory_item",
+                "name_contains": [
+                  "Bear",
+                  "Totem"
+                ]
+              }
+            ],
+            "effects": [
+              {
+                "attribute": {
+                  "target": "carrying_capacity",
+                  "calculation": {
+                    "operation": "multiply",
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 2
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "advantage": {
+                  "ability": "Strength"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Eagle",
+        "description": "You gain the eyesight of an eagle. You can see up to 1 mile away with no difficulty, able to discern even fine details as though looking at something no more than 100 feet away from you. Additionally, dim light doesn't impose disadvantage on your Wisdom (Perception) checks.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "requirements": [
+              {
+                "type": "inventory_item",
+                "name_contains": [
+                  "Eagle",
+                  "Totem"
+                ]
+              }
+            ],
+            "effects": [
+              {
+                "attribute": {
+                  "target": "vision.range",
+                  "calculation": {
+                    "operation": "set",
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 5280
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "immunity": {
+                  "category": "disadvantage",
+                  "skill": "Perception",
+                  "requirements": [
+                    {
+                      "type": "environment",
+                      "lighting": "dim_light"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Elk",
+        "description": "Whether mounted or on foot, your travel pace is doubled, as is the travel pace of up to ten companions while they're within 60 feet of you and you're not incapacitated.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "requirements": [
+              {
+                "type": "inventory_item",
+                "name_contains": [
+                  "Elk",
+                  "Totem"
+                ]
+              },
+              {
+                "type": "status",
+                "value": "incapacitated",
+                "negate": true
+              }
+            ],
+            "effects": [
+              {
+                "attribute": {
+                  "target": "movement.travel_pace",
+                  "calculation": {
+                    "operation": "multiply",
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 2
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "aura": {
+                  "radius": 60,
+                  "unit": "feet",
+                  "target": {
+                    "type": "creatures",
+                    "disposition": "friendly",
+                    "include_self": false,
+                    "count": 10
+                  },
+                  "grants": {
+                    "attribute": {
+                      "target": "movement.travel_pace",
+                      "calculation": {
+                        "operation": "multiply",
+                        "operators": [
+                          {
+                            "type": "integer",
+                            "value": 2
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Tiger",
+        "description": "You gain proficiency in two skills from the following list: Athletics, Acrobatics, Stealth, and Survival.",
+        "mechanics": [
+          {
+            "type": "choice",
+            "choice_type": "skill",
+            "options": [
+              "Athletics",
+              "Acrobatics",
+              "Stealth",
+              "Survival"
+            ],
+            "count": 2,
+            "requirements": [
+              {
+                "type": "inventory_item",
+                "name_contains": [
+                  "Tiger",
+                  "Totem"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Wolf",
+        "description": "You gain the hunting sensibilities of a wolf. You can track other creatures while traveling at a fast pace, and you can move stealthily while traveling at a normal pace.",
+        "mechanics": []
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Path of the Totem Warrior",
+    "level": 10,
+    "name": "Spirit Walker",
+    "description": "At 10th level, you can cast the Commune with Nature spell, but only as a ritual. When you do so, a spiritual version of one of the animals you chose for Totem Spirit or Aspect of the Beast appears to you to convey the information you seek.",
+    "mechanics": [
+      {
+        "type": "granted_spells",
+        "ritual_only": true,
+        "spells": [
+          "Commune with Nature"
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Path of the Totem Warrior",
+    "level": 14,
+    "name": "Totemic Attunement",
+    "description": "At 14th level, you gain a magical benefit based on a totem animal of your choice. You can choose the same animal you selected previously or a different one.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "subfeature",
+        "count": 1,
+        "options_ref": "subfeatures"
+      }
+    ],
+    "subfeatures": [
+      {
+        "name": "Bear",
+        "description": "While you're raging, any creature within 5 feet of you that's hostile to you has disadvantage on attack rolls against targets other than you or another character with this feature. An enemy is immune to this effect if it can't see or hear you or if it can't be frightened.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "requirements": [
+              {
+                "type": "status",
+                "value": "raging"
+              },
+              {
+                "type": "inventory_item",
+                "name_contains": [
+                  "Bear",
+                  "Totem"
+                ]
+              }
+            ],
+            "effects": [
+              {
+                "aura": {
+                  "radius": 5,
+                  "unit": "feet",
+                  "target": {
+                    "type": "creatures",
+                    "disposition": "hostile",
+                    "requirements": [
+                      {
+                        "type": "perception",
+                        "observer": "target",
+                        "subject": "character",
+                        "senses": [
+                          "sight",
+                          "hearing"
+                        ],
+                        "match": "any"
+                      },
+                      {
+                        "type": "immunity",
+                        "value": "frightened",
+                        "negate": true
+                      }
+                    ]
+                  },
+                  "grants": {
+                    "disadvantage": {
+                      "attack": "all"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Eagle",
+        "description": "While raging, you have a flying speed equal to your current walking speed. This benefit works only in short bursts; you fall if you end your turn in the air and nothing else is holding you aloft.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "requirements": [
+              {
+                "type": "status",
+                "value": "raging"
+              },
+              {
+                "type": "inventory_item",
+                "name_contains": [
+                  "Eagle",
+                  "Totem"
+                ]
+              }
+            ],
+            "effects": [
+              {
+                "attribute": {
+                  "target": "flying_speed",
+                  "calculation": {
+                    "operation": "set",
+                    "operators": [
+                      {
+                        "type": "attribute",
+                        "value": "walking_speed"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Elk",
+        "description": "While raging, you can use a bonus action during your move to pass through the space of a Large or smaller creature. That creature must succeed on a Strength saving throw (DC 8 + your Strength bonus + your proficiency bonus) or be knocked prone and take bludgeoning damage equal to 1d12 + your Strength modifier.",
+        "mechanics": [
+          {
+            "type": "bonus_action",
+            "name": "Devastating Charge",
+            "requirements": [
+              {
+                "type": "status",
+                "value": "raging"
+              },
+              {
+                "type": "inventory_item",
+                "name_contains": [
+                  "Elk",
+                  "Totem"
+                ]
+              }
+            ],
+            "target": {
+              "type": "creature",
+              "count": 1,
+              "requirements": [
+                {
+                  "type": "size",
+                  "value": [
+                    "Large",
+                    "Medium",
+                    "Small",
+                    "Tiny"
+                  ],
+                  "match": "any"
+                }
+              ]
+            },
+            "effects": [
+              {
+                "movement": {
+                  "type": "pass_through",
+                  "target": {
+                    "type": "creature"
+                  }
+                }
+              },
+              {
+                "saving_throw": {
+                  "ability": "Strength",
+                  "on_failure": {
+                    "apply_status": {
+                      "name": "prone"
+                    },
+                    "damage": {
+                      "dice": "1d12",
+                      "bonus": {
+                        "operation": "add",
+                        "operators": [
+                          {
+                            "type": "ability_modifier",
+                            "ability": "Strength"
+                          }
+                        ]
+                      },
+                      "type": [
+                        "bludgeoning"
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Tiger",
+        "description": "While raging, if you move at least 20 feet in a straight line toward a Large or smaller target right before making a melee weapon attack against it, you can use a bonus action to make an additional melee weapon attack against it.",
+        "mechanics": [
+          {
+            "type": "bonus_action",
+            "name": "Pounce",
+            "requirements": [
+              {
+                "type": "status",
+                "value": "raging"
+              },
+              {
+                "type": "inventory_item",
+                "name_contains": [
+                  "Tiger",
+                  "Totem"
+                ]
+              }
+            ],
+            "trigger": {
+              "event": [
+                "attack"
+              ],
+              "conditions": [
+                {
+                  "movement": {
+                    "distance": 20,
+                    "unit": "feet",
+                    "direction": "straight_line",
+                    "toward": "target"
+                  },
+                  "type": "melee",
+                  "target_size": [
+                    "Large",
+                    "Medium",
+                    "Small",
+                    "Tiny"
+                  ]
+                }
+              ]
+            },
+            "grants": {
+              "name": "Attack",
+              "type": "melee"
+            },
+            "target": {
+              "type": "event_recipient"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Wolf",
+        "description": "While raging, you can use a bonus action to knock a Large or smaller creature prone when you hit it with a melee weapon attack.",
+        "mechanics": [
+          {
+            "type": "bonus_action",
+            "name": "Knockdown",
+            "requirements": [
+              {
+                "type": "status",
+                "value": "raging"
+              },
+              {
+                "type": "inventory_item",
+                "name_contains": [
+                  "Wolf",
+                  "Totem"
+                ]
+              }
+            ],
+            "trigger": {
+              "event": [
+                "hit"
+              ],
+              "source": {
+                "type": [
+                  "melee"
+                ]
+              },
+              "target": {
+                "type": "creature",
+                "size": [
+                  "Large",
+                  "Medium",
+                  "Small",
+                  "Tiny"
+                ]
+              }
+            },
+            "effects": [
+              {
+                "target": {
+                  "type": "event_recipient"
+                },
+                "apply_status": {
+                  "name": "prone"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

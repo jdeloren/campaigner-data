@@ -1,0 +1,387 @@
+[
+  {
+    "class": "Cleric",
+    "level": 1,
+    "name": "Divine Domain",
+    "description": "Choose one domain related to your deity: Knowledge, Life, Light, Nature, Tempest, Trickery, or War. Your choice grants you domain spells and other features when you choose it at 1st level. It also grants you additional ways to use Channel Divinity when you gain that feature at 2nd level, and additional benefits at 6th, 8th, and 17th levels.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "subclass"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Cleric",
+    "level": [
+      4,
+      8,
+      12,
+      16,
+      19
+    ],
+    "name": "Ability Score Improvement",
+    "description": "Increase one ability score by 2 or two ability scores by 1 or one feat",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "asi"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Cleric",
+    "level": 4,
+    "name": "Cantrip Versatility",
+    "description": "Whenever you reach a level in this class that grants the Ability Score Improvement feature, you can replace one cantrip you learned from this class's Spellcasting feature with another cantrip from the cleric spell list.",
+    "triggered_by": "Ability Score Improvement",
+    "mechanics": [
+      {
+        "type": "retrain",
+        "name": "replace_cantrip",
+        "attribute": "cantrips",
+        "operation": "replace",
+        "optional": true,
+        "source": {
+          "list": "spells",
+          "filter": {
+            "class": "Cleric",
+            "level": 0
+          }
+        }
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Cleric",
+    "level": 2,
+    "name": "Channel Divinity",
+    "description": "You gain the ability to channel divine energy directly from your deity, using that energy to fuel magical effects. You start with two such effects: Turn Undead and an effect determined by your domain. Some domains grant you additional effects as you advance in levels, as noted in the domain description.",
+    "mechanics": [
+      {
+        "type": "resource",
+        "id": "channel_divinity",
+        "name": "Channel Divinity",
+        "count": {
+          "type": "level_table",
+          "values": {
+            "2": 1,
+            "6": 2,
+            "18": 3
+          }
+        },
+        "recharge": "short_rest"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Cleric",
+    "level": 2,
+    "name": "Turn Undead",
+    "description": "As an action, you present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage. A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the Dodge action.",
+    "mechanics": [
+      {
+        "type": "action",
+        "cost": [
+          {
+            "resource": "channel_divinity",
+            "amount": 1
+          }
+        ],
+        "requirements": [
+          {
+            "type": "equipment",
+            "item": "holy symbol"
+          }
+        ],
+        "effects": [
+          {
+            "target": {
+              "type": "creatures",
+              "disposition": "any",
+              "requirements": [
+                {
+                  "type": "creature_type",
+                  "value": [
+                    "Undead"
+                  ]
+                },
+                {
+                  "type": "perception",
+                  "observer": "target",
+                  "subject": "character",
+                  "senses": [
+                    "sight",
+                    "hearing"
+                  ],
+                  "match": "any"
+                }
+              ]
+            },
+            "area": {
+              "shape": "radius",
+              "size": 30,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "saving_throw": {
+              "ability": "Wisdom",
+              "dc": {
+                "ref": "spell_save_dc"
+              },
+              "on_success": {
+                "recharge": "long_rest"
+              },
+              "on_failure": {
+                "apply_status": {
+                  "name": "turned",
+                  "duration": {
+                    "value": 1,
+                    "unit": "minutes",
+                    "until": [
+                      "damaged_by"
+                    ]
+                  },
+                  "constraints": {
+                    "movement": {
+                      "direction": "away",
+                      "relative_to": "character",
+                      "keep_distance": 30
+                    },
+                    "actions": {
+                      "blocked_actions": [
+                        "reaction"
+                      ],
+                      "allowed_actions": [
+                        "Dash",
+                        "Dodge"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Cleric",
+    "level": 2,
+    "name": "Harness Divine Power",
+    "description": "You can expend a use of your Channel Divinity to fuel your spells. As a bonus action, you touch your holy symbol, utter a prayer, and regain one expended spell slot, the level of which can be no higher than half your proficiency bonus (rounded up). The number of times you can use this feature is based on the level you've reached in this class: 2nd level, once; 6th level, twice; and 18th level, thrice. You regain all expended uses when you finish a long rest.",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "cost": [
+          {
+            "resource": "channel_divinity",
+            "amount": 1
+          }
+        ],
+        "requirements": [
+          {
+            "type": "equipment",
+            "item": "holy symbol"
+          }
+        ],
+        "effects": [
+          {
+            "recover": {
+              "target": "spell_slot",
+              "count": 1,
+              "max_level": {
+                "calculation": "levels.calculate_proficiency_bonus",
+                "operation": "divide",
+                "divisor": 2,
+                "rounding": "up"
+              }
+            }
+          }
+        ],
+        "scaling": {
+          "components": {
+            "uses": {
+              "by_level": {
+                "2": 1,
+                "6": 2,
+                "18": 3
+              }
+            }
+          }
+        },
+        "recharge": "long_rest"
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Cleric",
+    "level": 5,
+    "name": "Destroy Undead",
+    "description": "When an undead fails its saving throw against your Turn Undead feature, the creature is instantly destroyed if its challenge rating is at or below a certain threshold.",
+    "enhances": "Turn Undead",
+    "mechanics": [
+      {
+        "type": "passive",
+        "trigger": {
+          "event": [
+            "saving_throw"
+          ],
+          "result": "failure",
+          "timing": "resolved"
+        },
+        "effects": [
+          {
+            "apply_status": {
+              "name": "dead"
+            },
+            "replaces": "turned"
+          }
+        ],
+        "requirements": [
+          {
+            "type": "function",
+            "function": "creature.cr_at_or_below",
+            "context": "target",
+            "params": {
+              "threshold": "scaling"
+            }
+          }
+        ],
+        "scaling": {
+          "components": {
+            "threshold": {
+              "by_level": {
+                "5": 0.5,
+                "8": 1,
+                "11": 2,
+                "14": 3,
+                "17": 4
+              }
+            }
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Cleric",
+    "level": 8,
+    "name": "Blessed Strikes",
+    "description": "You are blessed with divine might in battle. When a creature takes damage from one of your cantrips or weapon attacks, you can also deal 1d8 radiant damage to that creature. Once you deal this damage, you can't use this feature again until the start of your next turn.",
+    "extends": [
+      "Divine Strike",
+      "Potent Spellcasting"
+    ],
+    "mechanics": [
+      {
+        "type": "damage_bonus",
+        "trigger": {
+          "event": [
+            "cast_spell"
+          ],
+          "spell_level": 0
+        },
+        "damage": {
+          "dice": "1d8",
+          "type": [
+            "radiant"
+          ]
+        },
+        "uses": {
+          "value": 1
+        },
+        "recharge": "turn"
+      },
+      {
+        "type": "damage_bonus",
+        "trigger": {
+          "event": [
+            "damage"
+          ],
+          "source": {
+            "type": [
+              "weapon"
+            ]
+          }
+        },
+        "damage": {
+          "dice": "1d8",
+          "type": [
+            "radiant"
+          ]
+        },
+        "uses": {
+          "value": 1
+        },
+        "recharge": "turn"
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Cleric",
+    "level": 10,
+    "name": "Divine Intervention",
+    "description": "You can call on your deity to intervene on your behalf when your need is great. Imploring your deity's aid requires you to use your action. Describe the assistance you seek, and roll percentile dice. If you roll a number equal to or lower than your cleric level, your deity intervenes. The DM chooses the nature of the intervention; the effect of any cleric spell or cleric domain spell would be appropriate. If your deity intervenes, you can't use this feature again for 7 days. Otherwise, you can use it again after you finish a long rest. At 20th level, your call for intervention succeeds automatically, no roll required.",
+    "mechanics": [
+      {
+        "type": "action",
+        "effects": [
+          {
+            "roll": {
+              "type": "percentile",
+              "success": {
+                "comparison": "less_than_or_equal",
+                "value": {
+                  "attribute": "classes.Cleric.level"
+                }
+              }
+            },
+            "on_success": {
+              "type": "deity_intervention",
+              "recharge": {
+                "value": 7,
+                "unit": "days"
+              }
+            },
+            "on_failure": {
+              "recharge": "long_rest"
+            }
+          }
+        ],
+        "scaling": {
+          "components": {
+            "roll_modifier": {
+              "by_level": {
+                "20": {
+                  "reroll": {
+                    "result": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

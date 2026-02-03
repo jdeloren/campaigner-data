@@ -1,0 +1,214 @@
+[
+  {
+    "class": "Path of the Berserker",
+    "level": 3,
+    "name": "Frenzy",
+    "description": "You can go into a frenzy when you rage. If you do so, for the duration of your rage you can make a single melee weapon attack as a bonus action on each of your turns after this one. When your rage ends, you suffer one level of exhaustion.",
+    "mechanics": [
+      {
+        "type": "optional",
+        "trigger": {
+          "event": [
+            "status_applied"
+          ],
+          "status": {
+            "name": "raging",
+            "on": "applied"
+          }
+        },
+        "effects": [
+          {
+            "apply_status": {
+              "name": "frenzy",
+              "duration": {
+                "value": 1,
+                "unit": "minutes",
+                "sustain": [
+                  "damage",
+                  "damaged_by"
+                ],
+                "until": [
+                  {
+                    "event": [
+                      "status_applied"
+                    ],
+                    "status": {
+                      "name": "unconscious"
+                    }
+                  },
+                  {
+                    "event": [
+                      "status_removed"
+                    ],
+                    "action": "voluntary"
+                  }
+                ]
+              },
+              "on_end": {
+                "apply_status": {
+                  "name": "exhaustion"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "bonus_action",
+        "name": "Frenzied Attack",
+        "requirements": [
+          {
+            "type": "status",
+            "value": "frenzy"
+          }
+        ],
+        "grants": {
+          "name": "Attack",
+          "type": "melee"
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Path of the Berserker",
+    "level": 6,
+    "name": "Mindless Rage",
+    "description": "You can't be charmed or frightened while raging. If you are charmed or frightened when you enter your rage, the effect is suspended for the duration of the rage.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "immunity": {
+              "category": "status",
+              "status": [
+                "charmed",
+                "frightened"
+              ],
+              "modifier": "effects",
+              "requirements": [
+                {
+                  "type": "status",
+                  "value": "raging"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Path of the Berserker",
+    "level": 10,
+    "name": "Intimidating Presence",
+    "description": "You can use your action to frighten someone with your menacing presence. When you do so, choose one creature that you can see within 30 feet of you. If the creature can see or hear you, it must succeed on a Wisdom saving throw or be frightened of you until the end of your next turn. On subsequent turns, you can use your action to extend the duration of this effect on the frightened creature until the end of your next turn. This effect ends if the creature ends its turn out of line of sight or more than 60 feet away from you.",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "name": "Frighten",
+        "target": {
+          "type": "creature",
+          "count": 1,
+          "disposition": "hostile",
+          "requirements": [
+            {
+              "type": "perception",
+              "observer": "target",
+              "subject": "character",
+              "senses": [
+                "sight",
+                "hearing"
+              ]
+            }
+          ]
+        },
+        "range": {
+          "value": 30,
+          "unit": "feet"
+        },
+        "saving_throw": {
+          "ability": "Wisdom",
+          "on_failure": {
+            "apply_status": {
+              "name": "frightened",
+              "source": "character",
+              "duration": {
+                "value": 1,
+                "unit": "turns",
+                "until": [
+                  {
+                    "event": [
+                      "end_turn"
+                    ],
+                    "condition": {
+                      "type": "perception",
+                      "observer": "target",
+                      "subject": "character",
+                      "senses": [
+                        "sight"
+                      ],
+                      "negate": true
+                    }
+                  },
+                  {
+                    "event": [
+                      "end_turn"
+                    ],
+                    "condition": {
+                      "type": "range",
+                      "value": 60,
+                      "unit": "feet",
+                      "comparison": "greater_than",
+                      "to": "character"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Path of the Berserker",
+    "level": 14,
+    "name": "Retaliation",
+    "description": "When you take damage from a creature that is within 5 feet of you, you can use your reaction to make a melee weapon attack against that creature.",
+    "mechanics": [
+      {
+        "type": "reaction",
+        "trigger": {
+          "event": [
+            "damaged_by"
+          ],
+          "source": {
+            "type": [
+              "creature"
+            ],
+            "range": {
+              "value": 5,
+              "unit": "feet"
+            }
+          }
+        },
+        "grants": {
+          "name": "Attack",
+          "type": "melee"
+        },
+        "target": {
+          "type": "event_actor"
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

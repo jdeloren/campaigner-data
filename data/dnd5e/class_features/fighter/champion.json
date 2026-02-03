@@ -1,0 +1,210 @@
+[
+  {
+    "class": "Champion",
+    "level": 3,
+    "name": "Improved Critical",
+    "description": "Your weapon attacks score a critical hit on a roll of 19 or 20.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "improved_critical",
+        "effects": [
+          {
+            "attribute": {
+              "target": "combat.critical_hit_threshold",
+              "calculation": {
+                "operation": "set",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 19
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Champion",
+    "level": 7,
+    "name": "Remarkable Athlete",
+    "description": "You can add half your proficiency bonus (rounded up) to any Strength, Dexterity, or Constitution check you make that doesn't already use your proficiency bonus. In addition, when you make a running long jump, the distance you can cover increases by a number of feet equal to your Strength modifier.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "remarkable_athlete_ability_checks",
+        "effects": [
+          {
+            "attribute": {
+              "target": "ability_checks.bonus",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "function",
+                    "function": "levels.calculate_proficiency_bonus",
+                    "context": "character",
+                    "transform": "half_rounded_up"
+                  }
+                ]
+              },
+              "requirements": [
+                {
+                  "type": "ability_check",
+                  "proficient": false,
+                  "ability": [
+                    "Strength",
+                    "Dexterity",
+                    "Constitution"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "name": "remarkable_athlete_long_jump",
+        "effects": [
+          {
+            "attribute": {
+              "target": "movement.jump.running",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "attribute",
+                    "value": "ability_scores.strength.modifier"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Champion",
+    "level": 10,
+    "name": "Additional Fighting Style",
+    "description": "You can choose a second option from the Fighting Style class feature.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "query",
+        "query": {
+          "endpoint": "fighting_styles",
+          "params": {
+            "available_to": "Fighter",
+            "exclude": "character.fighting_styles"
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Champion",
+    "level": 15,
+    "name": "Superior Critical",
+    "description": "Your weapon attacks score a critical hit on a roll of 18-20.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "superior_critical",
+        "effects": [
+          {
+            "attribute": {
+              "target": "combat.critical_hit_threshold",
+              "calculation": {
+                "operation": "set",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 18
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Champion",
+    "level": 18,
+    "name": "Survivor",
+    "description": "You attain the pinnacle of resilience in battle. At the start of each of your turns, you regain hit points equal to 5 + your Constitution modifier if you have no more than half of your hit points left. You don't gain this benefit if you have 0 hit points.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "survivor_regeneration",
+        "trigger": {
+          "event": [
+            "start_turn"
+          ]
+        },
+        "requirements": [
+          {
+            "type": "hit_points",
+            "comparison": "greater_than",
+            "value": 0
+          },
+          {
+            "type": "hit_points",
+            "attribute": "hit_points",
+            "comparison": "at_most",
+            "calculation": {
+              "operation": "divide",
+              "operators": [
+                {
+                  "type": "attribute",
+                  "value": "max_hit_points"
+                },
+                {
+                  "type": "integer",
+                  "value": 2
+                }
+              ],
+              "rounding": "down"
+            }
+          }
+        ],
+        "effects": [
+          {
+            "healing": {
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 5
+                  },
+                  {
+                    "type": "ability_modifier",
+                    "ability": "Constitution"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

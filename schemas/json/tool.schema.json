@@ -1,0 +1,216 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "D&D 5e Tools",
+  "type": "array",
+  "items": {
+    "description": "D&D 5e Tool including Artisan's Tools, Gaming Sets,\nMusical Instruments, and Miscellaneous tools.",
+    "properties": {
+      "name": {
+        "description": "Tool name",
+        "title": "Name",
+        "type": "string"
+      },
+      "description": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Tool description",
+        "title": "Description"
+      },
+      "cost": {
+        "$ref": "#/$defs/CurrencyCost",
+        "description": "Cost with currency"
+      },
+      "weight": {
+        "description": "Weight in pounds",
+        "title": "Weight",
+        "type": "number"
+      },
+      "source": {
+        "description": "Source book",
+        "title": "Source",
+        "type": "string"
+      },
+      "ruleset": {
+        "description": "Ruleset version",
+        "title": "Ruleset",
+        "type": "string"
+      },
+      "category": {
+        "$ref": "#/$defs/ToolCategory",
+        "description": "Tool category"
+      },
+      "activities": {
+        "anyOf": [
+          {
+            "items": {
+              "$ref": "#/$defs/ToolActivity"
+            },
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Activities that can be performed with this tool",
+        "title": "Activities"
+      }
+    },
+    "required": [
+      "name",
+      "cost",
+      "weight",
+      "source",
+      "ruleset",
+      "category"
+    ],
+    "title": "Tool",
+    "type": "object"
+  },
+  "$defs": {
+    "Currency": {
+      "enum": [
+        "CP",
+        "SP",
+        "EP",
+        "GP",
+        "PP"
+      ],
+      "title": "Currency",
+      "type": "string"
+    },
+    "CurrencyCost": {
+      "description": "Cost in currency.\n\nExample: {\"amount\": 50, \"currency\": \"gp\"}",
+      "properties": {
+        "amount": {
+          "description": "Numeric cost",
+          "title": "Amount",
+          "type": "number"
+        },
+        "currency": {
+          "$ref": "#/$defs/Currency",
+          "description": "Currency: cp, sp, ep, gp, pp"
+        }
+      },
+      "required": [
+        "amount",
+        "currency"
+      ],
+      "title": "CurrencyCost",
+      "type": "object"
+    },
+    "DifficultyClass": {
+      "description": "Defines how a saving throw DC is calculated.\n\nUse `ref` for named formulas (e.g., 'spell_save_dc').\nUse `base` with optional `add` and `ability` for inline calculations.\nUse `per_use` for DCs that escalate with each use.",
+      "properties": {
+        "ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Named DC formula (e.g., 'spell_save_dc')",
+          "title": "Ref"
+        },
+        "base": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Base DC value",
+          "title": "Base"
+        },
+        "add": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Reference to add to base (usually 'profienciency_bonus')",
+          "title": "Add"
+        },
+        "ability": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "List of abilities to pick the highest modifier from",
+          "title": "Ability"
+        },
+        "per_use": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Amount DC increases per use",
+          "title": "Per Use"
+        }
+      },
+      "title": "DifficultyClass",
+      "type": "object"
+    },
+    "ToolActivity": {
+      "description": "Activity that can be performed with a tool, including DC for skill checks.",
+      "properties": {
+        "name": {
+          "description": "Activity name/description",
+          "title": "Name",
+          "type": "string"
+        },
+        "dc": {
+          "$ref": "#/$defs/DifficultyClass",
+          "description": "Difficulty class for the activity"
+        }
+      },
+      "required": [
+        "name",
+        "dc"
+      ],
+      "title": "ToolActivity",
+      "type": "object"
+    },
+    "ToolCategory": {
+      "description": "Categories of D&D 5e tools.",
+      "enum": [
+        "Artisan's Tools",
+        "Gaming Set",
+        "Musical Instrument",
+        "Miscellaneous"
+      ],
+      "title": "ToolCategory",
+      "type": "string"
+    }
+  }
+}

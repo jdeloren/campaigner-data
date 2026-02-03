@@ -1,0 +1,498 @@
+[
+  {
+    "class": "Bard",
+    "level": 1,
+    "name": "Bardic Inspiration",
+    "description": "You can inspire others through stirring words or music. To do so, you use a bonus action on your turn to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die, a d6. Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes. The creature can wait until after it rolls the d20 before deciding to use the Bardic Inspiration die, but must decide before the DM says whether the roll succeeds or fails. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a time. You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain any expended uses when you finish a long rest.",
+    "mechanics": [
+      {
+        "type": "resource",
+        "id": "bardic_inspiration",
+        "name": "Bardic Inspiration",
+        "count": {
+          "type": "ability_modifier",
+          "ability": "Charisma",
+          "minimum": 1
+        },
+        "recharge": "long_rest"
+      },
+      {
+        "type": "bonus_action",
+        "cost": [
+          {
+            "resource": "bardic_inspiration",
+            "amount": 1
+          }
+        ],
+        "effects": [
+          {
+            "target": {
+              "type": "creature",
+              "count": 1,
+              "disposition": "any",
+              "include_self": false,
+              "requirements": [
+                {
+                  "type": "perception",
+                  "observer": "target",
+                  "subject": "character",
+                  "senses": [
+                    "hearing"
+                  ]
+                }
+              ]
+            },
+            "range": {
+              "value": 60,
+              "unit": "feet"
+            },
+            "attribute": {
+              "target": "inspiration.bardic_has",
+              "calculation": {
+                "operation": "set",
+                "operators": [
+                  {
+                    "type": "boolean",
+                    "value": true
+                  }
+                ]
+              }
+            },
+            "duration": {
+              "value": 10,
+              "unit": "minutes"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Bard",
+    "level": 2,
+    "name": "Jack of All Trades",
+    "description": "Starting at 2nd level, you can add half your proficiency bonus, rounded down, to any ability check you make that doesn't already include your proficiency bonus.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "jack_of_all_trades",
+        "effects": [
+          {
+            "attribute": {
+              "target": "ability_checks.bonus",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "function",
+                    "function": "levels.calculate_proficiency_bonus",
+                    "context": "character",
+                    "transform": "half_rounded_down"
+                  }
+                ]
+              }
+            },
+            "requirements": [
+              {
+                "type": "ability_check",
+                "proficient": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Bard",
+    "level": 2,
+    "name": "Song of Rest",
+    "description": "Beginning at 2nd level, you can use soothing music or oration to help revitalize your wounded allies during a short rest. If you or any friendly creatures who can hear your performance regain hit points at the end of the short rest by spending one or more Hit Dice, each of those creatures regains an extra 1d6 hit points. The extra hit points increase when you reach certain levels in this class: to 1d8 at 9th level, to 1d10 at 13th level, and to 1d12 at 17th level.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "song_of_rest",
+        "trigger": {
+          "event": [
+            "healed_by"
+          ],
+          "source": {
+            "resource": "hit_dice"
+          }
+        },
+        "effects": [
+          {
+            "target": {
+              "type": "creatures",
+              "disposition": "friendly",
+              "include_self": true,
+              "requirements": [
+                {
+                  "type": "perception",
+                  "observer": "target",
+                  "subject": "character",
+                  "senses": [
+                    "hearing"
+                  ]
+                }
+              ]
+            },
+            "healing": {
+              "dice": "1d6",
+              "scaling": {
+                "components": {
+                  "dice_sides": {
+                    "by_level": {
+                      "2": 6,
+                      "9": 8,
+                      "13": 10,
+                      "17": 12
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Bard",
+    "level": 2,
+    "name": "Magical Inspiration",
+    "description": "If a creature has a Bardic Inspiration die from you and casts a spell that restores hit points or deals damage, the creature can roll that die and choose a target affected by the spell. Add the number rolled as a bonus to the hit points regained or the damage dealt. The Bardic Inspiration die is then lost.",
+    "enhances": "Bardic Inspiration",
+    "mechanics": [
+      {
+        "type": "optional",
+        "name": "magical_inspiration",
+        "trigger": {
+          "event": [
+            "cast_spell"
+          ],
+          "effect": [
+            "healing",
+            "damage"
+          ]
+        },
+        "cost": [
+          {
+            "resource": "bardic_inspiration",
+            "amount": 1
+          }
+        ],
+        "effects": [
+          {
+            "healing": {
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "resource_die",
+                    "value": "bardic_inspiration"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "damage_bonus": {
+              "bonus": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "resource_die",
+                    "value": "bardic_inspiration"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Bard",
+    "level": 3,
+    "name": "Bard College",
+    "description": "At 3rd level, you delve into the advanced techniques of a bard college of your choice. Your choice grants you features at 3rd level and again at 6th and 14th level.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "subclass"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Bard",
+    "level": [
+      3,
+      10
+    ],
+    "name": "Expertise",
+    "description": "At 3rd level, choose two of your skill proficiencies. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies. At 10th level, you can choose another two skill proficiencies to gain this benefit.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "expertise",
+        "name": "expertise_skills",
+        "count": 2
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Bard",
+    "level": [
+      4,
+      8,
+      12,
+      16,
+      19
+    ],
+    "name": "Ability Score Improvement",
+    "description": "When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "asi"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Bard",
+    "level": 4,
+    "name": "Bardic Versatility",
+    "description": "Whenever you reach a level in this class that grants the Ability Score Improvement feature, you can do one of the following, representing a change in focus as you use your skills and magic: Replace one of the skills you chose for the Expertise feature with one of your other skill proficiencies that isn't benefiting from Expertise. Replace one cantrip you learned from this class's Spellcasting feature with another cantrip from the bard spell list.",
+    "triggered_by": "Ability Score Improvement",
+    "mechanics": [
+      {
+        "type": "retrain",
+        "name": "replace_expertise",
+        "attribute": "skill_expertise",
+        "operation": "replace",
+        "optional": true,
+        "source": {
+          "list": "character.skill_proficiencies",
+          "exclude": "character.skill_expertise"
+        }
+      },
+      {
+        "type": "retrain",
+        "name": "replace_cantrip",
+        "attribute": "cantrips",
+        "operation": "replace",
+        "optional": true,
+        "source": {
+          "list": "spells",
+          "filter": {
+            "class": "Bard",
+            "level": 0
+          }
+        }
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Bard",
+    "level": 5,
+    "name": "Font of Inspiration",
+    "description": "Beginning when you reach 5th level, you regain all of your expended uses of Bardic Inspiration when you finish a short or long rest.",
+    "enhances": "Bardic Inspiration",
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "attribute": {
+              "target": "resources.bardic_inspiration.recharge",
+              "calculation": {
+                "operation": "set",
+                "operators": [
+                  {
+                    "type": "string",
+                    "value": "short_rest"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Bard",
+    "level": 6,
+    "name": "Countercharm",
+    "description": "At 6th level, you gain the ability to use musical notes or words of power to disrupt mind-influencing effects. As an action, you can start a performance that lasts until the end of your next turn. During that time, you and any friendly creatures within 30 feet of you have advantage on saving throws against being frightened or charmed. A creature must be able to hear you to gain this benefit. The performance ends early if you are incapacitated or silenced or if you voluntarily end it (no action required).",
+    "mechanics": [
+      {
+        "type": "action",
+        "name": "countercharm",
+        "effects": [
+          {
+            "target": {
+              "type": "creatures",
+              "disposition": "friendly",
+              "include_self": true,
+              "requirements": [
+                {
+                  "type": "perception",
+                  "observer": "target",
+                  "subject": "character",
+                  "senses": [
+                    "hearing"
+                  ]
+                }
+              ]
+            },
+            "area": {
+              "shape": "radius",
+              "size": 30,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "advantage": {
+              "saving_throw": [
+                "Strength",
+                "Dexterity",
+                "Constitution",
+                "Intelligence",
+                "Wisdom",
+                "Charisma"
+              ],
+              "against": {
+                "status": [
+                  "frightened",
+                  "charmed"
+                ]
+              }
+            },
+            "duration": {
+              "value": 1,
+              "unit": "rounds",
+              "until": [
+                {
+                  "event": [
+                    "status_applied"
+                  ],
+                  "status": {
+                    "name": "incapacitated"
+                  }
+                },
+                {
+                  "event": [
+                    "status_applied"
+                  ],
+                  "status": {
+                    "name": "silenced"
+                  }
+                },
+                {
+                  "event": [
+                    "status_removed"
+                  ],
+                  "action": "voluntary"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Bard",
+    "level": 10,
+    "name": "Magical Secrets",
+    "description": "By 10th level, you have plundered magical knowledge from a wide spectrum of disciplines. Choose two spells from any classes, including this one. A spell you choose must be of a level you can cast, as shown on the Bard table, or a cantrip. The chosen spells count as bard spells for you and are included in the number in the Spells Known column of the Bard table. You learn two additional spells from any classes at 14th level and again at 18th level.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "query",
+        "name": "magical_secrets_spells",
+        "count": 2,
+        "query": {
+          "endpoint": "spells",
+          "resolve": {
+            "max_level": {
+              "function": "spellcasting.max_spell_level",
+              "context": "character",
+              "class": "Bard"
+            }
+          }
+        },
+        "scaling": {
+          "components": {
+            "spells": {
+              "by_level": {
+                "10": 2,
+                "14": 4,
+                "18": 6
+              }
+            }
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Bard",
+    "level": 20,
+    "name": "Superior Inspiration",
+    "description": "At 20th level, when you roll initiative and have no uses of Bardic Inspiration left, you regain one use.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "superior_inspiration",
+        "trigger": {
+          "event": [
+            "initiative_roll"
+          ]
+        },
+        "effects": [
+          {
+            "recover": {
+              "target": "bardic_inspiration",
+              "count": 1
+            },
+            "requirements": [
+              {
+                "type": "function",
+                "function": "resource.equals",
+                "context": "character",
+                "value": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

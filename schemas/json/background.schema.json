@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "D&D 5e Backgrounds",
+  "type": "array",
+  "items": {
+    "description": "D&D 5e character background.",
+    "properties": {
+      "name": {
+        "description": "Background name",
+        "title": "Name",
+        "type": "string"
+      },
+      "description": {
+        "description": "Background description",
+        "title": "Description",
+        "type": "string"
+      },
+      "skill_proficiencies": {
+        "description": "Skill proficiencies (strings or choice objects)",
+        "items": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "additionalProperties": true,
+              "type": "object"
+            }
+          ]
+        },
+        "title": "Skill Proficiencies",
+        "type": "array"
+      },
+      "tool_proficiencies": {
+        "description": "Tool proficiencies (strings like 'any gaming set' or choice objects)",
+        "items": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "additionalProperties": true,
+              "type": "object"
+            }
+          ]
+        },
+        "title": "Tool Proficiencies",
+        "type": "array"
+      },
+      "languages": {
+        "description": "Language choices (choice group objects)",
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "title": "Languages",
+        "type": "array"
+      },
+      "equipment": {
+        "description": "Starting equipment (fixed items and choices)",
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "title": "Equipment",
+        "type": "array"
+      },
+      "source": {
+        "$ref": "#/$defs/Source",
+        "description": "Source book"
+      },
+      "ruleset": {
+        "$ref": "#/$defs/Ruleset",
+        "description": "Ruleset"
+      }
+    },
+    "required": [
+      "name",
+      "description",
+      "skill_proficiencies",
+      "tool_proficiencies",
+      "source",
+      "ruleset"
+    ],
+    "title": "Background",
+    "type": "object"
+  },
+  "$defs": {
+    "Ruleset": {
+      "enum": [
+        "dnd5e_2024",
+        "dnd5e",
+        "dnd3.5e",
+        "pf2e"
+      ],
+      "title": "Ruleset",
+      "type": "string"
+    },
+    "Source": {
+      "enum": [
+        "phb",
+        "tce",
+        "scag",
+        "xge"
+      ],
+      "title": "Source",
+      "type": "string"
+    }
+  }
+}

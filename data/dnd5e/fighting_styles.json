@@ -1,0 +1,246 @@
+[
+  {
+    "name": "Archery",
+    "description": "You gain a +2 bonus to attack rolls you make with ranged weapons.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "available_to": ["Fighter", "Ranger"],
+    "mechanics": [
+      {
+        "type": "passive",
+        "trigger": {
+          "event": ["attack"],
+          "source": { "type": ["ranged"] }
+        },
+        "effects": [
+          {
+            "attribute": {
+              "target": "attack_roll.modifier",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  { "type": "integer", "value": 2 }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Blind Fighting",
+    "description": "You have blind sight with a range of 10 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature within that range, unless the creature successfully hides from you.",
+    "source": "tce",
+    "ruleset": "dnd5e",
+    "available_to": ["Fighter", "Paladin", "Ranger"],
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "Blindsight",
+        "effects": [
+          {
+            "attribute": {
+              "target": "senses.blindsight",
+              "calculation": {
+                "operation": "set",
+                "operators": [
+                  { "type": "integer", "value": 10 }
+                ]
+              }
+            }
+          },
+          {
+            "detection": {
+              "range": { "value": 10, "unit": "feet" },
+              "detects": ["creatures"],
+              "ignores_status": ["invisible"]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Defense",
+    "description": "While you are wearing armor, you gain a +1 bonus to AC.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "available_to": ["Fighter", "Paladin", "Ranger"],
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "attribute": {
+              "target": "armor_class.modifier",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  { "type": "integer", "value": 1 }
+                ]
+              }
+            }
+          }
+        ],
+        "requirements": [
+          {
+            "type": "equipment",
+            "slot": "armor",
+            "occupied": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Dueling",
+    "description": "When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "available_to": ["Fighter", "Paladin", "Ranger"],
+    "mechanics": [
+      {
+        "type": "damage_bonus",
+        "trigger": {
+          "event": ["damage"],
+          "source": { "type": ["melee", "weapon"] }
+        },
+        "effects": [
+          {
+            "damage_bonus": {
+              "bonus": {
+                "operation": "add",
+                "operators": [
+                  { "type": "integer", "value": 2 }
+                ]
+              }
+            }
+          }
+        ],
+        "requirements": [
+          {
+            "type": "equipment",
+            "slot": "main_hand",
+            "grip": "one-handed"
+          },
+          {
+            "type": "equipment",
+            "slot": "off_hand",
+            "occupied": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Great Weapon Fighting",
+    "description": "When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die and must use the new roll, even if the new roll is a 1 or a 2. The weapon must have the two-handed or versatile property.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "available_to": ["Fighter", "Paladin"],
+    "mechanics": [
+      {
+        "type": "passive",
+        "trigger": {
+          "event": ["damage"],
+          "source": { "type": ["melee", "weapon"] }
+        },
+        "effects": [
+          {
+            "roll_modifier": {
+              "reroll": {
+                "on": [1, 2],
+                "replace": true
+              }
+            }
+          }
+        ],
+        "requirements": [
+          {
+            "type": "equipment",
+            "slot": "main_hand",
+            "grip": "two-handed"
+          },
+          {
+            "type": "weapon_property",
+            "value": ["two-handed", "versatile"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Protection",
+    "description": "When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "available_to": ["Fighter", "Paladin"],
+    "mechanics": [
+      {
+        "type": "reaction",
+        "trigger": {
+          "event": ["attack"],
+          "target": { "type": ["ally"] },
+          "source": {
+            "range": { "value": 5, "unit": "feet" }
+          }
+        },
+        "effects": [
+          {
+            "target": { "type": "attacker" },
+            "disadvantage": {
+              "attack": "all"
+            }
+          }
+        ],
+        "requirements": [
+          {
+            "type": "equipment",
+            "function": "equipment.is_using_shield"
+          },
+          {
+            "type": "perception",
+            "observer": "character",
+            "subject": "attacker",
+            "senses": ["sight"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Two-Weapon Fighting",
+    "description": "When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "available_to": ["Fighter", "Ranger"],
+    "mechanics": [
+      {
+        "type": "damage_bonus",
+        "trigger": {
+          "event": ["damage"],
+          "source": { "type": ["weapon"] }
+        },
+        "effects": [
+          {
+            "damage_bonus": {
+              "bonus": {
+                "operation": "add",
+                "operators": [
+                  { "type": "ability_modifier", "ability": "attack" }
+                ]
+              }
+            }
+          }
+        ],
+        "requirements": [
+          {
+            "type": "attack",
+            "hand": "off_hand"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,1751 @@
+[
+  {
+    "name": "Knowledge",
+    "description": "The gods of knowledge - including Oghma, Boccob, Gilean, Aureon, and Thoth - value learning and understanding above all. Some teach that knowledge is to be gathered and shared in libraries and universities, or promote the practical knowledge of craft and invention. Some deities hoard knowledge and keep its secrets to themselves. And some promise their followers that they will gain tremendous power if they unlock the secrets of the multiverse. Followers of these gods study esoteric lore, collect old tomes, delve into the secret places of the earth, and learn all they can. Some gods of knowledge promote the practical knowledge of craft and invention, including smith deities like Gond, Reorx, Onatar, Moradin, Hephaestus, and Goibhniu.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "available_to": ["Cleric"],
+    "features": [
+      {
+        "level": 1,
+        "name": "Domain Spell Knowledge",
+        "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you have a domain spell that doesn't appear on the cleric spell list, the spell is nonetheless a cleric spell for you.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "granted_spells",
+            "always_prepared": true,
+            "spells": {
+              "1": ["Command", "Identify"],
+              "3": ["Augury", "Suggestion"],
+              "5": ["Nondetection", "Speak with Dead"],
+              "7": ["Arcane Eye", "Confusion"],
+              "9": ["Legend Lore", "Scrying"]
+            }
+          }
+        ]
+      },
+      {
+        "level": 1,
+        "name": "Blessings of Knowledge",
+        "description": "At 1st level, you learn two languages of your choice. You also become proficient in your choice of two of the following skills: Arcana, History, Nature, or Religion. Your proficiency bonus is doubled for any ability check you make that uses either of those skills.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "choice",
+            "choice_type": "language",
+            "count": 2
+          },
+          {
+            "type": "choice",
+            "choice_type": "expertise",
+            "options": ["Arcana", "History", "Nature", "Religion"],
+            "count": 2
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "name": "Knowledge of the Ages",
+        "description": "Starting at 2nd level, you can use your Channel Divinity to tap into a divine well of knowledge. As an action, you choose one skill or tool. For 10 minutes, you have proficiency with the chosen skill or tool.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "action",
+            "cost": [
+              {
+                "resource": "channel_divinity",
+                "amount": 1
+              }
+            ],
+            "effects": [
+              {
+                "choice": {
+                  "source": "skills_and_tools",
+                  "count": 1
+                },
+                "attribute": {
+                  "target": "proficiencies.temporary",
+                  "operation": "add",
+                  "value": "choice"
+                },
+                "duration": {
+                  "value": 10,
+                  "unit": "minutes"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "name": "Read Thoughts",
+        "description": "At 6th level, you can use your Channel Divinity to read a creature's thoughts. You can then use your access to the creature's mind to command it. As an action, choose one creature that you can see within 60 feet of you. That creature must make a Wisdom saving throw. If the creature succeeds on the saving throw, you can't use this feature on it again until you finish a long rest. If the creature fails its save, you can read its surface thoughts (those foremost in its mind, reflecting its current emotions and what it is actively thinking about) when it is within 60 feet of you. This effect lasts for 1 minute. During that time, you can use your action to end this effect and cast the suggestion spell on the creature without expending a spell slot. The target automatically fails its saving throw against the spell.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "action",
+            "cost": [
+              {
+                "resource": "channel_divinity",
+                "amount": 1
+              }
+            ],
+            "effects": [
+              {
+                "target": {
+                  "type": "creature",
+                  "requirements": [
+                    {
+                      "type": "perception",
+                      "observer": "character",
+                      "subject": "target",
+                      "senses": ["sight"]
+                    },
+                    {
+                      "type": "range",
+                      "value": 60,
+                      "unit": "feet"
+                    }
+                  ]
+                },
+                "saving_throw": {
+                  "ability": "Wisdom",
+                  "dc": {
+                    "ref": "spell_save_dc"
+                  },
+                  "on_success": {
+                    "type": "immune_until_rest",
+                    "recharge": "long_rest"
+                  },
+                  "on_failure": {
+                    "type": "read_surface_thoughts",
+                    "range": {
+                      "value": 60,
+                      "unit": "feet"
+                    },
+                    "duration": {
+                      "value": 1,
+                      "unit": "minutes"
+                    },
+                    "grants": {
+                      "name": "Suggestion",
+                      "interaction": {
+                        "name": "Suggestion",
+                        "activation": "action",
+                        "cost": "none",
+                        "save": "auto_fail",
+                        "ends": ["read_surface_thoughts"]
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "name": "Potent Spellcasting",
+        "description": "Starting at 8th level, you add your Wisdom modifier to the damage you deal with any cleric cantrip.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "damage_bonus",
+            "trigger": {
+              "event": ["cast_spell"],
+              "source": {
+                "type": ["spell"],
+                "spell_level": 0,
+                "class": "Cleric",
+                "source": "character"
+              }
+            },
+            "damage": {
+              "bonus": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "ability_modifier",
+                    "ability": "Wisdom"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "name": "Visions of the Past",
+        "description": "Starting at 17th level, you can call up visions of the past that relate to an object you hold or your immediate surroundings. You spend at least 1 minute in meditation and prayer, then receive dreamlike, shadowy glimpses of recent events. You can meditate in this way for a number of minutes equal to your Wisdom score and must maintain concentration during that time, as if you were casting a spell. Once you use this feature, you can't use it again until you finish a short or long rest.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "special",
+            "uses": {
+              "value": 1
+            },
+            "recharge": "short_rest"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Life",
+    "description": "The Life domain focuses on the vibrant positive energy - one of the fundamental forces of the universe - that sustains all life. The gods of life promote vitality and health through healing the sick and wounded, caring for those in need, and driving away the forces of death and undeath. Almost any non-evil deity can claim influence over this domain, particularly agricultural deities (such as Chauntea, Arawai, and Demeter), sun gods (such as Lathander, Pelor, and Re-Horakhty), gods of healing or endurance (such as Ilmater, Mishakal, Apollo, and Diancecht), and gods of home and community (such as Hestia, Hathor, and Boldrci).",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "available_to": ["Cleric"],
+    "features": [
+      {
+        "level": 1,
+        "name": "Domain Spells",
+        "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "granted_spells",
+            "always_prepared": true,
+            "spells": {
+              "1": ["Bless", "Cure Wounds"],
+              "3": ["Lesser Restoration", "Spiritual Weapon"],
+              "5": ["Beacon of Hope", "Revivify"],
+              "7": ["Death Ward", "Guardian of Faith"],
+              "9": ["Mass Cure Wounds", "Raise Dead"]
+            }
+          }
+        ]
+      },
+      {
+        "level": 1,
+        "name": "Bonus Proficiency",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "proficiency",
+            "category": "armor",
+            "proficiencies": ["Heavy Armor"]
+          }
+        ]
+      },
+      {
+        "level": 1,
+        "name": "Disciple of Life",
+        "description": "Your healing spells are more effective. Whenever you use a spell of 1st level or higher to restore hit points to a creature, the creature regains additional hit points equal to 2 + the spell's level.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "passive",
+            "modifies": "healing",
+            "trigger": {
+              "event": ["cast_spell"],
+              "effect": ["healing"]
+            },
+            "requirements": [
+              {
+                "type": "spell_level",
+                "value": {
+                  "minimum": 1
+                }
+              }
+            ],
+            "effects": [
+              {
+                "healing": {
+                  "calculation": {
+                    "operation": "add",
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 2
+                      },
+                      {
+                        "type": "spell_level_cast"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "name": "Preserve Life",
+        "description": "You can use your Channel Divinity to heal the badly injured. As an action, you present your holy symbol and evoke healing energy that can restore a number of hit points equal to five times your cleric level. Choose any creatures within 30 feet of you, and divide those hit points among them. This feature can restore a creature to no more than half of its hit point maximum. You can't use this feature on an undead or a construct.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "action",
+            "cost": [
+              {
+                "resource": "channel_divinity",
+                "amount": 1
+              }
+            ],
+            "requirements": [
+              {
+                "type": "equipment",
+                "item": "holy symbol"
+              }
+            ],
+            "effects": [
+              {
+                "target": {
+                  "type": "creatures",
+                  "disposition": "any",
+                  "requirements": [
+                    {
+                      "type": "creature_type",
+                      "value": ["Undead", "Construct"],
+                      "negate": true
+                    },
+                    {
+                      "type": "hit_points",
+                      "attribute": "hit_points",
+                      "comparison": "less_than",
+                      "calculation": {
+                        "operation": "divide",
+                        "operators": [
+                          {
+                            "type": "attribute",
+                            "value": "max_hit_points"
+                          },
+                          {
+                            "type": "integer",
+                            "value": 2
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "area": {
+                  "shape": "radius",
+                  "size": 30,
+                  "unit": "feet",
+                  "origin": "self"
+                },
+                "player_choice": true,
+                "healing": {
+                  "calculation": {
+                    "operation": "multiply",
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 5
+                      },
+                      {
+                        "type": "class_level",
+                        "class": "Cleric"
+                      }
+                    ]
+                  },
+                  "distribution": "player_allocation"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Blessed Healer",
+        "level": 6,
+        "description": "The healing spells you cast on others heal you as well. Beginning at 6th level, when you cast a spell of 1st level or higher that restores hit points to a creature other than you, you regain hit points equal to 2 + the spell's level.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "passive",
+            "trigger": {
+              "event": ["cast_spell"],
+              "effect": ["healing"]
+            },
+            "requirements": [
+              {
+                "type": "spell_level",
+                "value": {
+                  "minimum": 1
+                }
+              },
+              {
+                "type": "effect_target",
+                "value": "not_self"
+              }
+            ],
+            "effects": [
+              {
+                "target": {
+                  "type": "self"
+                },
+                "healing": {
+                  "calculation": {
+                    "operation": "add",
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 2
+                      },
+                      {
+                        "type": "spell_level_cast"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "name": "Divine Strike",
+        "description": "You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 radiant damage to the target. When you reach 14th level, the extra damage increases to 2d8.",
+        "mechanics": [
+          {
+            "type": "damage_bonus",
+            "trigger": {
+              "event": ["damage"],
+              "source": {
+                "type": ["weapon"]
+              }
+            },
+            "damage": {
+              "dice": "1d8",
+              "type": ["radiant"]
+            },
+            "scaling": {
+              "components": {
+                "damage": {
+                  "by_level": {
+                    "14": "2d8"
+                  }
+                }
+              }
+            },
+            "uses": {
+              "value": 1
+            },
+            "recharge": "turn"
+          }
+        ],
+        "source": "phb",
+        "ruleset": "dnd5e"
+      },
+      {
+        "level": 17,
+        "name": "Supreme Healing",
+        "description": "When you would normally roll one or more dice to restore hit points with a spell, you instead use the highest number possible for each die.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "passive",
+            "modifies": "healing",
+            "trigger": {
+              "event": ["cast_spell"],
+              "effect": ["healing"]
+            },
+            "effects": [
+              {
+                "roll_modifier": {
+                  "function": "roller.max_roll"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Light",
+    "description": "Gods of light - including Helm, Lathander, Pholtus, Branchala, the Silver Flame, Belenus, Apollo, and Re-Horakhty - promote the ideals of rebirth and renewal, truth, vigilance, and beauty, often using the symbol of the sun. Some of these gods are portrayed as the sun itself or as a charioteer who guides the sun across the sky. Others are tireless sentinels whose eyes pierce every shadow and see through every deception. Some are deities of beauty and artistry, who teach that art is a vehicle for the soul's improvement. Clerics of a god of light are enlightened souls infused with radiance and the power of their gods' discerning vision, charged with chasing away lies and burning away darkness.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "available_to": ["Cleric"],
+    "features": [
+      {
+        "level": 1,
+        "name": "Domain Spells",
+        "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "granted_spells",
+            "always_prepared": true,
+            "spells": {
+              "1": ["Burning Hands", "Faerie Fire"],
+              "3": ["Flaming Sphere", "Scorching Ray"],
+              "5": ["Daylight", "Fireball"],
+              "7": ["Guardian of Faith", "Wall of Fire"],
+              "9": ["Flame Strike", "Scrying"]
+            }
+          }
+        ]
+      },
+      {
+        "level": 1,
+        "name": "Bonus Cantrip",
+        "description": "You gain the Light cantrip if you don't already know it. This cantrip doesn't count against the number of cleric cantrips you know.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "granted_spells",
+            "does_not_count_against_limit": true,
+            "spells": {
+              "0": ["Light"]
+            }
+          }
+        ]
+      },
+      {
+        "level": 1,
+        "name": "Warding Flare",
+        "description": "You can interpose divine light between yourself and an attacking enemy.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "reaction",
+            "trigger": {
+              "event": ["attacked_by"]
+            },
+            "effects": [
+              {
+                "target": {
+                  "type": "attacker"
+                },
+                "disadvantage": {
+                  "attack": "all"
+                },
+                "requirements": [
+                  {
+                    "type": "immunity",
+                    "to": "blinded",
+                    "negate": true
+                  },
+                  {
+                    "type": "distance",
+                    "value": 30,
+                    "comparison": "within",
+                    "unit": "feet"
+                  },
+                  {
+                    "type": "perception",
+                    "observer": "character",
+                    "subject": "attacker",
+                    "senses": ["sight"]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "uses": {
+          "calculation": "scores.wisdom.modifier",
+          "minimum": 1
+        },
+        "recharge": "long_rest"
+      },
+      {
+        "name": "Radiance of the Dawn",
+        "level": 2,
+        "description": "You can use your Channel Divinity to harness sunlight, banishing darkness and dealing radiant damage to your foes. As an action, you present your holy symbol, and any magical darkness within 30 feet of you is dispelled. Additionally, each hostile creature within 30 feet of you must make a Constitution saving throw. A creature takes radiant damage equal to 2d10 + your cleric level on a failed saving throw, and half as much damage on a successful one. A creature that has total cover from you is not affected.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "action",
+            "cost": [
+              {
+                "resource": "channel_divinity",
+                "amount": 1
+              }
+            ],
+            "requirements": [
+              {
+                "type": "equipment",
+                "item": "holy symbol"
+              }
+            ],
+            "effects": [
+              {
+                "type": "dispel",
+                "area": {
+                  "shape": "radius",
+                  "size": 30,
+                  "unit": "feet",
+                  "origin": "self"
+                },
+                "negate": ["magical_darkness"]
+              },
+              {
+                "target": {
+                  "type": "creatures",
+                  "disposition": "hostile"
+                },
+                "area": {
+                  "shape": "radius",
+                  "size": 30,
+                  "unit": "feet",
+                  "origin": "self"
+                },
+                "blocked_by": {
+                  "cover": "total"
+                },
+                "saving_throw": {
+                  "ability": "Constitution",
+                  "dc": {
+                    "ref": "spell_save_dc"
+                  },
+                  "on_success": {
+                    "damage": {
+                      "calculation": {
+                        "operation": "divide",
+                        "operators": [
+                          {
+                            "type": "integer",
+                            "value": 2
+                          }
+                        ],
+                        "rounding": "down"
+                      }
+                    }
+                  },
+                  "on_failure": {
+                    "damage": {
+                      "dice": "2d10",
+                      "bonus": {
+                        "operation": "add",
+                        "operators": [
+                          {
+                            "type": "class_level",
+                            "class": "Cleric"
+                          }
+                        ]
+                      },
+                      "type": ["radiant"]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Improved Flare",
+        "level": 6,
+        "description": "You can also use your Warding Flare feature when a creature that you can see within 30 feet of you attacks a creature other than you.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "extends": ["Warding Flare"],
+        "mechanics": [
+          {
+            "type": "reaction",
+            "trigger": {
+              "event": ["attack"]
+            },
+            "target": {
+              "type": "creature"
+            },
+            "effects": [
+              {
+                "target": {
+                  "type": "attacker"
+                },
+                "disadvantage": {
+                  "attack": "all"
+                },
+                "requirements": [
+                  {
+                    "type": "immunity",
+                    "to": "blinded",
+                    "negate": true
+                  },
+                  {
+                    "type": "distance",
+                    "value": 30,
+                    "comparison": "within",
+                    "unit": "feet"
+                  },
+                  {
+                    "type": "perception",
+                    "observer": "character",
+                    "subject": "attacker",
+                    "senses": ["sight"]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Potent Spellcasting",
+        "level": 8,
+        "description": "You add your Wisdom modifier to the damage you deal with any cleric cantrip.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "damage_bonus",
+            "trigger": {
+              "event": ["cast_spell"],
+              "source": {
+                "type": ["spell"],
+                "spell_level": 0,
+                "class": "Cleric",
+                "source": "character"
+              }
+            },
+            "damage": {
+              "bonus": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "ability_modifier",
+                    "ability": "Wisdom"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Corona of Light",
+        "level": 17,
+        "description": "You can use your action to activate an aura of sunlight that lasts for 1 minute or until you dismiss it using another action. You emit bright light in a 60-foot radius and dim light 30 feet beyond that. Your enemies in the bright light have disadvantage on saving throws against any spell that deals fire or radiant damage.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "action",
+            "duration": {
+              "value": 1,
+              "unit": "minutes"
+            },
+            "effects": [
+              {
+                "aura": {
+                  "origin": "self",
+                  "layers": [
+                    {
+                      "type": "bright_light",
+                      "shape": "radius",
+                      "size": 60,
+                      "unit": "feet"
+                    },
+                    {
+                      "type": "dim_light",
+                      "shape": "radius",
+                      "size": 90,
+                      "unit": "feet"
+                    }
+                  ]
+                }
+              },
+              {
+                "target": {
+                  "type": "creatures",
+                  "disposition": "hostile"
+                },
+                "area": {
+                  "shape": "radius",
+                  "size": 60,
+                  "unit": "feet",
+                  "origin": "self",
+                  "light_level": "bright"
+                },
+                "effect": {
+                  "disadvantage": {
+                    "saving_throw": [
+                      "Strength",
+                      "Dexterity",
+                      "Constitution",
+                      "Intelligence",
+                      "Wisdom",
+                      "Charisma"
+                    ],
+                    "against": {
+                      "type": "spell",
+                      "damage_type": ["fire", "radiant"]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Nature",
+    "description": "Gods of nature are as varied as the natural world itself; from inscrutable gods of the deep forests (such as Silvanus, Obad-Hai, Chislev, Balinor, and Pan) to friendly deities associated with particular springs and groves (such as Eldath). Druids revere nature as a whole and might serve one of these deities, practicing mysterious rites and reciting all-but-forgotten prayers in their own secret tongue. But many of these gods have clerics as well, champions who take a more active role in advancing the interests of a particular nature god. These clerics might hunt the evil monstrosities that despoil the woodlands, bless the harvest of the faithful, or wither the crops of those who anger their gods.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "available_to": ["Cleric"],
+    "features": [
+      {
+        "level": 1,
+        "name": "Domain Spell Knowledge",
+        "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you have a domain spell that doesn't appear on the cleric spell list, the spell is nonetheless a cleric spell for you.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "granted_spells",
+            "always_prepared": true,
+            "spells": {
+              "1": ["Animal Friendship", "Speak with Animals"],
+              "3": ["Barkskin", "Spike Growth"],
+              "5": ["Plant Growth", "Wind Wall"],
+              "7": ["Dominate Beast", "Grasping Vine"],
+              "9": ["Insect Plague", "Tree Stride"]
+            }
+          },
+          {
+            "type": "choice",
+            "choice_type": "expertise",
+            "options": ["Animal Handling", "Nature", "Survival"],
+            "count": 1
+          }
+        ]
+      },
+      {
+        "name": "Acolyte of Nature",
+        "level": 1,
+        "description": "You learn one cantrip of your choice from the druid spell list.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "choice",
+            "choice_type": "spell",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "level": 1,
+        "name": "Bonus Proficiency",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "proficiency",
+            "category": "armor",
+            "proficiencies": ["Heavy Armor"]
+          }
+        ]
+      },
+      {
+        "name": "Charm Animals and Plants",
+        "level": 2,
+        "description": "You can use your Channel Divinity to charm animals and plants.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "action",
+            "cost": [
+              {
+                "resource": "channel_divinity",
+                "amount": 1
+              }
+            ],
+            "requirements": [
+              {
+                "type": "equipment",
+                "item": "holy symbol"
+              }
+            ],
+            "effects": [
+              {
+                "target": {
+                  "type": "creatures",
+                  "disposition": "any",
+                  "requirements": [
+                    {
+                      "type": "creature_type",
+                      "value": ["Beast", "Plant"],
+                      "match": "any"
+                    }
+                  ]
+                },
+                "area": {
+                  "shape": "radius",
+                  "size": 30,
+                  "unit": "feet",
+                  "origin": "self"
+                },
+                "saving_throw": {
+                  "ability": "Wisdom",
+                  "dc": {
+                    "ref": "spell_save_dc"
+                  },
+                  "on_failure": {
+                    "apply_status": {
+                      "name": "charmed",
+                      "source": "character",
+                      "action": "Charm Animals and Plants",
+                      "duration": {
+                        "value": 1,
+                        "unit": "minutes",
+                        "until": ["damaged_by"]
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Dampen Elements",
+        "level": 6,
+        "description": "When you or a creature within 30 feet of you takes acid, cold, fire, lightning, or thunder damage, you can use your reaction to grant resistance to the creature against that instance of the damage.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "reaction",
+            "trigger": {
+              "event": ["damaged_by"],
+              "target": {
+                "type": ["self", "ally"],
+                "range": {
+                  "value": 30,
+                  "unit": "feet"
+                }
+              },
+              "damage_type": ["acid", "cold", "fire", "lightning", "thunder"]
+            },
+            "target": {
+              "type": "event_recipient"
+            },
+            "effects": [
+              {
+                "damage": {
+                  "calculation": {
+                    "operation": "divide",
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 2
+                      }
+                    ],
+                    "rounding": "down"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "name": "Divine Strike",
+        "description": "You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 cold, fire, or lightning damage (your choice) to the target. When you reach 14th level, the extra damage increases to 2d8.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "damage_bonus",
+            "trigger": {
+              "event": ["damage"],
+              "source": {
+                "type": ["weapon"]
+              }
+            },
+            "effects": [
+              {
+                "damage": {
+                  "dice": "1d8"
+                },
+                "choice": {
+                  "type": "damage_type",
+                  "options": [
+                    {
+                      "name": "cold"
+                    },
+                    {
+                      "name": "fire"
+                    },
+                    {
+                      "name": "lightning"
+                    }
+                  ]
+                }
+              }
+            ],
+            "scaling": {
+              "components": {
+                "damage": {
+                  "by_level": {
+                    "14": "2d8"
+                  }
+                }
+              }
+            },
+            "uses": {
+              "value": 1
+            },
+            "recharge": "turn"
+          }
+        ]
+      },
+      {
+        "name": "Master of Nature",
+        "level": 17,
+        "description": "You gain the ability to command animals and plant creatures. While creatures are charmed by your Charm Animals and Plants feature, you can take a bonus action on your turn to verbally command what each of those creatures will do on its next turn.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "bonus_action",
+            "target": {
+              "type": "creatures",
+              "requirements": [
+                {
+                  "type": "status",
+                  "value": "charmed",
+                  "from_action": "Charm Animals and Plants",
+                  "from_source": "character"
+                }
+              ]
+            },
+            "effects": [
+              {
+                "grants": {
+                  "name": "Command"
+                },
+                "duration": {
+                  "value": 1,
+                  "unit": "turns"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Tempest",
+    "description": "Gods whose portfolios include the Tempest domain - including Talos, Umberlee, Kord, Zeboim, the Devourer, Zeus, and Thor - govern storms, sea, and, sky. They include gods of lightning and thunder, gods of earthquakes, some fire gods, and certain gods of violence, physical strength, and courage. In some pantheons, a god of this domain rules over other deities and is known for swift justice delivered by thunderbolts. In the pantheons of seafaring people, gods of this domain are ocean deities and the patrons of sailors. Tempest gods send their clerics to inspire fear in the common folk, either to keep those folk on the path of righteousness or to encourage them to offer sacrifices of propitiation to ward off divine wrath.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "available_to": ["Cleric"],
+    "features": [
+      {
+        "level": 1,
+        "name": "Domain Spell Knowledge",
+        "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you have a domain spell that doesn't appear on the cleric spell list, the spell is nonetheless a cleric spell for you.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "granted_spells",
+            "always_prepared": true,
+            "spells": {
+              "1": ["Fog Cloud", "Thunderwave"],
+              "3": ["Gust of Wind", "Shatter"],
+              "5": ["Call Lightning", "Sleet Storm"],
+              "7": ["Control Water", "Ice Storm"],
+              "9": ["Destructive Wave", "Insect Plague"]
+            }
+          }
+        ]
+      },
+      {
+        "level": 1,
+        "name": "Bonus Proficiencies",
+        "description": "At 1st level, you gain proficiency with martial weapons and heavy armor.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "proficiency",
+            "category": "armor",
+            "proficiencies": ["Heavy Armor"]
+          },
+          {
+            "type": "proficiency",
+            "category": "weapon",
+            "proficiencies": ["Martial Melee"]
+          }
+        ]
+      },
+      {
+        "name": "Wrath of the Storm",
+        "level": 1,
+        "description": "You can thunderously rebuke attackers.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "reaction",
+            "trigger": {
+              "event": ["hit_by"]
+            },
+            "effects": [
+              {
+                "saving_throw": {
+                  "ability": "Dexterity",
+                  "dc": {
+                    "ref": "spell_save_dc"
+                  },
+                  "on_failure": {
+                    "damage": {
+                      "dice": "2d8"
+                    }
+                  },
+                  "on_success": {
+                    "damage": {
+                      "calculation": {
+                        "operation": "divide",
+                        "operators": [
+                          {
+                            "type": "integer",
+                            "value": 2
+                          }
+                        ],
+                        "rounding": "down"
+                      }
+                    }
+                  }
+                },
+                "choice": {
+                  "type": "damage_type",
+                  "options": [
+                    {
+                      "name": "thunder"
+                    },
+                    {
+                      "name": "lightning"
+                    }
+                  ]
+                },
+                "requirements": [
+                  {
+                    "type": "distance",
+                    "value": 5,
+                    "unit": "feet",
+                    "comparison": "within"
+                  },
+                  {
+                    "type": "perception",
+                    "observer": "character",
+                    "subject": "attacker",
+                    "senses": ["sight"]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "uses": {
+          "calculation": "scores.wisdom.modifier",
+          "minimum": 1
+        },
+        "recharge": "long_rest"
+      },
+      {
+        "name": "Destructive Wrath",
+        "level": 2,
+        "description": "When you roll lightning or thunder damage, you can use your Channel Divinity to deal maximum damage instead of rolling.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "optional",
+            "trigger": {
+              "event": ["damage"],
+              "damage_type": ["thunder", "lightning"]
+            },
+            "cost": [
+              {
+                "resource": "channel_divinity",
+                "amount": 1
+              }
+            ],
+            "effects": [
+              {
+                "roll_modifier": {
+                  "function": "roller.max_roll"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Thunderbolt Strike",
+        "level": 6,
+        "description": "When you deal lightning damage to a Large or smaller creature, you can also push it up to 10 feet away from you.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "passive",
+            "trigger": {
+              "event": ["damage"],
+              "damage_type": "lightning"
+            },
+            "effects": [
+              {
+                "target": {
+                  "type": "creature",
+                  "requirements": [
+                    {
+                      "type": "size",
+                      "value": ["Tiny", "Small", "Medium", "Large"]
+                    }
+                  ]
+                },
+                "forced_movement": {
+                  "type": "push",
+                  "direction": "away",
+                  "relative_to": "character",
+                  "distance": {
+                    "value": 10,
+                    "unit": "feet",
+                    "maximum": true
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "name": "Divine Strike",
+        "description": "You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 radiant damage to the target. When you reach 14th level, the extra damage increases to 2d8.",
+        "mechanics": [
+          {
+            "type": "damage_bonus",
+            "trigger": {
+              "event": ["damage"],
+              "source": {
+                "type": ["weapon"]
+              }
+            },
+            "damage": {
+              "dice": "1d8",
+              "type": ["thunder"]
+            },
+            "scaling": {
+              "components": {
+                "damage": {
+                  "by_level": {
+                    "14": "2d8"
+                  }
+                }
+              }
+            },
+            "uses": {
+              "value": 1
+            },
+            "recharge": "turn"
+          }
+        ],
+        "source": "phb",
+        "ruleset": "dnd5e"
+      },
+      {
+        "level": 17,
+        "name": "Stormborn",
+        "description": "You have a flying speed equal to your current walking speed whenever you are not underground or indoors.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "passive",
+            "effects": [
+              {
+                "attribute": {
+                  "target": "movement.fly",
+                  "calculation": {
+                    "operation": "set",
+                    "operators": [
+                      {
+                        "type": "attribute",
+                        "value": "movement.base"
+                      }
+                    ]
+                  }
+                },
+                "requirements": [
+                  {
+                    "type": "function",
+                    "function": "environment.is_outdoors"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Trickery",
+    "description": "Gods of trickery - such as Tymora, Beshaba, Olidammara, the Traveler, Garl Glittergold, and Loki - are mischief-makers and instigators who stand as a constant challenge to the accepted order among both gods and mortals. They're patrons of thieves, scoundrels, gamblers, rebels, and liberators. Their clerics are a disruptive force in the world, puncturing pride, mocking tyrants, stealing from the rich, freeing captives, and flouting hollow traditions. They prefer subterfuge, pranks, deception, and theft rather than direct confrontation.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "available_to": ["Cleric"],
+    "features": [
+      {
+        "level": 1,
+        "name": "Domain Spell Knowledge",
+        "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you have a domain spell that doesn't appear on the cleric spell list, the spell is nonetheless a cleric spell for you.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "granted_spells",
+            "always_prepared": true,
+            "spells": {
+              "1": ["Charm Person", "Disguise Self"],
+              "3": ["Mirror Image", "Pass without Trace"],
+              "5": ["Blink", "Dispel Magic"],
+              "7": ["Dimension Door", "Polymorph"],
+              "9": ["Dominate Person", "Modify Memory"]
+            }
+          }
+        ]
+      },
+      {
+        "level": 1,
+        "name": "Blessing of the Trickster",
+        "description": "You can use your action to touch a willing creature other than yourself to give it advantage on Dexterity (Stealth) checks. This blessing lasts for 1 hour or until you use this feature again.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "action",
+            "target": {
+              "type": "creature",
+              "disposition": "willing"
+            },
+            "range": {
+              "type": "touch"
+            },
+            "effects": [
+              {
+                "advantage": {
+                  "skill": "Stealth",
+                  "target": {
+                    "type": "creature"
+                  }
+                }
+              }
+            ],
+            "duration": {
+              "value": 1,
+              "unit": "hours"
+            }
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "name": "Invoke Duplicity",
+        "description": "You can use your action to create a perfect illusion of yourself that lasts for 1 minute, or until you lose your concentration (as if you were concentrating on a spell). The illusion appears in an unoccupied space that you can see within 30 feet of you. As a bonus action on your turn, you can move the illusion up to 30 feet to a space you can see, but it must remain within 120 feet of you. For the duration, you can cast spells as though you were in the illusion's space, but you must use your own senses. Additionally, when both you and your illusion are within 5 feet of a creature that can see the illusion, you have advantage on attack rolls against that creature, given how distracting the illusion is to the target.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "action",
+            "concentration": true,
+            "duration": {
+              "value": 1,
+              "unit": "minutes"
+            },
+            "effects": [
+              {
+                "entity": {
+                  "category": "illusion",
+                  "type": "duplicate",
+                  "count": 1,
+                  "placement": {
+                    "range": 30,
+                    "space": "unoccupied",
+                    "visibility": {
+                      "requires": "line_of_sight"
+                    }
+                  },
+                  "tether": {
+                    "value": 120,
+                    "unit": "feet"
+                  },
+                  "capabilities": ["spell_origin_point"]
+                }
+              },
+              {
+                "advantage": {
+                  "attack": "all",
+                  "requirements": [
+                    {
+                      "type": "proximity",
+                      "entities": ["self", "illusion"],
+                      "distance": 5,
+                      "to": "target"
+                    },
+                    {
+                      "type": "perception",
+                      "observer": "target",
+                      "subject": "illusion",
+                      "senses": ["sight"]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "type": "bonus_action",
+            "name": "move_illusion",
+            "effects": [
+              {
+                "movement": {
+                  "target": {
+                    "type": "entity",
+                    "value": ["duplicate"]
+                  },
+                  "distance": 30,
+                  "visibility": {
+                    "requires": "line_of_sight"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "short_rest"
+      },
+      {
+        "level": 6,
+        "name": "Cloak of Shadows",
+        "description": "You can use your Channel Divinity to vanish.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "action",
+            "target": {
+              "type": "self"
+            },
+            "effects": [
+              {
+                "apply_status": {
+                  "name": "invisible",
+                  "duration": {
+                    "until": ["attack", "cast_spell"]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "name": "Divine Strike",
+        "description": "You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 poison damage to the target. When you reach 14th level, the extra damage increases to 2d8.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "damage_bonus",
+            "trigger": {
+              "event": ["damage"],
+              "source": {
+                "type": ["weapon"]
+              }
+            },
+            "damage": {
+              "dice": "1d8",
+              "type": ["poison"]
+            },
+            "scaling": {
+              "components": {
+                "damage": {
+                  "by_level": {
+                    "14": "2d8"
+                  }
+                }
+              }
+            },
+            "uses": {
+              "value": 1
+            },
+            "recharge": "turn"
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "name": "Improved Duplicity",
+        "description": "You can create up to four duplicates of yourself, instead of one, when you use Invoke Duplicity. As a bonus action on your turn, you can move any number of them up to 30 feet, to a maximum range of 120 feet.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "enhances": "Invoke Duplicity",
+        "mechanics": [
+          {
+            "type": "special",
+            "modifies": "Invoke Duplicity",
+            "changes": {
+              "summon.count": {
+                "value": 4,
+                "player_choice": {
+                  "min": 1,
+                  "max": 4
+                }
+              },
+              "grants.move_illusion.movement.target.count": "any"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "War",
+    "description": "War has many manifestations. It can make heroes of ordinary people. It can be desperate and horrific, with acts of cruelty and cowardice eclipsing instances of excellence and courage. In either case, the gods of war watch over warriors and reward them for their great deeds. The clerics of such gods excel in battle, inspiring others to fight the good fight or offering acts of violence as prayers. Gods of war include champions of honor and chivalry (such as Torm, Heironeous, and Kiri-Jolith) as well as gods of destruction and pillage (such as Erythnul, the Fury, Gruumsh, and Ares) and gods of conquest and domination (such as Bane, Hextor, and Maglubiyet). Other war gods (such as Tempus, Nike, and Nuada) take a more neutral stance, promoting war in all its manifestations and supporting warriors in any circumstance.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "available_to": ["Cleric"],
+    "features": [
+      {
+        "level": 1,
+        "name": "Domain Spell Knowledge",
+        "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you have a domain spell that doesn't appear on the cleric spell list, the spell is nonetheless a cleric spell for you.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "granted_spells",
+            "always_prepared": true,
+            "spells": {
+              "1": ["Divine Favor", "Shield of Faith"],
+              "3": ["Magic Weapon", "Spiritual Weapon"],
+              "5": ["Crusader's Mantle", "Spirit Guardians"],
+              "7": ["Freedom of Movement", "Stoneskin"],
+              "9": ["Flame Strike", "Hold Monster"]
+            }
+          }
+        ]
+      },
+      {
+        "level": 1,
+        "name": "Bonus Proficiencies",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "proficiency",
+            "category": "armor",
+            "proficiencies": ["Heavy Armor"]
+          },
+          {
+            "type": "proficiency",
+            "category": "weapon",
+            "proficiencies": ["Martial Melee", "Martial Ranged"]
+          }
+        ]
+      },
+      {
+        "level": 1,
+        "name": "War Priest",
+        "description": "Your god delivers bolts of inspiration to you while you are engaged in battle.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "bonus_action",
+            "trigger": {
+              "event": ["attack"],
+              "source": {
+                "type": ["weapon"]
+              }
+            },
+            "effects": [
+              {
+                "grants": {
+                  "name": "Attack"
+                }
+              }
+            ],
+            "uses": {
+              "calculation": "scores.wisdom.modifier",
+              "minimum": 1
+            },
+            "recharge": "long_rest"
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "name": "Guided Strike",
+        "description": "You can use your Channel Divinity to strike with supernatural accuracy.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "optional",
+            "trigger": {
+              "event": ["attack"]
+            },
+            "effects": [
+              {
+                "calculation": {
+                  "operation": "add",
+                  "operators": [
+                    {
+                      "type": "integer",
+                      "value": 10
+                    }
+                  ]
+                }
+              }
+            ],
+            "cost": [
+              {
+                "resource": "channel_divinity",
+                "amount": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "name": "War God's Blessing",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "reaction",
+            "trigger": {
+              "event": ["attack"]
+            },
+            "target": {
+              "type": "creature"
+            },
+            "effects": [
+              {
+                "calculation": {
+                  "operation": "add",
+                  "operators": [
+                    {
+                      "type": "integer",
+                      "value": 10
+                    }
+                  ]
+                }
+              }
+            ],
+            "requirements": [
+              {
+                "type": "distance",
+                "value": 30,
+                "comparison": "within",
+                "unit": "feet",
+                "to": "creature"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "name": "Divine Strike",
+        "description": "You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 damage of the same type. When you reach 14th level, the extra damage increases to 2d8.",
+        "mechanics": [
+          {
+            "type": "damage_bonus",
+            "trigger": {
+              "event": ["damage"],
+              "source": {
+                "type": ["weapon"]
+              }
+            },
+            "damage": {
+              "dice": "1d8",
+              "inherit_type": true
+            },
+            "scaling": {
+              "components": {
+                "damage": {
+                  "by_level": {
+                    "14": "2d8"
+                  }
+                }
+              }
+            },
+            "uses": {
+              "value": 1
+            },
+            "recharge": "turn"
+          }
+        ],
+        "source": "phb",
+        "ruleset": "dnd5e"
+      },
+      {
+        "level": 17,
+        "name": "Avatar of Battle",
+        "description": "You gain resistance to bludgeoning, piercing, and slashing damage from nonmagical attacks.",
+        "source": "phb",
+        "ruleset": "dnd5e",
+        "mechanics": [
+          {
+            "type": "passive",
+            "effects": [
+              {
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["bludgeoning", "piercing", "slashing"],
+                  "damage_source_requirements": [
+                    {
+                      "type": "damage_source",
+                      "property": "magical",
+                      "value": false
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,159 @@
+[
+  {
+    "class": "College of Valor",
+    "level": 3,
+    "name": "Bonus Proficiencies",
+    "description": "When you join the College of Valor at 3rd level, you gain proficiency with medium armor, shields, and martial weapons.",
+    "mechanics": [
+      {
+        "type": "proficiency",
+        "category": "armor",
+        "proficiencies": [
+          "Medium Armor",
+          "Shields"
+        ]
+      },
+      {
+        "type": "proficiency",
+        "category": "weapon",
+        "proficiencies": [
+          "Martial Melee",
+          "Martial Ranged"
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "College of Valor",
+    "level": 3,
+    "name": "Combat Inspiration",
+    "description": "Also at 3rd level, you learn to inspire others in battle. A creature that has a Bardic Inspiration die from you can roll that die and add the number rolled to a weapon damage roll it just made. Alternatively, when an attack roll is made against the creature, it can use its reaction to roll the Bardic Inspiration die and add the number rolled to its AC against that attack, after seeing the roll but before knowing whether it hits or misses.",
+    "enhances": "Bardic Inspiration",
+    "mechanics": [
+      {
+        "type": "optional",
+        "name": "combat_inspiration_damage",
+        "trigger": {
+          "event": [
+            "damage"
+          ],
+          "source": {
+            "type": [
+              "weapon"
+            ]
+          }
+        },
+        "cost": [
+          {
+            "resource": "bardic_inspiration",
+            "amount": 1
+          }
+        ],
+        "effects": [
+          {
+            "damage_bonus": {
+              "bonus": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "resource_die",
+                    "value": "bardic_inspiration"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "reaction",
+        "name": "combat_inspiration_ac",
+        "trigger": {
+          "event": [
+            "attacked_by"
+          ],
+          "timing": "after"
+        },
+        "cost": [
+          {
+            "resource": "bardic_inspiration",
+            "amount": 1
+          }
+        ],
+        "effects": [
+          {
+            "attribute": {
+              "target": "armor_class",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "resource_die",
+                    "value": "bardic_inspiration"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "College of Valor",
+    "level": 6,
+    "name": "Extra Attack",
+    "description": "Starting at 6th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.",
+    "mechanics": [
+      {
+        "type": "extra_attack",
+        "scaling": {
+          "components": {
+            "attacks": {
+              "by_level": {
+                "6": 2
+              }
+            }
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "College of Valor",
+    "level": 14,
+    "name": "Battle Magic",
+    "description": "At 14th level, you have mastered the art of weaving spellcasting and weapon use into a single harmonious act. When you use your action to cast a bard spell, you can make one weapon attack as a bonus action.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "trigger": {
+          "event": [
+            "cast_spell"
+          ],
+          "source": {
+            "type": [
+              "spell"
+            ]
+          },
+          "spell_class": "Bard",
+          "activation": "action"
+        },
+        "grants": {
+          "name": "Attack",
+          "type": "weapon",
+          "activation": "bonus_action",
+          "count": 1
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

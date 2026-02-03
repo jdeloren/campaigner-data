@@ -1,0 +1,25 @@
+services:
+  tools:
+    build: .
+    volumes:
+      - ./data:/app/data:ro
+      - ./schemas:/app/schemas:ro
+      - ./dist:/app/dist
+    working_dir: /app
+
+  # Convenience services for common commands
+  validate:
+    build: .
+    volumes:
+      - ./data:/app/data:ro
+      - ./schemas:/app/schemas:ro
+    working_dir: /app
+    command: ["scripts/validate.py", "--all", "-v"]
+
+  package:
+    build: .
+    volumes:
+      - ./data:/app/data:ro
+      - ./dist:/app/dist
+    working_dir: /app
+    command: ["scripts/package.py", "--all"]

@@ -1,0 +1,705 @@
+[
+  {
+    "name": "Alchemist's Supplies",
+    "description": "Alchemist's supplies enable a character to produce useful concoctions, such as acid or alchemist's fire.",
+    "cost": {
+      "amount": 50.0,
+      "currency": "GP"
+    },
+    "activities": [
+      {
+        "name": "Create a puff of thick smoke",
+        "dc": { "base": 10 }
+      },
+      {
+        "name": "Identify a poison",
+        "dc": { "base": 10 }
+      },
+      {
+        "name": "Identify a substance",
+        "dc": { "base": 15 }
+      },
+      {
+        "name": "Start a fire",
+        "dc": { "base": 15 }
+      },
+      {
+        "name": "Neutralize acid",
+        "dc": { "base": 20 }
+      }
+    ],
+    "weight": 8.0,
+    "category": "Artisan's Tools",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Brewer's Supplies",
+    "description": "Brewing is the art of producing beer. Not only does beer serve as an alcoholic beverage, but the process of brewing purifies water. Crafting beer takes weeks of fermentation, but only a few hours of work.",
+    "cost": {
+      "amount": 20.0,
+      "currency": "GP"
+    },
+    "activities": [
+      {
+        "name": "Detect poison or impurities in a drink",
+        "dc": { "base": 10 }
+      },
+      {
+        "name": "Identify alcohol",
+        "dc": { "base": 15 }
+      },
+      {
+        "name": "Identify effects of alcohol",
+        "dc": { "base": 20 }
+      }
+    ],
+    "weight": 9.0,
+    "category": "Artisan's Tools",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Calligrapher's Tools",
+    "description": "Calligraphy treats writing as a delicate, beautiful art. Calligraphers produce text that is pleasing to the eye, using a style that is difficult to forge. Their supplies also give them some ability to examine scripts and determine if they are legitimate, since a calligrapher's training involves long hours of studying writing and attempting to replicate its style and design.",
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "activities": [
+      {
+        "name": "Identify writer of nonmagical script",
+        "dc": { "base": 10 }
+      },
+      {
+        "name": "Determine writer's state of mind",
+        "dc": { "base": 15 }
+      },
+      {
+        "name": "Spot forged text",
+        "dc": { "base": 15 }
+      },
+      {
+        "name": "Forge a signature",
+        "dc": { "base": 20 }
+      }
+    ],
+    "weight": 5.0,
+    "category": "Artisan's Tools",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Carpenter's Tools",
+    "description": "Skill at carpentry enables a character to construct wooden structures. A carpenter can build a house, a shack, a wooden cabinet, or similar items.",
+    "cost": {
+      "amount": 8.0,
+      "currency": "GP"
+    },
+    "activities": [
+      {
+        "name": "Build a simple wooden structure",
+        "dc": { "base": 10 }
+      },
+      {
+        "name": "Design a complex wooden structure",
+        "dc": { "base": 15 }
+      },
+      {
+        "name": "Find a weak point in a wooden wall",
+        "dc": { "base": 15 }
+      },
+      {
+        "name": "Pry apart a door",
+        "dc": { "base": 20 }
+      }
+    ],
+    "weight": 6.0,
+    "category": "Artisan's Tools",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Cartographer's Tools",
+    "description": "Using cartographer's tools, you can create accurate maps to make travel easier for yourself and those who come after you. These maps can range from large-scale depictions of mountain ranges to diagrams that show the layout of a dungeon level.",
+    "cost": {
+      "amount": 15.0,
+      "currency": "GP"
+    },
+    "activities": [
+      {
+        "name": "Determine a map's age and origin",
+        "dc": { "base": 10 }
+      },
+      {
+        "name": "Estimate direction and distance to a landmark",
+        "dc": { "base": 15 }
+      },
+      {
+        "name": "Discern that a map is a fake",
+        "dc": { "base": 15 }
+      },
+      {
+        "name": "Fill in a missing part of a map",
+        "dc": { "base": 20 }
+      }
+    ],
+    "weight": 6.0,
+    "category": "Artisan's Tools",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Cobbler's Tools",
+    "description": "Although the cobbler's trade might seem too humble for an adventurer, a good pair of boots will see a character across rugged wilderness and through deadly dungeons.",
+    "cost": {
+      "amount": 5.0,
+      "currency": "GP"
+    },
+    "activities": [
+      {
+        "name": "Determine a shoe's age and origin",
+        "dc": { "base": 10 }
+      },
+      {
+        "name": "Find a hidden compartment in a boot heel",
+        "dc": { "base": 15 }
+      }
+    ],
+    "weight": 5.0,
+    "category": "Artisan's Tools",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Cook's Utensils",
+    "description": "Adventuring is a hard life. With a cook along on the journey, your meals will be much better than the typical mix of hardtack and dried fruit.",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "activities": [
+      {
+        "name": "Create a typical meal",
+        "dc": { "base": 10 }
+      },
+      {
+        "name": "Duplicate a meal",
+        "dc": { "base": 10 }
+      },
+      {
+        "name": "Spot poison or iompurities in good",
+        "dc": { "base": 15 }
+      },
+      {
+        "name": "Create a gourmet meal",
+        "dc": { "base": 15 }
+      }
+    ],
+    "weight": 8.0,
+    "category": "Artisan's Tools",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Glassblower's Tools",
+    "description": "Someone who is proficient with glassblower's tools has not only the ability to shape glass, but also specialized knowledge of the methods used to produce glass objects.",
+    "cost": {
+      "amount": 30.0,
+      "currency": "GP"
+    },
+    "activities": [
+      {
+        "name": "Identify source of glass",
+        "dc": { "base": 10 }
+      },
+      {
+        "name": "Determine what a glass object once held",
+        "dc": { "base": 20 }
+      }
+    ],
+    "weight": 5.0,
+    "category": "Artisan's Tools",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Jeweler's Tools",
+    "description": "Training with jeweler's tools includes the basic techniques needed to beautify gems. It also gives you expertise in identifying precious stones.",
+    "cost": {
+      "amount": 25.0,
+      "currency": "GP"
+    },
+    "activities": [
+      {
+        "name": "Modify a gem's appearance",
+        "dc": { "base": 15 }
+      },
+      {
+        "name": "Determine a gem's history",
+        "dc": { "base": 20 }
+      }
+    ],
+    "weight": 2.0,
+    "category": "Artisan's Tools",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Leatherworker's Tools",
+    "description": "Knowledge of leatherworking extends to lore concerning animal hides and their properties. It also confers knowledge of Leather Armor and similar goods.",
+    "cost": {
+      "amount": 5.0,
+      "currency": "GP"
+    },
+    "activities": [
+      {
+        "name": "Modify a leather item's appearance",
+        "dc": { "base": 10 }
+      },
+      {
+        "name": "Determine a leather item's history",
+        "dc": { "base": 20 }
+      }
+    ],
+    "weight": 5.0,
+    "category": "Artisan's Tools",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Mason's Tools",
+    "description": "Mason's tools allow you to craft stone structures, including walls and buildings crafted from brick.",
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "activities": [
+      {
+        "name": "Chisel a small hole in a stone wall",
+        "dc": { "base": 10 }
+      },
+      {
+        "name": "Find a weak point in a stone wall",
+        "dc": { "base": 20 }
+      }
+    ],
+    "weight": 8.0,
+    "category": "Artisan's Tools",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Painter's Supplies",
+    "description": "Proficiency with painter's supplies represents your ability to paint and draw. You also acquire an understanding of art history, which can aid you in examining works of art.",
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "activities": [
+      {
+        "name": "Paint an accurate portrait",
+        "dc": { "base": 10 }
+      },
+      {
+        "name": "Create a painting with a hidden message",
+        "dc": { "base": 20 }
+      }
+    ],
+    "weight": 5.0,
+    "category": "Artisan's Tools",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Potter's Tools",
+    "description": "Potter's tools are used to create a variety of ceramic objects, most typically pots and similar vessels.",
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "activities": [
+      {
+        "name": "Determine what a vessel once held",
+        "dc": { "base": 10 }
+      },
+      {
+        "name": "Creat a serviceable pot",
+        "dc": { "base": 15 }
+      },
+      {
+        "name": "Find a weak point in a ceramic object",
+        "dc": { "base": 20 }
+      }
+    ],
+    "weight": 3.0,
+    "category": "Artisan's Tools",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Smith's Tools",
+    "description": "Smith's tools allow you to work metal, beating it to alter its shape, repair damage, or work raw ingots into useful items.",
+    "cost": {
+      "amount": 20.0,
+      "currency": "GP"
+    },
+    "activities": [
+      {
+        "name": "Sharpen a dull blade",
+        "dc": { "base": 10 }
+      },
+      {
+        "name": "Repair a suit of armor",
+        "dc": { "base": 15 }
+      },
+      {
+        "name": "Sunder a nonmagical metal object",
+        "dc": { "base": 20 }
+      }
+    ],
+    "weight": 8.0,
+    "category": "Artisan's Tools",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Tinker's Tools",
+    "description": "A set of tinker's tools is designed to enable you to repair many mundane objects. Though you can't manufacture much with tinker's tools, you can mend torn clothes, sharpen a worn sword, and patch a tattered suit of chain mail.",
+    "cost": {
+      "amount": 50.0,
+      "currency": "GP"
+    },
+    "activities": [
+      {
+        "name": "Temporarily repair a disabled device",
+        "dc": { "base": 10 }
+      },
+      {
+        "name": "Repair an item in half the time",
+        "dc": { "base": 15 }
+      },
+      {
+        "name": "Improvise a temporary item using scraps",
+        "dc": { "base": 20 }
+      }
+    ],
+    "weight": 10.0,
+    "category": "Artisan's Tools",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Weaver's Tools",
+    "description": "Weaver's tools allow you to create cloth and tailor it into articles of clothing.",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "activities": [
+      {
+        "name": "Repurpose cloth",
+        "dc": { "base": 10 }
+      },
+      {
+        "name": "Mend a hole in a piece of cloth",
+        "dc": { "base": 10 }
+      },
+      {
+        "name": "Tailor an outfit",
+        "dc": { "base": 15 }
+      }
+    ],
+    "weight": 5.0,
+    "category": "Artisan's Tools",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Woodcarver's Tools",
+    "description": "Woodcarver's tools allow you to craft intricate objects from wood, such as wooden tokens or arrows.",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "activities": [
+      {
+        "name": "Craft a small wooden figurine",
+        "dc": { "base": 10 }
+      },
+      {
+        "name": "Carve an intricate pattern in wood",
+        "dc": { "base": 15 }
+      }
+    ],
+    "weight": 5.0,
+    "category": "Artisan's Tools",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Dice Set",
+    "cost": {
+      "amount": 1.0,
+      "currency": "SP"
+    },
+    "weight": 0.0,
+    "category": "Gaming Set",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Dragonchess Set",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "weight": 0.5,
+    "category": "Gaming Set",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Playing Card Set",
+    "cost": {
+      "amount": 5.0,
+      "currency": "SP"
+    },
+    "weight": 0.0,
+    "category": "Gaming Set",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Three-Dragon Ante Set",
+    "cost": {
+      "amount": 1.0,
+      "currency": "SP"
+    },
+    "weight": 0.0,
+    "category": "Gaming Set",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Bagpipes",
+    "cost": {
+      "amount": 30.0,
+      "currency": "GP"
+    },
+    "weight": 6.0,
+    "category": "Musical Instrument",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Drum",
+    "cost": {
+      "amount": 6.0,
+      "currency": "GP"
+    },
+    "weight": 3.0,
+    "category": "Musical Instrument",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Dulcimer",
+    "cost": {
+      "amount": 25.0,
+      "currency": "GP"
+    },
+    "weight": 10.0,
+    "category": "Musical Instrument",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Flute",
+    "cost": {
+      "amount": 2.0,
+      "currency": "GP"
+    },
+    "weight": 1.0,
+    "category": "Musical Instrument",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Lute",
+    "cost": {
+      "amount": 35.0,
+      "currency": "GP"
+    },
+    "weight": 2.0,
+    "category": "Musical Instrument",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Lyre",
+    "cost": {
+      "amount": 30.0,
+      "currency": "GP"
+    },
+    "weight": 2.0,
+    "category": "Musical Instrument",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Horn",
+    "cost": {
+      "amount": 3.0,
+      "currency": "GP"
+    },
+    "weight": 2.0,
+    "category": "Musical Instrument",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Pan Flute",
+    "cost": {
+      "amount": 12.0,
+      "currency": "GP"
+    },
+    "weight": 2.0,
+    "category": "Musical Instrument",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Shawm",
+    "cost": {
+      "amount": 2.0,
+      "currency": "GP"
+    },
+    "weight": 1.0,
+    "category": "Musical Instrument",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Viol",
+    "cost": {
+      "amount": 30.0,
+      "currency": "GP"
+    },
+    "weight": 1.0,
+    "category": "Musical Instrument",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Disguise Kit",
+    "cost": {
+      "amount": 25.0,
+      "currency": "GP"
+    },
+    "weight": 3.0,
+    "category": "Miscellaneous",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Forgery Kit",
+    "description": "A forgery kit is designed to duplicate documents and to make it easier to copy a person's seal or signature.",
+    "cost": {
+      "amount": 15.0,
+      "currency": "GP"
+    },
+    "activities": [
+      {
+        "name": "Mimic handwriting",
+        "dc": { "base": 15 }
+      },
+      {
+        "name": "Duplicate a wax seal",
+        "dc": { "base": 20 }
+      }
+    ],
+    "weight": 5.0,
+    "category": "Miscellaneous",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Herbalism Kit",
+    "description": "Proficiency with an herbalism kit allows you to identify plants and safely collect their useful elements.",
+    "cost": {
+      "amount": 5.0,
+      "currency": "GP"
+    },
+    "activities": [
+      {
+        "name": "Find plants",
+        "dc": { "base": 15 }
+      },
+      {
+        "name": "Identify a poison",
+        "dc": { "base": 20 }
+      }
+    ],
+    "weight": 3.0,
+    "category": "Miscellaneous",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Navigator's Tools",
+    "description": "Proficiency with navigator's tools helps you determine a true course based on observing the stars. It also grants you insight into charts and maps while developing your sense of direction.",
+    "cost": {
+      "amount": 25.0,
+      "currency": "GP"
+    },
+    "activities": [
+      {
+        "name": "Plot a course",
+        "dc": { "base": 10 }
+      },
+      {
+        "name": "Discover your position on a nautical chart",
+        "dc": { "base": 15 }
+      }
+    ],
+    "weight": 2.0,
+    "category": "Miscellaneous",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Poisoner's Kit",
+    "description": "A poisoner's kit is a favored resource for thieves, assassins, and others who engage in skulduggery. It allows you to apply poisons and create them from various materials. Your knowledge of poisons also helps you treat them.",
+    "cost": {
+      "amount": 50.0,
+      "currency": "GP"
+    },
+    "activities": [
+      {
+        "name": "Spot a poisoned object",
+        "dc": { "base": 10 }
+      },
+      {
+        "name": "Determine the effects of a poison",
+        "dc": { "base": 20 }
+      }
+    ],
+    "weight": 2.0,
+    "category": "Miscellaneous",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Thieves' Tools",
+    "description": "Perhaps the most common tools used by adventurers, thieves' tools are designed for picking locks and foiling traps. Proficiency with the tools also grants you a general knowledge of traps and locks.",
+    "cost": {
+      "amount": 25.0,
+      "currency": "GP"
+    },
+    "weight": 1.0,
+    "category": "Miscellaneous",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

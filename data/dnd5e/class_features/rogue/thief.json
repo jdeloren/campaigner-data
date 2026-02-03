@@ -1,0 +1,196 @@
+[
+  {
+    "class": "Thief",
+    "level": 3,
+    "name": "Fast Hands",
+    "description": "You can use the bonus action granted by your Cunning Action to make a Dexterity (Sleight of Hand) check, use your thieves' tools to disarm a trap or open a lock, or take the Use an Object action.",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "effects": [
+          {
+            "grants": {
+              "name": "Sleight of Hand"
+            }
+          },
+          {
+            "grants": {
+              "name": "Disarm Trap"
+            }
+          },
+          {
+            "grants": {
+              "name": "Use an Object"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Thief",
+    "level": 3,
+    "name": "Second-Story Work",
+    "description": "You gain the ability to climb faster than normal; climbing no longer costs you extra movement. In addition, when you make a running jump, the distance you cover increases by a number of feet equal to your Dexterity modifier.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "second_story_climb",
+        "effects": [
+          {
+            "attribute": {
+              "target": "climbing_speed",
+              "calculation": {
+                "operation": "set",
+                "operators": [
+                  {
+                    "type": "attribute",
+                    "value": "walking_speed"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "name": "second_story_jump",
+        "effects": [
+          {
+            "attribute": {
+              "target": "movement.jump.running",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "attribute",
+                    "value": "ability_scores.dexterity.modifier"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Thief",
+    "level": 9,
+    "name": "Supreme Sneak",
+    "description": "You have advantage on a Dexterity (Stealth) check if you move no more than half your speed on the same turn.",
+    "mechanics": [
+      {
+        "type": "advantage",
+        "trigger": {
+          "event": [
+            "ability_check"
+          ],
+          "action": "Stealth"
+        },
+        "requirements": [
+          {
+            "type": "function",
+            "function": "resources.check_pool_remaining",
+            "context": "character",
+            "params": {
+              "resource": "movement",
+              "comparison": "greater_than_or_equal",
+              "percent": 50
+            }
+          }
+        ],
+        "effects": [
+          {
+            "advantage": {
+              "skill": "Stealth"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Thief",
+    "level": 13,
+    "name": "Use Magic Device",
+    "description": "You have learned enough about the workings of magic that you can improvise the use of items even when they are not intended for you. You ignore all class, race, and level requirements on the use of magic items.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "target": {
+              "type": "magic_item"
+            },
+            "grants": {
+              "name": "Use Magic Device",
+              "interaction": {
+                "ignore_requirements": [
+                  "class",
+                  "race",
+                  "level"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Thief",
+    "level": 17,
+    "name": "Thief's Reflexes",
+    "description": "You have become adept at laying ambushes and quickly escaping danger.",
+    "mechanics": [
+      {
+        "type": "extra_turn",
+        "requirements": [
+          {
+            "type": "status",
+            "value": "surprised",
+            "negate": true
+          },
+          {
+            "type": "function",
+            "function": "combat.is_first_round",
+            "context": "combat"
+          }
+        ],
+        "effects": [
+          {
+            "type": "add_turn",
+            "target": {
+              "type": "self"
+            },
+            "calculation": {
+              "operation": "subtract",
+              "operators": [
+                {
+                  "type": "attribute",
+                  "value": "initiative"
+                },
+                {
+                  "type": "integer",
+                  "value": 10
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

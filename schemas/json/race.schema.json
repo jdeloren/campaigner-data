@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "D&D 5e Races",
+  "type": "array",
+  "items": {
+    "description": "Complete D&D 5e race definition.",
+    "properties": {
+      "name": {
+        "description": "Race name",
+        "title": "Name",
+        "type": "string"
+      },
+      "base_race": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Base race name (null for base races)",
+        "title": "Base Race"
+      },
+      "size": {
+        "description": "Size category",
+        "title": "Size",
+        "type": "string"
+      },
+      "speed": {
+        "description": "Base walking speed",
+        "title": "Speed",
+        "type": "integer"
+      },
+      "creature_type": {
+        "description": "Creature type (e.g., Humanoid, Fey)",
+        "title": "Creature Type",
+        "type": "string"
+      },
+      "ability_score_increases": {
+        "additionalProperties": {
+          "type": "integer"
+        },
+        "description": "Ability score increases",
+        "title": "Ability Score Increases",
+        "type": "object"
+      },
+      "vision_type": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Vision type",
+        "title": "Vision Type"
+      },
+      "vision_range": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Vision range in feet",
+        "title": "Vision Range"
+      },
+      "requires_sleep": {
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Whether race requires sleep",
+        "title": "Requires Sleep"
+      },
+      "rest_duration": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Hours of rest required",
+        "title": "Rest Duration"
+      },
+      "rest_type": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Type of rest (e.g., trance, sleep)",
+        "title": "Rest Type"
+      },
+      "subraces": {
+        "description": "Available subraces",
+        "items": {
+          "type": "string"
+        },
+        "title": "Subraces",
+        "type": "array"
+      },
+      "source": {
+        "description": "Source book",
+        "title": "Source",
+        "type": "string"
+      },
+      "ruleset": {
+        "description": "Ruleset version",
+        "title": "Ruleset",
+        "type": "string"
+      }
+    },
+    "required": [
+      "name",
+      "size",
+      "speed",
+      "creature_type",
+      "source",
+      "ruleset"
+    ],
+    "title": "Race",
+    "type": "object"
+  }
+}

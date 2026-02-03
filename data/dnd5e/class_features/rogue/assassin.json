@@ -1,0 +1,128 @@
+[
+  {
+    "class": "Assassin",
+    "level": 3,
+    "name": "Bonus Proficiencies",
+    "description": "When you choose this archetype at 3rd level, you gain proficiency with the disguise kit and the poisoner's kit.",
+    "mechanics": [
+      {
+        "type": "proficiency",
+        "category": "tool",
+        "proficiencies": [
+          "disguise kit",
+          "poisoner's kit"
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Assassin",
+    "name": "Assassinate",
+    "level": 3,
+    "description": "You are at your deadliest when you get the drop on your enemies.",
+    "mechanics": [
+      {
+        "type": "advantage",
+        "trigger": {
+          "event": [
+            "attack"
+          ]
+        },
+        "target": {
+          "type": "creature",
+          "requirements": [
+            {
+              "type": "function",
+              "function": "timeline.has_acted",
+              "context": "target",
+              "params": {
+                "comparison": "equals",
+                "value": 0
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "critical_hit",
+        "trigger": {
+          "event": [
+            "hit"
+          ]
+        },
+        "target": {
+          "type": "creature",
+          "requirements": [
+            {
+              "type": "status",
+              "value": "surprised"
+            }
+          ]
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Assassin",
+    "name": "Infiltration Expertise",
+    "level": 9,
+    "description": "You can unfailingly create false identities for yourself. You must spend seven days and 25 gp to establish the history, profession, and affiliations for an identity. You can't establish an identity that belongs to someone else. For example, you might acquire appropriate clothing, letters of introduction, and official- looking certification to establish yourself as a member of a trading house from a remote city so you can insinuate yourself into the company of other wealthy merchants.",
+    "mechanics": [],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Assassin",
+    "name": "Impostor",
+    "level": 13,
+    "description": "You gain the ability to unerringly mimic another person's speech, writing, and behavior. You must spend at least three hours studying these three components of the person's behavior, listening to speech, examining handwriting, and observing mannerisms.",
+    "mechanics": [],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Assassin",
+    "name": "Death Strike",
+    "level": 17,
+    "description": "You become a master of instant death.",
+    "mechanics": [
+      {
+        "type": "damage_bonus",
+        "target": {
+          "type": "creature",
+          "count": 1,
+          "disposition": "hostile"
+        },
+        "saving_throw": {
+          "ability": "Constitution",
+          "dc": {
+            "base": 8,
+            "add": "proficiency_bonus",
+            "ability": [
+              "Dexterity"
+            ]
+          },
+          "on_failure": {
+            "damage": {
+              "calculation": {
+                "operation": "multiply",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

@@ -1,0 +1,1780 @@
+[
+  {
+    "name": "Rogue",
+    "description": "Rogues rely on skill, stealth, and their foes' vulnerabilities to get the upper hand in any situation. They have a knack for finding the solution to just about any problem, demonstrating a resourcefulness and versatility that is the cornerstone of any successful adventuring party.",
+    "hit_die": 8,
+    "primary_ability": ["Dexterity"],
+    "saving_throw_proficiencies": ["Dexterity", "Intelligence"],
+    "proficiencies": {
+      "armor": ["Light armor"],
+      "weapons": [
+        "Simple Melee",
+        "Simple Ranged",
+        "Hand Crossbow",
+        "Longsword",
+        "Rapier",
+        "Shortsword"
+      ],
+      "tools": [
+        {
+          "type": "fixed",
+          "items": ["Thieves' Tools"]
+        }
+      ],
+      "skills": {
+        "choose": 4,
+        "from": [
+          "Acrobatics",
+          "Athletics",
+          "Deception",
+          "Insight",
+          "Intimidation",
+          "Investigation",
+          "Perception",
+          "Persuasion",
+          "Sleight of Hand",
+          "Stealth"
+        ]
+      }
+    },
+    "starting_equipment": [
+      {
+        "choice_group": 1,
+        "type": "choice",
+        "options": [
+          {
+            "item": "Rapier",
+            "quantity": 1
+          },
+          {
+            "item": "Shortsword",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "choice_group": 2,
+        "type": "choice",
+        "options": [
+          {
+            "items": [
+              {
+                "item": "Shortbow",
+                "quantity": 1
+              },
+              {
+                "item": "arrows",
+                "quantity": 20
+              }
+            ]
+          },
+          {
+            "item": "shortsword",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "choice_group": 3,
+        "type": "choice",
+        "options": [
+          {
+            "item": "burglar's pack",
+            "quantity": 1
+          },
+          {
+            "item": "dungeoneer's pack",
+            "quantity": 1
+          },
+          {
+            "item": "explorer's pack",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "choice_group": 4,
+        "type": "fixed",
+        "items": [
+          {
+            "item": "Leather Armor",
+            "quantity": 1
+          },
+          {
+            "item": "Dagger",
+            "quantity": 2
+          },
+          {
+            "item": "Thieves' Tools",
+            "quantity": 1
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "multiclassing": {
+      "requirements": [
+        {
+          "ability": "Dexterity",
+          "minimum_score": 13
+        }
+      ]
+    }
+  },
+  {
+    "name": "Thief",
+    "description": "You hone your skills in the larcenous arts. Burglars, bandits, cutpurses, and other criminals typically follow this archetype, but so do rogues who prefer to think of themselves as professional treasure seekers, explorers, delvers, and investigators. In addition to improving your agility and stealth, you learn skills useful for delving into ancient ruins, reading unfamiliar languages, and using magic items you normally couldn't employ.",
+    "base_class": "Rogue",
+    "hit_die": 8,
+    "primary_ability": ["Dexterity"],
+    "saving_throw_proficiencies": ["Dexterity", "Intelligence"],
+    "proficiencies": {
+      "armor": ["Light armor"],
+      "weapons": ["Simple Melee", "Simple Ranged", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
+      "tools": [{"type": "fixed", "items": ["Thieves' Tools"]}],
+      "skills": {"choose": 4, "from": ["Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation", "Perception", "Persuasion", "Sleight of Hand", "Stealth"]}
+    },
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Assassin",
+    "description": "Those who adhere to this archetype are diverse: hired killers, spies, bounty hunters, and even specially anointed priests trained to exterminate the enemies of their deity. Stealth, poison, and disguise help you eliminate your foes with deadly efficiency.",
+    "base_class": "Rogue",
+    "hit_die": 8,
+    "primary_ability": ["Dexterity"],
+    "saving_throw_proficiencies": ["Dexterity", "Intelligence"],
+    "proficiencies": {
+      "armor": ["Light armor"],
+      "weapons": ["Simple Melee", "Simple Ranged", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
+      "tools": [{"type": "fixed", "items": ["Thieves' Tools"]}],
+      "skills": {"choose": 4, "from": ["Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation", "Perception", "Persuasion", "Sleight of Hand", "Stealth"]}
+    },
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Arcane Trickster",
+    "description": "Some rogues enhance their fine-honed skills of stealth and agility with magic, learning tricks of enchantment and illusion. These rogues include pickpockets and burglars, but also pranksters, mischief-makers, and a significant number of adventurers.",
+    "base_class": "Rogue",
+    "hit_die": 8,
+    "primary_ability": ["Dexterity", "Intelligence"],
+    "saving_throw_proficiencies": ["Dexterity", "Intelligence"],
+    "proficiencies": {
+      "armor": ["Light armor"],
+      "weapons": ["Simple Melee", "Simple Ranged", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
+      "tools": [{"type": "fixed", "items": ["Thieves' Tools"]}],
+      "skills": {"choose": 4, "from": ["Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation", "Perception", "Persuasion", "Sleight of Hand", "Stealth"]}
+    },
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "spellcasting": {
+      "ability": "Intelligence",
+      "type": "known",
+      "ritual_casting": false,
+      "spellbook": false,
+      "cantrips_known": {
+        "3": {
+          "fixed": ["Mage Hand"],
+          "choices": [
+            {
+              "count": 2,
+              "criteria": "Wizard"
+            }
+          ]
+        },
+        "10": {
+          "fixed": ["Mage Hand"],
+          "choices": [
+            {
+              "count": 1,
+              "criteria": "Wizard"
+            }
+          ]
+        }
+      },
+      "spells_known": {
+        "3": {
+          "fixed": [],
+          "choices": [
+            {
+              "count": 3,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Enchantment", "Illusion"]
+              }
+            }
+          ]
+        },
+        "4": {
+          "fixed": [],
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Enchantment", "Illusion"]
+              }
+            }
+          ]
+        },
+        "7": {
+          "fixed": [],
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Enchantment", "Illusion"]
+              }
+            }
+          ]
+        },
+        "8": {
+          "fixed": [],
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Enchantment", "Illusion"]
+              }
+            }
+          ]
+        },
+        "10": {
+          "fixed": [],
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Enchantment", "Illusion"]
+              }
+            }
+          ]
+        },
+        "11": {
+          "fixed": [],
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Enchantment", "Illusion"]
+              }
+            }
+          ]
+        },
+        "13": {
+          "fixed": [],
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Enchantment", "Illusion"]
+              }
+            }
+          ]
+        },
+        "14": {
+          "fixed": [],
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Enchantment", "Illusion"]
+              }
+            }
+          ]
+        },
+        "16": {
+          "fixed": [],
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Enchantment", "Illusion"]
+              }
+            }
+          ]
+        },
+        "19": {
+          "fixed": [],
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Enchantment", "Illusion"]
+              }
+            }
+          ]
+        },
+        "20": {
+          "fixed": [],
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Enchantment", "Illusion"]
+              }
+            }
+          ]
+        }
+      },
+      "spell_slots": {
+        "3": {
+          "1st": 2
+        },
+        "4": {
+          "1st": 3
+        },
+        "5": {
+          "1st": 3
+        },
+        "6": {
+          "1st": 3
+        },
+        "7": {
+          "1st": 4,
+          "2nd": 2
+        },
+        "8": {
+          "1st": 4,
+          "2nd": 2
+        },
+        "9": {
+          "1st": 4,
+          "2nd": 2
+        },
+        "10": {
+          "1st": 4,
+          "2nd": 3
+        },
+        "11": {
+          "1st": 4,
+          "2nd": 3
+        },
+        "12": {
+          "1st": 4,
+          "2nd": 3
+        },
+        "13": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 2
+        },
+        "14": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 2
+        },
+        "15": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 2
+        },
+        "16": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3
+        },
+        "17": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3
+        },
+        "18": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3
+        },
+        "19": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 1
+        },
+        "20": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 1
+        }
+      }
+    }
+  },
+  {
+    "name": "Fighter",
+    "description": "Fighters share an unparalleled mastery with weapons and armor, and a thorough knowledge of the skills of combat. They are well acquainted with death, both meting it out and staring it defiantly in the face.",
+    "hit_die": 10,
+    "primary_ability": ["Strength"],
+    "saving_throw_proficiencies": ["Strength", "Constitution"],
+    "proficiencies": {
+      "armor": ["All", "shields"],
+      "weapons": [
+        "Simple Melee",
+        "Simple Ranged",
+        "Martial Melee",
+        "Martial Ranged"
+      ],
+      "tools": [],
+      "skills": {
+        "choose": 2,
+        "from": [
+          "Acrobatics",
+          "Animal Handling",
+          "Athletics",
+          "Insight",
+          "Intimidation",
+          "Perception",
+          "Survival"
+        ]
+      }
+    },
+    "starting_equipment": [
+      {
+        "choice_group": 1,
+        "type": "choice",
+        "options": [
+          {
+            "items": [
+              {
+                "item": "Chain Mail",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "items": [
+              {
+                "item": "Leather Armor",
+                "quantity": 1
+              },
+              {
+                "item": "Longbow",
+                "quantity": 1
+              },
+              {
+                "item": "arrows",
+                "quantity": 20
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "choice_group": 2,
+        "type": "choice",
+        "options": [
+          {
+            "items": [
+              {
+                "item": "any martial weapon",
+                "quantity": 1
+              },
+              {
+                "item": "Shield",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "items": [
+              {
+                "item": "any martial weapon",
+                "quantity": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "choice_group": 3,
+        "type": "choice",
+        "options": [
+          {
+            "items": [
+              {
+                "item": "Light Crossbow",
+                "quantity": 1
+              },
+              {
+                "item": "crossbow bolts",
+                "quantity": 20
+              }
+            ]
+          },
+          {
+            "items": [
+              {
+                "item": "Handaxe",
+                "quantity": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "choice_group": 4,
+        "type": "choice",
+        "options": [
+          {
+            "items": [
+              {
+                "item": "dungeoneer's pack",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "items": [
+              {
+                "item": "explorer's pack",
+                "quantity": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "multiclassing": {
+      "requirements": [
+        {
+          "operator": "or",
+          "conditions": [
+            {
+              "ability": "Strength",
+              "minimum_score": 13
+            },
+            {
+              "ability": "Dexterity",
+              "minimum_score": 13
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "Battle Master",
+    "description": "Those who emulate the archetypal Battle Master employ martial techniques passed down through generations. To a Battle Master, combat is an academic field, sometimes including subjects beyond battle such as weaponsmithing and calligraphy. Not every fighter absorbs the lessons of history, theory, and artistry that are reflected in the Battle Master archetype, but those who do are well-rounded fighters of great skill and knowledge.",
+    "base_class": "Fighter",
+    "hit_die": 10,
+    "primary_ability": ["Strength"],
+    "saving_throw_proficiencies": ["Strength", "Constitution"],
+    "proficiencies": {
+      "armor": ["All", "shields"],
+      "weapons": ["Simple Melee", "Simple Ranged", "Martial Melee", "Martial Ranged"],
+      "tools": [],
+      "skills": {"choose": 2, "from": ["Acrobatics", "Animal Handling", "Athletics", "Insight", "Intimidation", "Perception", "Survival"]}
+    },
+    "maneuver_ability": ["Strength", "Dexterity"],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Champion",
+    "description": "The archetypal Champion focuses on the development of raw physical power honed to deadly perfection. Those who model themselves on this archetype combine rigorous training with physical excellence to deal devastating blows.",
+    "base_class": "Fighter",
+    "hit_die": 10,
+    "primary_ability": ["Strength"],
+    "saving_throw_proficiencies": ["Strength", "Constitution"],
+    "proficiencies": {
+      "armor": ["All", "shields"],
+      "weapons": ["Simple Melee", "Simple Ranged", "Martial Melee", "Martial Ranged"],
+      "tools": [],
+      "skills": {"choose": 2, "from": ["Acrobatics", "Animal Handling", "Athletics", "Insight", "Intimidation", "Perception", "Survival"]}
+    },
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Eldritch Knight",
+    "description": "The archetypal Eldritch Knight combines the martial mastery common to all fighters with a careful study of magic. Eldritch Knights use magical techniques similar to those practiced by wizards. They focus their study on two of the eight schools of magic: abjuration and evocation. Abjuration spells grant an Eldritch Knight additional protection in battle, and evocation spells deal damage to many foes at once, extending the fighter's reach in combat. These knights learn a comparatively small number of spells, committing them to memory instead of keeping them in a spellbook.",
+    "base_class": "Fighter",
+    "hit_die": 10,
+    "primary_ability": ["Strength", "Intelligence"],
+    "saving_throw_proficiencies": ["Strength", "Constitution"],
+    "proficiencies": {
+      "armor": ["All", "shields"],
+      "weapons": ["Simple Melee", "Simple Ranged", "Martial Melee", "Martial Ranged"],
+      "tools": [],
+      "skills": {"choose": 2, "from": ["Acrobatics", "Animal Handling", "Athletics", "Insight", "Intimidation", "Perception", "Survival"]}
+    },
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "spellcasting": {
+      "ability": "Intelligence",
+      "type": "known",
+      "ritual_casting": false,
+      "spellbook": false,
+      "cantrips_known": {
+        "3": {
+          "choices": [
+            {
+              "count": 2,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Abjuration", "Evocation"]
+              }
+            }
+          ]
+        },
+        "10": {
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Abjuration", "Evocation"]
+              }
+            }
+          ]
+        }
+      },
+      "spells_known": {
+        "3": {
+          "fixed": [],
+          "choices": [
+            {
+              "count": 3,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Abjuration", "Evocation"]
+              }
+            }
+          ]
+        },
+        "4": {
+          "fixed": [],
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Abjuration", "Evocation"]
+              }
+            }
+          ]
+        },
+        "7": {
+          "fixed": [],
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Abjuration", "Evocation"]
+              }
+            }
+          ]
+        },
+        "8": {
+          "fixed": [],
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Abjuration", "Evocation"]
+              }
+            }
+          ]
+        },
+        "10": {
+          "fixed": [],
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Abjuration", "Evocation"]
+              }
+            }
+          ]
+        },
+        "11": {
+          "fixed": [],
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Abjuration", "Evocation"]
+              }
+            }
+          ]
+        },
+        "13": {
+          "fixed": [],
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Abjuration", "Evocation"]
+              }
+            }
+          ]
+        },
+        "14": {
+          "fixed": [],
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Abjuration", "Evocation"]
+              }
+            }
+          ]
+        },
+        "16": {
+          "fixed": [],
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Abjuration", "Evocation"]
+              }
+            }
+          ]
+        },
+        "19": {
+          "fixed": [],
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Abjuration", "Evocation"]
+              }
+            }
+          ]
+        },
+        "20": {
+          "fixed": [],
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Wizard",
+                "schools": ["Abjuration", "Evocation"]
+              }
+            }
+          ]
+        }
+      },
+      "spell_slots": {
+        "3": {
+          "1st": 2
+        },
+        "4": {
+          "1st": 3
+        },
+        "5": {
+          "1st": 3
+        },
+        "6": {
+          "1st": 3
+        },
+        "7": {
+          "1st": 4,
+          "2nd": 2
+        },
+        "8": {
+          "1st": 4,
+          "2nd": 2
+        },
+        "9": {
+          "1st": 4,
+          "2nd": 2
+        },
+        "10": {
+          "1st": 4,
+          "2nd": 3
+        },
+        "11": {
+          "1st": 4,
+          "2nd": 3
+        },
+        "12": {
+          "1st": 4,
+          "2nd": 3
+        },
+        "13": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 2
+        },
+        "14": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 2
+        },
+        "15": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 2
+        },
+        "16": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3
+        },
+        "17": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3
+        },
+        "18": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3
+        },
+        "19": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 1
+        },
+        "20": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 1
+        }
+      }
+    }
+  },
+  {
+    "name": "Cleric",
+    "description": "Clerics are intermediaries between the mortal world and the distant planes of the gods. As varied as the gods they serve, clerics strive to embody the handiwork of their deities. No ordinary priest, a cleric is imbued with divine magic.",
+    "subclass_label": "Domain",
+    "hit_die": 8,
+    "primary_ability": ["Wisdom"],
+    "saving_throw_proficiencies": ["Wisdom", "Charisma"],
+    "proficiencies": {
+      "armor": ["Light Armor", "Medium Armor", "Shields"],
+      "weapons": ["Simple Melee", "Simple Ranged"],
+      "tools": [],
+      "skills": {
+        "choose": 2,
+        "from": ["History", "Insight", "Medicine", "Persuasion", "Religion"]
+      }
+    },
+    "starting_equipment": [
+      {
+        "choice_group": 1,
+        "type": "choice",
+        "options": [
+          {
+            "item": "Mace",
+            "quantity": 1
+          },
+          {
+            "item": "Warhammer",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "choice_group": 2,
+        "type": "choice",
+        "options": [
+          {
+            "item": "Scale Mail",
+            "quantity": 1
+          },
+          {
+            "item": "Leather Armor",
+            "quantity": 1
+          },
+          {
+            "item": "Chain Mail",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "choice_group": 3,
+        "type": "choice",
+        "options": [
+          {
+            "items": [
+              {
+                "item": "Light Crossbow",
+                "quantity": 1
+              },
+              {
+                "item": "crossbow bolts",
+                "quantity": 20
+              }
+            ]
+          },
+          {
+            "items": [
+              {
+                "item": "any simple weapon",
+                "quantity": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "choice_group": 4,
+        "type": "choice",
+        "options": [
+          {
+            "item": "priest's pack",
+            "quantity": 1
+          },
+          {
+            "item": "explorer's pack",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "choice_group": 5,
+        "type": "fixed",
+        "items": [
+          {
+            "item": "Shield",
+            "quantity": 1
+          },
+          {
+            "item": "Holy Symbol",
+            "quantity": 1
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "multiclassing": {
+      "requirements": [
+        {
+          "ability": "Wisdom",
+          "minimum_score": 13
+        }
+      ]
+    },
+    "spellcasting": {
+      "ability": "Wisdom",
+      "type": "prepared",
+      "ritual_casting": true,
+      "spellbook": true,
+      "cantrips_known": {
+        "1": {
+          "choices": [
+            {
+              "count": 3,
+              "criteria": {
+                "spell_list": "Cleric"
+              }
+            }
+          ]
+        },
+        "4": {
+          "choices": [
+            {
+              "count": 4,
+              "criteria": {
+                "spell_list": "Cleric"
+              }
+            }
+          ]
+        },
+        "11": {
+          "choices": [
+            {
+              "count": 5,
+              "criteria": {
+                "spell_list": "Cleric"
+              }
+            }
+          ]
+        },
+        "17": {
+          "choices": [
+            {
+              "count": 6,
+              "criteria": {
+                "spell_list": "Cleric"
+              }
+            }
+          ]
+        }
+      },
+      "spell_slots": {
+        "1": {
+          "1st": 2
+        },
+        "2": {
+          "1st": 3
+        },
+        "3": {
+          "1st": 4,
+          "2nd": 2
+        },
+        "4": {
+          "1st": 4,
+          "2nd": 3
+        },
+        "5": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 2
+        },
+        "6": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3
+        },
+        "7": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 1
+        },
+        "8": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 2
+        },
+        "9": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 1
+        },
+        "10": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2
+        },
+        "11": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1
+        },
+        "12": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1
+        },
+        "13": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1,
+          "7th": 1
+        },
+        "14": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1,
+          "7th": 1
+        },
+        "15": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1,
+          "7th": 1,
+          "8th": 1
+        },
+        "16": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1,
+          "7th": 1,
+          "8th": 1
+        },
+        "17": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1,
+          "7th": 1,
+          "8th": 1,
+          "9th": 1
+        },
+        "18": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 3,
+          "6th": 1,
+          "7th": 1,
+          "8th": 1,
+          "9th": 1
+        },
+        "19": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 3,
+          "6th": 2,
+          "7th": 1,
+          "8th": 1,
+          "9th": 1
+        },
+        "20": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 3,
+          "6th": 2,
+          "7th": 2,
+          "8th": 1,
+          "9th": 1
+        }
+      }
+    }
+  },
+  {
+    "name": "Barbarian",
+    "description": "For some, their rage springs from a communion with fierce animal spirits. Others draw from a roiling reservoir of anger at a world full of pain. For every barbarian, rage is a power that fuels not just a battle frenzy but also uncanny reflexes, resilience, and feats of strength.",
+    "hit_die": 12,
+    "primary_ability": ["Strength"],
+    "saving_throw_proficiencies": ["Strength", "Constitution"],
+    "proficiencies": {
+      "armor": ["Light Armor", "Medium Armor", "Shields"],
+      "weapons": ["Simple weapons", "martial weapons"],
+      "tools": [
+        {
+          "type": "choice",
+          "choose": 1,
+          "from": "Musical Instrument"
+        }
+      ],
+      "skills": {
+        "choose": 2,
+        "from": [
+          "Animal Handling",
+          "Athletics",
+          "Intimidation",
+          "Nature",
+          "Perception",
+          "Survival"
+        ]
+      }
+    },
+    "starting_equipment": [
+      {
+        "choice_group": 1,
+        "type": "choice",
+        "options": [
+          {
+            "item": "Greataxe",
+            "quantity": 1
+          },
+          {
+            "item": "any martial weapon",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "choice_group": 2,
+        "type": "choice",
+        "options": [
+          {
+            "item": "Handaxe",
+            "quantity": 2
+          },
+          {
+            "item": "any simple weapon",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "choice_group": 3,
+        "type": "fixed",
+        "items": [
+          {
+            "item": "explorer's pack",
+            "quantity": 1
+          },
+          {
+            "item": "Javelin",
+            "quantity": 4
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "multiclassing": {
+      "requirements": [
+        {
+          "ability": "Strength",
+          "minimum_score": 13
+        }
+      ]
+    }
+  },
+  {
+    "name": "Path of the Berserker",
+    "description": "For some barbarians, rage is a means to an end – that end being violence. The Path of the Berserker is a path of untrammeled fury, slick with blood. As you enter the berserker's rage, you thrill in the chaos of battle, heedless of your own health or well-being.",
+    "base_class": "Barbarian",
+    "hit_die": 12,
+    "primary_ability": ["Strength"],
+    "saving_throw_proficiencies": ["Strength", "Constitution"],
+    "proficiencies": {
+      "armor": ["Light Armor", "Medium Armor", "Shields"],
+      "weapons": ["Simple weapons", "martial weapons"],
+      "tools": [{"type": "choice", "choose": 1, "from": "Musical Instrument"}],
+      "skills": {"choose": 2, "from": ["Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"]}
+    },
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Path of the Totem Warrior",
+    "description": "The Path of the Totem Warrior is a spiritual journey, as the barbarian accepts a spirit animal as guide, protector, and inspiration. In battle, your totem spirit fills you with supernatural might, adding magical fuel to your barbarian rage.\r\rMost barbarian tribes consider a totem animal to be kin to a particular clan. In such cases, it is unusual for an individual to have more than one totem animal spirit, though exceptions exist.",
+    "base_class": "Barbarian",
+    "hit_die": 12,
+    "primary_ability": ["Strength"],
+    "saving_throw_proficiencies": ["Strength", "Constitution"],
+    "proficiencies": {
+      "armor": ["Light Armor", "Medium Armor", "Shields"],
+      "weapons": ["Simple weapons", "martial weapons"],
+      "tools": [{"type": "choice", "choose": 1, "from": "Musical Instrument"}],
+      "skills": {"choose": 2, "from": ["Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"]}
+    },
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Bard",
+    "description": "Whether scholar, skald, or scoundrel, a bard weaves magic through words and music to inspire allies, demoralize foes, manipulate minds, create illusions, and even heal wounds. The bard is a master of song, speech, and the magic they contain.",
+    "hit_die": 8,
+    "primary_ability": ["Charisma"],
+    "saving_throw_proficiencies": ["Dexterity", "Charisma"],
+    "proficiencies": {
+      "armor": ["Light Armor"],
+      "weapons": [
+        "Simple Melee",
+        "Simple Ranged",
+        "Hand Crossbow",
+        "Longsword",
+        "Rapier",
+        "Shortsword"
+      ],
+      "tools": [
+        {
+          "type": "choice",
+          "choose": 3,
+          "from": "Musical Instrument"
+        }
+      ],
+      "skills": {
+        "choose": 3,
+        "from": [
+          "Acrobatics",
+          "Animal Handling",
+          "Arcana",
+          "Athletics",
+          "Deception",
+          "History",
+          "Insight",
+          "Intimidation",
+          "Investigation",
+          "Medicine",
+          "Nature",
+          "Perception",
+          "Performance",
+          "Persuasion",
+          "Religion",
+          "Sleight of Hand",
+          "Stealth",
+          "Survival"
+        ]
+      }
+    },
+    "starting_equipment": [
+      {
+        "choice_group": 1,
+        "type": "choice",
+        "options": [
+          {
+            "item": "rapier",
+            "quantity": 1
+          },
+          {
+            "item": "longsword",
+            "quantity": 1
+          },
+          {
+            "item": "any simple weapon",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "choice_group": 2,
+        "type": "choice",
+        "options": [
+          {
+            "item": "diplomat's pack",
+            "quantity": 1
+          },
+          {
+            "item": "entertainer's pack",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "choice_group": 3,
+        "type": "choice",
+        "options": [
+          {
+            "item": "any musical instrument",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "choice_group": 4,
+        "type": "fixed",
+        "items": [
+          {
+            "item": "Leather armor",
+            "quantity": 1
+          },
+          {
+            "item": "Dagger",
+            "quantity": 1
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "spellcasting": {
+      "ability": "Charisma",
+      "type": "known",
+      "ritual_casting": true,
+      "spellbook": false,
+      "cantrips_known": {
+        "1": {
+          "choices": [
+            {
+              "count": 2,
+              "criteria": "Bard"
+            }
+          ]
+        },
+        "4": {
+          "choices": [
+            {
+              "count": 3,
+              "criteria": "Bard"
+            }
+          ]
+        },
+        "10": {
+          "choices": [
+            {
+              "count": 4,
+              "criteria": "Bard"
+            }
+          ]
+        }
+      },
+      "spells_known": {
+        "1": {
+          "choices": [
+            {
+              "count": 4,
+              "criteria": {
+                "spell_list": "Bard"
+              }
+            }
+          ]
+        },
+        "2": {
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Bard"
+              }
+            }
+          ]
+        },
+        "3": {
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Bard"
+              }
+            }
+          ]
+        },
+        "4": {
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Bard"
+              }
+            }
+          ]
+        },
+        "5": {
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Bard"
+              }
+            }
+          ]
+        },
+        "6": {
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Bard"
+              }
+            }
+          ]
+        },
+        "7": {
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Bard"
+              }
+            }
+          ]
+        },
+        "8": {
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Bard"
+              }
+            }
+          ]
+        },
+        "9": {
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Bard"
+              }
+            }
+          ]
+        },
+        "10": {
+          "choices": [
+            {
+              "count": 2,
+              "criteria": {
+                "spell_list": "Bard"
+              }
+            }
+          ]
+        },
+        "11": {
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Bard"
+              }
+            }
+          ]
+        },
+        "13": {
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Bard"
+              }
+            }
+          ]
+        },
+        "14": {
+          "choices": [
+            {
+              "count": 2,
+              "criteria": {
+                "spell_list": "Bard"
+              }
+            }
+          ]
+        },
+        "15": {
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Bard"
+              }
+            }
+          ]
+        },
+        "17": {
+          "choices": [
+            {
+              "count": 1,
+              "criteria": {
+                "spell_list": "Bard"
+              }
+            }
+          ]
+        },
+        "18": {
+          "choices": [
+            {
+              "count": 2,
+              "criteria": {
+                "spell_list": "Bard"
+              }
+            }
+          ]
+        }
+      },
+      "spell_slots": {
+        "1": {
+          "1st": 2
+        },
+        "2": {
+          "1st": 3
+        },
+        "3": {
+          "1st": 4,
+          "2nd": 2
+        },
+        "4": {
+          "1st": 4,
+          "2nd": 3
+        },
+        "5": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 2
+        },
+        "6": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3
+        },
+        "7": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 1
+        },
+        "8": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 2
+        },
+        "9": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 1
+        },
+        "10": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2
+        },
+        "11": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1
+        },
+        "12": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1
+        },
+        "13": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1,
+          "7th": 1
+        },
+        "14": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1,
+          "7th": 1
+        },
+        "15": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1,
+          "7th": 1,
+          "8th": 1
+        },
+        "16": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1,
+          "7th": 1,
+          "8th": 1
+        },
+        "17": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1,
+          "7th": 1,
+          "8th": 1,
+          "9th": 1
+        }
+      },
+      "18": {
+        "1st": 4,
+        "2nd": 3,
+        "3rd": 3,
+        "4th": 3,
+        "5th": 3,
+        "6th": 1,
+        "7th": 1,
+        "8th": 1,
+        "9th": 1
+      },
+      "19": {
+        "1st": 4,
+        "2nd": 3,
+        "3rd": 3,
+        "4th": 3,
+        "5th": 3,
+        "6th": 2,
+        "7th": 1,
+        "8th": 1,
+        "9th": 1
+      },
+      "20": {
+        "1st": 4,
+        "2nd": 3,
+        "3rd": 3,
+        "4th": 3,
+        "5th": 3,
+        "6th": 2,
+        "7th": 2,
+        "8th": 1,
+        "9th": 1
+      }
+    },
+    "multiclassing": {
+      "requirements": [
+        {
+          "ability": "Charisma",
+          "minimum_score": 13
+        }
+      ]
+    }
+  },
+  {
+    "name": "College of Lore",
+    "description": "Bards of the College of Lore know something about most things, collecting bits of knowledge from sources as diverse as scholarly tomes and peasant tales. Whether singing folk ballads in taverns or elaborate compositions in royal courts, these bards use their gifts to hold audiences spellbound. When the applause dies down, the audience members might find themselves questioning everything they held to be true, from their faith in the priesthood of the local temple to their loyalty to the king.",
+    "base_class": "Bard",
+    "hit_die": 8,
+    "primary_ability": ["Charisma"],
+    "saving_throw_proficiencies": ["Dexterity", "Charisma"],
+    "proficiencies": {
+      "armor": ["Light Armor"],
+      "weapons": ["Simple Melee", "Simple Ranged", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
+      "tools": [{"type": "choice", "choose": 3, "from": "Musical Instrument"}],
+      "skills": {"choose": 3, "from": ["Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Performance", "Persuasion", "Religion", "Sleight of Hand", "Stealth", "Survival"]}
+    },
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "College of Valor",
+    "description": "Bards of the College of Valor are daring skalds whose tales keep alive the memory of the great heroes of the past, and thereby inspire a new generation of heroes. These bards gather in mead halls or around great bonfires to sing the deeds of the mighty, both past and present. They travel the land to witness great events firsthand and to ensure that the memory of those events doesn't pass from the world. With their songs, they inspire others to reach the same heights of accomplishment as the heroes of old.",
+    "base_class": "Bard",
+    "hit_die": 8,
+    "primary_ability": ["Charisma"],
+    "saving_throw_proficiencies": ["Dexterity", "Charisma"],
+    "proficiencies": {
+      "armor": ["Light Armor"],
+      "weapons": ["Simple Melee", "Simple Ranged", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
+      "tools": [{"type": "choice", "choose": 3, "from": "Musical Instrument"}],
+      "skills": {"choose": 3, "from": ["Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Performance", "Persuasion", "Religion", "Sleight of Hand", "Stealth", "Survival"]}
+    },
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

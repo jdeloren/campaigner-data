@@ -1,0 +1,476 @@
+[
+  {
+    "class": "Rogue",
+    "level": [
+      1,
+      6
+    ],
+    "name": "Expertise",
+    "description": "Choose two of your skill proficiencies, or one of your skill proficiencies and your proficiency with thieves' tools. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "expertise",
+        "name": "expertise_skills",
+        "count": 2
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Rogue",
+    "level": 1,
+    "name": "Sneak Attack",
+    "description": "You know how to strike subtly and exploit a foe's distraction.",
+    "mechanics": [
+      {
+        "type": "damage_bonus",
+        "trigger": {
+          "event": [
+            "attack"
+          ],
+          "conditions": {
+            "has_advantage": true
+          }
+        },
+        "effects": [
+          {
+            "damage_bonus": {
+              "dice": "scaling.damage",
+              "inherit_type": true
+            }
+          }
+        ],
+        "scaling": {
+          "components": {
+            "damage": {
+              "by_level": {
+                "1": "1d6",
+                "3": "2d6",
+                "5": "3d6",
+                "7": "4d6",
+                "9": "5d6",
+                "11": "6d6",
+                "13": "7d6",
+                "15": "8d6",
+                "17": "9d6",
+                "19": "10d6"
+              }
+            }
+          }
+        },
+        "uses": {
+          "value": 1
+        },
+        "recharge": "turn"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Rogue",
+    "level": 1,
+    "name": "Thieves' Cant",
+    "description": "A secret mix of dialect, jargon, and code that allows you to hide messages in seemingly normal conversation.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "description": "You understand a set of secret signs and symbols used to convey short, simple messages, such as whether an area is dangerous or the territory of a thieves' guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safe house for thieves on the run.",
+        "effects": [
+          {
+            "attribute": {
+              "target": "languages",
+              "calculation": {
+                "operation": "set",
+                "operators": [
+                  {
+                    "type": "string",
+                    "value": "Thieves' Cant"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Rogue",
+    "level": 2,
+    "name": "Cunning Action",
+    "description": "Your quick thinking and agility allow you to move and act quickly.",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "effects": [
+          {
+            "grants": {
+              "name": "Dash"
+            }
+          },
+          {
+            "grants": {
+              "name": "Disengage"
+            }
+          },
+          {
+            "grants": {
+              "name": "Hide"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Rogue",
+    "level": 3,
+    "name": "Roguish Archetype",
+    "description": "At 3rd level, you choose an archetype that you emulate in the exercise of your rogue abilities.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "subclass"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Rogue",
+    "level": 3,
+    "name": "Steady Aim",
+    "description": "Give yourself advantage on your next attack roll on the current turn.",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "requirements": [
+          {
+            "type": "function",
+            "function": "resources.check_pool_remaining",
+            "context": "character",
+            "params": {
+              "resource": "movement",
+              "comparison": "equals",
+              "percent": 100
+            }
+          }
+        ],
+        "effects": [
+          {
+            "advantage": {
+              "attack": "all",
+              "count": 1,
+              "duration": {
+                "value": 0,
+                "unit": "turns"
+              }
+            }
+          },
+          {
+            "attribute": {
+              "target": "movement.remaining",
+              "calculation": {
+                "operation": "set",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            "duration": {
+              "value": 0,
+              "unit": "turns"
+            }
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "turn"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Rogue",
+    "level": [
+      4,
+      8,
+      10,
+      12,
+      16,
+      19
+    ],
+    "name": "Ability Score Improvement",
+    "description": "Increase one ability score by 2 or two ability scores by 1 or one feat",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "asi"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Rogue",
+    "level": 5,
+    "name": "Uncanny Dodge",
+    "description": "When an attacker that you can see hits you with an attack, you can use your reaction to halve the attack's damage against you.",
+    "mechanics": [
+      {
+        "type": "reaction",
+        "trigger": {
+          "event": [
+            "hit_by"
+          ],
+          "source": {
+            "type": [
+              "creature"
+            ],
+            "perception": {
+              "observer": "character",
+              "subject": "source",
+              "senses": [
+                "sight"
+              ]
+            }
+          }
+        },
+        "effects": [
+          {
+            "calculation": {
+              "operation": "multiply",
+              "operators": [
+                {
+                  "type": "roll_result"
+                }
+              ],
+              "rounding": "down"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Rogue",
+    "level": 7,
+    "name": "Evasion",
+    "description": "You can nimbly dodge out of the way of certain area effects, such as a red dragon's fiery breath or an Ice Storm spell. When you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "trigger": {
+          "event": [
+            "saving_throw"
+          ],
+          "timing": "resolved"
+        },
+        "effects": [
+          {
+            "on_success": {
+              "calculation": {
+                "operation": "multiply",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            "on_failure": {
+              "calculation": {
+                "operation": "divide",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
+                ],
+                "rounding": "down"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Rogue",
+    "level": 11,
+    "name": "Reliable Talent",
+    "description": "You have refined your chosen skills until they approach perfection.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "trigger": {
+          "event": [
+            "ability_check"
+          ]
+        },
+        "requirements": [
+          {
+            "type": "ability_check",
+            "proficient": true
+          }
+        ],
+        "effects": [
+          {
+            "roll_modifier": {
+              "minimum": 10
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Rogue",
+    "level": 14,
+    "name": "Blindsense",
+    "description": "Aware of hidden or invisible creatures within 10 feet.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "detection": {
+              "range": {
+                "value": 10,
+                "unit": "feet"
+              },
+              "detects": [
+                "creatures"
+              ],
+              "ignores_status": [
+                "invisible"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Rogue",
+    "level": 15,
+    "name": "Slippery Mind",
+    "description": "You have acquired greater mental strength.",
+    "mechanics": [
+      {
+        "type": "proficiency",
+        "category": "saving_throw",
+        "proficiencies": [
+          "Wisdom"
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Rogue",
+    "level": 18,
+    "name": "Elusive",
+    "description": "Attackers rarely gain the upper hand against you.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "description": "No attack roll has advantage against you while you aren't incapacitated.",
+        "effects": [
+          {
+            "immunity": {
+              "category": "advantage",
+              "event": "attack",
+              "requirements": [
+                {
+                  "type": "status",
+                  "value": "incapacitated",
+                  "negate": true
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Rogue",
+    "level": 20,
+    "name": "Stroke of Luck",
+    "description": "You have an uncanny knack for succeeding when you need to. If your attack misses a target within range, you can turn the miss into a hit. Alternatively, if you fail an ability check, you can treat the d20 roll as a 20.",
+    "mechanics": [
+      {
+        "type": "reaction",
+        "trigger": {
+          "event": [
+            "ability_check"
+          ],
+          "result": "failure"
+        },
+        "effects": [
+          {
+            "roll_modifier": {
+              "reroll": {
+                "result": true
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "reaction",
+        "trigger": {
+          "event": [
+            "miss"
+          ],
+          "source": {
+            "type": [
+              "melee",
+              "ranged"
+            ]
+          }
+        },
+        "effects": [
+          {
+            "roll_modifier": {
+              "reroll": {
+                "result": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "uses": {
+      "value": 1
+    },
+    "recharge": "short_rest",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

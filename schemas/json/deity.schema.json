@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "D&D 5e Deities",
+  "type": "array",
+  "items": {
+    "description": "Deity information.",
+    "properties": {
+      "name": {
+        "description": "Deity name",
+        "title": "Name",
+        "type": "string"
+      },
+      "alignment": {
+        "$ref": "#/$defs/Alignment",
+        "description": "Alignment"
+      },
+      "source": {
+        "description": "Source book or material",
+        "title": "Source",
+        "type": "string"
+      },
+      "pantheon": {
+        "description": "Set of gods the deity belongs to",
+        "title": "Pantheon",
+        "type": "string"
+      },
+      "domains": {
+        "description": "Relevant domains",
+        "items": {
+          "$ref": "#/$defs/Domain"
+        },
+        "title": "Domains",
+        "type": "array"
+      },
+      "titles": {
+        "description": "List of titles (first entry being the primary)",
+        "items": {
+          "type": "string"
+        },
+        "title": "Titles",
+        "type": "array"
+      },
+      "power": {
+        "description": "Ranking in the deity hierarchy",
+        "title": "Power",
+        "type": "string"
+      },
+      "status": {
+        "description": "Theoretical state of living",
+        "title": "Status",
+        "type": "string"
+      },
+      "avatar": {
+        "description": "File path for the avatar",
+        "title": "Avatar",
+        "type": "string"
+      },
+      "allies": {
+        "description": "List of allies",
+        "items": {
+          "type": "string"
+        },
+        "title": "Allies",
+        "type": "array"
+      },
+      "enemies": {
+        "description": "List of enemies",
+        "items": {
+          "type": "string"
+        },
+        "title": "Enemies",
+        "type": "array"
+      }
+    },
+    "required": [
+      "name",
+      "alignment",
+      "source",
+      "pantheon",
+      "domains",
+      "titles",
+      "power",
+      "status",
+      "avatar",
+      "allies",
+      "enemies"
+    ],
+    "title": "Deity",
+    "type": "object"
+  },
+  "$defs": {
+    "Alignment": {
+      "enum": [
+        "Lawful Good",
+        "Lawful Neutral",
+        "Lawful Evil",
+        "Neutral Good",
+        "Neutral",
+        "Neutral Evil",
+        "Chaotic Good",
+        "Chaotic Neutral",
+        "Chaotic Evil"
+      ],
+      "title": "Alignment",
+      "type": "string"
+    },
+    "Domain": {
+      "enum": [
+        "Arcana",
+        "Death",
+        "Knowledge",
+        "Life",
+        "Light",
+        "Nature",
+        "Order",
+        "Tempest",
+        "Trickery",
+        "War"
+      ],
+      "title": "Domain",
+      "type": "string"
+    }
+  }
+}

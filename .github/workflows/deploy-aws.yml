@@ -1,0 +1,144 @@
+name: Deploy to AWS
+
+on:
+  workflow_dispatch:
+    inputs:
+      # Dataset checkboxes - add new rulesets here as they're created
+      dnd5e:
+        description: 'D&D 5e (2014)'
+        type: boolean
+        default: true
+      # dnd2024:
+      #   description: 'D&D 2024'
+      #   type: boolean
+      #   default: false
+      # pathfinder:
+      #   description: 'Pathfinder 2e'
+      #   type: boolean
+      #   default: false
+
+      environment:
+        description: 'Target environment'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - production
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r scripts/requirements.txt
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_REGION || 'us-east-1' }}
+
+      - name: Build ruleset list
+        id: rulesets
+        run: |
+          RULESETS=""
+
+          # Add selected rulesets - update this section when adding new rulesets
+          if [ "${{ inputs.dnd5e }}" = "true" ]; then
+            RULESETS="${RULESETS}dnd5e,"
+          fi
+          # if [ "${{ inputs.dnd2024 }}" = "true" ]; then
+          #   RULESETS="${RULESETS}dnd2024,"
+          # fi
+          # if [ "${{ inputs.pathfinder }}" = "true" ]; then
+          #   RULESETS="${RULESETS}pathfinder,"
+          # fi
+
+          # Remove trailing comma
+          RULESETS=$(echo "$RULESETS" | sed 's/,$//')
+
+          if [ -z "$RULESETS" ]; then
+            echo "Error: No rulesets selected"
+            exit 1
+          fi
+
+          echo "rulesets=$RULESETS" >> $GITHUB_OUTPUT
+          echo "Selected rulesets: $RULESETS"
+
+      - name: Validate selected rulesets
+        run: |
+          IFS=',' read -ra RULESET_ARRAY <<< "${{ steps.rulesets.outputs.rulesets }}"
+          for ruleset in "${RULESET_ARRAY[@]}"; do
+            echo "Validating $ruleset..."
+            python scripts/validate.py --ruleset "$ruleset"
+          done
+
+      - name: Package and upload to S3
+        env:
+          S3_BUCKET: ${{ vars.S3_BUCKET }}
+        run: |
+          IFS=',' read -ra RULESET_ARRAY <<< "${{ steps.rulesets.outputs.rulesets }}"
+
+          for ruleset in "${RULESET_ARRAY[@]}"; do
+            echo ""
+            echo "=========================================="
+            echo "Processing: $ruleset"
+            echo "=========================================="
+
+            # Get version from manifest
+            VERSION=$(jq -r '.version' "data/$ruleset/manifest.json")
+            echo "Version: $VERSION"
+
+            # Package
+            python scripts/package.py --ruleset "$ruleset" --version "$VERSION"
+
+            # Upload to S3 with version
+            TARBALL="dist/${ruleset}-data-${VERSION}.tar.gz"
+            S3_KEY="${ruleset}/${VERSION}/${ruleset}-data.tar.gz"
+
+            echo "Uploading to s3://$S3_BUCKET/$S3_KEY"
+            aws s3 cp "$TARBALL" "s3://$S3_BUCKET/$S3_KEY"
+
+            # Also upload as 'latest'
+            LATEST_KEY="${ruleset}/latest/${ruleset}-data.tar.gz"
+            echo "Uploading to s3://$S3_BUCKET/$LATEST_KEY"
+            aws s3 cp "$TARBALL" "s3://$S3_BUCKET/$LATEST_KEY"
+
+            echo "Done: $ruleset"
+          done
+
+      - name: Trigger cache reload
+        if: vars.API_RELOAD_URL != ''
+        env:
+          API_RELOAD_URL: ${{ vars.API_RELOAD_URL }}
+          API_RELOAD_TOKEN: ${{ secrets.API_RELOAD_TOKEN }}
+        run: |
+          echo "Triggering cache reload at $API_RELOAD_URL"
+          curl -X POST "$API_RELOAD_URL" \
+            -H "Authorization: Bearer $API_RELOAD_TOKEN" \
+            -H "Content-Type: application/json" \
+            --fail --silent --show-error || echo "Warning: Cache reload failed"
+
+      - name: Summary
+        run: |
+          echo "## Deployment Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Setting | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|---------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| **Environment** | ${{ inputs.environment }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Rulesets** | ${{ steps.rulesets.outputs.rulesets }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| **S3 Bucket** | ${{ vars.S3_BUCKET }} |" >> $GITHUB_STEP_SUMMARY

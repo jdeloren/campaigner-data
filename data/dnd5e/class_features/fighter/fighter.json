@@ -1,0 +1,236 @@
+[
+  {
+    "class": "Fighter",
+    "level": 1,
+    "name": "Fighting Style",
+    "description": "You adopt a particular style of fighting as your specialty. Choose one of the following options. You can't take a Fighting Style option more than once, even if you later get to choose again.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "query",
+        "query": {
+          "endpoint": "fighting_styles",
+          "params": {
+            "available_to": "Fighter"
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Fighter",
+    "level": 1,
+    "name": "Second Wind",
+    "description": "You have a limited well of stamina that you can draw on to protect yourself from harm.",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "effects": [
+          {
+            "healing": {
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "dice",
+                    "dice": "1d10"
+                  },
+                  {
+                    "type": "class_level",
+                    "class": "Fighter"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "short_rest"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Fighter",
+    "level": 2,
+    "name": "Action Surge",
+    "description": "You can push yourself beyond your normal limits for a moment. On your turn, you can take one additional action.",
+    "mechanics": [
+      {
+        "type": "action",
+        "effects": [
+          {
+            "attribute": {
+              "target": "actions.count",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "scaling": {
+          "components": {
+            "uses": {
+              "by_level": {
+                "2": 1,
+                "17": 2
+              }
+            }
+          }
+        },
+        "recharge": "short_rest"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Fighter",
+    "level": 3,
+    "name": "Martial Archetype",
+    "description": "At 3rd level, you choose an archetype that you strive to emulate in your combat styles and techniques.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "subclass"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Fighter",
+    "level": [
+      4,
+      6,
+      8,
+      12,
+      14,
+      16,
+      19
+    ],
+    "name": "Ability Score Improvement",
+    "description": "Increase one ability score by 2 or two ability scores by 1 or one feat",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "asi"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Fighter",
+    "level": 5,
+    "name": "Extra Attack",
+    "description": "You can attack twice, instead of once, whenever you take the Attack action on your turn. The number of attacks increases to three when you reach 11th level in this class and to four when you reach 20th level in this class.",
+    "mechanics": [
+      {
+        "type": "extra_attack",
+        "scaling": {
+          "components": {
+            "attacks": {
+              "by_level": {
+                "5": 2,
+                "11": 3,
+                "20": 4
+              }
+            }
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Fighter",
+    "level": 9,
+    "name": "Indomitable",
+    "description": "You can reroll a saving throw that you fail. If you do so, you must use the new roll.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "trigger": {
+          "event": [
+            "miss"
+          ],
+          "action": "saving_throw"
+        },
+        "effects": [
+          {
+            "roll_modifier": {
+              "reroll": {
+                "replace": true
+              }
+            }
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "scaling": {
+          "components": {
+            "uses": {
+              "by_level": {
+                "9": 1,
+                "13": 2,
+                "17": 3
+              }
+            }
+          }
+        },
+        "recharge": "long_rest"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Fighter",
+    "level": 4,
+    "name": "Martial Versatility",
+    "description": "Whenever you reach a level in this class that grants the Ability Score Improvement feature, you can do one of the following, as you `shi`ft the focus of your martial practice: Replace a fighting style you know with another fighting style available to fighters.",
+    "triggered_by": "Ability Score Improvement",
+    "mechanics": [
+      {
+        "type": "retrain",
+        "name": "replace_fighting_style",
+        "attribute": "fighting_styles",
+        "operation": "replace",
+        "optional": true
+      },
+      {
+        "type": "retrain",
+        "name": "add_fighting_style",
+        "attribute": "fighting_styles",
+        "operation": "add",
+        "optional": false,
+        "source": {
+          "list": "fighting_styles",
+          "filter": {
+            "available_to": "Fighter"
+          },
+          "exclude": "character.fighting_styles"
+        }
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  }
+]

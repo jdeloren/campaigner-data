@@ -1,0 +1,131 @@
+[
+  {
+    "class": "Arcane Trickster",
+    "name": "Mage Hand Legerdemain",
+    "level": 3,
+    "description": "When you cast Mage Hand, you can make the spectral hand invisible, and you can perform additional tasks with it.",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "activation": {
+          "type": "bonus_action",
+          "trigger": {
+            "event": [
+              "cast_spell"
+            ]
+          }
+        },
+        "name": "move_illusion",
+        "effects": [
+          {
+            "movement": {
+              "target": {
+                "type": "entity",
+                "value": [
+                  "spectral_hand"
+                ]
+              },
+              "distance": 30,
+              "visibility": {
+                "requires": "line_of_sight"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Arcane Trickster",
+    "name": "Magical Ambush",
+    "level": 9,
+    "description": "If you are hidden from a creature when you cast a spell on it, the creature has disadvantage on any saving throw it makes against the spell this turn.",
+    "mechanics": [
+      {
+        "type": "advantage",
+        "target": {
+          "type": "creature",
+          "requirements": [
+            {
+              "type": "perception",
+              "observer": "target",
+              "subject": "character",
+              "senses": [
+                "sight"
+              ],
+              "negate": true
+            }
+          ]
+        },
+        "effects": [
+          {
+            "target": {
+              "type": "attacker"
+            },
+            "disadvantage": {
+              "saving_throw": [
+                "Strength",
+                "Dexterity",
+                "Constitution",
+                "Intelligence",
+                "Wisdom",
+                "Charisma"
+              ]
+            }
+          },
+          {
+            "type": "spell"
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Arcane Trickster",
+    "name": "Versatile Trickster",
+    "level": 13,
+    "description": "You gain the ability to distract targets with your Mage Hand.",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "target": {
+          "type": "creature",
+          "count": 1,
+          "disposition": "hostile"
+        },
+        "effects": [
+          {
+            "advantage": {
+              "attack": "all",
+              "requirements": [
+                {
+                  "type": "proximity",
+                  "entities": [
+                    "mage_hand"
+                  ],
+                  "distance": 5,
+                  "to": "target"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Arcane Trickster",
+    "name": "Spell Thief",
+    "level": 17,
+    "description": "You gain the ability to magically steal the knowledge of how to cast a spell from another spellcaster.",
+    "mechanics": [],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

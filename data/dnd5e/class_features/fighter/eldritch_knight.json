@@ -1,0 +1,207 @@
+[
+  {
+    "class": "Eldritch Knight",
+    "level": 3,
+    "name": "Weapon Bond",
+    "description": "You learn a ritual that creates a magical bond between yourself and one weapon. You perform the ritual over the course of 1 hour, which can be done during a short rest. The weapon must be within your reach throughout the ritual, at the conclusion of which you touch the weapon and forge the bond. Once you have bonded a weapon to yourself, you can't be disarmed of that weapon unless you are incapacitated. If it is on the same plane of existence, you can summon that weapon as a bonus action on your turn, causing it to teleport instantly to your hand. You can have up to two bonded weapons, but can only summon one at a time with your bonus action.",
+    "mechanics": [
+      {
+        "type": "ritual",
+        "name": "Weapon Bond Ritual",
+        "duration": {
+          "value": 1,
+          "unit": "hours"
+        },
+        "effects": [
+          {
+            "apply_status": {
+              "name": "bonded",
+              "target": {
+                "type": "weapon"
+              }
+            }
+          }
+        ],
+        "requirements": [
+          {
+            "type": "count",
+            "status": "bonded",
+            "max": 2
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "immunity": {
+              "category": "effect",
+              "effect": "disarm"
+            },
+            "requirements": [
+              {
+                "type": "status",
+                "target": "weapon",
+                "value": "bonded"
+              },
+              {
+                "type": "status",
+                "value": "incapacitated",
+                "negate": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "bonus_action",
+        "effects": [
+          {
+            "target": {
+              "type": "weapon",
+              "status": "bonded"
+            },
+            "movement": {
+              "type": "teleport",
+              "destination": "hand"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Eldritch Knight",
+    "level": 7,
+    "name": "War Magic",
+    "description": "When you use your action to cast a cantrip, you can make one weapon attack as a bonus action.",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "trigger": {
+          "event": [
+            "cast_spell"
+          ],
+          "spell_level": 0
+        },
+        "effects": [
+          {
+            "grants": {
+              "name": "Attack",
+              "type": "weapon",
+              "count": 1
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Eldritch Knight",
+    "level": 10,
+    "name": "Eldritch Strike",
+    "description": "You learn how to make your weapon strikes undercut a creature's resistance to your spells. When you hit a creature with a weapon attack, that creature has disadvantage on the next saving throw it makes against a spell you cast before the end of your next turn.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "trigger": {
+          "event": [
+            "hit"
+          ],
+          "source": {
+            "type": [
+              "weapon"
+            ]
+          }
+        },
+        "effects": [
+          {
+            "target": {
+              "type": "event_recipient"
+            },
+            "apply_status": {
+              "name": "eldritch_strike",
+              "source": "character",
+              "effect": {
+                "disadvantage": {
+                  "saving_throw": [
+                    "all"
+                  ],
+                  "against": {
+                    "source": "character",
+                    "effect_type": "spell"
+                  }
+                }
+              },
+              "duration": {
+                "value": 1,
+                "unit": "turns"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Eldritch Knight",
+    "level": 15,
+    "name": "Arcane Charge",
+    "description": "You gain the ability to teleport up to 30 feet to an unoccupied space you can see when you use your Action Surge. You can teleport before or after the additional action.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "grants": {
+          "name": "Arcane Charge",
+          "interaction": {
+            "name": "Action Surge"
+          }
+        },
+        "effects": [
+          {
+            "movement": {
+              "type": "teleport",
+              "distance": 30
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "class": "Eldritch Knight",
+    "level": 18,
+    "name": "Improved War Magic",
+    "description": "When you use your action to cast a spell, you can make one weapon attack as a bonus action.",
+    "enhances": "War Magic",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "trigger": {
+          "event": [
+            "cast_spell"
+          ]
+        },
+        "effects": [
+          {
+            "grants": {
+              "name": "Attack",
+              "type": "weapon",
+              "count": 1
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]
