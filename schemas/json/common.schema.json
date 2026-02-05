@@ -2292,6 +2292,25 @@
           "default": null,
           "description": "How the choice scales with level",
           "title": "Scaling"
+        },
+        "unique": {
+          "default": false,
+          "description": "Whether selections must be unique (no duplicates allowed)",
+          "title": "Unique",
+          "type": "boolean"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Calculation"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Value calculation to apply with selection (e.g., +1 for ability score increases)",
+          "title": "Value"
         }
       },
       "required": [
@@ -5950,18 +5969,24 @@
           "title": "Count",
           "type": "integer"
         },
-        "bonus": {
+        "value": {
           "anyOf": [
             {
-              "type": "integer"
+              "$ref": "#/$defs/Calculation"
             },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "description": "Bonus value to apply (e.g., +1 for ability score increases)",
-          "title": "Bonus"
+          "description": "Value calculation to apply (e.g., +1 for ability score increases using add operation)",
+          "title": "Value"
+        },
+        "unique": {
+          "default": false,
+          "description": "Whether selections must be unique (no duplicates allowed)",
+          "title": "Unique",
+          "type": "boolean"
         },
         "options": {
           "anyOf": [

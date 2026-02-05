@@ -1728,7 +1728,7 @@
               { "type": "simple", "name": "Charisma" }
             ],
             "unique": true,
-            "bonus": 1
+            "value": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] }
           }
         ]
       },
