@@ -258,7 +258,6 @@
       "dex_bonus": true,
       "max_dex_bonus": null
     },
-    "strength_requirement": null,
     "stealth_disadvantage": true,
     "weight": 8.0,
     "cost": {
@@ -277,7 +276,6 @@
       "dex_bonus": true,
       "max_dex_bonus": null
     },
-    "strength_requirement": null,
     "stealth_disadvantage": false,
     "weight": 10.0,
     "cost": {
@@ -296,7 +294,6 @@
       "dex_bonus": true,
       "max_dex_bonus": null
     },
-    "strength_requirement": null,
     "stealth_disadvantage": false,
     "weight": 13.0,
     "cost": {
@@ -315,7 +312,6 @@
       "dex_bonus": true,
       "max_dex_bonus": 2
     },
-    "strength_requirement": null,
     "stealth_disadvantage": false,
     "weight": 12.0,
     "cost": {
@@ -334,7 +330,6 @@
       "dex_bonus": true,
       "max_dex_bonus": 2
     },
-    "strength_requirement": null,
     "stealth_disadvantage": false,
     "weight": 20.0,
     "cost": {
@@ -353,7 +348,6 @@
       "dex_bonus": true,
       "max_dex_bonus": 2
     },
-    "strength_requirement": null,
     "stealth_disadvantage": true,
     "weight": 45.0,
     "cost": {
@@ -372,7 +366,6 @@
       "dex_bonus": true,
       "max_dex_bonus": 2
     },
-    "strength_requirement": null,
     "stealth_disadvantage": true,
     "weight": 45.0,
     "cost": {
@@ -391,7 +384,6 @@
       "dex_bonus": true,
       "max_dex_bonus": 2
     },
-    "strength_requirement": null,
     "stealth_disadvantage": false,
     "weight": 20.0,
     "cost": {
@@ -410,7 +402,6 @@
       "dex_bonus": true,
       "max_dex_bonus": 2
     },
-    "strength_requirement": null,
     "stealth_disadvantage": true,
     "weight": 40.0,
     "cost": {
@@ -429,7 +420,6 @@
       "dex_bonus": false,
       "max_dex_bonus": null
     },
-    "strength_requirement": null,
     "stealth_disadvantage": true,
     "weight": 40.0,
     "cost": {
@@ -448,7 +438,9 @@
       "dex_bonus": false,
       "max_dex_bonus": null
     },
-    "strength_requirement": 13,
+    "requirements": [
+      { "type": "attribute", "attribute": "Strength", "minimum": 13 }
+    ],
     "stealth_disadvantage": true,
     "weight": 55.0,
     "cost": {
@@ -467,7 +459,9 @@
       "dex_bonus": false,
       "max_dex_bonus": null
     },
-    "strength_requirement": 15,
+    "requirements": [
+      { "type": "attribute", "attribute": "Strength", "minimum": 15 }
+    ],
     "stealth_disadvantage": true,
     "weight": 60.0,
     "cost": {
@@ -486,7 +480,9 @@
       "dex_bonus": false,
       "max_dex_bonus": null
     },
-    "strength_requirement": 15,
+    "requirements": [
+      { "type": "attribute", "attribute": "Strength", "minimum": 15 }
+    ],
     "stealth_disadvantage": true,
     "weight": 65.0,
     "cost": {
@@ -505,7 +501,6 @@
       "dex_bonus": false,
       "max_dex_bonus": null
     },
-    "strength_requirement": null,
     "stealth_disadvantage": false,
     "weight": 6.0,
     "cost": {

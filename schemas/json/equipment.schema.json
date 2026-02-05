@@ -11,7 +11,7 @@
         "type": "string"
       },
       "cost": {
-        "$ref": "#/$defs/CurrencyCost",
+        "$ref": "common.schema.json#/$defs/CurrencyCost",
         "description": "Cost with currency"
       },
       "weight": {
@@ -28,11 +28,11 @@
         "title": "Weight"
       },
       "source": {
-        "$ref": "#/$defs/Source",
+        "$ref": "common.schema.json#/$defs/Source",
         "description": "Source book"
       },
       "ruleset": {
-        "$ref": "#/$defs/Ruleset",
+        "$ref": "common.schema.json#/$defs/Ruleset",
         "description": "Ruleset version"
       },
       "type": {
@@ -86,7 +86,7 @@
       "damage": {
         "anyOf": [
           {
-            "$ref": "#/$defs/Damage"
+            "$ref": "common.schema.json#/$defs/Damage"
           },
           {
             "type": "null"
@@ -123,18 +123,21 @@
         "default": null,
         "description": "Armor AC calculation"
       },
-      "strength_requirement": {
+      "requirements": {
         "anyOf": [
           {
-            "type": "integer"
+            "items": {
+              "$ref": "common.schema.json#/$defs/AttributeRequirement"
+            },
+            "type": "array"
           },
           {
             "type": "null"
           }
         ],
         "default": null,
-        "description": "Minimum strength requirement",
-        "title": "Strength Requirement"
+        "description": "Requirements for using this equipment (e.g., minimum Strength for heavy armor)",
+        "title": "Requirements"
       },
       "stealth": {
         "anyOf": [
@@ -259,145 +262,6 @@
       "title": "ArmorClass",
       "type": "object"
     },
-    "Currency": {
-      "enum": [
-        "CP",
-        "SP",
-        "EP",
-        "GP",
-        "PP"
-      ],
-      "title": "Currency",
-      "type": "string"
-    },
-    "CurrencyCost": {
-      "description": "Cost in currency.\n\nExample: {\"amount\": 50, \"currency\": \"gp\"}",
-      "properties": {
-        "amount": {
-          "description": "Numeric cost",
-          "title": "Amount",
-          "type": "number"
-        },
-        "currency": {
-          "$ref": "#/$defs/Currency",
-          "description": "Currency: cp, sp, ep, gp, pp"
-        }
-      },
-      "required": [
-        "amount",
-        "currency"
-      ],
-      "title": "CurrencyCost",
-      "type": "object"
-    },
-    "Damage": {
-      "description": "Weapon damage",
-      "properties": {
-        "dice": {
-          "description": "Damage dice (e.g., '1d6')",
-          "title": "Dice",
-          "type": "string"
-        },
-        "type": {
-          "description": "Damage type",
-          "items": {
-            "anyOf": [
-              {
-                "$ref": "#/$defs/DamageElement"
-              },
-              {
-                "$ref": "#/$defs/DamageType"
-              }
-            ]
-          },
-          "title": "Type",
-          "type": "array"
-        },
-        "target": {
-          "$ref": "#/$defs/DamageTarget",
-          "default": "single",
-          "description": "Type of target"
-        },
-        "versatile": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Versatile damage dice",
-          "title": "Versatile"
-        },
-        "split": {
-          "default": false,
-          "description": "Whether damage is split among targets",
-          "title": "Split",
-          "type": "boolean"
-        },
-        "order": {
-          "anyOf": [
-            {
-              "enum": [
-                "ascending",
-                "descending"
-              ],
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Target order logistics",
-          "title": "Order"
-        }
-      },
-      "required": [
-        "dice",
-        "type"
-      ],
-      "title": "Damage",
-      "type": "object"
-    },
-    "DamageElement": {
-      "description": "Elemental/magical damage types.",
-      "enum": [
-        "acid",
-        "cold",
-        "fire",
-        "force",
-        "lightning",
-        "necrotic",
-        "poison",
-        "psychic",
-        "radiant",
-        "thunder"
-      ],
-      "title": "DamageElement",
-      "type": "string"
-    },
-    "DamageTarget": {
-      "enum": [
-        "area",
-        "single"
-      ],
-      "title": "DamageTarget",
-      "type": "string"
-    },
-    "DamageType": {
-      "description": "Physical damage types.",
-      "enum": [
-        "bludgeoning",
-        "piercing",
-        "slashing",
-        "falling"
-      ],
-      "title": "DamageType",
-      "type": "string"
-    },
     "EquipmentCategory": {
       "description": "High-level equipment categories for filtering.",
       "enum": [
@@ -408,26 +272,6 @@
         "focus"
       ],
       "title": "EquipmentCategory",
-      "type": "string"
-    },
-    "Ruleset": {
-      "enum": [
-        "dnd5e_2024",
-        "dnd5e",
-        "dnd3.5e",
-        "pf2e"
-      ],
-      "title": "Ruleset",
-      "type": "string"
-    },
-    "Source": {
-      "enum": [
-        "phb",
-        "tce",
-        "scag",
-        "xge"
-      ],
-      "title": "Source",
       "type": "string"
     }
   }

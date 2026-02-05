@@ -66,11 +66,11 @@
         "type": "array"
       },
       "source": {
-        "$ref": "#/$defs/Source",
+        "$ref": "common.schema.json#/$defs/Source",
         "description": "Source book"
       },
       "ruleset": {
-        "$ref": "#/$defs/Ruleset",
+        "$ref": "common.schema.json#/$defs/Ruleset",
         "description": "Ruleset"
       }
     },
@@ -84,27 +84,5 @@
     ],
     "title": "Background",
     "type": "object"
-  },
-  "$defs": {
-    "Ruleset": {
-      "enum": [
-        "dnd5e_2024",
-        "dnd5e",
-        "dnd3.5e",
-        "pf2e"
-      ],
-      "title": "Ruleset",
-      "type": "string"
-    },
-    "Source": {
-      "enum": [
-        "phb",
-        "tce",
-        "scag",
-        "xge"
-      ],
-      "title": "Source",
-      "type": "string"
-    }
   }
 }
