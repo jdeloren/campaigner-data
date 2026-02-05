@@ -119,6 +119,24 @@
         "title": "Subraces",
         "type": "array"
       },
+      "traits": {
+        "description": "Racial traits with mechanics",
+        "items": {
+          "$ref": "#/$defs/RaceTrait"
+        },
+        "title": "Traits",
+        "type": "array",
+        "default": []
+      },
+      "languages": {
+        "description": "Languages known by this race",
+        "items": {
+          "$ref": "#/$defs/RaceLanguage"
+        },
+        "title": "Languages",
+        "type": "array",
+        "default": []
+      },
       "source": {
         "description": "Source book",
         "title": "Source",
@@ -140,5 +158,123 @@
     ],
     "title": "Race",
     "type": "object"
+  },
+  "$defs": {
+    "RaceTrait": {
+      "description": "A racial trait with mechanics.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Trait name",
+          "title": "Name",
+          "type": "string"
+        },
+        "description": {
+          "description": "Trait description",
+          "title": "Description",
+          "type": "string"
+        },
+        "damage": {
+          "anyOf": [
+            {
+              "$ref": "common.schema.json#/$defs/Damage"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Damage specification for damage-dealing traits"
+        },
+        "scaling": {
+          "anyOf": [
+            {
+              "$ref": "common.schema.json#/$defs/Scaling"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Scaling specification for level-based traits"
+        },
+        "mechanics": {
+          "description": "Structured game mechanics for this trait",
+          "items": {
+            "discriminator": {
+              "mapping": {
+                "action": "#/$defs/BaseMechanic",
+                "advantage": "#/$defs/BaseMechanic",
+                "bonus_action": "#/$defs/BaseMechanic",
+                "choice": "#/$defs/ChoiceMechanic",
+                "critical_hit": "#/$defs/BaseMechanic",
+                "damage_bonus": "#/$defs/BaseMechanic",
+                "extra_attack": "#/$defs/BaseMechanic",
+                "extra_turn": "#/$defs/BaseMechanic",
+                "granted_spells": "#/$defs/GrantedSpellsMechanic",
+                "immunity": "#/$defs/BaseMechanic",
+                "movement": "#/$defs/BaseMechanic",
+                "optional": "#/$defs/BaseMechanic",
+                "passive": "#/$defs/BaseMechanic",
+                "proficiency": "#/$defs/ProficiencyMechanic",
+                "reaction": "#/$defs/BaseMechanic",
+                "resistance": "#/$defs/BaseMechanic",
+                "resource": "#/$defs/ResourceMechanic",
+                "retrain": "#/$defs/RetrainMechanic",
+                "ritual": "#/$defs/BaseMechanic",
+                "special": "#/$defs/BaseMechanic",
+                "spellcasting": "#/$defs/SpellcastingMechanic"
+              },
+              "propertyName": "type"
+            },
+            "oneOf": [
+              {
+                "$ref": "common.schema.json#/$defs/ResourceMechanic"
+              },
+              {
+                "$ref": "common.schema.json#/$defs/ChoiceMechanic"
+              },
+              {
+                "$ref": "common.schema.json#/$defs/RetrainMechanic"
+              },
+              {
+                "$ref": "common.schema.json#/$defs/SpellcastingMechanic"
+              },
+              {
+                "$ref": "common.schema.json#/$defs/GrantedSpellsMechanic"
+              },
+              {
+                "$ref": "common.schema.json#/$defs/ProficiencyMechanic"
+              },
+              {
+                "$ref": "common.schema.json#/$defs/BaseMechanic"
+              }
+            ]
+          },
+          "title": "Mechanics",
+          "type": "array"
+        }
+      },
+      "required": ["name", "description", "mechanics"],
+      "title": "RaceTrait"
+    },
+    "RaceLanguage": {
+      "description": "A language entry for a race.",
+      "type": "object",
+      "properties": {
+        "language": {
+          "description": "Language name (e.g., 'Common', 'Elvish')",
+          "title": "Language",
+          "type": "string"
+        },
+        "choice": {
+          "description": "Whether this is a choice (true) or automatic (false)",
+          "title": "Choice",
+          "type": "boolean"
+        }
+      },
+      "required": ["language", "choice"],
+      "title": "RaceLanguage"
+    }
   }
 }

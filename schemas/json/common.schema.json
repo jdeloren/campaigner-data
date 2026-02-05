@@ -1697,10 +1697,10 @@
               "items": {
                 "anyOf": [
                   {
-                    "$ref": "#/$defs/CurrencyCost"
+                    "$ref": "common.schema.json#/$defs/CurrencyCost"
                   },
                   {
-                    "$ref": "#/$defs/ResourceCost"
+                    "$ref": "common.schema.json#/$defs/ResourceCost"
                   }
                 ]
               },
@@ -2528,7 +2528,7 @@
       "type": "string"
     },
     "CurrencyCost": {
-      "description": "Cost in currency.\n\nExample: {\"amount\": 50, \"currency\": \"gp\"}",
+      "description": "Cost in currency.\n\nExample: {\"amount\": 50, \"currency\": \"GP\"}",
       "properties": {
         "amount": {
           "description": "Numeric cost",
@@ -2536,8 +2536,8 @@
           "type": "number"
         },
         "currency": {
-          "$ref": "#/$defs/Currency",
-          "description": "Currency: cp, sp, ep, gp, pp"
+          "$ref": "common.schema.json#/$defs/Currency",
+          "description": "Currency: CP, SP, EP, GP, PP"
         }
       },
       "required": [
