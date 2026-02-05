@@ -4342,6 +4342,18 @@
           ],
           "default": null,
           "description": "Requirement that this effect allows bypassing"
+        },
+        "stat_modifier": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/StatModifier"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Modifier applied to a character stat (e.g., hit_points during level-up)"
         }
       },
       "title": "Effect",
@@ -8108,6 +8120,26 @@
         "value"
       ],
       "title": "StatusRequirement",
+      "type": "object"
+    },
+    "StatModifier": {
+      "description": "Modifier applied to a character stat during level-up or hydration.",
+      "properties": {
+        "stat": {
+          "description": "The stat to modify (e.g., 'hit_points', 'ac', 'speed')",
+          "title": "Stat",
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/$defs/Calculation",
+          "description": "Calculation for the modifier value"
+        }
+      },
+      "required": [
+        "stat",
+        "value"
+      ],
+      "title": "StatModifier",
       "type": "object"
     },
     "StringOperand": {
