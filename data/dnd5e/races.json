@@ -1756,5 +1756,105 @@
       }
     ],
     "languages": []
+  },
+  {
+    "name": "Half-Orc",
+    "size": "Medium",
+    "speed": 30,
+    "creature_type": "Humanoid",
+    "vision_type": "Darkvision",
+    "vision_range": 60,
+    "requires_sleep": true,
+    "rest_duration": 8,
+    "rest_type": "sleep",
+    "ability_score_increases": {
+      "Strength": 2,
+      "Dexterity": 0,
+      "Constitution": 1,
+      "Intelligence": 0,
+      "Wisdom": 0,
+      "Charisma": 0
+    },
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "base_race": null,
+    "subraces": [],
+    "traits": [
+      {
+        "name": "Menacing",
+        "description": "You gain proficiency in the Intimidation skill.",
+        "mechanics": [
+          {
+            "type": "proficiency",
+            "category": "skill",
+            "proficiencies": ["Intimidation"]
+          }
+        ]
+      },
+      {
+        "name": "Relentless Endurance",
+        "description": "When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can't use this feature again until you finish a long rest.",
+        "mechanics": [
+          {
+            "type": "reaction",
+            "trigger": {
+              "event": ["damaged"],
+              "conditions": {
+                "type": "hit_points",
+                "comparison": "greater_than_or_equal",
+                "calculation": {
+                  "operation": "subtract",
+                  "operators": [
+                    { "type": "attribute", "value": "trigger.value" },
+                    { "type": "attribute", "value": "hit_points.current" }
+                  ]
+                },
+                "value": 0
+              }
+            },
+            "uses": { "value": 1 },
+            "recharge": "long_rest",
+            "effects": [
+              {
+                "attribute": {
+                  "target": "hit_points.current",
+                  "calculation": {
+                    "operation": "set",
+                    "operators": [{ "type": "integer", "value": 1 }]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Savage Attacks",
+        "description": "When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "trigger": {
+              "event": ["critical_hit"],
+              "source": {
+                "type": ["melee_weapon"]
+              }
+            },
+            "effects": [
+              {
+                "damage_bonus": {
+                  "dice": "weapon_die",
+                  "count": 1
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "languages": [
+      { "language": "Common", "choice": false },
+      { "language": "Orc", "choice": false }
+    ]
   }
 ]
