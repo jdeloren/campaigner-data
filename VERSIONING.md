@@ -132,16 +132,28 @@ Scope is informational only and doesn't affect versioning.
 
 On every push to `main`:
 
-1. **Analyze commits** since the last tag
-2. **Determine version bump** based on highest-priority commit type:
+1. **Analyze commits** since the last tag for each dataset
+2. **Determine version bumps** based on highest-priority commit type:
    - `breaking` > `feat` > `fix`
    - `!` suffix → beta, no `!` → stable
    - `release:` → promote existing beta
-3. **Run validation** (schema + data validation)
+3. **Run validation** (schema + data validation per dataset)
 4. **If validation passes**:
-   - Update `manifest.json` with new version
-   - Create git tag (`dnd5e-v1.2.0` or `dnd5e-v1.2.0-beta.1`)
-   - Create GitHub Release with changelog
+   - Update each affected dataset's `manifest.json`
+   - Update repo `version.json` (if any dataset or repo files changed)
+   - Create git tags for each version bump
+   - Create GitHub Releases with changelogs
+
+### Version Bump Rules
+
+| Change Type | Dataset Version | Repo Version |
+|-------------|-----------------|--------------|
+| Data files in `data/dnd5e/` | dnd5e bumped | Repo bumped |
+| Schema files in `schemas/` | — | Repo bumped |
+| Scripts in `scripts/` | — | Repo bumped |
+| Multiple datasets changed | Each dataset bumped | Repo bumped (max of all) |
+
+The repo version always uses the **highest** bump type from all changes (dataset + repo-level).
 
 ### No Release Triggered
 
@@ -150,9 +162,25 @@ These commit types alone will **not** trigger a release:
 
 You can accumulate these commits and they'll be included in the changelog of the next release.
 
-## Version in Data Files
+## Version Files
 
-The authoritative version for each ruleset is stored in its `manifest.json`:
+### Repository Version
+
+The authoritative version for the repository itself is stored in `version.json` at the root:
+
+```json
+{
+  "version": "1.0.0",
+  "name": "campaigner-data",
+  "description": "Game data repository for the Campaigner project"
+}
+```
+
+This version is bumped when changes are made to schemas, scripts, or other repo-level files (anything outside `data/`).
+
+### Dataset Versions
+
+Each ruleset has its own version stored in `data/{ruleset}/manifest.json`:
 
 ```json
 {
@@ -161,6 +189,8 @@ The authoritative version for each ruleset is stored in its `manifest.json`:
   "description": "D&D 5th Edition (2014) SRD Data"
 }
 ```
+
+Dataset versions are bumped when changes are made to data files within that dataset.
 
 ## Quick Reference
 
