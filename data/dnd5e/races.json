@@ -1,6 +1,7 @@
 [
   {
     "name": "Elf",
+    "description": "Elves are a magical people of otherworldly grace, living in the world but not entirely part of it. They live in places of ethereal beauty, in the midst of ancient forests or in silvery spires glittering with faerie light.",
     "size": "Medium",
     "speed": 30,
     "creature_type": "Humanoid",
@@ -20,7 +21,11 @@
     "source": "phb",
     "ruleset": "dnd5e",
     "base_race": null,
-    "subraces": ["High Elf", "Wood Elf", "Drow"],
+    "subraces": [
+      "High Elf",
+      "Wood Elf",
+      "Drow"
+    ],
     "traits": [
       {
         "name": "Keen Senses",
@@ -29,7 +34,9 @@
           {
             "type": "proficiency",
             "category": "skill",
-            "proficiencies": ["Perception"]
+            "proficiencies": [
+              "Perception"
+            ]
           }
         ]
       },
@@ -51,7 +58,9 @@
                     "Charisma"
                   ],
                   "against": {
-                    "status": ["charmed"]
+                    "status": [
+                      "charmed"
+                    ]
                   }
                 }
               }
@@ -63,7 +72,9 @@
               {
                 "immunity": {
                   "category": "status",
-                  "status": ["sleep"],
+                  "status": [
+                    "sleep"
+                  ],
                   "source": {
                     "origin": "magical"
                   }
@@ -75,12 +86,19 @@
       }
     ],
     "languages": [
-      { "language": "Common", "choice": false },
-      { "language": "Elvish", "choice": false }
+      {
+        "language": "Common",
+        "choice": false
+      },
+      {
+        "language": "Elvish",
+        "choice": false
+      }
     ]
   },
   {
     "name": "High Elf",
+    "description": "As a high elf, you have a keen mind and a mastery of at least the basics of magic. High elves are more common in the worlds of D&D, being found in ancient forests, along the coasts, or in isolated towers where they practice their magical arts.",
     "size": "Medium",
     "speed": 30,
     "creature_type": "Humanoid",
@@ -108,7 +126,12 @@
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": ["longsword", "shortsword", "Shortbow", "Longbow"]
+            "proficiencies": [
+              "longsword",
+              "shortsword",
+              "Shortbow",
+              "Longbow"
+            ]
           }
         ]
       },
@@ -128,6 +151,7 @@
   },
   {
     "name": "Wood Elf",
+    "description": "As a wood elf, you have keen senses and intuition, and your fleet feet carry you quickly and stealthily through your native forests. Wood elves tend to be reclusive and distrustful of non-elves.",
     "size": "Medium",
     "speed": 35,
     "creature_type": "Humanoid",
@@ -155,7 +179,12 @@
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": ["longsword", "shortsword", "Shortbow", "Longbow"]
+            "proficiencies": [
+              "longsword",
+              "shortsword",
+              "Shortbow",
+              "Longbow"
+            ]
           }
         ]
       },
@@ -173,6 +202,7 @@
   },
   {
     "name": "Drow",
+    "description": "Descended from an earlier subrace of dark-skinned elves, the drow were banished from the surface world for following the goddess Lolth down the path to evil and corruption. Now they have built their own civilization in the depths of the Underdark.",
     "size": "Medium",
     "speed": 30,
     "creature_type": "Humanoid",
@@ -211,14 +241,19 @@
             "name": "Dancing Lights",
             "spell": "dancing lights",
             "ability": "Charisma",
-            "components": ["Verbal", "Somatic"]
+            "components": [
+              "Verbal",
+              "Somatic"
+            ]
           },
           {
             "type": "spellcasting",
             "name": "Faerie Fire",
             "spell": "faerie fire",
             "ability": "Charisma",
-            "components": ["Verbal"],
+            "components": [
+              "Verbal"
+            ],
             "uses": {
               "value": 1
             },
@@ -235,7 +270,9 @@
             "name": "Darkness",
             "spell": "darkness",
             "ability": "Charisma",
-            "components": ["Verbal"],
+            "components": [
+              "Verbal"
+            ],
             "uses": {
               "value": 1
             },
@@ -256,7 +293,11 @@
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": ["rapier", "shortsword", "hand crossbow"]
+            "proficiencies": [
+              "rapier",
+              "shortsword",
+              "hand crossbow"
+            ]
           }
         ]
       }
@@ -265,6 +306,7 @@
   },
   {
     "name": "Half-Elf",
+    "description": "Walking in two worlds but truly belonging to neither, half-elves combine what some say are the best qualities of their elf and human parents: human curiosity, inventiveness, and ambition tempered by the refined senses, love of nature, and artistic tastes of the elves.",
     "size": "Medium",
     "speed": 30,
     "creature_type": "Humanoid",
@@ -304,14 +346,18 @@
                     "Charisma"
                   ],
                   "against": {
-                    "status": ["charmed"]
+                    "status": [
+                      "charmed"
+                    ]
                   }
                 }
               },
               {
                 "immunity": {
                   "category": "status",
-                  "status": ["sleep"],
+                  "status": [
+                    "sleep"
+                  ],
                   "source": {
                     "origin": "magical"
                   }
@@ -330,24 +376,49 @@
             "choice_type": "skill",
             "count": 2,
             "options": [
-              { "type": "simple", "name": "Acrobatics" },
-              { "type": "simple", "name": "Animal Handling" },
-              { "type": "simple", "name": "Insight" },
-              { "type": "simple", "name": "Intimidation" },
-              { "type": "simple", "name": "Perception" },
-              { "type": "simple", "name": "Persuasion" }
+              {
+                "type": "simple",
+                "name": "Acrobatics"
+              },
+              {
+                "type": "simple",
+                "name": "Animal Handling"
+              },
+              {
+                "type": "simple",
+                "name": "Insight"
+              },
+              {
+                "type": "simple",
+                "name": "Intimidation"
+              },
+              {
+                "type": "simple",
+                "name": "Perception"
+              },
+              {
+                "type": "simple",
+                "name": "Persuasion"
+              }
             ]
           }
         ]
       }
     ],
     "languages": [
-      { "language": "Common", "choice": false },
-      { "language": "Elvish", "choice": false }
+      {
+        "language": "Common",
+        "choice": false
+      },
+      {
+        "language": "Elvish",
+        "choice": false
+      }
     ]
   },
   {
     "name": "Dwarf",
+    "description": "Bold and hardy, dwarves are known as skilled warriors, miners, and workers of stone and metal. Though they stand well under 5 feet tall, dwarves are so broad and compact that they can weigh as much as a human standing nearly two feet taller.",
     "size": "Medium",
     "speed": 25,
     "creature_type": "Humanoid",
@@ -367,7 +438,10 @@
     "source": "phb",
     "ruleset": "dnd5e",
     "base_race": null,
-    "subraces": ["Hill Dwarf", "Mountain Dwarf"],
+    "subraces": [
+      "Hill Dwarf",
+      "Mountain Dwarf"
+    ],
     "traits": [
       {
         "name": "Speed",
@@ -404,13 +478,17 @@
                     "Charisma"
                   ],
                   "against": {
-                    "damage_type": ["poison"]
+                    "damage_type": [
+                      "poison"
+                    ]
                   }
                 }
               },
               {
                 "resistance": {
-                  "damage_type": ["poison"]
+                  "damage_type": [
+                    "poison"
+                  ]
                 }
               }
             ]
@@ -442,9 +520,18 @@
             "choice_type": "tool",
             "count": 1,
             "options": [
-              { "type": "simple", "name": "smith's tools" },
-              { "type": "simple", "name": "brewer's supplies" },
-              { "type": "simple", "name": "mason's tools" }
+              {
+                "type": "simple",
+                "name": "smith's tools"
+              },
+              {
+                "type": "simple",
+                "name": "brewer's supplies"
+              },
+              {
+                "type": "simple",
+                "name": "mason's tools"
+              }
             ]
           }
         ]
@@ -456,12 +543,19 @@
       }
     ],
     "languages": [
-      { "language": "Common", "choice": false },
-      { "language": "Dwarvish", "choice": false }
+      {
+        "language": "Common",
+        "choice": false
+      },
+      {
+        "language": "Dwarvish",
+        "choice": false
+      }
     ]
   },
   {
     "name": "Hill Dwarf",
+    "description": "As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience. The gold dwarves of Faer\u00fbn in their mighty southern kingdom are hill dwarves, as are the exiled Neidar and the debased Klar of Krynn.",
     "size": "Medium",
     "speed": 25,
     "creature_type": "Humanoid",
@@ -494,7 +588,12 @@
                   "stat": "hit_points",
                   "value": {
                     "operation": "add",
-                    "operators": [{ "type": "integer", "value": 1 }]
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 1
+                      }
+                    ]
                   }
                 }
               }
@@ -507,6 +606,7 @@
   },
   {
     "name": "Mountain Dwarf",
+    "description": "As a mountain dwarf, you're strong and hardy, accustomed to a difficult life in rugged terrain. You're probably on the tall side for a dwarf, and tend toward lighter coloration. The shield dwarves of northern Faer\u00fbn are mountain dwarves.",
     "size": "Medium",
     "speed": 25,
     "creature_type": "Humanoid",
@@ -534,7 +634,10 @@
           {
             "type": "proficiency",
             "category": "armor",
-            "proficiencies": ["light armor", "medium armor"]
+            "proficiencies": [
+              "light armor",
+              "medium armor"
+            ]
           }
         ]
       }
@@ -543,6 +646,7 @@
   },
   {
     "name": "Dragonborn",
+    "description": "Born of dragons, as their name proclaims, the dragonborn walk proudly through a world that greets them with fearful incomprehension. Shaped by draconic gods or the dragons themselves, dragonborn originally hatched from dragon eggs as a unique race.",
     "size": "Medium",
     "speed": 30,
     "creature_type": "Humanoid",
@@ -576,12 +680,19 @@
     ],
     "traits": [],
     "languages": [
-      { "language": "Common", "choice": false },
-      { "language": "Draconic", "choice": false }
+      {
+        "language": "Common",
+        "choice": false
+      },
+      {
+        "language": "Draconic",
+        "choice": false
+      }
     ]
   },
   {
     "name": "Black Dragonborn",
+    "description": "Black dragonborn trace their ancestry to black dragons, whose acid breath and swamp-dwelling nature have shaped their heritage. They tend toward cruelty and have a strong survival instinct.",
     "size": "Medium",
     "speed": 30,
     "creature_type": "Humanoid",
@@ -607,7 +718,9 @@
         "description": "You can use your action to exhale a 5 by 30 ft. line of acid. Each creature in the area must make a Dexterity saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 acid damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
         "damage": {
           "dice": "2d6",
-          "type": ["acid"]
+          "type": [
+            "acid"
+          ]
         },
         "scaling": {
           "type": "character",
@@ -624,7 +737,9 @@
         "mechanics": [
           {
             "type": "action",
-            "uses": { "value": 1 },
+            "uses": {
+              "value": 1
+            },
             "recharge": "short_rest",
             "area": {
               "shape": "line",
@@ -642,22 +757,33 @@
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
-                    "ability": ["Constitution"]
+                    "ability": [
+                      "Constitution"
+                    ]
                   }
                 },
                 "on_failure": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": ["acid"]
+                    "type": [
+                      "acid"
+                    ]
                   }
                 },
                 "on_success": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": ["acid"],
+                    "type": [
+                      "acid"
+                    ],
                     "calculation": {
                       "operation": "divide",
-                      "operators": [{ "type": "integer", "value": 2 }],
+                      "operators": [
+                        {
+                          "type": "integer",
+                          "value": 2
+                        }
+                      ],
                       "rounding": "down"
                     }
                   }
@@ -676,7 +802,9 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": ["acid"]
+                  "damage_type": [
+                    "acid"
+                  ]
                 }
               }
             ]
@@ -688,6 +816,7 @@
   },
   {
     "name": "Blue Dragonborn",
+    "description": "Blue dragonborn descend from the cunning blue dragons of the desert. They value order and tend toward lawful alignments, with a proud bearing that reflects their draconic heritage.",
     "size": "Medium",
     "speed": 30,
     "creature_type": "Humanoid",
@@ -713,7 +842,9 @@
         "description": "You can use your action to exhale a 5 by 30 ft. line of lightning. Each creature in the area must make a Dexterity saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 lightning damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
         "damage": {
           "dice": "2d6",
-          "type": ["lightning"]
+          "type": [
+            "lightning"
+          ]
         },
         "scaling": {
           "type": "character",
@@ -730,7 +861,9 @@
         "mechanics": [
           {
             "type": "action",
-            "uses": { "value": 1 },
+            "uses": {
+              "value": 1
+            },
             "recharge": "short_rest",
             "area": {
               "shape": "line",
@@ -748,22 +881,33 @@
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
-                    "ability": ["Constitution"]
+                    "ability": [
+                      "Constitution"
+                    ]
                   }
                 },
                 "on_failure": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": ["lightning"]
+                    "type": [
+                      "lightning"
+                    ]
                   }
                 },
                 "on_success": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": ["lightning"],
+                    "type": [
+                      "lightning"
+                    ],
                     "calculation": {
                       "operation": "divide",
-                      "operators": [{ "type": "integer", "value": 2 }],
+                      "operators": [
+                        {
+                          "type": "integer",
+                          "value": 2
+                        }
+                      ],
                       "rounding": "down"
                     }
                   }
@@ -782,7 +926,9 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": ["lightning"]
+                  "damage_type": [
+                    "lightning"
+                  ]
                 }
               }
             ]
@@ -794,6 +940,7 @@
   },
   {
     "name": "Brass Dragonborn",
+    "description": "Brass dragonborn inherit their ancestors' love of conversation and warm climates. They are typically good-natured and gregarious, enjoying the company of others.",
     "size": "Medium",
     "speed": 30,
     "creature_type": "Humanoid",
@@ -819,7 +966,9 @@
         "description": "You can use your action to exhale a 5 by 30 ft. line of fire. Each creature in the area must make a Dexterity saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 fire damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
         "damage": {
           "dice": "2d6",
-          "type": ["fire"]
+          "type": [
+            "fire"
+          ]
         },
         "scaling": {
           "type": "character",
@@ -836,7 +985,9 @@
         "mechanics": [
           {
             "type": "action",
-            "uses": { "value": 1 },
+            "uses": {
+              "value": 1
+            },
             "recharge": "short_rest",
             "area": {
               "shape": "line",
@@ -854,22 +1005,33 @@
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
-                    "ability": ["Constitution"]
+                    "ability": [
+                      "Constitution"
+                    ]
                   }
                 },
                 "on_failure": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": ["fire"]
+                    "type": [
+                      "fire"
+                    ]
                   }
                 },
                 "on_success": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": ["fire"],
+                    "type": [
+                      "fire"
+                    ],
                     "calculation": {
                       "operation": "divide",
-                      "operators": [{ "type": "integer", "value": 2 }],
+                      "operators": [
+                        {
+                          "type": "integer",
+                          "value": 2
+                        }
+                      ],
                       "rounding": "down"
                     }
                   }
@@ -888,7 +1050,9 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": ["fire"]
+                  "damage_type": [
+                    "fire"
+                  ]
                 }
               }
             ]
@@ -900,6 +1064,7 @@
   },
   {
     "name": "Bronze Dragonborn",
+    "description": "Bronze dragonborn share their ancestors' sense of justice and love of coastal regions. They often feel drawn to military service or other roles where they can protect the innocent.",
     "size": "Medium",
     "speed": 30,
     "creature_type": "Humanoid",
@@ -925,7 +1090,9 @@
         "description": "You can use your action to exhale a 5 by 30 ft. line of lightning. Each creature in the area must make a Dexterity saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 lightning damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
         "damage": {
           "dice": "2d6",
-          "type": ["lightning"]
+          "type": [
+            "lightning"
+          ]
         },
         "scaling": {
           "type": "character",
@@ -942,7 +1109,9 @@
         "mechanics": [
           {
             "type": "action",
-            "uses": { "value": 1 },
+            "uses": {
+              "value": 1
+            },
             "recharge": "short_rest",
             "area": {
               "shape": "line",
@@ -960,22 +1129,33 @@
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
-                    "ability": ["Constitution"]
+                    "ability": [
+                      "Constitution"
+                    ]
                   }
                 },
                 "on_failure": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": ["lightning"]
+                    "type": [
+                      "lightning"
+                    ]
                   }
                 },
                 "on_success": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": ["lightning"],
+                    "type": [
+                      "lightning"
+                    ],
                     "calculation": {
                       "operation": "divide",
-                      "operators": [{ "type": "integer", "value": 2 }],
+                      "operators": [
+                        {
+                          "type": "integer",
+                          "value": 2
+                        }
+                      ],
                       "rounding": "down"
                     }
                   }
@@ -994,7 +1174,9 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": ["lightning"]
+                  "damage_type": [
+                    "lightning"
+                  ]
                 }
               }
             ]
@@ -1006,6 +1188,7 @@
   },
   {
     "name": "Copper Dragonborn",
+    "description": "Copper dragonborn inherit their ancestors' wit and love of jokes. They tend to be good-humored pranksters who value cleverness and enjoy a good riddle.",
     "size": "Medium",
     "speed": 30,
     "creature_type": "Humanoid",
@@ -1031,7 +1214,9 @@
         "description": "You can use your action to exhale a 5 by 30 ft. line of acid. Each creature in the area must make a Dexterity saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 acid damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
         "damage": {
           "dice": "2d6",
-          "type": ["acid"]
+          "type": [
+            "acid"
+          ]
         },
         "scaling": {
           "type": "character",
@@ -1048,7 +1233,9 @@
         "mechanics": [
           {
             "type": "action",
-            "uses": { "value": 1 },
+            "uses": {
+              "value": 1
+            },
             "recharge": "short_rest",
             "area": {
               "shape": "line",
@@ -1066,22 +1253,33 @@
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
-                    "ability": ["Constitution"]
+                    "ability": [
+                      "Constitution"
+                    ]
                   }
                 },
                 "on_failure": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": ["acid"]
+                    "type": [
+                      "acid"
+                    ]
                   }
                 },
                 "on_success": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": ["acid"],
+                    "type": [
+                      "acid"
+                    ],
                     "calculation": {
                       "operation": "divide",
-                      "operators": [{ "type": "integer", "value": 2 }],
+                      "operators": [
+                        {
+                          "type": "integer",
+                          "value": 2
+                        }
+                      ],
                       "rounding": "down"
                     }
                   }
@@ -1100,7 +1298,9 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": ["acid"]
+                  "damage_type": [
+                    "acid"
+                  ]
                 }
               }
             ]
@@ -1112,6 +1312,7 @@
   },
   {
     "name": "Gold Dragonborn",
+    "description": "Gold dragonborn are descended from the most powerful and majestic of metallic dragons. They tend toward leadership roles and hold themselves to high standards of conduct.",
     "size": "Medium",
     "speed": 30,
     "creature_type": "Humanoid",
@@ -1137,7 +1338,9 @@
         "description": "You can use your action to exhale a 15 ft. cone of fire. Each creature in the area must make a Dexterity saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 fire damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
         "damage": {
           "dice": "2d6",
-          "type": ["fire"]
+          "type": [
+            "fire"
+          ]
         },
         "scaling": {
           "type": "character",
@@ -1154,7 +1357,9 @@
         "mechanics": [
           {
             "type": "action",
-            "uses": { "value": 1 },
+            "uses": {
+              "value": 1
+            },
             "recharge": "short_rest",
             "area": {
               "shape": "cone",
@@ -1172,22 +1377,33 @@
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
-                    "ability": ["Constitution"]
+                    "ability": [
+                      "Constitution"
+                    ]
                   }
                 },
                 "on_failure": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": ["fire"]
+                    "type": [
+                      "fire"
+                    ]
                   }
                 },
                 "on_success": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": ["fire"],
+                    "type": [
+                      "fire"
+                    ],
                     "calculation": {
                       "operation": "divide",
-                      "operators": [{ "type": "integer", "value": 2 }],
+                      "operators": [
+                        {
+                          "type": "integer",
+                          "value": 2
+                        }
+                      ],
                       "rounding": "down"
                     }
                   }
@@ -1206,7 +1422,9 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": ["fire"]
+                  "damage_type": [
+                    "fire"
+                  ]
                 }
               }
             ]
@@ -1218,6 +1436,7 @@
   },
   {
     "name": "Green Dragonborn",
+    "description": "Green dragonborn trace their lineage to the cunning green dragons of the forests. They tend to be manipulative and patient, preferring subtle approaches to problems.",
     "size": "Medium",
     "speed": 30,
     "creature_type": "Humanoid",
@@ -1243,7 +1462,9 @@
         "description": "You can use your action to exhale a 15 ft. cone of poison. Each creature in the area must make a Constitution saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 poison damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
         "damage": {
           "dice": "2d6",
-          "type": ["poison"]
+          "type": [
+            "poison"
+          ]
         },
         "scaling": {
           "type": "character",
@@ -1260,7 +1481,9 @@
         "mechanics": [
           {
             "type": "action",
-            "uses": { "value": 1 },
+            "uses": {
+              "value": 1
+            },
             "recharge": "short_rest",
             "area": {
               "shape": "cone",
@@ -1278,22 +1501,33 @@
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
-                    "ability": ["Constitution"]
+                    "ability": [
+                      "Constitution"
+                    ]
                   }
                 },
                 "on_failure": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": ["poison"]
+                    "type": [
+                      "poison"
+                    ]
                   }
                 },
                 "on_success": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": ["poison"],
+                    "type": [
+                      "poison"
+                    ],
                     "calculation": {
                       "operation": "divide",
-                      "operators": [{ "type": "integer", "value": 2 }],
+                      "operators": [
+                        {
+                          "type": "integer",
+                          "value": 2
+                        }
+                      ],
                       "rounding": "down"
                     }
                   }
@@ -1312,7 +1546,9 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": ["poison"]
+                  "damage_type": [
+                    "poison"
+                  ]
                 }
               }
             ]
@@ -1324,6 +1560,7 @@
   },
   {
     "name": "Red Dragonborn",
+    "description": "Red dragonborn descend from the fierce and greedy red dragons. They tend to be proud, ambitious, and quick to anger, with a strong drive to accumulate power and wealth.",
     "size": "Medium",
     "speed": 30,
     "creature_type": "Humanoid",
@@ -1349,7 +1586,9 @@
         "description": "You can use your action to exhale a 15 ft. cone of fire. Each creature in the area must make a Dexterity saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 fire damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
         "damage": {
           "dice": "2d6",
-          "type": ["fire"]
+          "type": [
+            "fire"
+          ]
         },
         "scaling": {
           "type": "character",
@@ -1366,7 +1605,9 @@
         "mechanics": [
           {
             "type": "action",
-            "uses": { "value": 1 },
+            "uses": {
+              "value": 1
+            },
             "recharge": "short_rest",
             "area": {
               "shape": "cone",
@@ -1384,22 +1625,33 @@
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
-                    "ability": ["Constitution"]
+                    "ability": [
+                      "Constitution"
+                    ]
                   }
                 },
                 "on_failure": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": ["fire"]
+                    "type": [
+                      "fire"
+                    ]
                   }
                 },
                 "on_success": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": ["fire"],
+                    "type": [
+                      "fire"
+                    ],
                     "calculation": {
                       "operation": "divide",
-                      "operators": [{ "type": "integer", "value": 2 }],
+                      "operators": [
+                        {
+                          "type": "integer",
+                          "value": 2
+                        }
+                      ],
                       "rounding": "down"
                     }
                   }
@@ -1418,7 +1670,9 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": ["fire"]
+                  "damage_type": [
+                    "fire"
+                  ]
                 }
               }
             ]
@@ -1430,6 +1684,7 @@
   },
   {
     "name": "Silver Dragonborn",
+    "description": "Silver dragonborn inherit their ancestors' love of humanity and other humanoid races. They are typically friendly and helpful, often living among other races rather than in isolated communities.",
     "size": "Medium",
     "speed": 30,
     "creature_type": "Humanoid",
@@ -1455,7 +1710,9 @@
         "description": "You can use your action to exhale a 15 ft. cone of cold. Each creature in the area must make a Constitution saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 cold damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
         "damage": {
           "dice": "2d6",
-          "type": ["cold"]
+          "type": [
+            "cold"
+          ]
         },
         "scaling": {
           "type": "character",
@@ -1472,7 +1729,9 @@
         "mechanics": [
           {
             "type": "action",
-            "uses": { "value": 1 },
+            "uses": {
+              "value": 1
+            },
             "recharge": "short_rest",
             "area": {
               "shape": "cone",
@@ -1490,22 +1749,33 @@
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
-                    "ability": ["Constitution"]
+                    "ability": [
+                      "Constitution"
+                    ]
                   }
                 },
                 "on_failure": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": ["cold"]
+                    "type": [
+                      "cold"
+                    ]
                   }
                 },
                 "on_success": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": ["cold"],
+                    "type": [
+                      "cold"
+                    ],
                     "calculation": {
                       "operation": "divide",
-                      "operators": [{ "type": "integer", "value": 2 }],
+                      "operators": [
+                        {
+                          "type": "integer",
+                          "value": 2
+                        }
+                      ],
                       "rounding": "down"
                     }
                   }
@@ -1524,7 +1794,9 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": ["cold"]
+                  "damage_type": [
+                    "cold"
+                  ]
                 }
               }
             ]
@@ -1536,6 +1808,7 @@
   },
   {
     "name": "White Dragonborn",
+    "description": "White dragonborn descend from the savage white dragons of the frozen north. They tend to be more bestial than other dragonborn, with a fierce survival instinct.",
     "size": "Medium",
     "speed": 30,
     "creature_type": "Humanoid",
@@ -1561,7 +1834,9 @@
         "description": "You can use your action to exhale a 15 ft. cone of cold. Each creature in the area must make a Constitution saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 cold damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
         "damage": {
           "dice": "2d6",
-          "type": ["cold"]
+          "type": [
+            "cold"
+          ]
         },
         "scaling": {
           "type": "character",
@@ -1578,7 +1853,9 @@
         "mechanics": [
           {
             "type": "action",
-            "uses": { "value": 1 },
+            "uses": {
+              "value": 1
+            },
             "recharge": "short_rest",
             "area": {
               "shape": "cone",
@@ -1596,22 +1873,33 @@
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
-                    "ability": ["Constitution"]
+                    "ability": [
+                      "Constitution"
+                    ]
                   }
                 },
                 "on_failure": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": ["cold"]
+                    "type": [
+                      "cold"
+                    ]
                   }
                 },
                 "on_success": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": ["cold"],
+                    "type": [
+                      "cold"
+                    ],
                     "calculation": {
                       "operation": "divide",
-                      "operators": [{ "type": "integer", "value": 2 }],
+                      "operators": [
+                        {
+                          "type": "integer",
+                          "value": 2
+                        }
+                      ],
                       "rounding": "down"
                     }
                   }
@@ -1630,7 +1918,9 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": ["cold"]
+                  "damage_type": [
+                    "cold"
+                  ]
                 }
               }
             ]
@@ -1642,6 +1932,7 @@
   },
   {
     "name": "Human",
+    "description": "In the reckonings of most worlds, humans are the youngest of the common races, late to arrive on the world scene and short-lived in comparison to dwarves, elves, and dragons. Perhaps it is because of their shorter lives that they strive to achieve as much as they can.",
     "size": "Medium",
     "speed": 30,
     "creature_type": "Humanoid",
@@ -1654,7 +1945,10 @@
     "source": "phb",
     "ruleset": "dnd5e",
     "base_race": null,
-    "subraces": ["Standard Human", "Variant Human"],
+    "subraces": [
+      "Standard Human",
+      "Variant Human"
+    ],
     "traits": [
       {
         "name": "Extra Language",
@@ -1668,10 +1962,16 @@
         ]
       }
     ],
-    "languages": [{ "language": "Common", "choice": false }]
+    "languages": [
+      {
+        "language": "Common",
+        "choice": false
+      }
+    ]
   },
   {
     "name": "Standard Human",
+    "description": "Standard humans represent the versatile nature of humanity, capable of excelling in any field they choose. Their adaptability and ambition drive them to master diverse skills.",
     "size": "Medium",
     "speed": 30,
     "creature_type": "Humanoid",
@@ -1696,6 +1996,7 @@
   },
   {
     "name": "Variant Human",
+    "description": "Variant humans exemplify humanity's remarkable adaptability. From birth, they display specialized talents that set them apart, allowing them to excel in their chosen pursuits.",
     "size": "Medium",
     "speed": 30,
     "creature_type": "Humanoid",
@@ -1718,17 +2019,40 @@
             "choice_type": "ability_score",
             "count": 2,
             "options": [
-              { "type": "simple", "name": "Strength" },
-              { "type": "simple", "name": "Dexterity" },
-              { "type": "simple", "name": "Constitution" },
-              { "type": "simple", "name": "Intelligence" },
-              { "type": "simple", "name": "Wisdom" },
-              { "type": "simple", "name": "Charisma" }
+              {
+                "type": "simple",
+                "name": "Strength"
+              },
+              {
+                "type": "simple",
+                "name": "Dexterity"
+              },
+              {
+                "type": "simple",
+                "name": "Constitution"
+              },
+              {
+                "type": "simple",
+                "name": "Intelligence"
+              },
+              {
+                "type": "simple",
+                "name": "Wisdom"
+              },
+              {
+                "type": "simple",
+                "name": "Charisma"
+              }
             ],
             "unique": true,
             "value": {
               "operation": "add",
-              "operators": [{ "type": "integer", "value": 1 }]
+              "operators": [
+                {
+                  "type": "integer",
+                  "value": 1
+                }
+              ]
             }
           }
         ]
@@ -1760,6 +2084,7 @@
   },
   {
     "name": "Half-Orc",
+    "description": "Whether united under the leadership of a mighty warlock or having fought to a standstill after years of conflict, orc and human tribes sometimes form alliances. When these alliances are sealed by marriages, half-orcs are born.",
     "size": "Medium",
     "speed": 30,
     "creature_type": "Humanoid",
@@ -1788,7 +2113,9 @@
           {
             "type": "proficiency",
             "category": "skill",
-            "proficiencies": ["Intimidation"]
+            "proficiencies": [
+              "Intimidation"
+            ]
           }
         ]
       },
@@ -1799,7 +2126,9 @@
           {
             "type": "reaction",
             "trigger": {
-              "event": ["damaged_by"]
+              "event": [
+                "damaged_by"
+              ]
             },
             "requirements": [
               {
@@ -1808,14 +2137,22 @@
                 "calculation": {
                   "operation": "subtract",
                   "operators": [
-                    { "type": "attribute", "value": "trigger.value" },
-                    { "type": "attribute", "value": "hit_points.current" }
+                    {
+                      "type": "attribute",
+                      "value": "trigger.value"
+                    },
+                    {
+                      "type": "attribute",
+                      "value": "hit_points.current"
+                    }
                   ]
                 },
                 "value": 0
               }
             ],
-            "uses": { "value": 1 },
+            "uses": {
+              "value": 1
+            },
             "recharge": "long_rest",
             "effects": [
               {
@@ -1823,7 +2160,12 @@
                   "target": "hit_points.current",
                   "calculation": {
                     "operation": "set",
-                    "operators": [{ "type": "integer", "value": 1 }]
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 1
+                      }
+                    ]
                   }
                 }
               }
@@ -1840,7 +2182,9 @@
             "requirements": [
               {
                 "type": "attack",
-                "attack_type": ["melee_weapon"]
+                "attack_type": [
+                  "melee_weapon"
+                ]
               }
             ],
             "effects": [
@@ -1856,12 +2200,19 @@
       }
     ],
     "languages": [
-      { "language": "Common", "choice": false },
-      { "language": "Orc", "choice": false }
+      {
+        "language": "Common",
+        "choice": false
+      },
+      {
+        "language": "Orc",
+        "choice": false
+      }
     ]
   },
   {
     "name": "Gnome",
+    "description": "A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph.",
     "size": "Small",
     "speed": 25,
     "creature_type": "Humanoid",
@@ -1881,7 +2232,10 @@
     "source": "phb",
     "ruleset": "dnd5e",
     "base_race": null,
-    "subraces": ["Forest Gnome", "Rock Gnome"],
+    "subraces": [
+      "Forest Gnome",
+      "Rock Gnome"
+    ],
     "traits": [
       {
         "name": "Gnome Cunning",
@@ -1892,7 +2246,11 @@
             "effects": [
               {
                 "advantage": {
-                  "saving_throw": ["Intelligence", "Wisdom", "Charisma"],
+                  "saving_throw": [
+                    "Intelligence",
+                    "Wisdom",
+                    "Charisma"
+                  ],
                   "against": {
                     "effect_type": "magical"
                   }
@@ -1904,12 +2262,19 @@
       }
     ],
     "languages": [
-      { "language": "Common", "choice": false },
-      { "language": "Gnomish", "choice": false }
+      {
+        "language": "Common",
+        "choice": false
+      },
+      {
+        "language": "Gnomish",
+        "choice": false
+      }
     ]
   },
   {
     "name": "Forest Gnome",
+    "description": "As a forest gnome, you have a natural knack for illusion and inherent quickness and stealth. Forest gnomes are rare and secretive, gathering in hidden communities in sylvan forests.",
     "size": "Small",
     "speed": 25,
     "creature_type": "Humanoid",
@@ -1939,7 +2304,10 @@
             "name": "Minor Illusion",
             "spell": "minor illusion",
             "ability": "Intelligence",
-            "components": ["Somatic", "Material"]
+            "components": [
+              "Somatic",
+              "Material"
+            ]
           }
         ]
       },
@@ -1956,11 +2324,16 @@
               "requirements": [
                 {
                   "type": "creature_type",
-                  "value": ["Beast"]
+                  "value": [
+                    "Beast"
+                  ]
                 },
                 {
                   "type": "size",
-                  "value": ["Small", "Tiny"]
+                  "value": [
+                    "Small",
+                    "Tiny"
+                  ]
                 }
               ]
             }
@@ -1972,6 +2345,7 @@
   },
   {
     "name": "Rock Gnome",
+    "description": "As a rock gnome, you have a natural inventiveness and hardiness beyond that of other gnomes. Most gnomes in the worlds of D&D are rock gnomes, including the tinker gnomes of Krynn.",
     "size": "Small",
     "speed": 25,
     "creature_type": "Humanoid",
@@ -2020,7 +2394,9 @@
           {
             "type": "proficiency",
             "category": "tool",
-            "proficiencies": ["tinker's tools"]
+            "proficiencies": [
+              "tinker's tools"
+            ]
           },
           {
             "type": "special",
@@ -2070,7 +2446,11 @@
                         },
                         "target": {
                           "type": "object",
-                          "value": ["candle", "torch", "campfire"]
+                          "value": [
+                            "candle",
+                            "torch",
+                            "campfire"
+                          ]
                         },
                         "duration": {
                           "value": 24,
@@ -2104,6 +2484,7 @@
   },
   {
     "name": "Halfling",
+    "description": "The comforts of home are the goals of most halflings' lives: a place to settle in peace and quiet, far from marauding monsters and clashing armies; a blazing fire and a generous meal; fine drink and fine conversation.",
     "size": "Small",
     "speed": 25,
     "creature_type": "Humanoid",
@@ -2123,7 +2504,10 @@
     "source": "phb",
     "ruleset": "dnd5e",
     "base_race": null,
-    "subraces": ["Lightfoot Halfling", "Stout Halfling"],
+    "subraces": [
+      "Lightfoot Halfling",
+      "Stout Halfling"
+    ],
     "traits": [
       {
         "name": "Lucky",
@@ -2132,7 +2516,11 @@
           {
             "type": "passive",
             "trigger": {
-              "event": ["attack", "ability_check", "saving_throw"],
+              "event": [
+                "attack",
+                "ability_check",
+                "saving_throw"
+              ],
               "conditions": [
                 {
                   "type": "roll_result",
@@ -2161,7 +2549,9 @@
             "effects": [
               {
                 "advantage": {
-                  "saving_throw": ["all"],
+                  "saving_throw": [
+                    "all"
+                  ],
                   "against": {
                     "condition": "frightened"
                   }
@@ -2183,7 +2573,12 @@
                   "type": "pass_through",
                   "target": {
                     "type": "creature",
-                    "value": ["Medium", "Large", "Huge", "Gargantuan"]
+                    "value": [
+                      "Medium",
+                      "Large",
+                      "Huge",
+                      "Gargantuan"
+                    ]
                   }
                 }
               }
@@ -2205,6 +2600,7 @@
   },
   {
     "name": "Lightfoot Halfling",
+    "description": "As a lightfoot halfling, you can easily hide from notice, even using other people as cover. You're inclined to be affable and get along well with others. Lightfoots are more prone to wanderlust than other halflings.",
     "size": "Small",
     "speed": 25,
     "creature_type": "Humanoid",
@@ -2236,6 +2632,7 @@
   },
   {
     "name": "Stout Halfling",
+    "description": "As a stout halfling, you're hardier than average and have some resistance to poison. Some say that stouts have dwarven blood, and they are sometimes called stronghearts in regions where they're common.",
     "size": "Small",
     "speed": 25,
     "creature_type": "Humanoid",
@@ -2266,7 +2663,9 @@
             "effects": [
               {
                 "advantage": {
-                  "saving_throw": ["all"],
+                  "saving_throw": [
+                    "all"
+                  ],
                   "against": {
                     "damage_type": "poison"
                   }
@@ -2279,7 +2678,9 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": ["poison"]
+                  "damage_type": [
+                    "poison"
+                  ]
                 }
               }
             ]
@@ -2291,6 +2692,7 @@
   },
   {
     "name": "Tiefling",
+    "description": "To be greeted with stares and whispers, to suffer violence and insult on the street, to see mistrust and fear in every eye: this is the lot of the tiefling. Their appearance and their nature are not their fault but the result of an ancient sin.",
     "size": "Medium",
     "speed": 30,
     "creature_type": "Humanoid",
@@ -2310,7 +2712,9 @@
     "source": "phb",
     "ruleset": "dnd5e",
     "base_race": null,
-    "subraces": ["Asmodeus Tiefling"],
+    "subraces": [
+      "Asmodeus Tiefling"
+    ],
     "traits": [
       {
         "name": "Hellish Resistance",
@@ -2321,7 +2725,9 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": ["fire"]
+                  "damage_type": [
+                    "fire"
+                  ]
                 }
               }
             ]
@@ -2342,6 +2748,7 @@
   },
   {
     "name": "Asmodeus Tiefling",
+    "description": "The tieflings connected to Nessus command the power of fire and darkness, guided by a keener than normal intellect, as befits those linked to Asmodeus himself. Such tieflings bear the standard tiefling appearance.",
     "size": "Medium",
     "speed": 30,
     "creature_type": "Humanoid",
@@ -2372,14 +2779,19 @@
             "name": "Thaumaturgy",
             "spell": "thaumaturgy",
             "ability": "Charisma",
-            "components": ["Verbal"]
+            "components": [
+              "Verbal"
+            ]
           },
           {
             "type": "spellcasting",
             "name": "Hellish Rebuke",
             "spell": "hellish rebuke",
             "ability": "Charisma",
-            "components": ["Verbal", "Somatic"],
+            "components": [
+              "Verbal",
+              "Somatic"
+            ],
             "uses": {
               "value": 1
             },
@@ -2396,7 +2808,9 @@
             "name": "Darkness",
             "spell": "darkness",
             "ability": "Charisma",
-            "components": ["Verbal"],
+            "components": [
+              "Verbal"
+            ],
             "uses": {
               "value": 1
             },
