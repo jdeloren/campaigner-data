@@ -536,5 +536,1104 @@
       }
     ],
     "languages": []
+  },
+  {
+    "name": "Dragonborn",
+    "size": "Medium",
+    "speed": 30,
+    "creature_type": "Humanoid",
+    "vision_type": null,
+    "vision_range": null,
+    "requires_sleep": true,
+    "rest_duration": 8,
+    "rest_type": "sleep",
+    "ability_score_increases": {
+      "Strength": 2,
+      "Dexterity": 0,
+      "Constitution": 0,
+      "Intelligence": 0,
+      "Wisdom": 0,
+      "Charisma": 1
+    },
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "base_race": null,
+    "subraces": [
+      "Black Dragonborn",
+      "Blue Dragonborn",
+      "Brass Dragonborn",
+      "Bronze Dragonborn",
+      "Copper Dragonborn",
+      "Gold Dragonborn",
+      "Green Dragonborn",
+      "Red Dragonborn",
+      "Silver Dragonborn",
+      "White Dragonborn"
+    ],
+    "traits": [],
+    "languages": [
+      { "language": "Common", "choice": false },
+      { "language": "Draconic", "choice": false }
+    ]
+  },
+  {
+    "name": "Black Dragonborn",
+    "size": "Medium",
+    "speed": 30,
+    "creature_type": "Humanoid",
+    "vision_type": null,
+    "vision_range": null,
+    "requires_sleep": true,
+    "rest_duration": 8,
+    "rest_type": "sleep",
+    "ability_score_increases": {
+      "Strength": 2,
+      "Dexterity": 0,
+      "Constitution": 0,
+      "Intelligence": 0,
+      "Wisdom": 0,
+      "Charisma": 1
+    },
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "base_race": "Dragonborn",
+    "traits": [
+      {
+        "name": "Breath Weapon",
+        "description": "You can use your action to exhale a 5 by 30 ft. line of acid. Each creature in the area must make a Dexterity saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 acid damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
+        "damage": {
+          "dice": "2d6",
+          "type": ["acid"]
+        },
+        "scaling": {
+          "type": "character",
+          "components": {
+            "damage": {
+              "by_level": {
+                "6": "3d6",
+                "11": "4d6",
+                "16": "5d6"
+              }
+            }
+          }
+        },
+        "mechanics": [
+          {
+            "type": "action",
+            "uses": { "value": 1 },
+            "recharge": "short_rest",
+            "area": {
+              "shape": "line",
+              "size": 30,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "target": {
+              "type": "creatures"
+            },
+            "effects": [
+              {
+                "saving_throw": {
+                  "ability": "Dexterity",
+                  "dc": {
+                    "base": 8,
+                    "add": "proficiency_bonus",
+                    "ability": ["Constitution"]
+                  }
+                },
+                "on_failure": {
+                  "damage": {
+                    "dice": "scaling.damage",
+                    "type": ["acid"]
+                  }
+                },
+                "on_success": {
+                  "damage": {
+                    "dice": "scaling.damage",
+                    "type": ["acid"],
+                    "calculation": {
+                      "operation": "divide",
+                      "operators": [{ "type": "integer", "value": 2 }],
+                      "rounding": "down"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Damage Resistance",
+        "description": "You have resistance to acid damage.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "effects": [
+              {
+                "resistance": {
+                  "damage_type": ["acid"]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "languages": []
+  },
+  {
+    "name": "Blue Dragonborn",
+    "size": "Medium",
+    "speed": 30,
+    "creature_type": "Humanoid",
+    "vision_type": null,
+    "vision_range": null,
+    "requires_sleep": true,
+    "rest_duration": 8,
+    "rest_type": "sleep",
+    "ability_score_increases": {
+      "Strength": 2,
+      "Dexterity": 0,
+      "Constitution": 0,
+      "Intelligence": 0,
+      "Wisdom": 0,
+      "Charisma": 1
+    },
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "base_race": "Dragonborn",
+    "traits": [
+      {
+        "name": "Breath Weapon",
+        "description": "You can use your action to exhale a 5 by 30 ft. line of lightning. Each creature in the area must make a Dexterity saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 lightning damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
+        "damage": {
+          "dice": "2d6",
+          "type": ["lightning"]
+        },
+        "scaling": {
+          "type": "character",
+          "components": {
+            "damage": {
+              "by_level": {
+                "6": "3d6",
+                "11": "4d6",
+                "16": "5d6"
+              }
+            }
+          }
+        },
+        "mechanics": [
+          {
+            "type": "action",
+            "uses": { "value": 1 },
+            "recharge": "short_rest",
+            "area": {
+              "shape": "line",
+              "size": 30,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "target": {
+              "type": "creatures"
+            },
+            "effects": [
+              {
+                "saving_throw": {
+                  "ability": "Dexterity",
+                  "dc": {
+                    "base": 8,
+                    "add": "proficiency_bonus",
+                    "ability": ["Constitution"]
+                  }
+                },
+                "on_failure": {
+                  "damage": {
+                    "dice": "scaling.damage",
+                    "type": ["lightning"]
+                  }
+                },
+                "on_success": {
+                  "damage": {
+                    "dice": "scaling.damage",
+                    "type": ["lightning"],
+                    "calculation": {
+                      "operation": "divide",
+                      "operators": [{ "type": "integer", "value": 2 }],
+                      "rounding": "down"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Damage Resistance",
+        "description": "You have resistance to lightning damage.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "effects": [
+              {
+                "resistance": {
+                  "damage_type": ["lightning"]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "languages": []
+  },
+  {
+    "name": "Brass Dragonborn",
+    "size": "Medium",
+    "speed": 30,
+    "creature_type": "Humanoid",
+    "vision_type": null,
+    "vision_range": null,
+    "requires_sleep": true,
+    "rest_duration": 8,
+    "rest_type": "sleep",
+    "ability_score_increases": {
+      "Strength": 2,
+      "Dexterity": 0,
+      "Constitution": 0,
+      "Intelligence": 0,
+      "Wisdom": 0,
+      "Charisma": 1
+    },
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "base_race": "Dragonborn",
+    "traits": [
+      {
+        "name": "Breath Weapon",
+        "description": "You can use your action to exhale a 5 by 30 ft. line of fire. Each creature in the area must make a Dexterity saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 fire damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
+        "damage": {
+          "dice": "2d6",
+          "type": ["fire"]
+        },
+        "scaling": {
+          "type": "character",
+          "components": {
+            "damage": {
+              "by_level": {
+                "6": "3d6",
+                "11": "4d6",
+                "16": "5d6"
+              }
+            }
+          }
+        },
+        "mechanics": [
+          {
+            "type": "action",
+            "uses": { "value": 1 },
+            "recharge": "short_rest",
+            "area": {
+              "shape": "line",
+              "size": 30,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "target": {
+              "type": "creatures"
+            },
+            "effects": [
+              {
+                "saving_throw": {
+                  "ability": "Dexterity",
+                  "dc": {
+                    "base": 8,
+                    "add": "proficiency_bonus",
+                    "ability": ["Constitution"]
+                  }
+                },
+                "on_failure": {
+                  "damage": {
+                    "dice": "scaling.damage",
+                    "type": ["fire"]
+                  }
+                },
+                "on_success": {
+                  "damage": {
+                    "dice": "scaling.damage",
+                    "type": ["fire"],
+                    "calculation": {
+                      "operation": "divide",
+                      "operators": [{ "type": "integer", "value": 2 }],
+                      "rounding": "down"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Damage Resistance",
+        "description": "You have resistance to fire damage.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "effects": [
+              {
+                "resistance": {
+                  "damage_type": ["fire"]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "languages": []
+  },
+  {
+    "name": "Bronze Dragonborn",
+    "size": "Medium",
+    "speed": 30,
+    "creature_type": "Humanoid",
+    "vision_type": null,
+    "vision_range": null,
+    "requires_sleep": true,
+    "rest_duration": 8,
+    "rest_type": "sleep",
+    "ability_score_increases": {
+      "Strength": 2,
+      "Dexterity": 0,
+      "Constitution": 0,
+      "Intelligence": 0,
+      "Wisdom": 0,
+      "Charisma": 1
+    },
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "base_race": "Dragonborn",
+    "traits": [
+      {
+        "name": "Breath Weapon",
+        "description": "You can use your action to exhale a 5 by 30 ft. line of lightning. Each creature in the area must make a Dexterity saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 lightning damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
+        "damage": {
+          "dice": "2d6",
+          "type": ["lightning"]
+        },
+        "scaling": {
+          "type": "character",
+          "components": {
+            "damage": {
+              "by_level": {
+                "6": "3d6",
+                "11": "4d6",
+                "16": "5d6"
+              }
+            }
+          }
+        },
+        "mechanics": [
+          {
+            "type": "action",
+            "uses": { "value": 1 },
+            "recharge": "short_rest",
+            "area": {
+              "shape": "line",
+              "size": 30,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "target": {
+              "type": "creatures"
+            },
+            "effects": [
+              {
+                "saving_throw": {
+                  "ability": "Dexterity",
+                  "dc": {
+                    "base": 8,
+                    "add": "proficiency_bonus",
+                    "ability": ["Constitution"]
+                  }
+                },
+                "on_failure": {
+                  "damage": {
+                    "dice": "scaling.damage",
+                    "type": ["lightning"]
+                  }
+                },
+                "on_success": {
+                  "damage": {
+                    "dice": "scaling.damage",
+                    "type": ["lightning"],
+                    "calculation": {
+                      "operation": "divide",
+                      "operators": [{ "type": "integer", "value": 2 }],
+                      "rounding": "down"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Damage Resistance",
+        "description": "You have resistance to lightning damage.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "effects": [
+              {
+                "resistance": {
+                  "damage_type": ["lightning"]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "languages": []
+  },
+  {
+    "name": "Copper Dragonborn",
+    "size": "Medium",
+    "speed": 30,
+    "creature_type": "Humanoid",
+    "vision_type": null,
+    "vision_range": null,
+    "requires_sleep": true,
+    "rest_duration": 8,
+    "rest_type": "sleep",
+    "ability_score_increases": {
+      "Strength": 2,
+      "Dexterity": 0,
+      "Constitution": 0,
+      "Intelligence": 0,
+      "Wisdom": 0,
+      "Charisma": 1
+    },
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "base_race": "Dragonborn",
+    "traits": [
+      {
+        "name": "Breath Weapon",
+        "description": "You can use your action to exhale a 5 by 30 ft. line of acid. Each creature in the area must make a Dexterity saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 acid damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
+        "damage": {
+          "dice": "2d6",
+          "type": ["acid"]
+        },
+        "scaling": {
+          "type": "character",
+          "components": {
+            "damage": {
+              "by_level": {
+                "6": "3d6",
+                "11": "4d6",
+                "16": "5d6"
+              }
+            }
+          }
+        },
+        "mechanics": [
+          {
+            "type": "action",
+            "uses": { "value": 1 },
+            "recharge": "short_rest",
+            "area": {
+              "shape": "line",
+              "size": 30,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "target": {
+              "type": "creatures"
+            },
+            "effects": [
+              {
+                "saving_throw": {
+                  "ability": "Dexterity",
+                  "dc": {
+                    "base": 8,
+                    "add": "proficiency_bonus",
+                    "ability": ["Constitution"]
+                  }
+                },
+                "on_failure": {
+                  "damage": {
+                    "dice": "scaling.damage",
+                    "type": ["acid"]
+                  }
+                },
+                "on_success": {
+                  "damage": {
+                    "dice": "scaling.damage",
+                    "type": ["acid"],
+                    "calculation": {
+                      "operation": "divide",
+                      "operators": [{ "type": "integer", "value": 2 }],
+                      "rounding": "down"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Damage Resistance",
+        "description": "You have resistance to acid damage.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "effects": [
+              {
+                "resistance": {
+                  "damage_type": ["acid"]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "languages": []
+  },
+  {
+    "name": "Gold Dragonborn",
+    "size": "Medium",
+    "speed": 30,
+    "creature_type": "Humanoid",
+    "vision_type": null,
+    "vision_range": null,
+    "requires_sleep": true,
+    "rest_duration": 8,
+    "rest_type": "sleep",
+    "ability_score_increases": {
+      "Strength": 2,
+      "Dexterity": 0,
+      "Constitution": 0,
+      "Intelligence": 0,
+      "Wisdom": 0,
+      "Charisma": 1
+    },
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "base_race": "Dragonborn",
+    "traits": [
+      {
+        "name": "Breath Weapon",
+        "description": "You can use your action to exhale a 15 ft. cone of fire. Each creature in the area must make a Dexterity saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 fire damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
+        "damage": {
+          "dice": "2d6",
+          "type": ["fire"]
+        },
+        "scaling": {
+          "type": "character",
+          "components": {
+            "damage": {
+              "by_level": {
+                "6": "3d6",
+                "11": "4d6",
+                "16": "5d6"
+              }
+            }
+          }
+        },
+        "mechanics": [
+          {
+            "type": "action",
+            "uses": { "value": 1 },
+            "recharge": "short_rest",
+            "area": {
+              "shape": "cone",
+              "size": 15,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "target": {
+              "type": "creatures"
+            },
+            "effects": [
+              {
+                "saving_throw": {
+                  "ability": "Dexterity",
+                  "dc": {
+                    "base": 8,
+                    "add": "proficiency_bonus",
+                    "ability": ["Constitution"]
+                  }
+                },
+                "on_failure": {
+                  "damage": {
+                    "dice": "scaling.damage",
+                    "type": ["fire"]
+                  }
+                },
+                "on_success": {
+                  "damage": {
+                    "dice": "scaling.damage",
+                    "type": ["fire"],
+                    "calculation": {
+                      "operation": "divide",
+                      "operators": [{ "type": "integer", "value": 2 }],
+                      "rounding": "down"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Damage Resistance",
+        "description": "You have resistance to fire damage.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "effects": [
+              {
+                "resistance": {
+                  "damage_type": ["fire"]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "languages": []
+  },
+  {
+    "name": "Green Dragonborn",
+    "size": "Medium",
+    "speed": 30,
+    "creature_type": "Humanoid",
+    "vision_type": null,
+    "vision_range": null,
+    "requires_sleep": true,
+    "rest_duration": 8,
+    "rest_type": "sleep",
+    "ability_score_increases": {
+      "Strength": 2,
+      "Dexterity": 0,
+      "Constitution": 0,
+      "Intelligence": 0,
+      "Wisdom": 0,
+      "Charisma": 1
+    },
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "base_race": "Dragonborn",
+    "traits": [
+      {
+        "name": "Breath Weapon",
+        "description": "You can use your action to exhale a 15 ft. cone of poison. Each creature in the area must make a Constitution saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 poison damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
+        "damage": {
+          "dice": "2d6",
+          "type": ["poison"]
+        },
+        "scaling": {
+          "type": "character",
+          "components": {
+            "damage": {
+              "by_level": {
+                "6": "3d6",
+                "11": "4d6",
+                "16": "5d6"
+              }
+            }
+          }
+        },
+        "mechanics": [
+          {
+            "type": "action",
+            "uses": { "value": 1 },
+            "recharge": "short_rest",
+            "area": {
+              "shape": "cone",
+              "size": 15,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "target": {
+              "type": "creatures"
+            },
+            "effects": [
+              {
+                "saving_throw": {
+                  "ability": "Constitution",
+                  "dc": {
+                    "base": 8,
+                    "add": "proficiency_bonus",
+                    "ability": ["Constitution"]
+                  }
+                },
+                "on_failure": {
+                  "damage": {
+                    "dice": "scaling.damage",
+                    "type": ["poison"]
+                  }
+                },
+                "on_success": {
+                  "damage": {
+                    "dice": "scaling.damage",
+                    "type": ["poison"],
+                    "calculation": {
+                      "operation": "divide",
+                      "operators": [{ "type": "integer", "value": 2 }],
+                      "rounding": "down"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Damage Resistance",
+        "description": "You have resistance to poison damage.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "effects": [
+              {
+                "resistance": {
+                  "damage_type": ["poison"]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "languages": []
+  },
+  {
+    "name": "Red Dragonborn",
+    "size": "Medium",
+    "speed": 30,
+    "creature_type": "Humanoid",
+    "vision_type": null,
+    "vision_range": null,
+    "requires_sleep": true,
+    "rest_duration": 8,
+    "rest_type": "sleep",
+    "ability_score_increases": {
+      "Strength": 2,
+      "Dexterity": 0,
+      "Constitution": 0,
+      "Intelligence": 0,
+      "Wisdom": 0,
+      "Charisma": 1
+    },
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "base_race": "Dragonborn",
+    "traits": [
+      {
+        "name": "Breath Weapon",
+        "description": "You can use your action to exhale a 15 ft. cone of fire. Each creature in the area must make a Dexterity saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 fire damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
+        "damage": {
+          "dice": "2d6",
+          "type": ["fire"]
+        },
+        "scaling": {
+          "type": "character",
+          "components": {
+            "damage": {
+              "by_level": {
+                "6": "3d6",
+                "11": "4d6",
+                "16": "5d6"
+              }
+            }
+          }
+        },
+        "mechanics": [
+          {
+            "type": "action",
+            "uses": { "value": 1 },
+            "recharge": "short_rest",
+            "area": {
+              "shape": "cone",
+              "size": 15,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "target": {
+              "type": "creatures"
+            },
+            "effects": [
+              {
+                "saving_throw": {
+                  "ability": "Dexterity",
+                  "dc": {
+                    "base": 8,
+                    "add": "proficiency_bonus",
+                    "ability": ["Constitution"]
+                  }
+                },
+                "on_failure": {
+                  "damage": {
+                    "dice": "scaling.damage",
+                    "type": ["fire"]
+                  }
+                },
+                "on_success": {
+                  "damage": {
+                    "dice": "scaling.damage",
+                    "type": ["fire"],
+                    "calculation": {
+                      "operation": "divide",
+                      "operators": [{ "type": "integer", "value": 2 }],
+                      "rounding": "down"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Damage Resistance",
+        "description": "You have resistance to fire damage.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "effects": [
+              {
+                "resistance": {
+                  "damage_type": ["fire"]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "languages": []
+  },
+  {
+    "name": "Silver Dragonborn",
+    "size": "Medium",
+    "speed": 30,
+    "creature_type": "Humanoid",
+    "vision_type": null,
+    "vision_range": null,
+    "requires_sleep": true,
+    "rest_duration": 8,
+    "rest_type": "sleep",
+    "ability_score_increases": {
+      "Strength": 2,
+      "Dexterity": 0,
+      "Constitution": 0,
+      "Intelligence": 0,
+      "Wisdom": 0,
+      "Charisma": 1
+    },
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "base_race": "Dragonborn",
+    "traits": [
+      {
+        "name": "Breath Weapon",
+        "description": "You can use your action to exhale a 15 ft. cone of cold. Each creature in the area must make a Constitution saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 cold damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
+        "damage": {
+          "dice": "2d6",
+          "type": ["cold"]
+        },
+        "scaling": {
+          "type": "character",
+          "components": {
+            "damage": {
+              "by_level": {
+                "6": "3d6",
+                "11": "4d6",
+                "16": "5d6"
+              }
+            }
+          }
+        },
+        "mechanics": [
+          {
+            "type": "action",
+            "uses": { "value": 1 },
+            "recharge": "short_rest",
+            "area": {
+              "shape": "cone",
+              "size": 15,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "target": {
+              "type": "creatures"
+            },
+            "effects": [
+              {
+                "saving_throw": {
+                  "ability": "Constitution",
+                  "dc": {
+                    "base": 8,
+                    "add": "proficiency_bonus",
+                    "ability": ["Constitution"]
+                  }
+                },
+                "on_failure": {
+                  "damage": {
+                    "dice": "scaling.damage",
+                    "type": ["cold"]
+                  }
+                },
+                "on_success": {
+                  "damage": {
+                    "dice": "scaling.damage",
+                    "type": ["cold"],
+                    "calculation": {
+                      "operation": "divide",
+                      "operators": [{ "type": "integer", "value": 2 }],
+                      "rounding": "down"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Damage Resistance",
+        "description": "You have resistance to cold damage.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "effects": [
+              {
+                "resistance": {
+                  "damage_type": ["cold"]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "languages": []
+  },
+  {
+    "name": "White Dragonborn",
+    "size": "Medium",
+    "speed": 30,
+    "creature_type": "Humanoid",
+    "vision_type": null,
+    "vision_range": null,
+    "requires_sleep": true,
+    "rest_duration": 8,
+    "rest_type": "sleep",
+    "ability_score_increases": {
+      "Strength": 2,
+      "Dexterity": 0,
+      "Constitution": 0,
+      "Intelligence": 0,
+      "Wisdom": 0,
+      "Charisma": 1
+    },
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "base_race": "Dragonborn",
+    "traits": [
+      {
+        "name": "Breath Weapon",
+        "description": "You can use your action to exhale a 15 ft. cone of cold. Each creature in the area must make a Constitution saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 cold damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
+        "damage": {
+          "dice": "2d6",
+          "type": ["cold"]
+        },
+        "scaling": {
+          "type": "character",
+          "components": {
+            "damage": {
+              "by_level": {
+                "6": "3d6",
+                "11": "4d6",
+                "16": "5d6"
+              }
+            }
+          }
+        },
+        "mechanics": [
+          {
+            "type": "action",
+            "uses": { "value": 1 },
+            "recharge": "short_rest",
+            "area": {
+              "shape": "cone",
+              "size": 15,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "target": {
+              "type": "creatures"
+            },
+            "effects": [
+              {
+                "saving_throw": {
+                  "ability": "Constitution",
+                  "dc": {
+                    "base": 8,
+                    "add": "proficiency_bonus",
+                    "ability": ["Constitution"]
+                  }
+                },
+                "on_failure": {
+                  "damage": {
+                    "dice": "scaling.damage",
+                    "type": ["cold"]
+                  }
+                },
+                "on_success": {
+                  "damage": {
+                    "dice": "scaling.damage",
+                    "type": ["cold"],
+                    "calculation": {
+                      "operation": "divide",
+                      "operators": [{ "type": "integer", "value": 2 }],
+                      "rounding": "down"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Damage Resistance",
+        "description": "You have resistance to cold damage.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "effects": [
+              {
+                "resistance": {
+                  "damage_type": ["cold"]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "languages": []
   }
 ]
