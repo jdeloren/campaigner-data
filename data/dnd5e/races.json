@@ -330,12 +330,12 @@
             "choice_type": "skill",
             "count": 2,
             "options": [
-              "Acrobatics",
-              "Animal Handling",
-              "Insight",
-              "Intimidation",
-              "Perception",
-              "Persuasion"
+              { "type": "simple", "name": "Acrobatics" },
+              { "type": "simple", "name": "Animal Handling" },
+              { "type": "simple", "name": "Insight" },
+              { "type": "simple", "name": "Intimidation" },
+              { "type": "simple", "name": "Perception" },
+              { "type": "simple", "name": "Persuasion" }
             ]
           }
         ]
@@ -441,7 +441,11 @@
             "type": "choice",
             "choice_type": "tool",
             "count": 1,
-            "options": ["smith's tools", "brewer's supplies", "mason's tools"]
+            "options": [
+              { "type": "simple", "name": "smith's tools" },
+              { "type": "simple", "name": "brewer's supplies" },
+              { "type": "simple", "name": "mason's tools" }
+            ]
           }
         ]
       },
@@ -1630,6 +1634,123 @@
                 }
               }
             ]
+          }
+        ]
+      }
+    ],
+    "languages": []
+  },
+  {
+    "name": "Human",
+    "size": "Medium",
+    "speed": 30,
+    "creature_type": "Humanoid",
+    "vision_type": null,
+    "vision_range": null,
+    "requires_sleep": true,
+    "rest_duration": 8,
+    "rest_type": "sleep",
+    "ability_score_increases": {},
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "base_race": null,
+    "subraces": ["Standard Human", "Variant Human"],
+    "traits": [
+      {
+        "name": "Extra Language",
+        "description": "You can speak, read, and write one extra language of your choice.",
+        "mechanics": [
+          {
+            "type": "choice",
+            "choice_type": "language",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "languages": [
+      { "language": "Common", "choice": false }
+    ]
+  },
+  {
+    "name": "Standard Human",
+    "size": "Medium",
+    "speed": 30,
+    "creature_type": "Humanoid",
+    "vision_type": null,
+    "vision_range": null,
+    "requires_sleep": true,
+    "rest_duration": 8,
+    "rest_type": "sleep",
+    "ability_score_increases": {
+      "Strength": 1,
+      "Dexterity": 1,
+      "Constitution": 1,
+      "Intelligence": 1,
+      "Wisdom": 1,
+      "Charisma": 1
+    },
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "base_race": "Human",
+    "traits": [],
+    "languages": []
+  },
+  {
+    "name": "Variant Human",
+    "size": "Medium",
+    "speed": 30,
+    "creature_type": "Humanoid",
+    "vision_type": null,
+    "vision_range": null,
+    "requires_sleep": true,
+    "rest_duration": 8,
+    "rest_type": "sleep",
+    "ability_score_increases": {},
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "base_race": "Human",
+    "traits": [
+      {
+        "name": "Ability Score Increase",
+        "description": "Two different ability scores of your choice increase by 1.",
+        "mechanics": [
+          {
+            "type": "choice",
+            "choice_type": "ability_score",
+            "count": 2,
+            "options": [
+              { "type": "simple", "name": "Strength" },
+              { "type": "simple", "name": "Dexterity" },
+              { "type": "simple", "name": "Constitution" },
+              { "type": "simple", "name": "Intelligence" },
+              { "type": "simple", "name": "Wisdom" },
+              { "type": "simple", "name": "Charisma" }
+            ],
+            "unique": true,
+            "bonus": 1
+          }
+        ]
+      },
+      {
+        "name": "Skills",
+        "description": "You gain proficiency in one skill of your choice.",
+        "mechanics": [
+          {
+            "type": "choice",
+            "choice_type": "skill",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "name": "Feat",
+        "description": "You gain one feat of your choice.",
+        "mechanics": [
+          {
+            "type": "choice",
+            "choice_type": "feat",
+            "count": 1
           }
         ]
       }

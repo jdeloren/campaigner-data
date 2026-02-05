@@ -2018,7 +2018,7 @@
           "anyOf": [
             {
               "items": {
-                "$ref": "#/$defs/ChoiceOption"
+                "type": "object"
               },
               "type": "array"
             },
@@ -2063,14 +2063,36 @@
           "type": "string"
         },
         "choice_type": {
-          "$ref": "#/$defs/ChoiceType",
-          "description": "What kind of choice (skill, language, subclass, asi, etc.)"
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ChoiceType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "What kind of choice (skill, language, feat, etc.). Optional when using nested ChoiceOption objects."
         },
         "options": {
           "anyOf": [
             {
               "items": {
-                "type": "string"
+                "discriminator": {
+                  "mapping": {
+                    "simple": "#/$defs/SimpleChoiceOption",
+                    "nested": "#/$defs/NestedChoiceOption"
+                  },
+                  "propertyName": "type"
+                },
+                "oneOf": [
+                  {
+                    "$ref": "#/$defs/SimpleChoiceOption"
+                  },
+                  {
+                    "$ref": "#/$defs/NestedChoiceOption"
+                  }
+                ]
               },
               "type": "array"
             },
@@ -2079,7 +2101,7 @@
             }
           ],
           "default": null,
-          "description": "Inline list of choices (e.g., skill names). None for implicit choices (asi, subclass).",
+          "description": "List of choice options. Each option has type 'simple' (named value) or 'nested' (triggers sub-choice).",
           "title": "Options"
         },
         "options_ref": {
@@ -2273,37 +2295,58 @@
         }
       },
       "required": [
-        "type",
-        "choice_type"
+        "type"
       ],
       "title": "ChoiceMechanic",
       "type": "object"
     },
-    "ChoiceOption": {
-      "description": "A single option within a player choice.\n\nExample \u2014 simple named option (no mechanical effect):\n{\"name\": \"sensory_effect\"}\n\nExample \u2014 option with effect:\n{\"name\": \"light\", \"effect\": {\"manipulate\": {...}, \"target\": {...}}}",
+    "SimpleChoiceOption": {
+      "description": "A simple named option (e.g., skill name, language).\n\nExample: {\"type\": \"simple\", \"name\": \"Stealth\"}",
       "properties": {
+        "type": {
+          "const": "simple",
+          "default": "simple",
+          "title": "Type",
+          "type": "string"
+        },
+        "name": {
+          "description": "Option name/value",
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "name"
+      ],
+      "title": "SimpleChoiceOption",
+      "type": "object"
+    },
+    "NestedChoiceOption": {
+      "description": "An option that triggers a nested choice (e.g., ASI branches).\n\nExample: {\"type\": \"nested\", \"name\": \"Gain a Feat\", \"choice\": {\"choice_type\": \"feat\", \"count\": 1}}",
+      "properties": {
+        "type": {
+          "const": "nested",
+          "default": "nested",
+          "title": "Type",
+          "type": "string"
+        },
         "name": {
           "description": "Display name of the option",
           "title": "Name",
           "type": "string"
         },
-        "effect": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/Effect"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Effect that fires when this option is chosen"
+        "choice": {
+          "$ref": "#/$defs/NestedChoice",
+          "description": "The nested choice to present when this option is selected"
         }
       },
       "required": [
-        "name"
+        "type",
+        "name",
+        "choice"
       ],
-      "title": "ChoiceOption",
+      "title": "NestedChoiceOption",
       "type": "object"
     },
     "ChoiceType": {
@@ -2315,9 +2358,11 @@
         "subfeature",
         "spell",
         "equipment",
-        "asi",
         "expertise",
-        "query"
+        "query",
+        "feat",
+        "ability_score",
+        "tool"
       ],
       "title": "ChoiceType",
       "type": "string"
@@ -5890,6 +5935,55 @@
         "operation"
       ],
       "title": "Manipulate",
+      "type": "object"
+    },
+    "NestedChoice": {
+      "description": "A nested choice specification used within ChoiceOption for either/or selections like ASI.",
+      "properties": {
+        "choice_type": {
+          "$ref": "#/$defs/ChoiceType",
+          "description": "Type of choice (ability_score, feat, skill, etc.)"
+        },
+        "count": {
+          "default": 1,
+          "description": "How many to select",
+          "title": "Count",
+          "type": "integer"
+        },
+        "bonus": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Bonus value to apply (e.g., +1 for ability score increases)",
+          "title": "Bonus"
+        },
+        "options": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Explicit list of options if not implied by choice_type",
+          "title": "Options"
+        }
+      },
+      "required": [
+        "choice_type"
+      ],
+      "title": "NestedChoice",
       "type": "object"
     },
     "Movement": {

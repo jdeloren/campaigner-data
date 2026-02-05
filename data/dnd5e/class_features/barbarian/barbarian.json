@@ -239,12 +239,12 @@
         "choice_type": "skill",
         "count": 1,
         "options": [
-          "Animal Handling",
-          "Athletics",
-          "Intimidation",
-          "Nature",
-          "Perception",
-          "Survival"
+          { "type": "simple", "name": "Animal Handling" },
+          { "type": "simple", "name": "Athletics" },
+          { "type": "simple", "name": "Intimidation" },
+          { "type": "simple", "name": "Nature" },
+          { "type": "simple", "name": "Perception" },
+          { "type": "simple", "name": "Survival" }
         ]
       }
     ],
@@ -265,7 +265,18 @@
     "mechanics": [
       {
         "type": "choice",
-        "choice_type": "asi"
+        "options": [
+          {
+            "type": "nested",
+            "name": "Increase Ability Scores",
+            "choice": { "choice_type": "ability_score", "count": 2, "bonus": 1 }
+          },
+          {
+            "type": "nested",
+            "name": "Gain a Feat",
+            "choice": { "choice_type": "feat", "count": 1 }
+          }
+        ]
       }
     ],
     "source": "phb",
