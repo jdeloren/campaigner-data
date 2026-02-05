@@ -20,11 +20,7 @@
     "source": "phb",
     "ruleset": "dnd5e",
     "base_race": null,
-    "subraces": [
-      "High Elf",
-      "Wood Elf",
-      "Drow"
-    ],
+    "subraces": ["High Elf", "Wood Elf", "Drow"],
     "traits": [
       {
         "name": "Keen Senses",
@@ -349,5 +345,196 @@
       { "language": "Common", "choice": false },
       { "language": "Elvish", "choice": false }
     ]
+  },
+  {
+    "name": "Dwarf",
+    "size": "Medium",
+    "speed": 25,
+    "creature_type": "Humanoid",
+    "vision_type": "Darkvision",
+    "vision_range": 60,
+    "requires_sleep": true,
+    "rest_duration": 8,
+    "rest_type": "sleep",
+    "ability_score_increases": {
+      "Strength": 0,
+      "Dexterity": 0,
+      "Constitution": 2,
+      "Intelligence": 0,
+      "Wisdom": 0,
+      "Charisma": 0
+    },
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "base_race": null,
+    "subraces": ["Hill Dwarf", "Mountain Dwarf"],
+    "traits": [
+      {
+        "name": "Speed",
+        "description": "Your speed is not reduced by wearing heavy armor.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "effects": [
+              {
+                "ignore_requirement": {
+                  "type": "attribute",
+                  "attribute": "Strength"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Dwarven Resilience",
+        "description": "You have advantage on saving throws against poison, and you have resistance against poison damage.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "effects": [
+              {
+                "advantage": {
+                  "saving_throw": [
+                    "Strength",
+                    "Dexterity",
+                    "Constitution",
+                    "Intelligence",
+                    "Wisdom",
+                    "Charisma"
+                  ],
+                  "against": {
+                    "damage_type": ["poison"]
+                  }
+                }
+              },
+              {
+                "resistance": {
+                  "damage_type": ["poison"]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Dwarven Combat Training",
+        "description": "You have proficiency with the battleaxe, handaxe, light hammer, and warhammer.",
+        "mechanics": [
+          {
+            "type": "proficiency",
+            "category": "weapon",
+            "proficiencies": [
+              "battleaxe",
+              "handaxe",
+              "light hammer",
+              "warhammer"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Tool Proficiency",
+        "description": "You gain proficiency with the artisan's tools of your choice: smith's tools, brewer's supplies, or mason's tools.",
+        "mechanics": [
+          {
+            "type": "choice",
+            "choice_type": "tool",
+            "count": 1,
+            "options": ["smith's tools", "brewer's supplies", "mason's tools"]
+          }
+        ]
+      },
+      {
+        "name": "Stonecunning",
+        "description": "Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.",
+        "mechanics": []
+      }
+    ],
+    "languages": [
+      { "language": "Common", "choice": false },
+      { "language": "Dwarvish", "choice": false }
+    ]
+  },
+  {
+    "name": "Hill Dwarf",
+    "size": "Medium",
+    "speed": 25,
+    "creature_type": "Humanoid",
+    "vision_type": "Darkvision",
+    "vision_range": 60,
+    "requires_sleep": true,
+    "rest_duration": 8,
+    "rest_type": "sleep",
+    "ability_score_increases": {
+      "Strength": 0,
+      "Dexterity": 0,
+      "Constitution": 2,
+      "Intelligence": 0,
+      "Wisdom": 1,
+      "Charisma": 0
+    },
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "base_race": "Dwarf",
+    "traits": [
+      {
+        "name": "Dwarven Toughness",
+        "description": "Your hit point maximum increases by 1, and it increases by 1 every time you gain a level.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "effects": [
+              {
+                "stat_modifier": {
+                  "stat": "hit_points",
+                  "value": {
+                    "operation": "add",
+                    "operators": [{ "type": "integer", "value": 1 }]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "languages": []
+  },
+  {
+    "name": "Mountain Dwarf",
+    "size": "Medium",
+    "speed": 25,
+    "creature_type": "Humanoid",
+    "vision_type": "Darkvision",
+    "vision_range": 60,
+    "requires_sleep": true,
+    "rest_duration": 8,
+    "rest_type": "sleep",
+    "ability_score_increases": {
+      "Strength": 2,
+      "Dexterity": 0,
+      "Constitution": 2,
+      "Intelligence": 0,
+      "Wisdom": 0,
+      "Charisma": 0
+    },
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "base_race": "Dwarf",
+    "traits": [
+      {
+        "name": "Dwarven Armor Training",
+        "description": "You have proficiency with light and medium armor.",
+        "mechanics": [
+          {
+            "type": "proficiency",
+            "category": "armor",
+            "proficiencies": ["light armor", "medium armor"]
+          }
+        ]
+      }
+    ],
+    "languages": []
   }
 ]
