@@ -2101,5 +2101,192 @@
       }
     ],
     "languages": []
+  },
+  {
+    "name": "Halfling",
+    "size": "Small",
+    "speed": 25,
+    "creature_type": "Humanoid",
+    "vision_type": null,
+    "vision_range": null,
+    "requires_sleep": true,
+    "rest_duration": 8,
+    "rest_type": "sleep",
+    "ability_score_increases": {
+      "Strength": 0,
+      "Dexterity": 2,
+      "Constitution": 0,
+      "Intelligence": 0,
+      "Wisdom": 0,
+      "Charisma": 0
+    },
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "base_race": null,
+    "subraces": ["Lightfoot Halfling", "Stout Halfling"],
+    "traits": [
+      {
+        "name": "Lucky",
+        "description": "When you roll a 1 on the d20 for an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "trigger": {
+              "event": ["attack", "ability_check", "saving_throw"],
+              "conditions": [
+                {
+                  "type": "roll_result",
+                  "value": 1,
+                  "comparison": "equal"
+                }
+              ]
+            },
+            "effects": [
+              {
+                "reroll": {
+                  "dice": "d20",
+                  "replace": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Brave",
+        "description": "You have advantage on saving throws against being frightened.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "effects": [
+              {
+                "advantage": {
+                  "saving_throw": ["all"],
+                  "against": {
+                    "condition": "frightened"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Nimble",
+        "description": "You can move through the space of any creature that is of a size larger than yours.",
+        "mechanics": [
+          {
+            "type": "movement",
+            "effects": [
+              {
+                "movement": {
+                  "type": "pass_through",
+                  "target": {
+                    "type": "creature",
+                    "value": ["Medium", "Large", "Huge", "Gargantuan"]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "languages": [
+      {
+        "language": "Common",
+        "choice": false
+      },
+      {
+        "language": "Halfling",
+        "choice": false
+      }
+    ]
+  },
+  {
+    "name": "Lightfoot Halfling",
+    "size": "Small",
+    "speed": 25,
+    "creature_type": "Humanoid",
+    "vision_type": null,
+    "vision_range": null,
+    "requires_sleep": true,
+    "rest_duration": 8,
+    "rest_type": "sleep",
+    "ability_score_increases": {
+      "Strength": 0,
+      "Dexterity": 0,
+      "Constitution": 0,
+      "Intelligence": 0,
+      "Wisdom": 0,
+      "Charisma": 1
+    },
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "base_race": "Halfling",
+    "subraces": [],
+    "traits": [
+      {
+        "name": "Naturally Stealthy",
+        "description": "You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you.",
+        "mechanics": []
+      }
+    ],
+    "languages": []
+  },
+  {
+    "name": "Stout Halfling",
+    "size": "Small",
+    "speed": 25,
+    "creature_type": "Humanoid",
+    "vision_type": null,
+    "vision_range": null,
+    "requires_sleep": true,
+    "rest_duration": 8,
+    "rest_type": "sleep",
+    "ability_score_increases": {
+      "Strength": 0,
+      "Dexterity": 0,
+      "Constitution": 1,
+      "Intelligence": 0,
+      "Wisdom": 0,
+      "Charisma": 0
+    },
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "base_race": "Halfling",
+    "subraces": [],
+    "traits": [
+      {
+        "name": "Stout Resilience",
+        "description": "You have advantage on saving throws against poison, and you have resistance against poison damage.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "effects": [
+              {
+                "advantage": {
+                  "saving_throw": ["all"],
+                  "against": {
+                    "damage_type": "poison"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "resistance",
+            "effects": [
+              {
+                "resistance": {
+                  "damage_type": ["poison"]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "languages": []
   }
 ]
