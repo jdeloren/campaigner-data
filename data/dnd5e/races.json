@@ -21,11 +21,7 @@
     "source": "phb",
     "ruleset": "dnd5e",
     "base_race": null,
-    "subraces": [
-      "High Elf",
-      "Wood Elf",
-      "Drow"
-    ],
+    "subraces": ["High Elf", "Wood Elf", "Drow"],
     "traits": [
       {
         "name": "Keen Senses",
@@ -34,9 +30,7 @@
           {
             "type": "proficiency",
             "category": "skill",
-            "proficiencies": [
-              "Perception"
-            ]
+            "proficiencies": ["Perception"]
           }
         ]
       },
@@ -58,9 +52,7 @@
                     "Charisma"
                   ],
                   "against": {
-                    "status": [
-                      "charmed"
-                    ]
+                    "status": ["charmed"]
                   }
                 }
               }
@@ -72,9 +64,7 @@
               {
                 "immunity": {
                   "category": "status",
-                  "status": [
-                    "sleep"
-                  ],
+                  "status": ["sleep"],
                   "source": {
                     "origin": "magical"
                   }
@@ -126,12 +116,25 @@
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": [
-              "longsword",
-              "shortsword",
-              "Shortbow",
-              "Longbow"
-            ]
+            "proficiencies": ["longsword", "shortsword", "Shortbow", "Longbow"]
+          }
+        ]
+      },
+      {
+        "name": "Cantrip",
+        "description": "You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it.",
+        "mechanics": [
+          {
+            "type": "choice",
+            "choice_type": "query",
+            "count": 1,
+            "query": {
+              "endpoint": "spells",
+              "params": {
+                "level": 0,
+                "class": "Wizard"
+              }
+            }
           }
         ]
       },
@@ -153,7 +156,7 @@
     "name": "Wood Elf",
     "description": "As a wood elf, you have keen senses and intuition, and your fleet feet carry you quickly and stealthily through your native forests. Wood elves tend to be reclusive and distrustful of non-elves.",
     "size": "Medium",
-    "speed": 35,
+    "speed": 30,
     "creature_type": "Humanoid",
     "vision_type": "Darkvision",
     "vision_range": 60,
@@ -179,11 +182,31 @@
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": [
-              "longsword",
-              "shortsword",
-              "Shortbow",
-              "Longbow"
+            "proficiencies": ["longsword", "shortsword", "Shortbow", "Longbow"]
+          }
+        ]
+      },
+      {
+        "name": "Fleet of Foot",
+        "description": "Your base walking speed increases to 35 feet.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "effects": [
+              {
+                "stat_modifier": {
+                  "stat": "speed",
+                  "value": {
+                    "operation": "set",
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 35
+                      }
+                    ]
+                  }
+                }
+              }
             ]
           }
         ]
@@ -241,19 +264,14 @@
             "name": "Dancing Lights",
             "spell": "dancing lights",
             "ability": "Charisma",
-            "components": [
-              "Verbal",
-              "Somatic"
-            ]
+            "components": ["Verbal", "Somatic"]
           },
           {
             "type": "spellcasting",
             "name": "Faerie Fire",
             "spell": "faerie fire",
             "ability": "Charisma",
-            "components": [
-              "Verbal"
-            ],
+            "components": ["Verbal"],
             "uses": {
               "value": 1
             },
@@ -270,9 +288,7 @@
             "name": "Darkness",
             "spell": "darkness",
             "ability": "Charisma",
-            "components": [
-              "Verbal"
-            ],
+            "components": ["Verbal"],
             "uses": {
               "value": 1
             },
@@ -293,11 +309,7 @@
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": [
-              "rapier",
-              "shortsword",
-              "hand crossbow"
-            ]
+            "proficiencies": ["rapier", "shortsword", "hand crossbow"]
           }
         ]
       }
@@ -310,8 +322,8 @@
     "size": "Medium",
     "speed": 30,
     "creature_type": "Humanoid",
-    "vision_type": null,
-    "vision_range": null,
+    "vision_type": "Darkvision",
+    "vision_range": 60,
     "requires_sleep": true,
     "rest_duration": 8,
     "rest_type": "sleep",
@@ -346,60 +358,86 @@
                     "Charisma"
                   ],
                   "against": {
-                    "status": [
-                      "charmed"
-                    ]
+                    "status": ["charmed"]
                   }
                 }
               },
               {
                 "immunity": {
                   "category": "status",
-                  "status": [
-                    "sleep"
-                  ],
+                  "status": ["sleep"],
                   "source": {
                     "origin": "magical"
                   }
                 }
               }
             ]
-          }
-        ]
-      },
-      {
-        "name": "Skill Versatility",
-        "description": "You gain proficiency in two skills of your choice.",
-        "mechanics": [
+          },
           {
             "type": "choice",
-            "choice_type": "skill",
+            "choice_type": "ability_score",
             "count": 2,
             "options": [
               {
                 "type": "simple",
-                "name": "Acrobatics"
+                "name": "Strength"
               },
               {
                 "type": "simple",
-                "name": "Animal Handling"
+                "name": "Dexterity"
               },
               {
                 "type": "simple",
-                "name": "Insight"
+                "name": "Constitution"
               },
               {
                 "type": "simple",
-                "name": "Intimidation"
+                "name": "Intelligence"
               },
               {
                 "type": "simple",
-                "name": "Perception"
+                "name": "Wisdom"
               },
               {
                 "type": "simple",
-                "name": "Persuasion"
+                "name": "Charisma"
               }
+            ],
+            "unique": true,
+            "value": {
+              "operation": "add",
+              "operators": [
+                {
+                  "type": "integer",
+                  "value": 1
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Half-Elf Versatility",
+        "description": "You can choose to gain proficiency in two skills of your choice, or you can choose one of the following traits based on your elf parentage: Elf Weapon Training, a wizard cantrip, Fleet of Foot, Mask of the Wild, or Drow Magic.",
+        "mechanics": [
+          {
+            "type": "choice",
+            "choice_type": "trait",
+            "count": 1,
+            "options": [
+              {
+                "type": "nested",
+                "name": "Skill Versatility",
+                "choice": {
+                  "choice_type": "skill",
+                  "count": 2
+                }
+              },
+              { "type": "trait_ref", "race": "High Elf", "trait": "Elf Weapon Training" },
+              { "type": "trait_ref", "race": "High Elf", "trait": "Cantrip" },
+              { "type": "trait_ref", "race": "Wood Elf", "trait": "Fleet of Foot" },
+              { "type": "trait_ref", "race": "Wood Elf", "trait": "Mask of the Wild" },
+              { "type": "trait_ref", "race": "Drow", "trait": "Drow Magic" }
             ]
           }
         ]
@@ -413,6 +451,10 @@
       {
         "language": "Elvish",
         "choice": false
+      },
+      {
+        "language": "any language",
+        "choice": true
       }
     ]
   },
@@ -438,10 +480,7 @@
     "source": "phb",
     "ruleset": "dnd5e",
     "base_race": null,
-    "subraces": [
-      "Hill Dwarf",
-      "Mountain Dwarf"
-    ],
+    "subraces": ["Hill Dwarf", "Mountain Dwarf"],
     "traits": [
       {
         "name": "Speed",
@@ -478,17 +517,13 @@
                     "Charisma"
                   ],
                   "against": {
-                    "damage_type": [
-                      "poison"
-                    ]
+                    "damage_type": ["poison"]
                   }
                 }
               },
               {
                 "resistance": {
-                  "damage_type": [
-                    "poison"
-                  ]
+                  "damage_type": ["poison"]
                 }
               }
             ]
@@ -634,10 +669,7 @@
           {
             "type": "proficiency",
             "category": "armor",
-            "proficiencies": [
-              "light armor",
-              "medium armor"
-            ]
+            "proficiencies": ["light armor", "medium armor"]
           }
         ]
       }
@@ -718,9 +750,7 @@
         "description": "You can use your action to exhale a 5 by 30 ft. line of acid. Each creature in the area must make a Dexterity saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 acid damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
         "damage": {
           "dice": "2d6",
-          "type": [
-            "acid"
-          ]
+          "type": ["acid"]
         },
         "scaling": {
           "type": "character",
@@ -757,25 +787,19 @@
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
-                    "ability": [
-                      "Constitution"
-                    ]
+                    "ability": ["Constitution"]
                   }
                 },
                 "on_failure": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": [
-                      "acid"
-                    ]
+                    "type": ["acid"]
                   }
                 },
                 "on_success": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": [
-                      "acid"
-                    ],
+                    "type": ["acid"],
                     "calculation": {
                       "operation": "divide",
                       "operators": [
@@ -802,9 +826,7 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": [
-                    "acid"
-                  ]
+                  "damage_type": ["acid"]
                 }
               }
             ]
@@ -842,9 +864,7 @@
         "description": "You can use your action to exhale a 5 by 30 ft. line of lightning. Each creature in the area must make a Dexterity saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 lightning damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
         "damage": {
           "dice": "2d6",
-          "type": [
-            "lightning"
-          ]
+          "type": ["lightning"]
         },
         "scaling": {
           "type": "character",
@@ -881,25 +901,19 @@
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
-                    "ability": [
-                      "Constitution"
-                    ]
+                    "ability": ["Constitution"]
                   }
                 },
                 "on_failure": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": [
-                      "lightning"
-                    ]
+                    "type": ["lightning"]
                   }
                 },
                 "on_success": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": [
-                      "lightning"
-                    ],
+                    "type": ["lightning"],
                     "calculation": {
                       "operation": "divide",
                       "operators": [
@@ -926,9 +940,7 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": [
-                    "lightning"
-                  ]
+                  "damage_type": ["lightning"]
                 }
               }
             ]
@@ -966,9 +978,7 @@
         "description": "You can use your action to exhale a 5 by 30 ft. line of fire. Each creature in the area must make a Dexterity saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 fire damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
         "damage": {
           "dice": "2d6",
-          "type": [
-            "fire"
-          ]
+          "type": ["fire"]
         },
         "scaling": {
           "type": "character",
@@ -1005,25 +1015,19 @@
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
-                    "ability": [
-                      "Constitution"
-                    ]
+                    "ability": ["Constitution"]
                   }
                 },
                 "on_failure": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": [
-                      "fire"
-                    ]
+                    "type": ["fire"]
                   }
                 },
                 "on_success": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": [
-                      "fire"
-                    ],
+                    "type": ["fire"],
                     "calculation": {
                       "operation": "divide",
                       "operators": [
@@ -1050,9 +1054,7 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": [
-                    "fire"
-                  ]
+                  "damage_type": ["fire"]
                 }
               }
             ]
@@ -1090,9 +1092,7 @@
         "description": "You can use your action to exhale a 5 by 30 ft. line of lightning. Each creature in the area must make a Dexterity saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 lightning damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
         "damage": {
           "dice": "2d6",
-          "type": [
-            "lightning"
-          ]
+          "type": ["lightning"]
         },
         "scaling": {
           "type": "character",
@@ -1129,25 +1129,19 @@
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
-                    "ability": [
-                      "Constitution"
-                    ]
+                    "ability": ["Constitution"]
                   }
                 },
                 "on_failure": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": [
-                      "lightning"
-                    ]
+                    "type": ["lightning"]
                   }
                 },
                 "on_success": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": [
-                      "lightning"
-                    ],
+                    "type": ["lightning"],
                     "calculation": {
                       "operation": "divide",
                       "operators": [
@@ -1174,9 +1168,7 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": [
-                    "lightning"
-                  ]
+                  "damage_type": ["lightning"]
                 }
               }
             ]
@@ -1214,9 +1206,7 @@
         "description": "You can use your action to exhale a 5 by 30 ft. line of acid. Each creature in the area must make a Dexterity saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 acid damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
         "damage": {
           "dice": "2d6",
-          "type": [
-            "acid"
-          ]
+          "type": ["acid"]
         },
         "scaling": {
           "type": "character",
@@ -1253,25 +1243,19 @@
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
-                    "ability": [
-                      "Constitution"
-                    ]
+                    "ability": ["Constitution"]
                   }
                 },
                 "on_failure": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": [
-                      "acid"
-                    ]
+                    "type": ["acid"]
                   }
                 },
                 "on_success": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": [
-                      "acid"
-                    ],
+                    "type": ["acid"],
                     "calculation": {
                       "operation": "divide",
                       "operators": [
@@ -1298,9 +1282,7 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": [
-                    "acid"
-                  ]
+                  "damage_type": ["acid"]
                 }
               }
             ]
@@ -1338,9 +1320,7 @@
         "description": "You can use your action to exhale a 15 ft. cone of fire. Each creature in the area must make a Dexterity saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 fire damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
         "damage": {
           "dice": "2d6",
-          "type": [
-            "fire"
-          ]
+          "type": ["fire"]
         },
         "scaling": {
           "type": "character",
@@ -1377,25 +1357,19 @@
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
-                    "ability": [
-                      "Constitution"
-                    ]
+                    "ability": ["Constitution"]
                   }
                 },
                 "on_failure": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": [
-                      "fire"
-                    ]
+                    "type": ["fire"]
                   }
                 },
                 "on_success": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": [
-                      "fire"
-                    ],
+                    "type": ["fire"],
                     "calculation": {
                       "operation": "divide",
                       "operators": [
@@ -1422,9 +1396,7 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": [
-                    "fire"
-                  ]
+                  "damage_type": ["fire"]
                 }
               }
             ]
@@ -1462,9 +1434,7 @@
         "description": "You can use your action to exhale a 15 ft. cone of poison. Each creature in the area must make a Constitution saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 poison damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
         "damage": {
           "dice": "2d6",
-          "type": [
-            "poison"
-          ]
+          "type": ["poison"]
         },
         "scaling": {
           "type": "character",
@@ -1501,25 +1471,19 @@
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
-                    "ability": [
-                      "Constitution"
-                    ]
+                    "ability": ["Constitution"]
                   }
                 },
                 "on_failure": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": [
-                      "poison"
-                    ]
+                    "type": ["poison"]
                   }
                 },
                 "on_success": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": [
-                      "poison"
-                    ],
+                    "type": ["poison"],
                     "calculation": {
                       "operation": "divide",
                       "operators": [
@@ -1546,9 +1510,7 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": [
-                    "poison"
-                  ]
+                  "damage_type": ["poison"]
                 }
               }
             ]
@@ -1586,9 +1548,7 @@
         "description": "You can use your action to exhale a 15 ft. cone of fire. Each creature in the area must make a Dexterity saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 fire damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
         "damage": {
           "dice": "2d6",
-          "type": [
-            "fire"
-          ]
+          "type": ["fire"]
         },
         "scaling": {
           "type": "character",
@@ -1625,25 +1585,19 @@
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
-                    "ability": [
-                      "Constitution"
-                    ]
+                    "ability": ["Constitution"]
                   }
                 },
                 "on_failure": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": [
-                      "fire"
-                    ]
+                    "type": ["fire"]
                   }
                 },
                 "on_success": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": [
-                      "fire"
-                    ],
+                    "type": ["fire"],
                     "calculation": {
                       "operation": "divide",
                       "operators": [
@@ -1670,9 +1624,7 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": [
-                    "fire"
-                  ]
+                  "damage_type": ["fire"]
                 }
               }
             ]
@@ -1710,9 +1662,7 @@
         "description": "You can use your action to exhale a 15 ft. cone of cold. Each creature in the area must make a Constitution saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 cold damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
         "damage": {
           "dice": "2d6",
-          "type": [
-            "cold"
-          ]
+          "type": ["cold"]
         },
         "scaling": {
           "type": "character",
@@ -1749,25 +1699,19 @@
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
-                    "ability": [
-                      "Constitution"
-                    ]
+                    "ability": ["Constitution"]
                   }
                 },
                 "on_failure": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": [
-                      "cold"
-                    ]
+                    "type": ["cold"]
                   }
                 },
                 "on_success": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": [
-                      "cold"
-                    ],
+                    "type": ["cold"],
                     "calculation": {
                       "operation": "divide",
                       "operators": [
@@ -1794,9 +1738,7 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": [
-                    "cold"
-                  ]
+                  "damage_type": ["cold"]
                 }
               }
             ]
@@ -1834,9 +1776,7 @@
         "description": "You can use your action to exhale a 15 ft. cone of cold. Each creature in the area must make a Constitution saving throw (DC = 8 + Constitution modifier + proficiency bonus). A creature takes 2d6 cold damage on a failed save, and half as much on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest.",
         "damage": {
           "dice": "2d6",
-          "type": [
-            "cold"
-          ]
+          "type": ["cold"]
         },
         "scaling": {
           "type": "character",
@@ -1873,25 +1813,19 @@
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
-                    "ability": [
-                      "Constitution"
-                    ]
+                    "ability": ["Constitution"]
                   }
                 },
                 "on_failure": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": [
-                      "cold"
-                    ]
+                    "type": ["cold"]
                   }
                 },
                 "on_success": {
                   "damage": {
                     "dice": "scaling.damage",
-                    "type": [
-                      "cold"
-                    ],
+                    "type": ["cold"],
                     "calculation": {
                       "operation": "divide",
                       "operators": [
@@ -1918,9 +1852,7 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": [
-                    "cold"
-                  ]
+                  "damage_type": ["cold"]
                 }
               }
             ]
@@ -1945,10 +1877,7 @@
     "source": "phb",
     "ruleset": "dnd5e",
     "base_race": null,
-    "subraces": [
-      "Standard Human",
-      "Variant Human"
-    ],
+    "subraces": ["Standard Human", "Variant Human"],
     "traits": [
       {
         "name": "Extra Language",
@@ -2113,9 +2042,7 @@
           {
             "type": "proficiency",
             "category": "skill",
-            "proficiencies": [
-              "Intimidation"
-            ]
+            "proficiencies": ["Intimidation"]
           }
         ]
       },
@@ -2126,9 +2053,7 @@
           {
             "type": "reaction",
             "trigger": {
-              "event": [
-                "damaged_by"
-              ]
+              "event": ["damaged_by"]
             },
             "requirements": [
               {
@@ -2182,9 +2107,7 @@
             "requirements": [
               {
                 "type": "attack",
-                "attack_type": [
-                  "melee_weapon"
-                ]
+                "attack_type": ["melee_weapon"]
               }
             ],
             "effects": [
@@ -2232,10 +2155,7 @@
     "source": "phb",
     "ruleset": "dnd5e",
     "base_race": null,
-    "subraces": [
-      "Forest Gnome",
-      "Rock Gnome"
-    ],
+    "subraces": ["Forest Gnome", "Rock Gnome"],
     "traits": [
       {
         "name": "Gnome Cunning",
@@ -2246,11 +2166,7 @@
             "effects": [
               {
                 "advantage": {
-                  "saving_throw": [
-                    "Intelligence",
-                    "Wisdom",
-                    "Charisma"
-                  ],
+                  "saving_throw": ["Intelligence", "Wisdom", "Charisma"],
                   "against": {
                     "effect_type": "magical"
                   }
@@ -2304,10 +2220,7 @@
             "name": "Minor Illusion",
             "spell": "minor illusion",
             "ability": "Intelligence",
-            "components": [
-              "Somatic",
-              "Material"
-            ]
+            "components": ["Somatic", "Material"]
           }
         ]
       },
@@ -2324,16 +2237,11 @@
               "requirements": [
                 {
                   "type": "creature_type",
-                  "value": [
-                    "Beast"
-                  ]
+                  "value": ["Beast"]
                 },
                 {
                   "type": "size",
-                  "value": [
-                    "Small",
-                    "Tiny"
-                  ]
+                  "value": ["Small", "Tiny"]
                 }
               ]
             }
@@ -2394,9 +2302,7 @@
           {
             "type": "proficiency",
             "category": "tool",
-            "proficiencies": [
-              "tinker's tools"
-            ]
+            "proficiencies": ["tinker's tools"]
           },
           {
             "type": "special",
@@ -2446,11 +2352,7 @@
                         },
                         "target": {
                           "type": "object",
-                          "value": [
-                            "candle",
-                            "torch",
-                            "campfire"
-                          ]
+                          "value": ["candle", "torch", "campfire"]
                         },
                         "duration": {
                           "value": 24,
@@ -2504,10 +2406,7 @@
     "source": "phb",
     "ruleset": "dnd5e",
     "base_race": null,
-    "subraces": [
-      "Lightfoot Halfling",
-      "Stout Halfling"
-    ],
+    "subraces": ["Lightfoot Halfling", "Stout Halfling"],
     "traits": [
       {
         "name": "Lucky",
@@ -2516,11 +2415,7 @@
           {
             "type": "passive",
             "trigger": {
-              "event": [
-                "attack",
-                "ability_check",
-                "saving_throw"
-              ],
+              "event": ["attack", "ability_check", "saving_throw"],
               "conditions": [
                 {
                   "type": "roll_result",
@@ -2549,9 +2444,7 @@
             "effects": [
               {
                 "advantage": {
-                  "saving_throw": [
-                    "all"
-                  ],
+                  "saving_throw": ["all"],
                   "against": {
                     "condition": "frightened"
                   }
@@ -2573,12 +2466,7 @@
                   "type": "pass_through",
                   "target": {
                     "type": "creature",
-                    "value": [
-                      "Medium",
-                      "Large",
-                      "Huge",
-                      "Gargantuan"
-                    ]
+                    "value": ["Medium", "Large", "Huge", "Gargantuan"]
                   }
                 }
               }
@@ -2663,9 +2551,7 @@
             "effects": [
               {
                 "advantage": {
-                  "saving_throw": [
-                    "all"
-                  ],
+                  "saving_throw": ["all"],
                   "against": {
                     "damage_type": "poison"
                   }
@@ -2678,9 +2564,7 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": [
-                    "poison"
-                  ]
+                  "damage_type": ["poison"]
                 }
               }
             ]
@@ -2712,9 +2596,7 @@
     "source": "phb",
     "ruleset": "dnd5e",
     "base_race": null,
-    "subraces": [
-      "Asmodeus Tiefling"
-    ],
+    "subraces": ["Asmodeus Tiefling"],
     "traits": [
       {
         "name": "Hellish Resistance",
@@ -2725,9 +2607,7 @@
             "effects": [
               {
                 "resistance": {
-                  "damage_type": [
-                    "fire"
-                  ]
+                  "damage_type": ["fire"]
                 }
               }
             ]
@@ -2779,19 +2659,14 @@
             "name": "Thaumaturgy",
             "spell": "thaumaturgy",
             "ability": "Charisma",
-            "components": [
-              "Verbal"
-            ]
+            "components": ["Verbal"]
           },
           {
             "type": "spellcasting",
             "name": "Hellish Rebuke",
             "spell": "hellish rebuke",
             "ability": "Charisma",
-            "components": [
-              "Verbal",
-              "Somatic"
-            ],
+            "components": ["Verbal", "Somatic"],
             "uses": {
               "value": 1
             },
@@ -2808,9 +2683,7 @@
             "name": "Darkness",
             "spell": "darkness",
             "ability": "Charisma",
-            "components": [
-              "Verbal"
-            ],
+            "components": ["Verbal"],
             "uses": {
               "value": 1
             },

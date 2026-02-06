@@ -2081,7 +2081,8 @@
                 "discriminator": {
                   "mapping": {
                     "simple": "#/$defs/SimpleChoiceOption",
-                    "nested": "#/$defs/NestedChoiceOption"
+                    "nested": "#/$defs/NestedChoiceOption",
+                    "trait_ref": "#/$defs/TraitRefChoiceOption"
                   },
                   "propertyName": "type"
                 },
@@ -2091,6 +2092,9 @@
                   },
                   {
                     "$ref": "#/$defs/NestedChoiceOption"
+                  },
+                  {
+                    "$ref": "#/$defs/TraitRefChoiceOption"
                   }
                 ]
               },
@@ -2368,6 +2372,34 @@
       "title": "NestedChoiceOption",
       "type": "object"
     },
+    "TraitRefChoiceOption": {
+      "description": "A reference to a trait on another race, resolved at runtime.\n\nExample: {\"type\": \"trait_ref\", \"race\": \"High Elf\", \"trait\": \"Elf Weapon Training\"}",
+      "properties": {
+        "type": {
+          "const": "trait_ref",
+          "default": "trait_ref",
+          "title": "Type",
+          "type": "string"
+        },
+        "race": {
+          "description": "Name of the race that owns this trait",
+          "title": "Race",
+          "type": "string"
+        },
+        "trait": {
+          "description": "Name of the trait on the referenced race",
+          "title": "Trait",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "race",
+        "trait"
+      ],
+      "title": "TraitRefChoiceOption",
+      "type": "object"
+    },
     "ChoiceType": {
       "description": "Valid choice_type values for type='choice' mechanics.",
       "enum": [
@@ -2381,7 +2413,8 @@
         "query",
         "feat",
         "ability_score",
-        "tool"
+        "tool",
+        "trait"
       ],
       "title": "ChoiceType",
       "type": "string"
