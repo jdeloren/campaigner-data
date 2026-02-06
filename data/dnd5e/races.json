@@ -341,6 +341,49 @@
     "subraces": [],
     "traits": [
       {
+        "name": "Ability Score Increase",
+        "description": "Your Charisma score increases by 2, and two other ability scores of your choice increase by 1.",
+        "mechanics": [
+          {
+            "type": "choice",
+            "choice_type": "ability_score",
+            "count": 2,
+            "options": [
+              {
+                "type": "simple",
+                "name": "Strength"
+              },
+              {
+                "type": "simple",
+                "name": "Dexterity"
+              },
+              {
+                "type": "simple",
+                "name": "Constitution"
+              },
+              {
+                "type": "simple",
+                "name": "Intelligence"
+              },
+              {
+                "type": "simple",
+                "name": "Wisdom"
+              }
+            ],
+            "unique": true,
+            "value": {
+              "operation": "add",
+              "operators": [
+                {
+                  "type": "integer",
+                  "value": 1
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
         "name": "Fey Ancestry",
         "description": "You have advantage on saving throws against being charmed, and magic can't put you to sleep.",
         "mechanics": [
@@ -372,47 +415,6 @@
                 }
               }
             ]
-          },
-          {
-            "type": "choice",
-            "choice_type": "ability_score",
-            "count": 2,
-            "options": [
-              {
-                "type": "simple",
-                "name": "Strength"
-              },
-              {
-                "type": "simple",
-                "name": "Dexterity"
-              },
-              {
-                "type": "simple",
-                "name": "Constitution"
-              },
-              {
-                "type": "simple",
-                "name": "Intelligence"
-              },
-              {
-                "type": "simple",
-                "name": "Wisdom"
-              },
-              {
-                "type": "simple",
-                "name": "Charisma"
-              }
-            ],
-            "unique": true,
-            "value": {
-              "operation": "add",
-              "operators": [
-                {
-                  "type": "integer",
-                  "value": 1
-                }
-              ]
-            }
           }
         ]
       },
