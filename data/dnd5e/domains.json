@@ -41,7 +41,12 @@
           {
             "type": "choice",
             "choice_type": "expertise",
-            "options": ["Arcana", "History", "Nature", "Religion"],
+            "options": [
+              { "type": "simple", "name": "Arcana" },
+              { "type": "simple", "name": "History" },
+              { "type": "simple", "name": "Nature" },
+              { "type": "simple", "name": "Religion" }
+            ],
             "count": 2
           }
         ]
@@ -827,7 +832,11 @@
           {
             "type": "choice",
             "choice_type": "expertise",
-            "options": ["Animal Handling", "Nature", "Survival"],
+            "options": [
+              { "type": "simple", "name": "Animal Handling" },
+              { "type": "simple", "name": "Nature" },
+              { "type": "simple", "name": "Survival" }
+            ],
             "count": 1
           }
         ]

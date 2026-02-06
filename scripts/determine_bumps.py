@@ -2,6 +2,12 @@
 """
 Analyze commits since last tag to determine version bumps needed.
 
+Version bump logic:
+- Each dataset gets bumped based on changes to files in data/{dataset}/
+- The repo version (version.json) gets bumped if ANY dataset changes OR if
+  repo-level files (schemas, scripts) change
+- The repo bump type is the max of all dataset bumps and repo-only bumps
+
 Outputs GitHub Actions outputs:
 - has_changes: 'true' if any bumps needed
 - datasets: JSON list of datasets to bump with bump type
@@ -10,7 +16,6 @@ Outputs GitHub Actions outputs:
 
 import json
 import subprocess
-import sys
 from pathlib import Path
 
 
@@ -152,13 +157,19 @@ def main():
             bump_type = parse_bump_type(commit["message"])
             repo_bumps.append(bump_type)
 
-    # Determine final bumps
+    # Determine final bumps for datasets
     results = []
+    dataset_bump_types = []
     for dataset, bumps in dataset_bumps.items():
         if bumps:
-            results.append({"dataset": dataset, "bump": max_bump(bumps)})
+            bump_type = max_bump(bumps)
+            results.append({"dataset": dataset, "bump": bump_type})
+            dataset_bump_types.append(bump_type)
 
-    repo_bump = max_bump(repo_bumps)
+    # Repo version bumps if ANY dataset changes OR if repo-only files change
+    # Take the max bump type from all sources
+    all_bump_types = dataset_bump_types + repo_bumps
+    repo_bump = max_bump(all_bump_types)
     has_changes = bool(results) or repo_bump != "none"
 
     # Output for GitHub Actions

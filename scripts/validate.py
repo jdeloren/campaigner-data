@@ -20,6 +20,8 @@ from pathlib import Path
 # Optional jsonschema import - only needed for schema validation
 try:
     import jsonschema
+    from referencing import Registry, Resource
+    from referencing.jsonschema import DRAFT202012
     HAS_JSONSCHEMA = True
 except ImportError:
     HAS_JSONSCHEMA = False
@@ -98,6 +100,35 @@ def validate_json_syntax(file_path: Path) -> tuple[bool, str | None]:
         return False, f"Error reading file: {e}"
 
 
+def build_schema_registry() -> "Registry":
+    """Build a registry of all schemas for reference resolution."""
+    registry = Registry()
+
+    # Load all schema files and register them
+    for schema_file in SCHEMAS_DIR.glob("*.schema.json"):
+        with open(schema_file, "r", encoding="utf-8") as f:
+            schema_content = json.load(f)
+
+        # Use the filename as the URI
+        uri = schema_file.name
+        resource = Resource.from_contents(schema_content, default_specification=DRAFT202012)
+        registry = registry.with_resource(uri, resource)
+
+    return registry
+
+
+# Cache the registry
+_schema_registry = None
+
+
+def get_schema_registry() -> "Registry":
+    """Get or create the schema registry."""
+    global _schema_registry
+    if _schema_registry is None:
+        _schema_registry = build_schema_registry()
+    return _schema_registry
+
+
 def validate_against_schema(file_path: Path, schema_path: Path) -> tuple[bool, str | None]:
     """Validate a JSON file against a JSON Schema."""
     if not HAS_JSONSCHEMA:
@@ -109,7 +140,10 @@ def validate_against_schema(file_path: Path, schema_path: Path) -> tuple[bool, s
         with open(schema_path, "r", encoding="utf-8") as f:
             schema = json.load(f)
 
-        jsonschema.validate(instance=data, schema=schema)
+        # Use registry for resolving $ref to common.schema.json
+        registry = get_schema_registry()
+        validator = jsonschema.Draft202012Validator(schema, registry=registry)
+        validator.validate(data)
         return True, None
     except jsonschema.ValidationError as e:
         # Provide a concise error message

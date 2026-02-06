@@ -33,7 +33,18 @@ def bump_version(version: str, bump_type: str) -> str:
 
 
 def get_repo_version() -> str:
-    """Get current repo version from last tag or default."""
+    """Get current repo version from version.json, git tag, or default."""
+    # First check version.json
+    version_file = Path("version.json")
+    if version_file.exists():
+        try:
+            version_data = json.loads(version_file.read_text())
+            if "version" in version_data:
+                return version_data["version"]
+        except (json.JSONDecodeError, KeyError):
+            pass
+
+    # Fall back to git tags
     try:
         result = subprocess.run(
             ["git", "tag", "-l", "v*", "--sort=-v:refname"],
@@ -99,8 +110,20 @@ def main():
     # Apply repo bump
     repo_bump = plan.get("repo_bump", "none")
     if repo_bump != "none":
-        old_version = get_repo_version()
+        # Read current version from version.json (or fall back to git tag)
+        version_file = Path("version.json")
+        if version_file.exists():
+            version_data = json.loads(version_file.read_text())
+            old_version = version_data.get("version", "0.0.0")
+        else:
+            old_version = get_repo_version()
+            version_data = {"version": old_version, "name": "campaigner-data", "description": "Game data repository for the Campaigner project"}
+
         new_version = bump_version(old_version, repo_bump)
+
+        # Update version.json
+        version_data["version"] = new_version
+        version_file.write_text(json.dumps(version_data, indent=2) + "\n")
 
         print(f"repo: {old_version} -> {new_version} ({repo_bump})")
 

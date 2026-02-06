@@ -11,7 +11,7 @@
         "type": "string"
       },
       "alignment": {
-        "$ref": "#/$defs/Alignment",
+        "$ref": "common.schema.json#/$defs/Alignment",
         "description": "Alignment"
       },
       "source": {
@@ -89,21 +89,6 @@
     "type": "object"
   },
   "$defs": {
-    "Alignment": {
-      "enum": [
-        "Lawful Good",
-        "Lawful Neutral",
-        "Lawful Evil",
-        "Neutral Good",
-        "Neutral",
-        "Neutral Evil",
-        "Chaotic Good",
-        "Chaotic Neutral",
-        "Chaotic Evil"
-      ],
-      "title": "Alignment",
-      "type": "string"
-    },
     "Domain": {
       "enum": [
         "Arcana",

@@ -128,7 +128,18 @@
     "mechanics": [
       {
         "type": "choice",
-        "choice_type": "asi"
+        "options": [
+          {
+            "type": "nested",
+            "name": "Increase Ability Scores",
+            "choice": { "choice_type": "ability_score", "count": 2, "value": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] } }
+          },
+          {
+            "type": "nested",
+            "name": "Gain a Feat",
+            "choice": { "choice_type": "feat", "count": 1 }
+          }
+        ]
       }
     ],
     "source": "phb",
