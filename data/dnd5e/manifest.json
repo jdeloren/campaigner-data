@@ -1,6 +1,6 @@
 {
   "name": "dnd5e",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "D&D 5th Edition (2014) SRD Data",
   "schema_versions": {
     "background": "1.0",

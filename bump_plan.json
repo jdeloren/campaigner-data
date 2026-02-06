@@ -1,0 +1,10 @@
+{
+  "has_changes": true,
+  "datasets": [
+    {
+      "dataset": "dnd5e",
+      "bump": "patch"
+    }
+  ],
+  "repo_bump": "patch"
+}
