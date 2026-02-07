@@ -5,12 +5,11 @@ This project uses [Semantic Versioning](https://semver.org/) with automated rele
 ## Version Format
 
 ```
-MAJOR.MINOR.PATCH[-beta.N]
+MAJOR.MINOR.PATCH
 
 Examples:
-  1.0.0        - Stable release
-  1.2.0-beta.1 - Pre-release (beta)
-  1.2.0-beta.2 - Second beta of same version
+  1.0.0
+  1.2.3
 ```
 
 | Component | When to increment |
@@ -18,14 +17,13 @@ Examples:
 | **MAJOR** | Breaking schema changes that require consumer updates |
 | **MINOR** | New content (races, classes, spells, etc.), backwards compatible |
 | **PATCH** | Bug fixes, data corrections, typos |
-| **beta.N** | Pre-release testing before stable |
 
 ## Commit Message Conventions
 
 Commit messages drive automatic version bumps. The format follows [Conventional Commits](https://www.conventionalcommits.org/):
 
 ```
-<type>[optional scope][!]: <description>
+<type>[optional scope]: <description>
 
 [optional body]
 
@@ -46,29 +44,6 @@ Commit messages drive automatic version bumps. The format follows [Conventional 
 | `ci:` | CI/CD changes | No release |
 | `style:` | Formatting, whitespace | No release |
 
-### Beta vs Stable Releases
-
-Add `!` before the colon to create a **beta** release instead of stable:
-
-| Commit | Result |
-|--------|--------|
-| `fix: correct Fireball damage` | Stable patch release |
-| `fix!: experimental data fix` | **Beta** patch release |
-| `feat: add Monk class` | Stable minor release |
-| `feat!: add new race (testing)` | **Beta** minor release |
-| `breaking: restructure spell schema` | Stable major release |
-| `breaking!: experimental schema change` | **Beta** major release |
-
-### Promoting Beta to Stable
-
-Use `release:` to promote the current beta version to stable:
-
-```
-release: ready for production
-```
-
-This removes the `-beta.N` suffix without changing the version number.
-
 ## Examples
 
 ### Adding New Content
@@ -77,28 +52,10 @@ This removes the `-beta.N` suffix without changing the version number.
 # Current: 1.0.0
 
 git commit -m "feat: add Dwarf race and subraces"
-# Result: 1.1.0 (stable)
+# Result: 1.1.0
 
 git commit -m "fix: correct Dwarf darkvision range"
-# Result: 1.1.1 (stable)
-```
-
-### Beta Testing Flow
-
-```bash
-# Current: 1.0.0
-
-git commit -m "feat!: add Dwarf race"
-# Result: 1.1.0-beta.1
-
-git commit -m "feat!: add Hill Dwarf subrace"
-# Result: 1.1.0-beta.2
-
-git commit -m "fix!: correct Dwarf traits"
-# Result: 1.1.0-beta.3
-
-git commit -m "release: Dwarf content complete"
-# Result: 1.1.0 (stable)
+# Result: 1.1.1
 ```
 
 ### Schema Changes
@@ -106,14 +63,8 @@ git commit -m "release: Dwarf content complete"
 ```bash
 # Current: 1.5.2
 
-git commit -m "breaking!: add requirements system to equipment schema"
-# Result: 2.0.0-beta.1
-
-git commit -m "feat!: add Dwarf race with new mechanics"
-# Result: 2.0.0-beta.2
-
-git commit -m "release: schema and content ready"
-# Result: 2.0.0 (stable)
+git commit -m "breaking: restructure spell schema"
+# Result: 2.0.0
 ```
 
 ## Scope (Optional)
@@ -135,8 +86,6 @@ On every push to `main`:
 1. **Analyze commits** since the last tag for each dataset
 2. **Determine version bumps** based on highest-priority commit type:
    - `breaking` > `feat` > `fix`
-   - `!` suffix → beta, no `!` → stable
-   - `release:` → promote existing beta
 3. **Run validation** (schema + data validation per dataset)
 4. **If validation passes**:
    - Update each affected dataset's `manifest.json`
@@ -195,26 +144,14 @@ Dataset versions are bumped when changes are made to data files within that data
 ## Quick Reference
 
 ```bash
-# Bug fix / data correction (stable)
+# Bug fix / data correction
 git commit -m "fix: description"
 
-# Bug fix (beta)
-git commit -m "fix!: description"
-
-# New content (stable)
+# New content
 git commit -m "feat: description"
 
-# New content (beta)
-git commit -m "feat!: description"
-
-# Breaking schema change (stable)
+# Breaking schema change
 git commit -m "breaking: description"
-
-# Breaking schema change (beta)
-git commit -m "breaking!: description"
-
-# Promote beta to stable
-git commit -m "release: description"
 
 # No release
 git commit -m "docs: description"

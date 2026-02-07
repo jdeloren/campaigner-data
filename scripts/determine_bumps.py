@@ -86,11 +86,19 @@ def parse_bump_type(message: str) -> str:
     """Parse commit message to determine bump type."""
     message_lower = message.lower()
 
-    if message_lower.startswith("breaking:") or message_lower.startswith("breaking("):
+    # Extract the type prefix before the colon or parenthesis, stripping "!"
+    for sep in ("(", ":"):
+        if sep in message_lower:
+            prefix = message_lower.split(sep, 1)[0].rstrip("!")
+            break
+    else:
+        return "patch"
+
+    if prefix == "breaking":
         return "major"
-    elif message_lower.startswith("feat:") or message_lower.startswith("feat("):
+    elif prefix == "feat":
         return "minor"
-    elif message_lower.startswith("fix:") or message_lower.startswith("fix("):
+    elif prefix == "fix":
         return "patch"
     else:
         return "patch"  # Default fallback

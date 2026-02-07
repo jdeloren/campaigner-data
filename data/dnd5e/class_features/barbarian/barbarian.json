@@ -140,8 +140,8 @@
         "requirements": [
           {
             "type": "equipment",
-            "function": "equipment.is_wearing_heavy_armor",
-            "negate": true
+            "slot": "armor",
+            "occupied": false
           }
         ],
         "effects": [
@@ -152,9 +152,16 @@
                 "operation": "set",
                 "operators": [
                   {
-                    "type": "function",
-                    "function": "levels.calculate_unarmored_ac",
-                    "context": "character"
+                    "type": "integer",
+                    "value": 10
+                  },
+                  {
+                    "type": "ability_modifier",
+                    "ability": "Dexterity"
+                  },
+                  {
+                    "type": "ability_modifier",
+                    "ability": "Constitution"
                   }
                 ]
               }
