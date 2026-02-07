@@ -1300,7 +1300,7 @@
               "bonus": {
                 "operation": "add",
                 "operators": [
-                  { "type": "ability_modifier", "ability": "spellcasting" }
+                  { "type": "action_modifier", "modifier": "spellcasting" }
                 ]
               }
             }
@@ -2399,7 +2399,7 @@
               "bonus": {
                 "operation": "add",
                 "operators": [
-                  { "type": "ability_modifier", "ability": "spellcasting" }
+                  { "type": "action_modifier", "modifier": "spellcasting" }
                 ]
               }
             }
@@ -2534,7 +2534,7 @@
               "bonus": {
                 "operation": "add",
                 "operators": [
-                  { "type": "ability_modifier", "ability": "spellcasting" }
+                  { "type": "action_modifier", "modifier": "spellcasting" }
                 ]
               },
               "barrier": true

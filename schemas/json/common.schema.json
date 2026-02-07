@@ -99,6 +99,27 @@
       "title": "AbilityModifierOperand",
       "type": "object"
     },
+    "ActionModifierOperand": {
+      "description": "An ability modifier resolved from action context (e.g., spellcasting class, weapon attack).",
+      "properties": {
+        "type": {
+          "const": "action_modifier",
+          "default": "action_modifier",
+          "title": "Type",
+          "type": "string"
+        },
+        "modifier": {
+          "description": "Modifier type to resolve (e.g., 'spellcasting', 'attack')",
+          "title": "Modifier",
+          "type": "string"
+        }
+      },
+      "required": [
+        "modifier"
+      ],
+      "title": "ActionModifierOperand",
+      "type": "object"
+    },
     "ActionConstraint": {
       "description": "Action restriction applied on the target's turn.\n\nUse blocked_actions to deny specific action types.\nUse allowed_actions to restrict to ONLY the listed actions.\n\nExample \u2014 Turn Undead:\n{\"blocked_actions\": [\"reaction\"], \"allowed_actions\": [\"Dash\", \"Dodge\"]}",
       "properties": {
@@ -1844,6 +1865,7 @@
             "discriminator": {
               "mapping": {
                 "ability_modifier": "#/$defs/AbilityModifierOperand",
+                "action_modifier": "#/$defs/ActionModifierOperand",
                 "attribute": "#/$defs/AttributeOperand",
                 "boolean": "#/$defs/BooleanOperand",
                 "class_level": "#/$defs/ClassLevelOperand",
@@ -1879,6 +1901,9 @@
               },
               {
                 "$ref": "#/$defs/AbilityModifierOperand"
+              },
+              {
+                "$ref": "#/$defs/ActionModifierOperand"
               },
               {
                 "$ref": "#/$defs/FunctionOperand"

@@ -228,7 +228,7 @@
               "bonus": {
                 "operation": "add",
                 "operators": [
-                  { "type": "ability_modifier", "ability": "attack" }
+                  { "type": "action_modifier", "modifier": "attack" }
                 ]
               }
             }

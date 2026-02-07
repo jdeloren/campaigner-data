@@ -1074,8 +1074,8 @@
                   "operation": "add",
                   "operators": [
                     {
-                      "type": "ability_modifier",
-                      "ability": "spellcasting"
+                      "type": "action_modifier",
+                      "modifier": "spellcasting"
                     }
                   ]
                 },
@@ -1557,8 +1557,8 @@
               "operation": "add",
               "operators": [
                 {
-                  "type": "ability_modifier",
-                  "ability": "spellcasting"
+                  "type": "action_modifier",
+                  "modifier": "spellcasting"
                 }
               ]
             }
