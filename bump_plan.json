@@ -3,8 +3,8 @@
   "datasets": [
     {
       "dataset": "dnd5e",
-      "bump": "patch"
+      "bump": "minor"
     }
   ],
-  "repo_bump": "patch"
+  "repo_bump": "minor"
 }
