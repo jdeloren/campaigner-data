@@ -12,7 +12,6 @@
     "weight": 2.0,
     "properties": ["Light"],
     "subcategory": "simple_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -30,7 +29,6 @@
     "weight": 1.0,
     "properties": ["Finesse", "light", "thrown (20/60)"],
     "subcategory": "simple_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -48,7 +46,6 @@
     "weight": 10.0,
     "properties": ["Two-handed"],
     "subcategory": "simple_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -66,7 +63,6 @@
     "weight": 2.0,
     "properties": ["Light", "thrown (20/60)"],
     "subcategory": "simple_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -84,7 +80,6 @@
     "weight": 2.0,
     "properties": ["Thrown (30/120)"],
     "subcategory": "simple_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -102,7 +97,6 @@
     "weight": 2.0,
     "properties": ["Light", "thrown (20/60)"],
     "subcategory": "simple_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -120,7 +114,6 @@
     "weight": 4.0,
     "properties": [],
     "subcategory": "simple_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -138,7 +131,6 @@
     "weight": 4.0,
     "properties": ["Versatile (1d8)"],
     "subcategory": "simple_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -156,7 +148,6 @@
     "weight": 2.0,
     "properties": ["Light"],
     "subcategory": "simple_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -174,7 +165,6 @@
     "weight": 3.0,
     "properties": ["Thrown (20/60)", "versatile (1d8)"],
     "subcategory": "simple_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -192,7 +182,6 @@
     "weight": 5.0,
     "properties": ["Ammunition", "range (80/320)", "loading", "two-handed"],
     "subcategory": "simple_ranged",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -210,7 +199,6 @@
     "weight": 0.25,
     "properties": ["Finesse", "thrown (20/60)"],
     "subcategory": "simple_ranged",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -228,7 +216,6 @@
     "weight": 2.0,
     "properties": ["Ammunition", "range (80/320)", "two-handed"],
     "subcategory": "simple_ranged",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -246,7 +233,6 @@
     "weight": 0.0,
     "properties": ["Ammunition", "range (30/120)"],
     "subcategory": "simple_ranged",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -264,10 +250,10 @@
       "amount": 5.0,
       "currency": "GP"
     },
-    "type": "armor",
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "light_armor"
   },
   {
     "name": "Leather Armor",
@@ -282,10 +268,10 @@
       "amount": 10.0,
       "currency": "GP"
     },
-    "type": "armor",
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "light_armor"
   },
   {
     "name": "Studded Leather",
@@ -300,10 +286,10 @@
       "amount": 45.0,
       "currency": "GP"
     },
-    "type": "armor",
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "light_armor"
   },
   {
     "name": "Hide Armor",
@@ -318,10 +304,10 @@
       "amount": 10.0,
       "currency": "GP"
     },
-    "type": "armor",
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "medium_armor"
   },
   {
     "name": "Chain Shirt",
@@ -336,10 +322,10 @@
       "amount": 50.0,
       "currency": "GP"
     },
-    "type": "armor",
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "medium_armor"
   },
   {
     "name": "Scale Mail",
@@ -354,10 +340,10 @@
       "amount": 50.0,
       "currency": "GP"
     },
-    "type": "armor",
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "medium_armor"
   },
   {
     "name": "Spiked Armor",
@@ -372,10 +358,10 @@
       "amount": 75.0,
       "currency": "GP"
     },
-    "type": "armor",
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "medium_armor"
   },
   {
     "name": "Breastplate",
@@ -390,10 +376,10 @@
       "amount": 400.0,
       "currency": "GP"
     },
-    "type": "armor",
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "medium_armor"
   },
   {
     "name": "Halfplate",
@@ -408,10 +394,10 @@
       "amount": 750.0,
       "currency": "GP"
     },
-    "type": "armor",
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "medium_armor"
   },
   {
     "name": "Ring Mail",
@@ -426,10 +412,10 @@
       "amount": 30.0,
       "currency": "GP"
     },
-    "type": "armor",
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "heavy_armor"
   },
   {
     "name": "Chain Mail",
@@ -439,7 +425,11 @@
       "max_dex_bonus": null
     },
     "requirements": [
-      { "type": "attribute", "attribute": "Strength", "minimum": 13 }
+      {
+        "type": "ability_score",
+        "ability": "Strength",
+        "minimum": 13
+      }
     ],
     "stealth_disadvantage": true,
     "weight": 55.0,
@@ -447,10 +437,10 @@
       "amount": 75.0,
       "currency": "GP"
     },
-    "type": "armor",
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "heavy_armor"
   },
   {
     "name": "Splint Mail",
@@ -460,7 +450,11 @@
       "max_dex_bonus": null
     },
     "requirements": [
-      { "type": "attribute", "attribute": "Strength", "minimum": 15 }
+      {
+        "type": "ability_score",
+        "ability": "Strength",
+        "minimum": 15
+      }
     ],
     "stealth_disadvantage": true,
     "weight": 60.0,
@@ -468,10 +462,10 @@
       "amount": 200.0,
       "currency": "GP"
     },
-    "type": "armor",
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "heavy_armor"
   },
   {
     "name": "Plate Mail",
@@ -481,7 +475,11 @@
       "max_dex_bonus": null
     },
     "requirements": [
-      { "type": "attribute", "attribute": "Strength", "minimum": 15 }
+      {
+        "type": "ability_score",
+        "ability": "Strength",
+        "minimum": 15
+      }
     ],
     "stealth_disadvantage": true,
     "weight": 65.0,
@@ -489,10 +487,10 @@
       "amount": 1500.0,
       "currency": "GP"
     },
-    "type": "armor",
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "heavy_armor"
   },
   {
     "name": "Shield",
@@ -507,10 +505,10 @@
       "amount": 10.0,
       "currency": "GP"
     },
-    "type": "shield",
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "shield"
   },
   {
     "name": "Burglar's Pack",
@@ -519,22 +517,63 @@
       "currency": "GP"
     },
     "contents": [
-      "Backpack",
-      "a bag of 1,000 ball bearings",
-      "10 feet of string",
-      "a bell",
-      "5 candles",
-      "a crowbar",
-      "a hammer",
-      "10 pitons",
-      "a hooded lantern",
-      "2 flasks of oil",
-      "5 days rations",
-      "a tinderbox",
-      "a waterskin",
-      "50 feet of hempen rope"
+      {
+        "item": "Backpack",
+        "quantity": 1
+      },
+      {
+        "item": "Ball Bearings (bag of 1,000)",
+        "quantity": 1
+      },
+      {
+        "item": "String (10 ft.)",
+        "quantity": 1
+      },
+      {
+        "item": "Bell",
+        "quantity": 1
+      },
+      {
+        "item": "Candle",
+        "quantity": 5
+      },
+      {
+        "item": "Crowbar",
+        "quantity": 1
+      },
+      {
+        "item": "Hammer",
+        "quantity": 1
+      },
+      {
+        "item": "Piton",
+        "quantity": 10
+      },
+      {
+        "item": "Lantern - Hooded",
+        "quantity": 1
+      },
+      {
+        "item": "Oil (flask)",
+        "quantity": 2
+      },
+      {
+        "item": "Rations (1 day)",
+        "quantity": 5
+      },
+      {
+        "item": "Tinderbox",
+        "quantity": 1
+      },
+      {
+        "item": "Waterskin",
+        "quantity": 1
+      },
+      {
+        "item": "Hempen Rope (50 ft.)",
+        "quantity": 1
+      }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -546,19 +585,51 @@
       "currency": "GP"
     },
     "contents": [
-      "Chest",
-      "2 cases for maps and scrolls",
-      "a set of fine clothes",
-      "a bottle of ink",
-      "an ink pen",
-      "a lamp",
-      "2 flasks of oil",
-      "5 sheets of paper",
-      "a vial of perfume",
-      "sealing wax",
-      "soap"
+      {
+        "item": "Chest",
+        "quantity": 1
+      },
+      {
+        "item": "Case, Map/Scroll",
+        "quantity": 2
+      },
+      {
+        "item": "Clothes, Fine",
+        "quantity": 1
+      },
+      {
+        "item": "Ink (1 oz)",
+        "quantity": 1
+      },
+      {
+        "item": "Ink Pen",
+        "quantity": 1
+      },
+      {
+        "item": "Lamp",
+        "quantity": 1
+      },
+      {
+        "item": "Oil (flask)",
+        "quantity": 2
+      },
+      {
+        "item": "Paper (1 sheet)",
+        "quantity": 5
+      },
+      {
+        "item": "Perfume (vial)",
+        "quantity": 1
+      },
+      {
+        "item": "Sealing Wax",
+        "quantity": 1
+      },
+      {
+        "item": "Soap",
+        "quantity": 1
+      }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -570,17 +641,43 @@
       "currency": "GP"
     },
     "contents": [
-      "Backpack",
-      "a crowbar",
-      "a hammer",
-      "10 pitons",
-      "10 torches",
-      "a tinderbox",
-      "10 days of rations",
-      "a waterskin",
-      "50 feet of hempen rope"
+      {
+        "item": "Backpack",
+        "quantity": 1
+      },
+      {
+        "item": "Crowbar",
+        "quantity": 1
+      },
+      {
+        "item": "Hammer",
+        "quantity": 1
+      },
+      {
+        "item": "Piton",
+        "quantity": 10
+      },
+      {
+        "item": "Torch",
+        "quantity": 10
+      },
+      {
+        "item": "Tinderbox",
+        "quantity": 1
+      },
+      {
+        "item": "Rations (1 day)",
+        "quantity": 10
+      },
+      {
+        "item": "Waterskin",
+        "quantity": 1
+      },
+      {
+        "item": "Hempen Rope (50 ft.)",
+        "quantity": 1
+      }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -592,15 +689,35 @@
       "currency": "GP"
     },
     "contents": [
-      "Backpack",
-      "a bedroll",
-      "2 costumes",
-      "5 candles",
-      "5 days of rations",
-      "a waterskin",
-      "a disguise kit"
+      {
+        "item": "Backpack",
+        "quantity": 1
+      },
+      {
+        "item": "Bedroll",
+        "quantity": 1
+      },
+      {
+        "item": "Clothes, Costume",
+        "quantity": 2
+      },
+      {
+        "item": "Candle",
+        "quantity": 5
+      },
+      {
+        "item": "Rations (1 day)",
+        "quantity": 5
+      },
+      {
+        "item": "Waterskin",
+        "quantity": 1
+      },
+      {
+        "item": "Disguise Kit",
+        "quantity": 1
+      }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -612,16 +729,39 @@
       "currency": "GP"
     },
     "contents": [
-      "Backpack",
-      "a bedroll",
-      "a mess kit",
-      "a tinderbox",
-      "10 torches",
-      "10 days of rations",
-      "a waterskin",
-      "50 feet of hempen rope"
+      {
+        "item": "Backpack",
+        "quantity": 1
+      },
+      {
+        "item": "Bedroll",
+        "quantity": 1
+      },
+      {
+        "item": "Mess Kit",
+        "quantity": 1
+      },
+      {
+        "item": "Tinderbox",
+        "quantity": 1
+      },
+      {
+        "item": "Torch",
+        "quantity": 10
+      },
+      {
+        "item": "Rations (1 day)",
+        "quantity": 10
+      },
+      {
+        "item": "Waterskin",
+        "quantity": 1
+      },
+      {
+        "item": "Hempen Rope (50 ft.)",
+        "quantity": 1
+      }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -633,18 +773,47 @@
       "currency": "GP"
     },
     "contents": [
-      "Backpack",
-      "a blanket",
-      "10 candles",
-      "a tinderbox",
-      "an alms box",
-      "2 blocks of incense",
-      "a censer",
-      "vestments",
-      "2 days of rations",
-      "a waterskin"
+      {
+        "item": "Backpack",
+        "quantity": 1
+      },
+      {
+        "item": "Blanket",
+        "quantity": 1
+      },
+      {
+        "item": "Candle",
+        "quantity": 10
+      },
+      {
+        "item": "Tinderbox",
+        "quantity": 1
+      },
+      {
+        "item": "Alms Box",
+        "quantity": 1
+      },
+      {
+        "item": "Incense (Block)",
+        "quantity": 2
+      },
+      {
+        "item": "Censer",
+        "quantity": 1
+      },
+      {
+        "item": "Vestments",
+        "quantity": 1
+      },
+      {
+        "item": "Rations (1 day)",
+        "quantity": 2
+      },
+      {
+        "item": "Waterskin",
+        "quantity": 1
+      }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -656,15 +825,35 @@
       "currency": "GP"
     },
     "contents": [
-      "Backpack",
-      "a book of lore",
-      "a bottle of ink",
-      "an ink pen",
-      "10 sheets of parchment",
-      "a little bag of sand",
-      "a small knife"
+      {
+        "item": "Backpack",
+        "quantity": 1
+      },
+      {
+        "item": "Book",
+        "quantity": 1
+      },
+      {
+        "item": "Ink (1 oz)",
+        "quantity": 1
+      },
+      {
+        "item": "Ink Pen",
+        "quantity": 1
+      },
+      {
+        "item": "Parchment (1 sheet)",
+        "quantity": 10
+      },
+      {
+        "item": "Bag of Sand",
+        "quantity": 1
+      },
+      {
+        "item": "Small Knife",
+        "quantity": 1
+      }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -676,9 +865,44 @@
       "currency": "GP"
     },
     "weight": 2.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Alms Box",
+    "cost": null,
+    "weight": 1.0,
+    "description": "A small box used to collect donations for the poor and for religious purposes.",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Bag of Sand",
+    "cost": null,
+    "weight": 1.0,
+    "description": "A small bag of fine sand, useful for drying ink, testing for drafts, or marking surfaces.",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Badge",
+    "cost": null,
+    "weight": 0.0,
+    "description": "A small emblem or token identifying the wearer's affiliation with a faction or organization.",
+    "category": "adventuring_gear",
+    "source": "scag",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Banner",
+    "cost": null,
+    "weight": 1.0,
+    "description": "A cloth banner bearing the symbol of a knightly order, faction, or noble house.",
+    "category": "adventuring_gear",
+    "source": "scag",
     "ruleset": "dnd5e"
   },
   {
@@ -688,7 +912,6 @@
       "currency": "GP"
     },
     "weight": 2.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -700,7 +923,15 @@
       "currency": "GP"
     },
     "weight": 0.0,
-    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Belaying Pin",
+    "cost": null,
+    "weight": 1.0,
+    "description": "A sturdy wooden pin used to secure ropes on sailing vessels. Can be used as an improvised club.",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -711,8 +942,7 @@
       "amount": 5.0,
       "currency": "SP"
     },
-    "weight": 5.0,
-    "type": "adventuring_gear",
+    "weight": 3.0,
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -731,7 +961,18 @@
         "description": "Allows you to hoist up to four times the weight you can normally lift."
       }
     ],
-    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Blue Quartz Gem",
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "weight": 0.0,
+    "description": "A small quartz gemstone shaped in a bevelled square. It is transparent pale blue in color.",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -744,9 +985,17 @@
     },
     "weight": 5.0,
     "description": "A book might contain poetry, historical accounts, information pertaining to a particular field of lore, diagrams and notes on gnomish contraptions, or just about anything else that can be represented sing text or pictures. A book of spells is a spellbook.",
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Brooch",
+    "cost": null,
+    "weight": 0.0,
+    "description": "A decorative pin or clasp worn as a fastener or ornament.",
+    "category": "adventuring_gear",
+    "source": "scag",
     "ruleset": "dnd5e"
   },
   {
@@ -782,7 +1031,15 @@
         }
       }
     ],
-    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Censer",
+    "cost": null,
+    "weight": 2.0,
+    "description": "A metal container used for burning incense during religious ceremonies. Suspended from chains and swung gently to disperse fragrant smoke.",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -802,7 +1059,6 @@
         "description": "AC 19, 10 hit points. Can be burst with a successful DC 20 Strength check."
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -814,7 +1070,66 @@
       "currency": "CP"
     },
     "weight": 0.0,
-    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Clothes, Common",
+    "cost": {
+      "amount": 5.0,
+      "currency": "SP"
+    },
+    "weight": 3.0,
+    "description": "A simple set of clothes including a loose shirt, trousers, and basic footwear.",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Clothes, Common (Dark)",
+    "cost": {
+      "amount": 5.0,
+      "currency": "SP"
+    },
+    "weight": 3.0,
+    "description": "A simple set of dark-colored clothes, suitable for blending into shadows or nighttime activities.",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Clothes, Costume",
+    "cost": {
+      "amount": 5.0,
+      "currency": "GP"
+    },
+    "weight": 4.0,
+    "description": "A set of clothes suitable for a theatrical or festive costume, including accessories.",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Clothes, Fine",
+    "cost": {
+      "amount": 15.0,
+      "currency": "GP"
+    },
+    "weight": 6.0,
+    "description": "A set of fine clothes, suitable for high society. Includes a silk shirt, velvet coat, and other accessories.",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Clothes, Traveler's",
+    "cost": {
+      "amount": 2.0,
+      "currency": "GP"
+    },
+    "weight": 4.0,
+    "description": "A sturdy set of clothes suitable for travel, including boots, a cloak, and practical garments.",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -827,7 +1142,6 @@
     },
     "weight": 2.0,
     "description": "A component pouch is a small, watertight leather belt pouch that has compartments to hold all the material components and other special items you need to cast your spells, except for those components that have a specific cost (as indicated in a spell's description).",
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -840,7 +1154,6 @@
     },
     "weight": 4.0,
     "description": "This kit includes a wooden rod, silken line, corkwood bobbers, steel hooks, lead sinkers, velvet lures, and narrow netting.",
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -852,7 +1165,6 @@
       "currency": "GP"
     },
     "weight": 4.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -864,33 +1176,38 @@
       "currency": "GP"
     },
     "weight": 3.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
   },
   {
-    "name": "Hempen Rope",
+    "name": "Hempen Rope (50 ft.)",
     "cost": {
       "amount": 1.0,
       "currency": "GP"
-    },
-    "saving_throw": {
-      "ability": "Strength",
-      "dc": {
-        "base": 17
-      }
     },
     "hp": 2,
     "weight": 10.0,
     "description": "Rope, whether made of hemp or silk, has 2 hit points and can be burst with a DC 17 Strength check.",
     "mechanics": [
       {
-        "type": "special",
-        "description": "2 hit points. Can be burst with a DC 17 Strength check."
+        "type": "action",
+        "description": "Bind a creature",
+        "effects": [
+          {
+            "apply_status": {
+              "name": "restrained",
+              "escape": {
+                "ability": "Strength",
+                "dc": {
+                  "base": 17
+                }
+              }
+            }
+          }
+        ]
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -902,7 +1219,33 @@
       "currency": "GP"
     },
     "weight": 1.0,
-    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Hood",
+    "cost": null,
+    "weight": 0.0,
+    "description": "A simple cloth hood used to conceal the wearer's face.",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Incense (Block)",
+    "cost": null,
+    "weight": 0.1,
+    "description": "A small block of aromatic incense, used in religious ceremonies and meditation.",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Incense (Stick)",
+    "cost": null,
+    "weight": 0.0,
+    "description": "A thin stick of aromatic incense.",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -914,7 +1257,6 @@
       "currency": "GP"
     },
     "weight": 0.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -926,7 +1268,6 @@
       "currency": "CP"
     },
     "weight": 0.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -938,7 +1279,6 @@
       "currency": "SP"
     },
     "weight": 25.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -957,7 +1297,6 @@
         "description": "Requires a DC 15 Dexterity check with thieves' tools to pick without the key."
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -987,7 +1326,6 @@
         "description": "Can start a fire by focusing sunlight on tinder. Takes about 5 minutes."
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1007,7 +1345,6 @@
         "description": "Escaping requires a DC 20 Dexterity check. Breaking requires a DC 20 Strength check. Picking the lock requires a DC 15 Dexterity check with thieves' tools."
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1020,7 +1357,6 @@
     },
     "weight": 1.0,
     "description": "This tin box contains a cup and simple cutlery. The box clamps together, and one side can be used as a cooking pan and the other as a plate or shallow bowl.",
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1032,7 +1368,6 @@
       "currency": "GP"
     },
     "weight": 10.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1044,7 +1379,17 @@
       "currency": "SP"
     },
     "weight": 0.0,
-    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Parchment",
+    "cost": {
+      "amount": 3.5,
+      "currency": "SP"
+    },
+    "weight": 0.0,
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1056,7 +1401,6 @@
       "currency": "SP"
     },
     "weight": 0.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1068,7 +1412,6 @@
       "currency": "GP"
     },
     "weight": 0.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1080,7 +1423,6 @@
       "currency": "CP"
     },
     "weight": 0.25,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1092,7 +1434,24 @@
       "currency": "CP"
     },
     "weight": 7.0,
-    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Prayer Book",
+    "cost": null,
+    "weight": 3.0,
+    "description": "A bound volume of prayers, hymns, and sacred texts used in daily devotions and religious ceremonies.",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Prayer Wheel",
+    "cost": null,
+    "weight": 1.0,
+    "description": "A cylindrical wheel on a spindle inscribed with prayers and mantras. Spinning the wheel is believed to have the same spiritual effect as reciting the prayers aloud.",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1135,7 +1494,6 @@
         ]
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1148,13 +1506,12 @@
     },
     "weight": 2.0,
     "description": "Rations consist of dry foods suitable for extended travel, including jerky, dried fruit, hardtack, and nuts.",
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
   },
   {
-    "name": "Rope",
+    "name": "Rope (50 ft.)",
     "cost": {
       "amount": 1.0,
       "currency": "GP"
@@ -1164,13 +1521,66 @@
     "description": "Rope, whether made of hemp or silk, has 2 hit points and can be burst with a DC 17 Strength check.",
     "mechanics": [
       {
-        "type": "special",
-        "description": "2 hit points. Can be burst with a DC 17 Strength check."
+        "type": "action",
+        "description": "Bind a creature",
+        "effects": [
+          {
+            "apply_status": {
+              "name": "restrained",
+              "escape": {
+                "ability": "Strength",
+                "dc": {
+                  "base": 17
+                }
+              }
+            }
+          }
+        ]
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Rope, Silk (50 ft.)",
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "hp": 2,
+    "weight": 5.0,
+    "description": "Silk rope is lighter and smoother than hempen rope. It has 2 hit points and can be burst with a DC 17 Strength check.",
+    "mechanics": [
+      {
+        "type": "action",
+        "description": "Bind a creature",
+        "effects": [
+          {
+            "apply_status": {
+              "name": "restrained",
+              "escape": {
+                "ability": "Strength",
+                "dc": {
+                  "base": 17
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Scholar's Robes",
+    "cost": null,
+    "weight": 4.0,
+    "description": "Flowing robes traditionally worn by scholars and academics, often bearing the colors or insignia of a particular institution.",
+    "category": "adventuring_gear",
+    "source": "scag",
     "ruleset": "dnd5e"
   },
   {
@@ -1180,7 +1590,6 @@
       "currency": "SP"
     },
     "weight": 0.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1192,7 +1601,15 @@
       "currency": "GP"
     },
     "weight": 5.0,
-    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Signal Horn",
+    "cost": null,
+    "weight": 2.0,
+    "description": "A simple horn used to signal for help or alert others. Not a musical instrument.",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1204,9 +1621,26 @@
       "currency": "CP"
     },
     "weight": 0.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Seal",
+    "cost": null,
+    "weight": 0.0,
+    "description": "A wax or metal seal bearing an official emblem, used to authenticate documents and mark correspondence.",
+    "category": "adventuring_gear",
+    "source": "scag",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Signet",
+    "cost": null,
+    "weight": 0.0,
+    "description": "A small engraved stamp bearing the symbol of a knightly order or noble house, used to press into sealing wax or clay.",
+    "category": "adventuring_gear",
+    "source": "scag",
     "ruleset": "dnd5e"
   },
   {
@@ -1216,7 +1650,6 @@
       "currency": "GP"
     },
     "weight": 0.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1228,7 +1661,26 @@
       "currency": "GP"
     },
     "weight": 10.0,
-    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Small Knife",
+    "cost": null,
+    "weight": 0.25,
+    "description": "A small utility knife used for cutting parchment, opening letters, and other mundane tasks. Not designed as a weapon.",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Soap",
+    "cost": {
+      "amount": 2.0,
+      "currency": "CP"
+    },
+    "weight": 0.0,
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1241,7 +1693,6 @@
     },
     "weight": 3.0,
     "description": "Essential for wizards, a spellbook is a leather-bound tome with 100 blank vellum pages suitable for recording spells.",
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1253,7 +1704,6 @@
       "currency": "GP"
     },
     "weight": 5.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1272,7 +1722,17 @@
         "description": "Magnifies objects viewed through it to twice their size."
       }
     ],
-    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "String (10 ft.)",
+    "cost": {
+      "amount": 1.0,
+      "currency": "SP"
+    },
+    "weight": 0.0,
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1284,7 +1744,24 @@
       "currency": "GP"
     },
     "weight": 20.0,
-    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Uniform",
+    "cost": null,
+    "weight": 4.0,
+    "description": "A uniform identifying the wearer as a member of a particular military unit, city watch, or mercenary company.",
+    "category": "adventuring_gear",
+    "source": "scag",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Vestments",
+    "cost": null,
+    "weight": 4.0,
+    "description": "Ceremonial garments worn by clergy during religious services and rituals.",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1296,7 +1773,36 @@
       "currency": "CP"
     },
     "weight": 1.0,
-    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Work Clothes",
+    "cost": null,
+    "weight": 3.0,
+    "description": "Practical clothing suited to a particular trade or profession.",
+    "category": "adventuring_gear",
+    "source": "scag",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Woolen Blanket",
+    "cost": {
+      "amount": 3.5,
+      "currency": "SP"
+    },
+    "weight": 3.0,
+    "description": "A thick woolen blanket. Something like this is perfect for wrapping up during those long cold nights spent staring at a cave wall.",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Writing Kit",
+    "cost": null,
+    "weight": 1.0,
+    "description": "A portable kit containing ink, a pen, and several sheets of parchment, stored in a small leather case.",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1332,7 +1838,6 @@
         ]
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1377,7 +1882,6 @@
         ]
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1397,7 +1901,9 @@
           {
             "advantage": {
               "saving_throw": ["Constitution"],
-              "against": { "damage_type": "poison" }
+              "against": {
+                "damage_type": "poison"
+              }
             },
             "duration": {
               "value": 1,
@@ -1407,7 +1913,6 @@
         ]
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1445,7 +1950,6 @@
         ]
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1491,7 +1995,6 @@
         ]
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1510,7 +2013,6 @@
         "description": "Anchor yourself. You can't fall more than 25 feet from the point where you anchored, and you can't climb more than 25 feet away from that point without undoing the anchor."
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1536,7 +2038,6 @@
         ]
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1573,7 +2074,6 @@
         ]
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1615,7 +2115,6 @@
         ]
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1662,7 +2161,6 @@
         ]
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1700,7 +2198,6 @@
         ]
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1738,7 +2235,6 @@
         ]
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1780,7 +2276,6 @@
         "description": "Lower the hood, reducing the light to dim light in a 5-foot radius."
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1843,7 +2338,6 @@
         ]
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1885,7 +2379,6 @@
         ]
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1897,7 +2390,6 @@
       "currency": "GP"
     },
     "weight": 0.5,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1916,7 +2408,6 @@
         "description": "Light a torch or anything with abundant, exposed fuel. Lighting any other fire takes 1 minute."
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1971,7 +2462,6 @@
         ]
       }
     ],
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1994,7 +2484,6 @@
     ],
     "weight": 5.0,
     "description": "You can also strap items, such as a bedroll or a coil of rope, to the outside of a backpack.",
-    "type": "container",
     "category": "container",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2016,7 +2505,6 @@
       }
     ],
     "weight": 70.0,
-    "type": "container",
     "category": "container",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2038,7 +2526,6 @@
       }
     ],
     "weight": 2.0,
-    "type": "container",
     "category": "container",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2060,7 +2547,6 @@
       }
     ],
     "weight": 2.0,
-    "type": "container",
     "category": "container",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2078,7 +2564,6 @@
       }
     ],
     "weight": 1.0,
-    "type": "container",
     "category": "container",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2091,7 +2576,6 @@
     },
     "capacity": [],
     "weight": 1.0,
-    "type": "container",
     "category": "container",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2113,7 +2597,6 @@
       }
     ],
     "weight": 25.0,
-    "type": "container",
     "category": "container",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2131,13 +2614,12 @@
       }
     ],
     "weight": 1.0,
-    "type": "container",
     "category": "container",
     "source": "phb",
     "ruleset": "dnd5e"
   },
   {
-    "name": "Glass Bottle",
+    "name": "Bottle, Glass",
     "cost": {
       "amount": 2.0,
       "currency": "GP"
@@ -2149,7 +2631,6 @@
       }
     ],
     "weight": 2.0,
-    "type": "container",
     "category": "container",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2167,13 +2648,12 @@
       }
     ],
     "weight": 4.0,
-    "type": "container",
     "category": "container",
     "source": "phb",
     "ruleset": "dnd5e"
   },
   {
-    "name": "Pot, iron",
+    "name": "Pot, Iron",
     "cost": {
       "amount": 2.0,
       "currency": "GP"
@@ -2185,7 +2665,6 @@
       }
     ],
     "weight": 10.0,
-    "type": "container",
     "category": "container",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2208,7 +2687,6 @@
     ],
     "weight": 1.0,
     "description": "A cloth or leather pouch can hold up to 20 sling bullets or 50 blowgun needles, among other things. A compartmentalized pouch for holding spell components is called a component pouch.",
-    "type": "container",
     "category": "container",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2226,7 +2704,6 @@
       }
     ],
     "weight": 1.0,
-    "type": "container",
     "category": "container",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2248,7 +2725,6 @@
       }
     ],
     "weight": 0.5,
-    "type": "container",
     "category": "container",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2266,7 +2742,6 @@
       }
     ],
     "weight": 0.0,
-    "type": "container",
     "category": "container",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2284,7 +2759,6 @@
       }
     ],
     "weight": 5.0,
-    "type": "container",
     "category": "container",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2296,7 +2770,6 @@
       "currency": "GP"
     },
     "weight": 1.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
@@ -2309,7 +2782,6 @@
       "currency": "GP"
     },
     "weight": 3.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
@@ -2322,7 +2794,6 @@
       "currency": "GP"
     },
     "weight": 2.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
@@ -2335,7 +2806,6 @@
       "currency": "GP"
     },
     "weight": 4.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
@@ -2348,7 +2818,6 @@
       "currency": "GP"
     },
     "weight": 1.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
@@ -2361,7 +2830,6 @@
       "currency": "GP"
     },
     "weight": 0.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
@@ -2374,7 +2842,6 @@
       "currency": "GP"
     },
     "weight": 0.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
@@ -2387,7 +2854,6 @@
       "currency": "GP"
     },
     "weight": 4.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
@@ -2400,7 +2866,6 @@
       "currency": "GP"
     },
     "weight": 1.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
@@ -2413,7 +2878,6 @@
       "currency": "GP"
     },
     "weight": 1.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
@@ -2426,7 +2890,6 @@
       "currency": "GP"
     },
     "weight": 0.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
@@ -2439,7 +2902,6 @@
       "currency": "GP"
     },
     "weight": 2.0,
-    "type": "adventuring_gear",
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
@@ -2458,7 +2920,6 @@
     "weight": 4.0,
     "properties": ["Versatile (1d10)"],
     "subcategory": "martial_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2476,7 +2937,6 @@
     "weight": 2.0,
     "properties": [],
     "subcategory": "martial_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2494,7 +2954,6 @@
     "weight": 6.0,
     "properties": ["Heavy", "reach", "two-handed"],
     "subcategory": "martial_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2512,7 +2971,6 @@
     "weight": 7.0,
     "properties": ["Heavy", "two-handed"],
     "subcategory": "martial_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2530,7 +2988,6 @@
     "weight": 6.0,
     "properties": ["Heavy", "two-handed"],
     "subcategory": "martial_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2548,7 +3005,6 @@
     "weight": 6.0,
     "properties": ["Heavy", "reach", "two-handed"],
     "subcategory": "martial_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2566,7 +3022,6 @@
     "weight": 6.0,
     "properties": ["Reach", "special"],
     "subcategory": "martial_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2584,7 +3039,6 @@
     "weight": 3.0,
     "properties": ["Versatile (1d10)"],
     "subcategory": "martial_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2602,7 +3056,6 @@
     "weight": 10.0,
     "properties": ["Heavy", "two-handed"],
     "subcategory": "martial_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2620,7 +3073,6 @@
     "weight": 4.0,
     "properties": [],
     "subcategory": "martial_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2638,7 +3090,6 @@
     "weight": 18.0,
     "properties": ["Heavy", "reach", "two-handed"],
     "subcategory": "martial_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2656,7 +3107,6 @@
     "weight": 2.0,
     "properties": ["Finesse"],
     "subcategory": "martial_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2674,7 +3124,6 @@
     "weight": 3.0,
     "properties": ["Finesse", "light"],
     "subcategory": "martial_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2692,7 +3141,6 @@
     "weight": 2.0,
     "properties": ["Finesse", "light"],
     "subcategory": "martial_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2710,7 +3158,6 @@
     "weight": 4.0,
     "properties": ["Thrown (20/60)", "versatile (1d8)"],
     "subcategory": "martial_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2728,7 +3175,6 @@
     "weight": 2.0,
     "properties": [],
     "subcategory": "martial_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2746,7 +3192,6 @@
     "weight": 2.0,
     "properties": ["Versatile (1d10)"],
     "subcategory": "martial_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2764,7 +3209,6 @@
     "weight": 3.0,
     "properties": ["Finesse", "reach"],
     "subcategory": "martial_melee",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2782,7 +3226,6 @@
     "weight": 1.0,
     "properties": ["Ammunition", "range (25/100)", "loading"],
     "subcategory": "martial_ranged",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2800,7 +3243,6 @@
     "weight": 3.0,
     "properties": ["Ammunition", "range (30/120)", "light", "loading"],
     "subcategory": "martial_ranged",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2824,7 +3266,6 @@
       "two-handed"
     ],
     "subcategory": "martial_ranged",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2842,7 +3283,6 @@
     "weight": 2.0,
     "properties": ["Ammunition", "range (150/600)", "heavy", "two-Handed"],
     "subcategory": "martial_ranged",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2857,7 +3297,6 @@
     "weight": 3.0,
     "properties": ["Special", "thrown (5/15)"],
     "subcategory": "martial_ranged",
-    "type": "weapon",
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"

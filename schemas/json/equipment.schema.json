@@ -11,8 +11,16 @@
         "type": "string"
       },
       "cost": {
-        "$ref": "common.schema.json#/$defs/CurrencyCost",
-        "description": "Cost with currency"
+        "anyOf": [
+          {
+            "$ref": "common.schema.json#/$defs/CurrencyCost"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Cost with currency, or null for DM-discretion pricing"
       },
       "weight": {
         "anyOf": [
@@ -34,11 +42,6 @@
       "ruleset": {
         "$ref": "common.schema.json#/$defs/Ruleset",
         "description": "Ruleset version"
-      },
-      "type": {
-        "description": "Equipment type",
-        "title": "Type",
-        "type": "string"
       },
       "category": {
         "$ref": "#/$defs/EquipmentCategory",
@@ -123,11 +126,24 @@
         "default": null,
         "description": "Armor AC calculation"
       },
+      "hp": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Hit points of the item",
+        "title": "HP"
+      },
       "requirements": {
         "anyOf": [
           {
             "items": {
-              "$ref": "common.schema.json#/$defs/AttributeRequirement"
+              "$ref": "#/$defs/Requirement"
             },
             "type": "array"
           },
@@ -139,25 +155,11 @@
         "description": "Requirements for using this equipment (e.g., minimum Strength for heavy armor)",
         "title": "Requirements"
       },
-      "stealth": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "default": null,
-        "description": "Stealth disadvantage indicator",
-        "title": "Stealth"
-      },
       "capacity": {
         "anyOf": [
           {
             "items": {
-              "additionalProperties": true,
-              "type": "object"
+              "$ref": "#/$defs/Capacity"
             },
             "type": "array"
           },
@@ -173,7 +175,7 @@
         "anyOf": [
           {
             "items": {
-              "type": "string"
+              "$ref": "#/$defs/PackItem"
             },
             "type": "array"
           },
@@ -218,10 +220,8 @@
     },
     "required": [
       "name",
-      "cost",
       "source",
       "ruleset",
-      "type",
       "category"
     ],
     "title": "Equipment",
@@ -273,6 +273,191 @@
       ],
       "title": "EquipmentCategory",
       "type": "string"
+    },
+    "Capacity": {
+      "description": "A single capacity measurement for a container.",
+      "properties": {
+        "amount": {
+          "description": "Capacity amount",
+          "title": "Amount",
+          "type": "number"
+        },
+        "unit": {
+          "description": "Unit of measurement (e.g., 'cubic_foot', 'lb', 'gallons')",
+          "title": "Unit",
+          "type": "string"
+        }
+      },
+      "required": [
+        "amount",
+        "unit"
+      ],
+      "title": "Capacity",
+      "type": "object"
+    },
+    "Requirement": {
+      "description": "A requirement for using this equipment.",
+      "properties": {
+        "type": {
+          "description": "Type of requirement",
+          "enum": [
+            "ability_score",
+            "level",
+            "class_level",
+            "proficiency",
+            "feature",
+            "race",
+            "spellcasting",
+            "special"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "ability": {
+          "anyOf": [
+            {
+              "enum": [
+                "Strength",
+                "Dexterity",
+                "Constitution",
+                "Intelligence",
+                "Wisdom",
+                "Charisma"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Ability score (for ability_score requirements)",
+          "title": "Ability"
+        },
+        "minimum": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Minimum value required",
+          "title": "Minimum"
+        },
+        "target": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Target of the requirement",
+          "title": "Target"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Human-readable description of the requirement",
+          "title": "Description"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "title": "Requirement",
+      "type": "object"
+    },
+    "ContainerContent": {
+      "description": "Freeform content stored inside a container.",
+      "properties": {
+        "name": {
+          "description": "Name of the content",
+          "title": "Name",
+          "type": "string",
+          "minLength": 1
+        },
+        "cost": {
+          "anyOf": [
+            {
+              "$ref": "common.schema.json#/$defs/CurrencyCost"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Cost of the content, or null"
+        }
+      },
+      "required": ["name"],
+      "title": "ContainerContent",
+      "type": "object"
+    },
+    "PackItem": {
+      "description": "An item reference with quantity, used in equipment packs and background starting equipment. Flavor items (flavor=true) are narrative-only with no game data entry. Container items can specify freeform contents.",
+      "properties": {
+        "item": {
+          "description": "Equipment/tool name, or flavor item name",
+          "title": "Item",
+          "type": "string"
+        },
+        "quantity": {
+          "default": 1,
+          "description": "Number of this item",
+          "title": "Quantity",
+          "type": "integer",
+          "minimum": 1
+        },
+        "flavor": {
+          "default": false,
+          "description": "Flavor-only item with no game data entry",
+          "title": "Flavor",
+          "type": "boolean"
+        },
+        "contents": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/ContainerContent"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Freeform contents of a container"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "$ref": "common.schema.json#/$defs/CurrencyCost"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Intrinsic value (e.g., gem worth 10 GP)"
+        }
+      },
+      "required": ["item"],
+      "title": "PackItem",
+      "type": "object"
     }
   }
 }

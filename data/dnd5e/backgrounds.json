@@ -1,8 +1,11 @@
 [
   {
     "name": "Acolyte",
-    "description": "You have spent your life in the service of a temple to a specific god or pantheon of gods. You act as an intermediary between the realm of the holy and the mortal world, performing sacred rites and offering sacrifices in order to conduct worshipers into the presence of the divine. You are not necessarily a cleric - performing sacred rites is not the same thing as channeling divine power.\n\nChoose a god, a pantheon of gods, or some other quasi-divine being, and work with your DM to detail the nature of your religious service. Were you a lesser functionary in a temple, raised from childhood to assist the priests in the sacred rites? Or were you a high priest who suddenly experienced a call to serve your god in a different way? Perhaps you were the leader of a small cult outside of any established temple structure, or even an occult group that served a fiendish master that you now deny.",
-    "skill_proficiencies": ["Insight", "Religion"],
+    "description": "You have spent your life in the service of a temple to a specific god or pantheon of gods. You act as an intermediary between the realm of the holy and the mortal world, performing sacred rites and offering sacrifices in order to conduct worshipers into the presence of the divine. You are not necessarily a cleric -\u00a0performing sacred rites is not the same thing as channeling divine power.\n\nChoose a god, a pantheon of gods, or some other quasi-divine being, and work with your DM to detail the nature of your religious service. Were you a lesser functionary in a temple, raised from childhood to assist the priests in the sacred rites? Or were you a high priest who suddenly experienced a call to serve your god in a different way? Perhaps you were the leader of a small cult outside of any established temple structure, or even an occult group that served a fiendish master that you now deny.",
+    "skill_proficiencies": [
+      "Insight",
+      "Religion"
+    ],
     "tool_proficiencies": [],
     "languages": [
       {
@@ -20,18 +23,23 @@
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "holy symbol", "quantity": 1 }]
+        "items": [
+          {
+            "item": "holy symbol",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
         "type": "choice",
         "options": [
           {
-            "item": "prayer book",
+            "item": "Prayer Book",
             "quantity": 1
           },
           {
-            "item": "prayer wheel",
+            "item": "Prayer Wheel",
             "quantity": 1
           }
         ]
@@ -39,29 +47,40 @@
       {
         "choice_group": 3,
         "type": "fixed",
-        "items": [{ "item": "sticks of incense", "quantity": 5 }]
+        "items": [
+          {
+            "item": "Incense (Stick)",
+            "quantity": 5
+          }
+        ]
       },
       {
         "choice_group": 4,
         "type": "fixed",
-        "items": [{ "item": "vestments", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Vestments",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 5,
         "type": "fixed",
-        "items": [{ "item": "common clothes", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Clothes, Common",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 6,
         "type": "fixed",
-        "items": [
-          {
-            "currency": {
-              "amount": 15,
-              "type": "GP"
-            }
-          }
-        ]
+        "currency": {
+          "amount": 15,
+          "currency": "GP"
+        }
       }
     ],
     "source": "phb",
@@ -69,39 +88,61 @@
   },
   {
     "name": "Charlatan",
-    "description": "You have always had a way with people. You know what makes them tick, you can tease out their hearts' desires after a few minutes of conversation, and with a few leading questions you can read them like they were children's books. It's a useful talent, and one that you're perfectly willing to use for your advantage.\n\nYou know what people want and you deliver, or rather, you promise to deliver. Common sense should steer people away from things that sound too good to be true, but common sense seems to be in short supply when you're around. The bottle of pink colored liquid will surely cure that unseemly rash, this ointment - nothing more than a bit of fat with a sprinkle of silver dust can restore youth and vigor, and there's a bridge in the city that just happens to be for sale. These marvels sound implausible, but you make them sound like the real deal.",
-    "skill_proficiencies": ["Deception", "Sleight of Hand"],
-    "tool_proficiencies": ["Disguise kit", "forgery kit"],
+    "description": "You have always had a way with people. You know what makes them tick, you can tease out their hearts' desires after a few minutes of conversation, and with a few leading questions you can read them like they were children's books. It's a useful talent, and one that you're perfectly willing to use for your advantage.\n\nYou know what people want and you deliver, or rather, you promise to deliver. Common sense should steer people away from things that sound too good to be true, but common sense seems to be in short supply when you're around. The bottle of pink colored liquid will surely cure that unseemly rash, this ointment -\u00a0nothing more than a bit of fat with a sprinkle of silver dust can restore youth and vigor, and there's a bridge in the city that just happens to be for sale. These marvels sound implausible, but you make them sound like the real deal.",
+    "skill_proficiencies": [
+      "Deception",
+      "Sleight of Hand"
+    ],
+    "tool_proficiencies": [
+      "Disguise kit",
+      "forgery kit"
+    ],
     "languages": [],
     "equipment": [
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "fine clothes", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Clothes, Fine",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
         "type": "fixed",
-        "items": [{ "item": "disguise kit", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Disguise Kit",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 3,
         "type": "choice",
         "options": [
           {
-            "item": "stoppered bottles",
-            "quantity": 10
+            "item": "Bottle, Glass",
+            "quantity": 10,
+            "contents": [
+              {
+                "name": "Colored Liquid",
+                "cost": null
+              }
+            ]
           },
           {
-            "item": "set of weighted dice",
+            "item": "Weighted Dice Set",
             "quantity": 1
           },
           {
-            "item": "deck of marked cards",
+            "item": "Marked Cards Set",
             "quantity": 1
           },
           {
-            "item": "signet ring",
+            "item": "Signet Ring",
             "quantity": 1
           }
         ]
@@ -109,14 +150,10 @@
       {
         "choice_group": 4,
         "type": "fixed",
-        "items": [
-          {
-            "currency": {
-              "amount": 15,
-              "type": "GP"
-            }
-          }
-        ]
+        "currency": {
+          "amount": 15,
+          "currency": "GP"
+        }
       }
     ],
     "source": "phb",
@@ -125,34 +162,47 @@
   {
     "name": "Criminal",
     "description": "You are an experienced criminal with a history of breaking the law. You have spent a lot of time among other criminals and still have contacts within the criminal underworld. You're far closer than most people to the world of murder, theft, and violence that pervades the underbelly of civilization, and you have survived up to this point by flouting the rules and regulations of society.",
-    "skill_proficiencies": ["Deception", "Stealth"],
-    "tool_proficiencies": ["any gaming set", "Thieves' Tools"],
+    "skill_proficiencies": [
+      "Deception",
+      "Stealth"
+    ],
+    "tool_proficiencies": [
+      "any gaming set",
+      "Thieves' Tools"
+    ],
     "languages": [],
     "equipment": [
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "crowbar", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Crowbar",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
         "type": "fixed",
         "items": [
-          { "item": "dark common clothes", "quantity": 1 },
-          { "item": "hood", "quantity": 1 }
+          {
+            "item": "Clothes, Common (Dark)",
+            "quantity": 1
+          },
+          {
+            "item": "Hood",
+            "quantity": 1
+          }
         ]
       },
       {
         "choice_group": 3,
         "type": "fixed",
-        "items": [
-          {
-            "currency": {
-              "amount": 15,
-              "type": "GP"
-            }
-          }
-        ]
+        "currency": {
+          "amount": 15,
+          "currency": "GP"
+        }
       }
     ],
     "source": "phb",
@@ -161,49 +211,64 @@
   {
     "name": "Entertainer",
     "description": "You thrive in front of an audience. You know how to entrance them, entertain them, and even inspire them. Your poetics can stir the hearts of those who hear you, awakening grief or joy, laughter or anger. Your music raises their spirits or captures their sorrow. Your dance steps captivate, your humor cuts to the quick. Whatever techniques you use, your art is your life.",
-    "skill_proficiencies": ["Acrobatics", "Performance"],
-    "tool_proficiencies": ["Disguise kit", "any musical instrument"],
+    "skill_proficiencies": [
+      "Acrobatics",
+      "Performance"
+    ],
+    "tool_proficiencies": [
+      "Disguise kit",
+      "any musical instrument"
+    ],
     "languages": [],
     "equipment": [
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "any musical instrument", "quantity": 1 }]
+        "items": [
+          {
+            "item": "any musical instrument",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
         "type": "choice",
         "options": [
           {
-            "item": "love letter",
-            "quantity": 1
+            "item": "Love Letter",
+            "quantity": 1,
+            "flavor": true
           },
           {
-            "item": "lock of hair",
-            "quantity": 1
+            "item": "Lock of Hair",
+            "quantity": 1,
+            "flavor": true
           },
           {
-            "item": "trinket",
-            "quantity": 1
+            "item": "Trinket",
+            "quantity": 1,
+            "flavor": true
           }
         ]
       },
       {
         "choice_group": 3,
         "type": "fixed",
-        "items": [{ "item": "costume", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Clothes, Costume",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 4,
         "type": "fixed",
-        "items": [
-          {
-            "currency": {
-              "amount": 15,
-              "type": "GP"
-            }
-          }
-        ]
+        "currency": {
+          "amount": 15,
+          "currency": "GP"
+        }
       }
     ],
     "source": "phb",
@@ -212,41 +277,63 @@
   {
     "name": "Folk Hero",
     "description": "You come from a humble social rank, but you are destined for so much more. Already the people of your home village regard you as their champion, and your destiny calls you to stand against the tyrants and monsters that threaten the common folk everywhere.",
-    "skill_proficiencies": ["Animal Handling", "Survival"],
-    "tool_proficiencies": ["any artisan's tools", "vehicles (land)"],
+    "skill_proficiencies": [
+      "Animal Handling",
+      "Survival"
+    ],
+    "tool_proficiencies": [
+      "any artisan's tools",
+      "vehicles (land)"
+    ],
     "languages": [],
     "equipment": [
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "any artisan's tools", "quantity": 1 }]
+        "items": [
+          {
+            "item": "any artisan's tools",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
         "type": "fixed",
-        "items": [{ "item": "shovel", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Shovel",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 3,
         "type": "fixed",
-        "items": [{ "item": "iron pot", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Pot, Iron",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 4,
         "type": "fixed",
-        "items": [{ "item": "common clothes", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Clothes, Common",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 5,
         "type": "fixed",
-        "items": [
-          {
-            "currency": {
-              "amount": 10,
-              "type": "GP"
-            }
-          }
-        ]
+        "currency": {
+          "amount": 10,
+          "currency": "GP"
+        }
       }
     ],
     "source": "phb",
@@ -255,8 +342,13 @@
   {
     "name": "Guild Artisan",
     "description": "You are a member of an artisan's guild, skilled in a particular field and closely associated with other artisans. You are a well-established part of the mercantile world, freed by talent and wealth from the constraints of a feudal social order. You learned your skills as an apprentice to a master artisan, under the sponsorship of your guild, until you became a master in your own right.",
-    "skill_proficiencies": ["Insight", "Persuasion"],
-    "tool_proficiencies": ["One type of artisan's tools"],
+    "skill_proficiencies": [
+      "Insight",
+      "Persuasion"
+    ],
+    "tool_proficiencies": [
+      "One type of artisan's tools"
+    ],
     "languages": [
       {
         "choice_group": 1,
@@ -273,31 +365,41 @@
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "any artisan's tools", "quantity": 1 }]
+        "items": [
+          {
+            "item": "any artisan's tools",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
         "type": "fixed",
         "items": [
-          { "item": "letter of introduction from your guild", "quantity": 1 }
+          {
+            "item": "Letter of Introduction",
+            "quantity": 1,
+            "flavor": true
+          }
         ]
       },
       {
         "choice_group": 3,
         "type": "fixed",
-        "items": [{ "item": "traveler's clothes", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Clothes, Traveler's",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 4,
         "type": "fixed",
-        "items": [
-          {
-            "currency": {
-              "amount": 15,
-              "type": "GP"
-            }
-          }
-        ]
+        "currency": {
+          "amount": 15,
+          "currency": "GP"
+        }
       }
     ],
     "source": "phb",
@@ -306,8 +408,13 @@
   {
     "name": "Hermit",
     "description": "You lived in seclusion - either in a sheltered community such as a monastery, or entirely alone - for a formative part of your life. In your time apart from the clamor of society, you found quiet, solitude, and perhaps some of the answers you were looking for.",
-    "skill_proficiencies": ["Medicine", "Religion"],
-    "tool_proficiencies": ["Herbalism kit"],
+    "skill_proficiencies": [
+      "Medicine",
+      "Religion"
+    ],
+    "tool_proficiencies": [
+      "Herbalism kit"
+    ],
     "languages": [
       {
         "choice_group": 1,
@@ -324,34 +431,50 @@
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "scroll case", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Case, Map/Scroll",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
         "type": "fixed",
-        "items": [{ "item": "winter blanket", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Woolen Blanket",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 3,
         "type": "fixed",
-        "items": [{ "item": "common clothes", "quantity": 1 }]
-      },
-      {
-        "choice_group": 4,
-        "type": "fixed",
-        "items": [{ "item": "herbalism kit", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Clothes, Common",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 4,
         "type": "fixed",
         "items": [
           {
-            "currency": {
-              "amount": 5,
-              "type": "GP"
-            }
+            "item": "Herbalism Kit",
+            "quantity": 1
           }
         ]
+      },
+      {
+        "choice_group": 4,
+        "type": "fixed",
+        "currency": {
+          "amount": 5,
+          "currency": "GP"
+        }
       }
     ],
     "source": "phb",
@@ -360,8 +483,13 @@
   {
     "name": "Noble",
     "description": "You understand wealth, power, and privilege. You carry a noble title, and your family owns land, collects taxes, and wields significant political influence. You might be a pampered aristocrat unfamiliar with work or discomfort, a former merchant just elevated to the nobility, or a disinherited scoundrel with a disproportionate sense of entitlement. Or you could be an honest, hard-working landowner who cares deeply about the people who live and work on your land, keenly aware of your responsibility to them.\n\nWork with your DM to come up with an appropriate title and determine how much authority that title carries. A noble title doesn't stand on its own-it's connected to an entire family, and whatever title you hold, you will pass it down to your own children. Not only do you need to determine your noble title, but you should also work with the DM to describe your family and their influence on you.\n\nIs your family old and established, or was your title only recently bestowed? How much influence do they wield, and over what area? What kind of reputation does your family have among the other aristocrats of the region? How do the common people regard them?\n\nWhat's your position in the family? Are you the heir to the head of the family? Have you already inherited the title? How do you feel about that responsibility? Or are you so far down the line of inheritance that no one cares what you do, as long as you don't embarrass the family? How does the head of your family feel about your adventuring career? Are you in your family's good graces, or shunned by the rest of your family?\n\nDoes your family have a coat of arms? An insignia you might wear on a signet ring? Particular colors you wear all the time? An animal you regard as a symbol of your line or even a spiritual member of the family?\n\nThese details help establish your family and your title as features of the world of the campaign.",
-    "skill_proficiencies": ["History", "Persuasion"],
-    "tool_proficiencies": ["One type of gaming set"],
+    "skill_proficiencies": [
+      "History",
+      "Persuasion"
+    ],
+    "tool_proficiencies": [
+      "One type of gaming set"
+    ],
     "languages": [
       {
         "choice_group": 1,
@@ -378,34 +506,41 @@
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "fine clothes", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Clothes, Fine",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
         "type": "fixed",
-        "items": [{ "item": "signet ring", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Signet Ring",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 3,
         "type": "fixed",
-        "items": [{ "item": "scroll of pedigree", "quantity": 1 }]
-      },
-      {
-        "type": "fixed",
-        "item": "and",
-        "quantity": 1
+        "items": [
+          {
+            "item": "Scroll of Pedigree",
+            "quantity": 1,
+            "flavor": true
+          }
+        ]
       },
       {
         "choice_group": 4,
         "type": "fixed",
-        "items": [
-          {
-            "currency": {
-              "amount": 25,
-              "type": "GP"
-            }
-          }
-        ]
+        "currency": {
+          "amount": 25,
+          "currency": "GP"
+        }
       }
     ],
     "source": "phb",
@@ -414,8 +549,13 @@
   {
     "name": "Outlander",
     "description": "You grew up in the wilds, far from civilization and the comforts of town and technology. You've witnessed the migration of herds larger than forests, survived weather more extreme than any city-dweller could comprehend, and enjoyed the solitude of being the only thinking creature for miles in any direction. The wilds are in your blood, whether you were a nomad, an explorer, a recluse, a hunter-gatherer, or even a marauder. Even in places where you don't know the specific features of the terrain, you know the ways of the wild.",
-    "skill_proficiencies": ["Athletics", "Survival"],
-    "tool_proficiencies": ["One type of musical instrument"],
+    "skill_proficiencies": [
+      "Athletics",
+      "Survival"
+    ],
+    "tool_proficiencies": [
+      "One type of musical instrument"
+    ],
     "languages": [
       {
         "choice_group": 1,
@@ -432,34 +572,51 @@
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "staff", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Quarterstaff",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
         "type": "fixed",
-        "items": [{ "item": "hunting trap", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Hunting Trap",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 3,
         "type": "fixed",
-        "items": [{ "item": "trophy from an animal you killed", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Animal Trophy",
+            "quantity": 1,
+            "flavor": true
+          }
+        ]
       },
       {
         "choice_group": 4,
         "type": "fixed",
-        "items": [{ "item": "traveler's clothes", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Clothes, Traveler's",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 5,
         "type": "fixed",
-        "items": [
-          {
-            "currency": {
-              "amount": 10,
-              "type": "GP"
-            }
-          }
-        ]
+        "currency": {
+          "amount": 10,
+          "currency": "GP"
+        }
       }
     ],
     "source": "phb",
@@ -468,7 +625,10 @@
   {
     "name": "Sage",
     "description": "You spent years learning the lore of the multiverse. You scoured manuscripts, studied scrolls, and listened to the greatest experts on the subjects that interest you. Your efforts have made you a master in your fields of study.",
-    "skill_proficiencies": ["Arcana", "History"],
+    "skill_proficiencies": [
+      "Arcana",
+      "History"
+    ],
     "tool_proficiencies": [],
     "languages": [
       {
@@ -486,44 +646,61 @@
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "bottle of ink", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Ink (1 oz)",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
         "type": "fixed",
-        "items": [{ "item": "quill", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Ink Pen",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 3,
         "type": "fixed",
-        "items": [{ "item": "small knife", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Small Knife",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 4,
         "type": "fixed",
         "items": [
           {
-            "item": "letter from a dead colleague posing a question you have not yet been able to answer",
-            "quantity": 1
+            "item": "Letter from a Dead Colleague",
+            "quantity": 1,
+            "flavor": true
           }
         ]
       },
       {
         "choice_group": 5,
         "type": "fixed",
-        "items": [{ "item": "common clothes", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Clothes, Common",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 6,
         "type": "fixed",
-        "items": [
-          {
-            "currency": {
-              "amount": 10,
-              "type": "GP"
-            }
-          }
-        ]
+        "currency": {
+          "amount": 10,
+          "currency": "GP"
+        }
       }
     ],
     "source": "phb",
@@ -532,41 +709,63 @@
   {
     "name": "Sailor",
     "description": "You sailed on a seagoing vessel for years. In that time, you faced down mighty storms, monsters of the deep, and those who wanted to sink your craft to the bottomless depths. Your first love is the distant line of the horizon, but the time has come to try your hand at something new.\n\nDiscuss the nature of the ship you previously sailed with your DM. Was it a merchant ship, a naval vessel, a ship of discovery, or a pirate ship? How famous (or infamous) is it? Is it widely traveled? Is it still sailing, or is it missing and presumed lost with all hands?\n\nWhat were your duties on board - boatswain, captain, navigator, cook, or some other position? Who were the captain and first mate? Did you leave your ship on good terms with your fellows, or on the run?",
-    "skill_proficiencies": ["Athletics", "Perception"],
-    "tool_proficiencies": ["Navigator's tools", "vehicles (water)"],
+    "skill_proficiencies": [
+      "Athletics",
+      "Perception"
+    ],
+    "tool_proficiencies": [
+      "Navigator's tools",
+      "vehicles (water)"
+    ],
     "languages": [],
     "equipment": [
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "belaying pin", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Belaying Pin",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
         "type": "fixed",
-        "items": [{ "item": "50 feet of silk rope", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Rope, Silk (50 ft.)",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 3,
         "type": "fixed",
-        "items": [{ "item": "any trinket", "quantity": 1 }]
+        "items": [
+          {
+            "item": "any trinket",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 4,
         "type": "fixed",
-        "items": [{ "item": "common clothes", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Clothes, Common",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 5,
         "type": "fixed",
-        "items": [
-          {
-            "currency": {
-              "amount": 10,
-              "type": "GP"
-            }
-          }
-        ]
+        "currency": {
+          "amount": 10,
+          "currency": "GP"
+        }
       }
     ],
     "source": "phb",
@@ -575,30 +774,44 @@
   {
     "name": "Soldier",
     "description": "War has been your life for as long as you care to remember. You trained as a youth, studied the use of weapons and armor, learned basic survival techniques, including how to stay alive on the battlefield. You might have been part of a standing national army or a mercenary company, or perhaps a member of a local militia who rose to prominence during a recent war.\n\nWhen you choose this background, work with your DM to determine which military organization you were a part of, how far through its ranks you progressed, and what kind of experiences you had during your military career. Was it a standing army, a town guard, or a village militia? Or it might have been a noble's or merchant's private army, or a mercenary company.",
-    "skill_proficiencies": ["Athletics", "Intimidation"],
-    "tool_proficiencies": ["One type of gaming set", "vehicles (land)"],
+    "skill_proficiencies": [
+      "Athletics",
+      "Intimidation"
+    ],
+    "tool_proficiencies": [
+      "One type of gaming set",
+      "vehicles (land)"
+    ],
     "languages": [],
     "equipment": [
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "insignia of rank", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Insignia of Rank",
+            "quantity": 1,
+            "flavor": true
+          }
+        ]
       },
       {
         "choice_group": 2,
         "type": "choice",
         "options": [
           {
-            "item": "dagger",
+            "item": "Dagger",
             "quantity": 1
           },
           {
-            "item": "broken blade",
-            "quantity": 1
+            "item": "Broken Blade",
+            "quantity": 1,
+            "flavor": true
           },
           {
-            "item": "piece of a banner",
-            "quantity": 1
+            "item": "Piece of a Banner",
+            "quantity": 1,
+            "flavor": true
           }
         ]
       },
@@ -607,11 +820,11 @@
         "type": "choice",
         "options": [
           {
-            "item": "set of bone dice",
+            "item": "Dice Set",
             "quantity": 1
           },
           {
-            "item": "deck of cards",
+            "item": "Playing Card Set",
             "quantity": 1
           }
         ]
@@ -619,19 +832,20 @@
       {
         "choice_group": 4,
         "type": "fixed",
-        "items": [{ "item": "common clothes", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Clothes, Common",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 5,
         "type": "fixed",
-        "items": [
-          {
-            "currency": {
-              "amount": 10,
-              "type": "GP"
-            }
-          }
-        ]
+        "currency": {
+          "amount": 10,
+          "currency": "GP"
+        }
       }
     ],
     "source": "phb",
@@ -640,48 +854,76 @@
   {
     "name": "Urchin",
     "description": "You grew up on the streets alone, orphaned, and poor, You had no one to watch over you or to provide for you, so you learned to provide for yourself. You fought fiercely over food and kept a constant watch out for other desperate souls who might steal from you. You slept on rooftops and in alleyways, exposed to the elements, and endured sickness without the advantage of medicine or a place to recuperate. You've survived despite all odds, and did so through cunning, strength, speed, or some combination of each.\n\nYou begin your adventuring career with enough money to live modestly but securely for at least ten days. How did you come by that money? What allowed you to break free of your desperate circumstances and embark on a better life?",
-    "skill_proficiencies": ["Sleight of Hand", "Stealth"],
-    "tool_proficiencies": ["Disguise kit", "Thieves' Tools"],
+    "skill_proficiencies": [
+      "Sleight of Hand",
+      "Stealth"
+    ],
+    "tool_proficiencies": [
+      "Disguise kit",
+      "Thieves' Tools"
+    ],
     "languages": [],
     "equipment": [
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "small knife", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Small Knife",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
         "type": "fixed",
-        "items": [{ "item": "map of the city you grew up in", "quantity": 1 }]
+        "items": [
+          {
+            "item": "City Map",
+            "quantity": 1,
+            "flavor": true
+          }
+        ]
       },
       {
         "choice_group": 3,
         "type": "fixed",
-        "items": [{ "item": "pet mouse", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Pet Mouse",
+            "quantity": 1,
+            "flavor": true
+          }
+        ]
       },
       {
         "choice_group": 4,
         "type": "fixed",
         "items": [
-          { "item": "token to remember your parents by", "quantity": 1 }
+          {
+            "item": "Memento",
+            "quantity": 1,
+            "flavor": true
+          }
         ]
-      },
-      {
-        "choice_group": 5,
-        "type": "fixed",
-        "items": [{ "item": "common clothes", "quantity": 1 }]
       },
       {
         "choice_group": 5,
         "type": "fixed",
         "items": [
           {
-            "currency": {
-              "amount": 10,
-              "type": "GP"
-            }
+            "item": "Clothes, Common",
+            "quantity": 1
           }
         ]
+      },
+      {
+        "choice_group": 5,
+        "type": "fixed",
+        "currency": {
+          "amount": 10,
+          "currency": "GP"
+        }
       }
     ],
     "source": "phb",
@@ -690,7 +932,10 @@
   {
     "name": "City Watch",
     "description": "You have served the community where you grew up, standing as its first line of defense against crime. You aren't a soldier, directing your gaze outward at possible enemies. Instead, your service to your hometown was to help police its populace, protecting the citizenry from lawbreakers and malefactors of every stripe.\n\nYou might have been part of the City Watch of Waterdeep, the baton-wielding police force of the City of Splendors, protecting the common folk from thieves and rowdy nobility alike. Or you might have been one of the valiant defenders of Silverymoon, a member of the Silverwatch or even one of the magic-wielding Spellguard.\n\nPerhaps you hail from Neverwinter and have served as one of its Wintershield watchmen, the newly founded branch of guards who vow to keep safe the City of Skilled Hands.\n\nEven if you're not city-born or city-bred, this background can describe your early years as a member of law enforcement. Most settlements of any size have their own constables and police forces, and even smaller communities have sheriffs and bailiffs who stand ready to protect their community.",
-    "skill_proficiencies": ["Athletics", "Insight"],
+    "skill_proficiencies": [
+      "Athletics",
+      "Insight"
+    ],
     "tool_proficiencies": [],
     "languages": [
       {
@@ -710,7 +955,7 @@
         "type": "fixed",
         "items": [
           {
-            "item": "uniform in the style of your unit and indicative of your rank",
+            "item": "Uniform",
             "quantity": 1
           }
         ]
@@ -718,24 +963,30 @@
       {
         "choice_group": 2,
         "type": "fixed",
-        "items": [{ "item": "horn with which to summon help", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Signal Horn",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 3,
         "type": "fixed",
-        "items": [{ "item": "manacles", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Manacles",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 4,
         "type": "fixed",
-        "items": [
-          {
-            "currency": {
-              "amount": 10,
-              "type": "GP"
-            }
-          }
-        ]
+        "currency": {
+          "amount": 10,
+          "currency": "GP"
+        }
       }
     ],
     "source": "scag",
@@ -744,52 +995,64 @@
   {
     "name": "Clan Crafter",
     "description": "The Stout Folk are well known for their artisanship and the worth of their handiworks, and you have been trained in that ancient tradition. For years you labored under a dwarf master of the craft, enduring long hours and dismissive, sour-tempered treatment in order to gain the fine skills you possess today.\n\nYou are most likely a dwarf, but not necessarily- particularly in the North, the shield dwarf clans learned long ago that only proud fools who are more concerned for their egos than their craft turn away promising apprentices, even those of other races. If you aren't a dwarf, however, you have taken a solemn oath never to take on an apprentice in the craft: it is not for non-dwarves to pass on the skills of Moradin's favored children. You would have no difficulty, however, finding a dwarf master who was willing to receive potential apprentices who came with your recommendation.",
-    "skill_proficiencies": ["History", "Insight"],
-    "tool_proficiencies": ["any artisan's tools"],
+    "skill_proficiencies": [
+      "History",
+      "Insight"
+    ],
+    "tool_proficiencies": [
+      "any artisan's tools"
+    ],
     "languages": [],
     "equipment": [
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "any artisan's tools", "quantity": 1 }]
+        "items": [
+          {
+            "item": "any artisan's tools",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
         "type": "fixed",
         "items": [
           {
-            "item": "maker's mark chisel used to mark your handiwork with the symbol of the clan of crafters you learned your skill from",
-            "quantity": 1
+            "item": "Maker's Mark Chisel",
+            "quantity": 1,
+            "flavor": true
           }
         ]
       },
       {
         "choice_group": 3,
         "type": "fixed",
-        "items": [{ "item": "traveler's clothes", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Clothes, Traveler's",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 4,
         "type": "fixed",
-        "items": [
-          {
-            "currency": {
-              "amount": 5,
-              "type": "GP"
-            }
-          }
-        ]
+        "currency": {
+          "amount": 5,
+          "currency": "GP"
+        }
       },
       {
         "choice_group": 5,
         "type": "fixed",
         "items": [
           {
-            "item": "gem",
+            "item": "Blue Quartz Gem",
             "quantity": 1,
             "value": {
               "amount": 10,
-              "type": "GP"
+              "currency": "GP"
             }
           }
         ]
@@ -800,17 +1063,26 @@
   },
   {
     "name": "Cloistered Scholar",
-    "description": "As a child, you were inquisitive when your playmates were possessive or raucous. In your formative years, you found your way to one of Faerûn's great institutes of learning, where you were apprenticed and taught that knowledge is a more valuable treasure than gold or gems. Now you are ready to leave your home - not to abandon it, but to quest for new lore to add to its storehouse of knowledge.\n\nThe most well-known of Faerûn's fonts of knowledge is Candlekeep. The great library is always in need of workers and attendants, some of whom rise through the ranks to assume roles of greater responsibility and prominence. You might be one of Candlekeep's own, dedicated to the curatorship of what is likely the most complete body of lore and history in all the world.\n\nPerhaps instead you were taken in by the scholars of the Vault of the Sages or the Map House in Silverymoon, and now you have struck out to increase your knowledge and to make yourself available to help those in other places who seek your expertise. You might be one of the few who aid Herald's Holdfast, helping to catalogue and maintain records of the information that arrives daily from across Faerûn.",
+    "description": "As a child, you were inquisitive when your playmates were possessive or raucous. In your formative years, you found your way to one of Faer\u00fbn's great institutes of learning, where you were apprenticed and taught that knowledge is a more valuable treasure than gold or gems. Now you are ready to leave your home - not to abandon it, but to quest for new lore to add to its storehouse of knowledge.\n\nThe most well-known of Faer\u00fbn's fonts of knowledge is Candlekeep. The great library is always in need of workers and attendants, some of whom rise through the ranks to assume roles of greater responsibility and prominence. You might be one of Candlekeep's own, dedicated to the curatorship of what is likely the most complete body of lore and history in all the world.\n\nPerhaps instead you were taken in by the scholars of the Vault of the Sages or the Map House in Silverymoon, and now you have struck out to increase your knowledge and to make yourself available to help those in other places who seek your expertise. You might be one of the few who aid Herald's Holdfast, helping to catalogue and maintain records of the information that arrives daily from across Faer\u00fbn.",
     "skill_proficiencies": [
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "History", "quantity": 1 }]
+        "items": [
+          {
+            "item": "History",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
         "choose": 3,
-        "from": ["Arcana", "Nature", "Religion"]
+        "from": [
+          "Arcana",
+          "Nature",
+          "Religion"
+        ]
       }
     ],
     "tool_proficiencies": [],
@@ -830,34 +1102,41 @@
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "scholar's robes of your cloister", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Scholar's Robes",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
         "type": "fixed",
-        "items": [{ "item": "writing kit", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Writing Kit",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 3,
         "type": "fixed",
         "items": [
           {
-            "item": "borrowed book on the subject of your current study",
-            "quantity": 1
+            "item": "Borrowed Book",
+            "quantity": 1,
+            "flavor": true
           }
         ]
       },
       {
         "choice_group": 4,
         "type": "fixed",
-        "items": [
-          {
-            "currency": {
-              "amount": 10,
-              "type": "GP"
-            }
-          }
-        ]
+        "currency": {
+          "amount": 10,
+          "currency": "GP"
+        }
       }
     ],
     "source": "scag",
@@ -866,7 +1145,10 @@
   {
     "name": "Courtier",
     "description": "In your earlier days, you were a personage of some significance in a noble court or a bureaucratic organization. You might or might not come from an upper-class family; your talents, rather than the circumstances of your birth, could have secured you this position.\n\nYou might have been one of the many functionaries, attendants, and other hangers-on in the Court of Silverymoon, or perhaps you traveled in Waterdeep's baroque and sometimes cutthroat conglomeration of guilds, nobles, adventurers, and secret societies. You might have been one of the behind-the-scenes law-keepers or functionaries in Baldur's Gate or Neverwinter, or you might have grown up in and around the castle of Daggerford.\n\nEven if you are no longer a full-fledged member of the group that gave you your start in life, your relationships with your former fellows can be an advantage for you and your adventuring comrades. You might undertake missions with your new companions that further the interest of the organization that gave you your start in life. In any event, the abilities that you honed while serving as a courtier will stand you in good stead as an adventurer.",
-    "skill_proficiencies": ["Insight", "Persuasion"],
+    "skill_proficiencies": [
+      "Insight",
+      "Persuasion"
+    ],
     "tool_proficiencies": [],
     "languages": [
       {
@@ -884,19 +1166,20 @@
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "fine clothes", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Clothes, Fine",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
         "type": "fixed",
-        "items": [
-          {
-            "currency": {
-              "amount": 5,
-              "type": "GP"
-            }
-          }
-        ]
+        "currency": {
+          "amount": 5,
+          "currency": "GP"
+        }
       }
     ],
     "source": "scag",
@@ -904,12 +1187,17 @@
   },
   {
     "name": "Faction Agent",
-    "description": "Many organizations active in the North and across the face of Faerûn aren't bound by strictures of geography. These factions pursue their agendas without regard for political boundaries, and their members operate anywhere the organization deems necessary. These groups employ listeners, rumormongers, smugglers, sellswords, cache-holders (people who guard caches of wealth or magic for use by the faction's operatives), haven keepers, and message drop minders, to name a few. At the core of every faction are those who don't merely fulfill a small function for that organization, but who serve as its hands, head, and heart.\n\nAs a prelude to your adventuring career (and in preparation for it), you served as an agent of a particular faction in Faerûn. You might have operated openly or secretly, depending on the faction and its goals, as well as how those goals mesh with your own. Becoming an adventurer doesn't necessarily require you to relinquish membership in your faction (though you can choose to do so), and it might enhance your status in the faction.",
+    "description": "Many organizations active in the North and across the face of Faer\u00fbn aren't bound by strictures of geography. These factions pursue their agendas without regard for political boundaries, and their members operate anywhere the organization deems necessary. These groups employ listeners, rumormongers, smugglers, sellswords, cache-holders (people who guard caches of wealth or magic for use by the faction's operatives), haven keepers, and message drop minders, to name a few. At the core of every faction are those who don't merely fulfill a small function for that organization, but who serve as its hands, head, and heart.\n\nAs a prelude to your adventuring career (and in preparation for it), you served as an agent of a particular faction in Faer\u00fbn. You might have operated openly or secretly, depending on the faction and its goals, as well as how those goals mesh with your own. Becoming an adventurer doesn't necessarily require you to relinquish membership in your faction (though you can choose to do so), and it might enhance your status in the faction.",
     "skill_proficiencies": [
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "Insight", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Insight",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
@@ -950,36 +1238,44 @@
         "type": "choice",
         "options": [
           {
-            "item": "badge",
+            "item": "Badge",
             "quantity": 1
           },
           {
-            "item": "emblem of your faction",
-            "quantity": 1
+            "item": "Faction Emblem",
+            "quantity": 1,
+            "flavor": true
           }
         ]
       },
       {
         "choice_group": 2,
         "type": "fixed",
-        "items": [{ "item": "copy of a seminal faction text", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Faction Text",
+            "quantity": 1,
+            "flavor": true
+          }
+        ]
       },
       {
         "choice_group": 3,
         "type": "fixed",
-        "items": [{ "item": "common clothes", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Clothes, Common",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 4,
         "type": "fixed",
-        "items": [
-          {
-            "currency": {
-              "amount": 15,
-              "type": "GP"
-            }
-          }
-        ]
+        "currency": {
+          "amount": 15,
+          "currency": "GP"
+        }
       }
     ],
     "source": "scag",
@@ -987,13 +1283,19 @@
   },
   {
     "name": "Far Traveler",
-    "description": "Almost all of the common people and other folk that one might encounter along the Sword Coast or in the North have one thing in common: they live out their lives without ever traveling more than a few miles from where they were born.\n\nYou are from a distant place, one so remote that few of the common folk in the North realize that it exists, and chances are good that even if some people you meet have heard of your homeland, they know merely the name and perhaps a few outrageous stories. You have come to this part of Faerûn for your own reasons, which you might or might not choose to share.\n\nAlthough you will undoubtedly find some of this land's ways to be strange and discomfiting, you can also be sure that some things its people take for granted will be to you new wonders that you've never laid eyes on before. By the same token, you're a person of interest, for good or ill, to those around you almost anywhere you go.",
-    "skill_proficiencies": ["Insight", "Perception"],
+    "description": "Almost all of the common people and other folk that one might encounter along the Sword Coast or in the North have one thing in common: they live out their lives without ever traveling more than a few miles from where they were born.\n\nYou are from a distant place, one so remote that few of the common folk in the North realize that it exists, and chances are good that even if some people you meet have heard of your homeland, they know merely the name and perhaps a few outrageous stories. You have come to this part of Faer\u00fbn for your own reasons, which you might or might not choose to share.\n\nAlthough you will undoubtedly find some of this land's ways to be strange and discomfiting, you can also be sure that some things its people take for granted will be to you new wonders that you've never laid eyes on before. By the same token, you're a person of interest, for good or ill, to those around you almost anywhere you go.",
+    "skill_proficiencies": [
+      "Insight",
+      "Perception"
+    ],
     "tool_proficiencies": [
       {
         "choice_group": 1,
         "choose": 1,
-        "from": ["any musical instrument", "any gaming set"]
+        "from": [
+          "any musical instrument",
+          "any gaming set"
+        ]
       }
     ],
     "languages": [
@@ -1012,20 +1314,36 @@
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "traveler's clothes", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Clothes, Traveler's",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
+        "type": "choice",
         "choose": 1,
-        "from": ["any musical instrument", "any gaming set"]
+        "options": [
+          {
+            "item": "any musical instrument",
+            "quantity": 1
+          },
+          {
+            "item": "any gaming set",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 3,
         "type": "fixed",
         "items": [
           {
-            "item": "poorly wrought maps from your homeland that depict where you are in Faerûn",
-            "quantity": 1
+            "item": "Crude Map",
+            "quantity": 1,
+            "flavor": true
           }
         ]
       },
@@ -1034,11 +1352,12 @@
         "type": "fixed",
         "items": [
           {
-            "item": "small piece of jewelry",
+            "item": "Small Jewelry",
             "quantity": 1,
+            "flavor": true,
             "value": {
               "amount": 10,
-              "type": "GP"
+              "currency": "GP"
             }
           }
         ]
@@ -1046,14 +1365,10 @@
       {
         "choice_group": 5,
         "type": "fixed",
-        "items": [
-          {
-            "currency": {
-              "amount": 5,
-              "type": "GP"
-            }
-          }
-        ]
+        "currency": {
+          "amount": 5,
+          "currency": "GP"
+        }
       }
     ],
     "source": "scag",
@@ -1061,24 +1376,36 @@
   },
   {
     "name": "Inheritor",
-    "description": "You are the heir to something of great value - not mere coin or wealth, but an object that has been entrusted to you and you alone. Your inheritance might have come directly to you from a member of your family, by right of birth, or it could have been left to you by a friend, a mentor, a teacher, or someone else important in your life. The revelation of your inheritance changed your life, and might have set you on the path to adventure, but it could also come with many dangers, including those who covet your gift and want to take it from you - by force, if need be.",
+    "description": "You are the heir to something of great value - not mere coin or wealth, but an object that has been entrusted to you and you alone. Your inheritance might have come directly to you from a member of your family, by right of birth, or it could have been left to you by a friend, a mentor, a teacher, or someone else important in your life. The revelation of your inheritance changed your life, and might have set you on the path to adventure, but it could also come with many dangers, including those who covet your gift and want to take it from you -\u00a0by force, if need be.",
     "skill_proficiencies": [
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "Survival", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Survival",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
         "choose": 1,
-        "from": ["Arcana", "History", "Religion"]
+        "from": [
+          "Arcana",
+          "History",
+          "Religion"
+        ]
       }
     ],
     "tool_proficiencies": [
       {
         "choice_group": 1,
         "choose": 1,
-        "from": ["any musical instrument", "any gaming set"]
+        "from": [
+          "any musical instrument",
+          "any gaming set"
+        ]
       }
     ],
     "languages": [
@@ -1097,29 +1424,41 @@
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "Your inheritance", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Your Inheritance",
+            "quantity": 1,
+            "flavor": true
+          }
+        ]
       },
       {
         "choice_group": 2,
         "type": "fixed",
-        "items": [{ "item": "traveler's clothes", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Clothes, Traveler's",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 3,
         "type": "fixed",
-        "items": [{ "item": "any tool", "quantity": 1 }]
+        "items": [
+          {
+            "item": "any tool",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 4,
         "type": "fixed",
-        "items": [
-          {
-            "currency": {
-              "amount": 15,
-              "type": "GP"
-            }
-          }
-        ]
+        "currency": {
+          "amount": 15,
+          "currency": "GP"
+        }
       }
     ],
     "source": "scag",
@@ -1127,24 +1466,37 @@
   },
   {
     "name": "Knight Of The Order",
-    "description": "You belong to an order of knights who have sworn oaths to achieve a certain goal. The nature of this goal depends on the order you serve, but in your eyes it is without question a vital and honorable endeavor. Faerûn has a wide variety of knightly orders, all of which have a similar outlook concerning their actions and responsibilities.\n\nThough the term \"knight\" conjures ideas of mounted, heavily armored warriors of noble blood, most knightly orders in Faerûn don't restrict their membership to such individuals. The goals and philosophies of the order are more important than the gear and fighting style of its members, and so most of these orders aren't limited to fighting types, but are open to all sorts of folk who are willing to battle and die for the order's cause.\n\nThe \"Knightly Orders of Faerûn\" section below details several of the orders that are active at present and is designed to help inform your decision about which group you owe allegiance to.",
+    "description": "You belong to an order of knights who have sworn oaths to achieve a certain goal. The nature of this goal depends on the order you serve, but in your eyes it is without question a vital and honorable endeavor. Faer\u00fbn has a wide variety of knightly orders, all of which have a similar outlook concerning their actions and responsibilities.\n\nThough the term \"knight\" conjures ideas of mounted, heavily armored warriors of noble blood, most knightly orders in Faer\u00fbn don't restrict their membership to such individuals. The goals and philosophies of the order are more important than the gear and fighting style of its members, and so most of these orders aren't limited to fighting types, but are open to all sorts of folk who are willing to battle and die for the order's cause.\n\nThe \"Knightly Orders of Faer\u00fbn\" section below details several of the orders that are active at present and is designed to help inform your decision about which group you owe allegiance to.",
     "skill_proficiencies": [
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "Persuasion", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Persuasion",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
         "choose": 1,
-        "from": ["Arcana", "History", "Nature", "Religion"]
+        "from": [
+          "Arcana",
+          "History",
+          "Nature",
+          "Religion"
+        ]
       }
     ],
     "tool_proficiencies": [
       {
         "choice_group": 1,
         "choose": 1,
-        "from": ["any gaming set", "any musical instrument"]
+        "from": [
+          "any gaming set",
+          "any musical instrument"
+        ]
       }
     ],
     "languages": [
@@ -1163,24 +1515,42 @@
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "traveler's clothes", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Clothes, Traveler's",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
+        "type": "choice",
         "choose": 1,
-        "from": ["signet", "banner", "seal"]
+        "options": [
+          {
+            "item": "Signet",
+            "quantity": 1,
+            "flavor": true
+          },
+          {
+            "item": "Banner",
+            "quantity": 1,
+            "flavor": true
+          },
+          {
+            "item": "Seal",
+            "quantity": 1,
+            "flavor": true
+          }
+        ]
       },
       {
         "choice_group": 3,
         "type": "fixed",
-        "items": [
-          {
-            "currency": {
-              "amount": 10,
-              "type": "GP"
-            }
-          }
-        ]
+        "currency": {
+          "amount": 10,
+          "currency": "GP"
+        }
       }
     ],
     "source": "scag",
@@ -1189,36 +1559,54 @@
   {
     "name": "Mercenary Veteran",
     "description": "As a sell-sword who fought battles for coin, you're well acquainted with risking life and limb for a chance at a share of treasure. Now, you look forward to fighting foes and reaping even greater rewards as an adventurer. Your experience makes you familiar with the ins and outs of mercenary life, and you likely have harrowing stories of events on the battlefield. You might have served with a large outfit such as the Zhentarim or the soldiers of Mintarn, or a smaller band of sell-swords, maybe even more than one. See the \"Mercenaries of the North\" section below for a collection of possibilities.\n\nNow you're looking for something else, perhaps greater reward for the risks you take, or the freedom to choose your own activities. For whatever reason, you're leaving behind the life of a soldier for hire, but your skills are undeniably suited for battle, so now you fight on in a different way.",
-    "skill_proficiencies": ["Athletics", "Persuasion"],
-    "tool_proficiencies": ["One type of gaming set", "vehicles (land)"],
+    "skill_proficiencies": [
+      "Athletics",
+      "Persuasion"
+    ],
+    "tool_proficiencies": [
+      "One type of gaming set",
+      "vehicles (land)"
+    ],
     "languages": [],
     "equipment": [
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "uniform of your company", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Uniform",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
         "type": "fixed",
-        "items": [{ "item": "insignia of your rank", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Insignia of Rank",
+            "quantity": 1,
+            "flavor": true
+          }
+        ]
       },
       {
         "choice_group": 3,
         "type": "fixed",
-        "items": [{ "item": "gaming set of your choice", "quantity": 1 }]
+        "items": [
+          {
+            "item": "gaming set of your choice",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 4,
         "type": "fixed",
-        "items": [
-          {
-            "currency": {
-              "amount": 10,
-              "type": "GP"
-            }
-          }
-        ]
+        "currency": {
+          "amount": 10,
+          "currency": "GP"
+        }
       }
     ],
     "source": "scag",
@@ -1226,11 +1614,15 @@
   },
   {
     "name": "Urban Bounty Hunter",
-    "description": "Before you became an adventurer, your life was already full of conflict and excitement, because you made a living tracking down people for pay. Unlike some people who collect bounties, though, you aren't a savage who follows quarry into or through the wilderness. You're involved in a lucrative trade, in the place where you live, that routinely tests your skills and survival instincts. What's more, you aren't alone, as a bounty hunter in the wild would be: you routinely interact with both the criminal subculture and other bounty hunters, maintaining contacts in both areas to help you succeed.\n\nYou might be a cunning thief-catcher, prowling the rooftops to catch one of the myriad burglars of the city. Perhaps you are someone who has your ear to the street, aware of the doings of thieves' guilds and street gangs. You might be a \"velvet mask\" bounty hunter, one who blends in with high society and noble circles in order to catch the criminals that prey on the rich, whether pickpockets or con artists. The community where you plied your trade might have been one of Faenûn's great metropolises, such as Waterdeep or Baldur's Gate, or a less populous location, perhaps Luskan or Yartar - any place that's large enough to have a steady supply of potential quarries.\n\nAs a member of an adventuring party, you might find it more difficult to pursue a personal agenda that doesn't fit with the group's objectives - but on the other hand, you can take down much more formidable targets with the help of your companions.",
+    "description": "Before you became an adventurer, your life was already full of conflict and excitement, because you made a living tracking down people for pay. Unlike some people who collect bounties, though, you aren't a savage who follows quarry into or through the wilderness. You're involved in a lucrative trade, in the place where you live, that routinely tests your skills and survival instincts. What's more, you aren't alone, as a bounty hunter in the wild would be: you routinely interact with both the criminal subculture and other bounty hunters, maintaining contacts in both areas to help you succeed.\n\nYou might be a cunning thief-catcher, prowling the rooftops to catch one of the myriad burglars of the city. Perhaps you are someone who has your ear to the street, aware of the doings of thieves' guilds and street gangs. You might be a \"velvet mask\" bounty hunter, one who blends in with high society and noble circles in order to catch the criminals that prey on the rich, whether pickpockets or con artists. The community where you plied your trade might have been one of Faen\u00fbn's great metropolises, such as Waterdeep or Baldur's Gate, or a less populous location, perhaps Luskan or Yartar -\u00a0any place that's large enough to have a steady supply of potential quarries.\n\nAs a member of an adventuring party, you might find it more difficult to pursue a personal agenda that doesn't fit with the group's objectives - but on the other hand, you can take down much more formidable targets with the help of your companions.",
     "skill_proficiencies": [
       {
         "choose": 2,
-        "from": ["Deception", "Persuasion", "Stealth"]
+        "from": [
+          "Deception",
+          "Persuasion",
+          "Stealth"
+        ]
       }
     ],
     "tool_proficiencies": [
@@ -1258,20 +1650,19 @@
         "choice_group": 1,
         "type": "fixed",
         "items": [
-          { "item": "clothes appropriate to your duties", "quantity": 1 }
+          {
+            "item": "Work Clothes",
+            "quantity": 1
+          }
         ]
       },
       {
         "choice_group": 2,
         "type": "fixed",
-        "items": [
-          {
-            "currency": {
-              "amount": 20,
-              "type": "GP"
-            }
-          }
-        ]
+        "currency": {
+          "amount": 20,
+          "currency": "GP"
+        }
       }
     ],
     "source": "scag",
@@ -1280,7 +1671,10 @@
   {
     "name": "Uthgardt Tribe Member",
     "description": "Though you might have only recently arrived in civilized lands, you are no stranger to the values of cooperation and group effort when striving for supremacy. You learned these principles, and much more, as a member of an Uthgardt tribe.\n\nYour people have always tried to hold to the old ways. Tradition and taboo have kept the Uthgardt strong while the kingdoms of others have collapsed into chaos and ruin. But for the last few generations, some bands among the tribes were tempted to settle, make peace, trade, and even to build towns. Perhaps this is why Uthgar chose to raise up the totems among the people as living embodiments of his power. Perhaps they needed a reminder of who they were and from whence they came. The Chosen of Uthgar led bands back to the old ways, and most of your people abandoned the soft ways of civilization.\n\nYou might have grown up in one of the tribes that had decided to settle down, and now that they have abandoned that path, you find yourself adrift. Or you might come from a segment of the Uthgardt that adheres to tradition, but you seek to bring glory to your tribe by achieving great things as a formidable adventurer.\n\nSee the \"Uthgardt Tribes and Their Territories\" section below for details on each tribe's territory and its activities that will help you choose your affiliation.",
-    "skill_proficiencies": ["Athletics", "Survival"],
+    "skill_proficiencies": [
+      "Athletics",
+      "Survival"
+    ],
     "tool_proficiencies": [
       {
         "choose": 1,
@@ -1312,46 +1706,47 @@
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "hunting trap", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Hunting Trap",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
         "type": "choice",
+        "choose": 1,
         "options": [
           {
-            "items": [
-              {
-                "item": "set of tattoos marking your loyalty to Uthgar",
-                "quantity": 1
-              },
-              {
-                "item": "tribal totem",
-                "quantity": 20
-              }
-            ]
+            "item": "Tribal Tattoos",
+            "quantity": 1,
+            "flavor": true
           },
           {
-            "item": "totemic totem",
-            "quantity": 1
+            "item": "Totemic Token",
+            "quantity": 1,
+            "flavor": true
           }
         ]
       },
       {
         "choice_group": 3,
         "type": "fixed",
-        "items": [{ "item": "traveler's clothes", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Clothes, Traveler's",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 4,
         "type": "fixed",
-        "items": [
-          {
-            "currency": {
-              "amount": 10,
-              "type": "GP"
-            }
-          }
-        ]
+        "currency": {
+          "amount": 10,
+          "currency": "GP"
+        }
       }
     ],
     "source": "scag",
@@ -1359,8 +1754,11 @@
   },
   {
     "name": "Waterdhavian Noble",
-    "description": "You are a scion of one of the great noble families of Waterdeep. Human families who jealously guard their privilege and place in the City of Splendors, Waterdhavian nobles have a reputation across Faerûn for being eccentric, spoiled, venal, and, above all else, rich.\n\nWhether you are a shining example of the reason for this reputation or one who proves the rule by being an exception, people expect things of you when they know your surname and what it means. Your reasons for taking up adventuring likely involve your family in some way: Are you the family rebel, who prefers delving in filthy dungeons to sipping zzar at a ball? Or have you taken up sword or spell on your family's behalf, ensuring that they have someone of renown to see to their legacy?\n\nWork with your DM to come up with the family you are part of - there are around seventy-five lineages in Waterdeep, each with its own financial interests, specialties, and schemes. You might be part of the main line of your family, possibly in line to become its leader one day. Or you might be one of any number of cousins, with less prestige but also less responsibility.",
-    "skill_proficiencies": ["History", "Persuasion"],
+    "description": "You are a scion of one of the great noble families of Waterdeep. Human families who jealously guard their privilege and place in the City of Splendors, Waterdhavian nobles have a reputation across Faer\u00fbn for being eccentric, spoiled, venal, and, above all else, rich.\n\nWhether you are a shining example of the reason for this reputation or one who proves the rule by being an exception, people expect things of you when they know your surname and what it means. Your reasons for taking up adventuring likely involve your family in some way: Are you the family rebel, who prefers delving in filthy dungeons to sipping zzar at a ball? Or have you taken up sword or spell on your family's behalf, ensuring that they have someone of renown to see to their legacy?\n\nWork with your DM to come up with the family you are part of - there are around seventy-five lineages in Waterdeep, each with its own financial interests, specialties, and schemes. You might be part of the main line of your family, possibly in line to become its leader one day. Or you might be one of any number of cousins, with less prestige but also less responsibility.",
+    "skill_proficiencies": [
+      "History",
+      "Persuasion"
+    ],
     "tool_proficiencies": [
       {
         "choose": 1,
@@ -1392,18 +1790,23 @@
       {
         "choice_group": 1,
         "type": "fixed",
-        "items": [{ "item": "fine clothes", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Clothes, Fine",
+            "quantity": 1
+          }
+        ]
       },
       {
         "choice_group": 2,
         "type": "choice",
         "options": [
           {
-            "item": "signet ring",
+            "item": "Signet Ring",
             "quantity": 1
           },
           {
-            "item": "brooch",
+            "item": "Brooch",
             "quantity": 1
           }
         ]
@@ -1411,33 +1814,47 @@
       {
         "choice_group": 3,
         "type": "fixed",
-        "items": [{ "item": "scroll of pedigree", "quantity": 1 }]
+        "items": [
+          {
+            "item": "Scroll of Pedigree",
+            "quantity": 1,
+            "flavor": true
+          }
+        ]
       },
       {
         "choice_group": 4,
         "type": "choice",
         "options": [
           {
-            "item": "skin of fine zzar",
-            "quantity": 1
+            "item": "Waterskin",
+            "quantity": 1,
+            "contents": [
+              {
+                "name": "Fine Zzar",
+                "cost": null
+              }
+            ]
           },
           {
-            "item": "wine",
-            "quantity": 1
+            "item": "Bottle, Glass",
+            "quantity": 1,
+            "contents": [
+              {
+                "name": "Wine",
+                "cost": null
+              }
+            ]
           }
         ]
       },
       {
         "choice_group": 5,
         "type": "fixed",
-        "items": [
-          {
-            "currency": {
-              "amount": 20,
-              "type": "GP"
-            }
-          }
-        ]
+        "currency": {
+          "amount": 20,
+          "currency": "GP"
+        }
       }
     ],
     "source": "scag",

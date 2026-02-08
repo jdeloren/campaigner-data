@@ -89,18 +89,20 @@ On every push to `main`:
 3. **Run validation** (schema + data validation per dataset)
 4. **If validation passes**:
    - Update each affected dataset's `manifest.json`
+   - Update each affected schema's entry in `schemas/versions.json`
    - Update repo `version.json` (if any dataset or repo files changed)
    - Create git tags for each version bump
    - Create GitHub Releases with changelogs
 
 ### Version Bump Rules
 
-| Change Type | Dataset Version | Repo Version |
-|-------------|-----------------|--------------|
-| Data files in `data/dnd5e/` | dnd5e bumped | Repo bumped |
-| Schema files in `schemas/` | — | Repo bumped |
-| Scripts in `scripts/` | — | Repo bumped |
-| Multiple datasets changed | Each dataset bumped | Repo bumped (max of all) |
+| Change Type | Dataset Version | Schema Version | Repo Version |
+|-------------|-----------------|----------------|--------------|
+| Data files in `data/dnd5e/` | dnd5e bumped | — | Repo bumped |
+| Schema files in `schemas/json/` | — | Changed schemas bumped | Repo bumped |
+| `common.schema.json` | — | — | Repo bumped |
+| Scripts in `scripts/` | — | — | Repo bumped |
+| Multiple datasets changed | Each dataset bumped | — | Repo bumped (max of all) |
 
 The repo version always uses the **highest** bump type from all changes (dataset + repo-level).
 
@@ -140,6 +142,22 @@ Each ruleset has its own version stored in `data/{ruleset}/manifest.json`:
 ```
 
 Dataset versions are bumped when changes are made to data files within that dataset.
+
+### Schema Versions
+
+Individual schema versions are tracked in `schemas/versions.json`:
+
+```json
+{
+  "background": "1.0.0",
+  "class": "1.0.0",
+  "spell": "1.1.0"
+}
+```
+
+Schema versions are bumped automatically based on commit messages, just like dataset and repo versions. When a schema file in `schemas/json/` is modified, its version in `schemas/versions.json` is bumped according to the commit type (`fix:` = patch, `feat:` = minor, `breaking:` = major).
+
+`common.schema.json` is a shared definitions file and is not individually versioned. Changes to it are reflected in the repo version only.
 
 ## Quick Reference
 
