@@ -439,7 +439,7 @@
       "max_dex_bonus": null
     },
     "requirements": [
-      { "type": "attribute", "attribute": "Strength", "minimum": 13 }
+      { "type": "ability_score", "ability": "Strength", "minimum": 13 }
     ],
     "stealth_disadvantage": true,
     "weight": 55.0,
@@ -460,7 +460,7 @@
       "max_dex_bonus": null
     },
     "requirements": [
-      { "type": "attribute", "attribute": "Strength", "minimum": 15 }
+      { "type": "ability_score", "ability": "Strength", "minimum": 15 }
     ],
     "stealth_disadvantage": true,
     "weight": 60.0,
@@ -481,7 +481,7 @@
       "max_dex_bonus": null
     },
     "requirements": [
-      { "type": "attribute", "attribute": "Strength", "minimum": 15 }
+      { "type": "ability_score", "ability": "Strength", "minimum": 15 }
     ],
     "stealth_disadvantage": true,
     "weight": 65.0,
@@ -519,20 +519,20 @@
       "currency": "GP"
     },
     "contents": [
-      "Backpack",
-      "a bag of 1,000 ball bearings",
-      "10 feet of string",
-      "a bell",
-      "5 candles",
-      "a crowbar",
-      "a hammer",
-      "10 pitons",
-      "a hooded lantern",
-      "2 flasks of oil",
-      "5 days rations",
-      "a tinderbox",
-      "a waterskin",
-      "50 feet of hempen rope"
+      {"item": "Backpack", "quantity": 1},
+      {"item": "Ball Bearings (bag of 1,000)", "quantity": 1},
+      {"item": "String (10 ft.)", "quantity": 1},
+      {"item": "Bell", "quantity": 1},
+      {"item": "Candle", "quantity": 5},
+      {"item": "Crowbar", "quantity": 1},
+      {"item": "Hammer", "quantity": 1},
+      {"item": "Piton", "quantity": 10},
+      {"item": "Lantern - Hooded", "quantity": 1},
+      {"item": "Oil (flask)", "quantity": 2},
+      {"item": "Rations (1 day)", "quantity": 5},
+      {"item": "Tinderbox", "quantity": 1},
+      {"item": "Waterskin", "quantity": 1},
+      {"item": "Hempen Rope (50 ft.)", "quantity": 1}
     ],
     "type": "adventuring_gear",
     "category": "adventuring_gear",
@@ -546,17 +546,17 @@
       "currency": "GP"
     },
     "contents": [
-      "Chest",
-      "2 cases for maps and scrolls",
-      "a set of fine clothes",
-      "a bottle of ink",
-      "an ink pen",
-      "a lamp",
-      "2 flasks of oil",
-      "5 sheets of paper",
-      "a vial of perfume",
-      "sealing wax",
-      "soap"
+      {"item": "Chest", "quantity": 1},
+      {"item": "Case, Map/Scroll", "quantity": 2},
+      {"item": "Clothes, Fine", "quantity": 1},
+      {"item": "Ink (1 oz)", "quantity": 1},
+      {"item": "Ink Pen", "quantity": 1},
+      {"item": "Lamp", "quantity": 1},
+      {"item": "Oil (flask)", "quantity": 2},
+      {"item": "Paper (1 sheet)", "quantity": 5},
+      {"item": "Perfume (vial)", "quantity": 1},
+      {"item": "Sealing Wax", "quantity": 1},
+      {"item": "Soap", "quantity": 1}
     ],
     "type": "adventuring_gear",
     "category": "adventuring_gear",
@@ -570,15 +570,15 @@
       "currency": "GP"
     },
     "contents": [
-      "Backpack",
-      "a crowbar",
-      "a hammer",
-      "10 pitons",
-      "10 torches",
-      "a tinderbox",
-      "10 days of rations",
-      "a waterskin",
-      "50 feet of hempen rope"
+      {"item": "Backpack", "quantity": 1},
+      {"item": "Crowbar", "quantity": 1},
+      {"item": "Hammer", "quantity": 1},
+      {"item": "Piton", "quantity": 10},
+      {"item": "Torch", "quantity": 10},
+      {"item": "Tinderbox", "quantity": 1},
+      {"item": "Rations (1 day)", "quantity": 10},
+      {"item": "Waterskin", "quantity": 1},
+      {"item": "Hempen Rope (50 ft.)", "quantity": 1}
     ],
     "type": "adventuring_gear",
     "category": "adventuring_gear",
@@ -592,13 +592,13 @@
       "currency": "GP"
     },
     "contents": [
-      "Backpack",
-      "a bedroll",
-      "2 costumes",
-      "5 candles",
-      "5 days of rations",
-      "a waterskin",
-      "a disguise kit"
+      {"item": "Backpack", "quantity": 1},
+      {"item": "Bedroll", "quantity": 1},
+      {"item": "Clothes, Costume", "quantity": 2},
+      {"item": "Candle", "quantity": 5},
+      {"item": "Rations (1 day)", "quantity": 5},
+      {"item": "Waterskin", "quantity": 1},
+      {"item": "Disguise Kit", "quantity": 1}
     ],
     "type": "adventuring_gear",
     "category": "adventuring_gear",
@@ -612,14 +612,14 @@
       "currency": "GP"
     },
     "contents": [
-      "Backpack",
-      "a bedroll",
-      "a mess kit",
-      "a tinderbox",
-      "10 torches",
-      "10 days of rations",
-      "a waterskin",
-      "50 feet of hempen rope"
+      {"item": "Backpack", "quantity": 1},
+      {"item": "Bedroll", "quantity": 1},
+      {"item": "Mess Kit", "quantity": 1},
+      {"item": "Tinderbox", "quantity": 1},
+      {"item": "Torch", "quantity": 10},
+      {"item": "Rations (1 day)", "quantity": 10},
+      {"item": "Waterskin", "quantity": 1},
+      {"item": "Hempen Rope (50 ft.)", "quantity": 1}
     ],
     "type": "adventuring_gear",
     "category": "adventuring_gear",
@@ -633,16 +633,16 @@
       "currency": "GP"
     },
     "contents": [
-      "Backpack",
-      "a blanket",
-      "10 candles",
-      "a tinderbox",
-      "an alms box",
-      "2 blocks of incense",
-      "a censer",
-      "vestments",
-      "2 days of rations",
-      "a waterskin"
+      {"item": "Backpack", "quantity": 1},
+      {"item": "Blanket", "quantity": 1},
+      {"item": "Candle", "quantity": 10},
+      {"item": "Tinderbox", "quantity": 1},
+      {"item": "Alms Box", "quantity": 1},
+      {"item": "Block of Incense", "quantity": 2},
+      {"item": "Censer", "quantity": 1},
+      {"item": "Vestments", "quantity": 1},
+      {"item": "Rations (1 day)", "quantity": 2},
+      {"item": "Waterskin", "quantity": 1}
     ],
     "type": "adventuring_gear",
     "category": "adventuring_gear",
@@ -656,13 +656,13 @@
       "currency": "GP"
     },
     "contents": [
-      "Backpack",
-      "a book of lore",
-      "a bottle of ink",
-      "an ink pen",
-      "10 sheets of parchment",
-      "a little bag of sand",
-      "a small knife"
+      {"item": "Backpack", "quantity": 1},
+      {"item": "Book", "quantity": 1},
+      {"item": "Ink (1 oz)", "quantity": 1},
+      {"item": "Ink Pen", "quantity": 1},
+      {"item": "Parchment (1 sheet)", "quantity": 10},
+      {"item": "Bag of Sand", "quantity": 1},
+      {"item": "Small Knife", "quantity": 1}
     ],
     "type": "adventuring_gear",
     "category": "adventuring_gear",
@@ -676,6 +676,26 @@
       "currency": "GP"
     },
     "weight": 2.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Alms Box",
+    "cost": null,
+    "weight": 1.0,
+    "description": "A small box used to collect donations for the poor and for religious purposes.",
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Bag of Sand",
+    "cost": null,
+    "weight": 1.0,
+    "description": "A small bag of fine sand, useful for drying ink, testing for drafts, or marking surfaces.",
     "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
@@ -712,6 +732,16 @@
       "currency": "SP"
     },
     "weight": 5.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Block of Incense",
+    "cost": null,
+    "weight": 0.0,
+    "description": "A small block of aromatic incense, used in religious ceremonies and meditation.",
     "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
@@ -788,6 +818,16 @@
     "ruleset": "dnd5e"
   },
   {
+    "name": "Censer",
+    "cost": null,
+    "weight": 2.0,
+    "description": "A metal container used for burning incense during religious ceremonies. Suspended from chains and swung gently to disperse fragrant smoke.",
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
     "name": "Chain (10 ft)",
     "cost": {
       "amount": 5.0,
@@ -814,6 +854,71 @@
       "currency": "CP"
     },
     "weight": 0.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Clothes, Common",
+    "cost": {
+      "amount": 5.0,
+      "currency": "SP"
+    },
+    "weight": 3.0,
+    "description": "A simple set of clothes including a loose shirt, trousers, and basic footwear.",
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Clothes, Common (Dark)",
+    "cost": {
+      "amount": 5.0,
+      "currency": "SP"
+    },
+    "weight": 3.0,
+    "description": "A simple set of dark-colored clothes, suitable for blending into shadows or nighttime activities.",
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Clothes, Costume",
+    "cost": {
+      "amount": 5.0,
+      "currency": "GP"
+    },
+    "weight": 4.0,
+    "description": "A set of clothes suitable for a theatrical or festive costume, including accessories.",
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Clothes, Fine",
+    "cost": {
+      "amount": 15.0,
+      "currency": "GP"
+    },
+    "weight": 6.0,
+    "description": "A set of fine clothes, suitable for high society. Includes a silk shirt, velvet coat, and other accessories.",
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Clothes, Traveler's",
+    "cost": {
+      "amount": 2.0,
+      "currency": "GP"
+    },
+    "weight": 4.0,
+    "description": "A sturdy set of clothes suitable for travel, including boots, a cloak, and practical garments.",
     "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
@@ -870,24 +975,31 @@
     "ruleset": "dnd5e"
   },
   {
-    "name": "Hempen Rope",
+    "name": "Hempen Rope (50 ft.)",
     "cost": {
       "amount": 1.0,
       "currency": "GP"
-    },
-    "saving_throw": {
-      "ability": "Strength",
-      "dc": {
-        "base": 17
-      }
     },
     "hp": 2,
     "weight": 10.0,
     "description": "Rope, whether made of hemp or silk, has 2 hit points and can be burst with a DC 17 Strength check.",
     "mechanics": [
       {
-        "type": "special",
-        "description": "2 hit points. Can be burst with a DC 17 Strength check."
+        "type": "action",
+        "description": "Bind a creature",
+        "effects": [
+          {
+            "apply_status": {
+              "name": "restrained",
+              "escape": {
+                "ability": "Strength",
+                "dc": {
+                  "base": 17
+                }
+              }
+            }
+          }
+        ]
       }
     ],
     "type": "adventuring_gear",
@@ -1050,6 +1162,18 @@
     "ruleset": "dnd5e"
   },
   {
+    "name": "Parchment",
+    "cost": {
+      "amount": 3.5,
+      "currency": "SP"
+    },
+    "weight": 0.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
     "name": "Parchment (1 sheet)",
     "cost": {
       "amount": 1.0,
@@ -1154,7 +1278,7 @@
     "ruleset": "dnd5e"
   },
   {
-    "name": "Rope",
+    "name": "Rope (50 ft.)",
     "cost": {
       "amount": 1.0,
       "currency": "GP"
@@ -1164,8 +1288,54 @@
     "description": "Rope, whether made of hemp or silk, has 2 hit points and can be burst with a DC 17 Strength check.",
     "mechanics": [
       {
-        "type": "special",
-        "description": "2 hit points. Can be burst with a DC 17 Strength check."
+        "type": "action",
+        "description": "Bind a creature",
+        "effects": [
+          {
+            "apply_status": {
+              "name": "restrained",
+              "escape": {
+                "ability": "Strength",
+                "dc": {
+                  "base": 17
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Rope, Silk (50 ft.)",
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "hp": 2,
+    "weight": 5.0,
+    "description": "Silk rope is lighter and smoother than hempen rope. It has 2 hit points and can be burst with a DC 17 Strength check.",
+    "mechanics": [
+      {
+        "type": "action",
+        "description": "Bind a creature",
+        "effects": [
+          {
+            "apply_status": {
+              "name": "restrained",
+              "escape": {
+                "ability": "Strength",
+                "dc": {
+                  "base": 17
+                }
+              }
+            }
+          }
+        ]
       }
     ],
     "type": "adventuring_gear",
@@ -1234,6 +1404,28 @@
     "ruleset": "dnd5e"
   },
   {
+    "name": "Small Knife",
+    "cost": null,
+    "weight": 0.25,
+    "description": "A small utility knife used for cutting parchment, opening letters, and other mundane tasks. Not designed as a weapon.",
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Soap",
+    "cost": {
+      "amount": 2.0,
+      "currency": "CP"
+    },
+    "weight": 0.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
     "name": "Spellbook",
     "cost": {
       "amount": 50.0,
@@ -1278,6 +1470,18 @@
     "ruleset": "dnd5e"
   },
   {
+    "name": "String (10 ft.)",
+    "cost": {
+      "amount": 1.0,
+      "currency": "SP"
+    },
+    "weight": 0.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
     "name": "Tent, Two-person",
     "cost": {
       "amount": 2.0,
@@ -1290,12 +1494,32 @@
     "ruleset": "dnd5e"
   },
   {
+    "name": "Vestments",
+    "cost": null,
+    "weight": 4.0,
+    "description": "Ceremonial garments worn by clergy during religious services and rituals.",
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
     "name": "Whetstone",
     "cost": {
       "amount": 1.0,
       "currency": "CP"
     },
     "weight": 1.0,
+    "type": "adventuring_gear",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Writing Kit",
+    "cost": null,
+    "weight": 1.0,
+    "description": "A portable kit containing ink, a pen, and several sheets of parchment, stored in a small leather case.",
     "type": "adventuring_gear",
     "category": "adventuring_gear",
     "source": "phb",
