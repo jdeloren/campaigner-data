@@ -160,19 +160,6 @@
         "description": "Requirements for using this equipment (e.g., minimum Strength for heavy armor)",
         "title": "Requirements"
       },
-      "stealth": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "default": null,
-        "description": "Stealth disadvantage indicator",
-        "title": "Stealth"
-      },
       "capacity": {
         "anyOf": [
           {
