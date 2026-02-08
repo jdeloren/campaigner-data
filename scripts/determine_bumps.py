@@ -4,6 +4,7 @@ Analyze commits since last tag to determine version bumps needed.
 
 Version bump logic:
 - Each dataset gets bumped based on changes to files in data/{dataset}/
+- Each schema gets bumped based on changes to files in schemas/json/
 - The repo version (version.json) gets bumped if ANY dataset changes OR if
   repo-level files (schemas, scripts) change
 - The repo bump type is the max of all dataset bumps and repo-only bumps
@@ -11,6 +12,7 @@ Version bump logic:
 Outputs GitHub Actions outputs:
 - has_changes: 'true' if any bumps needed
 - datasets: JSON list of datasets to bump with bump type
+- schemas: JSON list of schemas to bump with bump type
 - repo_bump: bump type for repo (or 'none')
 """
 
@@ -115,6 +117,20 @@ def get_affected_datasets(files: list[str]) -> set[str]:
     return datasets
 
 
+EXCLUDED_SCHEMAS = {"common"}
+
+
+def get_affected_schemas(files: list[str]) -> set[str]:
+    """Determine which schemas are affected by changed files."""
+    schemas = set()
+    for f in files:
+        if f.startswith("schemas/json/") and f.endswith(".schema.json"):
+            name = Path(f).name.replace(".schema.json", "")
+            if name not in EXCLUDED_SCHEMAS:
+                schemas.add(name)
+    return schemas
+
+
 def is_repo_change(files: list[str]) -> bool:
     """Check if any files are repo-level (not data)."""
     for f in files:
@@ -155,15 +171,21 @@ def main():
                 bump_type = parse_bump_type(commit["message"])
                 dataset_bumps[dataset].append(bump_type)
 
-    # Analyze commits for repo
+    # Analyze commits for repo and schemas
     last_repo_tag = get_last_repo_tag()
     repo_commits = get_commits_since(last_repo_tag)
+    schema_bumps: dict[str, list[str]] = {}
 
     for commit in repo_commits:
         files = get_changed_files(commit["sha"])
         if is_repo_change(files):
             bump_type = parse_bump_type(commit["message"])
             repo_bumps.append(bump_type)
+
+        for schema in get_affected_schemas(files):
+            schema_bumps.setdefault(schema, []).append(
+                parse_bump_type(commit["message"])
+            )
 
     # Determine final bumps for datasets
     results = []
@@ -174,6 +196,13 @@ def main():
             results.append({"dataset": dataset, "bump": bump_type})
             dataset_bump_types.append(bump_type)
 
+    # Determine final bumps for schemas
+    schema_results = []
+    for schema, bumps in schema_bumps.items():
+        if bumps:
+            bump_type = max_bump(bumps)
+            schema_results.append({"schema": schema, "bump": bump_type})
+
     # Repo version bumps if ANY dataset changes OR if repo-only files change
     # Take the max bump type from all sources
     all_bump_types = dataset_bump_types + repo_bumps
@@ -183,12 +212,14 @@ def main():
     # Output for GitHub Actions
     print(f"has_changes={str(has_changes).lower()}")
     print(f"datasets={json.dumps(results)}")
+    print(f"schemas={json.dumps(schema_results)}")
     print(f"repo_bump={repo_bump}")
 
     # Also write to a file for other scripts
     output = {
         "has_changes": has_changes,
         "datasets": results,
+        "schemas": schema_results,
         "repo_bump": repo_bump,
     }
     Path("bump_plan.json").write_text(json.dumps(output, indent=2))

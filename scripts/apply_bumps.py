@@ -2,7 +2,7 @@
 """
 Apply version bumps from bump_plan.json.
 
-Updates manifest.json files and creates git tags.
+Updates manifest.json files, schemas/versions.json, and creates git tags.
 """
 
 import json
@@ -106,6 +106,29 @@ def main():
         tag_name = f"{dataset}-v{new_version}"
         create_tag(tag_name, f"Release {dataset} v{new_version}")
         tags_created.append(tag_name)
+
+    # Apply schema bumps
+    schema_items = plan.get("schemas", [])
+    if schema_items:
+        schema_versions_path = Path("schemas/versions.json")
+        if schema_versions_path.exists():
+            schema_versions = json.loads(schema_versions_path.read_text())
+        else:
+            schema_versions = {}
+
+        for item in schema_items:
+            schema_name = item["schema"]
+            bump_type = item["bump"]
+
+            old_version = schema_versions.get(schema_name, "0.0.0")
+            new_version = bump_version(old_version, bump_type)
+
+            schema_versions[schema_name] = new_version
+            print(f"schema {schema_name}: {old_version} -> {new_version} ({bump_type})")
+
+        schema_versions_path.write_text(
+            json.dumps(dict(sorted(schema_versions.items())), indent=2) + "\n"
+        )
 
     # Apply repo bump
     repo_bump = plan.get("repo_bump", "none")

@@ -13,8 +13,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-        with:
-          fetch-depth: 0 # Needed for schema version check
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -28,7 +26,3 @@ jobs:
 
       - name: Validate all rulesets
         run: python scripts/validate.py --all
-
-      - name: Check schema version bumps
-        if: github.event_name == 'pull_request'
-        run: python scripts/check_schema_versions.py --base origin/${{ github.base_ref }}
