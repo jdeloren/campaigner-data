@@ -43,11 +43,6 @@
         "$ref": "common.schema.json#/$defs/Ruleset",
         "description": "Ruleset version"
       },
-      "type": {
-        "description": "Equipment type",
-        "title": "Type",
-        "type": "string"
-      },
       "category": {
         "$ref": "#/$defs/EquipmentCategory",
         "description": "Equipment category"
@@ -227,7 +222,6 @@
       "name",
       "source",
       "ruleset",
-      "type",
       "category"
     ],
     "title": "Equipment",
