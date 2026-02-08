@@ -391,11 +391,6 @@
         "items": [{ "item": "scroll of pedigree", "quantity": 1 }]
       },
       {
-        "type": "fixed",
-        "item": "and",
-        "quantity": 1
-      },
-      {
         "choice_group": 4,
         "type": "fixed",
         "items": [
