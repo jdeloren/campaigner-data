@@ -24,8 +24,15 @@
         "title": "Description"
       },
       "cost": {
-        "$ref": "common.schema.json#/$defs/CurrencyCost",
-        "description": "Cost with currency"
+        "anyOf": [
+          {
+            "$ref": "common.schema.json#/$defs/CurrencyCost"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Cost with currency, or null for priceless/special items"
       },
       "weight": {
         "description": "Weight in pounds",

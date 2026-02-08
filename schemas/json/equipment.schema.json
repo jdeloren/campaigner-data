@@ -380,22 +380,83 @@
       "title": "Requirement",
       "type": "object"
     },
+    "ContainerContent": {
+      "description": "Freeform content stored inside a container.",
+      "properties": {
+        "name": {
+          "description": "Name of the content",
+          "title": "Name",
+          "type": "string",
+          "minLength": 1
+        },
+        "cost": {
+          "anyOf": [
+            {
+              "$ref": "common.schema.json#/$defs/CurrencyCost"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Cost of the content, or null"
+        }
+      },
+      "required": ["name"],
+      "title": "ContainerContent",
+      "type": "object"
+    },
     "PackItem": {
-      "description": "An item contained in an equipment pack, with its canonical name and quantity.",
+      "description": "An item reference with quantity, used in equipment packs and background starting equipment. Flavor items (flavor=true) are narrative-only with no game data entry. Container items can specify freeform contents.",
       "properties": {
         "item": {
-          "description": "Canonical equipment name matching an entry in equipment.json or tools.json",
+          "description": "Equipment/tool name, or flavor item name",
           "title": "Item",
           "type": "string"
         },
         "quantity": {
-          "description": "Number of this item included in the pack",
+          "default": 1,
+          "description": "Number of this item",
           "title": "Quantity",
           "type": "integer",
           "minimum": 1
+        },
+        "flavor": {
+          "default": false,
+          "description": "Flavor-only item with no game data entry",
+          "title": "Flavor",
+          "type": "boolean"
+        },
+        "contents": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/ContainerContent"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Freeform contents of a container"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Intrinsic value (e.g., gem worth 10 GP)"
         }
       },
-      "required": ["item", "quantity"],
+      "required": ["item"],
       "title": "PackItem",
       "type": "object"
     }

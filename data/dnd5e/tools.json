@@ -460,6 +460,15 @@
     "ruleset": "dnd5e"
   },
   {
+    "name": "Marked Cards Set",
+    "cost": null,
+    "weight": 0.0,
+    "description": "A deck of playing cards with subtle markings on their backs, allowing the user to identify cards while they are face down.",
+    "category": "Gaming Set",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
     "name": "Playing Card Set",
     "cost": {
       "amount": 5.0,
@@ -477,6 +486,15 @@
       "currency": "SP"
     },
     "weight": 0.0,
+    "category": "Gaming Set",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Weighted Dice Set",
+    "cost": null,
+    "weight": 0.0,
+    "description": "A set of dice subtly weighted to influence their rolls. A favorite tool of charlatans and cheats.",
     "category": "Gaming Set",
     "source": "phb",
     "ruleset": "dnd5e"

@@ -252,7 +252,8 @@
     },
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "light_armor"
   },
   {
     "name": "Leather Armor",
@@ -269,7 +270,8 @@
     },
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "light_armor"
   },
   {
     "name": "Studded Leather",
@@ -286,7 +288,8 @@
     },
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "light_armor"
   },
   {
     "name": "Hide Armor",
@@ -303,7 +306,8 @@
     },
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "medium_armor"
   },
   {
     "name": "Chain Shirt",
@@ -320,7 +324,8 @@
     },
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "medium_armor"
   },
   {
     "name": "Scale Mail",
@@ -337,7 +342,8 @@
     },
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "medium_armor"
   },
   {
     "name": "Spiked Armor",
@@ -354,7 +360,8 @@
     },
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "medium_armor"
   },
   {
     "name": "Breastplate",
@@ -371,7 +378,8 @@
     },
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "medium_armor"
   },
   {
     "name": "Halfplate",
@@ -388,7 +396,8 @@
     },
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "medium_armor"
   },
   {
     "name": "Ring Mail",
@@ -405,7 +414,8 @@
     },
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "heavy_armor"
   },
   {
     "name": "Chain Mail",
@@ -429,7 +439,8 @@
     },
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "heavy_armor"
   },
   {
     "name": "Splint Mail",
@@ -453,7 +464,8 @@
     },
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "heavy_armor"
   },
   {
     "name": "Plate Mail",
@@ -477,7 +489,8 @@
     },
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "heavy_armor"
   },
   {
     "name": "Shield",
@@ -494,7 +507,8 @@
     },
     "category": "armor",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "subcategory": "shield"
   },
   {
     "name": "Burglar's Pack",
@@ -780,7 +794,7 @@
         "quantity": 1
       },
       {
-        "item": "Block of Incense",
+        "item": "Incense (Block)",
         "quantity": 2
       },
       {
@@ -874,6 +888,24 @@
     "ruleset": "dnd5e"
   },
   {
+    "name": "Badge",
+    "cost": null,
+    "weight": 0.0,
+    "description": "A small emblem or token identifying the wearer's affiliation with a faction or organization.",
+    "category": "adventuring_gear",
+    "source": "scag",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Banner",
+    "cost": null,
+    "weight": 1.0,
+    "description": "A cloth banner bearing the symbol of a knightly order, faction, or noble house.",
+    "category": "adventuring_gear",
+    "source": "scag",
+    "ruleset": "dnd5e"
+  },
+  {
     "name": "Bedroll",
     "cost": {
       "amount": 1.0,
@@ -896,21 +928,21 @@
     "ruleset": "dnd5e"
   },
   {
-    "name": "Blanket",
-    "cost": {
-      "amount": 5.0,
-      "currency": "SP"
-    },
-    "weight": 5.0,
+    "name": "Belaying Pin",
+    "cost": null,
+    "weight": 1.0,
+    "description": "A sturdy wooden pin used to secure ropes on sailing vessels. Can be used as an improvised club.",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
   },
   {
-    "name": "Block of Incense",
-    "cost": null,
-    "weight": 0.0,
-    "description": "A small block of aromatic incense, used in religious ceremonies and meditation.",
+    "name": "Blanket",
+    "cost": {
+      "amount": 5.0,
+      "currency": "SP"
+    },
+    "weight": 3.0,
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -934,6 +966,18 @@
     "ruleset": "dnd5e"
   },
   {
+    "name": "Blue Quartz Gem",
+    "cost": {
+      "amount": 10.0,
+      "currency": "GP"
+    },
+    "weight": 0.0,
+    "description": "A small quartz gemstone shaped in a bevelled square. It is transparent pale blue in color.",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
     "name": "Book",
     "cost": {
       "amount": 25.0,
@@ -943,6 +987,15 @@
     "description": "A book might contain poetry, historical accounts, information pertaining to a particular field of lore, diagrams and notes on gnomish contraptions, or just about anything else that can be represented sing text or pictures. A book of spells is a spellbook.",
     "category": "adventuring_gear",
     "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Brooch",
+    "cost": null,
+    "weight": 0.0,
+    "description": "A decorative pin or clasp worn as a fastener or ornament.",
+    "category": "adventuring_gear",
+    "source": "scag",
     "ruleset": "dnd5e"
   },
   {
@@ -1171,6 +1224,33 @@
     "ruleset": "dnd5e"
   },
   {
+    "name": "Hood",
+    "cost": null,
+    "weight": 0.0,
+    "description": "A simple cloth hood used to conceal the wearer's face.",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Incense (Block)",
+    "cost": null,
+    "weight": 0.1,
+    "description": "A small block of aromatic incense, used in religious ceremonies and meditation.",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Incense (Stick)",
+    "cost": null,
+    "weight": 0.0,
+    "description": "A thin stick of aromatic incense.",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
     "name": "Ink (1 oz)",
     "cost": {
       "amount": 10.0,
@@ -1359,6 +1439,24 @@
     "ruleset": "dnd5e"
   },
   {
+    "name": "Prayer Book",
+    "cost": null,
+    "weight": 3.0,
+    "description": "A bound volume of prayers, hymns, and sacred texts used in daily devotions and religious ceremonies.",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Prayer Wheel",
+    "cost": null,
+    "weight": 1.0,
+    "description": "A cylindrical wheel on a spindle inscribed with prayers and mantras. Spinning the wheel is believed to have the same spiritual effect as reciting the prayers aloud.",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
     "name": "Ram, Portable",
     "cost": {
       "amount": 4.0,
@@ -1477,6 +1575,15 @@
     "ruleset": "dnd5e"
   },
   {
+    "name": "Scholar's Robes",
+    "cost": null,
+    "weight": 4.0,
+    "description": "Flowing robes traditionally worn by scholars and academics, often bearing the colors or insignia of a particular institution.",
+    "category": "adventuring_gear",
+    "source": "scag",
+    "ruleset": "dnd5e"
+  },
+  {
     "name": "Sealing Wax",
     "cost": {
       "amount": 5.0,
@@ -1499,6 +1606,15 @@
     "ruleset": "dnd5e"
   },
   {
+    "name": "Signal Horn",
+    "cost": null,
+    "weight": 2.0,
+    "description": "A simple horn used to signal for help or alert others. Not a musical instrument.",
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
     "name": "Signal Whistle",
     "cost": {
       "amount": 5.0,
@@ -1507,6 +1623,24 @@
     "weight": 0.0,
     "category": "adventuring_gear",
     "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Seal",
+    "cost": null,
+    "weight": 0.0,
+    "description": "A wax or metal seal bearing an official emblem, used to authenticate documents and mark correspondence.",
+    "category": "adventuring_gear",
+    "source": "scag",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Signet",
+    "cost": null,
+    "weight": 0.0,
+    "description": "A small engraved stamp bearing the symbol of a knightly order or noble house, used to press into sealing wax or clay.",
+    "category": "adventuring_gear",
+    "source": "scag",
     "ruleset": "dnd5e"
   },
   {
@@ -1615,6 +1749,15 @@
     "ruleset": "dnd5e"
   },
   {
+    "name": "Uniform",
+    "cost": null,
+    "weight": 4.0,
+    "description": "A uniform identifying the wearer as a member of a particular military unit, city watch, or mercenary company.",
+    "category": "adventuring_gear",
+    "source": "scag",
+    "ruleset": "dnd5e"
+  },
+  {
     "name": "Vestments",
     "cost": null,
     "weight": 4.0,
@@ -1630,6 +1773,27 @@
       "currency": "CP"
     },
     "weight": 1.0,
+    "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Work Clothes",
+    "cost": null,
+    "weight": 3.0,
+    "description": "Practical clothing suited to a particular trade or profession.",
+    "category": "adventuring_gear",
+    "source": "scag",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Woolen Blanket",
+    "cost": {
+      "amount": 3.5,
+      "currency": "SP"
+    },
+    "weight": 3.0,
+    "description": "A thick woolen blanket. Something like this is perfect for wrapping up during those long cold nights spent staring at a cave wall.",
     "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -2455,7 +2619,7 @@
     "ruleset": "dnd5e"
   },
   {
-    "name": "Glass Bottle",
+    "name": "Bottle, Glass",
     "cost": {
       "amount": 2.0,
       "currency": "GP"
@@ -2489,7 +2653,7 @@
     "ruleset": "dnd5e"
   },
   {
-    "name": "Pot, iron",
+    "name": "Pot, Iron",
     "cost": {
       "amount": 2.0,
       "currency": "GP"

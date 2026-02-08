@@ -57,10 +57,9 @@
         "type": "array"
       },
       "equipment": {
-        "description": "Starting equipment (fixed items and choices)",
+        "description": "Starting equipment (choice groups of fixed items or player choices)",
         "items": {
-          "additionalProperties": true,
-          "type": "object"
+          "$ref": "#/$defs/BackgroundEquipmentEntry"
         },
         "title": "Equipment",
         "type": "array"
@@ -84,5 +83,48 @@
     ],
     "title": "Background",
     "type": "object"
+  },
+  "$defs": {
+    "BackgroundEquipmentEntry": {
+      "description": "A choice group entry in background starting equipment. Fixed entries grant specific items; choice entries let the player pick from options. Currency entries grant starting gold.",
+      "properties": {
+        "choice_group": {
+          "description": "Groups related items together for display",
+          "type": "integer",
+          "minimum": 1
+        },
+        "type": {
+          "description": "Whether items are fixed or player-chosen",
+          "enum": ["fixed", "choice"],
+          "type": "string"
+        },
+        "items": {
+          "description": "Items granted (for fixed type)",
+          "items": {
+            "$ref": "equipment.schema.json#/$defs/PackItem"
+          },
+          "type": "array"
+        },
+        "options": {
+          "description": "Items to choose from (for choice type)",
+          "items": {
+            "$ref": "equipment.schema.json#/$defs/PackItem"
+          },
+          "type": "array"
+        },
+        "choose": {
+          "description": "Number of options to choose (for choice type)",
+          "type": "integer",
+          "minimum": 1
+        },
+        "currency": {
+          "$ref": "common.schema.json#/$defs/CurrencyCost",
+          "description": "Starting currency granted by this entry"
+        }
+      },
+      "required": ["choice_group", "type"],
+      "title": "BackgroundEquipmentEntry",
+      "type": "object"
+    }
   }
 }
