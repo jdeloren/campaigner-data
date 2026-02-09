@@ -109,7 +109,7 @@
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": ["longsword", "shortsword", "Shortbow", "Longbow"]
+            "proficiencies": ["Longsword", "Shortsword", "Shortbow", "Longbow"]
           }
         ]
       },
@@ -175,7 +175,7 @@
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": ["longsword", "shortsword", "Shortbow", "Longbow"]
+            "proficiencies": ["Longsword", "Shortsword", "Shortbow", "Longbow"]
           }
         ]
       },
@@ -302,7 +302,7 @@
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": ["rapier", "shortsword", "hand crossbow"]
+            "proficiencies": ["Rapier", "Shortsword", "Hand Crossbow"]
           }
         ]
       }
@@ -665,7 +665,7 @@
           {
             "type": "proficiency",
             "category": "armor",
-            "proficiencies": ["light armor", "medium armor"]
+            "proficiencies": ["Light Armor", "medium armor"]
           }
         ]
       }

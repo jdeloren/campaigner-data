@@ -6,7 +6,7 @@
     "primary_ability": ["Dexterity"],
     "saving_throw_proficiencies": ["Dexterity", "Intelligence"],
     "proficiencies": {
-      "armor": ["Light armor"],
+      "armor": ["Light Armor"],
       "weapons": ["Simple Melee", "Simple Ranged", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
       "tools": [
         {
@@ -62,7 +62,7 @@
             ]
           },
           {
-            "item": "shortsword",
+            "item": "Shortsword",
             "quantity": 1
           }
         ]
@@ -72,15 +72,15 @@
         "type": "choice",
         "options": [
           {
-            "item": "burglar's pack",
+            "item": "Burglar's Pack",
             "quantity": 1
           },
           {
-            "item": "dungeoneer's pack",
+            "item": "Dungeoneer's Pack",
             "quantity": 1
           },
           {
-            "item": "explorer's pack",
+            "item": "Explorer's Pack",
             "quantity": 1
           }
         ]
@@ -123,7 +123,7 @@
     "primary_ability": ["Dexterity"],
     "saving_throw_proficiencies": ["Dexterity", "Intelligence"],
     "proficiencies": {
-      "armor": ["Light armor"],
+      "armor": ["Light Armor"],
       "weapons": ["Simple Melee", "Simple Ranged", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
       "tools": [{ "type": "fixed", "items": ["Thieves' Tools"] }],
       "skills": {
@@ -153,7 +153,7 @@
     "primary_ability": ["Dexterity"],
     "saving_throw_proficiencies": ["Dexterity", "Intelligence"],
     "proficiencies": {
-      "armor": ["Light armor"],
+      "armor": ["Light Armor"],
       "weapons": ["Simple Melee", "Simple Ranged", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
       "tools": [{ "type": "fixed", "items": ["Thieves' Tools"] }],
       "skills": {
@@ -183,7 +183,7 @@
     "primary_ability": ["Dexterity", "Intelligence"],
     "saving_throw_proficiencies": ["Dexterity", "Intelligence"],
     "proficiencies": {
-      "armor": ["Light armor"],
+      "armor": ["Light Armor"],
       "weapons": ["Simple Melee", "Simple Ranged", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
       "tools": [{ "type": "fixed", "items": ["Thieves' Tools"] }],
       "skills": {
@@ -550,7 +550,7 @@
           {
             "items": [
               {
-                "item": "dungeoneer's pack",
+                "item": "Dungeoneer's Pack",
                 "quantity": 1
               }
             ]
@@ -558,7 +558,7 @@
           {
             "items": [
               {
-                "item": "explorer's pack",
+                "item": "Explorer's Pack",
                 "quantity": 1
               }
             ]
@@ -968,11 +968,11 @@
         "type": "choice",
         "options": [
           {
-            "item": "priest's pack",
+            "item": "Priest's Pack",
             "quantity": 1
           },
           {
-            "item": "explorer's pack",
+            "item": "Explorer's Pack",
             "quantity": 1
           }
         ]
@@ -1209,7 +1209,7 @@
     "saving_throw_proficiencies": ["Strength", "Constitution"],
     "proficiencies": {
       "armor": ["Light Armor", "Medium Armor", "Shields"],
-      "weapons": ["Simple weapons", "martial weapons"],
+      "weapons": ["Simple weapons", "Martial weapons"],
       "tools": [
         {
           "type": "choice",
@@ -1256,7 +1256,7 @@
         "type": "fixed",
         "items": [
           {
-            "item": "explorer's pack",
+            "item": "Explorer's Pack",
             "quantity": 1
           },
           {
@@ -1286,7 +1286,7 @@
     "saving_throw_proficiencies": ["Strength", "Constitution"],
     "proficiencies": {
       "armor": ["Light Armor", "Medium Armor", "Shields"],
-      "weapons": ["Simple weapons", "martial weapons"],
+      "weapons": ["Simple weapons", "Martial weapons"],
       "tools": [{ "type": "choice", "choose": 1, "from": "Musical Instrument" }],
       "skills": {
         "choose": 2,
@@ -1305,7 +1305,7 @@
     "saving_throw_proficiencies": ["Strength", "Constitution"],
     "proficiencies": {
       "armor": ["Light Armor", "Medium Armor", "Shields"],
-      "weapons": ["Simple weapons", "martial weapons"],
+      "weapons": ["Simple weapons", "Martial weapons"],
       "tools": [{ "type": "choice", "choose": 1, "from": "Musical Instrument" }],
       "skills": {
         "choose": 2,
@@ -1361,11 +1361,11 @@
         "type": "choice",
         "options": [
           {
-            "item": "rapier",
+            "item": "Rapier",
             "quantity": 1
           },
           {
-            "item": "longsword",
+            "item": "Longsword",
             "quantity": 1
           },
           {
@@ -1379,11 +1379,11 @@
         "type": "choice",
         "options": [
           {
-            "item": "diplomat's pack",
+            "item": "Diplomat's Pack",
             "quantity": 1
           },
           {
-            "item": "entertainer's pack",
+            "item": "Entertainer's Pack",
             "quantity": 1
           }
         ]
@@ -1403,7 +1403,7 @@
         "type": "fixed",
         "items": [
           {
-            "item": "Leather armor",
+            "item": "Leather Armor",
             "quantity": 1
           },
           {
