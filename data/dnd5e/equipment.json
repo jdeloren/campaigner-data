@@ -1,5 +1,17 @@
 [
   {
+    "name": "Arrows (20)",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "weight": 1.0,
+    "properties": [],
+    "category": "ammunition",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
     "name": "Club",
     "cost": {
       "amount": 1.0,
@@ -13,6 +25,18 @@
     "properties": ["Light"],
     "subcategory": "simple_melee",
     "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Crossbow Bolts (20)",
+    "cost": {
+      "amount": 1.0,
+      "currency": "GP"
+    },
+    "weight": 1.5,
+    "properties": [],
+    "category": "ammunition",
     "source": "phb",
     "ruleset": "dnd5e"
   },
@@ -85,7 +109,7 @@
     "ruleset": "dnd5e"
   },
   {
-    "name": "Light hammer",
+    "name": "Light Hammer",
     "cost": {
       "amount": 2.0,
       "currency": "GP"
@@ -149,6 +173,18 @@
     "properties": ["Light"],
     "subcategory": "simple_melee",
     "category": "weapon",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "name": "Sling Bullets (20)",
+    "cost": {
+      "amount": 4.0,
+      "currency": "CP"
+    },
+    "weight": 2.5,
+    "properties": [],
+    "category": "ammunition",
     "source": "phb",
     "ruleset": "dnd5e"
   },
