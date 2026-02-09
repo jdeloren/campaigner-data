@@ -7,14 +7,7 @@
     "saving_throw_proficiencies": ["Dexterity", "Intelligence"],
     "proficiencies": {
       "armor": ["Light armor"],
-      "weapons": [
-        "Simple Melee",
-        "Simple Ranged",
-        "Hand Crossbow",
-        "Longsword",
-        "Rapier",
-        "Shortsword"
-      ],
+      "weapons": ["Simple Melee", "Simple Ranged", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
       "tools": [
         {
           "type": "fixed",
@@ -132,8 +125,22 @@
     "proficiencies": {
       "armor": ["Light armor"],
       "weapons": ["Simple Melee", "Simple Ranged", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
-      "tools": [{"type": "fixed", "items": ["Thieves' Tools"]}],
-      "skills": {"choose": 4, "from": ["Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation", "Perception", "Persuasion", "Sleight of Hand", "Stealth"]}
+      "tools": [{ "type": "fixed", "items": ["Thieves' Tools"] }],
+      "skills": {
+        "choose": 4,
+        "from": [
+          "Acrobatics",
+          "Athletics",
+          "Deception",
+          "Insight",
+          "Intimidation",
+          "Investigation",
+          "Perception",
+          "Persuasion",
+          "Sleight of Hand",
+          "Stealth"
+        ]
+      }
     },
     "source": "phb",
     "ruleset": "dnd5e"
@@ -148,8 +155,22 @@
     "proficiencies": {
       "armor": ["Light armor"],
       "weapons": ["Simple Melee", "Simple Ranged", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
-      "tools": [{"type": "fixed", "items": ["Thieves' Tools"]}],
-      "skills": {"choose": 4, "from": ["Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation", "Perception", "Persuasion", "Sleight of Hand", "Stealth"]}
+      "tools": [{ "type": "fixed", "items": ["Thieves' Tools"] }],
+      "skills": {
+        "choose": 4,
+        "from": [
+          "Acrobatics",
+          "Athletics",
+          "Deception",
+          "Insight",
+          "Intimidation",
+          "Investigation",
+          "Perception",
+          "Persuasion",
+          "Sleight of Hand",
+          "Stealth"
+        ]
+      }
     },
     "source": "phb",
     "ruleset": "dnd5e"
@@ -164,8 +185,22 @@
     "proficiencies": {
       "armor": ["Light armor"],
       "weapons": ["Simple Melee", "Simple Ranged", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
-      "tools": [{"type": "fixed", "items": ["Thieves' Tools"]}],
-      "skills": {"choose": 4, "from": ["Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation", "Perception", "Persuasion", "Sleight of Hand", "Stealth"]}
+      "tools": [{ "type": "fixed", "items": ["Thieves' Tools"] }],
+      "skills": {
+        "choose": 4,
+        "from": [
+          "Acrobatics",
+          "Athletics",
+          "Deception",
+          "Insight",
+          "Intimidation",
+          "Investigation",
+          "Perception",
+          "Persuasion",
+          "Sleight of Hand",
+          "Stealth"
+        ]
+      }
     },
     "source": "phb",
     "ruleset": "dnd5e",
@@ -418,24 +453,11 @@
     "saving_throw_proficiencies": ["Strength", "Constitution"],
     "proficiencies": {
       "armor": ["All", "shields"],
-      "weapons": [
-        "Simple Melee",
-        "Simple Ranged",
-        "Martial Melee",
-        "Martial Ranged"
-      ],
+      "weapons": ["Simple Melee", "Simple Ranged", "Martial Melee", "Martial Ranged"],
       "tools": [],
       "skills": {
         "choose": 2,
-        "from": [
-          "Acrobatics",
-          "Animal Handling",
-          "Athletics",
-          "Insight",
-          "Intimidation",
-          "Perception",
-          "Survival"
-        ]
+        "from": ["Acrobatics", "Animal Handling", "Athletics", "Insight", "Intimidation", "Perception", "Survival"]
       }
     },
     "starting_equipment": [
@@ -575,7 +597,10 @@
       "armor": ["All", "shields"],
       "weapons": ["Simple Melee", "Simple Ranged", "Martial Melee", "Martial Ranged"],
       "tools": [],
-      "skills": {"choose": 2, "from": ["Acrobatics", "Animal Handling", "Athletics", "Insight", "Intimidation", "Perception", "Survival"]}
+      "skills": {
+        "choose": 2,
+        "from": ["Acrobatics", "Animal Handling", "Athletics", "Insight", "Intimidation", "Perception", "Survival"]
+      }
     },
     "maneuver_ability": ["Strength", "Dexterity"],
     "source": "phb",
@@ -592,7 +617,10 @@
       "armor": ["All", "shields"],
       "weapons": ["Simple Melee", "Simple Ranged", "Martial Melee", "Martial Ranged"],
       "tools": [],
-      "skills": {"choose": 2, "from": ["Acrobatics", "Animal Handling", "Athletics", "Insight", "Intimidation", "Perception", "Survival"]}
+      "skills": {
+        "choose": 2,
+        "from": ["Acrobatics", "Animal Handling", "Athletics", "Insight", "Intimidation", "Perception", "Survival"]
+      }
     },
     "source": "phb",
     "ruleset": "dnd5e"
@@ -608,7 +636,10 @@
       "armor": ["All", "shields"],
       "weapons": ["Simple Melee", "Simple Ranged", "Martial Melee", "Martial Ranged"],
       "tools": [],
-      "skills": {"choose": 2, "from": ["Acrobatics", "Animal Handling", "Athletics", "Insight", "Intimidation", "Perception", "Survival"]}
+      "skills": {
+        "choose": 2,
+        "from": ["Acrobatics", "Animal Handling", "Athletics", "Insight", "Intimidation", "Perception", "Survival"]
+      }
     },
     "source": "phb",
     "ruleset": "dnd5e",
@@ -1188,14 +1219,7 @@
       ],
       "skills": {
         "choose": 2,
-        "from": [
-          "Animal Handling",
-          "Athletics",
-          "Intimidation",
-          "Nature",
-          "Perception",
-          "Survival"
-        ]
+        "from": ["Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"]
       }
     },
     "starting_equipment": [
@@ -1263,8 +1287,11 @@
     "proficiencies": {
       "armor": ["Light Armor", "Medium Armor", "Shields"],
       "weapons": ["Simple weapons", "martial weapons"],
-      "tools": [{"type": "choice", "choose": 1, "from": "Musical Instrument"}],
-      "skills": {"choose": 2, "from": ["Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"]}
+      "tools": [{ "type": "choice", "choose": 1, "from": "Musical Instrument" }],
+      "skills": {
+        "choose": 2,
+        "from": ["Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"]
+      }
     },
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1279,8 +1306,11 @@
     "proficiencies": {
       "armor": ["Light Armor", "Medium Armor", "Shields"],
       "weapons": ["Simple weapons", "martial weapons"],
-      "tools": [{"type": "choice", "choose": 1, "from": "Musical Instrument"}],
-      "skills": {"choose": 2, "from": ["Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"]}
+      "tools": [{ "type": "choice", "choose": 1, "from": "Musical Instrument" }],
+      "skills": {
+        "choose": 2,
+        "from": ["Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"]
+      }
     },
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1293,14 +1323,7 @@
     "saving_throw_proficiencies": ["Dexterity", "Charisma"],
     "proficiencies": {
       "armor": ["Light Armor"],
-      "weapons": [
-        "Simple Melee",
-        "Simple Ranged",
-        "Hand Crossbow",
-        "Longsword",
-        "Rapier",
-        "Shortsword"
-      ],
+      "weapons": ["Simple Melee", "Simple Ranged", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
       "tools": [
         {
           "type": "choice",
@@ -1755,8 +1778,30 @@
     "proficiencies": {
       "armor": ["Light Armor"],
       "weapons": ["Simple Melee", "Simple Ranged", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
-      "tools": [{"type": "choice", "choose": 3, "from": "Musical Instrument"}],
-      "skills": {"choose": 3, "from": ["Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Performance", "Persuasion", "Religion", "Sleight of Hand", "Stealth", "Survival"]}
+      "tools": [{ "type": "choice", "choose": 3, "from": "Musical Instrument" }],
+      "skills": {
+        "choose": 3,
+        "from": [
+          "Acrobatics",
+          "Animal Handling",
+          "Arcana",
+          "Athletics",
+          "Deception",
+          "History",
+          "Insight",
+          "Intimidation",
+          "Investigation",
+          "Medicine",
+          "Nature",
+          "Perception",
+          "Performance",
+          "Persuasion",
+          "Religion",
+          "Sleight of Hand",
+          "Stealth",
+          "Survival"
+        ]
+      }
     },
     "source": "phb",
     "ruleset": "dnd5e"
@@ -1771,8 +1816,30 @@
     "proficiencies": {
       "armor": ["Light Armor"],
       "weapons": ["Simple Melee", "Simple Ranged", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
-      "tools": [{"type": "choice", "choose": 3, "from": "Musical Instrument"}],
-      "skills": {"choose": 3, "from": ["Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Performance", "Persuasion", "Religion", "Sleight of Hand", "Stealth", "Survival"]}
+      "tools": [{ "type": "choice", "choose": 3, "from": "Musical Instrument" }],
+      "skills": {
+        "choose": 3,
+        "from": [
+          "Acrobatics",
+          "Animal Handling",
+          "Arcana",
+          "Athletics",
+          "Deception",
+          "History",
+          "Insight",
+          "Intimidation",
+          "Investigation",
+          "Medicine",
+          "Nature",
+          "Perception",
+          "Performance",
+          "Persuasion",
+          "Religion",
+          "Sleight of Hand",
+          "Stealth",
+          "Survival"
+        ]
+      }
     },
     "source": "phb",
     "ruleset": "dnd5e"

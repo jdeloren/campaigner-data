@@ -81,9 +81,7 @@
       {
         "type": "bonus_action",
         "trigger": {
-          "event": [
-            "cast_spell"
-          ],
+          "event": ["cast_spell"],
           "spell_level": 0
         },
         "effects": [
@@ -109,13 +107,9 @@
       {
         "type": "passive",
         "trigger": {
-          "event": [
-            "hit"
-          ],
+          "event": ["hit"],
           "source": {
-            "type": [
-              "weapon"
-            ]
+            "type": ["weapon"]
           }
         },
         "effects": [
@@ -128,9 +122,7 @@
               "source": "character",
               "effect": {
                 "disadvantage": {
-                  "saving_throw": [
-                    "all"
-                  ],
+                  "saving_throw": ["all"],
                   "against": {
                     "source": "character",
                     "effect_type": "spell"
@@ -186,9 +178,7 @@
       {
         "type": "bonus_action",
         "trigger": {
-          "event": [
-            "cast_spell"
-          ]
+          "event": ["cast_spell"]
         },
         "effects": [
           {

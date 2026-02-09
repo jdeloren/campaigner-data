@@ -8,9 +8,7 @@
       {
         "type": "optional",
         "trigger": {
-          "event": [
-            "status_applied"
-          ],
+          "event": ["status_applied"],
           "status": {
             "name": "raging",
             "on": "applied"
@@ -23,23 +21,16 @@
               "duration": {
                 "value": 1,
                 "unit": "minutes",
-                "sustain": [
-                  "damage",
-                  "damaged_by"
-                ],
+                "sustain": ["damage", "damaged_by"],
                 "until": [
                   {
-                    "event": [
-                      "status_applied"
-                    ],
+                    "event": ["status_applied"],
                     "status": {
                       "name": "unconscious"
                     }
                   },
                   {
-                    "event": [
-                      "status_removed"
-                    ],
+                    "event": ["status_removed"],
                     "action": "voluntary"
                   }
                 ]
@@ -83,10 +74,7 @@
           {
             "immunity": {
               "category": "status",
-              "status": [
-                "charmed",
-                "frightened"
-              ],
+              "status": ["charmed", "frightened"],
               "modifier": "effects",
               "requirements": [
                 {
@@ -120,10 +108,7 @@
               "type": "perception",
               "observer": "target",
               "subject": "character",
-              "senses": [
-                "sight",
-                "hearing"
-              ]
+              "senses": ["sight", "hearing"]
             }
           ]
         },
@@ -142,23 +127,17 @@
                 "unit": "turns",
                 "until": [
                   {
-                    "event": [
-                      "end_turn"
-                    ],
+                    "event": ["end_turn"],
                     "condition": {
                       "type": "perception",
                       "observer": "target",
                       "subject": "character",
-                      "senses": [
-                        "sight"
-                      ],
+                      "senses": ["sight"],
                       "negate": true
                     }
                   },
                   {
-                    "event": [
-                      "end_turn"
-                    ],
+                    "event": ["end_turn"],
                     "condition": {
                       "type": "range",
                       "value": 60,
@@ -186,13 +165,9 @@
       {
         "type": "reaction",
         "trigger": {
-          "event": [
-            "damaged_by"
-          ],
+          "event": ["damaged_by"],
           "source": {
-            "type": [
-              "creature"
-            ],
+            "type": ["creature"],
             "range": {
               "value": 5,
               "unit": "feet"

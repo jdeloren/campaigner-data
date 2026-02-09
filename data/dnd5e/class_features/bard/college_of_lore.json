@@ -30,15 +30,9 @@
           }
         ],
         "trigger": {
-          "event": [
-            "attack",
-            "ability_check",
-            "damage"
-          ],
+          "event": ["attack", "ability_check", "damage"],
           "source": {
-            "type": [
-              "creature"
-            ]
+            "type": ["creature"]
           },
           "timing": "after"
         },
@@ -53,17 +47,13 @@
                   "type": "perception",
                   "observer": "character",
                   "subject": "target",
-                  "senses": [
-                    "sight"
-                  ]
+                  "senses": ["sight"]
                 },
                 {
                   "type": "perception",
                   "observer": "target",
                   "subject": "character",
-                  "senses": [
-                    "hearing"
-                  ]
+                  "senses": ["hearing"]
                 },
                 {
                   "type": "immunity",
@@ -129,13 +119,9 @@
           }
         ],
         "trigger": {
-          "event": [
-            "ability_check"
-          ],
+          "event": ["ability_check"],
           "source": {
-            "type": [
-              "self"
-            ]
+            "type": ["self"]
           },
           "timing": "after"
         },

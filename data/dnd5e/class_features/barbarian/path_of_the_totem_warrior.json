@@ -8,10 +8,7 @@
       {
         "type": "granted_spells",
         "ritual_only": true,
-        "spells": [
-          "Beast Sense",
-          "Speak with Animals"
-        ]
+        "spells": ["Beast Sense", "Speak with Animals"]
       }
     ],
     "source": "phb",
@@ -44,27 +41,14 @@
               },
               {
                 "type": "inventory_item",
-                "name_contains": [
-                  "Bear",
-                  "Totem"
-                ]
+                "name_contains": ["Bear", "Totem"]
               }
             ],
             "effects": [
               {
                 "damage_response": {
                   "category": "resistance",
-                  "to": [
-                    "acid",
-                    "cold",
-                    "fire",
-                    "force",
-                    "lightning",
-                    "necrotic",
-                    "poison",
-                    "radiant",
-                    "thunder"
-                  ]
+                  "to": ["acid", "cold", "fire", "force", "lightning", "necrotic", "poison", "radiant", "thunder"]
                 }
               }
             ]
@@ -89,10 +73,7 @@
               },
               {
                 "type": "inventory_item",
-                "name_contains": [
-                  "Eagle",
-                  "Totem"
-                ]
+                "name_contains": ["Eagle", "Totem"]
               }
             ],
             "effects": [
@@ -121,10 +102,7 @@
               },
               {
                 "type": "inventory_item",
-                "name_contains": [
-                  "Eagle",
-                  "Totem"
-                ]
+                "name_contains": ["Eagle", "Totem"]
               }
             ],
             "grants": {
@@ -151,10 +129,7 @@
               },
               {
                 "type": "inventory_item",
-                "name_contains": [
-                  "Elk",
-                  "Totem"
-                ]
+                "name_contains": ["Elk", "Totem"]
               }
             ],
             "effects": [
@@ -189,10 +164,7 @@
               },
               {
                 "type": "inventory_item",
-                "name_contains": [
-                  "Tiger",
-                  "Totem"
-                ]
+                "name_contains": ["Tiger", "Totem"]
               }
             ],
             "effects": [
@@ -241,10 +213,7 @@
               },
               {
                 "type": "inventory_item",
-                "name_contains": [
-                  "Wolf",
-                  "Totem"
-                ]
+                "name_contains": ["Wolf", "Totem"]
               }
             ],
             "effects": [
@@ -298,10 +267,7 @@
             "requirements": [
               {
                 "type": "inventory_item",
-                "name_contains": [
-                  "Bear",
-                  "Totem"
-                ]
+                "name_contains": ["Bear", "Totem"]
               }
             ],
             "effects": [
@@ -337,10 +303,7 @@
             "requirements": [
               {
                 "type": "inventory_item",
-                "name_contains": [
-                  "Eagle",
-                  "Totem"
-                ]
+                "name_contains": ["Eagle", "Totem"]
               }
             ],
             "effects": [
@@ -383,10 +346,7 @@
             "requirements": [
               {
                 "type": "inventory_item",
-                "name_contains": [
-                  "Elk",
-                  "Totem"
-                ]
+                "name_contains": ["Elk", "Totem"]
               },
               {
                 "type": "status",
@@ -456,10 +416,7 @@
             "requirements": [
               {
                 "type": "inventory_item",
-                "name_contains": [
-                  "Tiger",
-                  "Totem"
-                ]
+                "name_contains": ["Tiger", "Totem"]
               }
             ]
           }
@@ -483,9 +440,7 @@
       {
         "type": "granted_spells",
         "ritual_only": true,
-        "spells": [
-          "Commune with Nature"
-        ]
+        "spells": ["Commune with Nature"]
       }
     ],
     "source": "phb",
@@ -518,10 +473,7 @@
               },
               {
                 "type": "inventory_item",
-                "name_contains": [
-                  "Bear",
-                  "Totem"
-                ]
+                "name_contains": ["Bear", "Totem"]
               }
             ],
             "effects": [
@@ -537,10 +489,7 @@
                         "type": "perception",
                         "observer": "target",
                         "subject": "character",
-                        "senses": [
-                          "sight",
-                          "hearing"
-                        ],
+                        "senses": ["sight", "hearing"],
                         "match": "any"
                       },
                       {
@@ -574,10 +523,7 @@
               },
               {
                 "type": "inventory_item",
-                "name_contains": [
-                  "Eagle",
-                  "Totem"
-                ]
+                "name_contains": ["Eagle", "Totem"]
               }
             ],
             "effects": [
@@ -613,10 +559,7 @@
               },
               {
                 "type": "inventory_item",
-                "name_contains": [
-                  "Elk",
-                  "Totem"
-                ]
+                "name_contains": ["Elk", "Totem"]
               }
             ],
             "target": {
@@ -625,12 +568,7 @@
               "requirements": [
                 {
                   "type": "size",
-                  "value": [
-                    "Large",
-                    "Medium",
-                    "Small",
-                    "Tiny"
-                  ],
+                  "value": ["Large", "Medium", "Small", "Tiny"],
                   "match": "any"
                 }
               ]
@@ -662,9 +600,7 @@
                           }
                         ]
                       },
-                      "type": [
-                        "bludgeoning"
-                      ]
+                      "type": ["bludgeoning"]
                     }
                   }
                 }
@@ -687,16 +623,11 @@
               },
               {
                 "type": "inventory_item",
-                "name_contains": [
-                  "Tiger",
-                  "Totem"
-                ]
+                "name_contains": ["Tiger", "Totem"]
               }
             ],
             "trigger": {
-              "event": [
-                "attack"
-              ],
+              "event": ["attack"],
               "conditions": [
                 {
                   "movement": {
@@ -706,12 +637,7 @@
                     "toward": "target"
                   },
                   "type": "melee",
-                  "target_size": [
-                    "Large",
-                    "Medium",
-                    "Small",
-                    "Tiny"
-                  ]
+                  "target_size": ["Large", "Medium", "Small", "Tiny"]
                 }
               ]
             },
@@ -739,29 +665,17 @@
               },
               {
                 "type": "inventory_item",
-                "name_contains": [
-                  "Wolf",
-                  "Totem"
-                ]
+                "name_contains": ["Wolf", "Totem"]
               }
             ],
             "trigger": {
-              "event": [
-                "hit"
-              ],
+              "event": ["hit"],
               "source": {
-                "type": [
-                  "melee"
-                ]
+                "type": ["melee"]
               },
               "target": {
                 "type": "creature",
-                "size": [
-                  "Large",
-                  "Medium",
-                  "Small",
-                  "Tiny"
-                ]
+                "size": ["Large", "Medium", "Small", "Tiny"]
               }
             },
             "effects": [

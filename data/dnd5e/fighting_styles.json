@@ -18,9 +18,7 @@
               "target": "attack_roll.modifier",
               "calculation": {
                 "operation": "add",
-                "operators": [
-                  { "type": "integer", "value": 2 }
-                ]
+                "operators": [{ "type": "integer", "value": 2 }]
               }
             }
           }
@@ -44,9 +42,7 @@
               "target": "senses.blindsight",
               "calculation": {
                 "operation": "set",
-                "operators": [
-                  { "type": "integer", "value": 10 }
-                ]
+                "operators": [{ "type": "integer", "value": 10 }]
               }
             }
           },
@@ -76,9 +72,7 @@
               "target": "armor_class.modifier",
               "calculation": {
                 "operation": "add",
-                "operators": [
-                  { "type": "integer", "value": 1 }
-                ]
+                "operators": [{ "type": "integer", "value": 1 }]
               }
             }
           }
@@ -111,9 +105,7 @@
             "damage_bonus": {
               "bonus": {
                 "operation": "add",
-                "operators": [
-                  { "type": "integer", "value": 2 }
-                ]
+                "operators": [{ "type": "integer", "value": 2 }]
               }
             }
           }
@@ -227,9 +219,7 @@
             "damage_bonus": {
               "bonus": {
                 "operation": "add",
-                "operators": [
-                  { "type": "action_modifier", "modifier": "attack" }
-                ]
+                "operators": [{ "type": "action_modifier", "modifier": "attack" }]
               }
             }
           }

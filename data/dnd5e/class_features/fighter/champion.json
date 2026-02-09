@@ -57,11 +57,7 @@
                 {
                   "type": "ability_check",
                   "proficient": false,
-                  "ability": [
-                    "Strength",
-                    "Dexterity",
-                    "Constitution"
-                  ]
+                  "ability": ["Strength", "Dexterity", "Constitution"]
                 }
               ]
             }
@@ -153,9 +149,7 @@
         "type": "passive",
         "name": "survivor_regeneration",
         "trigger": {
-          "event": [
-            "start_turn"
-          ]
+          "event": ["start_turn"]
         },
         "requirements": [
           {

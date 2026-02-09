@@ -15,13 +15,7 @@
   },
   {
     "class": "Cleric",
-    "level": [
-      4,
-      8,
-      12,
-      16,
-      19
-    ],
+    "level": [4, 8, 12, 16, 19],
     "name": "Ability Score Improvement",
     "description": "Increase one ability score by 2 or two ability scores by 1 or one feat",
     "mechanics": [
@@ -31,7 +25,11 @@
           {
             "type": "nested",
             "name": "Increase Ability Scores",
-            "choice": { "choice_type": "ability_score", "count": 2, "value": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] } }
+            "choice": {
+              "choice_type": "ability_score",
+              "count": 2,
+              "value": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] }
+            }
           },
           {
             "type": "nested",
@@ -121,18 +119,13 @@
               "requirements": [
                 {
                   "type": "creature_type",
-                  "value": [
-                    "Undead"
-                  ]
+                  "value": ["Undead"]
                 },
                 {
                   "type": "perception",
                   "observer": "target",
                   "subject": "character",
-                  "senses": [
-                    "sight",
-                    "hearing"
-                  ],
+                  "senses": ["sight", "hearing"],
                   "match": "any"
                 }
               ]
@@ -157,9 +150,7 @@
                   "duration": {
                     "value": 1,
                     "unit": "minutes",
-                    "until": [
-                      "damaged_by"
-                    ]
+                    "until": ["damaged_by"]
                   },
                   "constraints": {
                     "movement": {
@@ -168,13 +159,8 @@
                       "keep_distance": 30
                     },
                     "actions": {
-                      "blocked_actions": [
-                        "reaction"
-                      ],
-                      "allowed_actions": [
-                        "Dash",
-                        "Dodge"
-                      ]
+                      "blocked_actions": ["reaction"],
+                      "allowed_actions": ["Dash", "Dodge"]
                     }
                   }
                 }
@@ -248,9 +234,7 @@
       {
         "type": "passive",
         "trigger": {
-          "event": [
-            "saving_throw"
-          ],
+          "event": ["saving_throw"],
           "result": "failure",
           "timing": "resolved"
         },
@@ -295,24 +279,17 @@
     "level": 8,
     "name": "Blessed Strikes",
     "description": "You are blessed with divine might in battle. When a creature takes damage from one of your cantrips or weapon attacks, you can also deal 1d8 radiant damage to that creature. Once you deal this damage, you can't use this feature again until the start of your next turn.",
-    "extends": [
-      "Divine Strike",
-      "Potent Spellcasting"
-    ],
+    "extends": ["Divine Strike", "Potent Spellcasting"],
     "mechanics": [
       {
         "type": "damage_bonus",
         "trigger": {
-          "event": [
-            "cast_spell"
-          ],
+          "event": ["cast_spell"],
           "spell_level": 0
         },
         "damage": {
           "dice": "1d8",
-          "type": [
-            "radiant"
-          ]
+          "type": ["radiant"]
         },
         "uses": {
           "value": 1
@@ -322,20 +299,14 @@
       {
         "type": "damage_bonus",
         "trigger": {
-          "event": [
-            "damage"
-          ],
+          "event": ["damage"],
           "source": {
-            "type": [
-              "weapon"
-            ]
+            "type": ["weapon"]
           }
         },
         "damage": {
           "dice": "1d8",
-          "type": [
-            "radiant"
-          ]
+          "type": ["radiant"]
         },
         "uses": {
           "value": 1

@@ -10,9 +10,7 @@
         "activation": {
           "type": "bonus_action",
           "trigger": {
-            "event": [
-              "cast_spell"
-            ]
+            "event": ["cast_spell"]
           }
         },
         "name": "move_illusion",
@@ -21,9 +19,7 @@
             "movement": {
               "target": {
                 "type": "entity",
-                "value": [
-                  "spectral_hand"
-                ]
+                "value": ["spectral_hand"]
               },
               "distance": 30,
               "visibility": {
@@ -52,9 +48,7 @@
               "type": "perception",
               "observer": "target",
               "subject": "character",
-              "senses": [
-                "sight"
-              ],
+              "senses": ["sight"],
               "negate": true
             }
           ]
@@ -65,14 +59,7 @@
               "type": "attacker"
             },
             "disadvantage": {
-              "saving_throw": [
-                "Strength",
-                "Dexterity",
-                "Constitution",
-                "Intelligence",
-                "Wisdom",
-                "Charisma"
-              ]
+              "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
             }
           },
           {
@@ -104,9 +91,7 @@
               "requirements": [
                 {
                   "type": "proximity",
-                  "entities": [
-                    "mage_hand"
-                  ],
+                  "entities": ["mage_hand"],
                   "distance": 5,
                   "to": "target"
                 }

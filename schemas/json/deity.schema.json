@@ -90,18 +90,7 @@
   },
   "$defs": {
     "Domain": {
-      "enum": [
-        "Arcana",
-        "Death",
-        "Knowledge",
-        "Life",
-        "Light",
-        "Nature",
-        "Order",
-        "Tempest",
-        "Trickery",
-        "War"
-      ],
+      "enum": ["Arcana", "Death", "Knowledge", "Life", "Light", "Nature", "Order", "Tempest", "Trickery", "War"],
       "title": "Domain",
       "type": "string"
     }

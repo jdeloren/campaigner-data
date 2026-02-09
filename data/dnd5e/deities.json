@@ -4,10 +4,7 @@
     "alignment": "Neutral Evil",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Nature",
-      "Tempest"
-    ],
+    "domains": ["Nature", "Tempest"],
     "titles": [
       "Goddess of Winter",
       "Lady Frostkiss",
@@ -25,25 +22,15 @@
     "power": "Lesser Deity",
     "status": "Alive",
     "avatar": "Auril.jpg",
-    "allies": [
-      "Malar",
-      "Umberlee",
-      "Talos"
-    ],
-    "enemies": [
-      "Chauntea",
-      "Sune",
-      "Uthgar"
-    ]
+    "allies": ["Malar", "Umberlee", "Talos"],
+    "enemies": ["Chauntea", "Sune", "Uthgar"]
   },
   {
     "name": "Azuth",
     "alignment": "Lawful Neutral",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Knowledge"
-    ],
+    "domains": ["Knowledge"],
     "titles": [
       "God of Wizards",
       "Lord of Spells",
@@ -56,13 +43,7 @@
     "power": "God",
     "status": "Alive",
     "avatar": "Azuth.jpg",
-    "allies": [
-      "Savras",
-      "Deneir",
-      "Oghma",
-      "Leira",
-      "Mystra"
-    ],
+    "allies": ["Savras", "Deneir", "Oghma", "Leira", "Mystra"],
     "enemies": []
   },
   {
@@ -70,10 +51,7 @@
     "alignment": "Lawful Evil",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Order",
-      "War"
-    ],
+    "domains": ["Order", "War"],
     "titles": [
       "God of Tyranny",
       "Lord Bane",
@@ -86,29 +64,15 @@
     "power": "Quasi-deity",
     "status": "Resurrected",
     "avatar": "Bane.jpg",
-    "allies": [
-      "Myrkul",
-      "Loviatar",
-      "Talona",
-      "Mask",
-      "Malar"
-    ],
-    "enemies": [
-      "Mystra",
-      "Cyric",
-      "Torm",
-      "Oghma",
-      "Helm"
-    ]
+    "allies": ["Myrkul", "Loviatar", "Talona", "Mask", "Malar"],
+    "enemies": ["Mystra", "Cyric", "Torm", "Oghma", "Helm"]
   },
   {
     "name": "Beshaba",
     "alignment": "Chaotic Evil",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Trickery"
-    ],
+    "domains": ["Trickery"],
     "titles": [
       "Goddess of Misfortune",
       "Black Bess",
@@ -128,37 +92,20 @@
     "alignment": "Neutral Evil",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Death"
-    ],
-    "titles": [
-      "God of Murder",
-      "Lord of Murder",
-      "Dread Lord"
-    ],
+    "domains": ["Death"],
+    "titles": ["God of Murder", "Lord of Murder", "Dread Lord"],
     "power": "Quasi-deity",
     "status": "Alive",
     "avatar": "Bhaal.jpg",
-    "allies": [
-      "Bane"
-    ],
-    "enemies": [
-      "Chauntea",
-      "Helm",
-      "Ilmater",
-      "Lathander",
-      "Lliira",
-      "Tyr"
-    ]
+    "allies": ["Bane"],
+    "enemies": ["Chauntea", "Helm", "Ilmater", "Lathander", "Lliira", "Tyr"]
   },
   {
     "name": "Chauntea",
     "alignment": "Neutral Good",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Life"
-    ],
+    "domains": ["Life"],
     "titles": [
       "Goddess of Agruiculture",
       "The Great Mother",
@@ -175,26 +122,15 @@
     "power": "Greater Deity",
     "status": "Alive",
     "avatar": "Chauntea.jpg",
-    "allies": [
-      "Silvanus",
-      "Mielikki",
-      "Lathander"
-    ],
-    "enemies": [
-      "Talona",
-      "Talos",
-      "Malar",
-      "Bane"
-    ]
+    "allies": ["Silvanus", "Mielikki", "Lathander"],
+    "enemies": ["Talona", "Talos", "Malar", "Bane"]
   },
   {
     "name": "Cyric",
     "alignment": "Chaotic Evil",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Trickery"
-    ],
+    "domains": ["Trickery"],
     "titles": [
       "God of Lies",
       "Prince of Lies",
@@ -216,60 +152,27 @@
     "status": "Alive",
     "avatar": "Cyric.jpg",
     "allies": [],
-    "enemies": [
-      "Mystra",
-      "Bane",
-      "Oghma",
-      "Azuth",
-      "Tyr",
-      "Torm",
-      "Bane",
-      "Deneir",
-      "Leira"
-    ]
+    "enemies": ["Mystra", "Bane", "Oghma", "Azuth", "Tyr", "Torm", "Bane", "Deneir", "Leira"]
   },
   {
     "name": "Deneir",
     "alignment": "Neutral Good",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Knowledge"
-    ],
-    "titles": [
-      "God of Writing",
-      "Lord of All Glyphs and Images",
-      "The Scribe of Oghma",
-      "The First Scribe"
-    ],
+    "domains": ["Knowledge"],
+    "titles": ["God of Writing", "Lord of All Glyphs and Images", "The Scribe of Oghma", "The First Scribe"],
     "power": "Lesser Deity",
     "status": "Alive",
     "avatar": "Deneir.jpg",
-    "allies": [
-      "Oghma",
-      "Gond",
-      "Milil",
-      "Mystra",
-      "Azuth",
-      "Savras"
-    ],
-    "enemies": [
-      "Cyric",
-      "Mask",
-      "Shar",
-      "Malar",
-      "Talos"
-    ]
+    "allies": ["Oghma", "Gond", "Milil", "Mystra", "Azuth", "Savras"],
+    "enemies": ["Cyric", "Mask", "Shar", "Malar", "Talos"]
   },
   {
     "name": "Eldath",
     "alignment": "Neutral Good",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Life",
-      "Nature"
-    ],
+    "domains": ["Life", "Nature"],
     "titles": [
       "Goddess of Peace",
       "Mother Guardian of Groves",
@@ -282,13 +185,7 @@
     "power": "Lesser Deity",
     "status": "Alive",
     "avatar": "Eldath.jpg",
-    "allies": [
-      "Mielikki",
-      "Silvanus",
-      "Chauntea",
-      "Selûne",
-      "Lathander"
-    ],
+    "allies": ["Mielikki", "Silvanus", "Chauntea", "Selûne", "Lathander"],
     "enemies": []
   },
   {
@@ -296,9 +193,7 @@
     "alignment": "Neutral",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Knowledge"
-    ],
+    "domains": ["Knowledge"],
     "titles": [
       "God of Craft",
       "Holy Maker of All Things",
@@ -310,24 +205,15 @@
     "power": "Intermediate Deity",
     "status": "Alive",
     "avatar": "Gond.jpg",
-    "allies": [
-      "Milil",
-      "Deneir",
-      "Oghma"
-    ],
-    "enemies": [
-      "Talos"
-    ]
+    "allies": ["Milil", "Deneir", "Oghma"],
+    "enemies": ["Talos"]
   },
   {
     "name": "Helm",
     "alignment": "Lawful Neutral",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Life",
-      "Light"
-    ],
+    "domains": ["Life", "Light"],
     "titles": [
       "God of Protection",
       "He of the Unsleeping Eyes",
@@ -340,27 +226,15 @@
     "power": "Deity",
     "status": "Resurrected",
     "avatar": "Helm.jpg",
-    "allies": [
-      "Torm"
-    ],
-    "enemies": [
-      "Lathander",
-      "Bane",
-      "Cyric",
-      "Mask",
-      "Shar",
-      "Malar",
-      "Talos"
-    ]
+    "allies": ["Torm"],
+    "enemies": ["Lathander", "Bane", "Cyric", "Mask", "Shar", "Malar", "Talos"]
   },
   {
     "name": "Ilmater",
     "alignment": "Lawful Good",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Life"
-    ],
+    "domains": ["Life"],
     "titles": [
       "God of Endurance",
       "The Crying God",
@@ -373,29 +247,15 @@
     "power": "God",
     "status": "Alive",
     "avatar": "Ilmater.jpg",
-    "allies": [
-      "Tyr",
-      "Torm",
-      "Lathander"
-    ],
-    "enemies": [
-      "Loviatar",
-      "Bane",
-      "Bhaal",
-      "Malar",
-      "Myrkul",
-      "Shar",
-      "Talos"
-    ]
+    "allies": ["Tyr", "Torm", "Lathander"],
+    "enemies": ["Loviatar", "Bane", "Bhaal", "Malar", "Myrkul", "Shar", "Talos"]
   },
   {
     "name": "Kelemvor",
     "alignment": "Lawful Neutral",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Death"
-    ],
+    "domains": ["Death"],
     "titles": [
       "God of the Dead",
       "Lord of the Dead",
@@ -408,23 +268,15 @@
     "power": "Greater Deity",
     "status": "Resurrected",
     "avatar": "Kelemvor.jpg",
-    "allies": [
-      "Lathander"
-    ],
-    "enemies": [
-      "Cyric",
-      "Talona"
-    ]
+    "allies": ["Lathander"],
+    "enemies": ["Cyric", "Talona"]
   },
   {
     "name": "Lathander",
     "alignment": "Neutral Good",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Life",
-      "Light"
-    ],
+    "domains": ["Life", "Light"],
     "titles": [
       "God of Birth and Renewal",
       "Morninglord",
@@ -439,32 +291,15 @@
     "power": "Greater Deity",
     "status": "Alive",
     "avatar": "Lathander.jpg",
-    "allies": [
-      "Gond",
-      "Tyr",
-      "Torm",
-      "Ilmater",
-      "Sune",
-      "Selûne",
-      "Oghma",
-      "Kelemvor",
-      "Mielikki"
-    ],
-    "enemies": [
-      "Helm",
-      "Cyric",
-      "Talos",
-      "Shar"
-    ]
+    "allies": ["Gond", "Tyr", "Torm", "Ilmater", "Sune", "Selûne", "Oghma", "Kelemvor", "Mielikki"],
+    "enemies": ["Helm", "Cyric", "Talos", "Shar"]
   },
   {
     "name": "Leira",
     "alignment": "Chaotic Neutral",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Trickery"
-    ],
+    "domains": ["Trickery"],
     "titles": [
       "Goddess of Illusion",
       "Lady of Deception",
@@ -474,13 +309,8 @@
       "Mother of Illusionists",
       "Guardian of Deception"
     ],
-    "allies": [
-      "Mask",
-      "Azuth"
-    ],
-    "enemies": [
-      "Oghma"
-    ],
+    "allies": ["Mask", "Azuth"],
+    "enemies": ["Oghma"],
     "power": "Deity",
     "status": "Dead",
     "avatar": "deities/Leira.jpg"
@@ -490,37 +320,20 @@
     "alignment": "Chaotic Good",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Life"
-    ],
-    "titles": [
-      "Goddess of Joy",
-      "Joybringer",
-      "Our Lady of Joy",
-      "The Everchanging Goddess",
-      "Mistress of Revels"
-    ],
+    "domains": ["Life"],
+    "titles": ["Goddess of Joy", "Joybringer", "Our Lady of Joy", "The Everchanging Goddess", "Mistress of Revels"],
     "power": "Exarch",
     "status": "Alive",
     "avatar": "Lliira.jpg",
-    "allies": [
-      "Milil",
-      "Deneir",
-      "Oghma",
-      "Waukeen"
-    ],
-    "enemies": [
-      "Shar"
-    ]
+    "allies": ["Milil", "Deneir", "Oghma", "Waukeen"],
+    "enemies": ["Shar"]
   },
   {
     "name": "Loviatar",
     "alignment": "Lawful Evil",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Death"
-    ],
+    "domains": ["Death"],
     "titles": [
       "Goddess of Pain",
       "The Maiden of Pain",
@@ -531,25 +344,15 @@
     "power": "Intermediate Deity",
     "status": "Alive",
     "avatar": "Loviatar.jpg",
-    "allies": [
-      "Bane",
-      "Bhaal",
-      "Malar"
-    ],
-    "enemies": [
-      "Talona",
-      "Eldath",
-      "Lliira"
-    ]
+    "allies": ["Bane", "Bhaal", "Malar"],
+    "enemies": ["Talona", "Eldath", "Lliira"]
   },
   {
     "name": "Malar",
     "alignment": "Chaotic Evil",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Nature"
-    ],
+    "domains": ["Nature"],
     "titles": [
       "God of the Hunt",
       "The Beastlord",
@@ -563,11 +366,7 @@
     "power": "Deity",
     "status": "Alive",
     "avatar": "Malar.jpg",
-    "allies": [
-      "Talos",
-      "Bane",
-      "Loviatar"
-    ],
+    "allies": ["Talos", "Bane", "Loviatar"],
     "enemies": []
   },
   {
@@ -575,36 +374,20 @@
     "alignment": "Chaotic Neutral",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Trickery"
-    ],
-    "titles": [
-      "God of Thieves",
-      "Lord of Shadows",
-      "Master of All Thieves",
-      "The Shadowlord",
-      "Blackheart"
-    ],
+    "domains": ["Trickery"],
+    "titles": ["God of Thieves", "Lord of Shadows", "Master of All Thieves", "The Shadowlord", "Blackheart"],
     "power": "God",
     "status": "Resurrected",
     "avatar": "Mask.jpg",
-    "allies": [
-      "Bane"
-    ],
-    "enemies": [
-      "Cyric",
-      "Waukeen",
-      "Selûne"
-    ]
+    "allies": ["Bane"],
+    "enemies": ["Cyric", "Waukeen", "Selûne"]
   },
   {
     "name": "Mielikki",
     "alignment": "Neutral Good",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Nature"
-    ],
+    "domains": ["Nature"],
     "titles": [
       "Goddess of Forests",
       "Mistress of the Forest",
@@ -617,27 +400,15 @@
     "power": "Deity",
     "status": "Alive",
     "avatar": "Mielikki.jpg",
-    "allies": [
-      "Silvanus",
-      "Chauntea",
-      "Eldath",
-      "Lathander"
-    ],
-    "enemies": [
-      "Malar",
-      "Myrkul",
-      "Talona",
-      "Talos"
-    ]
+    "allies": ["Silvanus", "Chauntea", "Eldath", "Lathander"],
+    "enemies": ["Malar", "Myrkul", "Talona", "Talos"]
   },
   {
     "name": "Milil",
     "alignment": "Neutral Good",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Light"
-    ],
+    "domains": ["Light"],
     "titles": [
       "God of Poetry and Song",
       "Lord of Song",
@@ -649,26 +420,15 @@
     "power": "Exarch",
     "status": "Alive",
     "avatar": "Milil.jpg",
-    "allies": [
-      "Oghma",
-      "Deneir",
-      "Gond",
-      "Mystra",
-      "Sune",
-      "Lliira"
-    ],
-    "enemies": [
-      "Cyric"
-    ]
+    "allies": ["Oghma", "Deneir", "Gond", "Mystra", "Sune", "Lliira"],
+    "enemies": ["Cyric"]
   },
   {
     "name": "Myrkul",
     "alignment": "Neutral Evil",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Death"
-    ],
+    "domains": ["Death"],
     "titles": [
       "God of Death",
       "Crown Prince of Murghôm",
@@ -680,25 +440,15 @@
     "power": "Quasi-deity",
     "status": "Resurrected",
     "avatar": "Myrkul.jpg",
-    "allies": [
-      "Bane",
-      "Bhaal",
-      "Shar"
-    ],
-    "enemies": [
-      "Chauntea",
-      "Lathander",
-      "Mielikki"
-    ]
+    "allies": ["Bane", "Bhaal", "Shar"],
+    "enemies": ["Chauntea", "Lathander", "Mielikki"]
   },
   {
     "name": "Mystra",
     "alignment": "Neutral Good",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Knowledge"
-    ],
+    "domains": ["Knowledge"],
     "titles": [
       "Goddess of Magic",
       "The Lady of Mysteries",
@@ -714,25 +464,15 @@
     "power": "Greater Deity",
     "status": "Resurrected",
     "avatar": "Mystra.jpg",
-    "allies": [
-      "Azuth",
-      "Savras",
-      "Oghma"
-    ],
-    "enemies": [
-      "Bane",
-      "Talos",
-      "Cyric"
-    ]
+    "allies": ["Azuth", "Savras", "Oghma"],
+    "enemies": ["Bane", "Talos", "Cyric"]
   },
   {
     "name": "Oghma",
     "alignment": "Neutral",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Knowledge"
-    ],
+    "domains": ["Knowledge"],
     "titles": [
       "God of Knowledge",
       "The Binder",
@@ -749,43 +489,20 @@
     "power": "Greater Deity",
     "status": "Alive",
     "avatar": "Oghma.jpg",
-    "allies": [
-      "Milil",
-      "Deneir",
-      "Gond",
-      "Mystra",
-      "Azuth",
-      "Lathander",
-      "Lliira"
-    ],
-    "enemies": [
-      "Mask",
-      "Cyric",
-      "Talos",
-      "Bane",
-      "Leira"
-    ]
+    "allies": ["Milil", "Deneir", "Gond", "Mystra", "Azuth", "Lathander", "Lliira"],
+    "enemies": ["Mask", "Cyric", "Talos", "Bane", "Leira"]
   },
   {
     "name": "Savras",
     "alignment": "Lawful Neutral",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Knowledge"
-    ],
-    "titles": [
-      "God of Divination and Fate",
-      "The All-Seeing",
-      "He of the Third Eye",
-      "Lord of Divination"
-    ],
+    "domains": ["Knowledge"],
+    "titles": ["God of Divination and Fate", "The All-Seeing", "He of the Third Eye", "Lord of Divination"],
     "power": "God",
     "status": "Alive",
     "avatar": "Savras.jpg",
-    "allies": [
-      "Azuth"
-    ],
+    "allies": ["Azuth"],
     "enemies": []
   },
   {
@@ -793,10 +510,7 @@
     "alignment": "Chaotic Good",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Knowledge",
-      "Life"
-    ],
+    "domains": ["Knowledge", "Life"],
     "titles": [
       "Goddess of the Moon",
       "Our Lady of Silver",
@@ -808,26 +522,15 @@
     "power": "Greater Deity",
     "status": "",
     "avatar": "Selune.jpg",
-    "allies": [
-      "Mystra",
-      "Lliira",
-      "Sune"
-    ],
-    "enemies": [
-      "Shar",
-      "Mask",
-      "Umberlee"
-    ]
+    "allies": ["Mystra", "Lliira", "Sune"],
+    "enemies": ["Shar", "Mask", "Umberlee"]
   },
   {
     "name": "Shar",
     "alignment": "Neutral Evil",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Death",
-      "Trickery"
-    ],
+    "domains": ["Death", "Trickery"],
     "titles": [
       "Goddess of Darkness and Loss",
       "Mistress of the Night",
@@ -847,25 +550,15 @@
     "power": "Greater Deity",
     "status": "Alive",
     "avatar": "Shar.jpg",
-    "allies": [
-      "Myrkul",
-      "Talona"
-    ],
-    "enemies": [
-      "Selûne",
-      "Mystra",
-      "Lathander",
-      "Mask"
-    ]
+    "allies": ["Myrkul", "Talona"],
+    "enemies": ["Selûne", "Mystra", "Lathander", "Mask"]
   },
   {
     "name": "Silvanus",
     "alignment": "Neutral",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Nature"
-    ],
+    "domains": ["Nature"],
     "titles": [
       "God of Wild Nature",
       "Oak Father",
@@ -878,27 +571,15 @@
     "power": "Greater Deity",
     "status": "Alive",
     "avatar": "Silvanus.jpg",
-    "allies": [
-      "Eldath",
-      "Mielikki",
-      "Chauntea",
-      "Lathander"
-    ],
-    "enemies": [
-      "Malar",
-      "Talona",
-      "Talos"
-    ]
+    "allies": ["Eldath", "Mielikki", "Chauntea", "Lathander"],
+    "enemies": ["Malar", "Talona", "Talos"]
   },
   {
     "name": "Sune",
     "alignment": "Chaotic Good",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Life",
-      "Light"
-    ],
+    "domains": ["Life", "Light"],
     "titles": [
       "Goddess of Love and Beauty",
       "Firehair",
@@ -912,25 +593,15 @@
     "power": "Greater Deity",
     "status": "Alive",
     "avatar": "Sune.jpg",
-    "allies": [
-      "Torm",
-      "Lliira",
-      "Milil",
-      "Lathander",
-      "Selûne"
-    ],
-    "enemies": [
-      "Talona"
-    ]
+    "allies": ["Torm", "Lliira", "Milil", "Lathander", "Selûne"],
+    "enemies": ["Talona"]
   },
   {
     "name": "Talona",
     "alignment": "Chaotic Evil",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Death"
-    ],
+    "domains": ["Death"],
     "titles": [
       "Goddess of Disease and Poison",
       "Lady of Poison",
@@ -941,51 +612,28 @@
     "power": "Lesser Deity",
     "status": "Alive",
     "avatar": "Talona.jpg",
-    "allies": [
-      "Bhaal",
-      "Shar"
-    ],
-    "enemies": [
-      "Loviatar",
-      "Chauntea",
-      "Mielikki",
-      "Kelemvor",
-      "Tyr"
-    ]
+    "allies": ["Bhaal", "Shar"],
+    "enemies": ["Loviatar", "Chauntea", "Mielikki", "Kelemvor", "Tyr"]
   },
   {
     "name": "Tempus",
     "alignment": "Neutral",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "War"
-    ],
-    "titles": [
-      "God of War",
-      "Foehammer",
-      "Lord of Battles",
-      "The Usurper",
-      "The Battle Lord"
-    ],
+    "domains": ["War"],
+    "titles": ["God of War", "Foehammer", "Lord of Battles", "The Usurper", "The Battle Lord"],
     "power": "Greater Deity",
     "status": "Alive",
     "avatar": "Tempus.jpg",
-    "allies": [
-      "Beshaba"
-    ],
-    "enemies": [
-      "Sune"
-    ]
+    "allies": ["Beshaba"],
+    "enemies": ["Sune"]
   },
   {
     "name": "Torm",
     "alignment": "Lawful Good",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "War"
-    ],
+    "domains": ["War"],
     "titles": [
       "God of Courage and Self-Sacrifice",
       "Torm the True",
@@ -1000,26 +648,15 @@
     "power": "Greater Deity",
     "status": "Resurrected",
     "avatar": "Torm.jpg",
-    "allies": [
-      "Tyr",
-      "Ilmater",
-      "Helm",
-      "Lathander"
-    ],
-    "enemies": [
-      "Bane",
-      "Shar",
-      "Cyric"
-    ]
+    "allies": ["Tyr", "Ilmater", "Helm", "Lathander"],
+    "enemies": ["Bane", "Shar", "Cyric"]
   },
   {
     "name": "Tyr",
     "alignment": "Lawful Good",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "War"
-    ],
+    "domains": ["War"],
     "titles": [
       "God of Justice",
       "The Even-Handed",
@@ -1039,28 +676,15 @@
     "power": "Deity",
     "status": "Resurrected",
     "avatar": "Tyr.jpg",
-    "allies": [
-      "Ilmater",
-      "Torm",
-      "Lathander"
-    ],
-    "enemies": [
-      "Bane",
-      "Bhaal",
-      "Cyric",
-      "Mask",
-      "Talona",
-      "Talos"
-    ]
+    "allies": ["Ilmater", "Torm", "Lathander"],
+    "enemies": ["Bane", "Bhaal", "Cyric", "Mask", "Talona", "Talos"]
   },
   {
     "name": "Umberlee",
     "alignment": "Chaotic Evil",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Tempest"
-    ],
+    "domains": ["Tempest"],
     "titles": [
       "Goddess of the Sea",
       "The Bitch Queen",
@@ -1076,25 +700,15 @@
     "power": "Intermediate Deity",
     "status": "Alive",
     "avatar": "Umberlee.jpg",
-    "allies": [
-      "Auril",
-      "Talos"
-    ],
-    "enemies": [
-      "Chauntea",
-      "Selûne",
-      "Sune"
-    ]
+    "allies": ["Auril", "Talos"],
+    "enemies": ["Chauntea", "Selûne", "Sune"]
   },
   {
     "name": "Waukeen",
     "alignment": "Neutral",
     "source": "Forgotten Realms",
     "pantheon": "Faerun",
-    "domains": [
-      "Knowledge",
-      "Trickery"
-    ],
+    "domains": ["Knowledge", "Trickery"],
     "titles": [
       "Goddess of Trade",
       "Liberty's Maiden",
@@ -1109,12 +723,7 @@
     "power": "Lesser Deity",
     "status": "Alive",
     "avatar": "Waukeen.jpg",
-    "allies": [
-      "Lliira",
-      "Gond"
-    ],
-    "enemies": [
-      "Mask"
-    ]
+    "allies": ["Lliira", "Gond"],
+    "enemies": ["Mask"]
   }
 ]

@@ -10,9 +10,7 @@
       {
         "type": "bonus_action",
         "trigger": {
-          "event": [
-            "attack"
-          ]
+          "event": ["attack"]
         },
         "cost": [
           {
@@ -34,10 +32,7 @@
                   "type": "perception",
                   "observer": "target",
                   "subject": "character",
-                  "senses": [
-                    "sight",
-                    "hearing"
-                  ],
+                  "senses": ["sight", "hearing"],
                   "match": "any"
                 }
               ]
@@ -53,9 +48,7 @@
               "type": "event_recipient"
             },
             "trigger": {
-              "event": [
-                "hit"
-              ]
+              "event": ["hit"]
             },
             "damage_bonus": {
               "value": "superiority_die"
@@ -76,9 +69,7 @@
       {
         "type": "special",
         "trigger": {
-          "event": [
-            "damage"
-          ]
+          "event": ["damage"]
         },
         "cost": [
           {
@@ -122,9 +113,7 @@
       {
         "type": "special",
         "trigger": {
-          "event": [
-            "damage"
-          ]
+          "event": ["damage"]
         },
         "cost": [
           {
@@ -146,9 +135,7 @@
               "name": "distracted",
               "effect": {
                 "trigger": {
-                  "event": [
-                    "attack"
-                  ],
+                  "event": ["attack"],
                   "source": {
                     "exclude": "character"
                   }
@@ -182,9 +169,7 @@
       {
         "type": "special",
         "trigger": {
-          "event": [
-            "move"
-          ]
+          "event": ["move"]
         },
         "cost": [
           {
@@ -204,9 +189,7 @@
               ]
             },
             "duration": {
-              "until": [
-                "move_end"
-              ]
+              "until": ["move_end"]
             }
           }
         ]
@@ -245,9 +228,7 @@
               "name": "feinted",
               "effect": {
                 "trigger": {
-                  "event": [
-                    "attack"
-                  ],
+                  "event": ["attack"],
                   "source": {
                     "is": "character"
                   }
@@ -291,9 +272,7 @@
       {
         "type": "special",
         "trigger": {
-          "event": [
-            "damage"
-          ]
+          "event": ["damage"]
         },
         "cost": [
           {
@@ -350,13 +329,9 @@
       {
         "type": "special",
         "trigger": {
-          "event": [
-            "attack"
-          ],
+          "event": ["attack"],
           "source": {
-            "type": [
-              "melee"
-            ]
+            "type": ["melee"]
           }
         },
         "cost": [
@@ -403,9 +378,7 @@
       {
         "type": "special",
         "trigger": {
-          "event": [
-            "damage"
-          ]
+          "event": ["damage"]
         },
         "cost": [
           {
@@ -428,10 +401,7 @@
                   "type": "perception",
                   "observer": "target",
                   "subject": "character",
-                  "senses": [
-                    "sight",
-                    "hearing"
-                  ],
+                  "senses": ["sight", "hearing"],
                   "match": "any"
                 }
               ]
@@ -478,9 +448,7 @@
       {
         "type": "special",
         "trigger": {
-          "event": [
-            "damage"
-          ]
+          "event": ["damage"]
         },
         "cost": [
           {
@@ -530,13 +498,9 @@
       {
         "type": "reaction",
         "trigger": {
-          "event": [
-            "damaged_by"
-          ],
+          "event": ["damaged_by"],
           "source": {
-            "type": [
-              "melee"
-            ]
+            "type": ["melee"]
           }
         },
         "cost": [
@@ -576,13 +540,8 @@
       {
         "type": "special",
         "trigger": {
-          "event": [
-            "attack"
-          ],
-          "timing": [
-            "before",
-            "after"
-          ]
+          "event": ["attack"],
+          "timing": ["before", "after"]
         },
         "cost": [
           {
@@ -612,9 +571,7 @@
       {
         "type": "special",
         "trigger": {
-          "event": [
-            "damage"
-          ]
+          "event": ["damage"]
         },
         "cost": [
           {
@@ -634,12 +591,7 @@
               "requirements": [
                 {
                   "type": "size",
-                  "value": [
-                    "Tiny",
-                    "Small",
-                    "Medium",
-                    "Large"
-                  ]
+                  "value": ["Tiny", "Small", "Medium", "Large"]
                 }
               ]
             },
@@ -692,10 +644,7 @@
                   "type": "perception",
                   "observer": "target",
                   "subject": "character",
-                  "senses": [
-                    "sight",
-                    "hearing"
-                  ],
+                  "senses": ["sight", "hearing"],
                   "match": "any"
                 }
               ]
@@ -732,13 +681,9 @@
       {
         "type": "reaction",
         "trigger": {
-          "event": [
-            "missed_by"
-          ],
+          "event": ["missed_by"],
           "source": {
-            "type": [
-              "melee"
-            ]
+            "type": ["melee"]
           }
         },
         "cost": [
@@ -781,13 +726,9 @@
       {
         "type": "special",
         "trigger": {
-          "event": [
-            "damage"
-          ],
+          "event": ["damage"],
           "source": {
-            "type": [
-              "melee"
-            ]
+            "type": ["melee"]
           }
         },
         "cost": [
@@ -842,9 +783,7 @@
       {
         "type": "special",
         "trigger": {
-          "event": [
-            "damage"
-          ]
+          "event": ["damage"]
         },
         "cost": [
           {
@@ -864,12 +803,7 @@
               "requirements": [
                 {
                   "type": "size",
-                  "value": [
-                    "Tiny",
-                    "Small",
-                    "Medium",
-                    "Large"
-                  ]
+                  "value": ["Tiny", "Small", "Medium", "Large"]
                 }
               ]
             },

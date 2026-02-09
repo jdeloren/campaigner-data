@@ -748,16 +748,7 @@
     "concentration": false,
     "damage": {
       "dice": "2d8+1d6",
-      "type": [
-        "acid",
-        "cold",
-        "fire",
-        "force",
-        "lightning",
-        "poison",
-        "psychic",
-        "thunder"
-      ]
+      "type": ["acid", "cold", "fire", "force", "lightning", "poison", "psychic", "thunder"]
     },
     "scaling": {
       "type": "spell",
@@ -1299,9 +1290,7 @@
               "dice": "1d8",
               "bonus": {
                 "operation": "add",
-                "operators": [
-                  { "type": "action_modifier", "modifier": "spellcasting" }
-                ]
+                "operators": [{ "type": "action_modifier", "modifier": "spellcasting" }]
               }
             }
           }
@@ -1333,16 +1322,7 @@
           {
             "detection": {
               "range": { "value": 30, "unit": "feet" },
-              "detects": [
-                "aberration",
-                "celestial",
-                "elemental",
-                "fey",
-                "fiend",
-                "undead",
-                "consecrated",
-                "desecrated"
-              ]
+              "detects": ["aberration", "celestial", "elemental", "fey", "fiend", "undead", "consecrated", "desecrated"]
             }
           }
         ]
@@ -1357,15 +1337,7 @@
     "level": 1,
     "casting_time": "Action",
     "components": ["Verbal", "Somatic"],
-    "classes": [
-      "Bard",
-      "Cleric",
-      "Druid",
-      "Paladin",
-      "Ranger",
-      "Sorcerer",
-      "Wizard"
-    ],
+    "classes": ["Bard", "Cleric", "Druid", "Paladin", "Ranger", "Sorcerer", "Wizard"],
     "school": "Divination",
     "range": "Self",
     "duration": 10,
@@ -2398,9 +2370,7 @@
               "dice": "1d4",
               "bonus": {
                 "operation": "add",
-                "operators": [
-                  { "type": "action_modifier", "modifier": "spellcasting" }
-                ]
+                "operators": [{ "type": "action_modifier", "modifier": "spellcasting" }]
               }
             }
           }
@@ -2533,9 +2503,7 @@
             "healing": {
               "bonus": {
                 "operation": "add",
-                "operators": [
-                  { "type": "action_modifier", "modifier": "spellcasting" }
-                ]
+                "operators": [{ "type": "action_modifier", "modifier": "spellcasting" }]
               },
               "barrier": true
             }
@@ -3193,14 +3161,7 @@
             "requirements": [
               {
                 "type": "creature_type",
-                "value": [
-                  "aberration",
-                  "celestial",
-                  "elemental",
-                  "fey",
-                  "fiend",
-                  "undead"
-                ]
+                "value": ["aberration", "celestial", "elemental", "fey", "fiend", "undead"]
               }
             ]
           },
@@ -3212,14 +3173,7 @@
             "requirements": [
               {
                 "type": "creature_type",
-                "value": [
-                  "aberration",
-                  "celestial",
-                  "elemental",
-                  "fey",
-                  "fiend",
-                  "undead"
-                ]
+                "value": ["aberration", "celestial", "elemental", "fey", "fiend", "undead"]
               }
             ]
           },

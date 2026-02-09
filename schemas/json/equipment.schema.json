@@ -218,12 +218,7 @@
         "title": "Mechanics"
       }
     },
-    "required": [
-      "name",
-      "source",
-      "ruleset",
-      "category"
-    ],
+    "required": ["name", "source", "ruleset", "category"],
     "title": "Equipment",
     "type": "object"
   },
@@ -256,21 +251,13 @@
           "title": "Max Dex Bonus"
         }
       },
-      "required": [
-        "base"
-      ],
+      "required": ["base"],
       "title": "ArmorClass",
       "type": "object"
     },
     "EquipmentCategory": {
       "description": "High-level equipment categories for filtering.",
-      "enum": [
-        "weapon",
-        "armor",
-        "adventuring_gear",
-        "container",
-        "focus"
-      ],
+      "enum": ["weapon", "armor", "adventuring_gear", "container", "focus"],
       "title": "EquipmentCategory",
       "type": "string"
     },
@@ -288,10 +275,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "amount",
-        "unit"
-      ],
+      "required": ["amount", "unit"],
       "title": "Capacity",
       "type": "object"
     },
@@ -316,14 +300,7 @@
         "ability": {
           "anyOf": [
             {
-              "enum": [
-                "Strength",
-                "Dexterity",
-                "Constitution",
-                "Intelligence",
-                "Wisdom",
-                "Charisma"
-              ],
+              "enum": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
               "type": "string"
             },
             {
@@ -374,9 +351,7 @@
           "title": "Description"
         }
       },
-      "required": [
-        "type"
-      ],
+      "required": ["type"],
       "title": "Requirement",
       "type": "object"
     },

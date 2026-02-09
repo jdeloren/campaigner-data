@@ -102,9 +102,7 @@
         "type": "passive",
         "name": "relentless_recovery",
         "trigger": {
-          "event": [
-            "initiative_roll"
-          ]
+          "event": ["initiative_roll"]
         },
         "requirements": [
           {

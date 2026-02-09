@@ -36,9 +36,7 @@
                   "type": "perception",
                   "observer": "target",
                   "subject": "character",
-                  "senses": [
-                    "hearing"
-                  ]
+                  "senses": ["hearing"]
                 }
               ]
             },
@@ -117,9 +115,7 @@
         "type": "passive",
         "name": "song_of_rest",
         "trigger": {
-          "event": [
-            "healed_by"
-          ],
+          "event": ["healed_by"],
           "source": {
             "resource": "hit_dice"
           }
@@ -135,9 +131,7 @@
                   "type": "perception",
                   "observer": "target",
                   "subject": "character",
-                  "senses": [
-                    "hearing"
-                  ]
+                  "senses": ["hearing"]
                 }
               ]
             },
@@ -174,13 +168,8 @@
         "type": "optional",
         "name": "magical_inspiration",
         "trigger": {
-          "event": [
-            "cast_spell"
-          ],
-          "effect": [
-            "healing",
-            "damage"
-          ]
+          "event": ["cast_spell"],
+          "effect": ["healing", "damage"]
         },
         "cost": [
           {
@@ -237,10 +226,7 @@
   },
   {
     "class": "Bard",
-    "level": [
-      3,
-      10
-    ],
+    "level": [3, 10],
     "name": "Expertise",
     "description": "At 3rd level, choose two of your skill proficiencies. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies. At 10th level, you can choose another two skill proficiencies to gain this benefit.",
     "mechanics": [
@@ -256,13 +242,7 @@
   },
   {
     "class": "Bard",
-    "level": [
-      4,
-      8,
-      12,
-      16,
-      19
-    ],
+    "level": [4, 8, 12, 16, 19],
     "name": "Ability Score Improvement",
     "description": "When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
     "mechanics": [
@@ -272,7 +252,11 @@
           {
             "type": "nested",
             "name": "Increase Ability Scores",
-            "choice": { "choice_type": "ability_score", "count": 2, "value": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] } }
+            "choice": {
+              "choice_type": "ability_score",
+              "count": 2,
+              "value": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] }
+            }
           },
           {
             "type": "nested",
@@ -371,9 +355,7 @@
                   "type": "perception",
                   "observer": "target",
                   "subject": "character",
-                  "senses": [
-                    "hearing"
-                  ]
+                  "senses": ["hearing"]
                 }
               ]
             },
@@ -384,19 +366,9 @@
               "origin": "self"
             },
             "advantage": {
-              "saving_throw": [
-                "Strength",
-                "Dexterity",
-                "Constitution",
-                "Intelligence",
-                "Wisdom",
-                "Charisma"
-              ],
+              "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
               "against": {
-                "status": [
-                  "frightened",
-                  "charmed"
-                ]
+                "status": ["frightened", "charmed"]
               }
             },
             "duration": {
@@ -404,25 +376,19 @@
               "unit": "rounds",
               "until": [
                 {
-                  "event": [
-                    "status_applied"
-                  ],
+                  "event": ["status_applied"],
                   "status": {
                     "name": "incapacitated"
                   }
                 },
                 {
-                  "event": [
-                    "status_applied"
-                  ],
+                  "event": ["status_applied"],
                   "status": {
                     "name": "silenced"
                   }
                 },
                 {
-                  "event": [
-                    "status_removed"
-                  ],
+                  "event": ["status_removed"],
                   "action": "voluntary"
                 }
               ]
@@ -481,9 +447,7 @@
         "type": "passive",
         "name": "superior_inspiration",
         "trigger": {
-          "event": [
-            "initiative_roll"
-          ]
+          "event": ["initiative_roll"]
         },
         "effects": [
           {

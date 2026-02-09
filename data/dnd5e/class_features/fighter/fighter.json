@@ -114,15 +114,7 @@
   },
   {
     "class": "Fighter",
-    "level": [
-      4,
-      6,
-      8,
-      12,
-      14,
-      16,
-      19
-    ],
+    "level": [4, 6, 8, 12, 14, 16, 19],
     "name": "Ability Score Improvement",
     "description": "Increase one ability score by 2 or two ability scores by 1 or one feat",
     "mechanics": [
@@ -132,7 +124,11 @@
           {
             "type": "nested",
             "name": "Increase Ability Scores",
-            "choice": { "choice_type": "ability_score", "count": 2, "value": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] } }
+            "choice": {
+              "choice_type": "ability_score",
+              "count": 2,
+              "value": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] }
+            }
           },
           {
             "type": "nested",
@@ -178,9 +174,7 @@
       {
         "type": "passive",
         "trigger": {
-          "event": [
-            "miss"
-          ],
+          "event": ["miss"],
           "action": "saving_throw"
         },
         "effects": [
