@@ -8,7 +8,7 @@
       {
         "type": "proficiency",
         "category": "tool",
-        "proficiencies": ["disguise kit", "poisoner's kit"]
+        "proficiencies": ["Disguise Kit", "Poisoner's Kit"]
       }
     ],
     "source": "phb",
