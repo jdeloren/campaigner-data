@@ -70,14 +70,7 @@
         "title": "Activities"
       }
     },
-    "required": [
-      "name",
-      "cost",
-      "weight",
-      "source",
-      "ruleset",
-      "category"
-    ],
+    "required": ["name", "cost", "weight", "source", "ruleset", "category"],
     "title": "Tool",
     "type": "object"
   },
@@ -95,21 +88,13 @@
           "description": "Difficulty class for the activity"
         }
       },
-      "required": [
-        "name",
-        "dc"
-      ],
+      "required": ["name", "dc"],
       "title": "ToolActivity",
       "type": "object"
     },
     "ToolCategory": {
       "description": "Categories of D&D 5e tools.",
-      "enum": [
-        "Artisan's Tools",
-        "Gaming Set",
-        "Musical Instrument",
-        "Miscellaneous"
-      ],
+      "enum": ["Artisan's Tools", "Gaming Set", "Musical Instrument", "Miscellaneous"],
       "title": "ToolCategory",
       "type": "string"
     }

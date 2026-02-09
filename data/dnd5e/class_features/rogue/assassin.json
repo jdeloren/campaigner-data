@@ -8,10 +8,7 @@
       {
         "type": "proficiency",
         "category": "tool",
-        "proficiencies": [
-          "disguise kit",
-          "poisoner's kit"
-        ]
+        "proficiencies": ["disguise kit", "poisoner's kit"]
       }
     ],
     "source": "phb",
@@ -26,9 +23,7 @@
       {
         "type": "advantage",
         "trigger": {
-          "event": [
-            "attack"
-          ]
+          "event": ["attack"]
         },
         "target": {
           "type": "creature",
@@ -48,9 +43,7 @@
       {
         "type": "critical_hit",
         "trigger": {
-          "event": [
-            "hit"
-          ]
+          "event": ["hit"]
         },
         "target": {
           "type": "creature",
@@ -102,9 +95,7 @@
           "dc": {
             "base": 8,
             "add": "proficiency_bonus",
-            "ability": [
-              "Dexterity"
-            ]
+            "ability": ["Dexterity"]
           },
           "on_failure": {
             "damage": {

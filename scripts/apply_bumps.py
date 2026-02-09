@@ -126,9 +126,7 @@ def main():
             schema_versions[schema_name] = new_version
             print(f"schema {schema_name}: {old_version} -> {new_version} ({bump_type})")
 
-        schema_versions_path.write_text(
-            json.dumps(dict(sorted(schema_versions.items())), indent=2) + "\n"
-        )
+        schema_versions_path.write_text(json.dumps(dict(sorted(schema_versions.items())), indent=2) + "\n")
 
     # Apply repo bump
     repo_bump = plan.get("repo_bump", "none")
@@ -140,7 +138,11 @@ def main():
             old_version = version_data.get("version", "0.0.0")
         else:
             old_version = get_repo_version()
-            version_data = {"version": old_version, "name": "campaigner-data", "description": "Game data repository for the Campaigner project"}
+            version_data = {
+                "version": old_version,
+                "name": "campaigner-data",
+                "description": "Game data repository for the Campaigner project",
+            }
 
         new_version = bump_version(old_version, repo_bump)
 

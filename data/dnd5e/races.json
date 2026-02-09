@@ -43,14 +43,7 @@
             "effects": [
               {
                 "advantage": {
-                  "saving_throw": [
-                    "Strength",
-                    "Dexterity",
-                    "Constitution",
-                    "Intelligence",
-                    "Wisdom",
-                    "Charisma"
-                  ],
+                  "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
                   "against": {
                     "status": ["charmed"]
                   }
@@ -194,9 +187,9 @@
             "type": "passive",
             "effects": [
               {
-                "stat_modifier": {
-                  "stat": "speed",
-                  "value": {
+                "attribute": {
+                  "target": "speed",
+                  "calculation": {
                     "operation": "set",
                     "operators": [
                       {
@@ -392,14 +385,7 @@
             "effects": [
               {
                 "advantage": {
-                  "saving_throw": [
-                    "Strength",
-                    "Dexterity",
-                    "Constitution",
-                    "Intelligence",
-                    "Wisdom",
-                    "Charisma"
-                  ],
+                  "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
                   "against": {
                     "status": ["charmed"]
                   }
@@ -435,11 +421,31 @@
                   "count": 2
                 }
               },
-              { "type": "trait_ref", "race": "High Elf", "trait": "Elf Weapon Training" },
-              { "type": "trait_ref", "race": "High Elf", "trait": "Cantrip" },
-              { "type": "trait_ref", "race": "Wood Elf", "trait": "Fleet of Foot" },
-              { "type": "trait_ref", "race": "Wood Elf", "trait": "Mask of the Wild" },
-              { "type": "trait_ref", "race": "Drow", "trait": "Drow Magic" }
+              {
+                "type": "trait_ref",
+                "race": "High Elf",
+                "trait": "Elf Weapon Training"
+              },
+              {
+                "type": "trait_ref",
+                "race": "High Elf",
+                "trait": "Cantrip"
+              },
+              {
+                "type": "trait_ref",
+                "race": "Wood Elf",
+                "trait": "Fleet of Foot"
+              },
+              {
+                "type": "trait_ref",
+                "race": "Wood Elf",
+                "trait": "Mask of the Wild"
+              },
+              {
+                "type": "trait_ref",
+                "race": "Drow",
+                "trait": "Drow Magic"
+              }
             ]
           }
         ]
@@ -510,14 +516,7 @@
             "effects": [
               {
                 "advantage": {
-                  "saving_throw": [
-                    "Strength",
-                    "Dexterity",
-                    "Constitution",
-                    "Intelligence",
-                    "Wisdom",
-                    "Charisma"
-                  ],
+                  "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
                   "against": {
                     "damage_type": ["poison"]
                   }
@@ -539,12 +538,7 @@
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": [
-              "battleaxe",
-              "handaxe",
-              "light hammer",
-              "warhammer"
-            ]
+            "proficiencies": ["battleaxe", "handaxe", "light hammer", "warhammer"]
           }
         ]
       },
@@ -621,9 +615,9 @@
             "type": "passive",
             "effects": [
               {
-                "stat_modifier": {
-                  "stat": "hit_points",
-                  "value": {
+                "attribute": {
+                  "target": "hit_points",
+                  "calculation": {
                     "operation": "add",
                     "operators": [
                       {
@@ -2286,11 +2280,7 @@
               {
                 "expertise": {
                   "skill": "History",
-                  "context": [
-                    "magic items",
-                    "alchemical objects",
-                    "technological devices"
-                  ]
+                  "context": ["magic items", "alchemical objects", "technological devices"]
                 }
               }
             ]

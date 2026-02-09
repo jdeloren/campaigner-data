@@ -183,9 +183,7 @@ def main():
             repo_bumps.append(bump_type)
 
         for schema in get_affected_schemas(files):
-            schema_bumps.setdefault(schema, []).append(
-                parse_bump_type(commit["message"])
-            )
+            schema_bumps.setdefault(schema, []).append(parse_bump_type(commit["message"]))
 
     # Determine final bumps for datasets
     results = []

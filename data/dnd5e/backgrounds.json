@@ -2,10 +2,7 @@
   {
     "name": "Acolyte",
     "description": "You have spent your life in the service of a temple to a specific god or pantheon of gods. You act as an intermediary between the realm of the holy and the mortal world, performing sacred rites and offering sacrifices in order to conduct worshipers into the presence of the divine. You are not necessarily a cleric -\u00a0performing sacred rites is not the same thing as channeling divine power.\n\nChoose a god, a pantheon of gods, or some other quasi-divine being, and work with your DM to detail the nature of your religious service. Were you a lesser functionary in a temple, raised from childhood to assist the priests in the sacred rites? Or were you a high priest who suddenly experienced a call to serve your god in a different way? Perhaps you were the leader of a small cult outside of any established temple structure, or even an occult group that served a fiendish master that you now deny.",
-    "skill_proficiencies": [
-      "Insight",
-      "Religion"
-    ],
+    "skill_proficiencies": ["Insight", "Religion"],
     "tool_proficiencies": [],
     "languages": [
       {
@@ -89,14 +86,8 @@
   {
     "name": "Charlatan",
     "description": "You have always had a way with people. You know what makes them tick, you can tease out their hearts' desires after a few minutes of conversation, and with a few leading questions you can read them like they were children's books. It's a useful talent, and one that you're perfectly willing to use for your advantage.\n\nYou know what people want and you deliver, or rather, you promise to deliver. Common sense should steer people away from things that sound too good to be true, but common sense seems to be in short supply when you're around. The bottle of pink colored liquid will surely cure that unseemly rash, this ointment -\u00a0nothing more than a bit of fat with a sprinkle of silver dust can restore youth and vigor, and there's a bridge in the city that just happens to be for sale. These marvels sound implausible, but you make them sound like the real deal.",
-    "skill_proficiencies": [
-      "Deception",
-      "Sleight of Hand"
-    ],
-    "tool_proficiencies": [
-      "Disguise kit",
-      "forgery kit"
-    ],
+    "skill_proficiencies": ["Deception", "Sleight of Hand"],
+    "tool_proficiencies": ["Disguise kit", "forgery kit"],
     "languages": [],
     "equipment": [
       {
@@ -162,14 +153,8 @@
   {
     "name": "Criminal",
     "description": "You are an experienced criminal with a history of breaking the law. You have spent a lot of time among other criminals and still have contacts within the criminal underworld. You're far closer than most people to the world of murder, theft, and violence that pervades the underbelly of civilization, and you have survived up to this point by flouting the rules and regulations of society.",
-    "skill_proficiencies": [
-      "Deception",
-      "Stealth"
-    ],
-    "tool_proficiencies": [
-      "any gaming set",
-      "Thieves' Tools"
-    ],
+    "skill_proficiencies": ["Deception", "Stealth"],
+    "tool_proficiencies": ["any gaming set", "Thieves' Tools"],
     "languages": [],
     "equipment": [
       {
@@ -211,14 +196,8 @@
   {
     "name": "Entertainer",
     "description": "You thrive in front of an audience. You know how to entrance them, entertain them, and even inspire them. Your poetics can stir the hearts of those who hear you, awakening grief or joy, laughter or anger. Your music raises their spirits or captures their sorrow. Your dance steps captivate, your humor cuts to the quick. Whatever techniques you use, your art is your life.",
-    "skill_proficiencies": [
-      "Acrobatics",
-      "Performance"
-    ],
-    "tool_proficiencies": [
-      "Disguise kit",
-      "any musical instrument"
-    ],
+    "skill_proficiencies": ["Acrobatics", "Performance"],
+    "tool_proficiencies": ["Disguise kit", "any musical instrument"],
     "languages": [],
     "equipment": [
       {
@@ -277,14 +256,8 @@
   {
     "name": "Folk Hero",
     "description": "You come from a humble social rank, but you are destined for so much more. Already the people of your home village regard you as their champion, and your destiny calls you to stand against the tyrants and monsters that threaten the common folk everywhere.",
-    "skill_proficiencies": [
-      "Animal Handling",
-      "Survival"
-    ],
-    "tool_proficiencies": [
-      "any artisan's tools",
-      "vehicles (land)"
-    ],
+    "skill_proficiencies": ["Animal Handling", "Survival"],
+    "tool_proficiencies": ["any artisan's tools", "vehicles (land)"],
     "languages": [],
     "equipment": [
       {
@@ -342,13 +315,8 @@
   {
     "name": "Guild Artisan",
     "description": "You are a member of an artisan's guild, skilled in a particular field and closely associated with other artisans. You are a well-established part of the mercantile world, freed by talent and wealth from the constraints of a feudal social order. You learned your skills as an apprentice to a master artisan, under the sponsorship of your guild, until you became a master in your own right.",
-    "skill_proficiencies": [
-      "Insight",
-      "Persuasion"
-    ],
-    "tool_proficiencies": [
-      "One type of artisan's tools"
-    ],
+    "skill_proficiencies": ["Insight", "Persuasion"],
+    "tool_proficiencies": ["One type of artisan's tools"],
     "languages": [
       {
         "choice_group": 1,
@@ -408,13 +376,8 @@
   {
     "name": "Hermit",
     "description": "You lived in seclusion - either in a sheltered community such as a monastery, or entirely alone - for a formative part of your life. In your time apart from the clamor of society, you found quiet, solitude, and perhaps some of the answers you were looking for.",
-    "skill_proficiencies": [
-      "Medicine",
-      "Religion"
-    ],
-    "tool_proficiencies": [
-      "Herbalism kit"
-    ],
+    "skill_proficiencies": ["Medicine", "Religion"],
+    "tool_proficiencies": ["Herbalism kit"],
     "languages": [
       {
         "choice_group": 1,
@@ -483,13 +446,8 @@
   {
     "name": "Noble",
     "description": "You understand wealth, power, and privilege. You carry a noble title, and your family owns land, collects taxes, and wields significant political influence. You might be a pampered aristocrat unfamiliar with work or discomfort, a former merchant just elevated to the nobility, or a disinherited scoundrel with a disproportionate sense of entitlement. Or you could be an honest, hard-working landowner who cares deeply about the people who live and work on your land, keenly aware of your responsibility to them.\n\nWork with your DM to come up with an appropriate title and determine how much authority that title carries. A noble title doesn't stand on its own-it's connected to an entire family, and whatever title you hold, you will pass it down to your own children. Not only do you need to determine your noble title, but you should also work with the DM to describe your family and their influence on you.\n\nIs your family old and established, or was your title only recently bestowed? How much influence do they wield, and over what area? What kind of reputation does your family have among the other aristocrats of the region? How do the common people regard them?\n\nWhat's your position in the family? Are you the heir to the head of the family? Have you already inherited the title? How do you feel about that responsibility? Or are you so far down the line of inheritance that no one cares what you do, as long as you don't embarrass the family? How does the head of your family feel about your adventuring career? Are you in your family's good graces, or shunned by the rest of your family?\n\nDoes your family have a coat of arms? An insignia you might wear on a signet ring? Particular colors you wear all the time? An animal you regard as a symbol of your line or even a spiritual member of the family?\n\nThese details help establish your family and your title as features of the world of the campaign.",
-    "skill_proficiencies": [
-      "History",
-      "Persuasion"
-    ],
-    "tool_proficiencies": [
-      "One type of gaming set"
-    ],
+    "skill_proficiencies": ["History", "Persuasion"],
+    "tool_proficiencies": ["One type of gaming set"],
     "languages": [
       {
         "choice_group": 1,
@@ -549,13 +507,8 @@
   {
     "name": "Outlander",
     "description": "You grew up in the wilds, far from civilization and the comforts of town and technology. You've witnessed the migration of herds larger than forests, survived weather more extreme than any city-dweller could comprehend, and enjoyed the solitude of being the only thinking creature for miles in any direction. The wilds are in your blood, whether you were a nomad, an explorer, a recluse, a hunter-gatherer, or even a marauder. Even in places where you don't know the specific features of the terrain, you know the ways of the wild.",
-    "skill_proficiencies": [
-      "Athletics",
-      "Survival"
-    ],
-    "tool_proficiencies": [
-      "One type of musical instrument"
-    ],
+    "skill_proficiencies": ["Athletics", "Survival"],
+    "tool_proficiencies": ["One type of musical instrument"],
     "languages": [
       {
         "choice_group": 1,
@@ -625,10 +578,7 @@
   {
     "name": "Sage",
     "description": "You spent years learning the lore of the multiverse. You scoured manuscripts, studied scrolls, and listened to the greatest experts on the subjects that interest you. Your efforts have made you a master in your fields of study.",
-    "skill_proficiencies": [
-      "Arcana",
-      "History"
-    ],
+    "skill_proficiencies": ["Arcana", "History"],
     "tool_proficiencies": [],
     "languages": [
       {
@@ -709,14 +659,8 @@
   {
     "name": "Sailor",
     "description": "You sailed on a seagoing vessel for years. In that time, you faced down mighty storms, monsters of the deep, and those who wanted to sink your craft to the bottomless depths. Your first love is the distant line of the horizon, but the time has come to try your hand at something new.\n\nDiscuss the nature of the ship you previously sailed with your DM. Was it a merchant ship, a naval vessel, a ship of discovery, or a pirate ship? How famous (or infamous) is it? Is it widely traveled? Is it still sailing, or is it missing and presumed lost with all hands?\n\nWhat were your duties on board - boatswain, captain, navigator, cook, or some other position? Who were the captain and first mate? Did you leave your ship on good terms with your fellows, or on the run?",
-    "skill_proficiencies": [
-      "Athletics",
-      "Perception"
-    ],
-    "tool_proficiencies": [
-      "Navigator's tools",
-      "vehicles (water)"
-    ],
+    "skill_proficiencies": ["Athletics", "Perception"],
+    "tool_proficiencies": ["Navigator's tools", "vehicles (water)"],
     "languages": [],
     "equipment": [
       {
@@ -745,7 +689,8 @@
         "items": [
           {
             "item": "any trinket",
-            "quantity": 1
+            "quantity": 1,
+            "flavor": true
           }
         ]
       },
@@ -774,14 +719,8 @@
   {
     "name": "Soldier",
     "description": "War has been your life for as long as you care to remember. You trained as a youth, studied the use of weapons and armor, learned basic survival techniques, including how to stay alive on the battlefield. You might have been part of a standing national army or a mercenary company, or perhaps a member of a local militia who rose to prominence during a recent war.\n\nWhen you choose this background, work with your DM to determine which military organization you were a part of, how far through its ranks you progressed, and what kind of experiences you had during your military career. Was it a standing army, a town guard, or a village militia? Or it might have been a noble's or merchant's private army, or a mercenary company.",
-    "skill_proficiencies": [
-      "Athletics",
-      "Intimidation"
-    ],
-    "tool_proficiencies": [
-      "One type of gaming set",
-      "vehicles (land)"
-    ],
+    "skill_proficiencies": ["Athletics", "Intimidation"],
+    "tool_proficiencies": ["One type of gaming set", "vehicles (land)"],
     "languages": [],
     "equipment": [
       {
@@ -854,14 +793,8 @@
   {
     "name": "Urchin",
     "description": "You grew up on the streets alone, orphaned, and poor, You had no one to watch over you or to provide for you, so you learned to provide for yourself. You fought fiercely over food and kept a constant watch out for other desperate souls who might steal from you. You slept on rooftops and in alleyways, exposed to the elements, and endured sickness without the advantage of medicine or a place to recuperate. You've survived despite all odds, and did so through cunning, strength, speed, or some combination of each.\n\nYou begin your adventuring career with enough money to live modestly but securely for at least ten days. How did you come by that money? What allowed you to break free of your desperate circumstances and embark on a better life?",
-    "skill_proficiencies": [
-      "Sleight of Hand",
-      "Stealth"
-    ],
-    "tool_proficiencies": [
-      "Disguise kit",
-      "Thieves' Tools"
-    ],
+    "skill_proficiencies": ["Sleight of Hand", "Stealth"],
+    "tool_proficiencies": ["Disguise kit", "Thieves' Tools"],
     "languages": [],
     "equipment": [
       {
@@ -932,10 +865,7 @@
   {
     "name": "City Watch",
     "description": "You have served the community where you grew up, standing as its first line of defense against crime. You aren't a soldier, directing your gaze outward at possible enemies. Instead, your service to your hometown was to help police its populace, protecting the citizenry from lawbreakers and malefactors of every stripe.\n\nYou might have been part of the City Watch of Waterdeep, the baton-wielding police force of the City of Splendors, protecting the common folk from thieves and rowdy nobility alike. Or you might have been one of the valiant defenders of Silverymoon, a member of the Silverwatch or even one of the magic-wielding Spellguard.\n\nPerhaps you hail from Neverwinter and have served as one of its Wintershield watchmen, the newly founded branch of guards who vow to keep safe the City of Skilled Hands.\n\nEven if you're not city-born or city-bred, this background can describe your early years as a member of law enforcement. Most settlements of any size have their own constables and police forces, and even smaller communities have sheriffs and bailiffs who stand ready to protect their community.",
-    "skill_proficiencies": [
-      "Athletics",
-      "Insight"
-    ],
+    "skill_proficiencies": ["Athletics", "Insight"],
     "tool_proficiencies": [],
     "languages": [
       {
@@ -995,13 +925,8 @@
   {
     "name": "Clan Crafter",
     "description": "The Stout Folk are well known for their artisanship and the worth of their handiworks, and you have been trained in that ancient tradition. For years you labored under a dwarf master of the craft, enduring long hours and dismissive, sour-tempered treatment in order to gain the fine skills you possess today.\n\nYou are most likely a dwarf, but not necessarily- particularly in the North, the shield dwarf clans learned long ago that only proud fools who are more concerned for their egos than their craft turn away promising apprentices, even those of other races. If you aren't a dwarf, however, you have taken a solemn oath never to take on an apprentice in the craft: it is not for non-dwarves to pass on the skills of Moradin's favored children. You would have no difficulty, however, finding a dwarf master who was willing to receive potential apprentices who came with your recommendation.",
-    "skill_proficiencies": [
-      "History",
-      "Insight"
-    ],
-    "tool_proficiencies": [
-      "any artisan's tools"
-    ],
+    "skill_proficiencies": ["History", "Insight"],
+    "tool_proficiencies": ["any artisan's tools"],
     "languages": [],
     "equipment": [
       {
@@ -1078,11 +1003,7 @@
       {
         "choice_group": 2,
         "choose": 3,
-        "from": [
-          "Arcana",
-          "Nature",
-          "Religion"
-        ]
+        "from": ["Arcana", "Nature", "Religion"]
       }
     ],
     "tool_proficiencies": [],
@@ -1145,10 +1066,7 @@
   {
     "name": "Courtier",
     "description": "In your earlier days, you were a personage of some significance in a noble court or a bureaucratic organization. You might or might not come from an upper-class family; your talents, rather than the circumstances of your birth, could have secured you this position.\n\nYou might have been one of the many functionaries, attendants, and other hangers-on in the Court of Silverymoon, or perhaps you traveled in Waterdeep's baroque and sometimes cutthroat conglomeration of guilds, nobles, adventurers, and secret societies. You might have been one of the behind-the-scenes law-keepers or functionaries in Baldur's Gate or Neverwinter, or you might have grown up in and around the castle of Daggerford.\n\nEven if you are no longer a full-fledged member of the group that gave you your start in life, your relationships with your former fellows can be an advantage for you and your adventuring comrades. You might undertake missions with your new companions that further the interest of the organization that gave you your start in life. In any event, the abilities that you honed while serving as a courtier will stand you in good stead as an adventurer.",
-    "skill_proficiencies": [
-      "Insight",
-      "Persuasion"
-    ],
+    "skill_proficiencies": ["Insight", "Persuasion"],
     "tool_proficiencies": [],
     "languages": [
       {
@@ -1284,18 +1202,12 @@
   {
     "name": "Far Traveler",
     "description": "Almost all of the common people and other folk that one might encounter along the Sword Coast or in the North have one thing in common: they live out their lives without ever traveling more than a few miles from where they were born.\n\nYou are from a distant place, one so remote that few of the common folk in the North realize that it exists, and chances are good that even if some people you meet have heard of your homeland, they know merely the name and perhaps a few outrageous stories. You have come to this part of Faer\u00fbn for your own reasons, which you might or might not choose to share.\n\nAlthough you will undoubtedly find some of this land's ways to be strange and discomfiting, you can also be sure that some things its people take for granted will be to you new wonders that you've never laid eyes on before. By the same token, you're a person of interest, for good or ill, to those around you almost anywhere you go.",
-    "skill_proficiencies": [
-      "Insight",
-      "Perception"
-    ],
+    "skill_proficiencies": ["Insight", "Perception"],
     "tool_proficiencies": [
       {
         "choice_group": 1,
         "choose": 1,
-        "from": [
-          "any musical instrument",
-          "any gaming set"
-        ]
+        "from": ["any musical instrument", "any gaming set"]
       }
     ],
     "languages": [
@@ -1391,21 +1303,14 @@
       {
         "choice_group": 2,
         "choose": 1,
-        "from": [
-          "Arcana",
-          "History",
-          "Religion"
-        ]
+        "from": ["Arcana", "History", "Religion"]
       }
     ],
     "tool_proficiencies": [
       {
         "choice_group": 1,
         "choose": 1,
-        "from": [
-          "any musical instrument",
-          "any gaming set"
-        ]
+        "from": ["any musical instrument", "any gaming set"]
       }
     ],
     "languages": [
@@ -1481,22 +1386,14 @@
       {
         "choice_group": 2,
         "choose": 1,
-        "from": [
-          "Arcana",
-          "History",
-          "Nature",
-          "Religion"
-        ]
+        "from": ["Arcana", "History", "Nature", "Religion"]
       }
     ],
     "tool_proficiencies": [
       {
         "choice_group": 1,
         "choose": 1,
-        "from": [
-          "any gaming set",
-          "any musical instrument"
-        ]
+        "from": ["any gaming set", "any musical instrument"]
       }
     ],
     "languages": [
@@ -1559,14 +1456,8 @@
   {
     "name": "Mercenary Veteran",
     "description": "As a sell-sword who fought battles for coin, you're well acquainted with risking life and limb for a chance at a share of treasure. Now, you look forward to fighting foes and reaping even greater rewards as an adventurer. Your experience makes you familiar with the ins and outs of mercenary life, and you likely have harrowing stories of events on the battlefield. You might have served with a large outfit such as the Zhentarim or the soldiers of Mintarn, or a smaller band of sell-swords, maybe even more than one. See the \"Mercenaries of the North\" section below for a collection of possibilities.\n\nNow you're looking for something else, perhaps greater reward for the risks you take, or the freedom to choose your own activities. For whatever reason, you're leaving behind the life of a soldier for hire, but your skills are undeniably suited for battle, so now you fight on in a different way.",
-    "skill_proficiencies": [
-      "Athletics",
-      "Persuasion"
-    ],
-    "tool_proficiencies": [
-      "One type of gaming set",
-      "vehicles (land)"
-    ],
+    "skill_proficiencies": ["Athletics", "Persuasion"],
+    "tool_proficiencies": ["One type of gaming set", "vehicles (land)"],
     "languages": [],
     "equipment": [
       {
@@ -1618,11 +1509,7 @@
     "skill_proficiencies": [
       {
         "choose": 2,
-        "from": [
-          "Deception",
-          "Persuasion",
-          "Stealth"
-        ]
+        "from": ["Deception", "Persuasion", "Stealth"]
       }
     ],
     "tool_proficiencies": [
@@ -1671,10 +1558,7 @@
   {
     "name": "Uthgardt Tribe Member",
     "description": "Though you might have only recently arrived in civilized lands, you are no stranger to the values of cooperation and group effort when striving for supremacy. You learned these principles, and much more, as a member of an Uthgardt tribe.\n\nYour people have always tried to hold to the old ways. Tradition and taboo have kept the Uthgardt strong while the kingdoms of others have collapsed into chaos and ruin. But for the last few generations, some bands among the tribes were tempted to settle, make peace, trade, and even to build towns. Perhaps this is why Uthgar chose to raise up the totems among the people as living embodiments of his power. Perhaps they needed a reminder of who they were and from whence they came. The Chosen of Uthgar led bands back to the old ways, and most of your people abandoned the soft ways of civilization.\n\nYou might have grown up in one of the tribes that had decided to settle down, and now that they have abandoned that path, you find yourself adrift. Or you might come from a segment of the Uthgardt that adheres to tradition, but you seek to bring glory to your tribe by achieving great things as a formidable adventurer.\n\nSee the \"Uthgardt Tribes and Their Territories\" section below for details on each tribe's territory and its activities that will help you choose your affiliation.",
-    "skill_proficiencies": [
-      "Athletics",
-      "Survival"
-    ],
+    "skill_proficiencies": ["Athletics", "Survival"],
     "tool_proficiencies": [
       {
         "choose": 1,
@@ -1755,10 +1639,7 @@
   {
     "name": "Waterdhavian Noble",
     "description": "You are a scion of one of the great noble families of Waterdeep. Human families who jealously guard their privilege and place in the City of Splendors, Waterdhavian nobles have a reputation across Faer\u00fbn for being eccentric, spoiled, venal, and, above all else, rich.\n\nWhether you are a shining example of the reason for this reputation or one who proves the rule by being an exception, people expect things of you when they know your surname and what it means. Your reasons for taking up adventuring likely involve your family in some way: Are you the family rebel, who prefers delving in filthy dungeons to sipping zzar at a ball? Or have you taken up sword or spell on your family's behalf, ensuring that they have someone of renown to see to their legacy?\n\nWork with your DM to come up with the family you are part of - there are around seventy-five lineages in Waterdeep, each with its own financial interests, specialties, and schemes. You might be part of the main line of your family, possibly in line to become its leader one day. Or you might be one of any number of cousins, with less prestige but also less responsibility.",
-    "skill_proficiencies": [
-      "History",
-      "Persuasion"
-    ],
+    "skill_proficiencies": ["History", "Persuasion"],
     "tool_proficiencies": [
       {
         "choose": 1,

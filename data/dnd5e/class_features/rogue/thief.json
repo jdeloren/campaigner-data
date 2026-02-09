@@ -88,9 +88,7 @@
       {
         "type": "advantage",
         "trigger": {
-          "event": [
-            "ability_check"
-          ],
+          "event": ["ability_check"],
           "action": "Stealth"
         },
         "requirements": [
@@ -133,11 +131,7 @@
             "grants": {
               "name": "Use Magic Device",
               "interaction": {
-                "ignore_requirements": [
-                  "class",
-                  "race",
-                  "level"
-                ]
+                "ignore_requirements": ["class", "race", "level"]
               }
             }
           }

@@ -92,15 +92,7 @@
         "type": "array"
       }
     },
-    "required": [
-      "name",
-      "description",
-      "source",
-      "ruleset",
-      "class",
-      "subclass",
-      "mechanics"
-    ],
+    "required": ["name", "description", "source", "ruleset", "class", "subclass", "mechanics"],
     "title": "Maneuver",
     "type": "object"
   }

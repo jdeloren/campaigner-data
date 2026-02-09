@@ -3258,13 +3258,7 @@
       "type": ["piercing"]
     },
     "weight": 18.0,
-    "properties": [
-      "Ammunition",
-      "range (100/400)",
-      "heavy",
-      "loading",
-      "two-handed"
-    ],
+    "properties": ["Ammunition", "range (100/400)", "heavy", "loading", "two-handed"],
     "subcategory": "martial_ranged",
     "category": "weapon",
     "source": "phb",

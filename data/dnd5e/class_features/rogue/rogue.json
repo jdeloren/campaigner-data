@@ -1,10 +1,7 @@
 [
   {
     "class": "Rogue",
-    "level": [
-      1,
-      6
-    ],
+    "level": [1, 6],
     "name": "Expertise",
     "description": "Choose two of your skill proficiencies, or one of your skill proficiencies and your proficiency with thieves' tools. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.",
     "mechanics": [
@@ -27,9 +24,7 @@
       {
         "type": "damage_bonus",
         "trigger": {
-          "event": [
-            "attack"
-          ],
+          "event": ["attack"],
           "conditions": {
             "has_advantage": true
           }
@@ -204,14 +199,7 @@
   },
   {
     "class": "Rogue",
-    "level": [
-      4,
-      8,
-      10,
-      12,
-      16,
-      19
-    ],
+    "level": [4, 8, 10, 12, 16, 19],
     "name": "Ability Score Improvement",
     "description": "Increase one ability score by 2 or two ability scores by 1 or one feat",
     "mechanics": [
@@ -221,7 +209,11 @@
           {
             "type": "nested",
             "name": "Increase Ability Scores",
-            "choice": { "choice_type": "ability_score", "count": 2, "value": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] } }
+            "choice": {
+              "choice_type": "ability_score",
+              "count": 2,
+              "value": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] }
+            }
           },
           {
             "type": "nested",
@@ -243,19 +235,13 @@
       {
         "type": "reaction",
         "trigger": {
-          "event": [
-            "hit_by"
-          ],
+          "event": ["hit_by"],
           "source": {
-            "type": [
-              "creature"
-            ],
+            "type": ["creature"],
             "perception": {
               "observer": "character",
               "subject": "source",
-              "senses": [
-                "sight"
-              ]
+              "senses": ["sight"]
             }
           }
         },
@@ -286,9 +272,7 @@
       {
         "type": "passive",
         "trigger": {
-          "event": [
-            "saving_throw"
-          ],
+          "event": ["saving_throw"],
           "timing": "resolved"
         },
         "effects": [
@@ -332,9 +316,7 @@
       {
         "type": "passive",
         "trigger": {
-          "event": [
-            "ability_check"
-          ]
+          "event": ["ability_check"]
         },
         "requirements": [
           {
@@ -369,12 +351,8 @@
                 "value": 10,
                 "unit": "feet"
               },
-              "detects": [
-                "creatures"
-              ],
-              "ignores_status": [
-                "invisible"
-              ]
+              "detects": ["creatures"],
+              "ignores_status": ["invisible"]
             }
           }
         ]
@@ -392,9 +370,7 @@
       {
         "type": "proficiency",
         "category": "saving_throw",
-        "proficiencies": [
-          "Wisdom"
-        ]
+        "proficiencies": ["Wisdom"]
       }
     ],
     "source": "phb",
@@ -438,9 +414,7 @@
       {
         "type": "reaction",
         "trigger": {
-          "event": [
-            "ability_check"
-          ],
+          "event": ["ability_check"],
           "result": "failure"
         },
         "effects": [
@@ -456,14 +430,9 @@
       {
         "type": "reaction",
         "trigger": {
-          "event": [
-            "miss"
-          ],
+          "event": ["miss"],
           "source": {
-            "type": [
-              "melee",
-              "ranged"
-            ]
+            "type": ["melee", "ranged"]
           }
         },
         "effects": [

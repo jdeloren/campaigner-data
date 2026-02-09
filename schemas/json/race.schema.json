@@ -161,14 +161,7 @@
         "type": "string"
       }
     },
-    "required": [
-      "name",
-      "size",
-      "speed",
-      "creature_type",
-      "source",
-      "ruleset"
-    ],
+    "required": ["name", "size", "speed", "creature_type", "source", "ruleset"],
     "title": "Race",
     "type": "object"
   },

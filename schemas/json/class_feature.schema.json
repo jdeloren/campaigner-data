@@ -160,15 +160,7 @@
         "title": "Subfeatures"
       }
     },
-    "required": [
-      "name",
-      "level",
-      "description",
-      "mechanics",
-      "class",
-      "source",
-      "ruleset"
-    ],
+    "required": ["name", "level", "description", "mechanics", "class", "source", "ruleset"],
     "title": "ClassFeature",
     "type": "object"
   },
@@ -251,10 +243,7 @@
           "title": "Mechanics"
         }
       },
-      "required": [
-        "name",
-        "description"
-      ],
+      "required": ["name", "description"],
       "title": "Subfeature",
       "type": "object"
     }

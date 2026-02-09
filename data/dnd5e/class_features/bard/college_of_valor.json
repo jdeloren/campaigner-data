@@ -8,18 +8,12 @@
       {
         "type": "proficiency",
         "category": "armor",
-        "proficiencies": [
-          "Medium Armor",
-          "Shields"
-        ]
+        "proficiencies": ["Medium Armor", "Shields"]
       },
       {
         "type": "proficiency",
         "category": "weapon",
-        "proficiencies": [
-          "Martial Melee",
-          "Martial Ranged"
-        ]
+        "proficiencies": ["Martial Melee", "Martial Ranged"]
       }
     ],
     "source": "phb",
@@ -36,13 +30,9 @@
         "type": "optional",
         "name": "combat_inspiration_damage",
         "trigger": {
-          "event": [
-            "damage"
-          ],
+          "event": ["damage"],
           "source": {
-            "type": [
-              "weapon"
-            ]
+            "type": ["weapon"]
           }
         },
         "cost": [
@@ -71,9 +61,7 @@
         "type": "reaction",
         "name": "combat_inspiration_ac",
         "trigger": {
-          "event": [
-            "attacked_by"
-          ],
+          "event": ["attacked_by"],
           "timing": "after"
         },
         "cost": [
@@ -134,13 +122,9 @@
       {
         "type": "passive",
         "trigger": {
-          "event": [
-            "cast_spell"
-          ],
+          "event": ["cast_spell"],
           "source": {
-            "type": [
-              "spell"
-            ]
+            "type": ["spell"]
           },
           "spell_class": "Bard",
           "activation": "action"

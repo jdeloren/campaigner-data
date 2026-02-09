@@ -73,14 +73,7 @@
         "description": "Ruleset"
       }
     },
-    "required": [
-      "name",
-      "description",
-      "skill_proficiencies",
-      "tool_proficiencies",
-      "source",
-      "ruleset"
-    ],
+    "required": ["name", "description", "skill_proficiencies", "tool_proficiencies", "source", "ruleset"],
     "title": "Background",
     "type": "object"
   },

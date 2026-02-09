@@ -42,14 +42,7 @@
         "type": "array"
       }
     },
-    "required": [
-      "name",
-      "description",
-      "source",
-      "ruleset",
-      "available_to",
-      "features"
-    ],
+    "required": ["name", "description", "source", "ruleset", "available_to", "features"],
     "title": "Domain",
     "type": "object"
   },
@@ -156,12 +149,7 @@
           "title": "Extends"
         }
       },
-      "required": [
-        "level",
-        "name",
-        "source",
-        "ruleset"
-      ],
+      "required": ["level", "name", "source", "ruleset"],
       "title": "DomainFeature",
       "type": "object"
     }

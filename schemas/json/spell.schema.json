@@ -247,22 +247,12 @@
   },
   "$defs": {
     "Action": {
-      "enum": [
-        "Action",
-        "Bonus Action",
-        "Reaction",
-        "Minute",
-        "Hour"
-      ],
+      "enum": ["Action", "Bonus Action", "Reaction", "Minute", "Hour"],
       "title": "Action",
       "type": "string"
     },
     "ComponentType": {
-      "enum": [
-        "Verbal",
-        "Somatic",
-        "Material"
-      ],
+      "enum": ["Verbal", "Somatic", "Material"],
       "title": "ComponentType",
       "type": "string"
     },
@@ -287,18 +277,12 @@
           "description": "Cost with currency (None for materials with no specified cost)"
         }
       },
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "title": "MaterialCost",
       "type": "object"
     },
     "Range": {
-      "enum": [
-        "Touch",
-        "Range",
-        "Self"
-      ],
+      "enum": ["Touch", "Range", "Self"],
       "title": "Range",
       "type": "string"
     },

@@ -783,14 +783,7 @@
                 },
                 "effect": {
                   "disadvantage": {
-                    "saving_throw": [
-                      "Strength",
-                      "Dexterity",
-                      "Constitution",
-                      "Intelligence",
-                      "Wisdom",
-                      "Charisma"
-                    ],
+                    "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
                     "against": {
                       "type": "spell",
                       "damage_type": ["fire", "radiant"]

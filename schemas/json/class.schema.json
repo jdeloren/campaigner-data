@@ -190,15 +190,7 @@
         "title": "Subclasses"
       }
     },
-    "required": [
-      "name",
-      "source",
-      "ruleset",
-      "description",
-      "hit_die",
-      "saving_throw_proficiencies",
-      "proficiencies"
-    ],
+    "required": ["name", "source", "ruleset", "description", "hit_die", "saving_throw_proficiencies", "proficiencies"],
     "title": "DndClass",
     "type": "object"
   },
@@ -361,15 +353,7 @@
           "title": "Subfeatures"
         }
       },
-      "required": [
-        "name",
-        "level",
-        "description",
-        "mechanics",
-        "class",
-        "source",
-        "ruleset"
-      ],
+      "required": ["name", "level", "description", "mechanics", "class", "source", "ruleset"],
       "title": "ClassFeature",
       "type": "object"
     },
@@ -393,10 +377,7 @@
           "type": "array"
         }
       },
-      "required": [
-        "columns",
-        "rows"
-      ],
+      "required": ["columns", "rows"],
       "title": "ClassTable",
       "type": "object"
     },
@@ -432,11 +413,7 @@
           "type": "object"
         }
       },
-      "required": [
-        "level",
-        "proficiency_bonus",
-        "features"
-      ],
+      "required": ["level", "proficiency_bonus", "features"],
       "title": "ClassTableRow",
       "type": "object"
     },
@@ -458,22 +435,12 @@
           "type": "array"
         }
       },
-      "required": [
-        "items"
-      ],
+      "required": ["items"],
       "title": "FixedToolProficiency",
       "type": "object"
     },
     "HitDice": {
-      "enum": [
-        4,
-        6,
-        8,
-        10,
-        12,
-        20,
-        100
-      ],
+      "enum": [4, 6, 8, 10, 12, 20, 100],
       "title": "HitDice",
       "type": "integer"
     },
@@ -581,10 +548,7 @@
           "type": "array"
         }
       },
-      "required": [
-        "choose",
-        "from"
-      ],
+      "required": ["choose", "from"],
       "title": "ProficiencyChoice",
       "type": "object"
     },
@@ -665,12 +629,7 @@
           "title": "Scaling"
         }
       },
-      "required": [
-        "id",
-        "name",
-        "count",
-        "recharge"
-      ],
+      "required": ["id", "name", "count", "recharge"],
       "title": "ResourcePool",
       "type": "object"
     },
@@ -723,9 +682,7 @@
           "title": "Criteria"
         }
       },
-      "required": [
-        "count"
-      ],
+      "required": ["count"],
       "title": "SpellChoice",
       "type": "object"
     },
@@ -746,9 +703,7 @@
           "type": "array"
         }
       },
-      "required": [
-        "spell_list"
-      ],
+      "required": ["spell_list"],
       "title": "SpellCriteria",
       "type": "object"
     },
@@ -846,21 +801,12 @@
           "title": "Spells Prepared Formula"
         }
       },
-      "required": [
-        "ability",
-        "type",
-        "spell_slots"
-      ],
+      "required": ["ability", "type", "spell_slots"],
       "title": "Spellcasting",
       "type": "object"
     },
     "SpellcastingType": {
-      "enum": [
-        "prepared",
-        "known",
-        "ritual",
-        "pact_magic"
-      ],
+      "enum": ["prepared", "known", "ritual", "pact_magic"],
       "title": "SpellcastingType",
       "type": "string"
     },
@@ -930,11 +876,7 @@
           "title": "Features"
         }
       },
-      "required": [
-        "name",
-        "source",
-        "level"
-      ],
+      "required": ["name", "source", "level"],
       "title": "Subclass",
       "type": "object"
     },
@@ -1016,10 +958,7 @@
           "title": "Mechanics"
         }
       },
-      "required": [
-        "name",
-        "description"
-      ],
+      "required": ["name", "description"],
       "title": "Subfeature",
       "type": "object"
     },
@@ -1054,9 +993,7 @@
           "title": "From"
         }
       },
-      "required": [
-        "from"
-      ],
+      "required": ["from"],
       "title": "ToolProficiencyChoice",
       "type": "object"
     }

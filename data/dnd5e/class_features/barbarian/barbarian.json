@@ -17,23 +17,16 @@
         "duration": {
           "value": 1,
           "unit": "minutes",
-          "sustain": [
-            "damage",
-            "damaged_by"
-          ],
+          "sustain": ["damage", "damaged_by"],
           "until": [
             {
-              "event": [
-                "status_applied"
-              ],
+              "event": ["status_applied"],
               "status": {
                 "name": "unconscious"
               }
             },
             {
-              "event": [
-                "status_removed"
-              ],
+              "event": ["status_removed"],
               "action": "voluntary"
             }
           ]
@@ -46,9 +39,7 @@
           },
           {
             "advantage": {
-              "saving_throw": [
-                "Strength"
-              ]
+              "saving_throw": ["Strength"]
             }
           },
           {
@@ -63,9 +54,7 @@
             "requirements": [
               {
                 "type": "weapon_property",
-                "value": [
-                  "melee"
-                ],
+                "value": ["melee"],
                 "ability": "Strength"
               }
             ]
@@ -76,11 +65,7 @@
               {
                 "damage_response": {
                   "category": "resistance",
-                  "to": [
-                    "bludgeoning",
-                    "piercing",
-                    "slashing"
-                  ]
+                  "to": ["bludgeoning", "piercing", "slashing"]
                 }
               }
             ]
@@ -90,10 +75,7 @@
               "name": "raging",
               "constraints": {
                 "actions": {
-                  "blocked_actions": [
-                    "cast_spell",
-                    "concentrate"
-                  ]
+                  "blocked_actions": ["cast_spell", "concentrate"]
                 }
               }
             }
@@ -184,9 +166,7 @@
         "effects": [
           {
             "advantage": {
-              "saving_throw": [
-                "Dexterity"
-              ]
+              "saving_throw": ["Dexterity"]
             }
           }
         ],
@@ -260,13 +240,7 @@
   },
   {
     "class": "Barbarian",
-    "level": [
-      4,
-      8,
-      12,
-      16,
-      19
-    ],
+    "level": [4, 8, 12, 16, 19],
     "name": "Ability Score Improvement",
     "description": "Increase one ability score by 2 or two ability scores by 1 or one feat",
     "mechanics": [
@@ -276,7 +250,11 @@
           {
             "type": "nested",
             "name": "Increase Ability Scores",
-            "choice": { "choice_type": "ability_score", "count": 2, "value": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] } }
+            "choice": {
+              "choice_type": "ability_score",
+              "count": 2,
+              "value": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] }
+            }
           },
           {
             "type": "nested",
@@ -366,9 +344,7 @@
       {
         "type": "immunity",
         "trigger": {
-          "event": [
-            "combat_start"
-          ],
+          "event": ["combat_start"],
           "condition": {
             "type": "status",
             "value": "surprised"
@@ -383,9 +359,7 @@
         ],
         "effects": [
           {
-            "negate": [
-              "surprised"
-            ],
+            "negate": ["surprised"],
             "grants": {
               "name": "Rage",
               "interaction": {
@@ -410,9 +384,7 @@
       {
         "type": "movement",
         "trigger": {
-          "event": [
-            "status_applied"
-          ],
+          "event": ["status_applied"],
           "status": {
             "name": "raging"
           }
@@ -448,18 +420,14 @@
       {
         "type": "damage_bonus",
         "trigger": {
-          "event": [
-            "hit"
-          ],
+          "event": ["hit"],
           "conditions": [
             {
               "is_critical": true
             }
           ],
           "source": {
-            "type": [
-              "melee"
-            ]
+            "type": ["melee"]
           }
         },
         "effects": [
@@ -495,9 +463,7 @@
       {
         "type": "passive",
         "trigger": {
-          "event": [
-            "damaged_by"
-          ]
+          "event": ["damaged_by"]
         },
         "requirements": [
           {
@@ -561,17 +527,13 @@
           "unit": "minutes",
           "until": [
             {
-              "event": [
-                "status_applied"
-              ],
+              "event": ["status_applied"],
               "status": {
                 "name": "unconscious"
               }
             },
             {
-              "event": [
-                "status_removed"
-              ],
+              "event": ["status_removed"],
               "action": "voluntary"
             }
           ]
@@ -592,9 +554,7 @@
         "effects": [
           {
             "trigger": {
-              "event": [
-                "ability_check"
-              ],
+              "event": ["ability_check"],
               "ability": "Strength"
             },
             "calculation": {
