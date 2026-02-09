@@ -12,11 +12,43 @@
       "bump": "patch"
     },
     {
-      "schema": "background",
+      "schema": "maneuver",
+      "bump": "patch"
+    },
+    {
+      "schema": "race",
       "bump": "patch"
     },
     {
       "schema": "tool",
+      "bump": "patch"
+    },
+    {
+      "schema": "domain",
+      "bump": "patch"
+    },
+    {
+      "schema": "deity",
+      "bump": "patch"
+    },
+    {
+      "schema": "spell",
+      "bump": "patch"
+    },
+    {
+      "schema": "class_feature",
+      "bump": "patch"
+    },
+    {
+      "schema": "class",
+      "bump": "patch"
+    },
+    {
+      "schema": "background",
+      "bump": "patch"
+    },
+    {
+      "schema": "fighting_style",
       "bump": "patch"
     }
   ],
