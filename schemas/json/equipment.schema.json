@@ -257,7 +257,7 @@
     },
     "EquipmentCategory": {
       "description": "High-level equipment categories for filtering.",
-      "enum": ["weapon", "armor", "adventuring_gear", "container", "focus"],
+      "enum": ["weapon", "armor", "adventuring_gear", "ammunition", "container", "focus"],
       "title": "EquipmentCategory",
       "type": "string"
     },

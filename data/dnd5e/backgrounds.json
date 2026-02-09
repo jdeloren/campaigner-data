@@ -87,7 +87,7 @@
     "name": "Charlatan",
     "description": "You have always had a way with people. You know what makes them tick, you can tease out their hearts' desires after a few minutes of conversation, and with a few leading questions you can read them like they were children's books. It's a useful talent, and one that you're perfectly willing to use for your advantage.\n\nYou know what people want and you deliver, or rather, you promise to deliver. Common sense should steer people away from things that sound too good to be true, but common sense seems to be in short supply when you're around. The bottle of pink colored liquid will surely cure that unseemly rash, this ointment -\u00a0nothing more than a bit of fat with a sprinkle of silver dust can restore youth and vigor, and there's a bridge in the city that just happens to be for sale. These marvels sound implausible, but you make them sound like the real deal.",
     "skill_proficiencies": ["Deception", "Sleight of Hand"],
-    "tool_proficiencies": ["Disguise kit", "forgery kit"],
+    "tool_proficiencies": ["Disguise Kit", "Forgery Kit"],
     "languages": [],
     "equipment": [
       {
@@ -197,7 +197,7 @@
     "name": "Entertainer",
     "description": "You thrive in front of an audience. You know how to entrance them, entertain them, and even inspire them. Your poetics can stir the hearts of those who hear you, awakening grief or joy, laughter or anger. Your music raises their spirits or captures their sorrow. Your dance steps captivate, your humor cuts to the quick. Whatever techniques you use, your art is your life.",
     "skill_proficiencies": ["Acrobatics", "Performance"],
-    "tool_proficiencies": ["Disguise kit", "any musical instrument"],
+    "tool_proficiencies": ["Disguise Kit", "any musical instrument"],
     "languages": [],
     "equipment": [
       {
@@ -257,7 +257,7 @@
     "name": "Folk Hero",
     "description": "You come from a humble social rank, but you are destined for so much more. Already the people of your home village regard you as their champion, and your destiny calls you to stand against the tyrants and monsters that threaten the common folk everywhere.",
     "skill_proficiencies": ["Animal Handling", "Survival"],
-    "tool_proficiencies": ["any artisan's tools", "vehicles (land)"],
+    "tool_proficiencies": ["any artisan's tools", "Vehicles (land)"],
     "languages": [],
     "equipment": [
       {
@@ -377,7 +377,7 @@
     "name": "Hermit",
     "description": "You lived in seclusion - either in a sheltered community such as a monastery, or entirely alone - for a formative part of your life. In your time apart from the clamor of society, you found quiet, solitude, and perhaps some of the answers you were looking for.",
     "skill_proficiencies": ["Medicine", "Religion"],
-    "tool_proficiencies": ["Herbalism kit"],
+    "tool_proficiencies": ["Herbalism Kit"],
     "languages": [
       {
         "choice_group": 1,
@@ -660,7 +660,7 @@
     "name": "Sailor",
     "description": "You sailed on a seagoing vessel for years. In that time, you faced down mighty storms, monsters of the deep, and those who wanted to sink your craft to the bottomless depths. Your first love is the distant line of the horizon, but the time has come to try your hand at something new.\n\nDiscuss the nature of the ship you previously sailed with your DM. Was it a merchant ship, a naval vessel, a ship of discovery, or a pirate ship? How famous (or infamous) is it? Is it widely traveled? Is it still sailing, or is it missing and presumed lost with all hands?\n\nWhat were your duties on board - boatswain, captain, navigator, cook, or some other position? Who were the captain and first mate? Did you leave your ship on good terms with your fellows, or on the run?",
     "skill_proficiencies": ["Athletics", "Perception"],
-    "tool_proficiencies": ["Navigator's tools", "vehicles (water)"],
+    "tool_proficiencies": ["Navigator's Tools", "Vehicles (water)"],
     "languages": [],
     "equipment": [
       {
@@ -720,7 +720,7 @@
     "name": "Soldier",
     "description": "War has been your life for as long as you care to remember. You trained as a youth, studied the use of weapons and armor, learned basic survival techniques, including how to stay alive on the battlefield. You might have been part of a standing national army or a mercenary company, or perhaps a member of a local militia who rose to prominence during a recent war.\n\nWhen you choose this background, work with your DM to determine which military organization you were a part of, how far through its ranks you progressed, and what kind of experiences you had during your military career. Was it a standing army, a town guard, or a village militia? Or it might have been a noble's or merchant's private army, or a mercenary company.",
     "skill_proficiencies": ["Athletics", "Intimidation"],
-    "tool_proficiencies": ["One type of gaming set", "vehicles (land)"],
+    "tool_proficiencies": ["One type of gaming set", "Vehicles (land)"],
     "languages": [],
     "equipment": [
       {
@@ -794,7 +794,7 @@
     "name": "Urchin",
     "description": "You grew up on the streets alone, orphaned, and poor, You had no one to watch over you or to provide for you, so you learned to provide for yourself. You fought fiercely over food and kept a constant watch out for other desperate souls who might steal from you. You slept on rooftops and in alleyways, exposed to the elements, and endured sickness without the advantage of medicine or a place to recuperate. You've survived despite all odds, and did so through cunning, strength, speed, or some combination of each.\n\nYou begin your adventuring career with enough money to live modestly but securely for at least ten days. How did you come by that money? What allowed you to break free of your desperate circumstances and embark on a better life?",
     "skill_proficiencies": ["Sleight of Hand", "Stealth"],
-    "tool_proficiencies": ["Disguise kit", "Thieves' Tools"],
+    "tool_proficiencies": ["Disguise Kit", "Thieves' Tools"],
     "languages": [],
     "equipment": [
       {
@@ -1457,7 +1457,7 @@
     "name": "Mercenary Veteran",
     "description": "As a sell-sword who fought battles for coin, you're well acquainted with risking life and limb for a chance at a share of treasure. Now, you look forward to fighting foes and reaping even greater rewards as an adventurer. Your experience makes you familiar with the ins and outs of mercenary life, and you likely have harrowing stories of events on the battlefield. You might have served with a large outfit such as the Zhentarim or the soldiers of Mintarn, or a smaller band of sell-swords, maybe even more than one. See the \"Mercenaries of the North\" section below for a collection of possibilities.\n\nNow you're looking for something else, perhaps greater reward for the risks you take, or the freedom to choose your own activities. For whatever reason, you're leaving behind the life of a soldier for hire, but your skills are undeniably suited for battle, so now you fight on in a different way.",
     "skill_proficiencies": ["Athletics", "Persuasion"],
-    "tool_proficiencies": ["One type of gaming set", "vehicles (land)"],
+    "tool_proficiencies": ["One type of gaming set", "Vehicles (land)"],
     "languages": [],
     "equipment": [
       {
