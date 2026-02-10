@@ -8,19 +8,7 @@
   ],
   "schemas": [
     {
-      "schema": "equipment",
-      "bump": "patch"
-    },
-    {
-      "schema": "maneuver",
-      "bump": "patch"
-    },
-    {
-      "schema": "race",
-      "bump": "patch"
-    },
-    {
-      "schema": "tool",
+      "schema": "class_feature",
       "bump": "patch"
     },
     {
@@ -28,7 +16,7 @@
       "bump": "patch"
     },
     {
-      "schema": "deity",
+      "schema": "fighting_style",
       "bump": "patch"
     },
     {
@@ -36,7 +24,11 @@
       "bump": "patch"
     },
     {
-      "schema": "class_feature",
+      "schema": "background",
+      "bump": "patch"
+    },
+    {
+      "schema": "deity",
       "bump": "patch"
     },
     {
@@ -44,11 +36,19 @@
       "bump": "patch"
     },
     {
-      "schema": "background",
+      "schema": "maneuver",
       "bump": "patch"
     },
     {
-      "schema": "fighting_style",
+      "schema": "equipment",
+      "bump": "patch"
+    },
+    {
+      "schema": "tool",
+      "bump": "patch"
+    },
+    {
+      "schema": "race",
       "bump": "patch"
     }
   ],

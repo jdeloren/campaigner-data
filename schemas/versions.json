@@ -1,13 +1,13 @@
 {
-  "background": "1.0.2",
-  "class": "1.0.1",
-  "class_feature": "1.0.1",
-  "deity": "1.0.1",
-  "domain": "1.0.1",
-  "equipment": "1.0.2",
-  "fighting_style": "1.0.1",
-  "maneuver": "1.0.1",
-  "race": "1.0.1",
-  "spell": "1.0.1",
-  "tool": "1.0.2"
+  "background": "1.0.3",
+  "class": "1.0.2",
+  "class_feature": "1.0.2",
+  "deity": "1.0.2",
+  "domain": "1.0.2",
+  "equipment": "1.0.3",
+  "fighting_style": "1.0.2",
+  "maneuver": "1.0.2",
+  "race": "1.0.2",
+  "spell": "1.0.2",
+  "tool": "1.0.3"
 }
