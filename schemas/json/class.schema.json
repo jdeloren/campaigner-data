@@ -88,19 +88,17 @@
       "starting_equipment": {
         "anyOf": [
           {
-            "items": {},
+            "items": {
+              "$ref": "#/$defs/ClassEquipmentEntry"
+            },
             "type": "array"
-          },
-          {
-            "additionalProperties": true,
-            "type": "object"
           },
           {
             "type": "null"
           }
         ],
         "default": null,
-        "description": "Starting equipment - various formats: list of dicts, list of strings, or dict with choices/granted",
+        "description": "Starting equipment choice groups",
         "title": "Starting Equipment"
       },
       "multiclassing": {
@@ -357,6 +355,38 @@
       "title": "ClassFeature",
       "type": "object"
     },
+    "ClassEquipmentEntry": {
+      "description": "A choice group entry in class starting equipment.",
+      "properties": {
+        "choice_group": {
+          "description": "Groups related items together for display",
+          "type": "integer",
+          "minimum": 1
+        },
+        "type": {
+          "description": "Whether items are fixed or player-chosen",
+          "enum": ["fixed", "choice"],
+          "type": "string"
+        },
+        "items": {
+          "description": "Items granted (for fixed type)",
+          "items": {
+            "$ref": "equipment.schema.json#/$defs/PackItem"
+          },
+          "type": "array"
+        },
+        "options": {
+          "description": "Options to choose from (for choice type)",
+          "items": {
+            "$ref": "#/$defs/EquipmentOption"
+          },
+          "type": "array"
+        }
+      },
+      "required": ["choice_group", "type"],
+      "title": "ClassEquipmentEntry",
+      "type": "object"
+    },
     "ClassTable": {
       "description": "Level progression table for a class.",
       "properties": {
@@ -415,6 +445,30 @@
       },
       "required": ["level", "proficiency_bonus", "features"],
       "title": "ClassTableRow",
+      "type": "object"
+    },
+    "EquipmentOption": {
+      "description": "A single equipment option — either one item or a bundle of items.",
+      "properties": {
+        "item": {
+          "description": "Item name (single-item option)",
+          "type": "string"
+        },
+        "quantity": {
+          "default": 1,
+          "description": "Quantity (single-item option)",
+          "type": "integer",
+          "minimum": 1
+        },
+        "items": {
+          "description": "Bundled items (multi-item option)",
+          "items": {
+            "$ref": "equipment.schema.json#/$defs/PackItem"
+          },
+          "type": "array"
+        }
+      },
+      "title": "EquipmentOption",
       "type": "object"
     },
     "FixedToolProficiency": {
