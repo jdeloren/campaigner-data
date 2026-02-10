@@ -1,5 +1,6 @@
 [
   {
+    "id": "deity:auril",
     "name": "Auril",
     "alignment": "Neutral Evil",
     "source": "Forgotten Realms",
@@ -26,6 +27,7 @@
     "enemies": ["Chauntea", "Sune", "Uthgar"]
   },
   {
+    "id": "deity:azuth",
     "name": "Azuth",
     "alignment": "Lawful Neutral",
     "source": "Forgotten Realms",
@@ -47,6 +49,7 @@
     "enemies": []
   },
   {
+    "id": "deity:bane",
     "name": "Bane",
     "alignment": "Lawful Evil",
     "source": "Forgotten Realms",
@@ -68,6 +71,7 @@
     "enemies": ["Mystra", "Cyric", "Torm", "Oghma", "Helm"]
   },
   {
+    "id": "deity:beshaba",
     "name": "Beshaba",
     "alignment": "Chaotic Evil",
     "source": "Forgotten Realms",
@@ -88,6 +92,7 @@
     "enemies": []
   },
   {
+    "id": "deity:bhaal",
     "name": "Bhaal",
     "alignment": "Neutral Evil",
     "source": "Forgotten Realms",
@@ -101,6 +106,7 @@
     "enemies": ["Chauntea", "Helm", "Ilmater", "Lathander", "Lliira", "Tyr"]
   },
   {
+    "id": "deity:chauntea",
     "name": "Chauntea",
     "alignment": "Neutral Good",
     "source": "Forgotten Realms",
@@ -126,6 +132,7 @@
     "enemies": ["Talona", "Talos", "Malar", "Bane"]
   },
   {
+    "id": "deity:cyric",
     "name": "Cyric",
     "alignment": "Chaotic Evil",
     "source": "Forgotten Realms",
@@ -155,6 +162,7 @@
     "enemies": ["Mystra", "Bane", "Oghma", "Azuth", "Tyr", "Torm", "Bane", "Deneir", "Leira"]
   },
   {
+    "id": "deity:deneir",
     "name": "Deneir",
     "alignment": "Neutral Good",
     "source": "Forgotten Realms",
@@ -168,6 +176,7 @@
     "enemies": ["Cyric", "Mask", "Shar", "Malar", "Talos"]
   },
   {
+    "id": "deity:eldath",
     "name": "Eldath",
     "alignment": "Neutral Good",
     "source": "Forgotten Realms",
@@ -189,6 +198,7 @@
     "enemies": []
   },
   {
+    "id": "deity:gond",
     "name": "Gond",
     "alignment": "Neutral",
     "source": "Forgotten Realms",
@@ -209,6 +219,7 @@
     "enemies": ["Talos"]
   },
   {
+    "id": "deity:helm",
     "name": "Helm",
     "alignment": "Lawful Neutral",
     "source": "Forgotten Realms",
@@ -230,6 +241,7 @@
     "enemies": ["Lathander", "Bane", "Cyric", "Mask", "Shar", "Malar", "Talos"]
   },
   {
+    "id": "deity:ilmater",
     "name": "Ilmater",
     "alignment": "Lawful Good",
     "source": "Forgotten Realms",
@@ -251,6 +263,7 @@
     "enemies": ["Loviatar", "Bane", "Bhaal", "Malar", "Myrkul", "Shar", "Talos"]
   },
   {
+    "id": "deity:kelemvor",
     "name": "Kelemvor",
     "alignment": "Lawful Neutral",
     "source": "Forgotten Realms",
@@ -272,6 +285,7 @@
     "enemies": ["Cyric", "Talona"]
   },
   {
+    "id": "deity:lathander",
     "name": "Lathander",
     "alignment": "Neutral Good",
     "source": "Forgotten Realms",
@@ -295,6 +309,7 @@
     "enemies": ["Helm", "Cyric", "Talos", "Shar"]
   },
   {
+    "id": "deity:leira",
     "name": "Leira",
     "alignment": "Chaotic Neutral",
     "source": "Forgotten Realms",
@@ -316,6 +331,7 @@
     "avatar": "deities/Leira.jpg"
   },
   {
+    "id": "deity:lliira",
     "name": "Lliira",
     "alignment": "Chaotic Good",
     "source": "Forgotten Realms",
@@ -329,6 +345,7 @@
     "enemies": ["Shar"]
   },
   {
+    "id": "deity:loviatar",
     "name": "Loviatar",
     "alignment": "Lawful Evil",
     "source": "Forgotten Realms",
@@ -348,6 +365,7 @@
     "enemies": ["Talona", "Eldath", "Lliira"]
   },
   {
+    "id": "deity:malar",
     "name": "Malar",
     "alignment": "Chaotic Evil",
     "source": "Forgotten Realms",
@@ -370,6 +388,7 @@
     "enemies": []
   },
   {
+    "id": "deity:mask",
     "name": "Mask",
     "alignment": "Chaotic Neutral",
     "source": "Forgotten Realms",
@@ -383,6 +402,7 @@
     "enemies": ["Cyric", "Waukeen", "Selûne"]
   },
   {
+    "id": "deity:mielikki",
     "name": "Mielikki",
     "alignment": "Neutral Good",
     "source": "Forgotten Realms",
@@ -404,6 +424,7 @@
     "enemies": ["Malar", "Myrkul", "Talona", "Talos"]
   },
   {
+    "id": "deity:milil",
     "name": "Milil",
     "alignment": "Neutral Good",
     "source": "Forgotten Realms",
@@ -424,6 +445,7 @@
     "enemies": ["Cyric"]
   },
   {
+    "id": "deity:myrkul",
     "name": "Myrkul",
     "alignment": "Neutral Evil",
     "source": "Forgotten Realms",
@@ -444,6 +466,7 @@
     "enemies": ["Chauntea", "Lathander", "Mielikki"]
   },
   {
+    "id": "deity:mystra",
     "name": "Mystra",
     "alignment": "Neutral Good",
     "source": "Forgotten Realms",
@@ -468,6 +491,7 @@
     "enemies": ["Bane", "Talos", "Cyric"]
   },
   {
+    "id": "deity:oghma",
     "name": "Oghma",
     "alignment": "Neutral",
     "source": "Forgotten Realms",
@@ -493,6 +517,7 @@
     "enemies": ["Mask", "Cyric", "Talos", "Bane", "Leira"]
   },
   {
+    "id": "deity:savras",
     "name": "Savras",
     "alignment": "Lawful Neutral",
     "source": "Forgotten Realms",
@@ -506,6 +531,7 @@
     "enemies": []
   },
   {
+    "id": "deity:selûne",
     "name": "Selûne",
     "alignment": "Chaotic Good",
     "source": "Forgotten Realms",
@@ -526,6 +552,7 @@
     "enemies": ["Shar", "Mask", "Umberlee"]
   },
   {
+    "id": "deity:shar",
     "name": "Shar",
     "alignment": "Neutral Evil",
     "source": "Forgotten Realms",
@@ -554,6 +581,7 @@
     "enemies": ["Selûne", "Mystra", "Lathander", "Mask"]
   },
   {
+    "id": "deity:silvanus",
     "name": "Silvanus",
     "alignment": "Neutral",
     "source": "Forgotten Realms",
@@ -575,6 +603,7 @@
     "enemies": ["Malar", "Talona", "Talos"]
   },
   {
+    "id": "deity:sune",
     "name": "Sune",
     "alignment": "Chaotic Good",
     "source": "Forgotten Realms",
@@ -597,6 +626,7 @@
     "enemies": ["Talona"]
   },
   {
+    "id": "deity:talona",
     "name": "Talona",
     "alignment": "Chaotic Evil",
     "source": "Forgotten Realms",
@@ -616,6 +646,7 @@
     "enemies": ["Loviatar", "Chauntea", "Mielikki", "Kelemvor", "Tyr"]
   },
   {
+    "id": "deity:tempus",
     "name": "Tempus",
     "alignment": "Neutral",
     "source": "Forgotten Realms",
@@ -629,6 +660,7 @@
     "enemies": ["Sune"]
   },
   {
+    "id": "deity:torm",
     "name": "Torm",
     "alignment": "Lawful Good",
     "source": "Forgotten Realms",
@@ -652,6 +684,7 @@
     "enemies": ["Bane", "Shar", "Cyric"]
   },
   {
+    "id": "deity:tyr",
     "name": "Tyr",
     "alignment": "Lawful Good",
     "source": "Forgotten Realms",
@@ -680,6 +713,7 @@
     "enemies": ["Bane", "Bhaal", "Cyric", "Mask", "Talona", "Talos"]
   },
   {
+    "id": "deity:umberlee",
     "name": "Umberlee",
     "alignment": "Chaotic Evil",
     "source": "Forgotten Realms",
@@ -704,6 +738,7 @@
     "enemies": ["Chauntea", "Selûne", "Sune"]
   },
   {
+    "id": "deity:waukeen",
     "name": "Waukeen",
     "alignment": "Neutral",
     "source": "Forgotten Realms",

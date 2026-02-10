@@ -5,6 +5,11 @@
   "items": {
     "description": "Complete D&D 5e class definition.",
     "properties": {
+      "id": {
+        "description": "Unique prefixed slug ID",
+        "title": "Id",
+        "type": "string"
+      },
       "name": {
         "description": "Name of the class",
         "title": "Name",
@@ -188,7 +193,7 @@
         "title": "Subclasses"
       }
     },
-    "required": ["name", "source", "ruleset", "description", "hit_die", "saving_throw_proficiencies", "proficiencies"],
+    "required": ["id", "name", "source", "ruleset", "description", "hit_die", "saving_throw_proficiencies", "proficiencies"],
     "title": "DndClass",
     "type": "object"
   },

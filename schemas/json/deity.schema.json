@@ -5,6 +5,11 @@
   "items": {
     "description": "Deity information.",
     "properties": {
+      "id": {
+        "description": "Unique prefixed slug ID",
+        "title": "Id",
+        "type": "string"
+      },
       "name": {
         "description": "Deity name",
         "title": "Name",
@@ -73,6 +78,7 @@
       }
     },
     "required": [
+      "id",
       "name",
       "alignment",
       "source",

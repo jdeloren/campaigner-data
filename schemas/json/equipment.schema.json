@@ -5,6 +5,11 @@
   "items": {
     "description": "Equipment item including weapons, armor, and adventuring gear.\n\nThis is a unified model where weapon-specific and armor-specific\nfields are optional. The type field determines what fields are relevant.",
     "properties": {
+      "id": {
+        "description": "Unique prefixed slug ID",
+        "title": "Id",
+        "type": "string"
+      },
       "name": {
         "description": "Equipment name",
         "title": "Name",
@@ -218,7 +223,7 @@
         "title": "Mechanics"
       }
     },
-    "required": ["name", "source", "ruleset", "category"],
+    "required": ["id", "name", "source", "ruleset", "category"],
     "title": "Equipment",
     "type": "object"
   },

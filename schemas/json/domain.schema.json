@@ -5,6 +5,11 @@
   "items": {
     "description": "A cleric domain or similar subclass specialization.\n\nDomains grant additional features and spells to clerics based on their deity's\nportfolio. Other classes have similar concepts (Druid Circles, Warlock Patrons, etc.).",
     "properties": {
+      "id": {
+        "description": "Unique prefixed slug ID",
+        "title": "Id",
+        "type": "string"
+      },
       "name": {
         "description": "Domain name (e.g., 'Knowledge', 'Life', 'War')",
         "title": "Name",
@@ -42,7 +47,7 @@
         "type": "array"
       }
     },
-    "required": ["name", "description", "source", "ruleset", "available_to", "features"],
+    "required": ["id", "name", "description", "source", "ruleset", "available_to", "features"],
     "title": "Domain",
     "type": "object"
   },

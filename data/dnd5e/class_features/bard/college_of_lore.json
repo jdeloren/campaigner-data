@@ -1,5 +1,6 @@
 [
   {
+    "id": "feat:bonus-proficiencies",
     "class": "College of Lore",
     "level": 3,
     "name": "Bonus Proficiencies",
@@ -15,6 +16,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:cutting-words",
     "class": "College of Lore",
     "level": 3,
     "name": "Cutting Words",
@@ -78,6 +80,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:additional-magical-secrets",
     "class": "College of Lore",
     "level": 6,
     "name": "Additional Magical Secrets",
@@ -104,6 +107,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:peerless-skill",
     "class": "College of Lore",
     "level": 14,
     "name": "Peerless Skill",

@@ -5,6 +5,11 @@
   "items": {
     "description": "D&D 5e character background.",
     "properties": {
+      "id": {
+        "description": "Unique prefixed slug ID",
+        "title": "Id",
+        "type": "string"
+      },
       "name": {
         "description": "Background name",
         "title": "Name",
@@ -73,7 +78,7 @@
         "description": "Ruleset"
       }
     },
-    "required": ["name", "description", "skill_proficiencies", "tool_proficiencies", "source", "ruleset"],
+    "required": ["id", "name", "description", "skill_proficiencies", "tool_proficiencies", "source", "ruleset"],
     "title": "Background",
     "type": "object"
   },

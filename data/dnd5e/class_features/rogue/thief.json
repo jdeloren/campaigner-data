@@ -1,5 +1,6 @@
 [
   {
+    "id": "feat:fast-hands",
     "class": "Thief",
     "level": 3,
     "name": "Fast Hands",
@@ -30,6 +31,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:second-story-work",
     "class": "Thief",
     "level": 3,
     "name": "Second-Story Work",
@@ -80,6 +82,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:supreme-sneak",
     "class": "Thief",
     "level": 9,
     "name": "Supreme Sneak",
@@ -116,6 +119,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:use-magic-device",
     "class": "Thief",
     "level": 13,
     "name": "Use Magic Device",
@@ -142,6 +146,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:thiefs-reflexes",
     "class": "Thief",
     "level": 17,
     "name": "Thief's Reflexes",

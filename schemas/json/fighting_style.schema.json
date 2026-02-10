@@ -5,6 +5,11 @@
   "items": {
     "description": "A fighting style available to certain classes.",
     "properties": {
+      "id": {
+        "description": "Unique prefixed slug ID",
+        "title": "Id",
+        "type": "string"
+      },
       "name": {
         "description": "Fighting style name",
         "title": "Name",
@@ -90,7 +95,7 @@
         "type": "array"
       }
     },
-    "required": ["name", "description", "source", "ruleset", "available_to", "mechanics"],
+    "required": ["id", "name", "description", "source", "ruleset", "available_to", "mechanics"],
     "title": "FightingStyle",
     "type": "object"
   }

@@ -5,6 +5,11 @@
   "items": {
     "description": "A combat maneuver available to certain subclasses.",
     "properties": {
+      "id": {
+        "description": "Unique prefixed slug ID",
+        "title": "Id",
+        "type": "string"
+      },
       "name": {
         "description": "Maneuver name",
         "title": "Name",
@@ -92,7 +97,7 @@
         "type": "array"
       }
     },
-    "required": ["name", "description", "source", "ruleset", "class", "subclass", "mechanics"],
+    "required": ["id", "name", "description", "source", "ruleset", "class", "subclass", "mechanics"],
     "title": "Maneuver",
     "type": "object"
   }

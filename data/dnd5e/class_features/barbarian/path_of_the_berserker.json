@@ -1,5 +1,6 @@
 [
   {
+    "id": "feat:frenzy",
     "class": "Path of the Berserker",
     "level": 3,
     "name": "Frenzy",
@@ -63,6 +64,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:mindless-rage",
     "class": "Path of the Berserker",
     "level": 6,
     "name": "Mindless Rage",
@@ -91,6 +93,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:intimidating-presence",
     "class": "Path of the Berserker",
     "level": 10,
     "name": "Intimidating Presence",
@@ -157,6 +160,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:retaliation",
     "class": "Path of the Berserker",
     "level": 14,
     "name": "Retaliation",

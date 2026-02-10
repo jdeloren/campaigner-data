@@ -1,5 +1,6 @@
 [
   {
+    "id": "feat:bardic-inspiration",
     "class": "Bard",
     "level": 1,
     "name": "Bardic Inspiration",
@@ -68,6 +69,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:jack-of-all-trades",
     "class": "Bard",
     "level": 2,
     "name": "Jack of All Trades",
@@ -106,6 +108,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:song-of-rest",
     "class": "Bard",
     "level": 2,
     "name": "Song of Rest",
@@ -158,6 +161,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:magical-inspiration",
     "class": "Bard",
     "level": 2,
     "name": "Magical Inspiration",
@@ -211,6 +215,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:bard-college",
     "class": "Bard",
     "level": 3,
     "name": "Bard College",
@@ -225,6 +230,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:expertise",
     "class": "Bard",
     "level": [3, 10],
     "name": "Expertise",
@@ -241,6 +247,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:ability-score-improvement",
     "class": "Bard",
     "level": [4, 8, 12, 16, 19],
     "name": "Ability Score Improvement",
@@ -255,13 +262,24 @@
             "choice": {
               "choice_type": "ability_score",
               "count": 2,
-              "value": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] }
+              "value": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
+              }
             }
           },
           {
             "type": "nested",
             "name": "Gain a Feat",
-            "choice": { "choice_type": "feat", "count": 1 }
+            "choice": {
+              "choice_type": "feat",
+              "count": 1
+            }
           }
         ]
       }
@@ -270,6 +288,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:bardic-versatility",
     "class": "Bard",
     "level": 4,
     "name": "Bardic Versatility",
@@ -306,6 +325,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:font-of-inspiration",
     "class": "Bard",
     "level": 5,
     "name": "Font of Inspiration",
@@ -336,6 +356,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:countercharm",
     "class": "Bard",
     "level": 6,
     "name": "Countercharm",
@@ -401,6 +422,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:magical-secrets",
     "class": "Bard",
     "level": 10,
     "name": "Magical Secrets",
@@ -438,6 +460,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:superior-inspiration",
     "class": "Bard",
     "level": 20,
     "name": "Superior Inspiration",

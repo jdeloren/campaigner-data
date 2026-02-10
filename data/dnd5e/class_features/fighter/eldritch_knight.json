@@ -1,5 +1,6 @@
 [
   {
+    "id": "feat:weapon-bond",
     "class": "Eldritch Knight",
     "level": 3,
     "name": "Weapon Bond",
@@ -73,6 +74,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:war-magic",
     "class": "Eldritch Knight",
     "level": 7,
     "name": "War Magic",
@@ -99,6 +101,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:eldritch-strike",
     "class": "Eldritch Knight",
     "level": 10,
     "name": "Eldritch Strike",
@@ -142,6 +145,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:arcane-charge",
     "class": "Eldritch Knight",
     "level": 15,
     "name": "Arcane Charge",
@@ -169,6 +173,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:improved-war-magic",
     "class": "Eldritch Knight",
     "level": 18,
     "name": "Improved War Magic",

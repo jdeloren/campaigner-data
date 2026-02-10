@@ -5,6 +5,11 @@
   "items": {
     "description": "D&D 5e Tool including Artisan's Tools, Gaming Sets,\nMusical Instruments, and Miscellaneous tools.",
     "properties": {
+      "id": {
+        "description": "Unique prefixed slug ID",
+        "title": "Id",
+        "type": "string"
+      },
       "name": {
         "description": "Tool name",
         "title": "Name",
@@ -70,7 +75,7 @@
         "title": "Activities"
       }
     },
-    "required": ["name", "cost", "weight", "source", "ruleset", "category"],
+    "required": ["id", "name", "cost", "weight", "source", "ruleset", "category"],
     "title": "Tool",
     "type": "object"
   },
