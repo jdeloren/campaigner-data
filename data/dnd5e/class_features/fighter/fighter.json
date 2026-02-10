@@ -12,7 +12,7 @@
         "query": {
           "endpoint": "fighting_styles",
           "params": {
-            "available_to": "Fighter"
+            "classes": "Fighter"
           }
         }
       }
@@ -248,7 +248,7 @@
         "source": {
           "list": "fighting_styles",
           "filter": {
-            "available_to": "Fighter"
+            "classes": "Fighter"
           },
           "exclude": "character.fighting_styles"
         }

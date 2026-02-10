@@ -6,7 +6,7 @@
     "description": "A fighting style available to certain classes.",
     "properties": {
       "id": {
-        "description": "Unique prefixed slug ID",
+        "description": "Unique prefixed slug ID (e.g., 'style:defense')",
         "title": "Id",
         "type": "string"
       },
@@ -30,12 +30,12 @@
         "title": "Ruleset",
         "type": "string"
       },
-      "available_to": {
-        "description": "Classes that can choose this fighting style",
+      "classes": {
+        "description": "Classes that can choose this fighting style (e.g., ['Fighter', 'Ranger'])",
         "items": {
           "type": "string"
         },
-        "title": "Available To",
+        "title": "Classes",
         "type": "array"
       },
       "mechanics": {
@@ -95,7 +95,8 @@
         "type": "array"
       }
     },
-    "required": ["id", "name", "description", "source", "ruleset", "available_to", "mechanics"],
+    "required": ["id", "name", "description", "source", "ruleset", "classes", "mechanics"],
+    "additionalProperties": false,
     "title": "FightingStyle",
     "type": "object"
   }

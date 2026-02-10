@@ -166,6 +166,7 @@
       }
     },
     "required": ["id", "name", "level", "description", "mechanics", "class", "source", "ruleset"],
+    "additionalProperties": false,
     "title": "ClassFeature",
     "type": "object"
   },

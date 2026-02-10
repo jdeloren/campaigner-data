@@ -450,7 +450,11 @@
               }
             }
           }
-        ]
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "short_rest"
       },
       {
         "type": "reaction",
@@ -471,10 +475,6 @@
         ]
       }
     ],
-    "uses": {
-      "value": 1
-    },
-    "recharge": "short_rest",
     "source": "phb",
     "ruleset": "dnd5e"
   }
