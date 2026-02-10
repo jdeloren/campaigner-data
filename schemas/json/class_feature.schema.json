@@ -5,6 +5,11 @@
   "items": {
     "description": "A class feature with full details and mechanics.",
     "properties": {
+      "id": {
+        "description": "Unique prefixed slug ID",
+        "title": "Id",
+        "type": "string"
+      },
       "name": {
         "description": "Feature name",
         "title": "Name",
@@ -160,7 +165,8 @@
         "title": "Subfeatures"
       }
     },
-    "required": ["name", "level", "description", "mechanics", "class", "source", "ruleset"],
+    "required": ["id", "name", "level", "description", "mechanics", "class", "source", "ruleset"],
+    "additionalProperties": false,
     "title": "ClassFeature",
     "type": "object"
   },

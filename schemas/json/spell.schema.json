@@ -5,6 +5,11 @@
   "items": {
     "description": "Spell definition.",
     "properties": {
+      "id": {
+        "description": "Unique prefixed slug ID",
+        "title": "Id",
+        "type": "string"
+      },
       "name": {
         "description": "Spell name",
         "title": "Name",
@@ -231,6 +236,7 @@
       }
     },
     "required": [
+      "id",
       "name",
       "level",
       "components",

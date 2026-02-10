@@ -5,6 +5,11 @@
   "items": {
     "description": "A cleric domain or similar subclass specialization.\n\nDomains grant additional features and spells to clerics based on their deity's\nportfolio. Other classes have similar concepts (Druid Circles, Warlock Patrons, etc.).",
     "properties": {
+      "id": {
+        "description": "Unique prefixed slug ID (e.g., 'domain:life')",
+        "title": "Id",
+        "type": "string"
+      },
       "name": {
         "description": "Domain name (e.g., 'Knowledge', 'Life', 'War')",
         "title": "Name",
@@ -25,133 +30,23 @@
         "title": "Ruleset",
         "type": "string"
       },
-      "available_to": {
-        "description": "Classes that can choose this domain (e.g., ['Cleric'])",
-        "items": {
-          "type": "string"
-        },
-        "title": "Available To",
-        "type": "array"
+      "class": {
+        "description": "Class that can choose this domain (e.g., 'Cleric')",
+        "title": "Class",
+        "type": "string"
       },
       "features": {
         "description": "Features granted by this domain at various levels",
         "items": {
-          "$ref": "#/$defs/DomainFeature"
+          "$ref": "class_feature.schema.json#/items"
         },
         "title": "Features",
         "type": "array"
       }
     },
-    "required": ["name", "description", "source", "ruleset", "available_to", "features"],
+    "required": ["id", "name", "description", "source", "ruleset", "class", "features"],
+    "additionalProperties": false,
     "title": "Domain",
     "type": "object"
-  },
-  "$defs": {
-    "DomainFeature": {
-      "description": "A feature granted by a cleric domain or similar subclass specialization.",
-      "properties": {
-        "level": {
-          "description": "Character level at which this feature is gained",
-          "title": "Level",
-          "type": "integer"
-        },
-        "name": {
-          "description": "Feature name",
-          "title": "Name",
-          "type": "string"
-        },
-        "description": {
-          "default": "",
-          "description": "Full text description of the feature",
-          "title": "Description",
-          "type": "string"
-        },
-        "mechanics": {
-          "description": "Structured game mechanics for this feature",
-          "items": {
-            "discriminator": {
-              "mapping": {
-                "action": "#/$defs/BaseMechanic",
-                "advantage": "#/$defs/BaseMechanic",
-                "bonus_action": "#/$defs/BaseMechanic",
-                "choice": "#/$defs/ChoiceMechanic",
-                "critical_hit": "#/$defs/BaseMechanic",
-                "damage_bonus": "#/$defs/BaseMechanic",
-                "extra_attack": "#/$defs/BaseMechanic",
-                "extra_turn": "#/$defs/BaseMechanic",
-                "granted_spells": "#/$defs/GrantedSpellsMechanic",
-                "immunity": "#/$defs/BaseMechanic",
-                "movement": "#/$defs/BaseMechanic",
-                "optional": "#/$defs/BaseMechanic",
-                "passive": "#/$defs/BaseMechanic",
-                "proficiency": "#/$defs/ProficiencyMechanic",
-                "reaction": "#/$defs/BaseMechanic",
-                "resistance": "#/$defs/BaseMechanic",
-                "resource": "#/$defs/ResourceMechanic",
-                "retrain": "#/$defs/RetrainMechanic",
-                "ritual": "#/$defs/BaseMechanic",
-                "special": "#/$defs/BaseMechanic",
-                "spellcasting": "#/$defs/SpellcastingMechanic"
-              },
-              "propertyName": "type"
-            },
-            "oneOf": [
-              {
-                "$ref": "common.schema.json#/$defs/ResourceMechanic"
-              },
-              {
-                "$ref": "common.schema.json#/$defs/ChoiceMechanic"
-              },
-              {
-                "$ref": "common.schema.json#/$defs/RetrainMechanic"
-              },
-              {
-                "$ref": "common.schema.json#/$defs/SpellcastingMechanic"
-              },
-              {
-                "$ref": "common.schema.json#/$defs/GrantedSpellsMechanic"
-              },
-              {
-                "$ref": "common.schema.json#/$defs/ProficiencyMechanic"
-              },
-              {
-                "$ref": "common.schema.json#/$defs/BaseMechanic"
-              }
-            ]
-          },
-          "title": "Mechanics",
-          "type": "array"
-        },
-        "source": {
-          "description": "Source book or material",
-          "title": "Source",
-          "type": "string"
-        },
-        "ruleset": {
-          "description": "Ruleset for the feature",
-          "title": "Ruleset",
-          "type": "string"
-        },
-        "extends": {
-          "anyOf": [
-            {
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "List of feature names this feature replaces when the character has this domain",
-          "title": "Extends"
-        }
-      },
-      "required": ["level", "name", "source", "ruleset"],
-      "title": "DomainFeature",
-      "type": "object"
-    }
   }
 }

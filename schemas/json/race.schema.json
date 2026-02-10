@@ -5,6 +5,11 @@
   "items": {
     "description": "Complete D&D 5e race definition.",
     "properties": {
+      "id": {
+        "description": "Unique prefixed slug ID",
+        "title": "Id",
+        "type": "string"
+      },
       "name": {
         "description": "Race name",
         "title": "Name",
@@ -161,7 +166,7 @@
         "type": "string"
       }
     },
-    "required": ["name", "size", "speed", "creature_type", "source", "ruleset"],
+    "required": ["id", "name", "size", "speed", "creature_type", "source", "ruleset"],
     "title": "Race",
     "type": "object"
   },

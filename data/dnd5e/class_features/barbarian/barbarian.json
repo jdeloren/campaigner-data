@@ -1,5 +1,6 @@
 [
   {
+    "id": "feat:rage",
     "class": "Barbarian",
     "name": "Rage",
     "level": 1,
@@ -97,7 +98,7 @@
                 "6": 4,
                 "12": 5,
                 "17": 6,
-                "20": "unlimited"
+                "20": null
               }
             }
           }
@@ -112,6 +113,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:unarmored-defense",
     "class": "Barbarian",
     "name": "Unarmored Defense",
     "level": 1,
@@ -156,6 +158,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:danger-sense",
     "class": "Barbarian",
     "name": "Danger Sense",
     "level": 2,
@@ -193,6 +196,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:reckless-attack",
     "class": "Barbarian",
     "name": "Reckless Attack",
     "level": 2,
@@ -202,6 +206,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:primal-path",
     "class": "Barbarian",
     "level": 3,
     "name": "Primal Path",
@@ -216,6 +221,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:primal-knowledge",
     "class": "Barbarian",
     "name": "Primal Knowledge",
     "level": 3,
@@ -226,12 +232,30 @@
         "choice_type": "skill",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Animal Handling" },
-          { "type": "simple", "name": "Athletics" },
-          { "type": "simple", "name": "Intimidation" },
-          { "type": "simple", "name": "Nature" },
-          { "type": "simple", "name": "Perception" },
-          { "type": "simple", "name": "Survival" }
+          {
+            "type": "simple",
+            "name": "Animal Handling"
+          },
+          {
+            "type": "simple",
+            "name": "Athletics"
+          },
+          {
+            "type": "simple",
+            "name": "Intimidation"
+          },
+          {
+            "type": "simple",
+            "name": "Nature"
+          },
+          {
+            "type": "simple",
+            "name": "Perception"
+          },
+          {
+            "type": "simple",
+            "name": "Survival"
+          }
         ]
       }
     ],
@@ -239,6 +263,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:ability-score-improvement",
     "class": "Barbarian",
     "level": [4, 8, 12, 16, 19],
     "name": "Ability Score Improvement",
@@ -253,13 +278,24 @@
             "choice": {
               "choice_type": "ability_score",
               "count": 2,
-              "value": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] }
+              "value": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
+              }
             }
           },
           {
             "type": "nested",
             "name": "Gain a Feat",
-            "choice": { "choice_type": "feat", "count": 1 }
+            "choice": {
+              "choice_type": "feat",
+              "count": 1
+            }
           }
         ]
       }
@@ -268,6 +304,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:extra-attack",
     "class": "Barbarian",
     "name": "Extra Attack",
     "level": 5,
@@ -290,6 +327,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:fast-movement",
     "class": "Barbarian",
     "name": "Fast Movement",
     "level": 5,
@@ -326,6 +364,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:feral-instinct",
     "class": "Barbarian",
     "name": "Feral Instinct",
     "level": 7,
@@ -376,6 +415,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:instinctive-pounce",
     "class": "Barbarian",
     "name": "Instinctive Pounce",
     "level": 7,
@@ -412,6 +452,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:brutal-critical",
     "class": "Barbarian",
     "name": "Brutal Critical",
     "level": 9,
@@ -455,6 +496,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:relentless-rage",
     "class": "Barbarian",
     "name": "Relentless Rage",
     "level": 11,
@@ -514,6 +556,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:persistent-rage",
     "class": "Barbarian",
     "name": "Persistent Rage",
     "level": 15,
@@ -544,6 +587,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:indomitable-might",
     "class": "Barbarian",
     "name": "Indomitable Might",
     "level": 18,
@@ -577,6 +621,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:primal-champion",
     "class": "Barbarian",
     "name": "Primal Champion",
     "level": 20,

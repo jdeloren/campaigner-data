@@ -1,5 +1,6 @@
 [
   {
+    "id": "feat:improved-critical",
     "class": "Champion",
     "level": 3,
     "name": "Improved Critical",
@@ -30,6 +31,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:remarkable-athlete",
     "class": "Champion",
     "level": 7,
     "name": "Remarkable Athlete",
@@ -89,6 +91,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:additional-fighting-style",
     "class": "Champion",
     "level": 10,
     "name": "Additional Fighting Style",
@@ -100,7 +103,7 @@
         "query": {
           "endpoint": "fighting_styles",
           "params": {
-            "available_to": "Fighter",
+            "classes": "Fighter",
             "exclude": "character.fighting_styles"
           }
         }
@@ -110,6 +113,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:superior-critical",
     "class": "Champion",
     "level": 15,
     "name": "Superior Critical",
@@ -140,6 +144,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:survivor",
     "class": "Champion",
     "level": 18,
     "name": "Survivor",

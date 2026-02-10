@@ -1,5 +1,6 @@
 [
   {
+    "id": "feat:mage-hand-legerdemain",
     "class": "Arcane Trickster",
     "name": "Mage Hand Legerdemain",
     "level": 3,
@@ -34,6 +35,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:magical-ambush",
     "class": "Arcane Trickster",
     "name": "Magical Ambush",
     "level": 9,
@@ -72,6 +74,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:versatile-trickster",
     "class": "Arcane Trickster",
     "name": "Versatile Trickster",
     "level": 13,
@@ -105,6 +108,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:spell-thief",
     "class": "Arcane Trickster",
     "name": "Spell Thief",
     "level": 17,

@@ -1,5 +1,6 @@
 [
   {
+    "id": "feat:fighting-style",
     "class": "Fighter",
     "level": 1,
     "name": "Fighting Style",
@@ -11,7 +12,7 @@
         "query": {
           "endpoint": "fighting_styles",
           "params": {
-            "available_to": "Fighter"
+            "classes": "Fighter"
           }
         }
       }
@@ -20,6 +21,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:second-wind",
     "class": "Fighter",
     "level": 1,
     "name": "Second Wind",
@@ -56,6 +58,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:action-surge",
     "class": "Fighter",
     "level": 2,
     "name": "Action Surge",
@@ -99,6 +102,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:martial-archetype",
     "class": "Fighter",
     "level": 3,
     "name": "Martial Archetype",
@@ -113,6 +117,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:ability-score-improvement",
     "class": "Fighter",
     "level": [4, 6, 8, 12, 14, 16, 19],
     "name": "Ability Score Improvement",
@@ -127,13 +132,24 @@
             "choice": {
               "choice_type": "ability_score",
               "count": 2,
-              "value": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] }
+              "value": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
+              }
             }
           },
           {
             "type": "nested",
             "name": "Gain a Feat",
-            "choice": { "choice_type": "feat", "count": 1 }
+            "choice": {
+              "choice_type": "feat",
+              "count": 1
+            }
           }
         ]
       }
@@ -142,6 +158,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:extra-attack",
     "class": "Fighter",
     "level": 5,
     "name": "Extra Attack",
@@ -166,6 +183,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:indomitable",
     "class": "Fighter",
     "level": 9,
     "name": "Indomitable",
@@ -207,6 +225,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:martial-versatility",
     "class": "Fighter",
     "level": 4,
     "name": "Martial Versatility",
@@ -229,7 +248,7 @@
         "source": {
           "list": "fighting_styles",
           "filter": {
-            "available_to": "Fighter"
+            "classes": "Fighter"
           },
           "exclude": "character.fighting_styles"
         }

@@ -1,5 +1,6 @@
 [
   {
+    "id": "race:elf",
     "name": "Elf",
     "description": "Elves are a magical people of otherworldly grace, living in the world but not entirely part of it. They live in places of ethereal beauty, in the midst of ancient forests or in silvery spires glittering with faerie light.",
     "size": "Medium",
@@ -80,6 +81,7 @@
     ]
   },
   {
+    "id": "race:high-elf",
     "name": "High Elf",
     "description": "As a high elf, you have a keen mind and a mastery of at least the basics of magic. High elves are more common in the worlds of D&D, being found in ancient forests, along the coasts, or in isolated towers where they practice their magical arts.",
     "size": "Medium",
@@ -109,7 +111,7 @@
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": ["longsword", "shortsword", "Shortbow", "Longbow"]
+            "proficiencies": ["Longsword", "Shortsword", "Shortbow", "Longbow"]
           }
         ]
       },
@@ -146,6 +148,7 @@
     "languages": []
   },
   {
+    "id": "race:wood-elf",
     "name": "Wood Elf",
     "description": "As a wood elf, you have keen senses and intuition, and your fleet feet carry you quickly and stealthily through your native forests. Wood elves tend to be reclusive and distrustful of non-elves.",
     "size": "Medium",
@@ -175,7 +178,7 @@
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": ["longsword", "shortsword", "Shortbow", "Longbow"]
+            "proficiencies": ["Longsword", "Shortsword", "Shortbow", "Longbow"]
           }
         ]
       },
@@ -217,6 +220,7 @@
     "languages": []
   },
   {
+    "id": "race:drow",
     "name": "Drow",
     "description": "Descended from an earlier subrace of dark-skinned elves, the drow were banished from the surface world for following the goddess Lolth down the path to evil and corruption. Now they have built their own civilization in the depths of the Underdark.",
     "size": "Medium",
@@ -302,7 +306,7 @@
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": ["rapier", "shortsword", "hand crossbow"]
+            "proficiencies": ["Rapier", "Shortsword", "Hand Crossbow"]
           }
         ]
       }
@@ -310,6 +314,7 @@
     "languages": []
   },
   {
+    "id": "race:half-elf",
     "name": "Half-Elf",
     "description": "Walking in two worlds but truly belonging to neither, half-elves combine what some say are the best qualities of their elf and human parents: human curiosity, inventiveness, and ambition tempered by the refined senses, love of nature, and artistic tastes of the elves.",
     "size": "Medium",
@@ -467,6 +472,7 @@
     ]
   },
   {
+    "id": "race:dwarf",
     "name": "Dwarf",
     "description": "Bold and hardy, dwarves are known as skilled warriors, miners, and workers of stone and metal. Though they stand well under 5 feet tall, dwarves are so broad and compact that they can weigh as much as a human standing nearly two feet taller.",
     "size": "Medium",
@@ -585,8 +591,9 @@
     ]
   },
   {
+    "id": "race:hill-dwarf",
     "name": "Hill Dwarf",
-    "description": "As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience. The gold dwarves of Faer\u00fbn in their mighty southern kingdom are hill dwarves, as are the exiled Neidar and the debased Klar of Krynn.",
+    "description": "As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience. The gold dwarves of Faerûn in their mighty southern kingdom are hill dwarves, as are the exiled Neidar and the debased Klar of Krynn.",
     "size": "Medium",
     "speed": 25,
     "creature_type": "Humanoid",
@@ -636,8 +643,9 @@
     "languages": []
   },
   {
+    "id": "race:mountain-dwarf",
     "name": "Mountain Dwarf",
-    "description": "As a mountain dwarf, you're strong and hardy, accustomed to a difficult life in rugged terrain. You're probably on the tall side for a dwarf, and tend toward lighter coloration. The shield dwarves of northern Faer\u00fbn are mountain dwarves.",
+    "description": "As a mountain dwarf, you're strong and hardy, accustomed to a difficult life in rugged terrain. You're probably on the tall side for a dwarf, and tend toward lighter coloration. The shield dwarves of northern Faerûn are mountain dwarves.",
     "size": "Medium",
     "speed": 25,
     "creature_type": "Humanoid",
@@ -665,7 +673,7 @@
           {
             "type": "proficiency",
             "category": "armor",
-            "proficiencies": ["light armor", "medium armor"]
+            "proficiencies": ["Light Armor", "medium armor"]
           }
         ]
       }
@@ -673,6 +681,7 @@
     "languages": []
   },
   {
+    "id": "race:dragonborn",
     "name": "Dragonborn",
     "description": "Born of dragons, as their name proclaims, the dragonborn walk proudly through a world that greets them with fearful incomprehension. Shaped by draconic gods or the dragons themselves, dragonborn originally hatched from dragon eggs as a unique race.",
     "size": "Medium",
@@ -719,6 +728,7 @@
     ]
   },
   {
+    "id": "race:black-dragonborn",
     "name": "Black Dragonborn",
     "description": "Black dragonborn trace their ancestry to black dragons, whose acid breath and swamp-dwelling nature have shaped their heritage. They tend toward cruelty and have a strong survival instinct.",
     "size": "Medium",
@@ -833,6 +843,7 @@
     "languages": []
   },
   {
+    "id": "race:blue-dragonborn",
     "name": "Blue Dragonborn",
     "description": "Blue dragonborn descend from the cunning blue dragons of the desert. They value order and tend toward lawful alignments, with a proud bearing that reflects their draconic heritage.",
     "size": "Medium",
@@ -947,6 +958,7 @@
     "languages": []
   },
   {
+    "id": "race:brass-dragonborn",
     "name": "Brass Dragonborn",
     "description": "Brass dragonborn inherit their ancestors' love of conversation and warm climates. They are typically good-natured and gregarious, enjoying the company of others.",
     "size": "Medium",
@@ -1061,6 +1073,7 @@
     "languages": []
   },
   {
+    "id": "race:bronze-dragonborn",
     "name": "Bronze Dragonborn",
     "description": "Bronze dragonborn share their ancestors' sense of justice and love of coastal regions. They often feel drawn to military service or other roles where they can protect the innocent.",
     "size": "Medium",
@@ -1175,6 +1188,7 @@
     "languages": []
   },
   {
+    "id": "race:copper-dragonborn",
     "name": "Copper Dragonborn",
     "description": "Copper dragonborn inherit their ancestors' wit and love of jokes. They tend to be good-humored pranksters who value cleverness and enjoy a good riddle.",
     "size": "Medium",
@@ -1289,6 +1303,7 @@
     "languages": []
   },
   {
+    "id": "race:gold-dragonborn",
     "name": "Gold Dragonborn",
     "description": "Gold dragonborn are descended from the most powerful and majestic of metallic dragons. They tend toward leadership roles and hold themselves to high standards of conduct.",
     "size": "Medium",
@@ -1403,6 +1418,7 @@
     "languages": []
   },
   {
+    "id": "race:green-dragonborn",
     "name": "Green Dragonborn",
     "description": "Green dragonborn trace their lineage to the cunning green dragons of the forests. They tend to be manipulative and patient, preferring subtle approaches to problems.",
     "size": "Medium",
@@ -1517,6 +1533,7 @@
     "languages": []
   },
   {
+    "id": "race:red-dragonborn",
     "name": "Red Dragonborn",
     "description": "Red dragonborn descend from the fierce and greedy red dragons. They tend to be proud, ambitious, and quick to anger, with a strong drive to accumulate power and wealth.",
     "size": "Medium",
@@ -1631,6 +1648,7 @@
     "languages": []
   },
   {
+    "id": "race:silver-dragonborn",
     "name": "Silver Dragonborn",
     "description": "Silver dragonborn inherit their ancestors' love of humanity and other humanoid races. They are typically friendly and helpful, often living among other races rather than in isolated communities.",
     "size": "Medium",
@@ -1745,6 +1763,7 @@
     "languages": []
   },
   {
+    "id": "race:white-dragonborn",
     "name": "White Dragonborn",
     "description": "White dragonborn descend from the savage white dragons of the frozen north. They tend to be more bestial than other dragonborn, with a fierce survival instinct.",
     "size": "Medium",
@@ -1859,6 +1878,7 @@
     "languages": []
   },
   {
+    "id": "race:human",
     "name": "Human",
     "description": "In the reckonings of most worlds, humans are the youngest of the common races, late to arrive on the world scene and short-lived in comparison to dwarves, elves, and dragons. Perhaps it is because of their shorter lives that they strive to achieve as much as they can.",
     "size": "Medium",
@@ -1895,6 +1915,7 @@
     ]
   },
   {
+    "id": "race:standard-human",
     "name": "Standard Human",
     "description": "Standard humans represent the versatile nature of humanity, capable of excelling in any field they choose. Their adaptability and ambition drive them to master diverse skills.",
     "size": "Medium",
@@ -1920,6 +1941,7 @@
     "languages": []
   },
   {
+    "id": "race:variant-human",
     "name": "Variant Human",
     "description": "Variant humans exemplify humanity's remarkable adaptability. From birth, they display specialized talents that set them apart, allowing them to excel in their chosen pursuits.",
     "size": "Medium",
@@ -2008,6 +2030,7 @@
     "languages": []
   },
   {
+    "id": "race:half-orc",
     "name": "Half-Orc",
     "description": "Whether united under the leadership of a mighty warlock or having fought to a standstill after years of conflict, orc and human tribes sometimes form alliances. When these alliances are sealed by marriages, half-orcs are born.",
     "size": "Medium",
@@ -2130,6 +2153,7 @@
     ]
   },
   {
+    "id": "race:gnome",
     "name": "Gnome",
     "description": "A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph.",
     "size": "Small",
@@ -2185,6 +2209,7 @@
     ]
   },
   {
+    "id": "race:forest-gnome",
     "name": "Forest Gnome",
     "description": "As a forest gnome, you have a natural knack for illusion and inherent quickness and stealth. Forest gnomes are rare and secretive, gathering in hidden communities in sylvan forests.",
     "size": "Small",
@@ -2248,6 +2273,7 @@
     "languages": []
   },
   {
+    "id": "race:rock-gnome",
     "name": "Rock Gnome",
     "description": "As a rock gnome, you have a natural inventiveness and hardiness beyond that of other gnomes. Most gnomes in the worlds of D&D are rock gnomes, including the tinker gnomes of Krynn.",
     "size": "Small",
@@ -2377,6 +2403,7 @@
     "languages": []
   },
   {
+    "id": "race:halfling",
     "name": "Halfling",
     "description": "The comforts of home are the goals of most halflings' lives: a place to settle in peace and quiet, far from marauding monsters and clashing armies; a blazing fire and a generous meal; fine drink and fine conversation.",
     "size": "Small",
@@ -2479,6 +2506,7 @@
     ]
   },
   {
+    "id": "race:lightfoot-halfling",
     "name": "Lightfoot Halfling",
     "description": "As a lightfoot halfling, you can easily hide from notice, even using other people as cover. You're inclined to be affable and get along well with others. Lightfoots are more prone to wanderlust than other halflings.",
     "size": "Small",
@@ -2511,6 +2539,7 @@
     "languages": []
   },
   {
+    "id": "race:stout-halfling",
     "name": "Stout Halfling",
     "description": "As a stout halfling, you're hardier than average and have some resistance to poison. Some say that stouts have dwarven blood, and they are sometimes called stronghearts in regions where they're common.",
     "size": "Small",
@@ -2567,6 +2596,7 @@
     "languages": []
   },
   {
+    "id": "race:tiefling",
     "name": "Tiefling",
     "description": "To be greeted with stares and whispers, to suffer violence and insult on the street, to see mistrust and fear in every eye: this is the lot of the tiefling. Their appearance and their nature are not their fault but the result of an ancient sin.",
     "size": "Medium",
@@ -2619,6 +2649,7 @@
     ]
   },
   {
+    "id": "race:asmodeus-tiefling",
     "name": "Asmodeus Tiefling",
     "description": "The tieflings connected to Nessus command the power of fire and darkness, guided by a keener than normal intellect, as befits those linked to Asmodeus himself. Such tieflings bear the standard tiefling appearance.",
     "size": "Medium",

@@ -1,5 +1,6 @@
 [
   {
+    "id": "feat:bonus-proficiencies",
     "class": "Assassin",
     "level": 3,
     "name": "Bonus Proficiencies",
@@ -15,6 +16,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:assassinate",
     "class": "Assassin",
     "name": "Assassinate",
     "level": 3,
@@ -60,6 +62,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:infiltration-expertise",
     "class": "Assassin",
     "name": "Infiltration Expertise",
     "level": 9,
@@ -69,6 +72,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:impostor",
     "class": "Assassin",
     "name": "Impostor",
     "level": 13,
@@ -78,6 +82,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:death-strike",
     "class": "Assassin",
     "name": "Death Strike",
     "level": 17,

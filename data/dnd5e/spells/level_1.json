@@ -1,5 +1,6 @@
 [
   {
+    "id": "spell:absorb-elements",
     "name": "Absorb Elements",
     "description": "The spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage of the triggering type, and the spell ends.",
     "level": 1,
@@ -69,6 +70,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:alarm",
     "name": "Alarm",
     "description": "You set an alarm against unwanted intrusion. Choose a door, a window, or an area within range that is no larger than a 20-foot cube. Until the spell ends, an alarm alerts you whenever a Tiny or larger creature touches or enters the warded area. When you cast this spell, you can designate creatures that won't set off the alarm. You also choose whether the alarm is mental or audible. A mental alarm alerts you with a ping in your mind if you are within 1 mile of the warded area. This ping awakens you if you are sleeping. An audible alarm produces the sound of a hand bell for 10 seconds within 60 feet.",
     "level": 1,
@@ -92,6 +94,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:animal-friendship",
     "name": "Animal Friendship",
     "description": "This spell lets you convince a beast that you mean it no harm. Choose a beast that you can see within range. It must see and hear you. If the beast's Intelligence is 4 or higher, the spell fails. Otherwise, the beast must succeed on a Wisdom saving throw or be charmed by you for the spell's duration. If you or one of your companions harms the target, the spell ends.",
     "level": 1,
@@ -157,7 +160,9 @@
           {
             "saving_throw": {
               "ability": "Wisdom",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "apply_status": {
@@ -182,6 +187,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:armor-of-agathys",
     "name": "Armor of Agathys",
     "description": "A protective magical force surrounds you, manifesting as a spectral frost that covers you and your gear. You gain 5 temporary hit points for the duration. If a creature hits you with a melee attack while you have these hit points, the creature takes 5 cold damage.",
     "level": 1,
@@ -242,7 +248,12 @@
               "target": "hitPoints.temp",
               "calculation": {
                 "operation": "set",
-                "operators": [{ "type": "scaling", "value": "temp_hp" }]
+                "operators": [
+                  {
+                    "type": "scaling",
+                    "value": "temp_hp"
+                  }
+                ]
               }
             }
           },
@@ -267,6 +278,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:arms-of-hadar",
     "name": "Arms of Hadar",
     "description": "You invoke the power of Hadar, the Dark Hunger. Tendrils of dark energy erupt from you and batter all creatures within 10 feet of you. Each creature in that area must make a Strength saving throw. On a failed save, a target takes 2d6 necrotic damage and can't take reactions until its next turn. On a successful save, the creature takes half damage, and suffers no other effect.",
     "level": 1,
@@ -315,7 +327,9 @@
           {
             "saving_throw": {
               "ability": "Strength",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "damage": {
@@ -342,7 +356,12 @@
                 "type": ["necrotic"],
                 "calculation": {
                   "operation": "divide",
-                  "operators": [{ "type": "integer", "value": 2 }],
+                  "operators": [
+                    {
+                      "type": "integer",
+                      "value": 2
+                    }
+                  ],
                   "rounding": "down"
                 }
               }
@@ -355,6 +374,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:beast-bond",
     "name": "Beast Bond",
     "description": "You establish a telepathic link with one beast you touch that is friendly to you or charmed by you. The spell fails if the beast's Intelligence is 4 or higher. Until the spell ends, the link is active while you and the beast are within line of sight of each other. Through the link, the beast can understand your telepathic messages to it, and it follows your verbal commands to the best of its ability. You also gain advantage on all attack rolls against any creature within 5 feet of the beast.",
     "level": 1,
@@ -376,6 +396,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:bane",
     "name": "Bane",
     "description": "Up to three creatures of your choice that you can see within range must make Charisma saving throws. Whenever a target that fails this saving throw makes an attack roll or a saving throw before the spell ends, the target must roll a d4 and subtract the number rolled from the attack roll or saving throw.",
     "level": 1,
@@ -404,7 +425,9 @@
           {
             "saving_throw": {
               "ability": "Charisma",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "apply_status": {
@@ -430,6 +453,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:bless",
     "name": "Bless",
     "description": "You bless up to three creatures of your choice within range. Whenever a target makes an attack roll or a saving throw before the spell ends, the target can roll a d4 and add the number rolled to the attack roll or saving throw.",
     "level": 1,
@@ -475,6 +499,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:burning-hands",
     "name": "Burning Hands",
     "description": "As you hold your hands with thumbs touching and fingers spread, a thin sheet of flames shoots forth from your outstretched fingertips. Each creature in a 15-foot cone must make a Dexterity saving throw. A creature takes 3d6 fire damage on a failed save, or half as much damage on a successful one. The fire ignites any flammable objects in the area that aren't being worn or carried.",
     "level": 1,
@@ -522,7 +547,9 @@
           {
             "saving_throw": {
               "ability": "Dexterity",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "damage": {
@@ -536,7 +563,12 @@
                 "type": ["fire"],
                 "calculation": {
                   "operation": "divide",
-                  "operators": [{ "type": "integer", "value": 2 }],
+                  "operators": [
+                    {
+                      "type": "integer",
+                      "value": 2
+                    }
+                  ],
                   "rounding": "down"
                 }
               }
@@ -549,6 +581,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:catapult",
     "name": "Catapult",
     "description": "Choose one object weighing 1 to 5 pounds within range that isn't being worn or carried. The object flies in a straight line up to 90 feet in a direction you choose before falling to the ground, stopping early if it impacts against a solid surface. If the object would strike a creature, that creature must make a Dexterity saving throw. On a failed save, the object strikes the target and stops moving. When the object strikes something, the object and what it strikes each take 3d8 bludgeoning damage.",
     "level": 1,
@@ -617,7 +650,9 @@
             },
             "saving_throw": {
               "ability": "Dexterity",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "damage": {
@@ -633,6 +668,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:cause-fear",
     "name": "Cause Fear",
     "description": "You awaken the sense of mortality in one creature you can see within range. A construct or an undead is immune to this effect. The target must succeed on a Wisdom saving throw or become frightened of you until the spell ends. The frightened target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
     "level": 1,
@@ -685,7 +721,9 @@
           {
             "saving_throw": {
               "ability": "Wisdom",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "apply_status": {
@@ -697,7 +735,9 @@
                 },
                 "escape": {
                   "ability": "Wisdom",
-                  "dc": { "ref": "spell_save_dc" }
+                  "dc": {
+                    "ref": "spell_save_dc"
+                  }
                 }
               }
             }
@@ -709,6 +749,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:ceremony",
     "name": "Ceremony",
     "description": "You perform a special religious ceremony that is infused with magic. When you cast this spell, choose one of the following rites, the target of which must be within 10 feet of you throughout the casting: Atonement, Bless Water, Coming of Age, Dedication, Funeral Rite, or Wedding.",
     "level": 1,
@@ -735,6 +776,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:chaos-bolt",
     "name": "Chaos Bolt",
     "description": "You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 + 1d6 damage. Choose one of the d8s. The number rolled on that die determines the attack's damage type. If you roll the same number on both d8s, the chaotic energy leaps from the target to a different creature of your choice within 30 feet of it.",
     "level": 1,
@@ -805,6 +847,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:charm-person",
     "name": "Charm Person",
     "description": "You attempt to charm a humanoid you can see within range. It must make a Wisdom saving throw, and does so with advantage if you or your companions are fighting it. If it fails the saving throw, it is charmed by you until the spell ends or until you or your companions do anything harmful to it. The charmed creature regards you as a friendly acquaintance. When the spell ends, the creature knows it was charmed by you.",
     "level": 1,
@@ -851,7 +894,9 @@
           {
             "saving_throw": {
               "ability": "Wisdom",
-              "dc": { "ref": "spell_save_dc" },
+              "dc": {
+                "ref": "spell_save_dc"
+              },
               "advantage": {
                 "disposition": "hostile"
               }
@@ -872,6 +917,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:chromatic-orb",
     "name": "Chromatic Orb",
     "description": "You hurl a 4-inch-diameter sphere of energy at a creature that you can see within range. You choose acid, cold, fire, lightning, poison, or thunder for the type of orb you create, and then make a ranged spell attack against the target. On a hit, the creature takes 3d8 damage of the type you chose.",
     "level": 1,
@@ -925,12 +971,24 @@
             "choice": {
               "type": "damage_type",
               "options": [
-                { "name": "acid" },
-                { "name": "cold" },
-                { "name": "fire" },
-                { "name": "lightning" },
-                { "name": "poison" },
-                { "name": "thunder" }
+                {
+                  "name": "acid"
+                },
+                {
+                  "name": "cold"
+                },
+                {
+                  "name": "fire"
+                },
+                {
+                  "name": "lightning"
+                },
+                {
+                  "name": "poison"
+                },
+                {
+                  "name": "thunder"
+                }
               ]
             },
             "attack": {
@@ -952,6 +1010,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:color-spray",
     "name": "Color Spray",
     "description": "A dazzling array of flashing, colored light springs from your hand. Roll 6d10; the total is how many hit points of creatures this spell can affect. Creatures in a 15-foot cone originating from you are affected in ascending order of their current hit points (ignoring unconscious creatures and creatures that can't see). Starting with the creature that has the lowest current hit points, each creature affected by this spell is blinded until the spell ends. Subtract each creature's hit points from the total before moving on to the creature with the next lowest hit points. A creature's hit points must be equal to or less than the remaining total for that creature to be affected.",
     "level": 1,
@@ -1033,6 +1092,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:command",
     "name": "Command",
     "description": "You speak a one-word command to a creature you can see within range. The target must succeed on a Wisdom saving throw or follow the command on its next turn. The spell has no effect if the target is undead, if the target doesn't understand your language, or if your command is directly harmful to it.",
     "level": 1,
@@ -1085,7 +1145,9 @@
           {
             "saving_throw": {
               "ability": "Wisdom",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "apply_status": {
@@ -1104,6 +1166,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:compelled-duel",
     "name": "Compelled Duel",
     "description": "You attempt to compel a creature into a duel. One creature that you can see within range must make a Wisdom saving throw. On a failed save, the creature is drawn to you, compelled by your divine demand. For the duration, it has disadvantage on attack rolls against creatures other than you, and must make a Wisdom saving throw each time it attempts to move to a space that is more than 30 feet away from you; if it succeeds on this saving throw, this spell doesn't restrict the target's movement for that turn. The spell ends if you attack any other creature, if you cast a spell that targets a hostile creature other than the target, if a creature friendly to you damages the target or casts a harmful spell on it, or if you end your turn more than 30 feet away from the target.",
     "level": 1,
@@ -1135,7 +1198,9 @@
           {
             "saving_throw": {
               "ability": "Wisdom",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "apply_status": {
@@ -1154,16 +1219,24 @@
                   "until": [
                     {
                       "event": ["attack"],
-                      "source": { "type": ["character"] },
-                      "target": { "exclude": "spell_target" }
+                      "source": {
+                        "type": ["character"]
+                      },
+                      "target": {
+                        "exclude": "spell_target"
+                      }
                     },
                     {
                       "event": ["damaged_by"],
-                      "source": { "disposition": "friendly" }
+                      "source": {
+                        "disposition": "friendly"
+                      }
                     },
                     {
                       "event": ["end_turn"],
-                      "source": { "type": ["character"] },
+                      "source": {
+                        "type": ["character"]
+                      },
                       "condition": {
                         "type": "range",
                         "value": 30,
@@ -1184,6 +1257,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:comprehend-languages",
     "name": "Comprehend Languages",
     "description": "For the duration, you understand the literal meaning of any spoken language that you hear. You also understand any written language that you see, but you must be touching the surface on which the words are written. It takes about 1 minute to read one page of text. This spell doesn't decode secret messages in a text or a glyph, such as an arcane sigil, that isn't part of a written language.",
     "level": 1,
@@ -1222,6 +1296,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:create-or-destroy-water",
     "name": "Create or Destroy Water",
     "description": "You either create or destroy water. Create Water: You create up to 10 gallons of clean water within range in an open container. Alternatively, the water falls as rain in a 30-foot cube within range, extinguishing exposed flames in the area. Destroy Water: You destroy up to 10 gallons of water in an open container within range. Alternatively, you destroy fog in a 30-foot cube within range.",
     "level": 1,
@@ -1243,6 +1318,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:cure-wounds",
     "name": "Cure Wounds",
     "description": "A creature you touch regains a number of hit points equal to 1d8 + your spellcasting ability modifier. This spell has no effect on undead or constructs.",
     "level": 1,
@@ -1290,7 +1366,12 @@
               "dice": "1d8",
               "bonus": {
                 "operation": "add",
-                "operators": [{ "type": "action_modifier", "modifier": "spellcasting" }]
+                "operators": [
+                  {
+                    "type": "action_modifier",
+                    "modifier": "spellcasting"
+                  }
+                ]
               }
             }
           }
@@ -1301,6 +1382,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:detect-evil-and-good",
     "name": "Detect Evil and Good",
     "description": "For the duration, you know if there is an aberration, celestial, elemental, fey, fiend, or undead within 30 feet of you, as well as where the creature is located. Similarly, you know if there is a place or object within 30 feet of you that has been magically consecrated or desecrated.",
     "level": 1,
@@ -1321,7 +1403,10 @@
         "effects": [
           {
             "detection": {
-              "range": { "value": 30, "unit": "feet" },
+              "range": {
+                "value": 30,
+                "unit": "feet"
+              },
               "detects": ["aberration", "celestial", "elemental", "fey", "fiend", "undead", "consecrated", "desecrated"]
             }
           }
@@ -1332,6 +1417,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:detect-magic",
     "name": "Detect Magic",
     "description": "For the duration, you sense the presence of magic within 30 feet of you. If you sense magic in this way, you can use your action to see a faint aura around any visible creature or object in the area that bears magic, and you learn its school of magic, if any. The spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.",
     "level": 1,
@@ -1352,7 +1438,10 @@
         "effects": [
           {
             "detection": {
-              "range": { "value": 30, "unit": "feet" },
+              "range": {
+                "value": 30,
+                "unit": "feet"
+              },
               "detects": ["magic"],
               "details": ["school_of_magic"],
               "blocked_by": {
@@ -1372,6 +1461,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:detect-poison-and-disease",
     "name": "Detect Poison and Disease",
     "description": "For the duration, you can sense the presence and location of poisons, poisonous creatures, and diseases within 30 feet of you. You also identify the kind of poison, poisonous creature, or disease in each case. The spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.",
     "level": 1,
@@ -1397,7 +1487,10 @@
         "effects": [
           {
             "detection": {
-              "range": { "value": 30, "unit": "feet" },
+              "range": {
+                "value": 30,
+                "unit": "feet"
+              },
               "detects": ["poisons", "poisonous_creatures", "diseases"],
               "details": ["identify_kind"],
               "blocked_by": {
@@ -1417,6 +1510,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:dissonant-whispers",
     "name": "Dissonant Whispers",
     "description": "You whisper a discordant melody that only one creature of your choice within range can hear, wracking it with terrible pain. The target must make a Wisdom saving throw. On a failed save, it takes 3d6 psychic damage and must immediately use its reaction, if available, to move as far as its speed allows away from you. The creature doesn't move into obviously dangerous ground, such as a fire or a pit. On a successful save, the target takes half as much damage and doesn't have to move away. A deafened creature automatically succeeds on the save.",
     "level": 1,
@@ -1468,7 +1562,9 @@
           {
             "saving_throw": {
               "ability": "Wisdom",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "damage": {
@@ -1488,7 +1584,12 @@
                 "type": ["psychic"],
                 "calculation": {
                   "operation": "divide",
-                  "operators": [{ "type": "integer", "value": 2 }],
+                  "operators": [
+                    {
+                      "type": "integer",
+                      "value": 2
+                    }
+                  ],
                   "rounding": "down"
                 }
               }
@@ -1501,6 +1602,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:divine-favor",
     "name": "Divine Favor",
     "description": "Your prayer empowers you with divine radiance. Until the spell ends, your weapon attacks deal an extra 1d4 radiant damage on a hit.",
     "level": 1,
@@ -1538,6 +1640,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:earth-tremor",
     "name": "Earth Tremor",
     "description": "You cause a tremor in the ground within range. Each creature other than you in that area must make a Dexterity saving throw. On a failed save, a creature takes 1d6 bludgeoning damage and is knocked prone. If the ground in that area is loose earth or stone, it becomes difficult terrain until cleared, with each 5-foot-square portion requiring at least 1 minute to clear by hand.",
     "level": 1,
@@ -1586,7 +1689,9 @@
           {
             "saving_throw": {
               "ability": "Dexterity",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "damage": {
@@ -1601,7 +1706,12 @@
               "damage": {
                 "calculation": {
                   "operation": "multiply",
-                  "operators": [{ "type": "integer", "value": 0 }]
+                  "operators": [
+                    {
+                      "type": "integer",
+                      "value": 0
+                    }
+                  ]
                 }
               }
             }
@@ -1626,6 +1736,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:ensnaring-strike",
     "name": "Ensnaring Strike",
     "description": "The next time you hit a creature with a weapon attack before this spell ends, a writhing mass of thorny vines appears at the point of impact, and the target must succeed on a Strength saving throw or be restrained by the magical vines until the spell ends. A Large or larger creature has advantage on this saving throw. If the target succeeds on the save, the vines shrivel away. While restrained by this spell, the target takes 1d6 piercing damage at the start of each of its turns.",
     "level": 1,
@@ -1674,7 +1785,9 @@
             },
             "saving_throw": {
               "ability": "Strength",
-              "dc": { "ref": "spell_save_dc" },
+              "dc": {
+                "ref": "spell_save_dc"
+              },
               "advantage": {
                 "size": ["Large", "Huge", "Gargantuan"]
               }
@@ -1697,6 +1810,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:entangle",
     "name": "Entangle",
     "description": "Grasping weeds and vines sprout from the ground in a 20-foot square starting from a point within range. For the duration, these plants turn the ground in the area into difficult terrain. A creature in the area when you cast the spell must succeed on a Strength saving throw or be restrained by the entangling plants until the spell ends. A creature restrained by the plants can use its action to make a Strength check against your spell save DC. On a success, it frees itself.",
     "level": 1,
@@ -1736,14 +1850,18 @@
           {
             "saving_throw": {
               "ability": "Strength",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "apply_status": {
                 "name": "restrained",
                 "escape": {
                   "ability": "Strength",
-                  "dc": { "ref": "spell_save_dc" }
+                  "dc": {
+                    "ref": "spell_save_dc"
+                  }
                 }
               }
             }
@@ -1755,6 +1873,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:expeditious-retreat",
     "name": "Expeditious Retreat",
     "description": "This spell allows you to move at an incredible pace. When you cast this spell, and then as a bonus action on each of your turns until the spell ends, you can take the Dash action.",
     "level": 1,
@@ -1786,6 +1905,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:faerie-fire",
     "name": "Faerie Fire",
     "description": "Each object in a 20-foot cube within range is outlined in blue, green, or violet light (your choice). Any creature in the area when the spell is cast is also outlined in light if it fails a Dexterity saving throw. For the duration, objects and affected creatures shed dim light in a 10-foot radius. Any attack roll against an affected creature or object has advantage if the attacker can see it, and the affected creature or object can't benefit from being invisible.",
     "level": 1,
@@ -1813,7 +1933,9 @@
           {
             "saving_throw": {
               "ability": "Dexterity",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "apply_status": {
@@ -1855,6 +1977,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:false-life",
     "name": "False Life",
     "description": "Bolstering yourself with a necromantic facsimile of life, you gain 1d4 + 4 temporary hit points for the duration.",
     "level": 1,
@@ -1909,6 +2032,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:feather-fall",
     "name": "Feather Fall",
     "description": "Choose up to five falling creatures within range. A falling creature's rate of descent slows to 60 feet per round until the spell ends. If the creature lands before the spell ends, it takes no falling damage and can land on its feet, and the spell ends for that creature.",
     "level": 1,
@@ -1957,7 +2081,12 @@
               "target": "movement.falling",
               "calculation": {
                 "operation": "set",
-                "operators": [{ "type": "integer", "value": 60 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 60
+                  }
+                ]
               }
             }
           }
@@ -1968,6 +2097,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:find-familiar",
     "name": "Find Familiar",
     "description": "You gain the service of a familiar, a spirit that takes an animal form you choose: bat, cat, crab, frog (toad), hawk, lizard, octopus, owl, poisonous snake, fish (quipper), rat, raven, sea horse, spider, or weasel. Appearing in an unoccupied space within range, the familiar has the statistics of the chosen form, though it is a celestial, fey, or fiend (your choice) instead of a beast.",
     "level": 1,
@@ -1994,6 +2124,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:fog-cloud",
     "name": "Fog Cloud",
     "description": "You create a 20-foot-radius sphere of fog centered on a point within range. The sphere spreads around corners, and its area is heavily obscured. It lasts for the duration or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it.",
     "level": 1,
@@ -2051,6 +2182,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:grease",
     "name": "Grease",
     "description": "Slick grease covers the ground in a 10-foot square centered on a point within range and turns it into difficult terrain for the duration. When the grease appears, each creature standing in its area must succeed on a Dexterity saving throw or fall prone. A creature that enters the area or ends its turn there must also succeed on a Dexterity saving throw or fall prone.",
     "level": 1,
@@ -2101,7 +2233,9 @@
             },
             "saving_throw": {
               "ability": "Dexterity",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "apply_status": {
@@ -2116,6 +2250,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:goodberry",
     "name": "Goodberry",
     "description": "Up to ten berries appear in your hand and are infused with magic for the duration. A creature can use its action to eat one berry. Eating a berry restores 1 hit point, and the berry provides enough nourishment to sustain a creature for one day. The berries lose their potency if they have not been consumed within 24 hours of the casting of this spell.",
     "level": 1,
@@ -2145,8 +2280,13 @@
               "name": "goodberry",
               "count": 10
             },
-            "healing": { "value": 1 },
-            "duration": { "value": 24, "unit": "hours" }
+            "healing": {
+              "value": 1
+            },
+            "duration": {
+              "value": 24,
+              "unit": "hours"
+            }
           }
         ]
       }
@@ -2155,6 +2295,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:guiding-bolt",
     "name": "Guiding Bolt",
     "description": "A flash of light streaks toward a creature of your choice within range. Make a ranged spell attack against the target. On a hit, the target takes 4d6 radiant damage, and the next attack roll made against this target before the end of your next turn has advantage, thanks to the mystical dim light glittering on the target until then.",
     "level": 1,
@@ -2232,6 +2373,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:hail-of-thorns",
     "name": "Hail of Thorns",
     "description": "The next time you hit a creature with a ranged weapon attack before the spell ends, this spell creates a rain of thorns that sprouts from your ranged weapon or ammunition. In addition to the normal effect of the attack, the target of the attack and each creature within 5 feet of it must make a Dexterity saving throw. A creature takes 1d10 piercing damage on a failed save, or half as much damage on a successful one.",
     "level": 1,
@@ -2289,7 +2431,9 @@
             },
             "saving_throw": {
               "ability": "Dexterity",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "damage": {
@@ -2303,7 +2447,12 @@
                 "type": ["piercing"],
                 "calculation": {
                   "operation": "divide",
-                  "operators": [{ "type": "integer", "value": 2 }],
+                  "operators": [
+                    {
+                      "type": "integer",
+                      "value": 2
+                    }
+                  ],
                   "rounding": "down"
                 }
               }
@@ -2316,6 +2465,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:healing-word",
     "name": "Healing Word",
     "description": "A creature of your choice that you can see within range regains hit points equal to 1d4 + your spellcasting ability modifier. This spell has no effect on undead or constructs.",
     "level": 1,
@@ -2370,7 +2520,12 @@
               "dice": "1d4",
               "bonus": {
                 "operation": "add",
-                "operators": [{ "type": "action_modifier", "modifier": "spellcasting" }]
+                "operators": [
+                  {
+                    "type": "action_modifier",
+                    "modifier": "spellcasting"
+                  }
+                ]
               }
             }
           }
@@ -2381,6 +2536,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:hellish-rebuke",
     "name": "Hellish Rebuke",
     "description": "You point your finger, and the creature that damaged you is momentarily surrounded by hellish flames. The creature must make a Dexterity saving throw. It takes 2d10 fire damage on a failed save, or half as much damage on a successful one.",
     "level": 1,
@@ -2427,7 +2583,9 @@
           {
             "saving_throw": {
               "ability": "Dexterity",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "damage": {
@@ -2441,7 +2599,12 @@
                 "type": ["fire"],
                 "calculation": {
                   "operation": "divide",
-                  "operators": [{ "type": "integer", "value": 2 }],
+                  "operators": [
+                    {
+                      "type": "integer",
+                      "value": 2
+                    }
+                  ],
                   "rounding": "down"
                 }
               }
@@ -2454,6 +2617,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:heroism",
     "name": "Heroism",
     "description": "A willing creature you touch is imbued with bravery. Until the spell ends, the creature is immune to being frightened and gains temporary hit points equal to your spellcasting ability modifier at the start of each of its turns. When the spell ends, the target loses any remaining temporary hit points from this spell.",
     "level": 1,
@@ -2503,7 +2667,12 @@
             "healing": {
               "bonus": {
                 "operation": "add",
-                "operators": [{ "type": "action_modifier", "modifier": "spellcasting" }]
+                "operators": [
+                  {
+                    "type": "action_modifier",
+                    "modifier": "spellcasting"
+                  }
+                ]
               },
               "barrier": true
             }
@@ -2515,6 +2684,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:hex",
     "name": "Hex",
     "description": "You place a curse on a creature that you can see within range. Until the spell ends, you deal an extra 1d6 necrotic damage to the target whenever you hit it with an attack. Also, choose one ability when you cast the spell. The target has disadvantage on ability checks made with the chosen ability. If the target drops to 0 hit points before this spell ends, you can use a bonus action on a subsequent turn of yours to curse a new creature. A remove curse cast on the target ends this spell early.",
     "level": 1,
@@ -2615,11 +2785,11 @@
         }
       }
     ],
-    "countered_by": "remove_curse",
     "source": "phb",
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:hunters-mark",
     "name": "Hunter's Mark",
     "description": "You choose a creature you can see within range and mystically mark it as your quarry. Until the spell ends, you deal an extra 1d6 damage to the target whenever you hit it with a weapon attack, and you have advantage on any Wisdom (Perception) or Wisdom (Survival) check you make to find it. If the target drops to 0 hit points before this spell ends, you can use a bonus action on a subsequent turn of yours to mark a new creature.",
     "level": 1,
@@ -2710,6 +2880,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:ice-knife",
     "name": "Ice Knife",
     "description": "You create a shard of ice and fling it at one creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 piercing damage. Hit or miss, the shard then explodes. The target and each creature within 5 feet of it must succeed on a Dexterity saving throw or take 2d6 cold damage.",
     "level": 1,
@@ -2780,7 +2951,9 @@
             },
             "saving_throw": {
               "ability": "Dexterity",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "damage": {
@@ -2792,7 +2965,12 @@
               "damage": {
                 "calculation": {
                   "operation": "multiply",
-                  "operators": [{ "type": "integer", "value": 0 }]
+                  "operators": [
+                    {
+                      "type": "integer",
+                      "value": 0
+                    }
+                  ]
                 }
               }
             }
@@ -2804,6 +2982,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:identify",
     "name": "Identify",
     "description": "You choose one object that you must touch throughout the casting of the spell. If it is a magic item or some other magic-imbued object, you learn its properties and how to use them, whether it requires attunement to use, and how many charges it has, if any. You learn whether any spells are affecting the item and what they are. If the item was created by a spell, you learn which spell created it. If you instead touch a creature throughout the casting, you learn what spells, if any, are currently affecting it.",
     "level": 1,
@@ -2829,6 +3008,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:illusory-script",
     "name": "Illusory Script",
     "description": "You write on parchment, paper, or some other suitable writing material and imbue it with a potent illusion that lasts for the duration. To you and any creatures you designate when you cast the spell, the writing appears normal, written in your hand, and conveys whatever meaning you intended when you wrote the text. To all others, the writing appears as if it were written in an unknown or magical script that is unintelligible. Alternatively, you can cause the writing to appear to be an entirely different message, written in a different hand and language, though the language must be one you know. Should the spell be dispelled, the original script and the illusion both disappear. A creature with truesight can read the hidden message.",
     "level": 1,
@@ -2856,6 +3036,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:inflict-wounds",
     "name": "Inflict Wounds",
     "description": "Make a melee spell attack against a creature you can reach. On a hit, the target takes 3d10 necrotic damage.",
     "level": 1,
@@ -2915,6 +3096,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:jump",
     "name": "Jump",
     "description": "You touch a creature. The creature's jump distance is tripled until the spell ends.",
     "level": 1,
@@ -2944,7 +3126,12 @@
               "target": "jump_distance",
               "calculation": {
                 "operation": "multiply",
-                "operators": [{ "type": "integer", "value": 3 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 3
+                  }
+                ]
               }
             }
           }
@@ -2955,6 +3142,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:longstrider",
     "name": "Longstrider",
     "description": "You touch a creature. The target's speed increases by 10 feet until the spell ends.",
     "level": 1,
@@ -3002,7 +3190,12 @@
               "target": "speed",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 10 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 10
+                  }
+                ]
               }
             }
           }
@@ -3013,6 +3206,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:mage-armor",
     "name": "Mage Armor",
     "description": "You touch a willing creature who isn't wearing armor, and a protective magical force surrounds it until the spell ends. The target's base AC becomes 13 + its Dexterity modifier. The spell ends if the target dons armor or if you dismiss the spell as an action.",
     "level": 1,
@@ -3049,7 +3243,12 @@
               "target": "ac.base",
               "calculation": {
                 "operation": "set",
-                "operators": [{ "type": "integer", "value": 13 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 13
+                  }
+                ]
               }
             },
             "duration": {
@@ -3072,6 +3271,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:magic-missile",
     "name": "Magic Missile",
     "description": "You create three glowing darts of magical force. Each dart hits a creature of your choice that you can see within range. A dart deals 1d4 + 1 force damage to its target. The darts all strike simultaneously, and you can direct them to hit one creature or several.",
     "level": 1,
@@ -3130,6 +3330,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:protection-from-good-and-evil",
     "name": "Protection from Good and Evil",
     "description": "Until the spell ends, one willing creature you touch is protected against certain types of creatures: aberrations, celestials, elementals, fey, fiends, and undead. The protection grants several benefits. Creatures of those types have disadvantage on attack rolls against the target. The target also can't be charmed, frightened, or possessed by them. If the target is already charmed, frightened, or possessed by such a creature, the target has advantage on any new saving throw against the relevant effect.",
     "level": 1,
@@ -3198,6 +3399,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:purify-food-and-drink",
     "name": "Purify Food and Drink",
     "description": "All nonmagical food and drink within a 5-foot-radius sphere centered on a point of your choice within range is purified and rendered free of poison and disease.",
     "level": 1,
@@ -3215,6 +3417,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:ray-of-sickness",
     "name": "Ray of Sickness",
     "description": "A ray of sickening greenish energy lashes out toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 poison damage and must make a Constitution saving throw. On a failed save, it is also poisoned until the end of your next turn.",
     "level": 1,
@@ -3268,7 +3471,9 @@
               },
               "saving_throw": {
                 "ability": "Constitution",
-                "dc": { "ref": "spell_save_dc" }
+                "dc": {
+                  "ref": "spell_save_dc"
+                }
               },
               "on_failure": {
                 "apply_status": {
@@ -3289,6 +3494,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:sanctuary",
     "name": "Sanctuary",
     "description": "You ward a creature within range against attack. Until the spell ends, any creature who targets the warded creature with an attack or a harmful spell must first make a Wisdom saving throw. On a failed save, the creature must choose a new target or lose the attack or spell. This spell doesn't protect the warded creature from area effects, such as the explosion of a fireball. If the warded creature makes an attack or casts a spell that affects an enemy creature, this spell ends.",
     "level": 1,
@@ -3325,7 +3531,9 @@
                 "until": [
                   {
                     "event": ["attack", "cast_spell"],
-                    "target": { "type": ["hostile"] }
+                    "target": {
+                      "type": ["hostile"]
+                    }
                   }
                 ]
               },
@@ -3339,7 +3547,9 @@
                   },
                   "saving_throw": {
                     "ability": "Wisdom",
-                    "dc": { "ref": "spell_save_dc" }
+                    "dc": {
+                      "ref": "spell_save_dc"
+                    }
                   },
                   "on_failure": {
                     "grants": {
@@ -3357,6 +3567,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:searing-smite",
     "name": "Searing Smite",
     "description": "The next time you hit a creature with a melee weapon attack during the spell's duration, your weapon flares with white-hot intensity, and the attack deals an extra 1d6 fire damage to the target and causes the target to ignite in flames. At the start of each of its turns until the spell ends, the target must make a Constitution saving throw. On a failed save, it takes 1d6 fire damage. On a successful save, the spell ends. If the target or a creature within 5 feet of it uses an action to put out the flames, or if some other effect douses the flames (such as the target being submerged in water), the spell ends.",
     "level": 1,
@@ -3415,7 +3626,9 @@
                 },
                 "escape": {
                   "ability": "Constitution",
-                  "dc": { "ref": "spell_save_dc" }
+                  "dc": {
+                    "ref": "spell_save_dc"
+                  }
                 }
               }
             },
@@ -3428,6 +3641,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:shield",
     "name": "Shield",
     "description": "An invisible barrier of magical force appears and protects you. Until the start of your next turn, you have a +5 bonus to AC, including against the triggering attack, and you take no damage from magic missile.",
     "level": 1,
@@ -3454,7 +3668,12 @@
               "target": "ac",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 5 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 5
+                  }
+                ]
               }
             },
             "immunity": {
@@ -3474,6 +3693,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:shield-of-faith",
     "name": "Shield of Faith",
     "description": "A shimmering field appears and surrounds a creature of your choice within range, granting it a +2 bonus to AC for the duration.",
     "level": 1,
@@ -3504,7 +3724,12 @@
               "target": "ac",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 2 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
+                ]
               }
             },
             "duration": {
@@ -3519,6 +3744,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:silent-image",
     "name": "Silent Image",
     "description": "You create the image of an object, a creature, or some other visible phenomenon that is no larger than a 15-foot cube. The image appears at a spot within range and lasts for the duration. The image is purely visual; it isn't accompanied by sound, smell, or other sensory effects. You can use your action to cause the image to move to any spot within range. As the image changes location, you can alter its appearance so that its movements appear natural for the image. Physical interaction with the image reveals it to be an illusion, because things can pass through it. A creature that uses its action to examine the image can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the creature can see through the image.",
     "level": 1,
@@ -3559,7 +3785,9 @@
                   "action": "examine",
                   "check": {
                     "skill": "Investigation",
-                    "dc": { "ref": "spell_save_dc" }
+                    "dc": {
+                      "ref": "spell_save_dc"
+                    }
                   }
                 }
               ]
@@ -3572,6 +3800,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:sleep",
     "name": "Sleep",
     "description": "This spell sends creatures into a magical slumber. Roll 5d8; the total is how many hit points of creatures this spell can affect. Creatures within 20 feet of a point you choose within range are affected in ascending order of their current hit points (ignoring unconscious creatures). Starting with the creature that has the lowest current hit points, each creature affected by this spell falls unconscious until the spell ends, the sleeper takes damage, or someone uses an action to shake or slap the sleeper awake. Subtract each creature's hit points from the total before moving on to the creature with the next lowest hit points. A creature's hit points must be equal to or less than the remaining total for that creature to be affected. Undead and creatures immune to being charmed aren't affected by this spell.",
     "level": 1,
@@ -3656,6 +3885,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:snare",
     "name": "Snare",
     "description": "As you cast this spell, you use the rope to create a circle with a 5-foot radius on the ground or the floor. When you finish casting, the rope disappears and the circle becomes a magic trap. The trap is nearly invisible, requiring a successful Intelligence (Investigation) check against your spell save DC to be discerned. The trap triggers when a Small, Medium, or Large creature moves onto the ground or the floor in the spell's radius. That creature must succeed on a Dexterity saving throw or be magically hoisted into the air, leaving it hanging upside down 3 feet above the ground or the floor. The creature is restrained there until the spell ends.",
     "level": 1,
@@ -3685,7 +3915,9 @@
             "detection": {
               "check": {
                 "skill": "Investigation",
-                "dc": { "ref": "spell_save_dc" }
+                "dc": {
+                  "ref": "spell_save_dc"
+                }
               }
             },
             "trigger": {
@@ -3697,7 +3929,9 @@
             },
             "saving_throw": {
               "ability": "Dexterity",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "apply_status": {
@@ -3716,6 +3950,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:speak-with-animals",
     "name": "Speak with Animals",
     "description": "You gain the ability to comprehend and verbally communicate with beasts for the duration. The knowledge and awareness of many beasts is limited by their intelligence, but at minimum, beasts can give you information about nearby locations and monsters, including whatever they can perceive or have perceived within the past day. You might be able to persuade a beast to perform a small favor for you, at the DM's discretion.",
     "level": 1,
@@ -3733,6 +3968,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:thunderous-smite",
     "name": "Thunderous Smite",
     "description": "The first time you hit with a melee weapon attack during this spell's duration, your weapon rings with thunder that is audible within 300 feet of you, and the attack deals an extra 2d6 thunder damage to the target. Additionally, if the target is a creature, it must succeed on a Strength saving throw or be pushed 10 feet away from you and knocked prone.",
     "level": 1,
@@ -3768,7 +4004,9 @@
             },
             "saving_throw": {
               "ability": "Strength",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "forced_movement": {
@@ -3790,6 +4028,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:thunderwave",
     "name": "Thunderwave",
     "description": "A wave of thunderous force sweeps out from you. Each creature in a 15-foot cube originating from you must make a Constitution saving throw. On a failed save, a creature takes 2d8 thunder damage and is pushed 10 feet away from you. On a successful save, the creature takes half as much damage and isn't pushed. In addition, unsecured objects that are completely within the area of effect are automatically pushed 10 feet away from you by the spell's effect, and the spell emits a thunderous boom audible out to 300 feet.",
     "level": 1,
@@ -3837,7 +4076,9 @@
           {
             "saving_throw": {
               "ability": "Constitution",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "damage": {
@@ -3856,7 +4097,12 @@
                 "type": ["thunder"],
                 "calculation": {
                   "operation": "divide",
-                  "operators": [{ "type": "integer", "value": 2 }],
+                  "operators": [
+                    {
+                      "type": "integer",
+                      "value": 2
+                    }
+                  ],
                   "rounding": "down"
                 }
               }
@@ -3869,6 +4115,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:tashas-caustic-brew",
     "name": "Tasha's Caustic Brew",
     "description": "A stream of acid emanates from you in a line 30 feet long and 5 feet wide in a direction you choose. Each creature in the line must succeed on a Dexterity saving throw or be covered in acid for the spell's duration or until a creature uses its action to scrape or wash the acid off itself or another creature. A creature covered in the acid takes 2d4 acid damage at the start of each of its turns.",
     "level": 1,
@@ -3914,7 +4161,9 @@
           {
             "saving_throw": {
               "ability": "Dexterity",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "apply_status": {
@@ -3946,6 +4195,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:tashas-hideous-laughter",
     "name": "Tasha's Hideous Laughter",
     "description": "A creature of your choice that you can see within range perceives everything as hilariously funny and falls into fits of laughter if this spell affects it. The target must succeed on a Wisdom saving throw or fall prone, becoming incapacitated and unable to stand up for the duration. A creature with an Intelligence score of 4 or less isn't affected. At the end of each of its turns, and each time it takes damage, the target can make another Wisdom saving throw. The target has advantage on the saving throw if it's triggered by damage. On a success, the spell ends.",
     "level": 1,
@@ -3991,7 +4241,9 @@
           {
             "saving_throw": {
               "ability": "Wisdom",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "effects": [
@@ -4005,7 +4257,9 @@
                     "name": "incapacitated",
                     "escape": {
                       "ability": "Wisdom",
-                      "dc": { "ref": "spell_save_dc" },
+                      "dc": {
+                        "ref": "spell_save_dc"
+                      },
                       "timing": "end_of_turn",
                       "advantage": {
                         "trigger": {
@@ -4025,6 +4279,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:tensers-floating-disk",
     "name": "Tenser's Floating Disk",
     "description": "This spell creates a circular, horizontal plane of force, 3 feet in diameter and 1 inch thick, that floats 3 feet above the ground in an unoccupied space of your choice that you can see within range. The disk remains for the duration, and can hold up to 500 pounds. If more weight is placed on it, the spell ends, and everything on the disk falls to the ground. The disk is immobile while you are within 20 feet of it. If you move more than 20 feet away from it, the disk follows you so that it remains within 20 feet of you. It can move across uneven terrain, up or down stairs, slopes and the like, but it can't cross an elevation change of 10 feet or more.",
     "level": 1,
@@ -4048,6 +4303,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:unseen-servant",
     "name": "Unseen Servant",
     "description": "This spell creates an invisible, mindless, shapeless force that performs simple tasks at your command until the spell ends. The servant springs into existence in an unoccupied space on the ground within range. It has AC 10, 1 hit point, and a Strength of 2, and it can't attack. If it drops to 0 hit points, the spell ends. Once on each of your turns as a bonus action, you can mentally command the servant to move up to 15 feet and interact with an object. The servant can perform simple tasks that a human servant could do, such as fetching things, cleaning, mending, folding clothes, lighting fires, serving food, and pouring wine. Once you give the command, the servant performs the task to the best of its ability until it completes the task, then waits for your next command. If you command the servant to perform a task that would move it more than 60 feet away from you, the spell ends.",
     "level": 1,
@@ -4071,6 +4327,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:witch-bolt",
     "name": "Witch Bolt",
     "description": "A beam of crackling, blue energy lances out toward a creature within range, forming a sustained arc of lightning between you and the target. Make a ranged spell attack against that creature. On a hit, the target takes 1d12 lightning damage, and on each of your turns for the duration, you can use your action to deal 1d12 lightning damage to the target automatically. The spell ends if you use your action to do anything else. The spell also ends if the target is ever outside the spell's range or if it has total cover from you.",
     "level": 1,
@@ -4161,6 +4418,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:wrathful-smite",
     "name": "Wrathful Smite",
     "description": "The next time you hit with a melee weapon attack during this spell's duration, your attack deals an extra 1d6 psychic damage. Additionally, if the target is a creature, it must make a Wisdom saving throw or be frightened of you until the spell ends. As an action, the creature can make a Wisdom check against your spell save DC to steel its resolve and end this spell.",
     "level": 1,
@@ -4196,14 +4454,18 @@
             },
             "saving_throw": {
               "ability": "Wisdom",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "apply_status": {
                 "name": "frightened",
                 "escape": {
                   "ability": "Wisdom",
-                  "dc": { "ref": "spell_save_dc" }
+                  "dc": {
+                    "ref": "spell_save_dc"
+                  }
                 }
               }
             },
@@ -4217,6 +4479,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "spell:zephyr-strike",
     "name": "Zephyr Strike",
     "description": "You move like the wind. Until the spell ends, your movement doesn't provoke opportunity attacks. Once before the spell ends, you can give yourself advantage on one weapon attack roll on your turn. That attack deals an extra 1d8 force damage on a hit. Whether you hit or miss, your walking speed increases by 30 feet until the end of that turn.",
     "level": 1,
@@ -4266,7 +4529,12 @@
               "target": "speed.walking",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 30 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 30
+                  }
+                ]
               }
             },
             "count": 1,

@@ -1,5 +1,6 @@
 [
   {
+    "id": "feat:combat-superiority",
     "class": "Battle Master",
     "level": 3,
     "name": "Combat Superiority",
@@ -54,6 +55,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:student-of-war",
     "class": "Battle Master",
     "level": 3,
     "name": "Student of War",
@@ -74,6 +76,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:know-your-enemy",
     "class": "Battle Master",
     "level": 7,
     "name": "Know Your Enemy",
@@ -83,6 +86,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:improved-combat-superiority",
     "class": "Battle Master",
     "level": 10,
     "name": "Improved Combat Superiority",
@@ -93,6 +97,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:relentless",
     "class": "Battle Master",
     "level": 15,
     "name": "Relentless",

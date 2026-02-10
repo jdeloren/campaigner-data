@@ -1,5 +1,6 @@
 [
   {
+    "id": "feat:expertise",
     "class": "Rogue",
     "level": [1, 6],
     "name": "Expertise",
@@ -16,6 +17,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:sneak-attack",
     "class": "Rogue",
     "level": 1,
     "name": "Sneak Attack",
@@ -65,6 +67,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:thieves-cant",
     "class": "Rogue",
     "level": 1,
     "name": "Thieves' Cant",
@@ -95,6 +98,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:cunning-action",
     "class": "Rogue",
     "level": 2,
     "name": "Cunning Action",
@@ -125,6 +129,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:roguish-archetype",
     "class": "Rogue",
     "level": 3,
     "name": "Roguish Archetype",
@@ -139,6 +144,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:steady-aim",
     "class": "Rogue",
     "level": 3,
     "name": "Steady Aim",
@@ -198,6 +204,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:ability-score-improvement",
     "class": "Rogue",
     "level": [4, 8, 10, 12, 16, 19],
     "name": "Ability Score Improvement",
@@ -212,13 +219,24 @@
             "choice": {
               "choice_type": "ability_score",
               "count": 2,
-              "value": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] }
+              "value": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
+              }
             }
           },
           {
             "type": "nested",
             "name": "Gain a Feat",
-            "choice": { "choice_type": "feat", "count": 1 }
+            "choice": {
+              "choice_type": "feat",
+              "count": 1
+            }
           }
         ]
       }
@@ -227,6 +245,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:uncanny-dodge",
     "class": "Rogue",
     "level": 5,
     "name": "Uncanny Dodge",
@@ -264,6 +283,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:evasion",
     "class": "Rogue",
     "level": 7,
     "name": "Evasion",
@@ -308,6 +328,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:reliable-talent",
     "class": "Rogue",
     "level": 11,
     "name": "Reliable Talent",
@@ -337,6 +358,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:blindsense",
     "class": "Rogue",
     "level": 14,
     "name": "Blindsense",
@@ -362,6 +384,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:slippery-mind",
     "class": "Rogue",
     "level": 15,
     "name": "Slippery Mind",
@@ -377,6 +400,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:elusive",
     "class": "Rogue",
     "level": 18,
     "name": "Elusive",
@@ -406,6 +430,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "feat:stroke-of-luck",
     "class": "Rogue",
     "level": 20,
     "name": "Stroke of Luck",
@@ -425,7 +450,11 @@
               }
             }
           }
-        ]
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "short_rest"
       },
       {
         "type": "reaction",
@@ -446,10 +475,6 @@
         ]
       }
     ],
-    "uses": {
-      "value": 1
-    },
-    "recharge": "short_rest",
     "source": "phb",
     "ruleset": "dnd5e"
   }

@@ -1,5 +1,6 @@
 [
   {
+    "id": "equip:arrows-20",
     "name": "Arrows (20)",
     "cost": {
       "amount": 1.0,
@@ -12,6 +13,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:club",
     "name": "Club",
     "cost": {
       "amount": 1.0,
@@ -29,6 +31,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:crossbow-bolts-20",
     "name": "Crossbow Bolts (20)",
     "cost": {
       "amount": 1.0,
@@ -41,6 +44,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:dagger",
     "name": "Dagger",
     "cost": {
       "amount": 2.0,
@@ -58,6 +62,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:greatclub",
     "name": "Greatclub",
     "cost": {
       "amount": 2.0,
@@ -75,6 +80,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:handaxe",
     "name": "Handaxe",
     "cost": {
       "amount": 5.0,
@@ -92,6 +98,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:javelin",
     "name": "Javelin",
     "cost": {
       "amount": 5.0,
@@ -109,6 +116,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:light-hammer",
     "name": "Light Hammer",
     "cost": {
       "amount": 2.0,
@@ -126,6 +134,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:mace",
     "name": "Mace",
     "cost": {
       "amount": 5.0,
@@ -143,6 +152,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:quarterstaff",
     "name": "Quarterstaff",
     "cost": {
       "amount": 2.0,
@@ -160,6 +170,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:sickle",
     "name": "Sickle",
     "cost": {
       "amount": 1.0,
@@ -177,6 +188,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:sling-bullets-20",
     "name": "Sling Bullets (20)",
     "cost": {
       "amount": 4.0,
@@ -189,6 +201,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:spear",
     "name": "Spear",
     "cost": {
       "amount": 1.0,
@@ -206,6 +219,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:light-crossbow",
     "name": "Light Crossbow",
     "cost": {
       "amount": 25.0,
@@ -223,6 +237,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:dart",
     "name": "Dart",
     "cost": {
       "amount": 5.0,
@@ -240,6 +255,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:shortbow",
     "name": "Shortbow",
     "cost": {
       "amount": 25.0,
@@ -257,6 +273,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:sling",
     "name": "Sling",
     "cost": {
       "amount": 1.0,
@@ -274,6 +291,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:padded",
     "name": "Padded",
     "armor_class": {
       "base": 11,
@@ -292,6 +310,7 @@
     "subcategory": "light_armor"
   },
   {
+    "id": "equip:leather-armor",
     "name": "Leather Armor",
     "armor_class": {
       "base": 11,
@@ -310,6 +329,7 @@
     "subcategory": "light_armor"
   },
   {
+    "id": "equip:studded-leather",
     "name": "Studded Leather",
     "armor_class": {
       "base": 12,
@@ -328,6 +348,7 @@
     "subcategory": "light_armor"
   },
   {
+    "id": "equip:hide-armor",
     "name": "Hide Armor",
     "armor_class": {
       "base": 12,
@@ -346,6 +367,7 @@
     "subcategory": "medium_armor"
   },
   {
+    "id": "equip:chain-shirt",
     "name": "Chain Shirt",
     "armor_class": {
       "base": 13,
@@ -364,6 +386,7 @@
     "subcategory": "medium_armor"
   },
   {
+    "id": "equip:scale-mail",
     "name": "Scale Mail",
     "armor_class": {
       "base": 14,
@@ -382,6 +405,7 @@
     "subcategory": "medium_armor"
   },
   {
+    "id": "equip:spiked-armor",
     "name": "Spiked Armor",
     "armor_class": {
       "base": 14,
@@ -400,6 +424,7 @@
     "subcategory": "medium_armor"
   },
   {
+    "id": "equip:breastplate",
     "name": "Breastplate",
     "armor_class": {
       "base": 14,
@@ -418,6 +443,7 @@
     "subcategory": "medium_armor"
   },
   {
+    "id": "equip:halfplate",
     "name": "Halfplate",
     "armor_class": {
       "base": 15,
@@ -436,6 +462,7 @@
     "subcategory": "medium_armor"
   },
   {
+    "id": "equip:ring-mail",
     "name": "Ring Mail",
     "armor_class": {
       "base": 14,
@@ -454,6 +481,7 @@
     "subcategory": "heavy_armor"
   },
   {
+    "id": "equip:chain-mail",
     "name": "Chain Mail",
     "armor_class": {
       "base": 16,
@@ -479,6 +507,7 @@
     "subcategory": "heavy_armor"
   },
   {
+    "id": "equip:splint-mail",
     "name": "Splint Mail",
     "armor_class": {
       "base": 17,
@@ -504,6 +533,7 @@
     "subcategory": "heavy_armor"
   },
   {
+    "id": "equip:plate-mail",
     "name": "Plate Mail",
     "armor_class": {
       "base": 18,
@@ -529,6 +559,7 @@
     "subcategory": "heavy_armor"
   },
   {
+    "id": "equip:shield",
     "name": "Shield",
     "armor_class": {
       "base": 2,
@@ -547,6 +578,7 @@
     "subcategory": "shield"
   },
   {
+    "id": "equip:burglars-pack",
     "name": "Burglar's Pack",
     "cost": {
       "amount": 16.0,
@@ -615,6 +647,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:diplomats-pack",
     "name": "Diplomat's Pack",
     "cost": {
       "amount": 39.0,
@@ -671,6 +704,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:dungeoneers-pack",
     "name": "Dungeoneer's Pack",
     "cost": {
       "amount": 12.0,
@@ -719,6 +753,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:entertainers-pack",
     "name": "Entertainer's Pack",
     "cost": {
       "amount": 40.0,
@@ -759,6 +794,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:explorers-pack",
     "name": "Explorer's Pack",
     "cost": {
       "amount": 10.0,
@@ -803,6 +839,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:priests-pack",
     "name": "Priest's Pack",
     "cost": {
       "amount": 19.0,
@@ -855,6 +892,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:scholars-pack",
     "name": "Scholar's Pack",
     "cost": {
       "amount": 40.0,
@@ -895,6 +933,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:abacus",
     "name": "Abacus",
     "cost": {
       "amount": 2.0,
@@ -906,6 +945,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:alms-box",
     "name": "Alms Box",
     "cost": null,
     "weight": 1.0,
@@ -915,6 +955,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:bag-of-sand",
     "name": "Bag of Sand",
     "cost": null,
     "weight": 1.0,
@@ -924,6 +965,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:badge",
     "name": "Badge",
     "cost": null,
     "weight": 0.0,
@@ -933,6 +975,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:banner",
     "name": "Banner",
     "cost": null,
     "weight": 1.0,
@@ -942,6 +985,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:bedroll",
     "name": "Bedroll",
     "cost": {
       "amount": 1.0,
@@ -953,6 +997,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:bell",
     "name": "Bell",
     "cost": {
       "amount": 1.0,
@@ -964,6 +1009,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:belaying-pin",
     "name": "Belaying Pin",
     "cost": null,
     "weight": 1.0,
@@ -973,6 +1019,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:blanket",
     "name": "Blanket",
     "cost": {
       "amount": 5.0,
@@ -984,6 +1031,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:block-and-tackle",
     "name": "Block and Tackle",
     "cost": {
       "amount": 1.0,
@@ -1002,6 +1050,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:blue-quartz-gem",
     "name": "Blue Quartz Gem",
     "cost": {
       "amount": 10.0,
@@ -1014,6 +1063,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:book",
     "name": "Book",
     "cost": {
       "amount": 25.0,
@@ -1026,6 +1076,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:brooch",
     "name": "Brooch",
     "cost": null,
     "weight": 0.0,
@@ -1035,6 +1086,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:candle",
     "name": "Candle",
     "cost": {
       "amount": 1.0,
@@ -1072,6 +1124,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:censer",
     "name": "Censer",
     "cost": null,
     "weight": 2.0,
@@ -1081,6 +1134,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:chain-10-ft",
     "name": "Chain (10 ft)",
     "cost": {
       "amount": 5.0,
@@ -1100,6 +1154,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:chalk-1-pc",
     "name": "Chalk (1 pc)",
     "cost": {
       "amount": 1.0,
@@ -1111,6 +1166,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:clothes-common",
     "name": "Clothes, Common",
     "cost": {
       "amount": 5.0,
@@ -1123,6 +1179,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:clothes-common-dark",
     "name": "Clothes, Common (Dark)",
     "cost": {
       "amount": 5.0,
@@ -1135,6 +1192,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:clothes-costume",
     "name": "Clothes, Costume",
     "cost": {
       "amount": 5.0,
@@ -1147,6 +1205,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:clothes-fine",
     "name": "Clothes, Fine",
     "cost": {
       "amount": 15.0,
@@ -1159,6 +1218,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:clothes-travelers",
     "name": "Clothes, Traveler's",
     "cost": {
       "amount": 2.0,
@@ -1171,6 +1231,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:component-pouch",
     "name": "Component Pouch",
     "cost": {
       "amount": 25.0,
@@ -1183,6 +1244,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:fishing-tackle",
     "name": "Fishing Tackle",
     "cost": {
       "amount": 1.0,
@@ -1195,6 +1257,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:grappling-hook",
     "name": "Grappling Hook",
     "cost": {
       "amount": 2.0,
@@ -1206,6 +1269,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:hammer",
     "name": "Hammer",
     "cost": {
       "amount": 1.0,
@@ -1217,6 +1281,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:hempen-rope-50-ft.",
     "name": "Hempen Rope (50 ft.)",
     "cost": {
       "amount": 1.0,
@@ -1249,6 +1314,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:hourglass",
     "name": "Hourglass",
     "cost": {
       "amount": 25.0,
@@ -1260,6 +1326,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:hood",
     "name": "Hood",
     "cost": null,
     "weight": 0.0,
@@ -1269,6 +1336,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:incense-block",
     "name": "Incense (Block)",
     "cost": null,
     "weight": 0.1,
@@ -1278,6 +1346,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:incense-stick",
     "name": "Incense (Stick)",
     "cost": null,
     "weight": 0.0,
@@ -1287,6 +1356,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:ink-1-oz",
     "name": "Ink (1 oz)",
     "cost": {
       "amount": 10.0,
@@ -1298,6 +1368,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:ink-pen",
     "name": "Ink Pen",
     "cost": {
       "amount": 2.0,
@@ -1309,6 +1380,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:ladder-10-ft",
     "name": "Ladder (10 ft)",
     "cost": {
       "amount": 1.0,
@@ -1320,6 +1392,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:lock",
     "name": "Lock",
     "cost": {
       "amount": 10.0,
@@ -1338,6 +1411,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:magnifying-glass",
     "name": "Magnifying Glass",
     "cost": {
       "amount": 100.0,
@@ -1367,6 +1441,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:manacles",
     "name": "Manacles",
     "cost": {
       "amount": 2.0,
@@ -1386,6 +1461,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:mess-kit",
     "name": "Mess Kit",
     "cost": {
       "amount": 2.0,
@@ -1398,6 +1474,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:miners-pick",
     "name": "Miner's Pick",
     "cost": {
       "amount": 2.0,
@@ -1409,6 +1486,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:paper-1-sheet",
     "name": "Paper (1 sheet)",
     "cost": {
       "amount": 2.0,
@@ -1420,6 +1498,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:parchment",
     "name": "Parchment",
     "cost": {
       "amount": 3.5,
@@ -1431,6 +1510,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:parchment-1-sheet",
     "name": "Parchment (1 sheet)",
     "cost": {
       "amount": 1.0,
@@ -1442,6 +1522,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:perfume-vial",
     "name": "Perfume (vial)",
     "cost": {
       "amount": 5.0,
@@ -1453,6 +1534,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:piton",
     "name": "Piton",
     "cost": {
       "amount": 5.0,
@@ -1464,6 +1546,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:pole-10-ft",
     "name": "Pole (10 ft)",
     "cost": {
       "amount": 5.0,
@@ -1475,6 +1558,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:prayer-book",
     "name": "Prayer Book",
     "cost": null,
     "weight": 3.0,
@@ -1484,6 +1568,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:prayer-wheel",
     "name": "Prayer Wheel",
     "cost": null,
     "weight": 1.0,
@@ -1493,6 +1578,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:ram-portable",
     "name": "Ram, Portable",
     "cost": {
       "amount": 4.0,
@@ -1535,6 +1621,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:rations-1-day",
     "name": "Rations (1 day)",
     "cost": {
       "amount": 5.0,
@@ -1547,6 +1634,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:rope-50-ft.",
     "name": "Rope (50 ft.)",
     "cost": {
       "amount": 1.0,
@@ -1579,6 +1667,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:rope-silk-50-ft.",
     "name": "Rope, Silk (50 ft.)",
     "cost": {
       "amount": 10.0,
@@ -1611,6 +1700,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:scholars-robes",
     "name": "Scholar's Robes",
     "cost": null,
     "weight": 4.0,
@@ -1620,6 +1710,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:sealing-wax",
     "name": "Sealing Wax",
     "cost": {
       "amount": 5.0,
@@ -1631,6 +1722,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:shovel",
     "name": "Shovel",
     "cost": {
       "amount": 2.0,
@@ -1642,6 +1734,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:signal-horn",
     "name": "Signal Horn",
     "cost": null,
     "weight": 2.0,
@@ -1651,6 +1744,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:signal-whistle",
     "name": "Signal Whistle",
     "cost": {
       "amount": 5.0,
@@ -1662,6 +1756,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:seal",
     "name": "Seal",
     "cost": null,
     "weight": 0.0,
@@ -1671,6 +1766,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:signet",
     "name": "Signet",
     "cost": null,
     "weight": 0.0,
@@ -1680,6 +1776,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:signet-ring",
     "name": "Signet Ring",
     "cost": {
       "amount": 5.0,
@@ -1691,6 +1788,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:sledgehammer",
     "name": "Sledgehammer",
     "cost": {
       "amount": 2.0,
@@ -1702,6 +1800,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:small-knife",
     "name": "Small Knife",
     "cost": null,
     "weight": 0.25,
@@ -1711,6 +1810,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:soap",
     "name": "Soap",
     "cost": {
       "amount": 2.0,
@@ -1722,6 +1822,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:spellbook",
     "name": "Spellbook",
     "cost": {
       "amount": 50.0,
@@ -1734,6 +1835,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:spikes-iron-10",
     "name": "Spikes, Iron (10)",
     "cost": {
       "amount": 1.0,
@@ -1745,6 +1847,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:spyglass",
     "name": "Spyglass",
     "cost": {
       "amount": 1000.0,
@@ -1763,6 +1866,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:string-10-ft.",
     "name": "String (10 ft.)",
     "cost": {
       "amount": 1.0,
@@ -1774,6 +1878,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:tent-two-person",
     "name": "Tent, Two-person",
     "cost": {
       "amount": 2.0,
@@ -1785,6 +1890,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:uniform",
     "name": "Uniform",
     "cost": null,
     "weight": 4.0,
@@ -1794,6 +1900,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:vestments",
     "name": "Vestments",
     "cost": null,
     "weight": 4.0,
@@ -1803,6 +1910,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:whetstone",
     "name": "Whetstone",
     "cost": {
       "amount": 1.0,
@@ -1814,6 +1922,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:work-clothes",
     "name": "Work Clothes",
     "cost": null,
     "weight": 3.0,
@@ -1823,6 +1932,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:woolen-blanket",
     "name": "Woolen Blanket",
     "cost": {
       "amount": 3.5,
@@ -1835,6 +1945,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:writing-kit",
     "name": "Writing Kit",
     "cost": null,
     "weight": 1.0,
@@ -1844,6 +1955,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:acid-vial",
     "name": "Acid (vial)",
     "cost": {
       "amount": 25.0,
@@ -1879,6 +1991,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:alchemists-fire-flask",
     "name": "Alchemist's Fire (flask)",
     "cost": {
       "amount": 50.0,
@@ -1923,6 +2036,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:antitoxin-vial",
     "name": "Antitoxin (vial)",
     "cost": {
       "amount": 50.0,
@@ -1954,6 +2068,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:ball-bearings-bag-of-1000",
     "name": "Ball Bearings (bag of 1,000)",
     "cost": {
       "amount": 1.0,
@@ -1991,6 +2106,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:caltrops-bag-of-20",
     "name": "Caltrops (bag of 20)",
     "cost": {
       "amount": 1.0,
@@ -2036,6 +2152,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:climbers-kit",
     "name": "Climber's Kit",
     "cost": {
       "amount": 25.0,
@@ -2054,6 +2171,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:crowbar",
     "name": "Crowbar",
     "cost": {
       "amount": 2.0,
@@ -2079,6 +2197,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:healers-kit",
     "name": "Healer's Kit",
     "cost": {
       "amount": 5.0,
@@ -2115,6 +2234,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:holy-water-flask",
     "name": "Holy Water (flask)",
     "cost": {
       "amount": 25.0,
@@ -2156,6 +2276,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:hunting-trap",
     "name": "Hunting Trap",
     "cost": {
       "amount": 5.0,
@@ -2202,6 +2323,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:lamp",
     "name": "Lamp",
     "cost": {
       "amount": 5.0,
@@ -2239,6 +2361,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:lantern-bullseye",
     "name": "Lantern - Bullseye",
     "cost": {
       "amount": 10.0,
@@ -2276,6 +2399,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:lantern-hooded",
     "name": "Lantern - Hooded",
     "cost": {
       "amount": 5.0,
@@ -2317,6 +2441,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:oil-flask",
     "name": "Oil (flask)",
     "cost": {
       "amount": 1.0,
@@ -2379,6 +2504,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:poison-basic-vial",
     "name": "Poison, basic (vial)",
     "cost": {
       "amount": 100.0,
@@ -2420,6 +2546,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:potion-of-healing-common",
     "name": "Potion of Healing (common)",
     "cost": {
       "amount": 50.0,
@@ -2431,6 +2558,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:tinderbox",
     "name": "Tinderbox",
     "cost": {
       "amount": 5.0,
@@ -2449,6 +2577,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:torch",
     "name": "Torch",
     "cost": {
       "amount": 1.0,
@@ -2503,6 +2632,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:backpack",
     "name": "Backpack",
     "cost": {
       "amount": 2.0,
@@ -2525,6 +2655,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:barrel",
     "name": "Barrel",
     "cost": {
       "amount": 2.0,
@@ -2546,6 +2677,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:basket",
     "name": "Basket",
     "cost": {
       "amount": 4.0,
@@ -2567,6 +2699,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:bucket",
     "name": "Bucket",
     "cost": {
       "amount": 5.0,
@@ -2588,6 +2721,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:case-crossbow-bolt",
     "name": "Case, Crossbow Bolt",
     "cost": {
       "amount": 1.0,
@@ -2605,6 +2739,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:case-map/scroll",
     "name": "Case, Map/Scroll",
     "cost": {
       "amount": 1.0,
@@ -2617,6 +2752,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:chest",
     "name": "Chest",
     "cost": {
       "amount": 5.0,
@@ -2638,6 +2774,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:flask-or-tankard",
     "name": "Flask or Tankard",
     "cost": {
       "amount": 2.0,
@@ -2655,6 +2792,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:bottle-glass",
     "name": "Bottle, Glass",
     "cost": {
       "amount": 2.0,
@@ -2672,6 +2810,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:jug-or-pitcher",
     "name": "Jug or Pitcher",
     "cost": {
       "amount": 2.0,
@@ -2689,6 +2828,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:pot-iron",
     "name": "Pot, Iron",
     "cost": {
       "amount": 2.0,
@@ -2706,6 +2846,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:pouch",
     "name": "Pouch",
     "cost": {
       "amount": 5.0,
@@ -2728,6 +2869,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:quiver",
     "name": "Quiver",
     "cost": {
       "amount": 1.0,
@@ -2745,6 +2887,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:sack",
     "name": "Sack",
     "cost": {
       "amount": 1.0,
@@ -2766,6 +2909,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:vial",
     "name": "Vial",
     "cost": {
       "amount": 1.0,
@@ -2783,6 +2927,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:waterskin",
     "name": "Waterskin",
     "cost": {
       "amount": 2.0,
@@ -2800,6 +2945,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:crystal",
     "name": "Crystal",
     "cost": {
       "amount": 10.0,
@@ -2812,6 +2958,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:orb",
     "name": "Orb",
     "cost": {
       "amount": 20.0,
@@ -2824,6 +2971,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:rod",
     "name": "Rod",
     "cost": {
       "amount": 10.0,
@@ -2836,6 +2984,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:staff",
     "name": "Staff",
     "cost": {
       "amount": 5.0,
@@ -2848,6 +2997,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:wand",
     "name": "Wand",
     "cost": {
       "amount": 10.0,
@@ -2860,6 +3010,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:sprig-of-mistletoe",
     "name": "Sprig of Mistletoe",
     "cost": {
       "amount": 1.0,
@@ -2872,6 +3023,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:totem",
     "name": "Totem",
     "cost": {
       "amount": 1.0,
@@ -2884,6 +3036,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:wooden-staff",
     "name": "Wooden Staff",
     "cost": {
       "amount": 5.0,
@@ -2896,6 +3049,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:yew-wand",
     "name": "Yew Wand",
     "cost": {
       "amount": 10.0,
@@ -2908,6 +3062,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:amulet",
     "name": "Amulet",
     "cost": {
       "amount": 5.0,
@@ -2920,6 +3075,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:emblem",
     "name": "Emblem",
     "cost": {
       "amount": 5.0,
@@ -2932,6 +3088,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:reliquary",
     "name": "Reliquary",
     "cost": {
       "amount": 5.0,
@@ -2944,6 +3101,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:battleaxe",
     "name": "Battleaxe",
     "cost": {
       "amount": 10.0,
@@ -2961,6 +3119,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:flail",
     "name": "Flail",
     "cost": {
       "amount": 10.0,
@@ -2978,6 +3137,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:glaive",
     "name": "Glaive",
     "cost": {
       "amount": 20.0,
@@ -2995,6 +3155,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:greataxe",
     "name": "Greataxe",
     "cost": {
       "amount": 30.0,
@@ -3012,6 +3173,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:greatsword",
     "name": "Greatsword",
     "cost": {
       "amount": 50.0,
@@ -3029,6 +3191,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:halberd",
     "name": "Halberd",
     "cost": {
       "amount": 20.0,
@@ -3046,6 +3209,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:lance",
     "name": "Lance",
     "cost": {
       "amount": 10.0,
@@ -3063,6 +3227,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:longsword",
     "name": "Longsword",
     "cost": {
       "amount": 15.0,
@@ -3080,6 +3245,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:maul",
     "name": "Maul",
     "cost": {
       "amount": 10.0,
@@ -3097,6 +3263,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:morningstar",
     "name": "Morningstar",
     "cost": {
       "amount": 15.0,
@@ -3114,6 +3281,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:pike",
     "name": "Pike",
     "cost": {
       "amount": 5.0,
@@ -3131,6 +3299,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:rapier",
     "name": "Rapier",
     "cost": {
       "amount": 25.0,
@@ -3148,6 +3317,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:scimitar",
     "name": "Scimitar",
     "cost": {
       "amount": 25.0,
@@ -3165,6 +3335,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:shortsword",
     "name": "Shortsword",
     "cost": {
       "amount": 10.0,
@@ -3182,6 +3353,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:trident",
     "name": "Trident",
     "cost": {
       "amount": 5.0,
@@ -3199,6 +3371,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:war-pick",
     "name": "War pick",
     "cost": {
       "amount": 5.0,
@@ -3216,6 +3389,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:warhammer",
     "name": "Warhammer",
     "cost": {
       "amount": 15.0,
@@ -3233,6 +3407,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:whip",
     "name": "Whip",
     "cost": {
       "amount": 2.0,
@@ -3250,6 +3425,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:blowgun",
     "name": "Blowgun",
     "cost": {
       "amount": 10.0,
@@ -3267,6 +3443,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:hand-crossbow",
     "name": "Hand Crossbow",
     "cost": {
       "amount": 75.0,
@@ -3284,6 +3461,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:heavy-crossbow",
     "name": "Heavy Crossbow",
     "cost": {
       "amount": 50.0,
@@ -3301,6 +3479,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:longbow",
     "name": "Longbow",
     "cost": {
       "amount": 50.0,
@@ -3318,6 +3497,7 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "equip:net",
     "name": "Net",
     "cost": {
       "amount": 1.0,
