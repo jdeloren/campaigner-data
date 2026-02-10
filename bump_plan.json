@@ -3,8 +3,54 @@
   "datasets": [
     {
       "dataset": "dnd5e",
-      "bump": "minor"
+      "bump": "patch"
     }
   ],
-  "repo_bump": "minor"
+  "schemas": [
+    {
+      "schema": "equipment",
+      "bump": "patch"
+    },
+    {
+      "schema": "maneuver",
+      "bump": "patch"
+    },
+    {
+      "schema": "race",
+      "bump": "patch"
+    },
+    {
+      "schema": "tool",
+      "bump": "patch"
+    },
+    {
+      "schema": "domain",
+      "bump": "patch"
+    },
+    {
+      "schema": "deity",
+      "bump": "patch"
+    },
+    {
+      "schema": "spell",
+      "bump": "patch"
+    },
+    {
+      "schema": "class_feature",
+      "bump": "patch"
+    },
+    {
+      "schema": "class",
+      "bump": "patch"
+    },
+    {
+      "schema": "background",
+      "bump": "patch"
+    },
+    {
+      "schema": "fighting_style",
+      "bump": "patch"
+    }
+  ],
+  "repo_bump": "patch"
 }
