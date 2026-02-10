@@ -623,7 +623,13 @@
         "from": ["Acrobatics", "Animal Handling", "Athletics", "Insight", "Intimidation", "Perception", "Survival"]
       }
     },
-    "maneuver_ability": ["Strength", "Dexterity"],
+    "save_dc": {
+      "maneuver_save_dc": {
+        "base": 8,
+        "add": "proficiency_bonus",
+        "ability": ["Strength", "Dexterity"]
+      }
+    },
     "source": "phb",
     "ruleset": "dnd5e"
   },
@@ -1305,7 +1311,7 @@
   {
     "id": "subclass:path-of-the-berserker",
     "name": "Path of the Berserker",
-    "description": "For some barbarians, rage is a means to an end – that end being violence. The Path of the Berserker is a path of untrammeled fury, slick with blood. As you enter the berserker's rage, you thrill in the chaos of battle, heedless of your own health or well-being.",
+    "description": "For some barbarians, rage is a means to an end - that end being violence. The Path of the Berserker is a path of untrammeled fury, slick with blood. As you enter the berserker's rage, you thrill in the chaos of battle, heedless of your own health or well-being.",
     "base_class": "Barbarian",
     "hit_die": 12,
     "primary_ability": ["Strength"],
@@ -1763,40 +1769,40 @@
           "7th": 1,
           "8th": 1,
           "9th": 1
+        },
+        "18": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 3,
+          "6th": 1,
+          "7th": 1,
+          "8th": 1,
+          "9th": 1
+        },
+        "19": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 3,
+          "6th": 2,
+          "7th": 1,
+          "8th": 1,
+          "9th": 1
+        },
+        "20": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 3,
+          "6th": 2,
+          "7th": 2,
+          "8th": 1,
+          "9th": 1
         }
-      },
-      "18": {
-        "1st": 4,
-        "2nd": 3,
-        "3rd": 3,
-        "4th": 3,
-        "5th": 3,
-        "6th": 1,
-        "7th": 1,
-        "8th": 1,
-        "9th": 1
-      },
-      "19": {
-        "1st": 4,
-        "2nd": 3,
-        "3rd": 3,
-        "4th": 3,
-        "5th": 3,
-        "6th": 2,
-        "7th": 1,
-        "8th": 1,
-        "9th": 1
-      },
-      "20": {
-        "1st": 4,
-        "2nd": 3,
-        "3rd": 3,
-        "4th": 3,
-        "5th": 3,
-        "6th": 2,
-        "7th": 2,
-        "8th": 1,
-        "9th": 1
       }
     },
     "multiclassing": {

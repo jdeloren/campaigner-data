@@ -139,11 +139,6 @@
     "distance": 5,
     "duration": 1,
     "concentration": false,
-    "damage": {
-      "dice": "0",
-      "type": ["thunder"],
-      "conditional": true
-    },
     "scaling": {
       "components": {
         "damage": {
@@ -155,6 +150,7 @@
         },
         "move": {
           "by_level": {
+            "1": "1d8",
             "5": "2d8",
             "11": "3d8",
             "17": "4d8"
@@ -2511,8 +2507,8 @@
           }
         },
         "enhanced_damage": {
-          "base": "1d12",
           "by_level": {
+            "1": "1d12",
             "5": "2d12",
             "11": "3d12",
             "17": "4d12"
