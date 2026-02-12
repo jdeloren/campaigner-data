@@ -7377,9 +7377,36 @@
           ],
           "default": null,
           "description": "Action restrictions on the target's turn"
+        },
+        "components": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ComponentConstraint"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Spell component restrictions (e.g., can't speak blocks verbal)"
         }
       },
       "title": "StatusConstraint",
+      "type": "object"
+    },
+    "ComponentConstraint": {
+      "description": "Spell component restrictions imposed by a status.\n\nBlocks specific spell components (verbal, somatic, material), preventing casting of spells that require those components unless bypassed (e.g., Subtle Spell metamagic).\n\nExample — Petrified (can't move or speak):\n{\"blocked\": [\"verbal\", \"somatic\"]}",
+      "properties": {
+        "blocked": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Spell components the creature cannot provide (e.g., 'verbal', 'somatic', 'material')"
+        }
+      },
+      "required": ["blocked"],
+      "title": "ComponentConstraint",
       "type": "object"
     },
     "StatusEffect": {

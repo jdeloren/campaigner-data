@@ -1,0 +1,223 @@
+[
+  {
+    "id": "status:raging",
+    "name": "Raging",
+    "description": "You fight with primal ferocity. You have advantage on Strength checks and Strength saving throws, resistance to bludgeoning, piercing, and slashing damage, and a bonus to melee damage rolls that use Strength. You can't cast spells or concentrate on them while raging.",
+    "is_condition": false,
+    "effects": [
+      {
+        "advantage": {
+          "ability": "Strength"
+        }
+      },
+      {
+        "advantage": {
+          "saving_throw": ["Strength"]
+        }
+      }
+    ],
+    "constraints": {
+      "actions": {
+        "blocked_actions": ["cast_spell"]
+      }
+    },
+    "damage_response": [
+      {
+        "category": "resistance",
+        "to": ["bludgeoning", "piercing", "slashing"]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "status:incapacitated",
+    "name": "Incapacitated",
+    "description": "An incapacitated creature can't take actions or reactions.",
+    "is_condition": true,
+    "constraints": {
+      "actions": {
+        "blocked_actions": ["action", "bonus_action", "reaction"]
+      }
+    },
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "status:poisoned",
+    "name": "Poisoned",
+    "description": "A poisoned creature has disadvantage on attack rolls and ability checks.",
+    "is_condition": true,
+    "effects": [
+      {
+        "disadvantage": {
+          "attack": "all"
+        }
+      },
+      {
+        "disadvantage": {
+          "ability": "Strength"
+        }
+      },
+      {
+        "disadvantage": {
+          "ability": "Dexterity"
+        }
+      },
+      {
+        "disadvantage": {
+          "ability": "Constitution"
+        }
+      },
+      {
+        "disadvantage": {
+          "ability": "Intelligence"
+        }
+      },
+      {
+        "disadvantage": {
+          "ability": "Wisdom"
+        }
+      },
+      {
+        "disadvantage": {
+          "ability": "Charisma"
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "status:stunned",
+    "name": "Stunned",
+    "description": "A stunned creature is incapacitated, can't move, and can speak only falteringly. The creature automatically fails Strength and Dexterity saving throws. Attack rolls against the creature have advantage.",
+    "is_condition": true,
+    "inherits": "Incapacitated",
+    "effects": [
+      {
+        "advantage": {
+          "attack": "all",
+          "target": {
+            "type": "attackers"
+          }
+        }
+      },
+      {
+        "saving_throw": {
+          "ability": "Strength"
+        },
+        "roll_modifier": {
+          "reroll": {
+            "result": false
+          }
+        }
+      },
+      {
+        "saving_throw": {
+          "ability": "Dexterity"
+        },
+        "roll_modifier": {
+          "reroll": {
+            "result": false
+          }
+        }
+      }
+    ],
+    "attributes": [
+      {
+        "target": "movement.base",
+        "calculation": {
+          "operation": "set",
+          "operators": [
+            {
+              "type": "integer",
+              "value": 0
+            }
+          ]
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "status:petrified",
+    "name": "Petrified",
+    "description": "A petrified creature is transformed, along with any nonmagical object it is wearing or carrying, into a solid inanimate substance (usually stone). Its weight increases by a factor of ten, and it ceases aging. The creature is incapacitated, can't move or speak, and is unaware of its surroundings. Attack rolls against the creature have advantage. The creature automatically fails Strength and Dexterity saving throws. The creature has resistance to all damage. The creature is immune to poison and disease, although a poison or disease already in its system is suspended, not neutralized.",
+    "is_condition": true,
+    "inherits": "Incapacitated",
+    "effects": [
+      {
+        "advantage": {
+          "attack": "all",
+          "target": {
+            "type": "attackers"
+          }
+        }
+      },
+      {
+        "saving_throw": {
+          "ability": "Strength"
+        },
+        "roll_modifier": {
+          "reroll": {
+            "result": false
+          }
+        }
+      },
+      {
+        "saving_throw": {
+          "ability": "Dexterity"
+        },
+        "roll_modifier": {
+          "reroll": {
+            "result": false
+          }
+        }
+      },
+      {
+        "negate": ["poisoned", "diseased"]
+      }
+    ],
+    "constraints": {
+      "components": {
+        "blocked": ["Verbal", "Somatic"]
+      }
+    },
+    "attributes": [
+      {
+        "target": "movement.base",
+        "calculation": {
+          "operation": "set",
+          "operators": [
+            {
+              "type": "integer",
+              "value": 0
+            }
+          ]
+        }
+      },
+      {
+        "target": "awareness.perception",
+        "calculation": {
+          "operation": "set",
+          "operators": [
+            {
+              "type": "boolean",
+              "value": false
+            }
+          ]
+        }
+      }
+    ],
+    "damage_response": [
+      {
+        "category": "resistance",
+        "to": ["all"]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

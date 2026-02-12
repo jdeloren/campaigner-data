@@ -46,6 +46,7 @@ SCHEMA_MAP = {
     "tools": "tool.schema.json",
     "fighting_styles": "fighting_style.schema.json",
     "maneuvers": "maneuver.schema.json",
+    "statuses": "status.schema.json",
     "commands": "command.schema.json",
 }
 

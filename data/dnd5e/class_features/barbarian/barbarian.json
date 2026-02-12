@@ -39,16 +39,6 @@
             }
           },
           {
-            "advantage": {
-              "saving_throw": ["Strength"]
-            }
-          },
-          {
-            "advantage": {
-              "ability": "Strength"
-            }
-          },
-          {
             "damage_bonus": {
               "dice": "scaling.damage_bonus"
             },
@@ -59,27 +49,6 @@
                 "ability": "Strength"
               }
             ]
-          },
-          {
-            "type": "passive",
-            "effects": [
-              {
-                "damage_response": {
-                  "category": "resistance",
-                  "to": ["bludgeoning", "piercing", "slashing"]
-                }
-              }
-            ]
-          },
-          {
-            "apply_status": {
-              "name": "raging",
-              "constraints": {
-                "actions": {
-                  "blocked_actions": ["cast_spell", "concentrate"]
-                }
-              }
-            }
           }
         ],
         "scaling": {
