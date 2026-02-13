@@ -107,6 +107,147 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "status:exhaustion_1",
+    "name": "Exhaustion 1",
+    "description": "Disadvantage on ability checks.",
+    "is_condition": true,
+    "effects": [
+      {
+        "disadvantage": {
+          "ability": "Strength"
+        }
+      },
+      {
+        "disadvantage": {
+          "ability": "Dexterity"
+        }
+      },
+      {
+        "disadvantage": {
+          "ability": "Constitution"
+        }
+      },
+      {
+        "disadvantage": {
+          "ability": "Intelligence"
+        }
+      },
+      {
+        "disadvantage": {
+          "ability": "Wisdom"
+        }
+      },
+      {
+        "disadvantage": {
+          "ability": "Charisma"
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "status:exhaustion_2",
+    "name": "Exhaustion 2",
+    "description": "Speed halved.",
+    "is_condition": true,
+    "inherits": ["Exhaustion 1"],
+    "attributes": [
+      {
+        "target": "movement.base",
+        "calculation": {
+          "operation": "divide",
+          "operators": [
+            {
+              "type": "integer",
+              "value": 2
+            }
+          ],
+          "rounding": "down"
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "status:exhaustion_3",
+    "name": "Exhaustion 3",
+    "description": "Disadvantage on attack rolls and saving throws.",
+    "is_condition": true,
+    "inherits": ["Exhaustion 2"],
+    "effects": [
+      {
+        "disadvantage": {
+          "attack": "all"
+        }
+      },
+      {
+        "disadvantage": {
+          "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "status:exhaustion_4",
+    "name": "Exhaustion 4",
+    "description": "Hit point maximum halved.",
+    "is_condition": true,
+    "inherits": ["Exhaustion 3"],
+    "attributes": [
+      {
+        "target": "hit_points.max",
+        "calculation": {
+          "operation": "divide",
+          "operators": [
+            {
+              "type": "integer",
+              "value": 2
+            }
+          ],
+          "rounding": "down"
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "status:exhaustion_5",
+    "name": "Exhaustion 5",
+    "description": "Speed reduced to 0.",
+    "is_condition": true,
+    "inherits": ["Exhaustion 4"],
+    "attributes": [
+      {
+        "target": "movement.base",
+        "calculation": {
+          "operation": "set",
+          "operators": [
+            {
+              "type": "integer",
+              "value": 0
+            }
+          ]
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "status:exhaustion_6",
+    "name": "Exhaustion 6",
+    "description": "Death.",
+    "is_condition": true,
+    "inherits": ["Exhaustion 5", "Dead"],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
     "id": "status:grappled",
     "name": "Grappled",
     "description": "A grappled creature's speed becomes 0, and it can't benefit from any bonus to its speed. The condition ends if the grappler is incapacitated. The condition also ends if an effect removes the grappled creature from the reach of the grappler or grappling effect.",
