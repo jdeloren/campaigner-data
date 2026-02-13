@@ -138,7 +138,15 @@
         "effects": [
           {
             "advantage": {
-              "saving_throw": ["Dexterity"]
+              "saving_throw": ["Dexterity"],
+              "requirements": [
+                {
+                  "type": "perception",
+                  "observer": "character",
+                  "subject": "source",
+                  "senses": ["sight"]
+                }
+              ]
             }
           }
         ],
@@ -170,7 +178,43 @@
     "name": "Reckless Attack",
     "level": 2,
     "description": "You can throw aside all concern for defense to attack with fierce desperation.",
-    "mechanics": [],
+    "mechanics": [
+      {
+        "type": "advantage",
+        "trigger": {
+          "event": ["attack"]
+        },
+        "effects": [
+          {
+            "advantage": {
+              "attack": "melee",
+              "requirements": [
+                {
+                  "type": "weapon_property",
+                  "value": ["melee"],
+                  "ability": "Strength"
+                }
+              ],
+              "duration": {
+                "value": 1,
+                "unit": "turns"
+              }
+            }
+          },
+          {
+            "advantage": {
+              "attack": "all",
+              "target": {
+                "type": "attackers"
+              },
+              "duration": {
+                "until": ["start_turn"]
+              }
+            }
+          }
+        ]
+      }
+    ],
     "source": "phb",
     "ruleset": "dnd5e"
   },
