@@ -30,8 +30,11 @@
           "description": "True for standard 5e conditions (Poisoned, Stunned, etc.), false for feature-granted statuses (Raging)"
         },
         "inherits": {
-          "type": "string",
-          "description": "Name of another status whose effects this one includes (e.g., stunned inherits incapacitated). The API merges both sets of effects."
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Statuses whose effects this one includes (e.g., stunned inherits incapacitated, unconscious inherits both incapacitated and prone). The API merges all sets of effects."
         },
         "effects": {
           "type": "array",
@@ -50,6 +53,10 @@
             "$ref": "common.schema.json#/$defs/AttributeModification"
           },
           "description": "Direct attribute modifications (e.g., speed set to 0, awareness disabled)"
+        },
+        "duration": {
+          "$ref": "common.schema.json#/$defs/Duration",
+          "description": "Default termination triggers for this status (e.g., grappled ends when grappler is incapacitated or target moves out of reach)"
         },
         "damage_response": {
           "type": "array",
