@@ -8,47 +8,7 @@
   ],
   "schemas": [
     {
-      "schema": "class_feature",
-      "bump": "patch"
-    },
-    {
-      "schema": "domain",
-      "bump": "patch"
-    },
-    {
-      "schema": "fighting_style",
-      "bump": "patch"
-    },
-    {
-      "schema": "spell",
-      "bump": "patch"
-    },
-    {
-      "schema": "background",
-      "bump": "patch"
-    },
-    {
-      "schema": "deity",
-      "bump": "patch"
-    },
-    {
-      "schema": "class",
-      "bump": "patch"
-    },
-    {
-      "schema": "maneuver",
-      "bump": "patch"
-    },
-    {
-      "schema": "equipment",
-      "bump": "patch"
-    },
-    {
-      "schema": "tool",
-      "bump": "patch"
-    },
-    {
-      "schema": "race",
+      "schema": "status",
       "bump": "patch"
     }
   ],
