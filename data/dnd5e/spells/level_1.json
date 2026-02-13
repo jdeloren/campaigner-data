@@ -1262,6 +1262,7 @@
     "description": "For the duration, you understand the literal meaning of any spoken language that you hear. You also understand any written language that you see, but you must be touching the surface on which the words are written. It takes about 1 minute to read one page of text. This spell doesn't decode secret messages in a text or a glyph, such as an arcane sigil, that isn't part of a written language.",
     "level": 1,
     "casting_time": "Action",
+    "ritual": true,
     "components": ["Verbal", "Somatic", "Material"],
     "materials": [
       {
@@ -1422,6 +1423,7 @@
     "description": "For the duration, you sense the presence of magic within 30 feet of you. If you sense magic in this way, you can use your action to see a faint aura around any visible creature or object in the area that bears magic, and you learn its school of magic, if any. The spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.",
     "level": 1,
     "casting_time": "Action",
+    "ritual": true,
     "components": ["Verbal", "Somatic"],
     "classes": ["Bard", "Cleric", "Druid", "Paladin", "Ranger", "Sorcerer", "Wizard"],
     "school": "Divination",
@@ -1466,6 +1468,7 @@
     "description": "For the duration, you can sense the presence and location of poisons, poisonous creatures, and diseases within 30 feet of you. You also identify the kind of poison, poisonous creature, or disease in each case. The spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.",
     "level": 1,
     "casting_time": "Action",
+    "ritual": true,
     "components": ["Verbal", "Somatic", "Material"],
     "materials": [
       {

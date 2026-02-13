@@ -2574,7 +2574,7 @@
                 "advantage": {
                   "saving_throw": ["all"],
                   "against": {
-                    "damage_type": "poison"
+                    "damage_type": ["poison"]
                   }
                 }
               }

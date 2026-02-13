@@ -5810,7 +5810,7 @@
       "type": "object"
     },
     "MovementConstraint": {
-      "description": "Movement restriction applied on the target's turn.\n\nExample \u2014 Turn Undead forces fleeing:\n{\"direction\": \"away\", \"relative_to\": \"character\", \"keep_distance\": 30}\n\nExample \u2014 Frightened can't approach source:\n{\"approach_blocked\": \"character\"}",
+      "description": "Movement restriction applied on the target's turn.\n\nExample \u2014 Turn Undead forces fleeing:\n{\"direction\": \"away\", \"relative_to\": \"character\", \"keep_distance\": 30}\n\nExample \u2014 Frightened can't approach source:\n{\"direction\": \"away\", \"relative_to\": \"source\"}",
       "properties": {
         "direction": {
           "anyOf": [
@@ -5852,20 +5852,6 @@
           "default": null,
           "description": "Distance in feet the target must maintain from relative_to",
           "title": "Keep Distance"
-        },
-        "approach_blocked": {
-          "anyOf": [
-            {
-              "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Entity the target cannot willingly move closer to",
-          "title": "Approach Blocked"
         }
       },
       "title": "MovementConstraint",
@@ -6358,7 +6344,7 @@
       "type": "object"
     },
     "Reroll": {
-      "description": "Reroll condition \u2014 which die results trigger a reroll.\n\nExample \u2014 Great Weapon Fighting:\n{\"on\": [1, 2], \"replace\": true}\n\nExample \u2014 Stroke of Luck (ability check, fixed result):\n{\"result\": 20}",
+      "description": "Reroll condition \u2014 which die results trigger a reroll.\n\nExample \u2014 Great Weapon Fighting:\n{\"on\": [1, 2], \"replace\": true}\n\nExample \u2014 Stroke of Luck (ability check, fixed value):\n{\"value\": 20}\n\nExample \u2014 Paralyzed (attacker within 5ft, force critical):\n{\"value\": 20}",
       "properties": {
         "on": {
           "anyOf": [
@@ -6394,6 +6380,19 @@
           "default": null,
           "description": "Force the outcome \u2014 true for automatic success, false for automatic failure",
           "title": "Result"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Force the roll to a specific number (e.g., 20 to force a critical hit)",
+          "title": "Value"
         }
       },
       "title": "Reroll",
@@ -6969,7 +6968,15 @@
                     "type": "number"
                   },
                   {
-                    "type": "string"
+                    "type": "string",
+                    "pattern": "^\\d+d\\d+(\\+\\d+d\\d+)*$",
+                    "description": "Dice expression (e.g., '2d8', '2d8+3d6')"
+                  },
+                  {
+                    "$ref": "#/$defs/RollModifier"
+                  },
+                  {
+                    "type": "null"
                   }
                 ]
               },
@@ -7352,7 +7359,7 @@
       "type": "object"
     },
     "StatusConstraint": {
-      "description": "Ongoing behavioral constraints imposed by a status condition.\n\nApplied on the target's turns while the status is active.\n\nExample \u2014 Turn Undead:\n{\n    \"movement\": {\"direction\": \"away\", \"relative_to\": \"character\"},\n    \"actions\": {\"blocked_actions\": [\"reaction\"], \"allowed_actions\": [\"Dash\", \"Dodge\"]}\n}\n\nExample \u2014 Frightened:\n{\n    \"movement\": {\"approach_blocked\": \"character\"}\n}",
+      "description": "Ongoing behavioral constraints imposed by a status condition.\n\nApplied on the target's turns while the status is active.\n\nExample \u2014 Turn Undead:\n{\n    \"movement\": {\"direction\": \"away\", \"relative_to\": \"character\"},\n    \"actions\": {\"blocked_actions\": [\"reaction\"], \"allowed_actions\": [\"Dash\", \"Dodge\"]}\n}\n\nExample \u2014 Frightened:\n{\n    \"movement\": {\"direction\": \"away\", \"relative_to\": \"source\"}\n}",
       "properties": {
         "movement": {
           "anyOf": [
@@ -7377,9 +7384,36 @@
           ],
           "default": null,
           "description": "Action restrictions on the target's turn"
+        },
+        "components": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ComponentConstraint"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Spell component restrictions (e.g., can't speak blocks verbal)"
         }
       },
       "title": "StatusConstraint",
+      "type": "object"
+    },
+    "ComponentConstraint": {
+      "description": "Spell component restrictions imposed by a status.\n\nBlocks specific spell components (verbal, somatic, material), preventing casting of spells that require those components unless bypassed (e.g., Subtle Spell metamagic).\n\nExample — Petrified (can't move or speak):\n{\"blocked\": [\"verbal\", \"somatic\"]}",
+      "properties": {
+        "blocked": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Spell components the creature cannot provide (e.g., 'verbal', 'somatic', 'material')"
+        }
+      },
+      "required": ["blocked"],
+      "title": "ComponentConstraint",
       "type": "object"
     },
     "StatusEffect": {
