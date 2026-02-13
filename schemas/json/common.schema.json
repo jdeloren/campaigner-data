@@ -6968,6 +6968,11 @@
                     "type": "number"
                   },
                   {
+                    "type": "string",
+                    "pattern": "^\\d+d\\d+(\\+\\d+d\\d+)*$",
+                    "description": "Dice expression (e.g., '2d8', '2d8+3d6')"
+                  },
+                  {
                     "$ref": "#/$defs/RollModifier"
                   },
                   {
