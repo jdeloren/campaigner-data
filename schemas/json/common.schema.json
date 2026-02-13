@@ -6968,7 +6968,10 @@
                     "type": "number"
                   },
                   {
-                    "type": "string"
+                    "$ref": "#/$defs/RollModifier"
+                  },
+                  {
+                    "type": "null"
                   }
                 ]
               },
