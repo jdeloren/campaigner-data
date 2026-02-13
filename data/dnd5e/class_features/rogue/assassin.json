@@ -23,24 +23,25 @@
     "description": "You are at your deadliest when you get the drop on your enemies.",
     "mechanics": [
       {
-        "type": "advantage",
-        "trigger": {
-          "event": ["attack"]
-        },
-        "target": {
-          "type": "creature",
-          "requirements": [
-            {
-              "type": "function",
-              "function": "timeline.has_acted",
-              "context": "target",
-              "params": {
-                "comparison": "equals",
-                "value": 0
-              }
+        "type": "passive",
+        "effects": [
+          {
+            "advantage": {
+              "attack": "all",
+              "requirements": [
+                {
+                  "type": "function",
+                  "function": "timeline.has_acted",
+                  "context": "target",
+                  "params": {
+                    "comparison": "equals",
+                    "value": 0
+                  }
+                }
+              ]
             }
-          ]
-        }
+          }
+        ]
       },
       {
         "type": "critical_hit",
