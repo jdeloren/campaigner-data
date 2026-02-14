@@ -10,9 +10,9 @@
         "type": "choice",
         "choice_type": "query",
         "query": {
-          "endpoint": "fighting_styles",
+          "endpoint": "/classes/{class}/fighting-styles",
           "params": {
-            "classes": "Fighter"
+            "class": "Fighter"
           }
         }
       }
