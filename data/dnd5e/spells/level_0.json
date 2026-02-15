@@ -2157,31 +2157,9 @@
             }
           },
           {
-            "attribute": {
-              "target": "weapon.damage_dice",
-              "calculation": {
-                "operation": "set",
-                "operators": [
-                  {
-                    "type": "dice",
-                    "dice": "1d8"
-                  }
-                ]
-              }
-            }
-          },
-          {
-            "attribute": {
-              "target": "weapon.magical",
-              "calculation": {
-                "operation": "set",
-                "operators": [
-                  {
-                    "type": "boolean",
-                    "value": true
-                  }
-                ]
-              }
+            "damage": {
+              "dice": "1d8",
+              "magical": true
             }
           }
         ]

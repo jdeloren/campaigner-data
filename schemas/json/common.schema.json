@@ -2597,12 +2597,19 @@
           ],
           "default": null,
           "description": "Constraint on the damage source (e.g., weapon attacks)"
-        },
-        "damage_source_requirements": {
+        }
+      },
+      "title": "DamageResponse",
+      "type": "object"
+    },
+    "DamageResponseSource": {
+      "description": "Constraint on where the damage comes from (e.g., weapon attacks, nonmagical sources).",
+      "properties": {
+        "type": {
           "anyOf": [
             {
               "items": {
-                "$ref": "#/$defs/DamageSourceRequirement"
+                "type": "string"
               },
               "type": "array"
             },
@@ -2611,52 +2618,24 @@
             }
           ],
           "default": null,
-          "description": "Requirements on the damage source (e.g., nonmagical)",
-          "title": "Damage Source Requirements"
-        }
-      },
-      "title": "DamageResponse",
-      "type": "object"
-    },
-    "DamageResponseSource": {
-      "description": "Constraint on where the damage comes from (e.g., weapon attacks).",
-      "properties": {
-        "type": {
           "description": "Source types (e.g., ['weapon'])",
-          "items": {
-            "type": "string"
-          },
-          "title": "Type",
-          "type": "array"
+          "title": "Type"
+        },
+        "magical": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Whether the damage source is magical (false = nonmagical only)",
+          "title": "Magical"
         }
       },
-      "required": ["type"],
       "title": "DamageResponseSource",
-      "type": "object"
-    },
-    "DamageSourceRequirement": {
-      "description": "Requirement on the source of damage (e.g., nonmagical attacks).",
-      "properties": {
-        "type": {
-          "const": "damage_source",
-          "default": "damage_source",
-          "description": "Requirement type",
-          "title": "Type",
-          "type": "string"
-        },
-        "property": {
-          "description": "Property to check on the damage source (e.g., 'magical')",
-          "title": "Property",
-          "type": "string"
-        },
-        "value": {
-          "description": "Expected value of the property",
-          "title": "Value",
-          "type": "boolean"
-        }
-      },
-      "required": ["property", "value"],
-      "title": "DamageSourceRequirement",
       "type": "object"
     },
     "DamageTarget": {
@@ -7133,20 +7112,35 @@
           "title": "Type",
           "type": "string"
         },
-        "name": {
-          "description": "Display name of the spell (e.g., 'Dancing Lights')",
-          "title": "Name",
-          "type": "string"
-        },
         "spell": {
-          "description": "Spell identifier (e.g., 'dancing lights')",
-          "title": "Spell",
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Spell ID (e.g., 'spell:dancing-lights')",
+          "title": "Spell"
         },
         "ability": {
           "description": "Spellcasting ability (e.g., 'Charisma')",
           "title": "Ability",
           "type": "string"
+        },
+        "query": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Query"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Data query for dynamic spell selection (e.g., choose a wizard cantrip)"
         },
         "components": {
           "anyOf": [
@@ -7299,7 +7293,7 @@
           "title": "Requirements"
         }
       },
-      "required": ["type", "name", "spell", "ability"],
+      "required": ["type", "ability"],
       "title": "SpellcastingMechanic",
       "type": "object"
     },
