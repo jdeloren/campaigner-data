@@ -3503,11 +3503,68 @@
       "amount": 1.0,
       "currency": "GP"
     },
-    "damage": null,
     "weight": 3.0,
-    "properties": ["Special", "Thrown (5/15)"],
-    "subcategory": "martial_ranged",
-    "category": "weapon",
+    "hp": 5,
+    "armor_class": {
+      "base": 10,
+      "dex_bonus": false
+    },
+    "description": "When you take the Attack action, you can replace one of your attacks with throwing a Net. Target a creature you can see within 15 feet of yourself. The target must succeed on a Dexterity saving throw (DC 8 plus your Dexterity modifier and Proficiency Bonus) or have the Restrained condition until it escapes. The target succeeds automatically if it is Huge or larger.\n\nTo escape, the target or a creature within 5 feet of it must take an action to make a DC 10 Strength (Athletics) check, freeing the Restrained creature on a success. Destroying the Net (AC 10; 5 HP; Immunity to Bludgeoning, Poison, and Psychic damage) also frees the target, ending the effect.",
+    "mechanics": [
+      {
+        "type": "action",
+        "description": "Replace one attack with throwing the Net",
+        "range": {
+          "value": 15,
+          "unit": "feet"
+        },
+        "target": {
+          "type": "creature",
+          "count": 1,
+          "requirements": [
+            {
+              "type": "perception",
+              "observer": "character",
+              "subject": "target",
+              "senses": ["sight"]
+            },
+            {
+              "type": "size",
+              "value": ["Tiny", "Small", "Medium", "Large"]
+            }
+          ]
+        },
+        "effects": [
+          {
+            "saving_throw": {
+              "ability": "Dexterity",
+              "dc": {
+                "base": 8,
+                "add": "proficiency_bonus",
+                "ability": ["Dexterity"]
+              }
+            },
+            "on_failure": {
+              "apply_status": {
+                "name": "restrained",
+                "escape": {
+                  "ability": "Strength",
+                  "skill": "Athletics",
+                  "dc": {
+                    "base": 10
+                  },
+                  "proximity": {
+                    "value": 5,
+                    "unit": "feet"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
   }
