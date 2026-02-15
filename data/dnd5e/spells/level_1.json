@@ -1286,7 +1286,7 @@
             "attribute": {
               "target": "languages",
               "query": {
-                "endpoint": "languages"
+                "source": "languages"
               }
             }
           }

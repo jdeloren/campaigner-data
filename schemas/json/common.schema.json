@@ -4840,45 +4840,6 @@
       "title": "FunctionOperand",
       "type": "object"
     },
-    "FunctionReference": {
-      "description": "A reference to a domain function that resolves to a value at runtime.",
-      "properties": {
-        "function": {
-          "description": "Function path (e.g., 'spellcasting.max_spell_level')",
-          "title": "Function",
-          "type": "string"
-        },
-        "context": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Context entity (e.g., 'character')",
-          "title": "Context"
-        },
-        "class": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Class name for class-scoped functions",
-          "title": "Class"
-        }
-      },
-      "required": ["function"],
-      "title": "FunctionReference",
-      "type": "object"
-    },
     "FunctionRequirement": {
       "description": "Requirement based on a domain/logic function that returns a boolean.",
       "properties": {
@@ -6228,11 +6189,11 @@
       "type": "object"
     },
     "Query": {
-      "description": "Data query against a game data endpoint.\n\nMirrors an endpoint definition:\n- endpoint: the route to query\n- params: simple key-value query parameters, ready to use\n- resolve: values that need function computation before becoming params",
+      "description": "Data query for a game data set with filtering criteria.\n\nDeclares what data set to query and how to filter it:\n- source: the data set to query (e.g., 'fighting_styles', 'spells', 'maneuvers', 'tools')\n- params: filtering criteria (e.g., class, level, max_level, category)\n\nThe resolver always excludes values the character already has.",
       "properties": {
-        "endpoint": {
-          "description": "API endpoint to query (e.g., 'equipment', 'spells', 'maneuvers')",
-          "title": "Endpoint",
+        "source": {
+          "description": "Data set to query (e.g., 'fighting_styles', 'spells', 'maneuvers', 'tools')",
+          "title": "Source",
           "type": "string"
         },
         "params": {
@@ -6255,27 +6216,11 @@
             }
           ],
           "default": null,
-          "description": "Simple query parameters passed to the endpoint",
+          "description": "Filtering criteria for the data set",
           "title": "Params"
-        },
-        "resolve": {
-          "anyOf": [
-            {
-              "additionalProperties": {
-                "$ref": "#/$defs/FunctionReference"
-              },
-              "type": "object"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Parameters that require function resolution before querying",
-          "title": "Resolve"
         }
       },
-      "required": ["endpoint"],
+      "required": ["source"],
       "title": "Query",
       "type": "object"
     },
