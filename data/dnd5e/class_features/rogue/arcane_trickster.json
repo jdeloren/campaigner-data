@@ -4,7 +4,7 @@
     "class": "Arcane Trickster",
     "name": "Mage Hand Legerdemain",
     "level": 3,
-    "description": "When you cast Mage Hand, you can make the spectral hand invisible, and you can perform additional tasks with it.",
+    "description": "When you cast Mage Hand, you can make the spectral hand invisible, and you can perform additional tasks with it:\n\n- You can stow one object the hand is holding in a container worn or carried by another creature.\nYou can retrieve an object in a container worn or carried by another creature.\nYou can use thieves' tools to pick locks and disarm traps at range.\n\nYou can perform one of these tasks without being noticed by a creature if you succeed on a Dexterity (Sleight of Hand) check contested by the creature's Wisdom (Perception) check.\n\nIn addition, you can use the bonus action granted by your Cunning Action to control the hand.",
     "mechanics": [
       {
         "type": "bonus_action",
@@ -75,7 +75,7 @@
     "class": "Arcane Trickster",
     "name": "Versatile Trickster",
     "level": 13,
-    "description": "You gain the ability to distract targets with your Mage Hand.",
+    "description": "You gain the ability to distract targets with your Mage Hand. As a bonus action on your turn, you can designate a creature within 5 feet of the spectral hand created by the spell. Doing so gives you advantage on attack rolls against that creature until the end of the turn.",
     "mechanics": [
       {
         "type": "bonus_action",
@@ -109,7 +109,7 @@
     "class": "Arcane Trickster",
     "name": "Spell Thief",
     "level": 17,
-    "description": "You gain the ability to magically steal the knowledge of how to cast a spell from another spellcaster.",
+    "description": "You gain the ability to magically steal the knowledge of how to cast a spell from another spellcaster.\n\nImmediately after a creature casts a spell that targets you or includes you in its area of effect, you can use your reaction to force the creature to make a saving throw with its spellcasting ability modifier. The DC equals your spell save DC. On a failed save, you negate the spell's effect against you, and you steal the knowledge of the spell if it is at least 1st level and of a level you can cast (it doesn't need to be a wizard spell). For the next 8 hours, you know the spell and can cast it using your spell slots. The creature can't cast that spell until the 8 hours have passed.\n\nOnce you use this feature, you can't use it again until you finish a long rest.",
     "mechanics": [],
     "source": "phb",
     "ruleset": "dnd5e"

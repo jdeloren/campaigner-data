@@ -35,7 +35,7 @@
     "class": "Thief",
     "level": 3,
     "name": "Second-Story Work",
-    "description": "You gain the ability to climb faster than normal; climbing no longer costs you extra movement. In addition, when you make a running jump, the distance you cover increases by a number of feet equal to your Dexterity modifier.",
+    "description": "You gain the ability to climb faster than normal; climbing no longer costs you extra movement.\n\nIn addition, when you make a running jump, the distance you cover increases by a number of feet equal to your Dexterity modifier.",
     "mechanics": [
       {
         "type": "passive",
@@ -146,7 +146,7 @@
     "class": "Thief",
     "level": 17,
     "name": "Thief's Reflexes",
-    "description": "You have become adept at laying ambushes and quickly escaping danger.",
+    "description": "You have become adept at laying ambushes and quickly escaping danger. You can take two turns during the first round of any combat. You take your first turn at your normal initiative and your second turn at your initiative minus 10. You can't use this feature when you are surprised.",
     "mechanics": [
       {
         "type": "extra_turn",
