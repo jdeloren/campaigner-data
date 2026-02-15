@@ -102,7 +102,7 @@
     "class": "Rogue",
     "level": 2,
     "name": "Cunning Action",
-    "description": "Your quick thinking and agility allow you to move and act quickly.",
+    "description": "Your quick thinking and agility allow you to move and act quickly. You can take a bonus action on each of your turns in combat. This action can be used only to take the Dash, Disengage, or Hide action.",
     "mechanics": [
       {
         "type": "bonus_action",
@@ -148,7 +148,7 @@
     "class": "Rogue",
     "level": 3,
     "name": "Steady Aim",
-    "description": "Give yourself advantage on your next attack roll on the current turn.",
+    "description": "Give yourself advantage on your next attack roll on the current turn. You can use this bonus action only if you haven't moved during this turn, and after you use the bonus action, your speed is 0 until the end of the current turn.",
     "mechanics": [
       {
         "type": "bonus_action",
@@ -332,7 +332,7 @@
     "class": "Rogue",
     "level": 11,
     "name": "Reliable Talent",
-    "description": "You have refined your chosen skills until they approach perfection.",
+    "description": "You have refined your chosen skills until they approach perfection. Whenever you make an ability check that lets you add your proficiency bonus, you can treat a d20 roll of 9 or lower as a 10.",
     "mechanics": [
       {
         "type": "passive",
@@ -388,7 +388,7 @@
     "class": "Rogue",
     "level": 15,
     "name": "Slippery Mind",
-    "description": "You have acquired greater mental strength.",
+    "description": "You have acquired greater mental strength. You gain proficiency in Wisdom saving throws.",
     "mechanics": [
       {
         "type": "proficiency",
@@ -404,7 +404,7 @@
     "class": "Rogue",
     "level": 18,
     "name": "Elusive",
-    "description": "Attackers rarely gain the upper hand against you.",
+    "description": "Attackers rarely gain the upper hand against you. No attack roll has advantage against you while you aren't incapacitated.",
     "mechanics": [
       {
         "type": "passive",

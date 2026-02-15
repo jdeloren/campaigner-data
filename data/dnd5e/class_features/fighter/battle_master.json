@@ -10,7 +10,7 @@
         "type": "choice",
         "choice_type": "query",
         "query": {
-          "endpoint": "maneuvers"
+          "source": "maneuvers"
         },
         "scaling": {
           "components": {
@@ -65,7 +65,7 @@
         "type": "choice",
         "choice_type": "query",
         "query": {
-          "endpoint": "equipment",
+          "source": "tools",
           "params": {
             "category": "Artisan's Tools"
           }

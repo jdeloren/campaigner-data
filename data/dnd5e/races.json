@@ -124,7 +124,7 @@
             "choice_type": "query",
             "count": 1,
             "query": {
-              "endpoint": "spells",
+              "source": "spells",
               "params": {
                 "level": 0,
                 "class": "Wizard"

@@ -434,14 +434,7 @@
         "name": "magical_secrets_spells",
         "count": 2,
         "query": {
-          "endpoint": "spells",
-          "resolve": {
-            "max_level": {
-              "function": "spellcasting.max_spell_level",
-              "context": "character",
-              "class": "Bard"
-            }
-          }
+          "source": "spells"
         },
         "scaling": {
           "components": {
