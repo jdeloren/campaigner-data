@@ -2114,13 +2114,9 @@
                     "piercing",
                     "slashing"
                   ],
-                  "damage_source_requirements": [
-                    {
-                      "type": "damage_source",
-                      "property": "magical",
-                      "value": false
-                    }
-                  ]
+                  "source": {
+                    "magical": false
+                  }
                 }
               }
             ]

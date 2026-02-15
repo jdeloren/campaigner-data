@@ -55,7 +55,7 @@
       "type": ["piercing"]
     },
     "weight": 1.0,
-    "properties": ["Finesse", "light", "thrown (20/60)"],
+    "properties": ["Finesse", "Light", "Thrown (20/60)"],
     "subcategory": "simple_melee",
     "category": "weapon",
     "source": "phb",
@@ -91,7 +91,7 @@
       "type": ["slashing"]
     },
     "weight": 2.0,
-    "properties": ["Light", "thrown (20/60)"],
+    "properties": ["Light", "Thrown (20/60)"],
     "subcategory": "simple_melee",
     "category": "weapon",
     "source": "phb",
@@ -127,7 +127,7 @@
       "type": ["bludgeoning"]
     },
     "weight": 2.0,
-    "properties": ["Light", "thrown (20/60)"],
+    "properties": ["Light", "Thrown (20/60)"],
     "subcategory": "simple_melee",
     "category": "weapon",
     "source": "phb",
@@ -212,7 +212,7 @@
       "type": ["piercing"]
     },
     "weight": 3.0,
-    "properties": ["Thrown (20/60)", "versatile (1d8)"],
+    "properties": ["Thrown (20/60)", "Versatile (1d8)"],
     "subcategory": "simple_melee",
     "category": "weapon",
     "source": "phb",
@@ -230,7 +230,7 @@
       "type": ["piercing"]
     },
     "weight": 5.0,
-    "properties": ["Ammunition", "range (80/320)", "loading", "two-handed"],
+    "properties": ["Ammunition", "Range (80/320)", "Loading", "Two-handed"],
     "subcategory": "simple_ranged",
     "category": "weapon",
     "source": "phb",
@@ -248,7 +248,7 @@
       "type": ["piercing"]
     },
     "weight": 0.25,
-    "properties": ["Finesse", "thrown (20/60)"],
+    "properties": ["Finesse", "Thrown (20/60)"],
     "subcategory": "simple_ranged",
     "category": "weapon",
     "source": "phb",
@@ -266,7 +266,7 @@
       "type": ["piercing"]
     },
     "weight": 2.0,
-    "properties": ["Ammunition", "range (80/320)", "two-handed"],
+    "properties": ["Ammunition", "Range (80/320)", "Two-handed"],
     "subcategory": "simple_ranged",
     "category": "weapon",
     "source": "phb",
@@ -284,7 +284,7 @@
       "type": ["bludgeoning"]
     },
     "weight": 0.0,
-    "properties": ["Ammunition", "range (30/120)"],
+    "properties": ["Ammunition", "Range (30/120)"],
     "subcategory": "simple_ranged",
     "category": "weapon",
     "source": "phb",
@@ -1041,7 +1041,7 @@
     "description": "A set of pulleys with a cable threaded through them and a hook to attach to objects, a block and tackle allows you to hoist up to four times the weight you can normally lift.",
     "mechanics": [
       {
-        "type": "special",
+        "type": "Special",
         "description": "Allows you to hoist up to four times the weight you can normally lift."
       }
     ],
@@ -1145,7 +1145,7 @@
     "hp": 10,
     "mechanics": [
       {
-        "type": "special",
+        "type": "Special",
         "description": "AC 19, 10 hit points. Can be burst with a successful DC 20 Strength check."
       }
     ],
@@ -1402,7 +1402,7 @@
     "description": "A key is provided with the lock. Without the key, a creature proficient with thieves' tools can pick this lock with a successful DC 15 Dexterity check. Your DM may decide that better locks are available for higher prices.",
     "mechanics": [
       {
-        "type": "special",
+        "type": "Special",
         "description": "Requires a DC 15 Dexterity check with thieves' tools to pick without the key."
       }
     ],
@@ -1432,7 +1432,7 @@
         ]
       },
       {
-        "type": "special",
+        "type": "Special",
         "description": "Can start a fire by focusing sunlight on tinder. Takes about 5 minutes."
       }
     ],
@@ -1452,7 +1452,7 @@
     "description": "These metal restraints can bind a Small or Medium creature. Escaping the manacles requires a successful DC 20 Dexterity check. Breaking them requires a successful DC 20 Strength check. Each set of manacles comes with one key. Without the key, a creature proficient with thieves' tools can pick the manacles' lock with a successful DC 15 Dexterity check. Manacles have 15 hit points.",
     "mechanics": [
       {
-        "type": "special",
+        "type": "Special",
         "description": "Escaping requires a DC 20 Dexterity check. Breaking requires a DC 20 Strength check. Picking the lock requires a DC 15 Dexterity check with thieves' tools."
       }
     ],
@@ -1857,7 +1857,7 @@
     "description": "Objects viewed through a spyglass are magnified to twice their size.",
     "mechanics": [
       {
-        "type": "special",
+        "type": "Special",
         "description": "Magnifies objects viewed through it to twice their size."
       }
     ],
@@ -3148,7 +3148,7 @@
       "type": ["slashing"]
     },
     "weight": 6.0,
-    "properties": ["Heavy", "reach", "two-handed"],
+    "properties": ["Heavy", "Reach", "Two-handed"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3166,7 +3166,7 @@
       "type": ["slashing"]
     },
     "weight": 7.0,
-    "properties": ["Heavy", "two-handed"],
+    "properties": ["Heavy", "Two-handed"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3184,7 +3184,7 @@
       "type": ["slashing"]
     },
     "weight": 6.0,
-    "properties": ["Heavy", "two-handed"],
+    "properties": ["Heavy", "Two-handed"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3202,7 +3202,7 @@
       "type": ["slashing"]
     },
     "weight": 6.0,
-    "properties": ["Heavy", "reach", "two-handed"],
+    "properties": ["Heavy", "Reach", "Two-handed"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3220,7 +3220,7 @@
       "type": ["piercing"]
     },
     "weight": 6.0,
-    "properties": ["Reach", "special"],
+    "properties": ["Reach", "Special"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3256,7 +3256,7 @@
       "type": ["bludgeoning"]
     },
     "weight": 10.0,
-    "properties": ["Heavy", "two-handed"],
+    "properties": ["Heavy", "Two-handed"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3292,7 +3292,7 @@
       "type": ["piercing"]
     },
     "weight": 18.0,
-    "properties": ["Heavy", "reach", "two-handed"],
+    "properties": ["Heavy", "Reach", "Two-handed"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3328,7 +3328,7 @@
       "type": ["slashing"]
     },
     "weight": 3.0,
-    "properties": ["Finesse", "light"],
+    "properties": ["Finesse", "Light"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3346,7 +3346,7 @@
       "type": ["piercing"]
     },
     "weight": 2.0,
-    "properties": ["Finesse", "light"],
+    "properties": ["Finesse", "Light"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3364,7 +3364,7 @@
       "type": ["piercing"]
     },
     "weight": 4.0,
-    "properties": ["Thrown (20/60)", "versatile (1d8)"],
+    "properties": ["Thrown (20/60)", "Versatile (1d8)"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3418,7 +3418,7 @@
       "type": ["slashing"]
     },
     "weight": 3.0,
-    "properties": ["Finesse", "reach"],
+    "properties": ["Finesse", "Reach"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3436,7 +3436,7 @@
       "type": ["piercing"]
     },
     "weight": 1.0,
-    "properties": ["Ammunition", "range (25/100)", "loading"],
+    "properties": ["Ammunition", "Range (25/100)", "Loading"],
     "subcategory": "martial_ranged",
     "category": "weapon",
     "source": "phb",
@@ -3454,7 +3454,7 @@
       "type": ["piercing"]
     },
     "weight": 3.0,
-    "properties": ["Ammunition", "range (30/120)", "light", "loading"],
+    "properties": ["Ammunition", "Range (30/120)", "Light", "Loading"],
     "subcategory": "martial_ranged",
     "category": "weapon",
     "source": "phb",
@@ -3472,7 +3472,7 @@
       "type": ["piercing"]
     },
     "weight": 18.0,
-    "properties": ["Ammunition", "range (100/400)", "heavy", "loading", "two-handed"],
+    "properties": ["Ammunition", "Range (100/400)", "Heavy", "Loading", "Two-handed"],
     "subcategory": "martial_ranged",
     "category": "weapon",
     "source": "phb",
@@ -3490,7 +3490,7 @@
       "type": ["piercing"]
     },
     "weight": 2.0,
-    "properties": ["Ammunition", "range (150/600)", "heavy", "two-Handed"],
+    "properties": ["Ammunition", "Range (150/600)", "Heavy", "Two-handed"],
     "subcategory": "martial_ranged",
     "category": "weapon",
     "source": "phb",
@@ -3503,11 +3503,68 @@
       "amount": 1.0,
       "currency": "GP"
     },
-    "damage": null,
     "weight": 3.0,
-    "properties": ["Special", "thrown (5/15)"],
-    "subcategory": "martial_ranged",
-    "category": "weapon",
+    "hp": 5,
+    "armor_class": {
+      "base": 10,
+      "dex_bonus": false
+    },
+    "description": "When you take the Attack action, you can replace one of your attacks with throwing a Net. Target a creature you can see within 15 feet of yourself. The target must succeed on a Dexterity saving throw (DC 8 plus your Dexterity modifier and Proficiency Bonus) or have the Restrained condition until it escapes. The target succeeds automatically if it is Huge or larger.\n\nTo escape, the target or a creature within 5 feet of it must take an action to make a DC 10 Strength (Athletics) check, freeing the Restrained creature on a success. Destroying the Net (AC 10; 5 HP; Immunity to Bludgeoning, Poison, and Psychic damage) also frees the target, ending the effect.",
+    "mechanics": [
+      {
+        "type": "action",
+        "description": "Replace one attack with throwing the Net",
+        "range": {
+          "value": 15,
+          "unit": "feet"
+        },
+        "target": {
+          "type": "creature",
+          "count": 1,
+          "requirements": [
+            {
+              "type": "perception",
+              "observer": "character",
+              "subject": "target",
+              "senses": ["sight"]
+            },
+            {
+              "type": "size",
+              "value": ["Tiny", "Small", "Medium", "Large"]
+            }
+          ]
+        },
+        "effects": [
+          {
+            "saving_throw": {
+              "ability": "Dexterity",
+              "dc": {
+                "base": 8,
+                "add": "proficiency_bonus",
+                "ability": ["Dexterity"]
+              }
+            },
+            "on_failure": {
+              "apply_status": {
+                "name": "restrained",
+                "escape": {
+                  "ability": "Strength",
+                  "skill": "Athletics",
+                  "dc": {
+                    "base": 10
+                  },
+                  "proximity": {
+                    "value": 5,
+                    "unit": "feet"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "category": "adventuring_gear",
     "source": "phb",
     "ruleset": "dnd5e"
   }

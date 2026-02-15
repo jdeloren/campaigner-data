@@ -120,9 +120,8 @@
         "description": "You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it.",
         "mechanics": [
           {
-            "type": "choice",
-            "choice_type": "query",
-            "count": 1,
+            "type": "spellcasting",
+            "ability": "Intelligence",
             "query": {
               "source": "spells",
               "params": {
@@ -258,15 +257,13 @@
         "mechanics": [
           {
             "type": "spellcasting",
-            "name": "Dancing Lights",
-            "spell": "dancing lights",
+            "spell": "spell:dancing-lights",
             "ability": "Charisma",
             "components": ["Verbal", "Somatic"]
           },
           {
             "type": "spellcasting",
-            "name": "Faerie Fire",
-            "spell": "faerie fire",
+            "spell": "spell:faerie-fire",
             "ability": "Charisma",
             "components": ["Verbal"],
             "uses": {
@@ -282,8 +279,7 @@
           },
           {
             "type": "spellcasting",
-            "name": "Darkness",
-            "spell": "darkness",
+            "spell": "spell:darkness",
             "ability": "Charisma",
             "components": ["Verbal"],
             "uses": {
@@ -2238,8 +2234,7 @@
         "mechanics": [
           {
             "type": "spellcasting",
-            "name": "Minor Illusion",
-            "spell": "minor illusion",
+            "spell": "spell:minor-illusion",
             "ability": "Intelligence",
             "components": ["Somatic", "Material"]
           }
@@ -2679,15 +2674,13 @@
         "mechanics": [
           {
             "type": "spellcasting",
-            "name": "Thaumaturgy",
-            "spell": "thaumaturgy",
+            "spell": "spell:thaumaturgy",
             "ability": "Charisma",
             "components": ["Verbal"]
           },
           {
             "type": "spellcasting",
-            "name": "Hellish Rebuke",
-            "spell": "hellish rebuke",
+            "spell": "spell:hellish-rebuke",
             "ability": "Charisma",
             "components": ["Verbal", "Somatic"],
             "uses": {
@@ -2703,8 +2696,7 @@
           },
           {
             "type": "spellcasting",
-            "name": "Darkness",
-            "spell": "darkness",
+            "spell": "spell:darkness",
             "ability": "Charisma",
             "components": ["Verbal"],
             "uses": {
