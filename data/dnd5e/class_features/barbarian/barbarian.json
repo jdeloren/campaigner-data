@@ -35,7 +35,7 @@
         "effects": [
           {
             "apply_status": {
-              "name": "raging"
+              "id": "status:raging"
             }
           },
           {

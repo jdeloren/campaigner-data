@@ -16,7 +16,7 @@
         "effects": [
           {
             "apply_status": {
-              "name": "bonded",
+              "id": "status:bonded",
               "target": {
                 "type": "weapon"
               }
@@ -121,7 +121,7 @@
               "type": "event_recipient"
             },
             "apply_status": {
-              "name": "eldritch_strike",
+              "id": "status:eldritch_strike",
               "source": "character",
               "effect": {
                 "disadvantage": {

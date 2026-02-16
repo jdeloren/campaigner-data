@@ -135,7 +135,7 @@
               "type": "creature"
             },
             "apply_status": {
-              "name": "distracted",
+              "id": "status:distracted",
               "effect": {
                 "trigger": {
                   "event": ["attack"],
@@ -230,7 +230,7 @@
               ]
             },
             "apply_status": {
-              "name": "feinted",
+              "id": "status:feinted",
               "effect": {
                 "trigger": {
                   "event": ["attack"],
@@ -303,7 +303,7 @@
               },
               "on_failure": {
                 "apply_status": {
-                  "name": "goaded",
+                  "id": "status:goaded",
                   "effect": {
                     "disadvantage": {
                       "attack": "all",
@@ -482,7 +482,7 @@
               },
               "on_failure": {
                 "apply_status": {
-                  "name": "frightened",
+                  "id": "status:frightened",
                   "source": "character",
                   "duration": {
                     "value": 1,
@@ -830,7 +830,7 @@
               },
               "on_failure": {
                 "apply_status": {
-                  "name": "prone"
+                  "id": "status:prone"
                 }
               }
             }

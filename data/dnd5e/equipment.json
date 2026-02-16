@@ -1297,7 +1297,7 @@
         "effects": [
           {
             "apply_status": {
-              "name": "restrained",
+              "id": "status:restrained",
               "escape": {
                 "ability": "Strength",
                 "dc": {
@@ -1650,7 +1650,7 @@
         "effects": [
           {
             "apply_status": {
-              "name": "restrained",
+              "id": "status:restrained",
               "escape": {
                 "ability": "Strength",
                 "dc": {
@@ -1683,7 +1683,7 @@
         "effects": [
           {
             "apply_status": {
-              "name": "restrained",
+              "id": "status:restrained",
               "escape": {
                 "ability": "Strength",
                 "dc": {
@@ -2018,7 +2018,7 @@
                 "type": ["fire"]
               },
               "apply_status": {
-                "name": "burning",
+                "id": "status:burning",
                 "escape": {
                   "ability": "Dexterity",
                   "dc": {
@@ -2094,7 +2094,7 @@
             },
             "on_failure": {
               "apply_status": {
-                "name": "prone"
+                "id": "status:prone"
               }
             }
           }
@@ -2139,7 +2139,7 @@
                 "type": ["piercing"]
               },
               "apply_status": {
-                "name": "speed_reduced",
+                "id": "status:speed_reduced",
                 "value": -10
               }
             }
@@ -2212,7 +2212,7 @@
         "effects": [
           {
             "apply_status": {
-              "name": "stabilized"
+              "id": "status:stabilized"
             },
             "target": {
               "type": "creature",
@@ -2305,7 +2305,7 @@
                 "type": ["piercing"]
               },
               "apply_status": {
-                "name": "restrained",
+                "id": "status:restrained",
                 "escape": {
                   "ability": "Strength",
                   "dc": {
@@ -3546,7 +3546,7 @@
             },
             "on_failure": {
               "apply_status": {
-                "name": "restrained",
+                "id": "status:restrained",
                 "escape": {
                   "ability": "Strength",
                   "skill": "Athletics",

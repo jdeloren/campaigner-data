@@ -604,7 +604,7 @@
                   "ability": "Strength",
                   "on_failure": {
                     "apply_status": {
-                      "name": "prone"
+                      "id": "status:prone"
                     },
                     "damage": {
                       "dice": "1d12",
@@ -701,7 +701,7 @@
                   "type": "event_recipient"
                 },
                 "apply_status": {
-                  "name": "prone"
+                  "id": "status:prone"
                 }
               }
             ]

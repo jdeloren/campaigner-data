@@ -18,7 +18,7 @@
         "effects": [
           {
             "apply_status": {
-              "name": "frenzy",
+              "id": "status:frenzy",
               "duration": {
                 "value": 1,
                 "unit": "minutes",
@@ -38,7 +38,7 @@
               },
               "on_end": {
                 "apply_status": {
-                  "name": "exhaustion"
+                  "id": "status:exhaustion"
                 }
               }
             }
@@ -123,7 +123,7 @@
           "ability": "Wisdom",
           "on_failure": {
             "apply_status": {
-              "name": "frightened",
+              "id": "status:frightened",
               "source": "character",
               "duration": {
                 "value": 1,

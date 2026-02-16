@@ -5,7 +5,14 @@
   "description": "Shared definitions used across all D&D 5e data schemas",
   "$defs": {
     "Ability": {
-      "enum": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
+      "enum": [
+        "Strength",
+        "Dexterity",
+        "Constitution",
+        "Intelligence",
+        "Wisdom",
+        "Charisma"
+      ],
       "title": "Ability",
       "type": "string"
     },
@@ -53,7 +60,10 @@
         "check_type": {
           "anyOf": [
             {
-              "enum": ["raw", "skill"],
+              "enum": [
+                "raw",
+                "skill"
+              ],
               "type": "string"
             },
             {
@@ -83,7 +93,9 @@
           "type": "string"
         }
       },
-      "required": ["ability"],
+      "required": [
+        "ability"
+      ],
       "title": "AbilityModifierOperand",
       "type": "object"
     },
@@ -102,12 +114,14 @@
           "type": "string"
         }
       },
-      "required": ["modifier"],
+      "required": [
+        "modifier"
+      ],
       "title": "ActionModifierOperand",
       "type": "object"
     },
     "ActionConstraint": {
-      "description": "Action restriction applied on the target's turn.\n\nUse blocked_actions to deny specific action types.\nUse allowed_actions to restrict to ONLY the listed actions.\n\nExample \u2014 Turn Undead:\n{\"blocked_actions\": [\"reaction\"], \"allowed_actions\": [\"Dash\", \"Dodge\"]}",
+      "description": "Action restriction applied on the target's turn.\n\nUse blocked_actions to deny specific action types.\nUse allowed_actions to restrict to ONLY the listed actions.\n\nExample — Turn Undead:\n{\"blocked_actions\": [\"reaction\"], \"allowed_actions\": [\"Dash\", \"Dodge\"]}",
       "properties": {
         "blocked_actions": {
           "anyOf": [
@@ -165,13 +179,22 @@
           "description": "For reactions: what triggers this ability"
         }
       },
-      "required": ["type"],
+      "required": [
+        "type"
+      ],
       "title": "Activation",
       "type": "object"
     },
     "ActivationType": {
       "description": "Types of activation for a mechanic.",
-      "enum": ["passive", "action", "bonus_action", "reaction", "free_action", "choice"],
+      "enum": [
+        "passive",
+        "action",
+        "bonus_action",
+        "reaction",
+        "free_action",
+        "choice"
+      ],
       "title": "ActivationType",
       "type": "string"
     },
@@ -207,7 +230,11 @@
         "attack": {
           "anyOf": [
             {
-              "enum": ["all", "melee", "ranged"],
+              "enum": [
+                "all",
+                "melee",
+                "ranged"
+              ],
               "type": "string"
             },
             {
@@ -215,7 +242,7 @@
             }
           ],
           "default": null,
-          "description": "Attack rolls \u2014 'all', 'melee', or 'ranged'",
+          "description": "Attack rolls — 'all', 'melee', or 'ranged'",
           "title": "Attack"
         },
         "saving_throw": {
@@ -411,7 +438,7 @@
       "type": "object"
     },
     "AdvantageImmunity": {
-      "description": "Immunity to advantage on attacks against the character.\n\nExample \u2014 Elusive (no attack has advantage while not incapacitated):\n{\"category\": \"advantage\", \"event\": \"attack\"}",
+      "description": "Immunity to advantage on attacks against the character.\n\nExample — Elusive (no attack has advantage while not incapacitated):\n{\"category\": \"advantage\", \"event\": \"attack\"}",
       "properties": {
         "category": {
           "const": "advantage",
@@ -535,7 +562,9 @@
           "title": "Requirements"
         }
       },
-      "required": ["event"],
+      "required": [
+        "event"
+      ],
       "title": "AdvantageImmunity",
       "type": "object"
     },
@@ -545,7 +574,11 @@
         "disposition": {
           "anyOf": [
             {
-              "enum": ["friendly", "hostile", "any"],
+              "enum": [
+                "friendly",
+                "hostile",
+                "any"
+              ],
               "type": "string"
             },
             {
@@ -647,17 +680,24 @@
       "type": "string"
     },
     "ApplyStatus": {
-      "description": "Defines a status effect to apply to a target.\n\nThe source and action fields enable tracking WHO applied the status and\nWHAT ability was used, allowing features like Master of Nature to query\nfor creatures charmed by a specific ability.\n\nExample - Charm Animals and Plants:\n{\n    \"name\": \"charmed\",\n    \"source\": \"character\",\n    \"action\": \"Charm Animals and Plants\",\n    \"duration\": {\"value\": 1, \"unit\": \"minutes\"}\n}\n\nExample - Mind control with concentration:\n{\n    \"name\": \"dominated\",\n    \"source\": \"character\",\n    \"action\": \"Dominate Person\",\n    \"concentration\": true\n}",
+      "description": "Defines a status effect to apply to a target.\n\nThe source and action fields enable tracking WHO applied the status and\nWHAT ability was used, allowing features like Master of Nature to query\nfor creatures charmed by a specific ability.\n\nExample - Charm Animals and Plants:\n{\n    \"id\": \"status:charmed\",\n    \"source\": \"character\",\n    \"action\": \"Charm Animals and Plants\",\n    \"duration\": {\"value\": 1, \"unit\": \"minutes\"}\n}\n\nExample - Mind control with concentration:\n{\n    \"id\": \"status:dominated\",\n    \"source\": \"character\",\n    \"action\": \"Dominate Person\",\n    \"concentration\": true\n}",
       "properties": {
-        "name": {
-          "description": "Name of the status condition",
-          "title": "Name",
+        "id": {
+          "description": "Status definition id (e.g., 'status:charmed')",
+          "title": "Id",
           "type": "string"
         },
         "source": {
           "anyOf": [
             {
-              "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
+              "enum": [
+                "character",
+                "target",
+                "source",
+                "attacker",
+                "ally",
+                "illusion"
+              ],
               "type": "string"
             },
             {
@@ -702,7 +742,14 @@
         "modifier": {
           "anyOf": [
             {
-              "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
+              "enum": [
+                "character",
+                "target",
+                "source",
+                "attacker",
+                "ally",
+                "illusion"
+              ],
               "type": "string"
             },
             {
@@ -766,7 +813,9 @@
           "description": "Saving throw to escape this status (costs an action to attempt)"
         }
       },
-      "required": ["name"],
+      "required": [
+        "id"
+      ],
       "title": "ApplyStatus",
       "type": "object"
     },
@@ -775,7 +824,15 @@
       "properties": {
         "shape": {
           "description": "Shape of the area",
-          "enum": ["radius", "sphere", "cube", "cone", "cylinder", "line", "square"],
+          "enum": [
+            "radius",
+            "sphere",
+            "cube",
+            "cone",
+            "cylinder",
+            "line",
+            "square"
+          ],
           "title": "Shape",
           "type": "string"
         },
@@ -787,14 +844,23 @@
         "unit": {
           "default": "feet",
           "description": "Unit of measurement",
-          "enum": ["feet", "miles"],
+          "enum": [
+            "feet",
+            "miles"
+          ],
           "title": "Unit",
           "type": "string"
         },
         "origin": {
           "default": "point",
           "description": "Where the area originates from",
-          "enum": ["self", "target", "point", "caster", "weapon"],
+          "enum": [
+            "self",
+            "target",
+            "point",
+            "caster",
+            "weapon"
+          ],
           "title": "Origin",
           "type": "string"
         },
@@ -812,12 +878,15 @@
           "title": "Height"
         }
       },
-      "required": ["shape", "size"],
+      "required": [
+        "shape",
+        "size"
+      ],
       "title": "Area",
       "type": "object"
     },
     "Attack": {
-      "description": "Attack roll specification \u2014 source and resolution details.",
+      "description": "Attack roll specification — source and resolution details.",
       "properties": {
         "source": {
           "anyOf": [
@@ -847,7 +916,10 @@
         "hand": {
           "anyOf": [
             {
-              "enum": ["main_hand", "off_hand"],
+              "enum": [
+                "main_hand",
+                "off_hand"
+              ],
               "type": "string"
             },
             {
@@ -873,17 +945,22 @@
         },
         "value": {
           "description": "Required attack result",
-          "enum": ["hit", "miss"],
+          "enum": [
+            "hit",
+            "miss"
+          ],
           "title": "Value",
           "type": "string"
         }
       },
-      "required": ["value"],
+      "required": [
+        "value"
+      ],
       "title": "AttackResultRequirement",
       "type": "object"
     },
     "AttributeModification": {
-      "description": "A typed modification to a character attribute.\n\nExample \u2014 numeric (set critical hit threshold):\n{\"target\": \"combat.critical_hit_threshold\", \"calculation\": {\"operation\": \"set\", ...}}\n\nExample \u2014 data-driven (grant all languages):\n{\"target\": \"languages\", \"query\": {\"endpoint\": \"languages\"}}",
+      "description": "A typed modification to a character attribute.\n\nExample — numeric (set critical hit threshold):\n{\"target\": \"combat.critical_hit_threshold\", \"calculation\": {\"operation\": \"set\", ...}}\n\nExample — data-driven (grant all languages):\n{\"target\": \"languages\", \"query\": {\"endpoint\": \"languages\"}}",
       "properties": {
         "target": {
           "description": "Dot-notation path to the attribute (e.g., 'combat.critical_hit_threshold', 'movement.base')",
@@ -1025,7 +1102,9 @@
           "title": "Requirements"
         }
       },
-      "required": ["target"],
+      "required": [
+        "target"
+      ],
       "title": "AttributeModification",
       "type": "object"
     },
@@ -1044,7 +1123,9 @@
           "type": "string"
         }
       },
-      "required": ["value"],
+      "required": [
+        "value"
+      ],
       "title": "AttributeOperand",
       "type": "object"
     },
@@ -1068,7 +1149,10 @@
           "type": "integer"
         }
       },
-      "required": ["attribute", "minimum"],
+      "required": [
+        "attribute",
+        "minimum"
+      ],
       "title": "AttributeRequirement",
       "type": "object"
     },
@@ -1078,7 +1162,14 @@
         "origin": {
           "default": "self",
           "description": "Where the aura originates from",
-          "enum": ["self", "target", "created", "each_light", "point", "weapon"],
+          "enum": [
+            "self",
+            "target",
+            "created",
+            "each_light",
+            "point",
+            "weapon"
+          ],
           "title": "Origin",
           "type": "string"
         },
@@ -1091,14 +1182,24 @@
         "unit": {
           "default": "feet",
           "description": "Unit of measurement",
-          "enum": ["feet", "miles"],
+          "enum": [
+            "feet",
+            "miles"
+          ],
           "title": "Unit",
           "type": "string"
         },
         "shape": {
           "default": "radius",
           "description": "Shape of the aura",
-          "enum": ["radius", "cone", "cube", "sphere", "cylinder", "line"],
+          "enum": [
+            "radius",
+            "cone",
+            "cube",
+            "sphere",
+            "cylinder",
+            "line"
+          ],
           "title": "Shape",
           "type": "string"
         },
@@ -1147,7 +1248,7 @@
       "type": "object"
     },
     "AuraGrant": {
-      "description": "Modifier granted to creatures within the aura's area.\n\nExample \u2014 Wolf Totem (advantage on melee attacks for allies):\n{\"advantage\": {\"attack\": \"melee\", \"against\": {\"disposition\": \"hostile\"}}}\n\nExample \u2014 Bear Totemic Attunement (disadvantage on attacks for enemies):\n{\"disadvantage\": {\"attack\": \"all\"}}\n\nExample \u2014 Elk Aspect (doubled travel pace for allies):\n{\"attribute\": {\"target\": \"movement.travel_pace\", \"calculation\": {...}}}",
+      "description": "Modifier granted to creatures within the aura's area.\n\nExample — Wolf Totem (advantage on melee attacks for allies):\n{\"advantage\": {\"attack\": \"melee\", \"against\": {\"disposition\": \"hostile\"}}}\n\nExample — Bear Totemic Attunement (disadvantage on attacks for enemies):\n{\"disadvantage\": {\"attack\": \"all\"}}\n\nExample — Elk Aspect (doubled travel pace for allies):\n{\"attribute\": {\"target\": \"movement.travel_pace\", \"calculation\": {...}}}",
       "properties": {
         "advantage": {
           "anyOf": [
@@ -1194,14 +1295,26 @@
       "properties": {
         "type": {
           "description": "Type of light this layer produces",
-          "enum": ["bright_light", "dim_light", "darkness", "magical_darkness"],
+          "enum": [
+            "bright_light",
+            "dim_light",
+            "darkness",
+            "magical_darkness"
+          ],
           "title": "Type",
           "type": "string"
         },
         "shape": {
           "default": "radius",
           "description": "Shape of the layer",
-          "enum": ["radius", "cone", "cube", "sphere", "cylinder", "line"],
+          "enum": [
+            "radius",
+            "cone",
+            "cube",
+            "sphere",
+            "cylinder",
+            "line"
+          ],
           "title": "Shape",
           "type": "string"
         },
@@ -1213,7 +1326,10 @@
         "unit": {
           "default": "feet",
           "description": "Unit of measurement",
-          "enum": ["feet", "miles"],
+          "enum": [
+            "feet",
+            "miles"
+          ],
           "title": "Unit",
           "type": "string"
         },
@@ -1231,7 +1347,10 @@
           "title": "Color"
         }
       },
-      "required": ["type", "size"],
+      "required": [
+        "type",
+        "size"
+      ],
       "title": "AuraLayer",
       "type": "object"
     },
@@ -1654,17 +1773,24 @@
           "title": "Description"
         }
       },
-      "required": ["type"],
+      "required": [
+        "type"
+      ],
       "title": "BaseMechanic",
       "type": "object"
     },
     "BlockedBy": {
-      "description": "What blocks an effect or detection from reaching its target.\n\nExample \u2014 Radiance of the Dawn (blocked by total cover):\n{\"cover\": \"total\"}\n\nExample \u2014 Detect Magic (blocked by material barriers):\n{\"barriers\": [\"1 foot of stone\", \"1 inch of common metal\", \"a thin sheet of lead\"]}",
+      "description": "What blocks an effect or detection from reaching its target.\n\nExample — Radiance of the Dawn (blocked by total cover):\n{\"cover\": \"total\"}\n\nExample — Detect Magic (blocked by material barriers):\n{\"barriers\": [\"1 foot of stone\", \"1 inch of common metal\", \"a thin sheet of lead\"]}",
       "properties": {
         "cover": {
           "anyOf": [
             {
-              "enum": ["none", "half", "three_quarters", "total"],
+              "enum": [
+                "none",
+                "half",
+                "three_quarters",
+                "total"
+              ],
               "type": "string"
             },
             {
@@ -1710,7 +1836,9 @@
           "type": "boolean"
         }
       },
-      "required": ["value"],
+      "required": [
+        "value"
+      ],
       "title": "BooleanOperand",
       "type": "object"
     },
@@ -1719,7 +1847,15 @@
       "properties": {
         "operation": {
           "description": "Math operation to perform",
-          "enum": ["add", "subtract", "multiply", "divide", "max", "min", "set"],
+          "enum": [
+            "add",
+            "subtract",
+            "multiply",
+            "divide",
+            "max",
+            "min",
+            "set"
+          ],
           "title": "Operation",
           "type": "string"
         },
@@ -1792,7 +1928,10 @@
         "rounding": {
           "anyOf": [
             {
-              "enum": ["up", "down"],
+              "enum": [
+                "up",
+                "down"
+              ],
               "type": "string"
             },
             {
@@ -1804,12 +1943,15 @@
           "title": "Rounding"
         }
       },
-      "required": ["operation", "operators"],
+      "required": [
+        "operation",
+        "operators"
+      ],
       "title": "Calculation",
       "type": "object"
     },
     "Chain": {
-      "description": "Chaining behavior when an effect jumps to an additional target.\n\nCovers both conditional chaining (Chaos Bolt \u2014 leaps on matching d8s)\nand secondary targeting (Sweeping Attack \u2014 transfers the attack roll).\n\nExample \u2014 Chaos Bolt:\n{\"condition\": {\"size\": 8, \"check\": \"matching\"},\n \"range\": {\"value\": 30, \"unit\": \"feet\"}}\n\nExample \u2014 Sweeping Attack:\n{\"range\": {\"value\": 5, \"unit\": \"feet\"}, \"inherit\": true,\n \"damage\": {\"value\": \"superiority_die\", \"inherit_type\": true}}",
+      "description": "Chaining behavior when an effect jumps to an additional target.\n\nCovers both conditional chaining (Chaos Bolt — leaps on matching d8s)\nand secondary targeting (Sweeping Attack — transfers the attack roll).\n\nExample — Chaos Bolt:\n{\"condition\": {\"size\": 8, \"check\": \"matching\"},\n \"range\": {\"value\": 30, \"unit\": \"feet\"}}\n\nExample — Sweeping Attack:\n{\"range\": {\"value\": 5, \"unit\": \"feet\"}, \"inherit\": true,\n \"damage\": {\"value\": \"superiority_die\", \"inherit_type\": true}}",
       "properties": {
         "condition": {
           "anyOf": [
@@ -1882,7 +2024,7 @@
       "type": "object"
     },
     "Choice": {
-      "description": "Player choice within an effect.\n\nSupports named options (with or without effects), typed selections\n(damage type), and external source references (skill/tool proficiency).\n\nExample \u2014 Chromatic Orb:\n{\"type\": \"damage_type\", \"options\": [{\"name\": \"acid\"}, {\"name\": \"cold\"}, ...]}\n\nExample \u2014 Hex:\n{\"options\": [{\"name\": \"Strength\"}, {\"name\": \"Dexterity\"}, ...]}\n\nExample \u2014 Knowledge of the Ages:\n{\"source\": \"skills_and_tools\", \"count\": 1}",
+      "description": "Player choice within an effect.\n\nSupports named options (with or without effects), typed selections\n(damage type), and external source references (skill/tool proficiency).\n\nExample — Chromatic Orb:\n{\"type\": \"damage_type\", \"options\": [{\"name\": \"acid\"}, {\"name\": \"cold\"}, ...]}\n\nExample — Hex:\n{\"options\": [{\"name\": \"Strength\"}, {\"name\": \"Dexterity\"}, ...]}\n\nExample — Knowledge of the Ages:\n{\"source\": \"skills_and_tools\", \"count\": 1}",
       "properties": {
         "type": {
           "anyOf": [
@@ -2200,7 +2342,9 @@
           "title": "Value"
         }
       },
-      "required": ["type"],
+      "required": [
+        "type"
+      ],
       "title": "ChoiceMechanic",
       "type": "object"
     },
@@ -2219,7 +2363,10 @@
           "type": "string"
         }
       },
-      "required": ["type", "name"],
+      "required": [
+        "type",
+        "name"
+      ],
       "title": "SimpleChoiceOption",
       "type": "object"
     },
@@ -2242,7 +2389,11 @@
           "description": "The nested choice to present when this option is selected"
         }
       },
-      "required": ["type", "name", "choice"],
+      "required": [
+        "type",
+        "name",
+        "choice"
+      ],
       "title": "NestedChoiceOption",
       "type": "object"
     },
@@ -2266,7 +2417,11 @@
           "type": "string"
         }
       },
-      "required": ["type", "race", "trait"],
+      "required": [
+        "type",
+        "race",
+        "trait"
+      ],
       "title": "TraitRefChoiceOption",
       "type": "object"
     },
@@ -2304,7 +2459,9 @@
           "type": "string"
         }
       },
-      "required": ["class"],
+      "required": [
+        "class"
+      ],
       "title": "ClassLevelOperand",
       "type": "object"
     },
@@ -2319,7 +2476,12 @@
         },
         "value": {
           "description": "Combat state that must be active",
-          "enum": ["surprised", "hidden", "engaged", "flanking"],
+          "enum": [
+            "surprised",
+            "hidden",
+            "engaged",
+            "flanking"
+          ],
           "title": "Value",
           "type": "string"
         },
@@ -2330,7 +2492,9 @@
           "type": "boolean"
         }
       },
-      "required": ["value"],
+      "required": [
+        "value"
+      ],
       "title": "CombatStateRequirement",
       "type": "object"
     },
@@ -2354,17 +2518,27 @@
           "type": "integer"
         }
       },
-      "required": ["status", "max"],
+      "required": [
+        "status",
+        "max"
+      ],
       "title": "CountRequirement",
       "type": "object"
     },
     "CreatureSize": {
-      "enum": ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan"],
+      "enum": [
+        "Tiny",
+        "Small",
+        "Medium",
+        "Large",
+        "Huge",
+        "Gargantuan"
+      ],
       "title": "CreatureSize",
       "type": "string"
     },
     "CreatureTypeRequirement": {
-      "description": "Creature type requirement \u2014 filter targets by creature type.",
+      "description": "Creature type requirement — filter targets by creature type.",
       "properties": {
         "type": {
           "const": "creature_type",
@@ -2394,12 +2568,20 @@
           "type": "boolean"
         }
       },
-      "required": ["value"],
+      "required": [
+        "value"
+      ],
       "title": "CreatureTypeRequirement",
       "type": "object"
     },
     "Currency": {
-      "enum": ["CP", "SP", "EP", "GP", "PP"],
+      "enum": [
+        "CP",
+        "SP",
+        "EP",
+        "GP",
+        "PP"
+      ],
       "title": "Currency",
       "type": "string"
     },
@@ -2416,12 +2598,15 @@
           "description": "Currency: CP, SP, EP, GP, PP"
         }
       },
-      "required": ["amount", "currency"],
+      "required": [
+        "amount",
+        "currency"
+      ],
       "title": "CurrencyCost",
       "type": "object"
     },
     "Damage": {
-      "description": "Damage specification \u2014 dice, type, and modifiers.",
+      "description": "Damage specification — dice, type, and modifiers.",
       "properties": {
         "dice": {
           "anyOf": [
@@ -2543,7 +2728,18 @@
     },
     "DamageElement": {
       "description": "Elemental/magical damage types.",
-      "enum": ["acid", "cold", "fire", "force", "lightning", "necrotic", "poison", "psychic", "radiant", "thunder"],
+      "enum": [
+        "acid",
+        "cold",
+        "fire",
+        "force",
+        "lightning",
+        "necrotic",
+        "poison",
+        "psychic",
+        "radiant",
+        "thunder"
+      ],
       "title": "DamageElement",
       "type": "string"
     },
@@ -2553,7 +2749,11 @@
         "category": {
           "default": "resistance",
           "description": "Type of damage response: resistance, immunity, or vulnerability",
-          "enum": ["resistance", "immunity", "vulnerability"],
+          "enum": [
+            "resistance",
+            "immunity",
+            "vulnerability"
+          ],
           "title": "Category",
           "type": "string"
         },
@@ -2639,18 +2839,26 @@
       "type": "object"
     },
     "DamageTarget": {
-      "enum": ["area", "single"],
+      "enum": [
+        "area",
+        "single"
+      ],
       "title": "DamageTarget",
       "type": "string"
     },
     "DamageType": {
       "description": "Physical damage types.",
-      "enum": ["bludgeoning", "piercing", "slashing", "falling"],
+      "enum": [
+        "bludgeoning",
+        "piercing",
+        "slashing",
+        "falling"
+      ],
       "title": "DamageType",
       "type": "string"
     },
     "Detection": {
-      "description": "Detection \u2014 covers both granting awareness and discoverability.\n\nFor granting awareness (Detect Magic):\n{\"range\": ..., \"detects\": [\"magic\"], \"details\": [\"school_of_magic\"]}\n\nFor discoverability (Snare trap):\n{\"check\": {\"skill\": \"Investigation\", \"dc\": {\"ref\": \"spell_save_dc\"}}}",
+      "description": "Detection — covers both granting awareness and discoverability.\n\nFor granting awareness (Detect Magic):\n{\"range\": ..., \"detects\": [\"magic\"], \"details\": [\"school_of_magic\"]}\n\nFor discoverability (Snare trap):\n{\"check\": {\"skill\": \"Investigation\", \"dc\": {\"ref\": \"spell_save_dc\"}}}",
       "properties": {
         "range": {
           "anyOf": [
@@ -2741,7 +2949,7 @@
       "type": "object"
     },
     "DiceCondition": {
-      "description": "Condition based on dice results from the triggering roll.\n\nExample \u2014 Chaos Bolt (chain on matching d8s):\n{\"dice_sides\": 8, \"check\": \"matching\"}",
+      "description": "Condition based on dice results from the triggering roll.\n\nExample — Chaos Bolt (chain on matching d8s):\n{\"dice_sides\": 8, \"check\": \"matching\"}",
       "properties": {
         "dice_sides": {
           "description": "Die size to examine (e.g., 8 for d8)",
@@ -2755,7 +2963,10 @@
           "type": "string"
         }
       },
-      "required": ["dice_sides", "check"],
+      "required": [
+        "dice_sides",
+        "check"
+      ],
       "title": "DiceCondition",
       "type": "object"
     },
@@ -2774,7 +2985,9 @@
           "type": "string"
         }
       },
-      "required": ["dice"],
+      "required": [
+        "dice"
+      ],
       "title": "DiceOperand",
       "type": "object"
     },
@@ -2885,7 +3098,11 @@
         "attack": {
           "anyOf": [
             {
-              "enum": ["all", "melee", "ranged"],
+              "enum": [
+                "all",
+                "melee",
+                "ranged"
+              ],
               "type": "string"
             },
             {
@@ -2893,7 +3110,7 @@
             }
           ],
           "default": null,
-          "description": "Attack rolls \u2014 'all', 'melee', or 'ranged'",
+          "description": "Attack rolls — 'all', 'melee', or 'ranged'",
           "title": "Attack"
         },
         "saving_throw": {
@@ -3213,12 +3430,14 @@
           "title": "Requirements"
         }
       },
-      "required": ["skill"],
+      "required": [
+        "skill"
+      ],
       "title": "DisadvantageImmunity",
       "type": "object"
     },
     "Distance": {
-      "description": "A distance measurement \u2014 used for ranges, movement distances, and area constraints.",
+      "description": "A distance measurement — used for ranges, movement distances, and area constraints.",
       "properties": {
         "type": {
           "anyOf": [
@@ -3299,7 +3518,10 @@
         "unit": {
           "default": "feet",
           "description": "Distance unit",
-          "enum": ["feet", "miles"],
+          "enum": [
+            "feet",
+            "miles"
+          ],
           "title": "Unit",
           "type": "string"
         },
@@ -3319,7 +3541,11 @@
         "comparison": {
           "anyOf": [
             {
-              "enum": ["within", "greater_than", "less_than"],
+              "enum": [
+                "within",
+                "greater_than",
+                "less_than"
+              ],
               "type": "string"
             },
             {
@@ -3331,12 +3557,14 @@
           "title": "Comparison"
         }
       },
-      "required": ["value"],
+      "required": [
+        "value"
+      ],
       "title": "DistanceRequirement",
       "type": "object"
     },
     "Distribution": {
-      "description": "Rolled budget distributed across targets in ascending order of a resource.\n\nRoll dice to determine a total. Targets are processed in ascending order\nof the specified resource, subtracting each target's value until exhausted.\n\nExample \u2014 Color Spray (6d10 HP budget, blinds targets):\n{\"dice\": \"6d10\", \"resource\": \"hp\"}\n\nExample \u2014 Sleep (5d8 HP budget, puts targets to sleep):\n{\"dice\": \"5d8\", \"resource\": \"hp\"}",
+      "description": "Rolled budget distributed across targets in ascending order of a resource.\n\nRoll dice to determine a total. Targets are processed in ascending order\nof the specified resource, subtracting each target's value until exhausted.\n\nExample — Color Spray (6d10 HP budget, blinds targets):\n{\"dice\": \"6d10\", \"resource\": \"hp\"}\n\nExample — Sleep (5d8 HP budget, puts targets to sleep):\n{\"dice\": \"5d8\", \"resource\": \"hp\"}",
       "properties": {
         "dice": {
           "description": "Dice to roll for the budget total (e.g., '6d10', '5d8')",
@@ -3349,7 +3577,10 @@
           "type": "string"
         }
       },
-      "required": ["dice", "resource"],
+      "required": [
+        "dice",
+        "resource"
+      ],
       "title": "Distribution",
       "type": "object"
     },
@@ -3372,7 +3603,13 @@
         "unit": {
           "anyOf": [
             {
-              "enum": ["turns", "rounds", "minutes", "hours", "days"],
+              "enum": [
+                "turns",
+                "rounds",
+                "minutes",
+                "hours",
+                "days"
+              ],
               "type": "string"
             },
             {
@@ -3386,7 +3623,10 @@
         "timing": {
           "anyOf": [
             {
-              "enum": ["start", "end"],
+              "enum": [
+                "start",
+                "end"
+              ],
               "type": "string"
             },
             {
@@ -4218,7 +4458,9 @@
           "type": "string"
         }
       },
-      "required": ["effect"],
+      "required": [
+        "effect"
+      ],
       "title": "EffectImmunity",
       "type": "object"
     },
@@ -4233,12 +4475,20 @@
         },
         "value": {
           "description": "Target constraint",
-          "enum": ["not_self", "self", "ally", "enemy", "creature"],
+          "enum": [
+            "not_self",
+            "self",
+            "ally",
+            "enemy",
+            "creature"
+          ],
           "title": "Value",
           "type": "string"
         }
       },
-      "required": ["value"],
+      "required": [
+        "value"
+      ],
       "title": "EffectTargetRequirement",
       "type": "object"
     },
@@ -4373,7 +4623,10 @@
           "description": "Maximum distance from caster before entity is dismissed"
         }
       },
-      "required": ["category", "type"],
+      "required": [
+        "category",
+        "type"
+      ],
       "title": "Entity",
       "type": "object"
     },
@@ -4398,7 +4651,9 @@
           "description": "Skill check to resolve the interaction"
         }
       },
-      "required": ["action"],
+      "required": [
+        "action"
+      ],
       "title": "Interaction",
       "type": "object"
     },
@@ -4458,7 +4713,9 @@
           "description": "Surface type"
         }
       },
-      "required": ["area"],
+      "required": [
+        "area"
+      ],
       "title": "Environment",
       "type": "object"
     },
@@ -4474,7 +4731,12 @@
         "lighting": {
           "anyOf": [
             {
-              "enum": ["bright_light", "dim_light", "darkness", "magical_darkness"],
+              "enum": [
+                "bright_light",
+                "dim_light",
+                "darkness",
+                "magical_darkness"
+              ],
               "type": "string"
             },
             {
@@ -4514,7 +4776,11 @@
         "slot": {
           "anyOf": [
             {
-              "enum": ["armor", "main_hand", "off_hand"],
+              "enum": [
+                "armor",
+                "main_hand",
+                "off_hand"
+              ],
               "type": "string"
             },
             {
@@ -4541,7 +4807,10 @@
         "grip": {
           "anyOf": [
             {
-              "enum": ["one-handed", "two-handed"],
+              "enum": [
+                "one-handed",
+                "two-handed"
+              ],
               "type": "string"
             },
             {
@@ -4589,18 +4858,31 @@
       "type": "object"
     },
     "ForcedMovement": {
-      "description": "Immediate involuntary displacement of a target.\n\nExample \u2014 Thunderwave pushes target 10 feet away:\n{\n    \"direction\": \"away\",\n    \"relative_to\": \"character\",\n    \"distance\": 10\n}\n\nExample \u2014 Dissonant Whispers (costs target's reaction, avoids hazards):\n{\n    \"direction\": \"away\",\n    \"relative_to\": \"character\",\n    \"cost\": \"reaction\",\n    \"avoid_hazards\": true\n}\n\nExample \u2014 Snare lifts target 3 feet up:\n{\n    \"direction\": \"up\",\n    \"distance\": 3\n}",
+      "description": "Immediate involuntary displacement of a target.\n\nExample — Thunderwave pushes target 10 feet away:\n{\n    \"direction\": \"away\",\n    \"relative_to\": \"character\",\n    \"distance\": 10\n}\n\nExample — Dissonant Whispers (costs target's reaction, avoids hazards):\n{\n    \"direction\": \"away\",\n    \"relative_to\": \"character\",\n    \"cost\": \"reaction\",\n    \"avoid_hazards\": true\n}\n\nExample — Snare lifts target 3 feet up:\n{\n    \"direction\": \"up\",\n    \"distance\": 3\n}",
       "properties": {
         "direction": {
           "description": "Direction of displacement",
-          "enum": ["away", "toward", "up", "down", "random"],
+          "enum": [
+            "away",
+            "toward",
+            "up",
+            "down",
+            "random"
+          ],
           "title": "Direction",
           "type": "string"
         },
         "relative_to": {
           "anyOf": [
             {
-              "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
+              "enum": [
+                "character",
+                "target",
+                "source",
+                "attacker",
+                "ally",
+                "illusion"
+              ],
               "type": "string"
             },
             {
@@ -4770,7 +5052,9 @@
           "type": "boolean"
         }
       },
-      "required": ["direction"],
+      "required": [
+        "direction"
+      ],
       "title": "ForcedMovement",
       "type": "object"
     },
@@ -4815,7 +5099,9 @@
           "title": "Transform"
         }
       },
-      "required": ["function"],
+      "required": [
+        "function"
+      ],
       "title": "FunctionOperand",
       "type": "object"
     },
@@ -4870,7 +5156,9 @@
           "title": "Params"
         }
       },
-      "required": ["function"],
+      "required": [
+        "function"
+      ],
       "title": "FunctionRequirement",
       "type": "object"
     },
@@ -5018,12 +5306,14 @@
           "description": "Modified activation of a spell or feature granted by this ability"
         }
       },
-      "required": ["name"],
+      "required": [
+        "name"
+      ],
       "title": "Grant",
       "type": "object"
     },
     "GrantInteraction": {
-      "description": "Describes activating a spell or feature with modifications or side effects.\n\nCovers cross-ability interactions: one ability granting a modified\nactivation of another spell or feature.\n\nExample \u2014 Read Thoughts \u2192 Suggestion (spell, no slot, auto-fail save):\n{\"name\": \"Suggestion\", \"activation\": \"action\", \"cost\": \"none\",\n \"save\": \"auto_fail\", \"ends\": [\"read_surface_thoughts\"]}\n\nExample \u2014 Feral Instinct \u2192 Rage (feature, must be first action):\n{\"name\": \"Rage\", \"activation\": \"bonus_action\", \"order\": \"first\"}\n\nExample \u2014 Use Magic Device (bypass item requirements):\n{\"ignore_requirements\": [\"class\", \"race\", \"level\"]}",
+      "description": "Describes activating a spell or feature with modifications or side effects.\n\nCovers cross-ability interactions: one ability granting a modified\nactivation of another spell or feature.\n\nExample — Read Thoughts → Suggestion (spell, no slot, auto-fail save):\n{\"name\": \"Suggestion\", \"activation\": \"action\", \"cost\": \"none\",\n \"save\": \"auto_fail\", \"ends\": [\"read_surface_thoughts\"]}\n\nExample — Feral Instinct → Rage (feature, must be first action):\n{\"name\": \"Rage\", \"activation\": \"bonus_action\", \"order\": \"first\"}\n\nExample — Use Magic Device (bypass item requirements):\n{\"ignore_requirements\": [\"class\", \"race\", \"level\"]}",
       "properties": {
         "name": {
           "anyOf": [
@@ -5061,7 +5351,7 @@
             }
           ],
           "default": null,
-          "description": "Sequencing constraint (e.g., 'first' \u2014 must be first action on turn)",
+          "description": "Sequencing constraint (e.g., 'first' — must be first action on turn)",
           "title": "Order"
         },
         "cost": {
@@ -5081,7 +5371,10 @@
         "save": {
           "anyOf": [
             {
-              "enum": ["auto_fail", "auto_succeed"],
+              "enum": [
+                "auto_fail",
+                "auto_succeed"
+              ],
               "type": "string"
             },
             {
@@ -5177,12 +5470,15 @@
           "type": "boolean"
         }
       },
-      "required": ["type", "spells"],
+      "required": [
+        "type",
+        "spells"
+      ],
       "title": "GrantedSpellsMechanic",
       "type": "object"
     },
     "Healing": {
-      "description": "Healing specification \u2014 dice, flat value, or calculation.",
+      "description": "Healing specification — dice, flat value, or calculation.",
       "properties": {
         "dice": {
           "anyOf": [
@@ -5236,7 +5532,7 @@
             }
           ],
           "default": null,
-          "description": "Complex healing calculation (e.g., 5 \u00d7 cleric level)"
+          "description": "Complex healing calculation (e.g., 5 × cleric level)"
         },
         "barrier": {
           "default": false,
@@ -5286,7 +5582,13 @@
         "comparison": {
           "anyOf": [
             {
-              "enum": ["equals", "greater_than", "less_than", "at_most", "at_least"],
+              "enum": [
+                "equals",
+                "greater_than",
+                "less_than",
+                "at_most",
+                "at_least"
+              ],
               "type": "string"
             },
             {
@@ -5361,7 +5663,9 @@
           "title": "Source"
         }
       },
-      "required": ["type"],
+      "required": [
+        "type"
+      ],
       "title": "IgnoreRequirement",
       "type": "object"
     },
@@ -5386,7 +5690,9 @@
           "type": "boolean"
         }
       },
-      "required": ["to"],
+      "required": [
+        "to"
+      ],
       "title": "ImmunityRequirement",
       "type": "object"
     },
@@ -5399,7 +5705,9 @@
           "type": "string"
         }
       },
-      "required": ["origin"],
+      "required": [
+        "origin"
+      ],
       "title": "ImmunitySource",
       "type": "object"
     },
@@ -5418,7 +5726,9 @@
           "type": "integer"
         }
       },
-      "required": ["value"],
+      "required": [
+        "value"
+      ],
       "title": "IntegerOperand",
       "type": "object"
     },
@@ -5508,7 +5818,12 @@
       "properties": {
         "level": {
           "description": "Light level in the area",
-          "enum": ["bright", "dim", "darkness", "magical_darkness"],
+          "enum": [
+            "bright",
+            "dim",
+            "darkness",
+            "magical_darkness"
+          ],
           "title": "Level",
           "type": "string"
         },
@@ -5552,7 +5867,9 @@
           "title": "Dim Radius"
         }
       },
-      "required": ["level"],
+      "required": [
+        "level"
+      ],
       "title": "Lighting",
       "type": "object"
     },
@@ -5562,14 +5879,24 @@
         "requires": {
           "default": "line_of_sight",
           "description": "Type of visibility required",
-          "enum": ["line_of_sight", "unobstructed"],
+          "enum": [
+            "line_of_sight",
+            "unobstructed"
+          ],
           "title": "Requires",
           "type": "string"
         },
         "from_entity": {
           "default": "character",
           "description": "Entity that must have visibility",
-          "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
+          "enum": [
+            "character",
+            "target",
+            "source",
+            "attacker",
+            "ally",
+            "illusion"
+          ],
           "title": "From Entity",
           "type": "string"
         }
@@ -5578,22 +5905,33 @@
       "type": "object"
     },
     "Manipulate": {
-      "description": "Manipulation of an environment property on a targeted object.\n\nThe target (which campfire, which section of earth) is identified by the\nparent Effect's target field. The engine resolves the specific instance.\n\nExample \u2014 Druidcraft light a candle:\n{\"model\": \"lighting\", \"operation\": \"create\"}\n\nExample \u2014 Control Flames extinguish:\n{\"model\": \"lighting\", \"operation\": \"remove\"}\n\nExample \u2014 Mold Earth difficult terrain toggle:\n{\"model\": \"terrain\", \"operation\": \"toggle\"}\n\nExample \u2014 Control Flames change light (with calculation on parent Effect):\n{\"model\": \"lighting\", \"operation\": \"modify\"}",
+      "description": "Manipulation of an environment property on a targeted object.\n\nThe target (which campfire, which section of earth) is identified by the\nparent Effect's target field. The engine resolves the specific instance.\n\nExample — Druidcraft light a candle:\n{\"model\": \"lighting\", \"operation\": \"create\"}\n\nExample — Control Flames extinguish:\n{\"model\": \"lighting\", \"operation\": \"remove\"}\n\nExample — Mold Earth difficult terrain toggle:\n{\"model\": \"terrain\", \"operation\": \"toggle\"}\n\nExample — Control Flames change light (with calculation on parent Effect):\n{\"model\": \"lighting\", \"operation\": \"modify\"}",
       "properties": {
         "model": {
           "description": "Environment model being manipulated",
-          "enum": ["lighting", "terrain"],
+          "enum": [
+            "lighting",
+            "terrain"
+          ],
           "title": "Model",
           "type": "string"
         },
         "operation": {
           "description": "Operation to perform on the target instance",
-          "enum": ["create", "remove", "modify", "toggle"],
+          "enum": [
+            "create",
+            "remove",
+            "modify",
+            "toggle"
+          ],
           "title": "Operation",
           "type": "string"
         }
       },
-      "required": ["model", "operation"],
+      "required": [
+        "model",
+        "operation"
+      ],
       "title": "Manipulate",
       "type": "object"
     },
@@ -5646,12 +5984,14 @@
           "title": "Options"
         }
       },
-      "required": ["choice_type"],
+      "required": [
+        "choice_type"
+      ],
       "title": "NestedChoice",
       "type": "object"
     },
     "Movement": {
-      "description": "Movement operation \u2014 repositioning entities, teleporting, or passing through.",
+      "description": "Movement operation — repositioning entities, teleporting, or passing through.",
       "properties": {
         "type": {
           "anyOf": [
@@ -5750,12 +6090,15 @@
       "type": "object"
     },
     "MovementConstraint": {
-      "description": "Movement restriction applied on the target's turn.\n\nExample \u2014 Turn Undead forces fleeing:\n{\"direction\": \"away\", \"relative_to\": \"character\", \"keep_distance\": 30}\n\nExample \u2014 Frightened can't approach source:\n{\"direction\": \"away\", \"relative_to\": \"source\"}",
+      "description": "Movement restriction applied on the target's turn.\n\nExample — Turn Undead forces fleeing:\n{\"direction\": \"away\", \"relative_to\": \"character\", \"keep_distance\": 30}\n\nExample — Frightened can't approach source:\n{\"direction\": \"away\", \"relative_to\": \"source\"}",
       "properties": {
         "direction": {
           "anyOf": [
             {
-              "enum": ["away", "toward"],
+              "enum": [
+                "away",
+                "toward"
+              ],
               "type": "string"
             },
             {
@@ -5769,7 +6112,14 @@
         "relative_to": {
           "anyOf": [
             {
-              "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
+              "enum": [
+                "character",
+                "target",
+                "source",
+                "attacker",
+                "ally",
+                "illusion"
+              ],
               "type": "string"
             },
             {
@@ -5799,7 +6149,10 @@
     },
     "Origin": {
       "description": "Origin of an effect - magical or nonmagical.",
-      "enum": ["magical", "nonmagical"],
+      "enum": [
+        "magical",
+        "nonmagical"
+      ],
       "title": "Origin",
       "type": "string"
     },
@@ -5808,20 +6161,37 @@
       "properties": {
         "observer": {
           "description": "Entity that must do the perceiving",
-          "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
+          "enum": [
+            "character",
+            "target",
+            "source",
+            "attacker",
+            "ally",
+            "illusion"
+          ],
           "title": "Observer",
           "type": "string"
         },
         "subject": {
           "description": "Entity that must be perceived",
-          "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
+          "enum": [
+            "character",
+            "target",
+            "source",
+            "attacker",
+            "ally",
+            "illusion"
+          ],
           "title": "Subject",
           "type": "string"
         },
         "senses": {
           "description": "Required sense(s) - sight, hearing",
           "items": {
-            "enum": ["sight", "hearing"],
+            "enum": [
+              "sight",
+              "hearing"
+            ],
             "type": "string"
           },
           "title": "Senses",
@@ -5830,7 +6200,10 @@
         "match": {
           "default": "all",
           "description": "For multiple senses: 'any' = at least one, 'all' = all required",
-          "enum": ["any", "all"],
+          "enum": [
+            "any",
+            "all"
+          ],
           "title": "Match",
           "type": "string"
         },
@@ -5841,7 +6214,11 @@
           "type": "boolean"
         }
       },
-      "required": ["observer", "subject", "senses"],
+      "required": [
+        "observer",
+        "subject",
+        "senses"
+      ],
       "title": "Perception",
       "type": "object"
     },
@@ -5856,20 +6233,37 @@
         },
         "observer": {
           "description": "Entity that must perceive",
-          "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
+          "enum": [
+            "character",
+            "target",
+            "source",
+            "attacker",
+            "ally",
+            "illusion"
+          ],
           "title": "Observer",
           "type": "string"
         },
         "subject": {
           "description": "Entity that must be perceived",
-          "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
+          "enum": [
+            "character",
+            "target",
+            "source",
+            "attacker",
+            "ally",
+            "illusion"
+          ],
           "title": "Subject",
           "type": "string"
         },
         "senses": {
           "description": "Required senses: sight, hearing",
           "items": {
-            "enum": ["sight", "hearing"],
+            "enum": [
+              "sight",
+              "hearing"
+            ],
             "type": "string"
           },
           "title": "Senses",
@@ -5878,7 +6272,10 @@
         "match": {
           "default": "all",
           "description": "Whether any or all senses required",
-          "enum": ["any", "all"],
+          "enum": [
+            "any",
+            "all"
+          ],
           "title": "Match",
           "type": "string"
         },
@@ -5889,7 +6286,11 @@
           "type": "boolean"
         }
       },
-      "required": ["observer", "subject", "senses"],
+      "required": [
+        "observer",
+        "subject",
+        "senses"
+      ],
       "title": "PerceptionRequirement",
       "type": "object"
     },
@@ -5978,7 +6379,13 @@
         },
         "category": {
           "description": "What kind of proficiency (skill, weapon, armor, saving_throw, tool)",
-          "enum": ["skill", "weapon", "armor", "saving_throw", "tool"],
+          "enum": [
+            "skill",
+            "weapon",
+            "armor",
+            "saving_throw",
+            "tool"
+          ],
           "title": "Category",
           "type": "string"
         },
@@ -6101,12 +6508,16 @@
           "title": "Requirements"
         }
       },
-      "required": ["type", "category", "proficiencies"],
+      "required": [
+        "type",
+        "category",
+        "proficiencies"
+      ],
       "title": "ProficiencyMechanic",
       "type": "object"
     },
     "Projectile": {
-      "description": "Projectile-based effect with multiple independent hits.\n\nExample \u2014 Magic Missile:\n{\"count\": 3, \"auto_hit\": true, \"damage\": {\"dice\": \"1d4\", \"bonus\": 1, \"type\": [\"force\"]}}",
+      "description": "Projectile-based effect with multiple independent hits.\n\nExample — Magic Missile:\n{\"count\": 3, \"auto_hit\": true, \"damage\": {\"dice\": \"1d4\", \"bonus\": 1, \"type\": [\"force\"]}}",
       "properties": {
         "count": {
           "anyOf": [
@@ -6131,7 +6542,10 @@
           "description": "Damage per projectile"
         }
       },
-      "required": ["count", "damage"],
+      "required": [
+        "count",
+        "damage"
+      ],
       "title": "Projectile",
       "type": "object"
     },
@@ -6163,7 +6577,11 @@
           "type": "string"
         }
       },
-      "required": ["entities", "distance", "to"],
+      "required": [
+        "entities",
+        "distance",
+        "to"
+      ],
       "title": "ProximityRequirement",
       "type": "object"
     },
@@ -6199,12 +6617,21 @@
           "title": "Params"
         }
       },
-      "required": ["source"],
+      "required": [
+        "source"
+      ],
       "title": "Query",
       "type": "object"
     },
     "RechargeType": {
-      "enum": ["short_rest", "long_rest", "turn", "round", "dawn", "special"],
+      "enum": [
+        "short_rest",
+        "long_rest",
+        "turn",
+        "round",
+        "dawn",
+        "special"
+      ],
       "title": "RechargeType",
       "type": "string"
     },
@@ -6234,7 +6661,10 @@
           "description": "Level constraint on recovered resource"
         }
       },
-      "required": ["target", "count"],
+      "required": [
+        "target",
+        "count"
+      ],
       "title": "Recover",
       "type": "object"
     },
@@ -6258,17 +6688,25 @@
         },
         "rounding": {
           "description": "Rounding direction",
-          "enum": ["up", "down"],
+          "enum": [
+            "up",
+            "down"
+          ],
           "title": "Rounding",
           "type": "string"
         }
       },
-      "required": ["calculation", "operation", "divisor", "rounding"],
+      "required": [
+        "calculation",
+        "operation",
+        "divisor",
+        "rounding"
+      ],
       "title": "RecoverMaxLevel",
       "type": "object"
     },
     "Reroll": {
-      "description": "Reroll condition \u2014 which die results trigger a reroll.\n\nExample \u2014 Great Weapon Fighting:\n{\"on\": [1, 2], \"replace\": true}\n\nExample \u2014 Stroke of Luck (ability check, fixed value):\n{\"value\": 20}\n\nExample \u2014 Paralyzed (attacker within 5ft, force critical):\n{\"value\": 20}",
+      "description": "Reroll condition — which die results trigger a reroll.\n\nExample — Great Weapon Fighting:\n{\"on\": [1, 2], \"replace\": true}\n\nExample — Stroke of Luck (ability check, fixed value):\n{\"value\": 20}\n\nExample — Paralyzed (attacker within 5ft, force critical):\n{\"value\": 20}",
       "properties": {
         "on": {
           "anyOf": [
@@ -6302,7 +6740,7 @@
             }
           ],
           "default": null,
-          "description": "Force the outcome \u2014 true for automatic success, false for automatic failure",
+          "description": "Force the outcome — true for automatic success, false for automatic failure",
           "title": "Result"
         },
         "value": {
@@ -6336,7 +6774,10 @@
           "type": "string"
         }
       },
-      "required": ["amount", "resource"],
+      "required": [
+        "amount",
+        "resource"
+      ],
       "title": "ResourceCost",
       "type": "object"
     },
@@ -6345,7 +6786,13 @@
       "properties": {
         "type": {
           "description": "How count is determined",
-          "enum": ["static", "class_level", "level_table", "formula", "ability_modifier"],
+          "enum": [
+            "static",
+            "class_level",
+            "level_table",
+            "formula",
+            "ability_modifier"
+          ],
           "title": "Type",
           "type": "string"
         },
@@ -6421,7 +6868,9 @@
           "title": "Minimum"
         }
       },
-      "required": ["type"],
+      "required": [
+        "type"
+      ],
       "title": "ResourceCount",
       "type": "object"
     },
@@ -6440,7 +6889,9 @@
           "type": "string"
         }
       },
-      "required": ["value"],
+      "required": [
+        "value"
+      ],
       "title": "ResourceDieOperand",
       "type": "object"
     },
@@ -6519,7 +6970,12 @@
           "title": "Scaling"
         }
       },
-      "required": ["type", "id", "name", "recharge"],
+      "required": [
+        "type",
+        "id",
+        "name",
+        "recharge"
+      ],
       "title": "ResourceMechanic",
       "type": "object"
     },
@@ -6539,7 +6995,11 @@
         },
         "comparison": {
           "description": "Comparison operator",
-          "enum": ["equals", "greater_than", "less_than"],
+          "enum": [
+            "equals",
+            "greater_than",
+            "less_than"
+          ],
           "title": "Comparison",
           "type": "string"
         },
@@ -6549,7 +7009,11 @@
           "type": "integer"
         }
       },
-      "required": ["resource", "comparison", "value"],
+      "required": [
+        "resource",
+        "comparison",
+        "value"
+      ],
       "title": "ResourceRequirement",
       "type": "object"
     },
@@ -6604,7 +7068,11 @@
           "description": "Where replacements come from (list, filter, exclude)"
         }
       },
-      "required": ["type", "attribute", "operation"],
+      "required": [
+        "type",
+        "attribute",
+        "operation"
+      ],
       "title": "RetrainMechanic",
       "type": "object"
     },
@@ -6653,12 +7121,14 @@
           "title": "Exclude"
         }
       },
-      "required": ["list"],
+      "required": [
+        "list"
+      ],
       "title": "RetrainSource",
       "type": "object"
     },
     "Roll": {
-      "description": "A dice roll with an optional success condition.\n\nExample \u2014 Divine Intervention percentile roll:\n{\n    \"type\": \"percentile\",\n    \"success\": {\n        \"comparison\": \"less_than_or_equal\",\n        \"value\": {\"attribute\": \"classes.Cleric.level\"}\n    }\n}",
+      "description": "A dice roll with an optional success condition.\n\nExample — Divine Intervention percentile roll:\n{\n    \"type\": \"percentile\",\n    \"success\": {\n        \"comparison\": \"less_than_or_equal\",\n        \"value\": {\"attribute\": \"classes.Cleric.level\"}\n    }\n}",
       "properties": {
         "type": {
           "description": "Roll type (e.g., 'percentile')",
@@ -6678,7 +7148,9 @@
           "description": "Condition that determines success"
         }
       },
-      "required": ["type"],
+      "required": [
+        "type"
+      ],
       "title": "Roll",
       "type": "object"
     },
@@ -6713,7 +7185,10 @@
         "operation": {
           "anyOf": [
             {
-              "enum": ["add", "subtract"],
+              "enum": [
+                "add",
+                "subtract"
+              ],
               "type": "string"
             },
             {
@@ -6788,7 +7263,12 @@
       "type": "object"
     },
     "Ruleset": {
-      "enum": ["dnd5e_2024", "dnd5e", "dnd3.5e", "pf2e"],
+      "enum": [
+        "dnd5e_2024",
+        "dnd5e",
+        "dnd3.5e",
+        "pf2e"
+      ],
       "title": "Ruleset",
       "type": "string"
     },
@@ -6873,7 +7353,9 @@
           "description": "Conditions granting advantage on this save"
         }
       },
-      "required": ["ability"],
+      "required": [
+        "ability"
+      ],
       "title": "SavingThrow",
       "type": "object"
     },
@@ -6968,7 +7450,9 @@
           "type": "string"
         }
       },
-      "required": ["value"],
+      "required": [
+        "value"
+      ],
       "title": "ScalingOperand",
       "type": "object"
     },
@@ -6981,7 +7465,9 @@
           "type": "string"
         }
       },
-      "required": ["scaling"],
+      "required": [
+        "scaling"
+      ],
       "title": "ScalingReference",
       "type": "object"
     },
@@ -7003,12 +7489,14 @@
           "type": "array"
         }
       },
-      "required": ["value"],
+      "required": [
+        "value"
+      ],
       "title": "SizeRequirement",
       "type": "object"
     },
     "SkillCheck": {
-      "description": "A skill check against a difficulty class.\n\nExample \u2014 Snare (Investigation to spot the trap):\n{\"skill\": \"Investigation\", \"dc\": {\"ref\": \"spell_save_dc\"}}",
+      "description": "A skill check against a difficulty class.\n\nExample — Snare (Investigation to spot the trap):\n{\"skill\": \"Investigation\", \"dc\": {\"ref\": \"spell_save_dc\"}}",
       "properties": {
         "skill": {
           "description": "Skill used for the check (e.g., 'Investigation', 'Perception')",
@@ -7020,12 +7508,20 @@
           "description": "Difficulty class for the check"
         }
       },
-      "required": ["skill", "dc"],
+      "required": [
+        "skill",
+        "dc"
+      ],
       "title": "SkillCheck",
       "type": "object"
     },
     "Source": {
-      "enum": ["phb", "tce", "scag", "xge"],
+      "enum": [
+        "phb",
+        "tce",
+        "scag",
+        "xge"
+      ],
       "title": "Source",
       "type": "string"
     },
@@ -7047,7 +7543,9 @@
           "type": "array"
         }
       },
-      "required": ["spell"],
+      "required": [
+        "spell"
+      ],
       "title": "SpellImmunity",
       "type": "object"
     },
@@ -7293,12 +7791,15 @@
           "title": "Requirements"
         }
       },
-      "required": ["type", "ability"],
+      "required": [
+        "type",
+        "ability"
+      ],
       "title": "SpellcastingMechanic",
       "type": "object"
     },
     "StatusConstraint": {
-      "description": "Ongoing behavioral constraints imposed by a status condition.\n\nApplied on the target's turns while the status is active.\n\nExample \u2014 Turn Undead:\n{\n    \"movement\": {\"direction\": \"away\", \"relative_to\": \"character\"},\n    \"actions\": {\"blocked_actions\": [\"reaction\"], \"allowed_actions\": [\"Dash\", \"Dodge\"]}\n}\n\nExample \u2014 Frightened:\n{\n    \"movement\": {\"direction\": \"away\", \"relative_to\": \"source\"}\n}",
+      "description": "Ongoing behavioral constraints imposed by a status condition.\n\nApplied on the target's turns while the status is active.\n\nExample — Turn Undead:\n{\n    \"movement\": {\"direction\": \"away\", \"relative_to\": \"character\"},\n    \"actions\": {\"blocked_actions\": [\"reaction\"], \"allowed_actions\": [\"Dash\", \"Dodge\"]}\n}\n\nExample — Frightened:\n{\n    \"movement\": {\"direction\": \"away\", \"relative_to\": \"source\"}\n}",
       "properties": {
         "movement": {
           "anyOf": [
@@ -7351,12 +7852,14 @@
           "description": "Spell components the creature cannot provide (e.g., 'verbal', 'somatic', 'material')"
         }
       },
-      "required": ["blocked"],
+      "required": [
+        "blocked"
+      ],
       "title": "ComponentConstraint",
       "type": "object"
     },
     "StatusEffect": {
-      "description": "Ongoing mechanical consequence of an active status.\n\nUsed within ApplyStatus.effect/effects to describe what the status does\nwhile active (e.g., disadvantage on attacks, bonus damage on hits).\n\nExample \u2014 Hex:\n{\"trigger\": {\"event\": [\"hit\"]}, \"damage_bonus\": {\"dice\": \"1d6\", \"type\": [\"necrotic\"]}}\n\nExample \u2014 Searing Smite (recurring damage):\n{\"trigger\": {\"event\": [\"start_turn\"]}, \"recurring_damage\": {\"dice\": \"1d6\", \"type\": [\"fire\"]}}",
+      "description": "Ongoing mechanical consequence of an active status.\n\nUsed within ApplyStatus.effect/effects to describe what the status does\nwhile active (e.g., disadvantage on attacks, bonus damage on hits).\n\nExample — Hex:\n{\"trigger\": {\"event\": [\"hit\"]}, \"damage_bonus\": {\"dice\": \"1d6\", \"type\": [\"necrotic\"]}}\n\nExample — Searing Smite (recurring damage):\n{\"trigger\": {\"event\": [\"start_turn\"]}, \"recurring_damage\": {\"dice\": \"1d6\", \"type\": [\"fire\"]}}",
       "properties": {
         "advantage": {
           "anyOf": [
@@ -7700,7 +8203,9 @@
           "title": "Requirements"
         }
       },
-      "required": ["status"],
+      "required": [
+        "status"
+      ],
       "title": "StatusImmunity",
       "type": "object"
     },
@@ -7735,7 +8240,9 @@
           "type": "boolean"
         }
       },
-      "required": ["value"],
+      "required": [
+        "value"
+      ],
       "title": "StatusRequirement",
       "type": "object"
     },
@@ -7754,7 +8261,9 @@
           "type": "string"
         }
       },
-      "required": ["value"],
+      "required": [
+        "value"
+      ],
       "title": "StringOperand",
       "type": "object"
     },
@@ -7763,7 +8272,14 @@
       "properties": {
         "comparison": {
           "description": "How the roll result is compared to the threshold",
-          "enum": ["equals", "not_equals", "greater_than", "less_than", "greater_than_or_equal", "less_than_or_equal"],
+          "enum": [
+            "equals",
+            "not_equals",
+            "greater_than",
+            "less_than",
+            "greater_than_or_equal",
+            "less_than_or_equal"
+          ],
           "title": "Comparison",
           "type": "string"
         },
@@ -7776,11 +8292,14 @@
               "$ref": "#/$defs/RollThreshold"
             }
           ],
-          "description": "Threshold \u2014 static int or attribute reference",
+          "description": "Threshold — static int or attribute reference",
           "title": "Value"
         }
       },
-      "required": ["comparison", "value"],
+      "required": [
+        "comparison",
+        "value"
+      ],
       "title": "SuccessCondition",
       "type": "object"
     },
@@ -7789,17 +8308,27 @@
       "properties": {
         "type": {
           "description": "Type of surface",
-          "enum": ["normal", "slippery", "sticky", "unstable", "webbed", "burning", "frozen"],
+          "enum": [
+            "normal",
+            "slippery",
+            "sticky",
+            "unstable",
+            "webbed",
+            "burning",
+            "frozen"
+          ],
           "title": "Type",
           "type": "string"
         }
       },
-      "required": ["type"],
+      "required": [
+        "type"
+      ],
       "title": "Surface",
       "type": "object"
     },
     "Sustained": {
-      "description": "Sustained effect that can be repeated on subsequent turns.\n\nExample \u2014 Witch Bolt:\n{\"cost\": \"action\", \"damage\": {\"dice\": \"1d12\", \"type\": [\"lightning\"], \"auto_hit\": true}, \"target\": {...}}",
+      "description": "Sustained effect that can be repeated on subsequent turns.\n\nExample — Witch Bolt:\n{\"cost\": \"action\", \"damage\": {\"dice\": \"1d12\", \"type\": [\"lightning\"], \"auto_hit\": true}, \"target\": {...}}",
       "properties": {
         "cost": {
           "description": "Action cost to sustain (e.g., 'action', 'bonus_action')",
@@ -7823,7 +8352,10 @@
           "description": "Target requirements to maintain the sustained effect"
         }
       },
-      "required": ["cost", "damage"],
+      "required": [
+        "cost",
+        "damage"
+      ],
       "title": "Sustained",
       "type": "object"
     },
@@ -7867,7 +8399,13 @@
         "disposition": {
           "anyOf": [
             {
-              "enum": ["friendly", "hostile", "neutral", "any", "willing"],
+              "enum": [
+                "friendly",
+                "hostile",
+                "neutral",
+                "any",
+                "willing"
+              ],
               "type": "string"
             },
             {
@@ -7930,7 +8468,9 @@
           "title": "Requirements"
         }
       },
-      "required": ["type"],
+      "required": [
+        "type"
+      ],
       "title": "Target",
       "type": "object"
     },
@@ -7966,7 +8506,14 @@
         "observer": {
           "anyOf": [
             {
-              "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
+              "enum": [
+                "character",
+                "target",
+                "source",
+                "attacker",
+                "ally",
+                "illusion"
+              ],
               "type": "string"
             },
             {
@@ -7980,7 +8527,14 @@
         "subject": {
           "anyOf": [
             {
-              "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
+              "enum": [
+                "character",
+                "target",
+                "source",
+                "attacker",
+                "ally",
+                "illusion"
+              ],
               "type": "string"
             },
             {
@@ -7995,7 +8549,10 @@
           "anyOf": [
             {
               "items": {
-                "enum": ["sight", "hearing"],
+                "enum": [
+                  "sight",
+                  "hearing"
+                ],
                 "type": "string"
               },
               "type": "array"
@@ -8039,7 +8596,10 @@
         "match": {
           "default": "all",
           "description": "For array values/senses, whether any or all must match",
-          "enum": ["any", "all"],
+          "enum": [
+            "any",
+            "all"
+          ],
           "title": "Match",
           "type": "string"
         },
@@ -8086,7 +8646,10 @@
         "context": {
           "anyOf": [
             {
-              "enum": ["character", "target"],
+              "enum": [
+                "character",
+                "target"
+              ],
               "type": "string"
             },
             {
@@ -8209,7 +8772,9 @@
           "title": "From Source"
         }
       },
-      "required": ["type"],
+      "required": [
+        "type"
+      ],
       "title": "TargetRequirement",
       "type": "object"
     },
@@ -8218,7 +8783,12 @@
       "properties": {
         "type": {
           "description": "Type of terrain",
-          "enum": ["normal", "difficult", "greater_difficult", "impassable"],
+          "enum": [
+            "normal",
+            "difficult",
+            "greater_difficult",
+            "impassable"
+          ],
           "title": "Type",
           "type": "string"
         },
@@ -8236,13 +8806,19 @@
           "title": "Cost Multiplier"
         }
       },
-      "required": ["type"],
+      "required": [
+        "type"
+      ],
       "title": "Terrain",
       "type": "object"
     },
     "Timing": {
       "description": "When during an event a feature can be activated.\n\nThis is a unified schema that works across all event types:\n- For rolls: before=before dice rolled, after=saw die/before result, resolved=know result\n- For actions: before=before action, after=action complete (often same as resolved)",
-      "enum": ["before", "after", "resolved"],
+      "enum": [
+        "before",
+        "after",
+        "resolved"
+      ],
       "title": "Timing",
       "type": "string"
     },
@@ -8399,7 +8975,9 @@
           "title": "Damage Type"
         }
       },
-      "required": ["event"],
+      "required": [
+        "event"
+      ],
       "title": "Trigger",
       "type": "object"
     },
@@ -8541,7 +9119,9 @@
           "title": "From"
         }
       },
-      "required": ["to"],
+      "required": [
+        "to"
+      ],
       "title": "TriggerImmunity",
       "type": "object"
     },
@@ -8616,7 +9196,11 @@
         "disposition": {
           "anyOf": [
             {
-              "enum": ["friendly", "hostile", "any"],
+              "enum": [
+                "friendly",
+                "hostile",
+                "any"
+              ],
               "type": "string"
             },
             {
@@ -8653,7 +9237,9 @@
           "title": "On"
         }
       },
-      "required": ["name"],
+      "required": [
+        "name"
+      ],
       "title": "TriggerStatus",
       "type": "object"
     },
@@ -8775,7 +9361,12 @@
       "properties": {
         "level": {
           "description": "Visibility level in the area",
-          "enum": ["clear", "lightly_obscured", "heavily_obscured", "blocked"],
+          "enum": [
+            "clear",
+            "lightly_obscured",
+            "heavily_obscured",
+            "blocked"
+          ],
           "title": "Level",
           "type": "string"
         },
@@ -8786,7 +9377,9 @@
           "type": "boolean"
         }
       },
-      "required": ["level"],
+      "required": [
+        "level"
+      ],
       "title": "Visibility",
       "type": "object"
     },
@@ -8808,7 +9401,9 @@
           "type": "array"
         }
       },
-      "required": ["value"],
+      "required": [
+        "value"
+      ],
       "title": "WeaponPropertyRequirement",
       "type": "object"
     }
