@@ -9,7 +9,7 @@
       {
         "type": "granted_spells",
         "ritual_only": true,
-        "spells": ["Beast Sense", "Speak with Animals"]
+        "spells": ["spell:beast-sense", "spell:speak-with-animals"]
       }
     ],
     "source": "phb",
@@ -456,7 +456,7 @@
       {
         "type": "granted_spells",
         "ritual_only": true,
-        "spells": ["Commune with Nature"]
+        "spells": ["spell:commune-with-nature"]
       }
     ],
     "source": "phb",
