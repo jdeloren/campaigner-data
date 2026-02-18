@@ -162,7 +162,7 @@
               },
               "on_failure": {
                 "apply_status": {
-                  "name": "turned",
+                  "id": "status:turned",
                   "duration": {
                     "value": 1,
                     "unit": "minutes",
@@ -259,7 +259,7 @@
         "effects": [
           {
             "apply_status": {
-              "name": "dead"
+              "id": "status:dead"
             },
             "replaces": "turned"
           }

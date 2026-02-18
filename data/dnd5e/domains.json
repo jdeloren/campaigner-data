@@ -21,24 +21,24 @@
             "always_prepared": true,
             "spells": {
               "1": [
-                "Command",
-                "Identify"
+                "spell:command",
+                "spell:identify"
               ],
               "3": [
-                "Augury",
-                "Suggestion"
+                "spell:augury",
+                "spell:suggestion"
               ],
               "5": [
-                "Nondetection",
-                "Speak with Dead"
+                "spell:nondetection",
+                "spell:speak-with-dead"
               ],
               "7": [
-                "Arcane Eye",
-                "Confusion"
+                "spell:arcane-eye",
+                "spell:confusion"
               ],
               "9": [
-                "Legend Lore",
-                "Scrying"
+                "spell:legend-lore",
+                "spell:scrying"
               ]
             }
           }
@@ -275,24 +275,24 @@
             "always_prepared": true,
             "spells": {
               "1": [
-                "Bless",
-                "Cure Wounds"
+                "spell:bless",
+                "spell:cure-wounds"
               ],
               "3": [
-                "Lesser Restoration",
-                "Spiritual Weapon"
+                "spell:lesser-restoration",
+                "spell:spiritual-weapon"
               ],
               "5": [
-                "Beacon of Hope",
-                "Revivify"
+                "spell:beacon-of-hope",
+                "spell:revivify"
               ],
               "7": [
-                "Death Ward",
-                "Guardian of Faith"
+                "spell:death-ward",
+                "spell:guardian-of-faith"
               ],
               "9": [
-                "Mass Cure Wounds",
-                "Raise Dead"
+                "spell:mass-cure-wounds",
+                "spell:raise-dead"
               ]
             }
           }
@@ -602,24 +602,24 @@
             "always_prepared": true,
             "spells": {
               "1": [
-                "Burning Hands",
-                "Faerie Fire"
+                "spell:burning-hands",
+                "spell:faerie-fire"
               ],
               "3": [
-                "Flaming Sphere",
-                "Scorching Ray"
+                "spell:flaming-sphere",
+                "spell:scorching-ray"
               ],
               "5": [
-                "Daylight",
-                "Fireball"
+                "spell:daylight",
+                "spell:fireball"
               ],
               "7": [
-                "Guardian of Faith",
-                "Wall of Fire"
+                "spell:guardian-of-faith",
+                "spell:wall-of-fire"
               ],
               "9": [
-                "Flame Strike",
-                "Scrying"
+                "spell:flame-strike",
+                "spell:scrying"
               ]
             }
           }
@@ -639,7 +639,7 @@
             "does_not_count_against_limit": true,
             "spells": {
               "0": [
-                "Light"
+                "spell:light"
               ]
             }
           }
@@ -981,24 +981,24 @@
             "always_prepared": true,
             "spells": {
               "1": [
-                "Animal Friendship",
-                "Speak with Animals"
+                "spell:animal-friendship",
+                "spell:speak-with-animals"
               ],
               "3": [
-                "Barkskin",
-                "Spike Growth"
+                "spell:barkskin",
+                "spell:spike-growth"
               ],
               "5": [
-                "Plant Growth",
-                "Wind Wall"
+                "spell:plant-growth",
+                "spell:wind-wall"
               ],
               "7": [
-                "Dominate Beast",
-                "Grasping Vine"
+                "spell:dominate-beast",
+                "spell:grasping-vine"
               ],
               "9": [
-                "Insect Plague",
-                "Tree Stride"
+                "spell:insect-plague",
+                "spell:tree-stride"
               ]
             }
           },
@@ -1109,7 +1109,7 @@
                   },
                   "on_failure": {
                     "apply_status": {
-                      "name": "charmed",
+                      "id": "status:charmed",
                       "source": "character",
                       "action": "Charm Animals and Plants",
                       "duration": {
@@ -1300,24 +1300,24 @@
             "always_prepared": true,
             "spells": {
               "1": [
-                "Fog Cloud",
-                "Thunderwave"
+                "spell:fog-cloud",
+                "spell:thunderwave"
               ],
               "3": [
-                "Gust of Wind",
-                "Shatter"
+                "spell:gust-of-wind",
+                "spell:shatter"
               ],
               "5": [
-                "Call Lightning",
-                "Sleet Storm"
+                "spell:call-lightning",
+                "spell:sleet-storm"
               ],
               "7": [
-                "Control Water",
-                "Ice Storm"
+                "spell:control-water",
+                "spell:ice-storm"
               ],
               "9": [
-                "Destructive Wave",
-                "Insect Plague"
+                "spell:destructive-wave",
+                "spell:insect-plague"
               ]
             }
           }
@@ -1615,24 +1615,24 @@
             "always_prepared": true,
             "spells": {
               "1": [
-                "Charm Person",
-                "Disguise Self"
+                "spell:charm-person",
+                "spell:disguise-self"
               ],
               "3": [
-                "Mirror Image",
-                "Pass without Trace"
+                "spell:mirror-image",
+                "spell:pass-without-trace"
               ],
               "5": [
-                "Blink",
-                "Dispel Magic"
+                "spell:blink",
+                "spell:dispel-magic"
               ],
               "7": [
-                "Dimension Door",
-                "Polymorph"
+                "spell:dimension-door",
+                "spell:polymorph"
               ],
               "9": [
-                "Dominate Person",
-                "Modify Memory"
+                "spell:dominate-person",
+                "spell:modify-memory"
               ]
             }
           }
@@ -1780,7 +1780,7 @@
             "effects": [
               {
                 "apply_status": {
-                  "name": "invisible",
+                  "id": "status:invisible",
                   "duration": {
                     "until": [
                       "attack",
@@ -1886,24 +1886,24 @@
             "always_prepared": true,
             "spells": {
               "1": [
-                "Divine Favor",
-                "Shield of Faith"
+                "spell:divine-favor",
+                "spell:shield-of-faith"
               ],
               "3": [
-                "Magic Weapon",
-                "Spiritual Weapon"
+                "spell:magic-weapon",
+                "spell:spiritual-weapon"
               ],
               "5": [
-                "Crusader's Mantle",
-                "Spirit Guardians"
+                "spell:crusaders-mantle",
+                "spell:spirit-guardians"
               ],
               "7": [
-                "Freedom of Movement",
-                "Stoneskin"
+                "spell:freedom-of-movement",
+                "spell:stoneskin"
               ],
               "9": [
-                "Flame Strike",
-                "Hold Monster"
+                "spell:flame-strike",
+                "spell:hold-monster"
               ]
             }
           }

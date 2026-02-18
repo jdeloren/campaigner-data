@@ -472,7 +472,7 @@
     "primary_ability": ["Strength"],
     "saving_throw_proficiencies": ["Strength", "Constitution"],
     "proficiencies": {
-      "armor": ["All", "shields"],
+      "armor": ["All", "Shields"],
       "weapons": ["Simple Melee", "Simple Ranged", "Martial Melee", "Martial Ranged"],
       "tools": [],
       "skills": {
@@ -615,7 +615,7 @@
     "primary_ability": ["Strength"],
     "saving_throw_proficiencies": ["Strength", "Constitution"],
     "proficiencies": {
-      "armor": ["All", "shields"],
+      "armor": ["All", "Shields"],
       "weapons": ["Simple Melee", "Simple Ranged", "Martial Melee", "Martial Ranged"],
       "tools": [],
       "skills": {
@@ -642,7 +642,7 @@
     "primary_ability": ["Strength"],
     "saving_throw_proficiencies": ["Strength", "Constitution"],
     "proficiencies": {
-      "armor": ["All", "shields"],
+      "armor": ["All", "Shields"],
       "weapons": ["Simple Melee", "Simple Ranged", "Martial Melee", "Martial Ranged"],
       "tools": [],
       "skills": {
@@ -662,7 +662,7 @@
     "primary_ability": ["Strength", "Intelligence"],
     "saving_throw_proficiencies": ["Strength", "Constitution"],
     "proficiencies": {
-      "armor": ["All", "shields"],
+      "armor": ["All", "Shields"],
       "weapons": ["Simple Melee", "Simple Ranged", "Martial Melee", "Martial Ranged"],
       "tools": [],
       "skills": {
