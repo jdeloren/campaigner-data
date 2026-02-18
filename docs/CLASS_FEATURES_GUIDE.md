@@ -62,12 +62,12 @@ A class feature has this structure:
 
 ### Optional Top-Level Fields
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `triggered_by` | string | Another feature that must be gained for this to become available (e.g., "Ability Score Improvement") |
-| `extends` | string[] | Features this builds on — both appear in action list (e.g., Frenzy extends Rage) |
-| `enhances` | string | Feature this modifies in place — only base feature appears (e.g., Destroy Undead enhances Turn Undead) |
-| `subfeatures` | array | Sub-options within a feature (for Fighting Styles, Totem choices, etc.) |
+| Field          | Type     | Description                                                                                            |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------ |
+| `triggered_by` | string   | Another feature that must be gained for this to become available (e.g., "Ability Score Improvement")   |
+| `extends`      | string[] | Features this builds on — both appear in action list (e.g., Frenzy extends Rage)                       |
+| `enhances`     | string   | Feature this modifies in place — only base feature appears (e.g., Destroy Undead enhances Turn Undead) |
+| `subfeatures`  | array    | Sub-options within a feature (for Fighting Styles, Totem choices, etc.)                                |
 
 ### The Mechanics Array
 
@@ -89,22 +89,22 @@ The `mechanics` array contains one or more **Mechanic** objects. The `type` fiel
 
 Covers most activated abilities and passive effects. The `type` field can be:
 
-| Type | Description |
-|------|-------------|
-| `action` | Costs a standard action |
-| `bonus_action` | Costs a bonus action |
-| `reaction` | Triggered response, costs reaction |
-| `passive` | Always active, no activation cost |
-| `movement` | Movement-related ability |
-| `ritual` | Can be cast as a ritual |
-| `critical_hit` | Triggers on critical hits |
-| `extra_attack` | Grants additional attacks |
-| `damage_bonus` | Adds damage under conditions |
-| `advantage` | Grants advantage under conditions |
-| `resistance` | Grants damage resistance |
-| `immunity` | Grants immunity |
-| `optional` | Optional rule or variant |
-| `special` | Doesn't fit other categories |
+| Type           | Description                        |
+| -------------- | ---------------------------------- |
+| `action`       | Costs a standard action            |
+| `bonus_action` | Costs a bonus action               |
+| `reaction`     | Triggered response, costs reaction |
+| `passive`      | Always active, no activation cost  |
+| `movement`     | Movement-related ability           |
+| `ritual`       | Can be cast as a ritual            |
+| `critical_hit` | Triggers on critical hits          |
+| `extra_attack` | Grants additional attacks          |
+| `damage_bonus` | Adds damage under conditions       |
+| `advantage`    | Grants advantage under conditions  |
+| `resistance`   | Grants damage resistance           |
+| `immunity`     | Grants immunity                    |
+| `optional`     | Optional rule or variant           |
+| `special`      | Doesn't fit other categories       |
 
 #### Action Example — Second Wind
 
@@ -114,13 +114,15 @@ Covers most activated abilities and passive effects. The `type` field can be:
   "name": "Second Wind",
   "uses": { "value": 1 },
   "recharge": "short_rest",
-  "effects": [{
-    "healing": {
-      "dice": "1d10",
-      "bonus": { "type": "class_level", "class": "Fighter" }
-    },
-    "target": { "type": "self" }
-  }]
+  "effects": [
+    {
+      "healing": {
+        "dice": "1d10",
+        "bonus": { "type": "class_level", "class": "Fighter" }
+      },
+      "target": { "type": "self" }
+    }
+  ]
 }
 ```
 
@@ -141,12 +143,14 @@ Covers most activated abilities and passive effects. The `type` field can be:
       }
     }
   },
-  "effects": [{
-    "damage_response": {
-      "response": "half",
-      "to": "triggering_damage"
+  "effects": [
+    {
+      "damage_response": {
+        "response": "half",
+        "to": "triggering_damage"
+      }
     }
-  }]
+  ]
 }
 ```
 
@@ -156,26 +160,28 @@ Covers most activated abilities and passive effects. The `type` field can be:
 {
   "type": "passive",
   "name": "Danger Sense",
-  "effects": [{
-    "advantage": {
-      "on": "saving_throw",
-      "ability": ["Dexterity"]
-    },
-    "requirements": [
-      {
-        "type": "perception",
-        "observer": "character",
-        "subject": "source",
-        "senses": ["sight", "hearing"],
-        "match": "any"
+  "effects": [
+    {
+      "advantage": {
+        "on": "saving_throw",
+        "ability": ["Dexterity"]
       },
-      {
-        "type": "status",
-        "value": ["blinded", "deafened", "incapacitated"],
-        "negate": true
-      }
-    ]
-  }]
+      "requirements": [
+        {
+          "type": "perception",
+          "observer": "character",
+          "subject": "source",
+          "senses": ["sight", "hearing"],
+          "match": "any"
+        },
+        {
+          "type": "status",
+          "value": ["blinded", "deafened", "incapacitated"],
+          "negate": true
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -193,19 +199,27 @@ Passive mechanics can have triggers for "when X happens" effects:
     "event": ["hit"],
     "source": { "type": ["weapon"] }
   },
-  "effects": [{
-    "damage_bonus": {
-      "type": ["same_as_weapon"]
-    },
-    "scaling_key": "damage"
-  }],
-  "requirements": [
-    { "type": "weapon_property", "value": ["finesse", "ranged"] }
+  "effects": [
+    {
+      "damage_bonus": {
+        "type": ["same_as_weapon"]
+      },
+      "scaling_key": "damage"
+    }
   ],
+  "requirements": [{ "type": "weapon_property", "value": ["finesse", "ranged"] }],
   "scaling": {
     "damage": {
-      "1": "1d6", "3": "2d6", "5": "3d6", "7": "4d6", "9": "5d6",
-      "11": "6d6", "13": "7d6", "15": "8d6", "17": "9d6", "19": "10d6"
+      "1": "1d6",
+      "3": "2d6",
+      "5": "3d6",
+      "7": "4d6",
+      "9": "5d6",
+      "11": "6d6",
+      "13": "7d6",
+      "15": "8d6",
+      "17": "9d6",
+      "19": "10d6"
     }
   }
 }
@@ -213,30 +227,30 @@ Passive mechanics can have triggers for "when X happens" effects:
 
 #### BaseMechanic Fields Reference
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `type` | string | Required. One of the BaseMechanic types |
-| `name` | string | Display name |
-| `uses` | Uses | Usage limits (`value`, `calculation`, `minimum`) |
-| `limit` | ScalingReference | Reference to scaling for level-based limits |
-| `recharge` | RechargeType | When it recharges: `short_rest`, `long_rest`, `turn`, `round`, `dawn`, `dusk` |
-| `scaling` | Scaling | Level-based scaling definitions |
-| `requirements` | MechanicRequirement[] | Conditions for the mechanic to apply |
-| `concentration` | boolean | Requires concentration |
-| `activation` | Activation | How the mechanic activates |
-| `trigger` | Trigger | Event that triggers this mechanic |
-| `grants` | Grant | Action or ability granted |
-| `effects` | Effect[] | Effects applied by this mechanic |
-| `target` | Target | Who/what is targeted |
-| `area` | Area | Area of effect |
-| `damage` | Damage | Direct damage |
-| `saving_throw` | SavingThrow | Save required |
-| `on_failure` | Effect | Effect on failed save |
-| `on_success` | Effect | Effect on successful save |
-| `cost` | Cost[] | Resource or currency costs |
-| `duration` | Duration | How long effects last |
-| `range` | Distance | Range of the mechanic |
-| `description` | string | Descriptive text |
+| Field           | Type                  | Description                                                                   |
+| --------------- | --------------------- | ----------------------------------------------------------------------------- |
+| `type`          | string                | Required. One of the BaseMechanic types                                       |
+| `name`          | string                | Display name                                                                  |
+| `uses`          | Uses                  | Usage limits (`value`, `calculation`, `minimum`)                              |
+| `limit`         | ScalingReference      | Reference to scaling for level-based limits                                   |
+| `recharge`      | RechargeType          | When it recharges: `short_rest`, `long_rest`, `turn`, `round`, `dawn`, `dusk` |
+| `scaling`       | Scaling               | Level-based scaling definitions                                               |
+| `requirements`  | MechanicRequirement[] | Conditions for the mechanic to apply                                          |
+| `concentration` | boolean               | Requires concentration                                                        |
+| `activation`    | Activation            | How the mechanic activates                                                    |
+| `trigger`       | Trigger               | Event that triggers this mechanic                                             |
+| `grants`        | Grant                 | Action or ability granted                                                     |
+| `effects`       | Effect[]              | Effects applied by this mechanic                                              |
+| `target`        | Target                | Who/what is targeted                                                          |
+| `area`          | Area                  | Area of effect                                                                |
+| `damage`        | Damage                | Direct damage                                                                 |
+| `saving_throw`  | SavingThrow           | Save required                                                                 |
+| `on_failure`    | Effect                | Effect on failed save                                                         |
+| `on_success`    | Effect                | Effect on successful save                                                     |
+| `cost`          | Cost[]                | Resource or currency costs                                                    |
+| `duration`      | Duration              | How long effects last                                                         |
+| `range`         | Distance              | Range of the mechanic                                                         |
+| `description`   | string                | Descriptive text                                                              |
 
 ---
 
@@ -290,15 +304,15 @@ The `-1` value indicates unlimited uses.
 
 #### ResourceMechanic Fields
 
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `type` | `"resource"` | Yes | Must be "resource" |
-| `id` | string | Yes | Unique identifier for referencing (e.g., "superiority_dice") |
-| `name` | string | Yes | Display name |
-| `count` | int/string/ResourceCount | No | Pool size — static, formula, or object |
-| `recharge` | RechargeType | Yes | When pool recharges |
-| `dice_sides` | int | No | Die size if resource uses dice (e.g., 8 for d8) |
-| `scaling` | Scaling | No | Level-based scaling for count or dice_sides |
+| Field        | Type                     | Required | Description                                                  |
+| ------------ | ------------------------ | -------- | ------------------------------------------------------------ |
+| `type`       | `"resource"`             | Yes      | Must be "resource"                                           |
+| `id`         | string                   | Yes      | Unique identifier for referencing (e.g., "superiority_dice") |
+| `name`       | string                   | Yes      | Display name                                                 |
+| `count`      | int/string/ResourceCount | No       | Pool size — static, formula, or object                       |
+| `recharge`   | RechargeType             | Yes      | When pool recharges                                          |
+| `dice_sides` | int                      | No       | Die size if resource uses dice (e.g., 8 for d8)              |
+| `scaling`    | Scaling                  | No       | Level-based scaling for count or dice_sides                  |
 
 ---
 
@@ -315,9 +329,17 @@ Character-building choices made at level-up.
   "name": "Skill Proficiencies",
   "count": 4,
   "options": [
-    "Acrobatics", "Athletics", "Deception", "Insight",
-    "Intimidation", "Investigation", "Perception", "Performance",
-    "Persuasion", "Sleight of Hand", "Stealth"
+    "Acrobatics",
+    "Athletics",
+    "Deception",
+    "Insight",
+    "Intimidation",
+    "Investigation",
+    "Perception",
+    "Performance",
+    "Persuasion",
+    "Sleight of Hand",
+    "Stealth"
   ]
 }
 ```
@@ -376,18 +398,18 @@ For ASI, the UI knows to present ability score options.
 
 #### ChoiceMechanic Fields
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `type` | `"choice"` | Must be "choice" |
-| `choice_type` | ChoiceType | What kind: `skill`, `language`, `subclass`, `asi`, `fighting_style`, `query`, etc. |
-| `options` | string[] | Inline list of choices |
-| `options_ref` | string | Reference to sibling key containing options (e.g., "subfeatures") |
-| `count` | int | How many to pick (default: 1) |
-| `name` | string | Display name |
-| `query` | Query | Data query for dynamic options |
-| `effects` | Effect[] | Effects applied by the choice |
-| `requirements` | MechanicRequirement[] | Requirements to make this choice |
-| `scaling` | Scaling | Level-based scaling |
+| Field          | Type                  | Description                                                                        |
+| -------------- | --------------------- | ---------------------------------------------------------------------------------- |
+| `type`         | `"choice"`            | Must be "choice"                                                                   |
+| `choice_type`  | ChoiceType            | What kind: `skill`, `language`, `subclass`, `asi`, `fighting_style`, `query`, etc. |
+| `options`      | string[]              | Inline list of choices                                                             |
+| `options_ref`  | string                | Reference to sibling key containing options (e.g., "subfeatures")                  |
+| `count`        | int                   | How many to pick (default: 1)                                                      |
+| `name`         | string                | Display name                                                                       |
+| `query`        | Query                 | Data query for dynamic options                                                     |
+| `effects`      | Effect[]              | Effects applied by the choice                                                      |
+| `requirements` | MechanicRequirement[] | Requirements to make this choice                                                   |
+| `scaling`      | Scaling               | Level-based scaling                                                                |
 
 ---
 
@@ -429,12 +451,12 @@ Grants proficiencies directly.
 
 #### ProficiencyMechanic Fields
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `type` | `"proficiency"` | Must be "proficiency" |
-| `category` | string | One of: `skill`, `weapon`, `armor`, `saving_throw`, `tool` |
-| `proficiencies` | string[] | List of proficiency names |
-| `requirements` | MechanicRequirement[] | Conditions (rare) |
+| Field           | Type                  | Description                                                |
+| --------------- | --------------------- | ---------------------------------------------------------- |
+| `type`          | `"proficiency"`       | Must be "proficiency"                                      |
+| `category`      | string                | One of: `skill`, `weapon`, `armor`, `saving_throw`, `tool` |
+| `proficiencies` | string[]              | List of proficiency names                                  |
+| `requirements`  | MechanicRequirement[] | Conditions (rare)                                          |
 
 ---
 
@@ -458,16 +480,6 @@ Grants spells from class features, domains, or similar sources.
 }
 ```
 
-#### Bonus Cantrips
-
-```json
-{
-  "type": "granted_spells",
-  "spells": ["Light"],
-  "does_not_count_against_limit": true
-}
-```
-
 #### Ritual-Only Spells
 
 ```json
@@ -480,13 +492,12 @@ Grants spells from class features, domains, or similar sources.
 
 #### GrantedSpellsMechanic Fields
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `type` | `"granted_spells"` | Must be "granted_spells" |
-| `spells` | dict or list | Spell level map `{"1": ["Bless"]}` or flat list `["Light"]` |
-| `always_prepared` | boolean | Don't count against prepared limit |
-| `does_not_count_against_limit` | boolean | Don't count against spells known |
-| `ritual_only` | boolean | Can only cast as rituals |
+| Field             | Type               | Description                                                 |
+| ----------------- | ------------------ | ----------------------------------------------------------- |
+| `type`            | `"granted_spells"` | Must be "granted_spells"                                    |
+| `spells`          | dict or list       | Spell level map `{"1": ["Bless"]}` or flat list `["Light"]` |
+| `always_prepared` | boolean            | Don't count against prepared limit                          |
+| `ritual_only`     | boolean            | Can only cast as rituals                                    |
 
 ---
 
@@ -515,23 +526,21 @@ Innate spellcasting from racial traits or features (not class spellcasting).
   "ability": "Charisma",
   "uses": { "value": 1 },
   "recharge": "long_rest",
-  "requirements": [
-    { "type": "level", "minimum": 3 }
-  ]
+  "requirements": [{ "type": "level", "minimum": 3 }]
 }
 ```
 
 #### SpellcastingMechanic Fields
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `type` | `"spellcasting"` | Must be "spellcasting" |
-| `name` | string | Display name |
-| `spell` | string | Spell identifier |
-| `ability` | string | Spellcasting ability |
-| `components` | string[] | Required components |
-| `uses` | Uses | Usage limits |
-| `recharge` | RechargeType | When it recharges |
+| Field          | Type                  | Description                        |
+| -------------- | --------------------- | ---------------------------------- |
+| `type`         | `"spellcasting"`      | Must be "spellcasting"             |
+| `name`         | string                | Display name                       |
+| `spell`        | string                | Spell identifier                   |
+| `ability`      | string                | Spellcasting ability               |
+| `components`   | string[]              | Required components                |
+| `uses`         | Uses                  | Usage limits                       |
+| `recharge`     | RechargeType          | When it recharges                  |
 | `requirements` | MechanicRequirement[] | Requirements (often level minimum) |
 
 ---
@@ -574,14 +583,14 @@ Retraining options at level-up.
 
 #### RetrainMechanic Fields
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `type` | `"retrain"` | Must be "retrain" |
-| `name` | string | Display name |
-| `attribute` | string | Character attribute being modified |
-| `operation` | string | `"replace"` or `"add"` |
-| `optional` | boolean | Whether retraining is optional (usually true) |
-| `source` | RetrainSource | Where replacement options come from |
+| Field       | Type          | Description                                   |
+| ----------- | ------------- | --------------------------------------------- |
+| `type`      | `"retrain"`   | Must be "retrain"                             |
+| `name`      | string        | Display name                                  |
+| `attribute` | string        | Character attribute being modified            |
+| `operation` | string        | `"replace"` or `"add"`                        |
+| `optional`  | boolean       | Whether retraining is optional (usually true) |
+| `source`    | RetrainSource | Where replacement options come from           |
 
 ---
 
@@ -591,14 +600,14 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
 
 ### Common Effect Fields
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `target` | Target | Who/what is affected |
-| `requirements` | MechanicRequirement[] | Conditions for this specific effect |
-| `duration` | Duration | How long the effect lasts |
-| `trigger` | Trigger | When this effect fires (for nested effects) |
-| `scaling_key` | string | Reference to scaling property |
-| `effects` | Effect[] | Nested effects |
+| Field          | Type                  | Description                                 |
+| -------------- | --------------------- | ------------------------------------------- |
+| `target`       | Target                | Who/what is affected                        |
+| `requirements` | MechanicRequirement[] | Conditions for this specific effect         |
+| `duration`     | Duration              | How long the effect lasts                   |
+| `trigger`      | Trigger               | When this effect fires (for nested effects) |
+| `scaling_key`  | string                | Reference to scaling property               |
+| `effects`      | Effect[]              | Nested effects                              |
 
 ### Damage and Healing
 
@@ -745,12 +754,12 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
 
 #### Advantage/Disadvantage Fields
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `on` | string | What's affected: `attack`, `saving_throw`, `ability_check` |
-| `ability` | string[] | Specific abilities (for saves/checks) |
-| `weapon_type` | string[] | Weapon types: `melee`, `ranged` |
-| `against` | Against | Who/what the rolls are against |
+| Field         | Type     | Description                                                |
+| ------------- | -------- | ---------------------------------------------------------- |
+| `on`          | string   | What's affected: `attack`, `saving_throw`, `ability_check` |
+| `ability`     | string[] | Specific abilities (for saves/checks)                      |
+| `weapon_type` | string[] | Weapon types: `melee`, `ranged`                            |
+| `against`     | Against  | Who/what the rolls are against                             |
 
 ### Status Effects
 
@@ -1108,9 +1117,7 @@ Persistent area effects around a character.
       }
     }
   },
-  "requirements": [
-    { "type": "status", "value": "incapacitated", "negate": true }
-  ],
+  "requirements": [{ "type": "status", "value": "incapacitated", "negate": true }],
   "scaling": {
     "radius": { "18": 30 }
   }
@@ -1344,32 +1351,32 @@ Calculations produce values using typed operands and operations.
 
 ### Operations
 
-| Operation | Description |
-|-----------|-------------|
-| `add` | Sum all operands |
-| `subtract` | Subtract from first operand |
-| `multiply` | Multiply all operands |
-| `divide` | Divide first by second (use `rounding`) |
-| `max` | Take highest value |
-| `min` | Take lowest value |
-| `set` | Use the value directly |
+| Operation  | Description                             |
+| ---------- | --------------------------------------- |
+| `add`      | Sum all operands                        |
+| `subtract` | Subtract from first operand             |
+| `multiply` | Multiply all operands                   |
+| `divide`   | Divide first by second (use `rounding`) |
+| `max`      | Take highest value                      |
+| `min`      | Take lowest value                       |
+| `set`      | Use the value directly                  |
 
 ### Operand Types
 
-| Type | Example | Description |
-|------|---------|-------------|
-| `integer` | `{ "type": "integer", "value": 5 }` | Static number |
-| `boolean` | `{ "type": "boolean", "value": true }` | True/false |
-| `string` | `{ "type": "string", "value": "fire" }` | Text value |
-| `dice` | `{ "type": "dice", "dice": "1d6" }` | Dice expression |
-| `attribute` | `{ "type": "attribute", "value": "proficiency_bonus" }` | Character attribute |
-| `ability_modifier` | `{ "type": "ability_modifier", "ability": "Wisdom" }` | Ability mod |
-| `class_level` | `{ "type": "class_level", "class": "Fighter" }` | Class level |
-| `resource_die` | `{ "type": "resource_die", "value": "superiority_dice" }` | Resource die value |
-| `scaling` | `{ "type": "scaling", "value": "damage" }` | Scaling reference |
-| `roll_result` | `{ "type": "roll_result" }` | Result of triggering roll |
-| `spell_level_cast` | `{ "type": "spell_level_cast" }` | Spell slot level used |
-| `function` | `{ "type": "function", "function": "...", "context": "..." }` | Function call |
+| Type               | Example                                                       | Description               |
+| ------------------ | ------------------------------------------------------------- | ------------------------- |
+| `integer`          | `{ "type": "integer", "value": 5 }`                           | Static number             |
+| `boolean`          | `{ "type": "boolean", "value": true }`                        | True/false                |
+| `string`           | `{ "type": "string", "value": "fire" }`                       | Text value                |
+| `dice`             | `{ "type": "dice", "dice": "1d6" }`                           | Dice expression           |
+| `attribute`        | `{ "type": "attribute", "value": "proficiency_bonus" }`       | Character attribute       |
+| `ability_modifier` | `{ "type": "ability_modifier", "ability": "Wisdom" }`         | Ability mod               |
+| `class_level`      | `{ "type": "class_level", "class": "Fighter" }`               | Class level               |
+| `resource_die`     | `{ "type": "resource_die", "value": "superiority_dice" }`     | Resource die value        |
+| `scaling`          | `{ "type": "scaling", "value": "damage" }`                    | Scaling reference         |
+| `roll_result`      | `{ "type": "roll_result" }`                                   | Result of triggering roll |
+| `spell_level_cast` | `{ "type": "spell_level_cast" }`                              | Spell slot level used     |
+| `function`         | `{ "type": "function", "function": "...", "context": "..." }` | Function call             |
 
 ### Examples
 
@@ -1609,36 +1616,36 @@ Triggers define when reactive mechanics activate. They're used for reactions, pa
 
 ### Trigger Events
 
-| Event | Description |
-|-------|-------------|
-| `attack` | When an attack is made |
-| `hit` | When an attack hits |
-| `miss` | When an attack misses |
-| `critical_hit` | When a critical hit occurs |
-| `take_damage` | When damage is received |
-| `deal_damage` | When damage is dealt |
-| `cast_spell` | When a spell is cast |
-| `saving_throw` | When a save is made |
-| `ability_check` | When an ability check is made |
-| `start_turn` | At the start of a turn |
-| `end_turn` | At the end of a turn |
-| `death` | When a creature dies |
-| `drop_to_zero` | When HP drops to 0 |
-| `enter_area` | When entering an area |
-| `leave_area` | When leaving an area |
-| `move` | When movement occurs |
-| `status_applied` | When a status is applied |
-| `status_removed` | When a status is removed |
-| `roll` | When any roll is made |
-| `long_rest` | At the end of a long rest |
-| `short_rest` | At the end of a short rest |
+| Event            | Description                   |
+| ---------------- | ----------------------------- |
+| `attack`         | When an attack is made        |
+| `hit`            | When an attack hits           |
+| `miss`           | When an attack misses         |
+| `critical_hit`   | When a critical hit occurs    |
+| `take_damage`    | When damage is received       |
+| `deal_damage`    | When damage is dealt          |
+| `cast_spell`     | When a spell is cast          |
+| `saving_throw`   | When a save is made           |
+| `ability_check`  | When an ability check is made |
+| `start_turn`     | At the start of a turn        |
+| `end_turn`       | At the end of a turn          |
+| `death`          | When a creature dies          |
+| `drop_to_zero`   | When HP drops to 0            |
+| `enter_area`     | When entering an area         |
+| `leave_area`     | When leaving an area          |
+| `move`           | When movement occurs          |
+| `status_applied` | When a status is applied      |
+| `status_removed` | When a status is removed      |
+| `roll`           | When any roll is made         |
+| `long_rest`      | At the end of a long rest     |
+| `short_rest`     | At the end of a short rest    |
 
 ### Trigger Timing
 
-| Timing | Description |
-|--------|-------------|
-| `before` | Before the event resolves |
-| `after` | After the event resolves |
+| Timing     | Description                  |
+| ---------- | ---------------------------- |
+| `before`   | Before the event resolves    |
+| `after`    | After the event resolves     |
 | `resolved` | When event is fully resolved |
 
 ```json
@@ -1667,6 +1674,7 @@ Triggers define when reactive mechanics activate. They're used for reactions, pa
 ```
 
 Source fields:
+
 - `type` — Source types: `creature`, `spell`, `weapon`, `environment`, `melee`, `ranged`
 - `origin` — `magical` or `nonmagical`
 - `range` — Distance constraint
@@ -1699,6 +1707,7 @@ Source fields:
 ```
 
 Target fields:
+
 - `type` — Who: `self`, `ally`, `creature`, `affected_creature`
 - `size` — Creature sizes
 - `range` — Distance from character
@@ -1855,6 +1864,7 @@ The Target schema defines who/what is affected.
 ### Target Types
 
 **Selection types** (choosing targets):
+
 - `self` — The character
 - `creature` — Single creature
 - `creatures` — Multiple creatures
@@ -1863,6 +1873,7 @@ The Target schema defines who/what is affected.
 - `area` — An area
 
 **Reference types** (contextual):
+
 - `attacker` — The attacking creature
 - `triggering_creature` — Creature that triggered the effect
 - `affected_creature` — Currently affected creature
@@ -1871,13 +1882,13 @@ The Target schema defines who/what is affected.
 
 ### Target Fields
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `type` | string | Target type (see above) |
-| `count` | int | Maximum targets |
-| `disposition` | string | `friendly`, `hostile`, `any`, `willing` |
-| `include_self` | boolean | Include character in area effects |
-| `status_query` | StatusQuery | Find creatures with specific status |
+| Field          | Type        | Description                             |
+| -------------- | ----------- | --------------------------------------- |
+| `type`         | string      | Target type (see above)                 |
+| `count`        | int         | Maximum targets                         |
+| `disposition`  | string      | `friendly`, `hostile`, `any`, `willing` |
+| `include_self` | boolean     | Include character in area effects       |
+| `status_query` | StatusQuery | Find creatures with specific status     |
 
 ### Status Query Targeting
 
@@ -1917,10 +1928,12 @@ On a mechanic:
       "17": "4d6"
     }
   },
-  "effects": [{
-    "damage": { "type": ["radiant"] },
-    "scaling_key": "damage"
-  }]
+  "effects": [
+    {
+      "damage": { "type": ["radiant"] },
+      "scaling_key": "damage"
+    }
+  ]
 }
 ```
 
@@ -1980,9 +1993,7 @@ Resource cost + triggered effect:
       "on_failure": {
         "forced_movement": { "type": "prone" }
       },
-      "requirements": [
-        { "type": "size", "value": ["Large", "Medium", "Small", "Tiny"] }
-      ]
+      "requirements": [{ "type": "size", "value": ["Large", "Medium", "Small", "Tiny"] }]
     }
   ]
 }
@@ -2006,32 +2017,40 @@ Shared resource, multiple options:
     "type": "action",
     "name": "Turn Undead",
     "cost": [{ "type": "resource", "resource": "channel_divinity", "amount": 1 }],
-    "effects": [{
-      "target": {
-        "type": "creatures",
-        "disposition": "hostile"
-      },
-      "area": {
-        "shape": "sphere",
-        "radius": { "value": 30, "unit": "feet" },
-        "origin": "self"
-      },
-      "target_requirements": [
-        { "type": "creature_type", "value": "Undead" },
-        { "type": "perception", "observer": "target", "subject": "character", "senses": ["sight", "hearing"], "match": "any" }
-      ],
-      "saving_throw": {
-        "ability": "Wisdom",
-        "dc": { "type": "spell_save_dc" }
-      },
-      "on_failure": {
-        "apply_status": {
-          "name": "turned",
-          "source": "character",
-          "duration": { "value": 1, "unit": "minutes" }
+    "effects": [
+      {
+        "target": {
+          "type": "creatures",
+          "disposition": "hostile"
+        },
+        "area": {
+          "shape": "sphere",
+          "radius": { "value": 30, "unit": "feet" },
+          "origin": "self"
+        },
+        "target_requirements": [
+          { "type": "creature_type", "value": "Undead" },
+          {
+            "type": "perception",
+            "observer": "target",
+            "subject": "character",
+            "senses": ["sight", "hearing"],
+            "match": "any"
+          }
+        ],
+        "saving_throw": {
+          "ability": "Wisdom",
+          "dc": { "type": "spell_save_dc" }
+        },
+        "on_failure": {
+          "apply_status": {
+            "name": "turned",
+            "source": "character",
+            "duration": { "value": 1, "unit": "minutes" }
+          }
         }
       }
-    }]
+    ]
   }
 ]
 ```
@@ -2042,26 +2061,28 @@ Shared resource, multiple options:
 {
   "type": "passive",
   "name": "Aura of Protection",
-  "effects": [{
-    "aura": {
-      "radius": { "value": 10, "unit": "feet" },
-      "affects": {
-        "type": "creatures",
-        "disposition": "friendly",
-        "include_self": true
-      },
-      "effect": {
-        "roll_modifier": {
-          "on": "saving_throw",
-          "calculation": {
-            "operation": "add",
-            "operators": [{ "type": "ability_modifier", "ability": "Charisma" }]
-          },
-          "minimum": 1
+  "effects": [
+    {
+      "aura": {
+        "radius": { "value": 10, "unit": "feet" },
+        "affects": {
+          "type": "creatures",
+          "disposition": "friendly",
+          "include_self": true
+        },
+        "effect": {
+          "roll_modifier": {
+            "on": "saving_throw",
+            "calculation": {
+              "operation": "add",
+              "operators": [{ "type": "ability_modifier", "ability": "Charisma" }]
+            },
+            "minimum": 1
+          }
         }
       }
     }
-  }],
+  ],
   "requirements": [{ "type": "status", "value": "incapacitated", "negate": true }],
   "scaling": {
     "radius": { "18": 30 }
@@ -2078,9 +2099,7 @@ Shared resource, multiple options:
   "cost": [{ "type": "resource", "resource": "rage", "amount": 1 }],
   "duration": { "value": 1, "unit": "minutes" },
   "concentration": false,
-  "requirements": [
-    { "type": "equipment", "function": "equipment.is_wearing_heavy_armor", "negate": true }
-  ],
+  "requirements": [{ "type": "equipment", "function": "equipment.is_wearing_heavy_armor", "negate": true }],
   "effects": [
     {
       "apply_status": {
@@ -2129,25 +2148,27 @@ Shared resource, multiple options:
 
 ```json
 {
-  "effects": [{
-    "saving_throw": {
-      "ability": "Constitution",
-      "dc": { "type": "spell_save_dc" }
-    },
-    "on_failure": {
-      "apply_status": {
-        "name": "poisoned",
-        "duration": { "value": 1, "unit": "minutes" }
-      }
-    },
-    "on_success": {
-      "damage": {
-        "dice": "2d6",
-        "type": ["poison"],
-        "half_on_save": true
+  "effects": [
+    {
+      "saving_throw": {
+        "ability": "Constitution",
+        "dc": { "type": "spell_save_dc" }
+      },
+      "on_failure": {
+        "apply_status": {
+          "name": "poisoned",
+          "duration": { "value": 1, "unit": "minutes" }
+        }
+      },
+      "on_success": {
+        "damage": {
+          "dice": "2d6",
+          "type": ["poison"],
+          "half_on_save": true
+        }
       }
     }
-  }]
+  ]
 }
 ```
 
@@ -2158,22 +2179,24 @@ Shared resource, multiple options:
   "name": "Brutal Critical",
   "level": 9,
   "class": "Barbarian",
-  "mechanics": [{
-    "type": "critical_hit",
-    "trigger": { "event": ["critical_hit"] },
-    "effects": [{
-      "damage_bonus": {
-        "extra_dice": 1,
-        "type": ["weapon_die"]
+  "mechanics": [
+    {
+      "type": "critical_hit",
+      "trigger": { "event": ["critical_hit"] },
+      "effects": [
+        {
+          "damage_bonus": {
+            "extra_dice": 1,
+            "type": ["weapon_die"]
+          }
+        }
+      ],
+      "requirements": [{ "type": "weapon_property", "value": ["melee"] }],
+      "scaling": {
+        "extra_dice": { "13": 2, "17": 3 }
       }
-    }],
-    "requirements": [
-      { "type": "weapon_property", "value": ["melee"] }
-    ],
-    "scaling": {
-      "extra_dice": { "13": 2, "17": 3 }
     }
-  }]
+  ]
 }
 ```
 
