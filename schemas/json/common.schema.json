@@ -5,14 +5,7 @@
   "description": "Shared definitions used across all D&D 5e data schemas",
   "$defs": {
     "Ability": {
-      "enum": [
-        "Strength",
-        "Dexterity",
-        "Constitution",
-        "Intelligence",
-        "Wisdom",
-        "Charisma"
-      ],
+      "enum": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
       "title": "Ability",
       "type": "string"
     },
@@ -60,10 +53,7 @@
         "check_type": {
           "anyOf": [
             {
-              "enum": [
-                "raw",
-                "skill"
-              ],
+              "enum": ["raw", "skill"],
               "type": "string"
             },
             {
@@ -93,9 +83,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "ability"
-      ],
+      "required": ["ability"],
       "title": "AbilityModifierOperand",
       "type": "object"
     },
@@ -114,9 +102,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "modifier"
-      ],
+      "required": ["modifier"],
       "title": "ActionModifierOperand",
       "type": "object"
     },
@@ -179,22 +165,13 @@
           "description": "For reactions: what triggers this ability"
         }
       },
-      "required": [
-        "type"
-      ],
+      "required": ["type"],
       "title": "Activation",
       "type": "object"
     },
     "ActivationType": {
       "description": "Types of activation for a mechanic.",
-      "enum": [
-        "passive",
-        "action",
-        "bonus_action",
-        "reaction",
-        "free_action",
-        "choice"
-      ],
+      "enum": ["passive", "action", "bonus_action", "reaction", "free_action", "choice"],
       "title": "ActivationType",
       "type": "string"
     },
@@ -230,11 +207,7 @@
         "attack": {
           "anyOf": [
             {
-              "enum": [
-                "all",
-                "melee",
-                "ranged"
-              ],
+              "enum": ["all", "melee", "ranged"],
               "type": "string"
             },
             {
@@ -562,9 +535,7 @@
           "title": "Requirements"
         }
       },
-      "required": [
-        "event"
-      ],
+      "required": ["event"],
       "title": "AdvantageImmunity",
       "type": "object"
     },
@@ -574,11 +545,7 @@
         "disposition": {
           "anyOf": [
             {
-              "enum": [
-                "friendly",
-                "hostile",
-                "any"
-              ],
+              "enum": ["friendly", "hostile", "any"],
               "type": "string"
             },
             {
@@ -690,14 +657,7 @@
         "source": {
           "anyOf": [
             {
-              "enum": [
-                "character",
-                "target",
-                "source",
-                "attacker",
-                "ally",
-                "illusion"
-              ],
+              "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
               "type": "string"
             },
             {
@@ -742,14 +702,7 @@
         "modifier": {
           "anyOf": [
             {
-              "enum": [
-                "character",
-                "target",
-                "source",
-                "attacker",
-                "ally",
-                "illusion"
-              ],
+              "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
               "type": "string"
             },
             {
@@ -813,9 +766,7 @@
           "description": "Saving throw to escape this status (costs an action to attempt)"
         }
       },
-      "required": [
-        "id"
-      ],
+      "required": ["id"],
       "title": "ApplyStatus",
       "type": "object"
     },
@@ -824,15 +775,7 @@
       "properties": {
         "shape": {
           "description": "Shape of the area",
-          "enum": [
-            "radius",
-            "sphere",
-            "cube",
-            "cone",
-            "cylinder",
-            "line",
-            "square"
-          ],
+          "enum": ["radius", "sphere", "cube", "cone", "cylinder", "line", "square"],
           "title": "Shape",
           "type": "string"
         },
@@ -844,23 +787,14 @@
         "unit": {
           "default": "feet",
           "description": "Unit of measurement",
-          "enum": [
-            "feet",
-            "miles"
-          ],
+          "enum": ["feet", "miles"],
           "title": "Unit",
           "type": "string"
         },
         "origin": {
           "default": "point",
           "description": "Where the area originates from",
-          "enum": [
-            "self",
-            "target",
-            "point",
-            "caster",
-            "weapon"
-          ],
+          "enum": ["self", "target", "point", "caster", "weapon"],
           "title": "Origin",
           "type": "string"
         },
@@ -878,10 +812,7 @@
           "title": "Height"
         }
       },
-      "required": [
-        "shape",
-        "size"
-      ],
+      "required": ["shape", "size"],
       "title": "Area",
       "type": "object"
     },
@@ -916,10 +847,7 @@
         "hand": {
           "anyOf": [
             {
-              "enum": [
-                "main_hand",
-                "off_hand"
-              ],
+              "enum": ["main_hand", "off_hand"],
               "type": "string"
             },
             {
@@ -945,17 +873,12 @@
         },
         "value": {
           "description": "Required attack result",
-          "enum": [
-            "hit",
-            "miss"
-          ],
+          "enum": ["hit", "miss"],
           "title": "Value",
           "type": "string"
         }
       },
-      "required": [
-        "value"
-      ],
+      "required": ["value"],
       "title": "AttackResultRequirement",
       "type": "object"
     },
@@ -1102,9 +1025,7 @@
           "title": "Requirements"
         }
       },
-      "required": [
-        "target"
-      ],
+      "required": ["target"],
       "title": "AttributeModification",
       "type": "object"
     },
@@ -1123,9 +1044,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "value"
-      ],
+      "required": ["value"],
       "title": "AttributeOperand",
       "type": "object"
     },
@@ -1149,10 +1068,7 @@
           "type": "integer"
         }
       },
-      "required": [
-        "attribute",
-        "minimum"
-      ],
+      "required": ["attribute", "minimum"],
       "title": "AttributeRequirement",
       "type": "object"
     },
@@ -1162,14 +1078,7 @@
         "origin": {
           "default": "self",
           "description": "Where the aura originates from",
-          "enum": [
-            "self",
-            "target",
-            "created",
-            "each_light",
-            "point",
-            "weapon"
-          ],
+          "enum": ["self", "target", "created", "each_light", "point", "weapon"],
           "title": "Origin",
           "type": "string"
         },
@@ -1182,24 +1091,14 @@
         "unit": {
           "default": "feet",
           "description": "Unit of measurement",
-          "enum": [
-            "feet",
-            "miles"
-          ],
+          "enum": ["feet", "miles"],
           "title": "Unit",
           "type": "string"
         },
         "shape": {
           "default": "radius",
           "description": "Shape of the aura",
-          "enum": [
-            "radius",
-            "cone",
-            "cube",
-            "sphere",
-            "cylinder",
-            "line"
-          ],
+          "enum": ["radius", "cone", "cube", "sphere", "cylinder", "line"],
           "title": "Shape",
           "type": "string"
         },
@@ -1295,26 +1194,14 @@
       "properties": {
         "type": {
           "description": "Type of light this layer produces",
-          "enum": [
-            "bright_light",
-            "dim_light",
-            "darkness",
-            "magical_darkness"
-          ],
+          "enum": ["bright_light", "dim_light", "darkness", "magical_darkness"],
           "title": "Type",
           "type": "string"
         },
         "shape": {
           "default": "radius",
           "description": "Shape of the layer",
-          "enum": [
-            "radius",
-            "cone",
-            "cube",
-            "sphere",
-            "cylinder",
-            "line"
-          ],
+          "enum": ["radius", "cone", "cube", "sphere", "cylinder", "line"],
           "title": "Shape",
           "type": "string"
         },
@@ -1326,10 +1213,7 @@
         "unit": {
           "default": "feet",
           "description": "Unit of measurement",
-          "enum": [
-            "feet",
-            "miles"
-          ],
+          "enum": ["feet", "miles"],
           "title": "Unit",
           "type": "string"
         },
@@ -1347,10 +1231,7 @@
           "title": "Color"
         }
       },
-      "required": [
-        "type",
-        "size"
-      ],
+      "required": ["type", "size"],
       "title": "AuraLayer",
       "type": "object"
     },
@@ -1773,9 +1654,7 @@
           "title": "Description"
         }
       },
-      "required": [
-        "type"
-      ],
+      "required": ["type"],
       "title": "BaseMechanic",
       "type": "object"
     },
@@ -1785,12 +1664,7 @@
         "cover": {
           "anyOf": [
             {
-              "enum": [
-                "none",
-                "half",
-                "three_quarters",
-                "total"
-              ],
+              "enum": ["none", "half", "three_quarters", "total"],
               "type": "string"
             },
             {
@@ -1836,9 +1710,7 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "value"
-      ],
+      "required": ["value"],
       "title": "BooleanOperand",
       "type": "object"
     },
@@ -1847,15 +1719,7 @@
       "properties": {
         "operation": {
           "description": "Math operation to perform",
-          "enum": [
-            "add",
-            "subtract",
-            "multiply",
-            "divide",
-            "max",
-            "min",
-            "set"
-          ],
+          "enum": ["add", "subtract", "multiply", "divide", "max", "min", "set"],
           "title": "Operation",
           "type": "string"
         },
@@ -1928,10 +1792,7 @@
         "rounding": {
           "anyOf": [
             {
-              "enum": [
-                "up",
-                "down"
-              ],
+              "enum": ["up", "down"],
               "type": "string"
             },
             {
@@ -1943,10 +1804,7 @@
           "title": "Rounding"
         }
       },
-      "required": [
-        "operation",
-        "operators"
-      ],
+      "required": ["operation", "operators"],
       "title": "Calculation",
       "type": "object"
     },
@@ -2342,9 +2200,7 @@
           "title": "Value"
         }
       },
-      "required": [
-        "type"
-      ],
+      "required": ["type"],
       "title": "ChoiceMechanic",
       "type": "object"
     },
@@ -2363,10 +2219,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "name"
-      ],
+      "required": ["type", "name"],
       "title": "SimpleChoiceOption",
       "type": "object"
     },
@@ -2389,11 +2242,7 @@
           "description": "The nested choice to present when this option is selected"
         }
       },
-      "required": [
-        "type",
-        "name",
-        "choice"
-      ],
+      "required": ["type", "name", "choice"],
       "title": "NestedChoiceOption",
       "type": "object"
     },
@@ -2417,11 +2266,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "race",
-        "trait"
-      ],
+      "required": ["type", "race", "trait"],
       "title": "TraitRefChoiceOption",
       "type": "object"
     },
@@ -2459,9 +2304,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "class"
-      ],
+      "required": ["class"],
       "title": "ClassLevelOperand",
       "type": "object"
     },
@@ -2476,12 +2319,7 @@
         },
         "value": {
           "description": "Combat state that must be active",
-          "enum": [
-            "surprised",
-            "hidden",
-            "engaged",
-            "flanking"
-          ],
+          "enum": ["surprised", "hidden", "engaged", "flanking"],
           "title": "Value",
           "type": "string"
         },
@@ -2492,9 +2330,7 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "value"
-      ],
+      "required": ["value"],
       "title": "CombatStateRequirement",
       "type": "object"
     },
@@ -2518,22 +2354,12 @@
           "type": "integer"
         }
       },
-      "required": [
-        "status",
-        "max"
-      ],
+      "required": ["status", "max"],
       "title": "CountRequirement",
       "type": "object"
     },
     "CreatureSize": {
-      "enum": [
-        "Tiny",
-        "Small",
-        "Medium",
-        "Large",
-        "Huge",
-        "Gargantuan"
-      ],
+      "enum": ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan"],
       "title": "CreatureSize",
       "type": "string"
     },
@@ -2568,20 +2394,12 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "value"
-      ],
+      "required": ["value"],
       "title": "CreatureTypeRequirement",
       "type": "object"
     },
     "Currency": {
-      "enum": [
-        "CP",
-        "SP",
-        "EP",
-        "GP",
-        "PP"
-      ],
+      "enum": ["CP", "SP", "EP", "GP", "PP"],
       "title": "Currency",
       "type": "string"
     },
@@ -2598,10 +2416,7 @@
           "description": "Currency: CP, SP, EP, GP, PP"
         }
       },
-      "required": [
-        "amount",
-        "currency"
-      ],
+      "required": ["amount", "currency"],
       "title": "CurrencyCost",
       "type": "object"
     },
@@ -2728,18 +2543,7 @@
     },
     "DamageElement": {
       "description": "Elemental/magical damage types.",
-      "enum": [
-        "acid",
-        "cold",
-        "fire",
-        "force",
-        "lightning",
-        "necrotic",
-        "poison",
-        "psychic",
-        "radiant",
-        "thunder"
-      ],
+      "enum": ["acid", "cold", "fire", "force", "lightning", "necrotic", "poison", "psychic", "radiant", "thunder"],
       "title": "DamageElement",
       "type": "string"
     },
@@ -2749,11 +2553,7 @@
         "category": {
           "default": "resistance",
           "description": "Type of damage response: resistance, immunity, or vulnerability",
-          "enum": [
-            "resistance",
-            "immunity",
-            "vulnerability"
-          ],
+          "enum": ["resistance", "immunity", "vulnerability"],
           "title": "Category",
           "type": "string"
         },
@@ -2839,21 +2639,13 @@
       "type": "object"
     },
     "DamageTarget": {
-      "enum": [
-        "area",
-        "single"
-      ],
+      "enum": ["area", "single"],
       "title": "DamageTarget",
       "type": "string"
     },
     "DamageType": {
       "description": "Physical damage types.",
-      "enum": [
-        "bludgeoning",
-        "piercing",
-        "slashing",
-        "falling"
-      ],
+      "enum": ["bludgeoning", "piercing", "slashing", "falling"],
       "title": "DamageType",
       "type": "string"
     },
@@ -2963,10 +2755,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "dice_sides",
-        "check"
-      ],
+      "required": ["dice_sides", "check"],
       "title": "DiceCondition",
       "type": "object"
     },
@@ -2985,9 +2774,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "dice"
-      ],
+      "required": ["dice"],
       "title": "DiceOperand",
       "type": "object"
     },
@@ -3098,11 +2885,7 @@
         "attack": {
           "anyOf": [
             {
-              "enum": [
-                "all",
-                "melee",
-                "ranged"
-              ],
+              "enum": ["all", "melee", "ranged"],
               "type": "string"
             },
             {
@@ -3430,9 +3213,7 @@
           "title": "Requirements"
         }
       },
-      "required": [
-        "skill"
-      ],
+      "required": ["skill"],
       "title": "DisadvantageImmunity",
       "type": "object"
     },
@@ -3518,10 +3299,7 @@
         "unit": {
           "default": "feet",
           "description": "Distance unit",
-          "enum": [
-            "feet",
-            "miles"
-          ],
+          "enum": ["feet", "miles"],
           "title": "Unit",
           "type": "string"
         },
@@ -3541,11 +3319,7 @@
         "comparison": {
           "anyOf": [
             {
-              "enum": [
-                "within",
-                "greater_than",
-                "less_than"
-              ],
+              "enum": ["within", "greater_than", "less_than"],
               "type": "string"
             },
             {
@@ -3557,9 +3331,7 @@
           "title": "Comparison"
         }
       },
-      "required": [
-        "value"
-      ],
+      "required": ["value"],
       "title": "DistanceRequirement",
       "type": "object"
     },
@@ -3577,10 +3349,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "dice",
-        "resource"
-      ],
+      "required": ["dice", "resource"],
       "title": "Distribution",
       "type": "object"
     },
@@ -3603,13 +3372,7 @@
         "unit": {
           "anyOf": [
             {
-              "enum": [
-                "turns",
-                "rounds",
-                "minutes",
-                "hours",
-                "days"
-              ],
+              "enum": ["turns", "rounds", "minutes", "hours", "days"],
               "type": "string"
             },
             {
@@ -3623,10 +3386,7 @@
         "timing": {
           "anyOf": [
             {
-              "enum": [
-                "start",
-                "end"
-              ],
+              "enum": ["start", "end"],
               "type": "string"
             },
             {
@@ -4458,9 +4218,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "effect"
-      ],
+      "required": ["effect"],
       "title": "EffectImmunity",
       "type": "object"
     },
@@ -4475,20 +4233,12 @@
         },
         "value": {
           "description": "Target constraint",
-          "enum": [
-            "not_self",
-            "self",
-            "ally",
-            "enemy",
-            "creature"
-          ],
+          "enum": ["not_self", "self", "ally", "enemy", "creature"],
           "title": "Value",
           "type": "string"
         }
       },
-      "required": [
-        "value"
-      ],
+      "required": ["value"],
       "title": "EffectTargetRequirement",
       "type": "object"
     },
@@ -4623,10 +4373,7 @@
           "description": "Maximum distance from caster before entity is dismissed"
         }
       },
-      "required": [
-        "category",
-        "type"
-      ],
+      "required": ["category", "type"],
       "title": "Entity",
       "type": "object"
     },
@@ -4651,9 +4398,7 @@
           "description": "Skill check to resolve the interaction"
         }
       },
-      "required": [
-        "action"
-      ],
+      "required": ["action"],
       "title": "Interaction",
       "type": "object"
     },
@@ -4713,9 +4458,7 @@
           "description": "Surface type"
         }
       },
-      "required": [
-        "area"
-      ],
+      "required": ["area"],
       "title": "Environment",
       "type": "object"
     },
@@ -4731,12 +4474,7 @@
         "lighting": {
           "anyOf": [
             {
-              "enum": [
-                "bright_light",
-                "dim_light",
-                "darkness",
-                "magical_darkness"
-              ],
+              "enum": ["bright_light", "dim_light", "darkness", "magical_darkness"],
               "type": "string"
             },
             {
@@ -4776,11 +4514,7 @@
         "slot": {
           "anyOf": [
             {
-              "enum": [
-                "armor",
-                "main_hand",
-                "off_hand"
-              ],
+              "enum": ["armor", "main_hand", "off_hand"],
               "type": "string"
             },
             {
@@ -4807,10 +4541,7 @@
         "grip": {
           "anyOf": [
             {
-              "enum": [
-                "one-handed",
-                "two-handed"
-              ],
+              "enum": ["one-handed", "two-handed"],
               "type": "string"
             },
             {
@@ -4862,27 +4593,14 @@
       "properties": {
         "direction": {
           "description": "Direction of displacement",
-          "enum": [
-            "away",
-            "toward",
-            "up",
-            "down",
-            "random"
-          ],
+          "enum": ["away", "toward", "up", "down", "random"],
           "title": "Direction",
           "type": "string"
         },
         "relative_to": {
           "anyOf": [
             {
-              "enum": [
-                "character",
-                "target",
-                "source",
-                "attacker",
-                "ally",
-                "illusion"
-              ],
+              "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
               "type": "string"
             },
             {
@@ -5052,9 +4770,7 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "direction"
-      ],
+      "required": ["direction"],
       "title": "ForcedMovement",
       "type": "object"
     },
@@ -5099,9 +4815,7 @@
           "title": "Transform"
         }
       },
-      "required": [
-        "function"
-      ],
+      "required": ["function"],
       "title": "FunctionOperand",
       "type": "object"
     },
@@ -5156,9 +4870,7 @@
           "title": "Params"
         }
       },
-      "required": [
-        "function"
-      ],
+      "required": ["function"],
       "title": "FunctionRequirement",
       "type": "object"
     },
@@ -5306,9 +5018,7 @@
           "description": "Modified activation of a spell or feature granted by this ability"
         }
       },
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "title": "Grant",
       "type": "object"
     },
@@ -5371,10 +5081,7 @@
         "save": {
           "anyOf": [
             {
-              "enum": [
-                "auto_fail",
-                "auto_succeed"
-              ],
+              "enum": ["auto_fail", "auto_succeed"],
               "type": "string"
             },
             {
@@ -5457,12 +5164,6 @@
           "title": "Always Prepared",
           "type": "boolean"
         },
-        "does_not_count_against_limit": {
-          "default": false,
-          "description": "Whether these spells don't count against cantrips/spells known limit",
-          "title": "Does Not Count Against Limit",
-          "type": "boolean"
-        },
         "ritual_only": {
           "default": false,
           "description": "Whether these spells can only be cast as rituals",
@@ -5470,10 +5171,7 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "type",
-        "spells"
-      ],
+      "required": ["type", "spells"],
       "title": "GrantedSpellsMechanic",
       "type": "object"
     },
@@ -5582,13 +5280,7 @@
         "comparison": {
           "anyOf": [
             {
-              "enum": [
-                "equals",
-                "greater_than",
-                "less_than",
-                "at_most",
-                "at_least"
-              ],
+              "enum": ["equals", "greater_than", "less_than", "at_most", "at_least"],
               "type": "string"
             },
             {
@@ -5663,9 +5355,7 @@
           "title": "Source"
         }
       },
-      "required": [
-        "type"
-      ],
+      "required": ["type"],
       "title": "IgnoreRequirement",
       "type": "object"
     },
@@ -5690,9 +5380,7 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "to"
-      ],
+      "required": ["to"],
       "title": "ImmunityRequirement",
       "type": "object"
     },
@@ -5705,9 +5393,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "origin"
-      ],
+      "required": ["origin"],
       "title": "ImmunitySource",
       "type": "object"
     },
@@ -5726,9 +5412,7 @@
           "type": "integer"
         }
       },
-      "required": [
-        "value"
-      ],
+      "required": ["value"],
       "title": "IntegerOperand",
       "type": "object"
     },
@@ -5818,12 +5502,7 @@
       "properties": {
         "level": {
           "description": "Light level in the area",
-          "enum": [
-            "bright",
-            "dim",
-            "darkness",
-            "magical_darkness"
-          ],
+          "enum": ["bright", "dim", "darkness", "magical_darkness"],
           "title": "Level",
           "type": "string"
         },
@@ -5867,9 +5546,7 @@
           "title": "Dim Radius"
         }
       },
-      "required": [
-        "level"
-      ],
+      "required": ["level"],
       "title": "Lighting",
       "type": "object"
     },
@@ -5879,24 +5556,14 @@
         "requires": {
           "default": "line_of_sight",
           "description": "Type of visibility required",
-          "enum": [
-            "line_of_sight",
-            "unobstructed"
-          ],
+          "enum": ["line_of_sight", "unobstructed"],
           "title": "Requires",
           "type": "string"
         },
         "from_entity": {
           "default": "character",
           "description": "Entity that must have visibility",
-          "enum": [
-            "character",
-            "target",
-            "source",
-            "attacker",
-            "ally",
-            "illusion"
-          ],
+          "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
           "title": "From Entity",
           "type": "string"
         }
@@ -5909,29 +5576,18 @@
       "properties": {
         "model": {
           "description": "Environment model being manipulated",
-          "enum": [
-            "lighting",
-            "terrain"
-          ],
+          "enum": ["lighting", "terrain"],
           "title": "Model",
           "type": "string"
         },
         "operation": {
           "description": "Operation to perform on the target instance",
-          "enum": [
-            "create",
-            "remove",
-            "modify",
-            "toggle"
-          ],
+          "enum": ["create", "remove", "modify", "toggle"],
           "title": "Operation",
           "type": "string"
         }
       },
-      "required": [
-        "model",
-        "operation"
-      ],
+      "required": ["model", "operation"],
       "title": "Manipulate",
       "type": "object"
     },
@@ -5984,9 +5640,7 @@
           "title": "Options"
         }
       },
-      "required": [
-        "choice_type"
-      ],
+      "required": ["choice_type"],
       "title": "NestedChoice",
       "type": "object"
     },
@@ -6095,10 +5749,7 @@
         "direction": {
           "anyOf": [
             {
-              "enum": [
-                "away",
-                "toward"
-              ],
+              "enum": ["away", "toward"],
               "type": "string"
             },
             {
@@ -6112,14 +5763,7 @@
         "relative_to": {
           "anyOf": [
             {
-              "enum": [
-                "character",
-                "target",
-                "source",
-                "attacker",
-                "ally",
-                "illusion"
-              ],
+              "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
               "type": "string"
             },
             {
@@ -6149,10 +5793,7 @@
     },
     "Origin": {
       "description": "Origin of an effect - magical or nonmagical.",
-      "enum": [
-        "magical",
-        "nonmagical"
-      ],
+      "enum": ["magical", "nonmagical"],
       "title": "Origin",
       "type": "string"
     },
@@ -6161,37 +5802,20 @@
       "properties": {
         "observer": {
           "description": "Entity that must do the perceiving",
-          "enum": [
-            "character",
-            "target",
-            "source",
-            "attacker",
-            "ally",
-            "illusion"
-          ],
+          "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
           "title": "Observer",
           "type": "string"
         },
         "subject": {
           "description": "Entity that must be perceived",
-          "enum": [
-            "character",
-            "target",
-            "source",
-            "attacker",
-            "ally",
-            "illusion"
-          ],
+          "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
           "title": "Subject",
           "type": "string"
         },
         "senses": {
           "description": "Required sense(s) - sight, hearing",
           "items": {
-            "enum": [
-              "sight",
-              "hearing"
-            ],
+            "enum": ["sight", "hearing"],
             "type": "string"
           },
           "title": "Senses",
@@ -6200,10 +5824,7 @@
         "match": {
           "default": "all",
           "description": "For multiple senses: 'any' = at least one, 'all' = all required",
-          "enum": [
-            "any",
-            "all"
-          ],
+          "enum": ["any", "all"],
           "title": "Match",
           "type": "string"
         },
@@ -6214,11 +5835,7 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "observer",
-        "subject",
-        "senses"
-      ],
+      "required": ["observer", "subject", "senses"],
       "title": "Perception",
       "type": "object"
     },
@@ -6233,37 +5850,20 @@
         },
         "observer": {
           "description": "Entity that must perceive",
-          "enum": [
-            "character",
-            "target",
-            "source",
-            "attacker",
-            "ally",
-            "illusion"
-          ],
+          "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
           "title": "Observer",
           "type": "string"
         },
         "subject": {
           "description": "Entity that must be perceived",
-          "enum": [
-            "character",
-            "target",
-            "source",
-            "attacker",
-            "ally",
-            "illusion"
-          ],
+          "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
           "title": "Subject",
           "type": "string"
         },
         "senses": {
           "description": "Required senses: sight, hearing",
           "items": {
-            "enum": [
-              "sight",
-              "hearing"
-            ],
+            "enum": ["sight", "hearing"],
             "type": "string"
           },
           "title": "Senses",
@@ -6272,10 +5872,7 @@
         "match": {
           "default": "all",
           "description": "Whether any or all senses required",
-          "enum": [
-            "any",
-            "all"
-          ],
+          "enum": ["any", "all"],
           "title": "Match",
           "type": "string"
         },
@@ -6286,11 +5883,7 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "observer",
-        "subject",
-        "senses"
-      ],
+      "required": ["observer", "subject", "senses"],
       "title": "PerceptionRequirement",
       "type": "object"
     },
@@ -6379,13 +5972,7 @@
         },
         "category": {
           "description": "What kind of proficiency (skill, weapon, armor, saving_throw, tool)",
-          "enum": [
-            "skill",
-            "weapon",
-            "armor",
-            "saving_throw",
-            "tool"
-          ],
+          "enum": ["skill", "weapon", "armor", "saving_throw", "tool"],
           "title": "Category",
           "type": "string"
         },
@@ -6508,11 +6095,7 @@
           "title": "Requirements"
         }
       },
-      "required": [
-        "type",
-        "category",
-        "proficiencies"
-      ],
+      "required": ["type", "category", "proficiencies"],
       "title": "ProficiencyMechanic",
       "type": "object"
     },
@@ -6542,10 +6125,7 @@
           "description": "Damage per projectile"
         }
       },
-      "required": [
-        "count",
-        "damage"
-      ],
+      "required": ["count", "damage"],
       "title": "Projectile",
       "type": "object"
     },
@@ -6577,11 +6157,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "entities",
-        "distance",
-        "to"
-      ],
+      "required": ["entities", "distance", "to"],
       "title": "ProximityRequirement",
       "type": "object"
     },
@@ -6617,21 +6193,12 @@
           "title": "Params"
         }
       },
-      "required": [
-        "source"
-      ],
+      "required": ["source"],
       "title": "Query",
       "type": "object"
     },
     "RechargeType": {
-      "enum": [
-        "short_rest",
-        "long_rest",
-        "turn",
-        "round",
-        "dawn",
-        "special"
-      ],
+      "enum": ["short_rest", "long_rest", "turn", "round", "dawn", "special"],
       "title": "RechargeType",
       "type": "string"
     },
@@ -6661,10 +6228,7 @@
           "description": "Level constraint on recovered resource"
         }
       },
-      "required": [
-        "target",
-        "count"
-      ],
+      "required": ["target", "count"],
       "title": "Recover",
       "type": "object"
     },
@@ -6688,20 +6252,12 @@
         },
         "rounding": {
           "description": "Rounding direction",
-          "enum": [
-            "up",
-            "down"
-          ],
+          "enum": ["up", "down"],
           "title": "Rounding",
           "type": "string"
         }
       },
-      "required": [
-        "calculation",
-        "operation",
-        "divisor",
-        "rounding"
-      ],
+      "required": ["calculation", "operation", "divisor", "rounding"],
       "title": "RecoverMaxLevel",
       "type": "object"
     },
@@ -6774,10 +6330,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "amount",
-        "resource"
-      ],
+      "required": ["amount", "resource"],
       "title": "ResourceCost",
       "type": "object"
     },
@@ -6786,13 +6339,7 @@
       "properties": {
         "type": {
           "description": "How count is determined",
-          "enum": [
-            "static",
-            "class_level",
-            "level_table",
-            "formula",
-            "ability_modifier"
-          ],
+          "enum": ["static", "class_level", "level_table", "formula", "ability_modifier"],
           "title": "Type",
           "type": "string"
         },
@@ -6868,9 +6415,7 @@
           "title": "Minimum"
         }
       },
-      "required": [
-        "type"
-      ],
+      "required": ["type"],
       "title": "ResourceCount",
       "type": "object"
     },
@@ -6889,9 +6434,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "value"
-      ],
+      "required": ["value"],
       "title": "ResourceDieOperand",
       "type": "object"
     },
@@ -6970,12 +6513,7 @@
           "title": "Scaling"
         }
       },
-      "required": [
-        "type",
-        "id",
-        "name",
-        "recharge"
-      ],
+      "required": ["type", "id", "name", "recharge"],
       "title": "ResourceMechanic",
       "type": "object"
     },
@@ -6995,11 +6533,7 @@
         },
         "comparison": {
           "description": "Comparison operator",
-          "enum": [
-            "equals",
-            "greater_than",
-            "less_than"
-          ],
+          "enum": ["equals", "greater_than", "less_than"],
           "title": "Comparison",
           "type": "string"
         },
@@ -7009,11 +6543,7 @@
           "type": "integer"
         }
       },
-      "required": [
-        "resource",
-        "comparison",
-        "value"
-      ],
+      "required": ["resource", "comparison", "value"],
       "title": "ResourceRequirement",
       "type": "object"
     },
@@ -7068,11 +6598,7 @@
           "description": "Where replacements come from (list, filter, exclude)"
         }
       },
-      "required": [
-        "type",
-        "attribute",
-        "operation"
-      ],
+      "required": ["type", "attribute", "operation"],
       "title": "RetrainMechanic",
       "type": "object"
     },
@@ -7121,9 +6647,7 @@
           "title": "Exclude"
         }
       },
-      "required": [
-        "list"
-      ],
+      "required": ["list"],
       "title": "RetrainSource",
       "type": "object"
     },
@@ -7148,9 +6672,7 @@
           "description": "Condition that determines success"
         }
       },
-      "required": [
-        "type"
-      ],
+      "required": ["type"],
       "title": "Roll",
       "type": "object"
     },
@@ -7185,10 +6707,7 @@
         "operation": {
           "anyOf": [
             {
-              "enum": [
-                "add",
-                "subtract"
-              ],
+              "enum": ["add", "subtract"],
               "type": "string"
             },
             {
@@ -7263,12 +6782,7 @@
       "type": "object"
     },
     "Ruleset": {
-      "enum": [
-        "dnd5e_2024",
-        "dnd5e",
-        "dnd3.5e",
-        "pf2e"
-      ],
+      "enum": ["dnd5e_2024", "dnd5e", "dnd3.5e", "pf2e"],
       "title": "Ruleset",
       "type": "string"
     },
@@ -7353,9 +6867,7 @@
           "description": "Conditions granting advantage on this save"
         }
       },
-      "required": [
-        "ability"
-      ],
+      "required": ["ability"],
       "title": "SavingThrow",
       "type": "object"
     },
@@ -7450,9 +6962,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "value"
-      ],
+      "required": ["value"],
       "title": "ScalingOperand",
       "type": "object"
     },
@@ -7465,9 +6975,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "scaling"
-      ],
+      "required": ["scaling"],
       "title": "ScalingReference",
       "type": "object"
     },
@@ -7489,9 +6997,7 @@
           "type": "array"
         }
       },
-      "required": [
-        "value"
-      ],
+      "required": ["value"],
       "title": "SizeRequirement",
       "type": "object"
     },
@@ -7508,20 +7014,12 @@
           "description": "Difficulty class for the check"
         }
       },
-      "required": [
-        "skill",
-        "dc"
-      ],
+      "required": ["skill", "dc"],
       "title": "SkillCheck",
       "type": "object"
     },
     "Source": {
-      "enum": [
-        "phb",
-        "tce",
-        "scag",
-        "xge"
-      ],
+      "enum": ["phb", "tce", "scag", "xge"],
       "title": "Source",
       "type": "string"
     },
@@ -7543,9 +7041,7 @@
           "type": "array"
         }
       },
-      "required": [
-        "spell"
-      ],
+      "required": ["spell"],
       "title": "SpellImmunity",
       "type": "object"
     },
@@ -7791,10 +7287,7 @@
           "title": "Requirements"
         }
       },
-      "required": [
-        "type",
-        "ability"
-      ],
+      "required": ["type", "ability"],
       "title": "SpellcastingMechanic",
       "type": "object"
     },
@@ -7852,9 +7345,7 @@
           "description": "Spell components the creature cannot provide (e.g., 'verbal', 'somatic', 'material')"
         }
       },
-      "required": [
-        "blocked"
-      ],
+      "required": ["blocked"],
       "title": "ComponentConstraint",
       "type": "object"
     },
@@ -8203,9 +7694,7 @@
           "title": "Requirements"
         }
       },
-      "required": [
-        "status"
-      ],
+      "required": ["status"],
       "title": "StatusImmunity",
       "type": "object"
     },
@@ -8240,9 +7729,7 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "value"
-      ],
+      "required": ["value"],
       "title": "StatusRequirement",
       "type": "object"
     },
@@ -8261,9 +7748,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "value"
-      ],
+      "required": ["value"],
       "title": "StringOperand",
       "type": "object"
     },
@@ -8272,14 +7757,7 @@
       "properties": {
         "comparison": {
           "description": "How the roll result is compared to the threshold",
-          "enum": [
-            "equals",
-            "not_equals",
-            "greater_than",
-            "less_than",
-            "greater_than_or_equal",
-            "less_than_or_equal"
-          ],
+          "enum": ["equals", "not_equals", "greater_than", "less_than", "greater_than_or_equal", "less_than_or_equal"],
           "title": "Comparison",
           "type": "string"
         },
@@ -8296,10 +7774,7 @@
           "title": "Value"
         }
       },
-      "required": [
-        "comparison",
-        "value"
-      ],
+      "required": ["comparison", "value"],
       "title": "SuccessCondition",
       "type": "object"
     },
@@ -8308,22 +7783,12 @@
       "properties": {
         "type": {
           "description": "Type of surface",
-          "enum": [
-            "normal",
-            "slippery",
-            "sticky",
-            "unstable",
-            "webbed",
-            "burning",
-            "frozen"
-          ],
+          "enum": ["normal", "slippery", "sticky", "unstable", "webbed", "burning", "frozen"],
           "title": "Type",
           "type": "string"
         }
       },
-      "required": [
-        "type"
-      ],
+      "required": ["type"],
       "title": "Surface",
       "type": "object"
     },
@@ -8352,10 +7817,7 @@
           "description": "Target requirements to maintain the sustained effect"
         }
       },
-      "required": [
-        "cost",
-        "damage"
-      ],
+      "required": ["cost", "damage"],
       "title": "Sustained",
       "type": "object"
     },
@@ -8399,13 +7861,7 @@
         "disposition": {
           "anyOf": [
             {
-              "enum": [
-                "friendly",
-                "hostile",
-                "neutral",
-                "any",
-                "willing"
-              ],
+              "enum": ["friendly", "hostile", "neutral", "any", "willing"],
               "type": "string"
             },
             {
@@ -8468,9 +7924,7 @@
           "title": "Requirements"
         }
       },
-      "required": [
-        "type"
-      ],
+      "required": ["type"],
       "title": "Target",
       "type": "object"
     },
@@ -8506,14 +7960,7 @@
         "observer": {
           "anyOf": [
             {
-              "enum": [
-                "character",
-                "target",
-                "source",
-                "attacker",
-                "ally",
-                "illusion"
-              ],
+              "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
               "type": "string"
             },
             {
@@ -8527,14 +7974,7 @@
         "subject": {
           "anyOf": [
             {
-              "enum": [
-                "character",
-                "target",
-                "source",
-                "attacker",
-                "ally",
-                "illusion"
-              ],
+              "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
               "type": "string"
             },
             {
@@ -8549,10 +7989,7 @@
           "anyOf": [
             {
               "items": {
-                "enum": [
-                  "sight",
-                  "hearing"
-                ],
+                "enum": ["sight", "hearing"],
                 "type": "string"
               },
               "type": "array"
@@ -8596,10 +8033,7 @@
         "match": {
           "default": "all",
           "description": "For array values/senses, whether any or all must match",
-          "enum": [
-            "any",
-            "all"
-          ],
+          "enum": ["any", "all"],
           "title": "Match",
           "type": "string"
         },
@@ -8646,10 +8080,7 @@
         "context": {
           "anyOf": [
             {
-              "enum": [
-                "character",
-                "target"
-              ],
+              "enum": ["character", "target"],
               "type": "string"
             },
             {
@@ -8772,9 +8203,7 @@
           "title": "From Source"
         }
       },
-      "required": [
-        "type"
-      ],
+      "required": ["type"],
       "title": "TargetRequirement",
       "type": "object"
     },
@@ -8783,12 +8212,7 @@
       "properties": {
         "type": {
           "description": "Type of terrain",
-          "enum": [
-            "normal",
-            "difficult",
-            "greater_difficult",
-            "impassable"
-          ],
+          "enum": ["normal", "difficult", "greater_difficult", "impassable"],
           "title": "Type",
           "type": "string"
         },
@@ -8806,19 +8230,13 @@
           "title": "Cost Multiplier"
         }
       },
-      "required": [
-        "type"
-      ],
+      "required": ["type"],
       "title": "Terrain",
       "type": "object"
     },
     "Timing": {
       "description": "When during an event a feature can be activated.\n\nThis is a unified schema that works across all event types:\n- For rolls: before=before dice rolled, after=saw die/before result, resolved=know result\n- For actions: before=before action, after=action complete (often same as resolved)",
-      "enum": [
-        "before",
-        "after",
-        "resolved"
-      ],
+      "enum": ["before", "after", "resolved"],
       "title": "Timing",
       "type": "string"
     },
@@ -8975,9 +8393,7 @@
           "title": "Damage Type"
         }
       },
-      "required": [
-        "event"
-      ],
+      "required": ["event"],
       "title": "Trigger",
       "type": "object"
     },
@@ -9119,9 +8535,7 @@
           "title": "From"
         }
       },
-      "required": [
-        "to"
-      ],
+      "required": ["to"],
       "title": "TriggerImmunity",
       "type": "object"
     },
@@ -9196,11 +8610,7 @@
         "disposition": {
           "anyOf": [
             {
-              "enum": [
-                "friendly",
-                "hostile",
-                "any"
-              ],
+              "enum": ["friendly", "hostile", "any"],
               "type": "string"
             },
             {
@@ -9237,9 +8647,7 @@
           "title": "On"
         }
       },
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "title": "TriggerStatus",
       "type": "object"
     },
@@ -9361,12 +8769,7 @@
       "properties": {
         "level": {
           "description": "Visibility level in the area",
-          "enum": [
-            "clear",
-            "lightly_obscured",
-            "heavily_obscured",
-            "blocked"
-          ],
+          "enum": ["clear", "lightly_obscured", "heavily_obscured", "blocked"],
           "title": "Level",
           "type": "string"
         },
@@ -9377,9 +8780,7 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "level"
-      ],
+      "required": ["level"],
       "title": "Visibility",
       "type": "object"
     },
@@ -9401,9 +8802,7 @@
           "type": "array"
         }
       },
-      "required": [
-        "value"
-      ],
+      "required": ["value"],
       "title": "WeaponPropertyRequirement",
       "type": "object"
     }

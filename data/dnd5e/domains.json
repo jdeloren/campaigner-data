@@ -20,26 +20,11 @@
             "type": "granted_spells",
             "always_prepared": true,
             "spells": {
-              "1": [
-                "spell:command",
-                "spell:identify"
-              ],
-              "3": [
-                "spell:augury",
-                "spell:suggestion"
-              ],
-              "5": [
-                "spell:nondetection",
-                "spell:speak-with-dead"
-              ],
-              "7": [
-                "spell:arcane-eye",
-                "spell:confusion"
-              ],
-              "9": [
-                "spell:legend-lore",
-                "spell:scrying"
-              ]
+              "1": ["spell:command", "spell:identify"],
+              "3": ["spell:augury", "spell:suggestion"],
+              "5": ["spell:nondetection", "spell:speak-with-dead"],
+              "7": ["spell:arcane-eye", "spell:confusion"],
+              "9": ["spell:legend-lore", "spell:scrying"]
             }
           }
         ]
@@ -146,9 +131,7 @@
                       "type": "perception",
                       "observer": "character",
                       "subject": "target",
-                      "senses": [
-                        "sight"
-                      ]
+                      "senses": ["sight"]
                     },
                     {
                       "type": "range",
@@ -183,9 +166,7 @@
                         "activation": "action",
                         "cost": "none",
                         "save": "auto_fail",
-                        "ends": [
-                          "read_surface_thoughts"
-                        ]
+                        "ends": ["read_surface_thoughts"]
                       }
                     }
                   }
@@ -207,13 +188,9 @@
           {
             "type": "damage_bonus",
             "trigger": {
-              "event": [
-                "cast_spell"
-              ],
+              "event": ["cast_spell"],
               "source": {
-                "type": [
-                  "spell"
-                ],
+                "type": ["spell"],
                 "spell_level": 0,
                 "class": "Cleric",
                 "source": "character"
@@ -274,26 +251,11 @@
             "type": "granted_spells",
             "always_prepared": true,
             "spells": {
-              "1": [
-                "spell:bless",
-                "spell:cure-wounds"
-              ],
-              "3": [
-                "spell:lesser-restoration",
-                "spell:spiritual-weapon"
-              ],
-              "5": [
-                "spell:beacon-of-hope",
-                "spell:revivify"
-              ],
-              "7": [
-                "spell:death-ward",
-                "spell:guardian-of-faith"
-              ],
-              "9": [
-                "spell:mass-cure-wounds",
-                "spell:raise-dead"
-              ]
+              "1": ["spell:bless", "spell:cure-wounds"],
+              "3": ["spell:lesser-restoration", "spell:spiritual-weapon"],
+              "5": ["spell:beacon-of-hope", "spell:revivify"],
+              "7": ["spell:death-ward", "spell:guardian-of-faith"],
+              "9": ["spell:mass-cure-wounds", "spell:raise-dead"]
             }
           }
         ]
@@ -309,9 +271,7 @@
           {
             "type": "proficiency",
             "category": "armor",
-            "proficiencies": [
-              "Heavy Armor"
-            ]
+            "proficiencies": ["Heavy Armor"]
           }
         ],
         "description": "You gain proficiency with heavy armor."
@@ -329,12 +289,8 @@
             "type": "passive",
             "modifies": "healing",
             "trigger": {
-              "event": [
-                "cast_spell"
-              ],
-              "effect": [
-                "healing"
-              ]
+              "event": ["cast_spell"],
+              "effect": ["healing"]
             },
             "requirements": [
               {
@@ -396,10 +352,7 @@
                   "requirements": [
                     {
                       "type": "creature_type",
-                      "value": [
-                        "Undead",
-                        "Construct"
-                      ],
+                      "value": ["Undead", "Construct"],
                       "negate": true
                     },
                     {
@@ -462,12 +415,8 @@
           {
             "type": "passive",
             "trigger": {
-              "event": [
-                "cast_spell"
-              ],
-              "effect": [
-                "healing"
-              ]
+              "event": ["cast_spell"],
+              "effect": ["healing"]
             },
             "requirements": [
               {
@@ -514,20 +463,14 @@
           {
             "type": "damage_bonus",
             "trigger": {
-              "event": [
-                "damage"
-              ],
+              "event": ["damage"],
               "source": {
-                "type": [
-                  "weapon"
-                ]
+                "type": ["weapon"]
               }
             },
             "damage": {
               "dice": "1d8",
-              "type": [
-                "radiant"
-              ]
+              "type": ["radiant"]
             },
             "scaling": {
               "components": {
@@ -561,12 +504,8 @@
             "type": "passive",
             "modifies": "healing",
             "trigger": {
-              "event": [
-                "cast_spell"
-              ],
-              "effect": [
-                "healing"
-              ]
+              "event": ["cast_spell"],
+              "effect": ["healing"]
             },
             "effects": [
               {
@@ -601,26 +540,11 @@
             "type": "granted_spells",
             "always_prepared": true,
             "spells": {
-              "1": [
-                "spell:burning-hands",
-                "spell:faerie-fire"
-              ],
-              "3": [
-                "spell:flaming-sphere",
-                "spell:scorching-ray"
-              ],
-              "5": [
-                "spell:daylight",
-                "spell:fireball"
-              ],
-              "7": [
-                "spell:guardian-of-faith",
-                "spell:wall-of-fire"
-              ],
-              "9": [
-                "spell:flame-strike",
-                "spell:scrying"
-              ]
+              "1": ["spell:burning-hands", "spell:faerie-fire"],
+              "3": ["spell:flaming-sphere", "spell:scorching-ray"],
+              "5": ["spell:daylight", "spell:fireball"],
+              "7": ["spell:guardian-of-faith", "spell:wall-of-fire"],
+              "9": ["spell:flame-strike", "spell:scrying"]
             }
           }
         ]
@@ -636,11 +560,8 @@
         "mechanics": [
           {
             "type": "granted_spells",
-            "does_not_count_against_limit": true,
             "spells": {
-              "0": [
-                "spell:light"
-              ]
+              "0": ["spell:light"]
             }
           }
         ]
@@ -657,9 +578,7 @@
           {
             "type": "reaction",
             "trigger": {
-              "event": [
-                "attacked_by"
-              ]
+              "event": ["attacked_by"]
             },
             "effects": [
               {
@@ -685,9 +604,7 @@
                     "type": "perception",
                     "observer": "character",
                     "subject": "attacker",
-                    "senses": [
-                      "sight"
-                    ]
+                    "senses": ["sight"]
                   }
                 ]
               }
@@ -732,9 +649,7 @@
                   "unit": "feet",
                   "origin": "self"
                 },
-                "negate": [
-                  "magical_darkness"
-                ]
+                "negate": ["magical_darkness"]
               },
               {
                 "target": {
@@ -781,9 +696,7 @@
                           }
                         ]
                       },
-                      "type": [
-                        "radiant"
-                      ]
+                      "type": ["radiant"]
                     }
                   }
                 }
@@ -800,16 +713,12 @@
         "source": "phb",
         "ruleset": "dnd5e",
         "class": "Cleric",
-        "extends": [
-          "Warding Flare"
-        ],
+        "extends": ["Warding Flare"],
         "mechanics": [
           {
             "type": "reaction",
             "trigger": {
-              "event": [
-                "attack"
-              ]
+              "event": ["attack"]
             },
             "target": {
               "type": "creature"
@@ -838,9 +747,7 @@
                     "type": "perception",
                     "observer": "character",
                     "subject": "attacker",
-                    "senses": [
-                      "sight"
-                    ]
+                    "senses": ["sight"]
                   }
                 ]
               }
@@ -860,13 +767,9 @@
           {
             "type": "damage_bonus",
             "trigger": {
-              "event": [
-                "cast_spell"
-              ],
+              "event": ["cast_spell"],
               "source": {
-                "type": [
-                  "spell"
-                ],
+                "type": ["spell"],
                 "spell_level": 0,
                 "class": "Cleric",
                 "source": "character"
@@ -935,20 +838,10 @@
                 },
                 "effect": {
                   "disadvantage": {
-                    "saving_throw": [
-                      "Strength",
-                      "Dexterity",
-                      "Constitution",
-                      "Intelligence",
-                      "Wisdom",
-                      "Charisma"
-                    ],
+                    "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
                     "against": {
                       "type": "spell",
-                      "damage_type": [
-                        "fire",
-                        "radiant"
-                      ]
+                      "damage_type": ["fire", "radiant"]
                     }
                   }
                 }
@@ -980,26 +873,11 @@
             "type": "granted_spells",
             "always_prepared": true,
             "spells": {
-              "1": [
-                "spell:animal-friendship",
-                "spell:speak-with-animals"
-              ],
-              "3": [
-                "spell:barkskin",
-                "spell:spike-growth"
-              ],
-              "5": [
-                "spell:plant-growth",
-                "spell:wind-wall"
-              ],
-              "7": [
-                "spell:dominate-beast",
-                "spell:grasping-vine"
-              ],
-              "9": [
-                "spell:insect-plague",
-                "spell:tree-stride"
-              ]
+              "1": ["spell:animal-friendship", "spell:speak-with-animals"],
+              "3": ["spell:barkskin", "spell:spike-growth"],
+              "5": ["spell:plant-growth", "spell:wind-wall"],
+              "7": ["spell:dominate-beast", "spell:grasping-vine"],
+              "9": ["spell:insect-plague", "spell:tree-stride"]
             }
           },
           {
@@ -1050,9 +928,7 @@
           {
             "type": "proficiency",
             "category": "armor",
-            "proficiencies": [
-              "Heavy Armor"
-            ]
+            "proficiencies": ["Heavy Armor"]
           }
         ],
         "description": "You gain proficiency with heavy armor."
@@ -1088,10 +964,7 @@
                   "requirements": [
                     {
                       "type": "creature_type",
-                      "value": [
-                        "Beast",
-                        "Plant"
-                      ],
+                      "value": ["Beast", "Plant"],
                       "match": "any"
                     }
                   ]
@@ -1115,9 +988,7 @@
                       "duration": {
                         "value": 1,
                         "unit": "minutes",
-                        "until": [
-                          "damaged_by"
-                        ]
+                        "until": ["damaged_by"]
                       }
                     }
                   }
@@ -1139,26 +1010,15 @@
           {
             "type": "reaction",
             "trigger": {
-              "event": [
-                "damaged_by"
-              ],
+              "event": ["damaged_by"],
               "target": {
-                "type": [
-                  "self",
-                  "ally"
-                ],
+                "type": ["self", "ally"],
                 "range": {
                   "value": 30,
                   "unit": "feet"
                 }
               },
-              "damage_type": [
-                "acid",
-                "cold",
-                "fire",
-                "lightning",
-                "thunder"
-              ]
+              "damage_type": ["acid", "cold", "fire", "lightning", "thunder"]
             },
             "target": {
               "type": "event_recipient"
@@ -1194,13 +1054,9 @@
           {
             "type": "damage_bonus",
             "trigger": {
-              "event": [
-                "damage"
-              ],
+              "event": ["damage"],
               "source": {
-                "type": [
-                  "weapon"
-                ]
+                "type": ["weapon"]
               }
             },
             "effects": [
@@ -1299,26 +1155,11 @@
             "type": "granted_spells",
             "always_prepared": true,
             "spells": {
-              "1": [
-                "spell:fog-cloud",
-                "spell:thunderwave"
-              ],
-              "3": [
-                "spell:gust-of-wind",
-                "spell:shatter"
-              ],
-              "5": [
-                "spell:call-lightning",
-                "spell:sleet-storm"
-              ],
-              "7": [
-                "spell:control-water",
-                "spell:ice-storm"
-              ],
-              "9": [
-                "spell:destructive-wave",
-                "spell:insect-plague"
-              ]
+              "1": ["spell:fog-cloud", "spell:thunderwave"],
+              "3": ["spell:gust-of-wind", "spell:shatter"],
+              "5": ["spell:call-lightning", "spell:sleet-storm"],
+              "7": ["spell:control-water", "spell:ice-storm"],
+              "9": ["spell:destructive-wave", "spell:insect-plague"]
             }
           }
         ]
@@ -1335,16 +1176,12 @@
           {
             "type": "proficiency",
             "category": "armor",
-            "proficiencies": [
-              "Heavy Armor"
-            ]
+            "proficiencies": ["Heavy Armor"]
           },
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": [
-              "Martial Melee"
-            ]
+            "proficiencies": ["Martial Melee"]
           }
         ]
       },
@@ -1360,9 +1197,7 @@
           {
             "type": "reaction",
             "trigger": {
-              "event": [
-                "hit_by"
-              ]
+              "event": ["hit_by"]
             },
             "effects": [
               {
@@ -1413,9 +1248,7 @@
                     "type": "perception",
                     "observer": "character",
                     "subject": "attacker",
-                    "senses": [
-                      "sight"
-                    ]
+                    "senses": ["sight"]
                   }
                 ]
               }
@@ -1440,13 +1273,8 @@
           {
             "type": "optional",
             "trigger": {
-              "event": [
-                "damage"
-              ],
-              "damage_type": [
-                "thunder",
-                "lightning"
-              ]
+              "event": ["damage"],
+              "damage_type": ["thunder", "lightning"]
             },
             "cost": [
               {
@@ -1476,9 +1304,7 @@
           {
             "type": "passive",
             "trigger": {
-              "event": [
-                "damage"
-              ],
+              "event": ["damage"],
               "damage_type": "lightning"
             },
             "effects": [
@@ -1488,12 +1314,7 @@
                   "requirements": [
                     {
                       "type": "size",
-                      "value": [
-                        "Tiny",
-                        "Small",
-                        "Medium",
-                        "Large"
-                      ]
+                      "value": ["Tiny", "Small", "Medium", "Large"]
                     }
                   ]
                 },
@@ -1521,20 +1342,14 @@
           {
             "type": "damage_bonus",
             "trigger": {
-              "event": [
-                "damage"
-              ],
+              "event": ["damage"],
               "source": {
-                "type": [
-                  "weapon"
-                ]
+                "type": ["weapon"]
               }
             },
             "damage": {
               "dice": "1d8",
-              "type": [
-                "thunder"
-              ]
+              "type": ["thunder"]
             },
             "scaling": {
               "components": {
@@ -1614,26 +1429,11 @@
             "type": "granted_spells",
             "always_prepared": true,
             "spells": {
-              "1": [
-                "spell:charm-person",
-                "spell:disguise-self"
-              ],
-              "3": [
-                "spell:mirror-image",
-                "spell:pass-without-trace"
-              ],
-              "5": [
-                "spell:blink",
-                "spell:dispel-magic"
-              ],
-              "7": [
-                "spell:dimension-door",
-                "spell:polymorph"
-              ],
-              "9": [
-                "spell:dominate-person",
-                "spell:modify-memory"
-              ]
+              "1": ["spell:charm-person", "spell:disguise-self"],
+              "3": ["spell:mirror-image", "spell:pass-without-trace"],
+              "5": ["spell:blink", "spell:dispel-magic"],
+              "7": ["spell:dimension-door", "spell:polymorph"],
+              "9": ["spell:dominate-person", "spell:modify-memory"]
             }
           }
         ]
@@ -1706,9 +1506,7 @@
                     "value": 120,
                     "unit": "feet"
                   },
-                  "capabilities": [
-                    "spell_origin_point"
-                  ]
+                  "capabilities": ["spell_origin_point"]
                 }
               },
               {
@@ -1717,10 +1515,7 @@
                   "requirements": [
                     {
                       "type": "proximity",
-                      "entities": [
-                        "self",
-                        "illusion"
-                      ],
+                      "entities": ["self", "illusion"],
                       "distance": 5,
                       "to": "target"
                     },
@@ -1728,9 +1523,7 @@
                       "type": "perception",
                       "observer": "target",
                       "subject": "illusion",
-                      "senses": [
-                        "sight"
-                      ]
+                      "senses": ["sight"]
                     }
                   ]
                 }
@@ -1749,9 +1542,7 @@
                 "movement": {
                   "target": {
                     "type": "entity",
-                    "value": [
-                      "duplicate"
-                    ]
+                    "value": ["duplicate"]
                   },
                   "distance": 30,
                   "visibility": {
@@ -1782,10 +1573,7 @@
                 "apply_status": {
                   "id": "status:invisible",
                   "duration": {
-                    "until": [
-                      "attack",
-                      "cast_spell"
-                    ]
+                    "until": ["attack", "cast_spell"]
                   }
                 }
               }
@@ -1805,20 +1593,14 @@
           {
             "type": "damage_bonus",
             "trigger": {
-              "event": [
-                "damage"
-              ],
+              "event": ["damage"],
               "source": {
-                "type": [
-                  "weapon"
-                ]
+                "type": ["weapon"]
               }
             },
             "damage": {
               "dice": "1d8",
-              "type": [
-                "poison"
-              ]
+              "type": ["poison"]
             },
             "scaling": {
               "components": {
@@ -1885,26 +1667,11 @@
             "type": "granted_spells",
             "always_prepared": true,
             "spells": {
-              "1": [
-                "spell:divine-favor",
-                "spell:shield-of-faith"
-              ],
-              "3": [
-                "spell:magic-weapon",
-                "spell:spiritual-weapon"
-              ],
-              "5": [
-                "spell:crusaders-mantle",
-                "spell:spirit-guardians"
-              ],
-              "7": [
-                "spell:freedom-of-movement",
-                "spell:stoneskin"
-              ],
-              "9": [
-                "spell:flame-strike",
-                "spell:hold-monster"
-              ]
+              "1": ["spell:divine-favor", "spell:shield-of-faith"],
+              "3": ["spell:magic-weapon", "spell:spiritual-weapon"],
+              "5": ["spell:crusaders-mantle", "spell:spirit-guardians"],
+              "7": ["spell:freedom-of-movement", "spell:stoneskin"],
+              "9": ["spell:flame-strike", "spell:hold-monster"]
             }
           }
         ]
@@ -1920,17 +1687,12 @@
           {
             "type": "proficiency",
             "category": "armor",
-            "proficiencies": [
-              "Heavy Armor"
-            ]
+            "proficiencies": ["Heavy Armor"]
           },
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": [
-              "Martial Melee",
-              "Martial Ranged"
-            ]
+            "proficiencies": ["Martial Melee", "Martial Ranged"]
           }
         ],
         "description": "You gain proficiency with heavy armor and martial weapons."
@@ -1947,13 +1709,9 @@
           {
             "type": "bonus_action",
             "trigger": {
-              "event": [
-                "attack"
-              ],
+              "event": ["attack"],
               "source": {
-                "type": [
-                  "weapon"
-                ]
+                "type": ["weapon"]
               }
             },
             "effects": [
@@ -1983,9 +1741,7 @@
           {
             "type": "optional",
             "trigger": {
-              "event": [
-                "attack"
-              ]
+              "event": ["attack"]
             },
             "effects": [
               {
@@ -2020,9 +1776,7 @@
           {
             "type": "reaction",
             "trigger": {
-              "event": [
-                "attack"
-              ]
+              "event": ["attack"]
             },
             "target": {
               "type": "creature"
@@ -2062,13 +1816,9 @@
           {
             "type": "damage_bonus",
             "trigger": {
-              "event": [
-                "damage"
-              ],
+              "event": ["damage"],
               "source": {
-                "type": [
-                  "weapon"
-                ]
+                "type": ["weapon"]
               }
             },
             "damage": {
@@ -2109,11 +1859,7 @@
               {
                 "damage_response": {
                   "category": "resistance",
-                  "to": [
-                    "bludgeoning",
-                    "piercing",
-                    "slashing"
-                  ],
+                  "to": ["bludgeoning", "piercing", "slashing"],
                   "source": {
                     "magical": false
                   }
