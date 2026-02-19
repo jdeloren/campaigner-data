@@ -2,21 +2,21 @@
   {
     "id": "feat:combat-superiority",
     "class": "Battle Master",
-    "level": 3,
+    "level": [3, 7, 10, 15],
     "name": "Combat Superiority",
     "description": "You learn maneuvers that are fueled by special dice called superiority dice. You learn three maneuvers of your choice. You learn two additional maneuvers of your choice at 7th, 10th, and 15th level. Each time you learn new maneuvers, you can also replace one maneuver you know with a different one.",
     "mechanics": [
       {
         "type": "choice",
         "choice_type": "query",
+        "count": 3,
         "query": {
           "source": "maneuvers"
         },
         "scaling": {
           "components": {
-            "dice_count": {
+            "maneuvers_known": {
               "by_level": {
-                "3": 3,
                 "7": 5,
                 "10": 7,
                 "15": 9
