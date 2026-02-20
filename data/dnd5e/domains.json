@@ -287,7 +287,6 @@
         "mechanics": [
           {
             "type": "passive",
-            "modifies": "healing",
             "trigger": {
               "event": ["cast_spell"],
               "effect": ["healing"]
@@ -502,7 +501,6 @@
         "mechanics": [
           {
             "type": "passive",
-            "modifies": "healing",
             "trigger": {
               "event": ["cast_spell"],
               "effect": ["healing"]
@@ -1630,17 +1628,16 @@
         "mechanics": [
           {
             "type": "special",
-            "modifies": "Invoke Duplicity",
-            "changes": {
-              "summon.count": {
-                "value": 4,
-                "player_choice": {
-                  "min": 1,
-                  "max": 4
+            "name": "Improved Duplicity",
+            "effects": [
+              {
+                "entity": {
+                  "category": "illusion",
+                  "type": "duplicate",
+                  "count": 4
                 }
-              },
-              "grants.move_illusion.movement.target.count": "any"
-            }
+              }
+            ]
           }
         ]
       }

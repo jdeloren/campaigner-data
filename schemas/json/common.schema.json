@@ -1656,6 +1656,7 @@
         }
       },
       "required": ["type"],
+      "additionalProperties": false,
       "title": "BaseMechanic",
       "type": "object"
     },
