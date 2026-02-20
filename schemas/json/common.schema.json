@@ -6980,7 +6980,7 @@
       "type": "object"
     },
     "SizeRequirement": {
-      "description": "Requirement based on creature size.",
+      "description": "Requirement based on creature size. Use 'value' for an explicit list of allowed sizes, or 'ref' for a relative size reference (e.g., 'one_larger'). Exactly one of 'value' or 'ref' must be provided.",
       "properties": {
         "type": {
           "const": "size",
@@ -6989,15 +6989,23 @@
           "type": "string"
         },
         "value": {
-          "description": "Allowed sizes (e.g., ['Tiny', 'Small', 'Medium', 'Large'])",
+          "description": "Explicit list of allowed sizes (e.g., ['Tiny', 'Small', 'Medium', 'Large'])",
           "items": {
             "type": "string"
           },
           "title": "Value",
           "type": "array"
+        },
+        "ref": {
+          "description": "Relative size reference resolved against the character's size at runtime (e.g., 'one_larger')",
+          "title": "Ref",
+          "type": "string"
         }
       },
-      "required": ["value"],
+      "oneOf": [
+        { "required": ["value"] },
+        { "required": ["ref"] }
+      ],
       "title": "SizeRequirement",
       "type": "object"
     },
