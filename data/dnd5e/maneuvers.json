@@ -423,7 +423,7 @@
                   "operators": [
                     {
                       "type": "attribute",
-                      "value": "movement.speed"
+                      "value": "movement.base"
                     },
                     {
                       "type": "integer",
