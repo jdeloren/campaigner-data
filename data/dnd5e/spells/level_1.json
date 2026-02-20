@@ -3126,7 +3126,7 @@
         "effects": [
           {
             "attribute": {
-              "target": "jump_distance",
+              "target": "movement.jump.long",
               "calculation": {
                 "operation": "multiply",
                 "operators": [
