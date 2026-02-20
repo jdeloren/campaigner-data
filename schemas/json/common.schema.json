@@ -859,6 +859,7 @@
           "title": "Hand"
         }
       },
+      "additionalProperties": false,
       "title": "AttackRequirement",
       "type": "object"
     },

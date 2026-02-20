@@ -1621,16 +1621,13 @@ Triggers define when reactive mechanics activate. They're used for reactions, pa
 | `attack`         | When an attack is made        |
 | `hit`            | When an attack hits           |
 | `miss`           | When an attack misses         |
-| `critical_hit`   | When a critical hit occurs    |
-| `take_damage`    | When damage is received       |
-| `deal_damage`    | When damage is dealt          |
+| `damage`         | When damage is received       |
+| `damaged_by`     | When damage is dealt          |
 | `cast_spell`     | When a spell is cast          |
 | `saving_throw`   | When a save is made           |
 | `ability_check`  | When an ability check is made |
 | `start_turn`     | At the start of a turn        |
 | `end_turn`       | At the end of a turn          |
-| `death`          | When a creature dies          |
-| `drop_to_zero`   | When HP drops to 0            |
 | `enter_area`     | When entering an area         |
 | `leave_area`     | When leaving an area          |
 | `move`           | When movement occurs          |
@@ -1664,7 +1661,7 @@ Triggers define when reactive mechanics activate. They're used for reactions, pa
 ```json
 {
   "trigger": {
-    "event": ["take_damage"],
+    "event": ["damaged_by"],
     "source": {
       "type": ["melee", "weapon"],
       "origin": "nonmagical"
@@ -1697,7 +1694,7 @@ Source fields:
 ```json
 {
   "trigger": {
-    "event": ["take_damage"],
+    "event": ["damaged_by"],
     "target": {
       "type": "ally",
       "range": { "value": 30, "unit": "feet" }
@@ -1738,7 +1735,7 @@ Target fields:
 ```json
 {
   "trigger": {
-    "event": ["take_damage"],
+    "event": ["damaged_by"],
     "target": {
       "type": "ally",
       "range": { "value": 30, "unit": "feet" }
@@ -1749,11 +1746,13 @@ Target fields:
 
 #### On Critical Hit with Melee Weapon
 
+Use mechanic `"type": "critical_hit"` with a trigger scoped to melee weapon hits:
+
 ```json
 {
   "trigger": {
-    "event": ["critical_hit"],
-    "source": { "type": ["melee"] }
+    "event": ["hit"],
+    "source": { "type": ["melee", "weapon"] }
   }
 }
 ```
@@ -1804,7 +1803,7 @@ Target fields:
 ```json
 {
   "trigger": {
-    "event": ["take_damage"],
+    "event": ["damaged_by"],
     "damage_type": ["fire", "radiant"]
   }
 }
@@ -2182,16 +2181,18 @@ Shared resource, multiple options:
   "mechanics": [
     {
       "type": "critical_hit",
-      "trigger": { "event": ["critical_hit"] },
+      "trigger": {
+        "event": ["hit"],
+        "source": { "type": ["melee", "weapon"] }
+      },
       "effects": [
         {
-          "damage_bonus": {
-            "extra_dice": 1,
-            "type": ["weapon_die"]
+          "roll_modifier": {
+            "operation": "add",
+            "value": "weapon_die"
           }
         }
       ],
-      "requirements": [{ "type": "weapon_property", "value": ["melee"] }],
       "scaling": {
         "extra_dice": { "13": 2, "17": 3 }
       }

@@ -2119,17 +2119,17 @@
         "mechanics": [
           {
             "type": "critical_hit",
-            "requirements": [
-              {
-                "type": "attack",
-                "attack_type": ["melee_weapon"]
+            "trigger": {
+              "event": ["hit"],
+              "source": {
+                "type": ["melee", "weapon"]
               }
-            ],
+            },
             "effects": [
               {
-                "damage_bonus": {
-                  "dice": "weapon_die",
-                  "count": 1
+                "roll_modifier": {
+                  "operation": "add",
+                  "value": "weapon_die"
                 }
               }
             ]
