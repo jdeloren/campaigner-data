@@ -244,8 +244,7 @@
         },
         "effects": [
           {
-            "attribute": {
-              "target": "hitPoints.temp",
+            "healing": {
               "calculation": {
                 "operation": "set",
                 "operators": [
@@ -254,7 +253,8 @@
                     "value": "temp_hp"
                   }
                 ]
-              }
+              },
+              "barrier": true
             }
           },
           {
