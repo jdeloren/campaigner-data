@@ -662,10 +662,9 @@
                 }
               ]
             },
-            "attribute": {
-              "target": "temporary_hit_points",
+            "healing": {
               "calculation": {
-                "operation": "set",
+                "operation": "add",
                 "operators": [
                   {
                     "type": "resource_die",
@@ -676,7 +675,8 @@
                     "ability": "Charisma"
                   }
                 ]
-              }
+              },
+              "barrier": true
             }
           }
         ]
