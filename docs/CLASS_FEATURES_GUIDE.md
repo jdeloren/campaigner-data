@@ -2020,23 +2020,23 @@ Shared resource, multiple options:
       {
         "target": {
           "type": "creatures",
-          "disposition": "hostile"
+          "disposition": "hostile",
+          "requirements": [
+            { "type": "creature_type", "value": "Undead" },
+            {
+              "type": "perception",
+              "observer": "target",
+              "subject": "character",
+              "senses": ["sight", "hearing"],
+              "match": "any"
+            }
+          ]
         },
         "area": {
           "shape": "sphere",
           "radius": { "value": 30, "unit": "feet" },
           "origin": "self"
         },
-        "target_requirements": [
-          { "type": "creature_type", "value": "Undead" },
-          {
-            "type": "perception",
-            "observer": "target",
-            "subject": "character",
-            "senses": ["sight", "hearing"],
-            "match": "any"
-          }
-        ],
         "saving_throw": {
           "ability": "Wisdom",
           "dc": { "type": "spell_save_dc" }
@@ -2200,72 +2200,3 @@ Shared resource, multiple options:
   ]
 }
 ```
-
----
-
-## Version History
-
-- **v2.0** (2026) - Schema separation and strict validation
-  - Data repository split from application (campaigner-data)
-  - Full JSON Schema validation with strict mode
-  - Discriminated unions for all mechanic and requirement types
-  - Typed Calculation operands replace string-based formulas
-  - AttributeModification model for character attribute changes
-  - StatusEffect model for ongoing status effects
-  - Grant model for action economy modifications
-  - Query model for data-driven attribute population
-  - Complete model documentation with examples
-
-- **v1.4** (2026) - Unified perception schema
-  - **New explicit perception format** with `observer`, `subject`, `senses`, `match`, `negate` fields
-  - **Removed all legacy perception patterns**:
-    - `"value": "can_see"` / `"value": "can_hear"` → explicit `observer`/`subject`/`senses`
-    - `"type": "visibility"` → `"type": "perception"`
-    - `"type": "condition", "value": "can_see_attacker"` → `"type": "perception"`
-    - `"can_see_or_hear_character"` → explicit with `"match": "any"`
-    - `"negate": true` for negation → `"negate": true`
-  - **New location visibility schema** for placement/destination:
-    - `"visibility": "line_of_sight"` for movement destinations
-    - `"space": "unoccupied"` for placement constraints
-  - Added `illusion` as valid entity reference
-  - TriggerSource now accepts full Perception object
-  - All data files migrated: class_features, domains, maneuvers, fighting_styles
-
-- **v1.3** (2026) - Unified target schema
-  - New structured `target` object with `type`, `count`, `disposition`, `include_self`
-  - Replaced string-based targets (`friendly_creatures`, `hostile_creatures`, `allies`) with structured objects
-  - Added `target_requirements` array for filtering (perception, creature_type, size, status, immunity, etc.)
-  - New `against` schema for specifying advantage/disadvantage targets
-  - **Removed `target_type` completely** - all usages migrated to `target` schema:
-    - Class features: `target_type.include/exclude` → `target_requirements` with `creature_type`
-    - Commands: `target_type.category` → `target.type`
-    - Domains: `target_type.disposition/include/exclude` → `target` + `target_requirements`
-  - Updated all aura and area effect examples
-
-- **v1.2** (2026) - Targeting and save standardization
-  - ~~Unified `target_type` object format with `disposition`, `include`, `exclude`~~ **(removed in v1.3)**
-  - ~~Commands use `target_type.category` for target categories~~ **(removed in v1.3 - now uses `target.type`)**
-  - Saving throw outcomes moved inside `saving_throw` object (`on_success`, `on_failure`)
-  - Maneuver DC uses `dc` object with `base` and `add` fields
-  - Feature enhancements (`enhances` field for adding to features without replacing)
-  - Save outcome effects via passive triggers for conditional outcome replacement
-  - Nature and Tempest domain features
-
-- **v1.1** (2025) - Domain and spellcasting support
-  - Triggers system for spells and attacks (`action: "cast"`, `action: "attack"`)
-  - Feature extensions (`extends` field for feature replacement)
-  - Area of effect targeting (`target: "area"` with shape configuration)
-  - Player choice targeting (`player_choice: true`)
-  - Auras with layers for persistent area effects
-  - Granted spells (`type: "granted_spells"`)
-  - Toggle actions for sustained effects
-  - Dynamic uses with minimum values
-  - Life and Light domain features as reference implementations
-
-- **v1.0** (2025) - Initial unified schema
-  - All Rogue class features
-  - Thief subclass features
-  - Core effect types: attribute, damage, advantage, status, action
-  - Requirements system
-  - Scaling mechanics
-  - Choice mechanics
