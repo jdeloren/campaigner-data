@@ -358,7 +358,7 @@
         "effects": [
           {
             "attribute": {
-              "target": "movement.speed",
+              "target": "movement.base",
               "calculation": {
                 "operation": "add",
                 "operators": [
@@ -445,7 +445,7 @@
         "effects": [
           {
             "attribute": {
-              "target": "movement.speed",
+              "target": "movement.base",
               "calculation": {
                 "operation": "add",
                 "operators": [

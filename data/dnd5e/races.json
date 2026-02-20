@@ -190,7 +190,7 @@
             "effects": [
               {
                 "attribute": {
-                  "target": "speed",
+                  "target": "movement.base",
                   "calculation": {
                     "operation": "set",
                     "operators": [

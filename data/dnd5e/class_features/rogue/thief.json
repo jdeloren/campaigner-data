@@ -43,13 +43,13 @@
         "effects": [
           {
             "attribute": {
-              "target": "climbing_speed",
+              "target": "movement.climb",
               "calculation": {
                 "operation": "set",
                 "operators": [
                   {
                     "type": "attribute",
-                    "value": "walking_speed"
+                    "value": "movement.base"
                   }
                 ]
               }
