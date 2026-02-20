@@ -1805,6 +1805,7 @@
         }
       },
       "required": ["operation", "operators"],
+      "additionalProperties": false,
       "title": "Calculation",
       "type": "object"
     },
@@ -6679,6 +6680,20 @@
     "RollModifier": {
       "description": "Modifies how dice rolls are resolved.\n\nUsed for effects like \"maximize healing dice\", \"reroll 1s\", or \"add/subtract dice from roll\".\nSpecify either `function`, `reroll`, or `operation`+`value`.",
       "properties": {
+        "type": {
+          "anyOf": [
+            {
+              "enum": ["saving_throw", "attack", "ability_check"],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Scope which roll types this modifier applies to (e.g., 'saving_throw'). If null, applies to the triggering roll.",
+          "title": "Type"
+        },
         "function": {
           "anyOf": [
             {
@@ -6730,8 +6745,22 @@
           "default": null,
           "description": "Value to add/subtract (e.g., 'superiority_die')",
           "title": "Value"
+        },
+        "minimum": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Floor value for the roll result (e.g., 10 for Reliable Talent)",
+          "title": "Minimum"
         }
       },
+      "additionalProperties": false,
       "title": "RollModifier",
       "type": "object"
     },
