@@ -36,18 +36,45 @@
         "description": "List of benefit descriptions as plain text",
         "title": "Bonuses"
       },
-      "prerequisites": {
+      "requirements": {
         "anyOf": [
           {
-            "type": "object"
+            "items": {
+              "discriminator": {
+                "mapping": {
+                  "attribute": "common.schema.json#/$defs/AttributeRequirement",
+                  "equipment": "common.schema.json#/$defs/EquipmentRequirement",
+                  "function": "common.schema.json#/$defs/FunctionRequirement",
+                  "level": "common.schema.json#/$defs/LevelRequirement"
+                },
+                "propertyName": "type"
+              },
+              "oneOf": [
+                { "$ref": "common.schema.json#/$defs/AttributeRequirement" },
+                { "$ref": "common.schema.json#/$defs/EquipmentRequirement" },
+                { "$ref": "common.schema.json#/$defs/FunctionRequirement" },
+                { "$ref": "common.schema.json#/$defs/LevelRequirement" }
+              ]
+            },
+            "type": "array"
+          },
+          { "type": "null" }
+        ],
+        "default": null,
+        "description": "Requirements to take this feat"
+      },
+      "repeatable": {
+        "anyOf": [
+          {
+            "type": "boolean"
           },
           {
             "type": "null"
           }
         ],
         "default": null,
-        "description": "Prerequisites required to take this feat (e.g., ability score minimums)",
-        "title": "Prerequisites"
+        "description": "Whether this feat can be taken multiple times",
+        "title": "Repeatable"
       },
       "mechanics": {
         "description": "Structured game mechanics for this feat",
@@ -71,6 +98,7 @@
               "reaction": "#/$defs/BaseMechanic",
               "resistance": "#/$defs/BaseMechanic",
               "resource": "#/$defs/ResourceMechanic",
+              "retrain": "#/$defs/RetrainMechanic",
               "special": "#/$defs/BaseMechanic",
               "spellcasting": "#/$defs/SpellcastingMechanic"
             },
@@ -91,6 +119,9 @@
             },
             {
               "$ref": "common.schema.json#/$defs/ProficiencyMechanic"
+            },
+            {
+              "$ref": "common.schema.json#/$defs/RetrainMechanic"
             },
             {
               "$ref": "common.schema.json#/$defs/BaseMechanic"
