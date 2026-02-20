@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "D&D 5e Feats",
+  "type": "array",
+  "items": {
+    "description": "A feat with full details and mechanics.",
+    "properties": {
+      "id": {
+        "description": "Unique prefixed slug ID (e.g., 'feat:actor')",
+        "title": "Id",
+        "type": "string"
+      },
+      "name": {
+        "description": "Feat name",
+        "title": "Name",
+        "type": "string"
+      },
+      "description": {
+        "description": "Full text description of the feat",
+        "title": "Description",
+        "type": "string"
+      },
+      "bonuses": {
+        "anyOf": [
+          {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "List of benefit descriptions as plain text",
+        "title": "Bonuses"
+      },
+      "prerequisites": {
+        "anyOf": [
+          {
+            "type": "object"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Prerequisites required to take this feat (e.g., ability score minimums)",
+        "title": "Prerequisites"
+      },
+      "mechanics": {
+        "description": "Structured game mechanics for this feat",
+        "items": {
+          "discriminator": {
+            "mapping": {
+              "action": "#/$defs/BaseMechanic",
+              "advantage": "#/$defs/BaseMechanic",
+              "bonus_action": "#/$defs/BaseMechanic",
+              "choice": "#/$defs/ChoiceMechanic",
+              "critical_hit": "#/$defs/BaseMechanic",
+              "damage_bonus": "#/$defs/BaseMechanic",
+              "extra_attack": "#/$defs/BaseMechanic",
+              "extra_turn": "#/$defs/BaseMechanic",
+              "granted_spells": "#/$defs/GrantedSpellsMechanic",
+              "immunity": "#/$defs/BaseMechanic",
+              "movement": "#/$defs/BaseMechanic",
+              "optional": "#/$defs/BaseMechanic",
+              "passive": "#/$defs/BaseMechanic",
+              "proficiency": "#/$defs/ProficiencyMechanic",
+              "reaction": "#/$defs/BaseMechanic",
+              "resistance": "#/$defs/BaseMechanic",
+              "resource": "#/$defs/ResourceMechanic",
+              "special": "#/$defs/BaseMechanic",
+              "spellcasting": "#/$defs/SpellcastingMechanic"
+            },
+            "propertyName": "type"
+          },
+          "oneOf": [
+            {
+              "$ref": "common.schema.json#/$defs/ResourceMechanic"
+            },
+            {
+              "$ref": "common.schema.json#/$defs/ChoiceMechanic"
+            },
+            {
+              "$ref": "common.schema.json#/$defs/SpellcastingMechanic"
+            },
+            {
+              "$ref": "common.schema.json#/$defs/GrantedSpellsMechanic"
+            },
+            {
+              "$ref": "common.schema.json#/$defs/ProficiencyMechanic"
+            },
+            {
+              "$ref": "common.schema.json#/$defs/BaseMechanic"
+            }
+          ]
+        },
+        "title": "Mechanics",
+        "type": "array"
+      },
+      "source": {
+        "description": "Source book or material",
+        "title": "Source",
+        "type": "string"
+      },
+      "ruleset": {
+        "description": "Ruleset for the feat",
+        "title": "Ruleset",
+        "type": "string"
+      }
+    },
+    "required": ["id", "name", "description", "mechanics", "source", "ruleset"],
+    "additionalProperties": false,
+    "title": "Feat",
+    "type": "object"
+  }
+}

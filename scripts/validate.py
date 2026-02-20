@@ -48,6 +48,7 @@ SCHEMA_MAP = {
     "maneuvers": "maneuver.schema.json",
     "statuses": "status.schema.json",
     "commands": "command.schema.json",
+    "feats": "feat.schema.json",
 }
 
 
