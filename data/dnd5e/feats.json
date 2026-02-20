@@ -8,7 +8,6 @@
       "You have advantage on Charisma (Deception) and Charisma (Performance) checks when trying to pass yourself off as a different person.",
       "You can mimic the speech of another person or the sounds made by other creatures. You must have heard the person speaking, or heard the creature make the sound, for at least 1 minute. A successful Wisdom (Insight) check contested by your Charisma (Deception) check allows a listener to determine that the effect is faked."
     ],
-    "prerequisites": null,
     "mechanics": [
       {
         "type": "passive",
@@ -57,7 +56,6 @@
       "You gain a +5 bonus to initiative.",
       "Other creatures don't gain advantage on attack rolls against you as a result of being unseen by you."
     ],
-    "prerequisites": null,
     "mechanics": [
       {
         "type": "immunity",
@@ -132,7 +130,6 @@
       "Climbing doesn't cost you extra movement.",
       "You can make a running long jump or a running high jump after moving only 5 feet on foot, rather than 10 feet."
     ],
-    "prerequisites": null,
     "mechanics": [
       {
         "type": "choice",
@@ -212,74 +209,61 @@
     "id": "feat:charger",
     "name": "Charger",
     "description": "When you use your action to Dash, you can use a bonus action to make one melee weapon attack or to shove a creature. If you move at least 10 feet in a straight line immediately before taking this bonus action, you either gain a +5 bonus to the attack's damage roll (if you chose to make a melee attack and hit) or push the target up to 10 feet away from you (if you chose to shove and you succeed).",
-    "prerequisites": null,
     "mechanics": [
       {
         "type": "bonus_action",
-        "name": "Charger",
-        "interaction": {
-          "name": "Dash"
+        "name": "Charge (Attack)",
+        "grants": {
+          "name": "Attack",
+          "type": "melee",
+          "count": 1,
+          "activation": "bonus_action",
+          "interaction": {
+            "name": "Dash"
+          }
         },
-        "options": [
+        "effects": [
           {
-            "type": "nested",
-            "name": "Melee Attack",
-            "effects": [
-              {
-                "grants": {
-                  "name": "Attack",
-                  "source": {
-                    "type": ["melee"]
-                  },
-                  "count": 1
-                }
-              },
-              {
-                "damage_bonus": {
-                  "value": 5
-                },
-                "requirements": [
-                  {
-                    "type": "movement",
-                    "movement": {
-                      "distance": 10,
-                      "unit": "feet",
-                      "direction": "straight_line",
-                      "toward": "target"
-                    }
-                  }
-                ]
+            "damage_bonus": {
+              "bonus": 5
+            },
+            "trigger": {
+              "event": ["hit"],
+              "condition": {
+                "type": "movement",
+                "value": 10,
+                "unit": "feet"
               }
-            ]
-          },
+            }
+          }
+        ]
+      },
+      {
+        "type": "bonus_action",
+        "name": "Charge (Shove)",
+        "grants": {
+          "name": "Shove",
+          "count": 1,
+          "activation": "bonus_action",
+          "interaction": {
+            "name": "Dash"
+          }
+        },
+        "effects": [
           {
-            "type": "nested",
-            "name": "Shove",
-            "effects": [
-              {
-                "grants": {
-                  "name": "Shove",
-                  "count": 1
-                }
-              },
-              {
-                "forced_movement": {
-                  "type": "push",
-                  "distance": 10
-                },
-                "requirements": [
-                  {
-                    "type": "movement",
-                    "movement": {
-                      "distance": 10,
-                      "unit": "feet",
-                      "direction": "straight_line",
-                      "toward": "target"
-                    }
-                  }
-                ]
+            "forced_movement": {
+              "type": "push",
+              "distance": 10,
+              "direction": "away"
+            },
+            "trigger": {
+              "event": ["hit"],
+              "condition": {
+                "type": "movement",
+                "value": 10,
+                "unit": "feet"
               }
-            ]
+            }
           }
         ]
       }
@@ -297,7 +281,6 @@
       "As part of a short rest, you can cook special food, provided you have ingredients and cook's utensils on hand. You can prepare enough of this food for a number of creatures equal to 4 + your proficiency bonus. At the end of the short rest, any creature who eats the food and spends one or more Hit Dice to regain hit points regains an extra 1d8 hit points.",
       "With one hour of work or when you finish a long rest, you can cook a number of treats equal to your proficiency bonus. These special treats last 8 hours after being made. A creature can use a bonus action to eat one of the treats to gain temporary hit points equal to your proficiency bonus."
     ],
-    "prerequisites": null,
     "mechanics": [
       {
         "type": "choice",
@@ -402,7 +385,6 @@
       "Being within 5 feet of a hostile creature doesn't impose disadvantage on your ranged attack rolls.",
       "When you use the Attack action and attack with a one-handed weapon, you can use a bonus action to attack with a hand crossbow you are holding."
     ],
-    "prerequisites": null,
     "mechanics": [
       {
         "type": "passive",
@@ -443,9 +425,6 @@
       {
         "type": "bonus_action",
         "name": "Hand Crossbow Attack",
-        "interaction": {
-          "name": "Attack"
-        },
         "requirements": [
           {
             "type": "equipment",
@@ -458,17 +437,14 @@
             "holding": true
           }
         ],
-        "effects": [
-          {
-            "grants": {
-              "name": "Attack",
-              "source": {
-                "item": "Hand Crossbow"
-              },
-              "count": 1
-            }
+        "grants": {
+          "name": "Attack",
+          "count": 1,
+          "activation": "bonus_action",
+          "interaction": {
+            "name": "Attack"
           }
-        ]
+        }
       }
     ],
     "source": "phb",
@@ -483,7 +459,6 @@
       "Once per turn, when you hit a creature with an attack that deals bludgeoning damage, you can move it 5 feet to an unoccupied space, provided the target is no more than one size larger than you.",
       "When you score a critical hit that deals bludgeoning damage to a creature, attack rolls against that creature are made with advantage until the start of your next turn."
     ],
-    "prerequisites": null,
     "mechanics": [
       {
         "type": "choice",
@@ -569,11 +544,13 @@
     "id": "feat:defensive-duelist",
     "name": "Defensive Duelist",
     "description": "When you are wielding a finesse weapon with which you are proficient and another creature hits you with a melee attack, you can use your reaction to add your proficiency bonus to your AC for that attack, potentially causing the attack to miss you.",
-    "prerequisites": {
-      "ability_score": {
-        "Dexterity": 13
+    "requirements": [
+      {
+        "type": "attribute",
+        "attribute": "Dexterity",
+        "minimum": 13
       }
-    },
+    ],
     "mechanics": [
       {
         "type": "reaction",
@@ -621,7 +598,6 @@
       "You can use two-weapon fighting even when the one-handed melee weapons you are wielding aren't light.",
       "You can draw or stow two one-handed weapons when you would normally be able to draw or stow only one."
     ],
-    "prerequisites": null,
     "mechanics": [
       {
         "type": "passive",
@@ -683,7 +659,6 @@
       "You have resistance to the damage dealt by traps.",
       "Travelling at a fast pace doesn't impose the normal -5 penalty to your passive Wisdom (Perception) score."
     ],
-    "prerequisites": null,
     "mechanics": [
       {
         "type": "passive",
@@ -748,7 +723,6 @@
       "Increase your Constitution score by 1, to a maximum of 20.",
       "When you roll a Hit Die to regain hit points, the minimum number of hit points you regain from the roll equals twice your Constitution modifier (minimum of 2)."
     ],
-    "prerequisites": null,
     "mechanics": [
       {
         "type": "passive",
@@ -791,6 +765,640 @@
             }
           }
         ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:eldritch-adept",
+    "name": "Eldritch Adept",
+    "description": "Studying occult lore, you learn one Eldritch Invocation option of your choice from the warlock class. If the invocation has a prerequisite of any kind, you can choose that invocation only if you're a warlock who meets the prerequisite. Whenever you gain a level, you can replace the invocation with another one from the warlock class.",
+    "requirements": [
+      {
+        "type": "attribute",
+        "attribute": "spell_slots",
+        "minimum": 1
+      }
+    ],
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "query",
+        "name": "eldritch_invocation",
+        "count": 1,
+        "query": {
+          "source": "invocations",
+          "params": {
+            "prerequisite": "none"
+          }
+        },
+        "requirements": [
+          {
+            "type": "level",
+            "class": "Warlock"
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:elemental-adept",
+    "name": "Elemental Adept",
+    "description": "When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore resistance to damage of the chosen type. In addition, when you roll damage for a spell you cast that deals damage of that type, you can treat any 1 on a damage die as a 2. You can select this feat multiple times. Each time you do so, you must choose a different damage type.",
+    "requirements": [
+      {
+        "type": "attribute",
+        "attribute": "spell_slots",
+        "minimum": 1
+      }
+    ],
+    "repeatable": true,
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "damage_type",
+        "name": "Damage Type",
+        "count": 1,
+        "options": [
+          { "type": "simple", "name": "Acid" },
+          { "type": "simple", "name": "Cold" },
+          { "type": "simple", "name": "Fire" },
+          { "type": "simple", "name": "Lightning" },
+          { "type": "simple", "name": "Thunder" }
+        ]
+      },
+      {
+        "type": "immunity",
+        "name": "Bypass Resistance",
+        "trigger": {
+          "event": ["damage"],
+          "source": {
+            "type": ["spell"]
+          }
+        }
+      },
+      {
+        "type": "passive",
+        "name": "Elemental Consistency",
+        "trigger": {
+          "event": ["damage"],
+          "source": {
+            "type": ["spell"]
+          }
+        },
+        "effects": [
+          {
+            "roll_modifier": {
+              "minimum": 2
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:fey-touched",
+    "name": "Fey Touched",
+    "description": "Your exposure to the Feywild's magic has changed you, granting you the following benefits:",
+    "bonuses": [
+      "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
+      "You learn the Misty Step spell and one 1st-level spell of your choice. The 1st-level spell must be from the Divination or Enchantment school of magic. You can cast each of these spells without expending a spell slot. Once you cast either of these spells in this way, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat."
+    ],
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "ability_score",
+        "name": "Ability Score Increase",
+        "count": 1,
+        "options": [
+          { "type": "simple", "name": "Intelligence" },
+          { "type": "simple", "name": "Wisdom" },
+          { "type": "simple", "name": "Charisma" }
+        ],
+        "value": {
+          "operation": "add",
+          "operators": [{ "type": "integer", "value": 1 }]
+        }
+      },
+      {
+        "type": "granted_spells",
+        "spells": ["spell:misty-step"],
+        "choices": [
+          {
+            "count": 1,
+            "criteria": {
+              "level": 1,
+              "schools": ["Divination", "Enchantment"]
+            }
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "long_rest"
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:fighting-initiate",
+    "name": "Fighting Initiate",
+    "description": "Your martial training has helped you develop a particular style of fighting. As a result, you learn one Fighting Style option of your choice from the fighter class. If you already have a style, the one you choose must be different. Whenever you reach a level that grants the Ability Score Improvement feature, you can replace this feat's fighting style with another one from the fighter class that you don't have.",
+    "requirements": [
+      {
+        "type": "equipment",
+        "category": "weapon",
+        "subcategory": "martial",
+        "proficient": true
+      }
+    ],
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "query",
+        "name": "fighting_style",
+        "count": 1,
+        "query": {
+          "source": "fighting_styles",
+          "params": {
+            "class": "Fighter"
+          }
+        }
+      },
+      {
+        "type": "retrain",
+        "name": "replace_fighting_style",
+        "triggered_by": "Ability Score Improvement",
+        "attribute": "fighting_style",
+        "operation": "replace",
+        "optional": true,
+        "source": {
+          "list": "fighting_styles",
+          "filter": {
+            "class": "Fighter"
+          }
+        }
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:grappler",
+    "name": "Grappler",
+    "description": "You've developed the skills necessary to hold your own in close-quarters grappling. You gain the following benefits:",
+    "requirements": [
+      {
+        "type": "attribute",
+        "attribute": "Strength",
+        "minimum": 13
+      }
+    ],
+    "bonuses": [
+      "You have advantage on attack rolls against a creature you are grappling.",
+      "You can use your action to try to pin a creature grappled by you. To do so, make another grapple check. If you succeed, you and the creature are both restrained until the grapple ends."
+    ],
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "Grappler's Advantage",
+        "trigger": {
+          "event": ["attack"]
+        },
+        "requirements": [
+          {
+            "type": "status",
+            "value": "grappled",
+            "target": "attacker"
+          }
+        ],
+        "effects": [
+          {
+            "advantage": {
+              "attack": "all"
+            }
+          }
+        ]
+      },
+      {
+        "type": "action",
+        "name": "Pin",
+        "requirements": [
+          {
+            "type": "status",
+            "value": "grappled",
+            "source": "self"
+          }
+        ],
+        "effects": [
+          {
+            "contest": {
+              "type": "grapple"
+            },
+            "on_success": {
+              "apply_status": {
+                "id": "status:restrained",
+                "target": ["self", "target"]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:great-weapon-master",
+    "name": "Great Weapon Master",
+    "description": "You've learned to put the weight of a weapon into your strikes, taking advantage of the force of gravity and momentum. You gain the following benefits:",
+    "bonuses": [
+      "On your turn, when you score a critical hit with a melee weapon or reduce a creature to 0 hit points with one, you can make one melee weapon attack as a bonus action.",
+      "Before you make a melee attack with a heavy weapon that you are proficient with, you can choose to take a -5 penalty to the attack roll. If the attack hits, you add +10 to the attack's damage roll."
+    ],
+    "mechanics": [
+      {
+        "type": "critical_hit",
+        "name": "Cleave (Critical Hit)",
+        "trigger": {
+          "event": ["hit"],
+          "source": {
+            "type": ["melee", "weapon"]
+          }
+        },
+        "effects": [
+          {
+            "grants": {
+              "name": "Attack",
+              "source": {
+                "type": ["melee"]
+              },
+              "count": 1,
+              "action": "bonus_action"
+            }
+          }
+        ]
+      },
+      {
+        "type": "bonus_action",
+        "name": "Cleave (Reduce to Zero)",
+        "trigger": {
+          "event": ["damage"],
+          "source": {
+            "type": ["melee", "weapon"]
+          }
+        },
+        "requirements": [
+          {
+            "type": "hit_points",
+            "comparison": "at_least",
+            "calculation": {
+              "operation": "subtract",
+              "operators": [
+                {
+                  "type": "attribute",
+                  "value": "trigger.value"
+                },
+                {
+                  "type": "attribute",
+                  "value": "target.hit_points.current"
+                }
+              ]
+            },
+            "value": 0
+          }
+        ],
+        "effects": [
+          {
+            "grants": {
+              "name": "Attack",
+              "source": {
+                "type": ["melee"]
+              },
+              "count": 1
+            }
+          }
+        ]
+      },
+      {
+        "type": "optional",
+        "name": "Power Attack",
+        "trigger": {
+          "event": ["attack"],
+          "source": {
+            "type": ["melee"]
+          }
+        },
+        "requirements": [
+          {
+            "type": "equipment",
+            "weapon_property": "Heavy",
+            "proficient": true
+          }
+        ],
+        "effects": [
+          {
+            "attribute": {
+              "target": "attack_roll",
+              "calculation": {
+                "operation": "add",
+                "operators": [{ "type": "integer", "value": -5 }]
+              }
+            }
+          },
+          {
+            "damage_bonus": {
+              "bonus": 10
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:gunner",
+    "name": "Gunner",
+    "description": "You have a quick hand and keen eye when employing firearms, granting you the following benefits:",
+    "bonuses": [
+      "Increase your Dexterity score by 1, to a maximum of 20.",
+      "You gain proficiency with firearms.",
+      "You ignore the loading property of firearms.",
+      "Being within 5 feet of a hostile creature doesn't impose disadvantage on your ranged attack rolls."
+    ],
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "Ability Score Increase",
+        "effects": [
+          {
+            "attribute": {
+              "target": "ability_scores.Dexterity",
+              "calculation": {
+                "operation": "add",
+                "operators": [{ "type": "integer", "value": 1 }]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "proficiency",
+        "category": "weapon",
+        "proficiencies": ["Firearm"]
+      },
+      {
+        "type": "passive",
+        "name": "Ignore Loading",
+        "effects": [
+          {
+            "target": {
+              "type": "weapon",
+              "category": "firearm"
+            },
+            "grants": {
+              "name": "Ignore Loading",
+              "interaction": {
+                "ignore_requirements": ["Loading"]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "immunity",
+        "name": "Close Quarters Shooting",
+        "trigger": {
+          "event": ["attack"],
+          "source": {
+            "type": ["ranged"]
+          }
+        },
+        "requirements": [
+          {
+            "type": "proximity",
+            "entities": ["hostile"],
+            "distance": 5,
+            "to": "self"
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:healer",
+    "name": "Healer",
+    "description": "You are an able physician, allowing you to mend wounds quickly and get your allies back in the fight. You gain the following benefits:",
+    "bonuses": [
+      "When you use a healer's kit to stabilize a dying creature, that creature also regains 1 hit point.",
+      "As an action, you can spend one use of a healer's kit to tend to a creature and restore 1d6 + 4 hit points to it, plus additional hit points equal to the creature's maximum number of Hit Dice. The creature can't regain hit points from this feat again until it finishes a short or long rest."
+    ],
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "Stabilize and Heal",
+        "trigger": {
+          "event": ["healed_by"],
+          "source": {
+            "resource": "healer_kit"
+          }
+        },
+        "requirements": [
+          {
+            "type": "status",
+            "value": "status:stabilized",
+            "target": "target"
+          }
+        ],
+        "effects": [
+          {
+            "healing": {
+              "value": 1
+            }
+          }
+        ]
+      },
+      {
+        "type": "action",
+        "name": "Healer's Touch",
+        "requirements": [
+          {
+            "type": "equipment",
+            "category": "gear",
+            "item": "Healer's Kit",
+            "consume": true
+          }
+        ],
+        "effects": [
+          {
+            "healing": {
+              "dice": "1d6",
+              "bonus": 4,
+              "additional": {
+                "type": "attribute",
+                "value": "target.hit_dice.max"
+              }
+            }
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "short_rest"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:heavily-armored",
+    "name": "Heavily Armored",
+    "description": "You have trained to master the use of heavy armor, gaining the following benefits:",
+    "bonuses": ["Increase your Strength score by 1, to a maximum of 20.", "You gain proficiency with heavy armor."],
+    "requirements": [
+      {
+        "type": "equipment",
+        "category": "armor",
+        "subcategory": "medium",
+        "proficient": true
+      }
+    ],
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "Ability Score Increase",
+        "effects": [
+          {
+            "attribute": {
+              "target": "ability_scores.Strength",
+              "calculation": {
+                "operation": "add",
+                "operators": [{ "type": "integer", "value": 1 }]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "proficiency",
+        "category": "armor",
+        "proficiencies": ["Heavy"]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:heavy-armor-master",
+    "name": "Heavy Armor Master",
+    "description": "You can use your armor to deflect strikes that would kill others. You gain the following benefits:",
+    "bonuses": [
+      "Increase your Strength score by 1, to a maximum of 20.",
+      "While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from nonmagical weapons is reduced by 3."
+    ],
+    "requirements": [
+      {
+        "type": "equipment",
+        "category": "armor",
+        "subcategory": "heavy",
+        "proficient": true
+      }
+    ],
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "Ability Score Increase",
+        "effects": [
+          {
+            "attribute": {
+              "target": "ability_scores.Strength",
+              "calculation": {
+                "operation": "add",
+                "operators": [{ "type": "integer", "value": 1 }]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "resistance",
+        "name": "Damage Reduction",
+        "requirements": [
+          {
+            "type": "equipment",
+            "category": "armor",
+            "subcategory": "heavy",
+            "equipped": true
+          }
+        ],
+        "effects": [
+          {
+            "damage_response": {
+              "to": ["bludgeoning", "piercing", "slashing"],
+              "source": {
+                "magical": false
+              },
+              "calculation": {
+                "operation": "subtract",
+                "operators": [{ "type": "integer", "value": 3 }]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:inspiring-leader",
+    "name": "Inspiring Leader",
+    "description": "You can spend 10 minutes inspiring your companions, shoring up their resolve to fight. When you do so, choose up to six friendly creatures (which can include yourself) within 30 feet of you who can see or hear you and who can understand you. Each creature can gain temporary hit points equal to your level + your Charisma modifier. A creature can't gain temporary hit points from this feat again until it has finished a short or long rest.",
+    "requirements": [
+      {
+        "type": "attribute",
+        "attribute": "Charisma",
+        "minimum": 13
+      }
+    ],
+    "mechanics": [
+      {
+        "type": "special",
+        "name": "Inspiring Speech",
+        "target": {
+          "count": 6,
+          "type": "creature",
+          "disposition": "friendly",
+          "range": 30,
+          "includes_self": true
+        },
+        "effects": [
+          {
+            "healing": {
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  { "type": "attribute", "value": "level" },
+                  { "type": "ability_modifier", "ability": "Charisma" }
+                ]
+              },
+              "barrier": true
+            }
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "short_rest"
       }
     ],
     "source": "phb",
