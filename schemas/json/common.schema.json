@@ -2286,7 +2286,8 @@
         "feat",
         "ability_score",
         "tool",
-        "trait"
+        "trait",
+        "damage_type"
       ],
       "title": "ChoiceType",
       "type": "string"
@@ -7032,10 +7033,7 @@
           "type": "string"
         }
       },
-      "oneOf": [
-        { "required": ["value"] },
-        { "required": ["ref"] }
-      ],
+      "oneOf": [{ "required": ["value"] }, { "required": ["ref"] }],
       "title": "SizeRequirement",
       "type": "object"
     },
