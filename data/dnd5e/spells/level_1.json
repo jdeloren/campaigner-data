@@ -3668,7 +3668,7 @@
         "effects": [
           {
             "attribute": {
-              "target": "ac",
+              "target": "armor_class",
               "calculation": {
                 "operation": "add",
                 "operators": [
@@ -3724,7 +3724,7 @@
         "effects": [
           {
             "attribute": {
-              "target": "ac",
+              "target": "armor_class",
               "calculation": {
                 "operation": "add",
                 "operators": [
