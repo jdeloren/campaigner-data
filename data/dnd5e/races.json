@@ -515,18 +515,25 @@
         "mechanics": [
           {
             "type": "passive",
+            "trigger": {
+              "event": ["saving_throw"],
+              "context": ["poison"]
+            },
             "effects": [
               {
                 "advantage": {
-                  "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
-                  "against": {
-                    "damage_type": ["poison"]
-                  }
+                  "saving_throw": ["all"]
                 }
-              },
+              }
+            ]
+          },
+          {
+            "type": "resistance",
+            "effects": [
               {
-                "resistance": {
-                  "damage_type": ["poison"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["poison"]
                 }
               }
             ]
@@ -827,8 +834,9 @@
             "type": "passive",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["acid"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["acid"]
                 }
               }
             ]
@@ -942,8 +950,9 @@
             "type": "passive",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["lightning"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["lightning"]
                 }
               }
             ]
@@ -1057,8 +1066,9 @@
             "type": "passive",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["fire"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["fire"]
                 }
               }
             ]
@@ -1172,8 +1182,9 @@
             "type": "passive",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["lightning"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["lightning"]
                 }
               }
             ]
@@ -1287,8 +1298,9 @@
             "type": "passive",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["acid"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["acid"]
                 }
               }
             ]
@@ -1402,8 +1414,9 @@
             "type": "passive",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["fire"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["fire"]
                 }
               }
             ]
@@ -1517,8 +1530,9 @@
             "type": "passive",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["poison"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["poison"]
                 }
               }
             ]
@@ -1632,8 +1646,9 @@
             "type": "passive",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["fire"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["fire"]
                 }
               }
             ]
@@ -1747,8 +1762,9 @@
             "type": "passive",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["cold"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["cold"]
                 }
               }
             ]
@@ -1862,8 +1878,9 @@
             "type": "passive",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["cold"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["cold"]
                 }
               }
             ]
@@ -2297,11 +2314,23 @@
         "mechanics": [
           {
             "type": "passive",
+            "trigger": {
+              "event": ["ability_check"],
+              "context": ["magic_items", "alchemical_objects", "technological_devices"]
+            },
             "effects": [
               {
-                "expertise": {
-                  "skill": "History",
-                  "context": ["magic items", "alchemical objects", "technological devices"]
+                "advantage": {
+                  "skill": "History"
+                }
+              },
+              {
+                "attribute": {
+                  "target": "proficiency_bonus",
+                  "calculation": {
+                    "operation": "multiply",
+                    "operators": [{ "type": "integer", "value": 2 }]
+                  }
                 }
               }
             ]
@@ -2438,9 +2467,10 @@
             },
             "effects": [
               {
-                "reroll": {
-                  "dice": "d20",
-                  "replace": true
+                "roll_modifier": {
+                  "reroll": {
+                    "replace": true
+                  }
                 }
               }
             ]
@@ -2577,8 +2607,9 @@
             "type": "resistance",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["poison"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["poison"]
                 }
               }
             ]
@@ -2621,8 +2652,9 @@
             "type": "resistance",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["fire"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["fire"]
                 }
               }
             ]

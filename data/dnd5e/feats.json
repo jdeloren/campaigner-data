@@ -667,7 +667,7 @@
         "name": "Secret Door Detection",
         "trigger": {
           "event": ["ability_check"],
-          "context": "secret_doors"
+          "context": ["secret_doors"]
         },
         "effects": [
           {
@@ -994,8 +994,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "grappled",
-            "source": "self"
+            "value": "status:grappled"
           }
         ],
         "effects": [
@@ -1401,6 +1400,181 @@
           "value": 1
         },
         "recharge": "short_rest"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:keen-mind",
+    "name": "Keen Mind",
+    "description": "You have a mind that can track time, direction, and detail with uncanny precision. You gain the following benefits:",
+    "bonuses": [
+      "Increase your Intelligence score by 1, to a maximum of 20.",
+      "You always know which way is north.",
+      "You always know the number of hours left before the next sunrise or sunset.",
+      "You can accurately recall anything you have seen or heard within the past month."
+    ],
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "Ability Score Increase",
+        "effects": [
+          {
+            "attribute": {
+              "target": "ability_scores.Intelligence",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:lightly-armored",
+    "name": "Lightly Armored",
+    "description": "You have trained to master the use of light armor, gaining the following benefits:",
+    "bonuses": [
+      "Increase your Strength or Dexterity score by 1, to a maximum of 20.",
+      "You gain proficiency with light armor."
+    ],
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "ability_score",
+        "name": "Ability Score Increase",
+        "count": 1,
+        "options": [
+          { "type": "simple", "name": "Strength" },
+          { "type": "simple", "name": "Dexterity" }
+        ],
+        "value": {
+          "operation": "add",
+          "operators": [{ "type": "integer", "value": 1 }]
+        }
+      },
+      {
+        "type": "proficiency",
+        "category": "armor",
+        "proficiencies": ["Light Armor"]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:linguist",
+    "name": "Linguist",
+    "description": "You have studied languages and codes, gaining the following benefits:",
+    "bonuses": [
+      "Increase your Intelligence score by 1, to a maximum of 20.",
+      "You learn three languages of your choice.",
+      "You can ably create written ciphers. Others can't decipher a code you create unless you teach them, they succeed on an Intelligence check (DC equal to your Intelligence score + your proficiency bonus), or they use magic to decipher it."
+    ],
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "Ability Score Increase",
+        "effects": [
+          {
+            "attribute": {
+              "target": "ability_scores.Intelligence",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "choice",
+        "choice_type": "language",
+        "count": 3
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:lucky",
+    "name": "Lucky",
+    "description": "You have inexplicable luck that seems to kick in at just the right moment.",
+    "bonuses": [
+      "You have 3 luck points. Whenever you make an attack roll, an ability check, or a saving throw, you can spend one luck point to roll an additional d20. You can choose to spend one of your luck points after you roll the die, but before the outcome is determined. You choose which of the d20s is used for the attack roll, ability check, or saving throw.",
+      "You can also spend one luck point when an attack roll is made against you. Roll a d20, and then choose whether the attack uses the attacker's roll or yours.",
+      "If more than one creature spends a luck point to influence the outcome of a roll, the points cancel each other out; no additional dice are rolled.",
+      "You regain your expended luck points when you finish a long rest."
+    ],
+    "mechanics": [
+      {
+        "type": "resource",
+        "id": "luck_points",
+        "name": "Luck Points",
+        "count": 3,
+        "recharge": "long_rest"
+      },
+      {
+        "type": "optional",
+        "name": "Lucky (Self)",
+        "trigger": {
+          "event": ["attack", "ability_check", "saving_throw"],
+          "target": {
+            "type": "self"
+          }
+        },
+        "cost": [
+          {
+            "resource": "luck_points",
+            "amount": 1
+          }
+        ],
+        "effects": [
+          {
+            "roll_modifier": {
+              "reroll": {
+                "replace": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "optional",
+        "name": "Lucky (Attacked)",
+        "trigger": {
+          "event": ["attacked_by"]
+        },
+        "cost": [
+          {
+            "resource": "luck_points",
+            "amount": 1
+          }
+        ],
+        "effects": [
+          {
+            "roll_modifier": {
+              "reroll": {
+                "replace": false
+              }
+            }
+          }
+        ]
       }
     ],
     "source": "phb",

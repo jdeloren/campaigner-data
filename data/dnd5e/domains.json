@@ -827,16 +827,13 @@
                   "shape": "radius",
                   "size": 60,
                   "unit": "feet",
-                  "origin": "self",
-                  "light_level": "bright"
+                  "origin": "self"
                 },
-                "effect": {
-                  "disadvantage": {
-                    "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
-                    "against": {
-                      "type": "spell",
-                      "damage_type": ["fire", "radiant"]
-                    }
+                "disadvantage": {
+                  "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
+                  "against": {
+                    "type": "spell",
+                    "damage_type": ["fire", "radiant"]
                   }
                 }
               }

@@ -2338,6 +2338,55 @@
       "title": "CombatStateRequirement",
       "type": "object"
     },
+    "Contest": {
+      "description": "A contested ability check between two creatures.\n\nNamed types (grapple, shove) have implied skills. Custom contests use skill/against fields.",
+      "properties": {
+        "type": {
+          "anyOf": [
+            {
+              "enum": ["grapple", "shove"],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Named contest type with implied skills",
+          "title": "Type"
+        },
+        "skill": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Skill the initiator rolls (e.g., 'Athletics')",
+          "title": "Skill"
+        },
+        "against": {
+          "anyOf": [
+            {
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Skill(s) the target can roll against (e.g., ['Athletics', 'Acrobatics'])",
+          "title": "Against"
+        }
+      },
+      "additionalProperties": false,
+      "title": "Contest",
+      "type": "object"
+    },
     "CountRequirement": {
       "description": "Requirement based on the count of active instances (e.g., max bonded weapons).",
       "properties": {
@@ -3454,6 +3503,18 @@
     "Effect": {
       "description": "A single effect within a mechanic.\n\nExtends BaseEffect with mechanic-specific fields for targeting, resolution,\nand complex payloads.",
       "properties": {
+        "contest": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Contest"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Contested ability check for this effect"
+        },
         "advantage": {
           "anyOf": [
             {
@@ -4204,6 +4265,7 @@
           "description": "Requirement that this effect allows bypassing"
         }
       },
+      "additionalProperties": false,
       "title": "Effect",
       "type": "object"
     },
@@ -6317,6 +6379,7 @@
           "title": "Value"
         }
       },
+      "additionalProperties": false,
       "title": "Reroll",
       "type": "object"
     },
@@ -8445,14 +8508,15 @@
         "context": {
           "anyOf": [
             {
-              "type": "string"
+              "items": { "type": "string" },
+              "type": "array"
             },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "description": "Context of the triggering event (e.g., 'secret_doors' for ability checks)",
+          "description": "Context of the triggering event (e.g., ['secret_doors'] for ability checks)",
           "title": "Context"
         },
         "activation": {
