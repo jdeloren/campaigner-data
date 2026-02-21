@@ -293,10 +293,8 @@
             },
             "requirements": [
               {
-                "type": "spell_level",
-                "value": {
-                  "minimum": 1
-                }
+                "type": "spell",
+                "minimum": 1
               }
             ],
             "effects": [
@@ -419,10 +417,8 @@
             },
             "requirements": [
               {
-                "type": "spell_level",
-                "value": {
-                  "minimum": 1
-                }
+                "type": "spell",
+                "minimum": 1
               },
               {
                 "type": "effect_target",

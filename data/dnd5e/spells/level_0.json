@@ -180,8 +180,11 @@
                 "effect": {
                   "trigger": {
                     "event": ["move"],
-                    "voluntary": true,
-                    "distance": 5
+                    "condition": {
+                      "type": "movement",
+                      "value": 5,
+                      "unit": "feet"
+                    }
                   },
                   "damage": {
                     "dice": "scaling.move",

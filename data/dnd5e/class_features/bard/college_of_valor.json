@@ -130,9 +130,14 @@
           "source": {
             "type": ["spell"]
           },
-          "spell_class": "Bard",
           "activation": "action"
         },
+        "requirements": [
+          {
+            "type": "spell",
+            "class": "Bard"
+          }
+        ],
         "grants": {
           "name": "Attack",
           "type": "weapon",

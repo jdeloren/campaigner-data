@@ -27,9 +27,7 @@
         "type": "damage_bonus",
         "trigger": {
           "event": ["attack"],
-          "conditions": {
-            "has_advantage": true
-          }
+          "advantage": "advantage"
         },
         "effects": [
           {

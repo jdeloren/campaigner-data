@@ -232,7 +232,8 @@
               "condition": {
                 "type": "movement",
                 "value": 10,
-                "unit": "feet"
+                "unit": "feet",
+                "to": "target"
               }
             }
           }
@@ -261,7 +262,8 @@
               "condition": {
                 "type": "movement",
                 "value": 10,
-                "unit": "feet"
+                "unit": "feet",
+                "to": "target"
               }
             }
           }

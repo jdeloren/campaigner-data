@@ -641,26 +641,29 @@
               {
                 "type": "inventory_item",
                 "name_contains": ["Tiger", "Totem"]
+              },
+              {
+                "type": "size",
+                "value": ["Large", "Medium", "Small", "Tiny"]
               }
             ],
             "trigger": {
               "event": ["attack"],
-              "conditions": [
-                {
-                  "movement": {
-                    "distance": 20,
-                    "unit": "feet",
-                    "direction": "straight_line",
-                    "toward": "target"
-                  },
-                  "type": "melee",
-                  "target_size": ["Large", "Medium", "Small", "Tiny"]
-                }
-              ]
+              "source": {
+                "type": ["melee"]
+              },
+              "condition": {
+                "type": "movement",
+                "value": 20,
+                "unit": "feet",
+                "to": "target"
+              }
             },
             "grants": {
               "name": "Attack",
-              "type": "melee"
+              "type": "melee",
+              "count": 1,
+              "activation": "bonus_action"
             },
             "target": {
               "type": "event_recipient"

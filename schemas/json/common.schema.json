@@ -296,7 +296,7 @@
                     "proximity": "#/$defs/ProximityRequirement",
                     "resource": "#/$defs/ResourceRequirement",
                     "size": "#/$defs/SizeRequirement",
-                    "spell_level": "#/$defs/SpellLevelRequirement",
+                    "spell": "#/$defs/SpellRequirement",
                     "status": "#/$defs/StatusRequirement",
                     "weapon_property": "#/$defs/WeaponPropertyRequirement"
                   },
@@ -334,7 +334,7 @@
                     "$ref": "#/$defs/HitPointsRequirement"
                   },
                   {
-                    "$ref": "#/$defs/SpellLevelRequirement"
+                    "$ref": "#/$defs/SpellRequirement"
                   },
                   {
                     "$ref": "#/$defs/DistanceRequirement"
@@ -449,7 +449,7 @@
                     "proximity": "#/$defs/ProximityRequirement",
                     "resource": "#/$defs/ResourceRequirement",
                     "size": "#/$defs/SizeRequirement",
-                    "spell_level": "#/$defs/SpellLevelRequirement",
+                    "spell": "#/$defs/SpellRequirement",
                     "status": "#/$defs/StatusRequirement",
                     "weapon_property": "#/$defs/WeaponPropertyRequirement"
                   },
@@ -487,7 +487,7 @@
                     "$ref": "#/$defs/HitPointsRequirement"
                   },
                   {
-                    "$ref": "#/$defs/SpellLevelRequirement"
+                    "$ref": "#/$defs/SpellRequirement"
                   },
                   {
                     "$ref": "#/$defs/DistanceRequirement"
@@ -940,7 +940,7 @@
                     "proximity": "#/$defs/ProximityRequirement",
                     "resource": "#/$defs/ResourceRequirement",
                     "size": "#/$defs/SizeRequirement",
-                    "spell_level": "#/$defs/SpellLevelRequirement",
+                    "spell": "#/$defs/SpellRequirement",
                     "status": "#/$defs/StatusRequirement",
                     "weapon_property": "#/$defs/WeaponPropertyRequirement"
                   },
@@ -978,7 +978,7 @@
                     "$ref": "#/$defs/HitPointsRequirement"
                   },
                   {
-                    "$ref": "#/$defs/SpellLevelRequirement"
+                    "$ref": "#/$defs/SpellRequirement"
                   },
                   {
                     "$ref": "#/$defs/DistanceRequirement"
@@ -1354,7 +1354,7 @@
                     "proximity": "#/$defs/ProximityRequirement",
                     "resource": "#/$defs/ResourceRequirement",
                     "size": "#/$defs/SizeRequirement",
-                    "spell_level": "#/$defs/SpellLevelRequirement",
+                    "spell": "#/$defs/SpellRequirement",
                     "status": "#/$defs/StatusRequirement",
                     "weapon_property": "#/$defs/WeaponPropertyRequirement"
                   },
@@ -1392,7 +1392,7 @@
                     "$ref": "#/$defs/HitPointsRequirement"
                   },
                   {
-                    "$ref": "#/$defs/SpellLevelRequirement"
+                    "$ref": "#/$defs/SpellRequirement"
                   },
                   {
                     "$ref": "#/$defs/DistanceRequirement"
@@ -2079,7 +2079,7 @@
                     "proximity": "#/$defs/ProximityRequirement",
                     "resource": "#/$defs/ResourceRequirement",
                     "size": "#/$defs/SizeRequirement",
-                    "spell_level": "#/$defs/SpellLevelRequirement",
+                    "spell": "#/$defs/SpellRequirement",
                     "status": "#/$defs/StatusRequirement",
                     "weapon_property": "#/$defs/WeaponPropertyRequirement"
                   },
@@ -2117,7 +2117,7 @@
                     "$ref": "#/$defs/HitPointsRequirement"
                   },
                   {
-                    "$ref": "#/$defs/SpellLevelRequirement"
+                    "$ref": "#/$defs/SpellRequirement"
                   },
                   {
                     "$ref": "#/$defs/DistanceRequirement"
@@ -2978,7 +2978,7 @@
                     "proximity": "#/$defs/ProximityRequirement",
                     "resource": "#/$defs/ResourceRequirement",
                     "size": "#/$defs/SizeRequirement",
-                    "spell_level": "#/$defs/SpellLevelRequirement",
+                    "spell": "#/$defs/SpellRequirement",
                     "status": "#/$defs/StatusRequirement",
                     "weapon_property": "#/$defs/WeaponPropertyRequirement"
                   },
@@ -3016,7 +3016,7 @@
                     "$ref": "#/$defs/HitPointsRequirement"
                   },
                   {
-                    "$ref": "#/$defs/SpellLevelRequirement"
+                    "$ref": "#/$defs/SpellRequirement"
                   },
                   {
                     "$ref": "#/$defs/DistanceRequirement"
@@ -3131,7 +3131,7 @@
                     "proximity": "#/$defs/ProximityRequirement",
                     "resource": "#/$defs/ResourceRequirement",
                     "size": "#/$defs/SizeRequirement",
-                    "spell_level": "#/$defs/SpellLevelRequirement",
+                    "spell": "#/$defs/SpellRequirement",
                     "status": "#/$defs/StatusRequirement",
                     "weapon_property": "#/$defs/WeaponPropertyRequirement"
                   },
@@ -3169,7 +3169,7 @@
                     "$ref": "#/$defs/HitPointsRequirement"
                   },
                   {
-                    "$ref": "#/$defs/SpellLevelRequirement"
+                    "$ref": "#/$defs/SpellRequirement"
                   },
                   {
                     "$ref": "#/$defs/DistanceRequirement"
@@ -3664,7 +3664,7 @@
                     "proximity": "#/$defs/ProximityRequirement",
                     "resource": "#/$defs/ResourceRequirement",
                     "size": "#/$defs/SizeRequirement",
-                    "spell_level": "#/$defs/SpellLevelRequirement",
+                    "spell": "#/$defs/SpellRequirement",
                     "status": "#/$defs/StatusRequirement",
                     "weapon_property": "#/$defs/WeaponPropertyRequirement",
                     "attribute": "#/$defs/AttributeRequirement"
@@ -3703,7 +3703,7 @@
                     "$ref": "#/$defs/HitPointsRequirement"
                   },
                   {
-                    "$ref": "#/$defs/SpellLevelRequirement"
+                    "$ref": "#/$defs/SpellRequirement"
                   },
                   {
                     "$ref": "#/$defs/DistanceRequirement"
@@ -4670,7 +4670,7 @@
                     "proximity": "#/$defs/ProximityRequirement",
                     "resource": "#/$defs/ResourceRequirement",
                     "size": "#/$defs/SizeRequirement",
-                    "spell_level": "#/$defs/SpellLevelRequirement",
+                    "spell": "#/$defs/SpellRequirement",
                     "status": "#/$defs/StatusRequirement",
                     "weapon_property": "#/$defs/WeaponPropertyRequirement"
                   },
@@ -4708,7 +4708,7 @@
                     "$ref": "#/$defs/HitPointsRequirement"
                   },
                   {
-                    "$ref": "#/$defs/SpellLevelRequirement"
+                    "$ref": "#/$defs/SpellRequirement"
                   },
                   {
                     "$ref": "#/$defs/DistanceRequirement"
@@ -6013,7 +6013,7 @@
                     "proximity": "#/$defs/ProximityRequirement",
                     "resource": "#/$defs/ResourceRequirement",
                     "size": "#/$defs/SizeRequirement",
-                    "spell_level": "#/$defs/SpellLevelRequirement",
+                    "spell": "#/$defs/SpellRequirement",
                     "status": "#/$defs/StatusRequirement",
                     "weapon_property": "#/$defs/WeaponPropertyRequirement"
                   },
@@ -6051,7 +6051,7 @@
                     "$ref": "#/$defs/HitPointsRequirement"
                   },
                   {
-                    "$ref": "#/$defs/SpellLevelRequirement"
+                    "$ref": "#/$defs/SpellRequirement"
                   },
                   {
                     "$ref": "#/$defs/DistanceRequirement"
@@ -7095,14 +7095,27 @@
       "title": "SpellLevelCastOperand",
       "type": "object"
     },
-    "SpellLevelRequirement": {
-      "description": "Requirement based on spell level.",
+    "SpellRequirement": {
+      "description": "Requirement based on spell properties (class/list, level).",
       "properties": {
         "type": {
-          "const": "spell_level",
-          "default": "spell_level",
+          "const": "spell",
+          "default": "spell",
           "title": "Type",
           "type": "string"
+        },
+        "class": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Spell class or list (e.g., 'Bard', 'Wizard')",
+          "title": "Class"
         },
         "minimum": {
           "anyOf": [
@@ -7131,7 +7144,7 @@
           "title": "Maximum"
         }
       },
-      "title": "SpellLevelRequirement",
+      "title": "SpellRequirement",
       "type": "object"
     },
     "SpellcastingMechanic": {
@@ -7238,7 +7251,7 @@
                     "proximity": "#/$defs/ProximityRequirement",
                     "resource": "#/$defs/ResourceRequirement",
                     "size": "#/$defs/SizeRequirement",
-                    "spell_level": "#/$defs/SpellLevelRequirement",
+                    "spell": "#/$defs/SpellRequirement",
                     "status": "#/$defs/StatusRequirement",
                     "weapon_property": "#/$defs/WeaponPropertyRequirement"
                   },
@@ -7276,7 +7289,7 @@
                     "$ref": "#/$defs/HitPointsRequirement"
                   },
                   {
-                    "$ref": "#/$defs/SpellLevelRequirement"
+                    "$ref": "#/$defs/SpellRequirement"
                   },
                   {
                     "$ref": "#/$defs/DistanceRequirement"
@@ -7645,7 +7658,7 @@
                     "proximity": "#/$defs/ProximityRequirement",
                     "resource": "#/$defs/ResourceRequirement",
                     "size": "#/$defs/SizeRequirement",
-                    "spell_level": "#/$defs/SpellLevelRequirement",
+                    "spell": "#/$defs/SpellRequirement",
                     "status": "#/$defs/StatusRequirement",
                     "weapon_property": "#/$defs/WeaponPropertyRequirement"
                   },
@@ -7683,7 +7696,7 @@
                     "$ref": "#/$defs/HitPointsRequirement"
                   },
                   {
-                    "$ref": "#/$defs/SpellLevelRequirement"
+                    "$ref": "#/$defs/SpellRequirement"
                   },
                   {
                     "$ref": "#/$defs/DistanceRequirement"
@@ -8428,9 +8441,51 @@
           "default": null,
           "description": "Filter by damage type(s)",
           "title": "Damage Type"
+        },
+        "context": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Context of the triggering event (e.g., 'secret_doors' for ability checks)",
+          "title": "Context"
+        },
+        "activation": {
+          "anyOf": [
+            {
+              "enum": ["action", "bonus_action", "reaction", "free_action"],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Action economy slot used for the triggering event",
+          "title": "Activation"
+        },
+        "advantage": {
+          "anyOf": [
+            {
+              "enum": ["normal", "advantage", "disadvantage"],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "State of the triggering event: normal, advantage, or disadvantage",
+          "title": "Advantage"
         }
       },
       "required": ["event"],
+      "additionalProperties": false,
       "title": "Trigger",
       "type": "object"
     },

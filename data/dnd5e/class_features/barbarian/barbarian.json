@@ -472,14 +472,9 @@
     "description": "You can roll one additional weapon damage die when determining the extra damage for a critical hit with a melee attack.",
     "mechanics": [
       {
-        "type": "damage_bonus",
+        "type": "critical_hit",
         "trigger": {
           "event": ["hit"],
-          "conditions": [
-            {
-              "is_critical": true
-            }
-          ],
           "source": {
             "type": ["melee"]
           }
@@ -608,12 +603,17 @@
     "mechanics": [
       {
         "type": "passive",
+        "trigger": {
+          "event": ["ability_check"]
+        },
+        "requirements": [
+          {
+            "type": "ability_check",
+            "ability": "Strength"
+          }
+        ],
         "effects": [
           {
-            "trigger": {
-              "event": ["ability_check"],
-              "ability": "Strength"
-            },
             "calculation": {
               "operation": "max",
               "operators": [

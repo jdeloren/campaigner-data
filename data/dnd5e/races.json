@@ -2430,13 +2430,11 @@
             "type": "passive",
             "trigger": {
               "event": ["attack", "ability_check", "saving_throw"],
-              "conditions": [
-                {
-                  "type": "roll_result",
-                  "value": 1,
-                  "comparison": "equal"
-                }
-              ]
+              "condition": {
+                "type": "roll_result",
+                "value": 1,
+                "comparison": "equal"
+              }
             },
             "effects": [
               {
