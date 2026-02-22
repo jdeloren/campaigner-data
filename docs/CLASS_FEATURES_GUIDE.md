@@ -987,7 +987,7 @@ Grants actions or abilities.
 {
   "grants": {
     "name": "Attack",
-    "type": "melee_weapon",
+    "type": "melee",
     "activation": "bonus_action",
     "count": 1
   },
@@ -1004,7 +1004,7 @@ Grants actions or abilities.
 {
   "grants": {
     "name": "Attack",
-    "type": "melee_weapon",
+    "type": "melee",
     "activation": "reaction",
     "count": 1,
     "target": { "type": "triggering_creature" }
