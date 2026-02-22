@@ -274,103 +274,7 @@
         "requirements": {
           "anyOf": [
             {
-              "items": {
-                "discriminator": {
-                  "mapping": {
-                    "ability_check": "#/$defs/AbilityCheckRequirement",
-                    "attack": "#/$defs/AttackRequirement",
-                    "attack_result": "#/$defs/AttackResultRequirement",
-                    "combat_state": "#/$defs/CombatStateRequirement",
-                    "count": "#/$defs/CountRequirement",
-                    "creature_type": "#/$defs/CreatureTypeRequirement",
-                    "distance": "#/$defs/DistanceRequirement",
-                    "effect_target": "#/$defs/EffectTargetRequirement",
-                    "environment": "#/$defs/EnvironmentRequirement",
-                    "equipment": "#/$defs/EquipmentRequirement",
-                    "function": "#/$defs/FunctionRequirement",
-                    "hit_points": "#/$defs/HitPointsRequirement",
-                    "immunity": "#/$defs/ImmunityRequirement",
-                    "inventory_item": "#/$defs/InventoryItemRequirement",
-                    "level": "#/$defs/LevelRequirement",
-                    "perception": "#/$defs/PerceptionRequirement",
-                    "proximity": "#/$defs/ProximityRequirement",
-                    "resource": "#/$defs/ResourceRequirement",
-                    "size": "#/$defs/SizeRequirement",
-                    "spell": "#/$defs/SpellRequirement",
-                    "status": "#/$defs/StatusRequirement",
-                    "weapon_property": "#/$defs/WeaponPropertyRequirement"
-                  },
-                  "propertyName": "type"
-                },
-                "oneOf": [
-                  {
-                    "$ref": "#/$defs/EquipmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/PerceptionRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/WeaponPropertyRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/StatusRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CreatureTypeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackResultRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/InventoryItemRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AbilityCheckRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/HitPointsRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SpellRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/DistanceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ProximityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EffectTargetRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ImmunityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/LevelRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CombatStateRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EnvironmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ResourceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SizeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CountRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/FunctionRequirement"
-                  }
-                ]
-              },
+              "items": { "$ref": "#/$defs/MechanicRequirement" },
               "type": "array"
             },
             {
@@ -427,103 +331,7 @@
         "requirements": {
           "anyOf": [
             {
-              "items": {
-                "discriminator": {
-                  "mapping": {
-                    "ability_check": "#/$defs/AbilityCheckRequirement",
-                    "attack": "#/$defs/AttackRequirement",
-                    "attack_result": "#/$defs/AttackResultRequirement",
-                    "combat_state": "#/$defs/CombatStateRequirement",
-                    "count": "#/$defs/CountRequirement",
-                    "creature_type": "#/$defs/CreatureTypeRequirement",
-                    "distance": "#/$defs/DistanceRequirement",
-                    "effect_target": "#/$defs/EffectTargetRequirement",
-                    "environment": "#/$defs/EnvironmentRequirement",
-                    "equipment": "#/$defs/EquipmentRequirement",
-                    "function": "#/$defs/FunctionRequirement",
-                    "hit_points": "#/$defs/HitPointsRequirement",
-                    "immunity": "#/$defs/ImmunityRequirement",
-                    "inventory_item": "#/$defs/InventoryItemRequirement",
-                    "level": "#/$defs/LevelRequirement",
-                    "perception": "#/$defs/PerceptionRequirement",
-                    "proximity": "#/$defs/ProximityRequirement",
-                    "resource": "#/$defs/ResourceRequirement",
-                    "size": "#/$defs/SizeRequirement",
-                    "spell": "#/$defs/SpellRequirement",
-                    "status": "#/$defs/StatusRequirement",
-                    "weapon_property": "#/$defs/WeaponPropertyRequirement"
-                  },
-                  "propertyName": "type"
-                },
-                "oneOf": [
-                  {
-                    "$ref": "#/$defs/EquipmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/PerceptionRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/WeaponPropertyRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/StatusRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CreatureTypeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackResultRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/InventoryItemRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AbilityCheckRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/HitPointsRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SpellRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/DistanceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ProximityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EffectTargetRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ImmunityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/LevelRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CombatStateRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EnvironmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ResourceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SizeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CountRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/FunctionRequirement"
-                  }
-                ]
-              },
+              "items": { "$ref": "#/$defs/MechanicRequirement" },
               "type": "array"
             },
             {
@@ -918,103 +726,7 @@
         "requirements": {
           "anyOf": [
             {
-              "items": {
-                "discriminator": {
-                  "mapping": {
-                    "ability_check": "#/$defs/AbilityCheckRequirement",
-                    "attack": "#/$defs/AttackRequirement",
-                    "attack_result": "#/$defs/AttackResultRequirement",
-                    "combat_state": "#/$defs/CombatStateRequirement",
-                    "count": "#/$defs/CountRequirement",
-                    "creature_type": "#/$defs/CreatureTypeRequirement",
-                    "distance": "#/$defs/DistanceRequirement",
-                    "effect_target": "#/$defs/EffectTargetRequirement",
-                    "environment": "#/$defs/EnvironmentRequirement",
-                    "equipment": "#/$defs/EquipmentRequirement",
-                    "function": "#/$defs/FunctionRequirement",
-                    "hit_points": "#/$defs/HitPointsRequirement",
-                    "immunity": "#/$defs/ImmunityRequirement",
-                    "inventory_item": "#/$defs/InventoryItemRequirement",
-                    "level": "#/$defs/LevelRequirement",
-                    "perception": "#/$defs/PerceptionRequirement",
-                    "proximity": "#/$defs/ProximityRequirement",
-                    "resource": "#/$defs/ResourceRequirement",
-                    "size": "#/$defs/SizeRequirement",
-                    "spell": "#/$defs/SpellRequirement",
-                    "status": "#/$defs/StatusRequirement",
-                    "weapon_property": "#/$defs/WeaponPropertyRequirement"
-                  },
-                  "propertyName": "type"
-                },
-                "oneOf": [
-                  {
-                    "$ref": "#/$defs/EquipmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/PerceptionRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/WeaponPropertyRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/StatusRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CreatureTypeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackResultRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/InventoryItemRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AbilityCheckRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/HitPointsRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SpellRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/DistanceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ProximityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EffectTargetRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ImmunityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/LevelRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CombatStateRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EnvironmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ResourceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SizeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CountRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/FunctionRequirement"
-                  }
-                ]
-              },
+              "items": { "$ref": "#/$defs/MechanicRequirement" },
               "type": "array"
             },
             {
@@ -1332,103 +1044,7 @@
         "requirements": {
           "anyOf": [
             {
-              "items": {
-                "discriminator": {
-                  "mapping": {
-                    "ability_check": "#/$defs/AbilityCheckRequirement",
-                    "attack": "#/$defs/AttackRequirement",
-                    "attack_result": "#/$defs/AttackResultRequirement",
-                    "combat_state": "#/$defs/CombatStateRequirement",
-                    "count": "#/$defs/CountRequirement",
-                    "creature_type": "#/$defs/CreatureTypeRequirement",
-                    "distance": "#/$defs/DistanceRequirement",
-                    "effect_target": "#/$defs/EffectTargetRequirement",
-                    "environment": "#/$defs/EnvironmentRequirement",
-                    "equipment": "#/$defs/EquipmentRequirement",
-                    "function": "#/$defs/FunctionRequirement",
-                    "hit_points": "#/$defs/HitPointsRequirement",
-                    "immunity": "#/$defs/ImmunityRequirement",
-                    "inventory_item": "#/$defs/InventoryItemRequirement",
-                    "level": "#/$defs/LevelRequirement",
-                    "perception": "#/$defs/PerceptionRequirement",
-                    "proximity": "#/$defs/ProximityRequirement",
-                    "resource": "#/$defs/ResourceRequirement",
-                    "size": "#/$defs/SizeRequirement",
-                    "spell": "#/$defs/SpellRequirement",
-                    "status": "#/$defs/StatusRequirement",
-                    "weapon_property": "#/$defs/WeaponPropertyRequirement"
-                  },
-                  "propertyName": "type"
-                },
-                "oneOf": [
-                  {
-                    "$ref": "#/$defs/EquipmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/PerceptionRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/WeaponPropertyRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/StatusRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CreatureTypeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackResultRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/InventoryItemRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AbilityCheckRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/HitPointsRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SpellRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/DistanceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ProximityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EffectTargetRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ImmunityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/LevelRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CombatStateRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EnvironmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ResourceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SizeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CountRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/FunctionRequirement"
-                  }
-                ]
-              },
+              "items": { "$ref": "#/$defs/MechanicRequirement" },
               "type": "array"
             },
             {
@@ -2057,103 +1673,7 @@
         "requirements": {
           "anyOf": [
             {
-              "items": {
-                "discriminator": {
-                  "mapping": {
-                    "ability_check": "#/$defs/AbilityCheckRequirement",
-                    "attack": "#/$defs/AttackRequirement",
-                    "attack_result": "#/$defs/AttackResultRequirement",
-                    "combat_state": "#/$defs/CombatStateRequirement",
-                    "count": "#/$defs/CountRequirement",
-                    "creature_type": "#/$defs/CreatureTypeRequirement",
-                    "distance": "#/$defs/DistanceRequirement",
-                    "effect_target": "#/$defs/EffectTargetRequirement",
-                    "environment": "#/$defs/EnvironmentRequirement",
-                    "equipment": "#/$defs/EquipmentRequirement",
-                    "function": "#/$defs/FunctionRequirement",
-                    "hit_points": "#/$defs/HitPointsRequirement",
-                    "immunity": "#/$defs/ImmunityRequirement",
-                    "inventory_item": "#/$defs/InventoryItemRequirement",
-                    "level": "#/$defs/LevelRequirement",
-                    "perception": "#/$defs/PerceptionRequirement",
-                    "proximity": "#/$defs/ProximityRequirement",
-                    "resource": "#/$defs/ResourceRequirement",
-                    "size": "#/$defs/SizeRequirement",
-                    "spell": "#/$defs/SpellRequirement",
-                    "status": "#/$defs/StatusRequirement",
-                    "weapon_property": "#/$defs/WeaponPropertyRequirement"
-                  },
-                  "propertyName": "type"
-                },
-                "oneOf": [
-                  {
-                    "$ref": "#/$defs/EquipmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/PerceptionRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/WeaponPropertyRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/StatusRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CreatureTypeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackResultRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/InventoryItemRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AbilityCheckRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/HitPointsRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SpellRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/DistanceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ProximityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EffectTargetRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ImmunityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/LevelRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CombatStateRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EnvironmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ResourceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SizeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CountRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/FunctionRequirement"
-                  }
-                ]
-              },
+              "items": { "$ref": "#/$defs/MechanicRequirement" },
               "type": "array"
             },
             {
@@ -3005,103 +2525,7 @@
         "requirements": {
           "anyOf": [
             {
-              "items": {
-                "discriminator": {
-                  "mapping": {
-                    "ability_check": "#/$defs/AbilityCheckRequirement",
-                    "attack": "#/$defs/AttackRequirement",
-                    "attack_result": "#/$defs/AttackResultRequirement",
-                    "combat_state": "#/$defs/CombatStateRequirement",
-                    "count": "#/$defs/CountRequirement",
-                    "creature_type": "#/$defs/CreatureTypeRequirement",
-                    "distance": "#/$defs/DistanceRequirement",
-                    "effect_target": "#/$defs/EffectTargetRequirement",
-                    "environment": "#/$defs/EnvironmentRequirement",
-                    "equipment": "#/$defs/EquipmentRequirement",
-                    "function": "#/$defs/FunctionRequirement",
-                    "hit_points": "#/$defs/HitPointsRequirement",
-                    "immunity": "#/$defs/ImmunityRequirement",
-                    "inventory_item": "#/$defs/InventoryItemRequirement",
-                    "level": "#/$defs/LevelRequirement",
-                    "perception": "#/$defs/PerceptionRequirement",
-                    "proximity": "#/$defs/ProximityRequirement",
-                    "resource": "#/$defs/ResourceRequirement",
-                    "size": "#/$defs/SizeRequirement",
-                    "spell": "#/$defs/SpellRequirement",
-                    "status": "#/$defs/StatusRequirement",
-                    "weapon_property": "#/$defs/WeaponPropertyRequirement"
-                  },
-                  "propertyName": "type"
-                },
-                "oneOf": [
-                  {
-                    "$ref": "#/$defs/EquipmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/PerceptionRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/WeaponPropertyRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/StatusRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CreatureTypeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackResultRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/InventoryItemRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AbilityCheckRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/HitPointsRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SpellRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/DistanceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ProximityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EffectTargetRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ImmunityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/LevelRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CombatStateRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EnvironmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ResourceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SizeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CountRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/FunctionRequirement"
-                  }
-                ]
-              },
+              "items": { "$ref": "#/$defs/MechanicRequirement" },
               "type": "array"
             },
             {
@@ -3158,103 +2582,7 @@
         "requirements": {
           "anyOf": [
             {
-              "items": {
-                "discriminator": {
-                  "mapping": {
-                    "ability_check": "#/$defs/AbilityCheckRequirement",
-                    "attack": "#/$defs/AttackRequirement",
-                    "attack_result": "#/$defs/AttackResultRequirement",
-                    "combat_state": "#/$defs/CombatStateRequirement",
-                    "count": "#/$defs/CountRequirement",
-                    "creature_type": "#/$defs/CreatureTypeRequirement",
-                    "distance": "#/$defs/DistanceRequirement",
-                    "effect_target": "#/$defs/EffectTargetRequirement",
-                    "environment": "#/$defs/EnvironmentRequirement",
-                    "equipment": "#/$defs/EquipmentRequirement",
-                    "function": "#/$defs/FunctionRequirement",
-                    "hit_points": "#/$defs/HitPointsRequirement",
-                    "immunity": "#/$defs/ImmunityRequirement",
-                    "inventory_item": "#/$defs/InventoryItemRequirement",
-                    "level": "#/$defs/LevelRequirement",
-                    "perception": "#/$defs/PerceptionRequirement",
-                    "proximity": "#/$defs/ProximityRequirement",
-                    "resource": "#/$defs/ResourceRequirement",
-                    "size": "#/$defs/SizeRequirement",
-                    "spell": "#/$defs/SpellRequirement",
-                    "status": "#/$defs/StatusRequirement",
-                    "weapon_property": "#/$defs/WeaponPropertyRequirement"
-                  },
-                  "propertyName": "type"
-                },
-                "oneOf": [
-                  {
-                    "$ref": "#/$defs/EquipmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/PerceptionRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/WeaponPropertyRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/StatusRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CreatureTypeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackResultRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/InventoryItemRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AbilityCheckRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/HitPointsRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SpellRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/DistanceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ProximityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EffectTargetRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ImmunityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/LevelRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CombatStateRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EnvironmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ResourceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SizeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CountRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/FunctionRequirement"
-                  }
-                ]
-              },
+              "items": { "$ref": "#/$defs/MechanicRequirement" },
               "type": "array"
             },
             {
@@ -3717,6 +3045,7 @@
                     "environment": "#/$defs/EnvironmentRequirement",
                     "equipment": "#/$defs/EquipmentRequirement",
                     "function": "#/$defs/FunctionRequirement",
+                    "proficiency": "#/$defs/ProficiencyRequirement",
                     "hit_points": "#/$defs/HitPointsRequirement",
                     "immunity": "#/$defs/ImmunityRequirement",
                     "inventory_item": "#/$defs/InventoryItemRequirement",
@@ -3798,6 +3127,9 @@
                   },
                   {
                     "$ref": "#/$defs/FunctionRequirement"
+                  },
+                  {
+                    "$ref": "#/$defs/ProficiencyRequirement"
                   },
                   {
                     "$ref": "#/$defs/AttributeRequirement"
@@ -4710,103 +4042,7 @@
         "requirements": {
           "anyOf": [
             {
-              "items": {
-                "discriminator": {
-                  "mapping": {
-                    "ability_check": "#/$defs/AbilityCheckRequirement",
-                    "attack": "#/$defs/AttackRequirement",
-                    "attack_result": "#/$defs/AttackResultRequirement",
-                    "combat_state": "#/$defs/CombatStateRequirement",
-                    "count": "#/$defs/CountRequirement",
-                    "creature_type": "#/$defs/CreatureTypeRequirement",
-                    "distance": "#/$defs/DistanceRequirement",
-                    "effect_target": "#/$defs/EffectTargetRequirement",
-                    "environment": "#/$defs/EnvironmentRequirement",
-                    "equipment": "#/$defs/EquipmentRequirement",
-                    "function": "#/$defs/FunctionRequirement",
-                    "hit_points": "#/$defs/HitPointsRequirement",
-                    "immunity": "#/$defs/ImmunityRequirement",
-                    "inventory_item": "#/$defs/InventoryItemRequirement",
-                    "level": "#/$defs/LevelRequirement",
-                    "perception": "#/$defs/PerceptionRequirement",
-                    "proximity": "#/$defs/ProximityRequirement",
-                    "resource": "#/$defs/ResourceRequirement",
-                    "size": "#/$defs/SizeRequirement",
-                    "spell": "#/$defs/SpellRequirement",
-                    "status": "#/$defs/StatusRequirement",
-                    "weapon_property": "#/$defs/WeaponPropertyRequirement"
-                  },
-                  "propertyName": "type"
-                },
-                "oneOf": [
-                  {
-                    "$ref": "#/$defs/EquipmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/PerceptionRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/WeaponPropertyRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/StatusRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CreatureTypeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackResultRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/InventoryItemRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AbilityCheckRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/HitPointsRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SpellRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/DistanceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ProximityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EffectTargetRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ImmunityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/LevelRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CombatStateRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EnvironmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ResourceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SizeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CountRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/FunctionRequirement"
-                  }
-                ]
-              },
+              "items": { "$ref": "#/$defs/MechanicRequirement" },
               "type": "array"
             },
             {
@@ -6053,103 +5289,7 @@
         "requirements": {
           "anyOf": [
             {
-              "items": {
-                "discriminator": {
-                  "mapping": {
-                    "ability_check": "#/$defs/AbilityCheckRequirement",
-                    "attack": "#/$defs/AttackRequirement",
-                    "attack_result": "#/$defs/AttackResultRequirement",
-                    "combat_state": "#/$defs/CombatStateRequirement",
-                    "count": "#/$defs/CountRequirement",
-                    "creature_type": "#/$defs/CreatureTypeRequirement",
-                    "distance": "#/$defs/DistanceRequirement",
-                    "effect_target": "#/$defs/EffectTargetRequirement",
-                    "environment": "#/$defs/EnvironmentRequirement",
-                    "equipment": "#/$defs/EquipmentRequirement",
-                    "function": "#/$defs/FunctionRequirement",
-                    "hit_points": "#/$defs/HitPointsRequirement",
-                    "immunity": "#/$defs/ImmunityRequirement",
-                    "inventory_item": "#/$defs/InventoryItemRequirement",
-                    "level": "#/$defs/LevelRequirement",
-                    "perception": "#/$defs/PerceptionRequirement",
-                    "proximity": "#/$defs/ProximityRequirement",
-                    "resource": "#/$defs/ResourceRequirement",
-                    "size": "#/$defs/SizeRequirement",
-                    "spell": "#/$defs/SpellRequirement",
-                    "status": "#/$defs/StatusRequirement",
-                    "weapon_property": "#/$defs/WeaponPropertyRequirement"
-                  },
-                  "propertyName": "type"
-                },
-                "oneOf": [
-                  {
-                    "$ref": "#/$defs/EquipmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/PerceptionRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/WeaponPropertyRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/StatusRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CreatureTypeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackResultRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/InventoryItemRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AbilityCheckRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/HitPointsRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SpellRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/DistanceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ProximityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EffectTargetRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ImmunityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/LevelRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CombatStateRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EnvironmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ResourceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SizeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CountRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/FunctionRequirement"
-                  }
-                ]
-              },
+              "items": { "$ref": "#/$defs/MechanicRequirement" },
               "type": "array"
             },
             {
@@ -6225,6 +5365,86 @@
       },
       "required": ["entities", "distance", "to"],
       "title": "ProximityRequirement",
+      "type": "object"
+    },
+    "MechanicRequirement": {
+      "description": "A single mechanic requirement, discriminated by type.",
+      "discriminator": {
+        "mapping": {
+          "ability_check": "#/$defs/AbilityCheckRequirement",
+          "attack": "#/$defs/AttackRequirement",
+          "attack_result": "#/$defs/AttackResultRequirement",
+          "combat_state": "#/$defs/CombatStateRequirement",
+          "count": "#/$defs/CountRequirement",
+          "creature_type": "#/$defs/CreatureTypeRequirement",
+          "distance": "#/$defs/DistanceRequirement",
+          "effect_target": "#/$defs/EffectTargetRequirement",
+          "environment": "#/$defs/EnvironmentRequirement",
+          "equipment": "#/$defs/EquipmentRequirement",
+          "function": "#/$defs/FunctionRequirement",
+          "proficiency": "#/$defs/ProficiencyRequirement",
+          "hit_points": "#/$defs/HitPointsRequirement",
+          "immunity": "#/$defs/ImmunityRequirement",
+          "inventory_item": "#/$defs/InventoryItemRequirement",
+          "level": "#/$defs/LevelRequirement",
+          "perception": "#/$defs/PerceptionRequirement",
+          "proximity": "#/$defs/ProximityRequirement",
+          "resource": "#/$defs/ResourceRequirement",
+          "size": "#/$defs/SizeRequirement",
+          "spell": "#/$defs/SpellRequirement",
+          "status": "#/$defs/StatusRequirement",
+          "weapon_property": "#/$defs/WeaponPropertyRequirement"
+        },
+        "propertyName": "type"
+      },
+      "oneOf": [
+        { "$ref": "#/$defs/AbilityCheckRequirement" },
+        { "$ref": "#/$defs/AttackRequirement" },
+        { "$ref": "#/$defs/AttackResultRequirement" },
+        { "$ref": "#/$defs/CombatStateRequirement" },
+        { "$ref": "#/$defs/CountRequirement" },
+        { "$ref": "#/$defs/CreatureTypeRequirement" },
+        { "$ref": "#/$defs/DistanceRequirement" },
+        { "$ref": "#/$defs/EffectTargetRequirement" },
+        { "$ref": "#/$defs/EnvironmentRequirement" },
+        { "$ref": "#/$defs/EquipmentRequirement" },
+        { "$ref": "#/$defs/FunctionRequirement" },
+        { "$ref": "#/$defs/HitPointsRequirement" },
+        { "$ref": "#/$defs/ImmunityRequirement" },
+        { "$ref": "#/$defs/InventoryItemRequirement" },
+        { "$ref": "#/$defs/LevelRequirement" },
+        { "$ref": "#/$defs/PerceptionRequirement" },
+        { "$ref": "#/$defs/ProficiencyRequirement" },
+        { "$ref": "#/$defs/ProximityRequirement" },
+        { "$ref": "#/$defs/ResourceRequirement" },
+        { "$ref": "#/$defs/SizeRequirement" },
+        { "$ref": "#/$defs/SpellRequirement" },
+        { "$ref": "#/$defs/StatusRequirement" },
+        { "$ref": "#/$defs/WeaponPropertyRequirement" }
+      ]
+    },
+    "ProficiencyRequirement": {
+      "description": "Requirement that the character has a specific proficiency.",
+      "properties": {
+        "type": {
+          "const": "proficiency",
+          "default": "proficiency",
+          "title": "Type",
+          "type": "string"
+        },
+        "category": {
+          "description": "Proficiency category (e.g., 'armor', 'weapon', 'tool', 'skill')",
+          "title": "Category",
+          "type": "string"
+        },
+        "value": {
+          "description": "Specific proficiency required (e.g., 'medium', 'Heavy Armor', 'Stealth')",
+          "title": "Value",
+          "type": "string"
+        }
+      },
+      "required": ["category", "value"],
+      "title": "ProficiencyRequirement",
       "type": "object"
     },
     "Query": {
@@ -7292,103 +6512,7 @@
         "requirements": {
           "anyOf": [
             {
-              "items": {
-                "discriminator": {
-                  "mapping": {
-                    "ability_check": "#/$defs/AbilityCheckRequirement",
-                    "attack": "#/$defs/AttackRequirement",
-                    "attack_result": "#/$defs/AttackResultRequirement",
-                    "combat_state": "#/$defs/CombatStateRequirement",
-                    "count": "#/$defs/CountRequirement",
-                    "creature_type": "#/$defs/CreatureTypeRequirement",
-                    "distance": "#/$defs/DistanceRequirement",
-                    "effect_target": "#/$defs/EffectTargetRequirement",
-                    "environment": "#/$defs/EnvironmentRequirement",
-                    "equipment": "#/$defs/EquipmentRequirement",
-                    "function": "#/$defs/FunctionRequirement",
-                    "hit_points": "#/$defs/HitPointsRequirement",
-                    "immunity": "#/$defs/ImmunityRequirement",
-                    "inventory_item": "#/$defs/InventoryItemRequirement",
-                    "level": "#/$defs/LevelRequirement",
-                    "perception": "#/$defs/PerceptionRequirement",
-                    "proximity": "#/$defs/ProximityRequirement",
-                    "resource": "#/$defs/ResourceRequirement",
-                    "size": "#/$defs/SizeRequirement",
-                    "spell": "#/$defs/SpellRequirement",
-                    "status": "#/$defs/StatusRequirement",
-                    "weapon_property": "#/$defs/WeaponPropertyRequirement"
-                  },
-                  "propertyName": "type"
-                },
-                "oneOf": [
-                  {
-                    "$ref": "#/$defs/EquipmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/PerceptionRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/WeaponPropertyRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/StatusRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CreatureTypeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackResultRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/InventoryItemRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AbilityCheckRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/HitPointsRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SpellRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/DistanceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ProximityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EffectTargetRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ImmunityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/LevelRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CombatStateRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EnvironmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ResourceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SizeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CountRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/FunctionRequirement"
-                  }
-                ]
-              },
+              "items": { "$ref": "#/$defs/MechanicRequirement" },
               "type": "array"
             },
             {
@@ -7699,103 +6823,7 @@
         "requirements": {
           "anyOf": [
             {
-              "items": {
-                "discriminator": {
-                  "mapping": {
-                    "ability_check": "#/$defs/AbilityCheckRequirement",
-                    "attack": "#/$defs/AttackRequirement",
-                    "attack_result": "#/$defs/AttackResultRequirement",
-                    "combat_state": "#/$defs/CombatStateRequirement",
-                    "count": "#/$defs/CountRequirement",
-                    "creature_type": "#/$defs/CreatureTypeRequirement",
-                    "distance": "#/$defs/DistanceRequirement",
-                    "effect_target": "#/$defs/EffectTargetRequirement",
-                    "environment": "#/$defs/EnvironmentRequirement",
-                    "equipment": "#/$defs/EquipmentRequirement",
-                    "function": "#/$defs/FunctionRequirement",
-                    "hit_points": "#/$defs/HitPointsRequirement",
-                    "immunity": "#/$defs/ImmunityRequirement",
-                    "inventory_item": "#/$defs/InventoryItemRequirement",
-                    "level": "#/$defs/LevelRequirement",
-                    "perception": "#/$defs/PerceptionRequirement",
-                    "proximity": "#/$defs/ProximityRequirement",
-                    "resource": "#/$defs/ResourceRequirement",
-                    "size": "#/$defs/SizeRequirement",
-                    "spell": "#/$defs/SpellRequirement",
-                    "status": "#/$defs/StatusRequirement",
-                    "weapon_property": "#/$defs/WeaponPropertyRequirement"
-                  },
-                  "propertyName": "type"
-                },
-                "oneOf": [
-                  {
-                    "$ref": "#/$defs/EquipmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/PerceptionRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/WeaponPropertyRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/StatusRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CreatureTypeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackResultRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/InventoryItemRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AbilityCheckRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/HitPointsRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SpellRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/DistanceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ProximityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EffectTargetRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ImmunityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/LevelRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CombatStateRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EnvironmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ResourceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SizeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CountRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/FunctionRequirement"
-                  }
-                ]
-              },
+              "items": { "$ref": "#/$defs/MechanicRequirement" },
               "type": "array"
             },
             {

@@ -45,7 +45,8 @@
                   "attribute": "common.schema.json#/$defs/AttributeRequirement",
                   "equipment": "common.schema.json#/$defs/EquipmentRequirement",
                   "function": "common.schema.json#/$defs/FunctionRequirement",
-                  "level": "common.schema.json#/$defs/LevelRequirement"
+                  "level": "common.schema.json#/$defs/LevelRequirement",
+                  "proficiency": "common.schema.json#/$defs/ProficiencyRequirement"
                 },
                 "propertyName": "type"
               },
@@ -53,7 +54,8 @@
                 { "$ref": "common.schema.json#/$defs/AttributeRequirement" },
                 { "$ref": "common.schema.json#/$defs/EquipmentRequirement" },
                 { "$ref": "common.schema.json#/$defs/FunctionRequirement" },
-                { "$ref": "common.schema.json#/$defs/LevelRequirement" }
+                { "$ref": "common.schema.json#/$defs/LevelRequirement" },
+                { "$ref": "common.schema.json#/$defs/ProficiencyRequirement" }
               ]
             },
             "type": "array"
