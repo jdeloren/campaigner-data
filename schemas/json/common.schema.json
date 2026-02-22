@@ -3456,6 +3456,7 @@
                   "effect": "#/$defs/EffectImmunity",
                   "spell": "#/$defs/SpellImmunity",
                   "status": "#/$defs/StatusImmunity",
+                  "terrain": "#/$defs/TerrainImmunity",
                   "trigger": "#/$defs/TriggerImmunity"
                 },
                 "propertyName": "category"
@@ -3469,6 +3470,9 @@
                 },
                 {
                   "$ref": "#/$defs/EffectImmunity"
+                },
+                {
+                  "$ref": "#/$defs/TerrainImmunity"
                 },
                 {
                   "$ref": "#/$defs/TriggerImmunity"
@@ -4274,6 +4278,7 @@
                   "effect": "#/$defs/EffectImmunity",
                   "spell": "#/$defs/SpellImmunity",
                   "status": "#/$defs/StatusImmunity",
+                  "terrain": "#/$defs/TerrainImmunity",
                   "trigger": "#/$defs/TriggerImmunity"
                 },
                 "propertyName": "category"
@@ -4287,6 +4292,9 @@
                 },
                 {
                   "$ref": "#/$defs/EffectImmunity"
+                },
+                {
+                  "$ref": "#/$defs/TerrainImmunity"
                 },
                 {
                   "$ref": "#/$defs/TriggerImmunity"
@@ -7690,6 +7698,26 @@
       ],
       "title": "TriggerEvent",
       "type": "string"
+    },
+    "TerrainImmunity": {
+      "description": "Immunity to a terrain type (e.g., difficult terrain doesn't cost extra movement).",
+      "properties": {
+        "category": {
+          "const": "terrain",
+          "default": "terrain",
+          "title": "Category",
+          "type": "string"
+        },
+        "type": {
+          "description": "Terrain type immune to",
+          "enum": ["difficult", "greater_difficult"],
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": ["type"],
+      "title": "TerrainImmunity",
+      "type": "object"
     },
     "TriggerImmunity": {
       "description": "Immunity to a triggered event (e.g., opportunity attack).",
