@@ -124,7 +124,7 @@
         "requirements": [
           {
             "type": "equipment",
-            "item": "holy symbol"
+            "item": ["holy symbol"]
           }
         ],
         "effects": [
@@ -207,7 +207,7 @@
         "requirements": [
           {
             "type": "equipment",
-            "item": "holy symbol"
+            "item": ["holy symbol"]
           }
         ],
         "effects": [

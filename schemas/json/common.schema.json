@@ -272,18 +272,8 @@
           "description": "Target of the effect (e.g., {'type': 'attacker'}, {'type': 'attackers'})"
         },
         "requirements": {
-          "anyOf": [
-            {
-              "items": { "$ref": "#/$defs/MechanicRequirement" },
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Conditions for the advantage to apply",
-          "title": "Requirements"
+          "$ref": "#/$defs/RequirementSet",
+          "description": "Conditions for the advantage to apply"
         },
         "count": {
           "anyOf": [
@@ -329,18 +319,8 @@
           "type": "string"
         },
         "requirements": {
-          "anyOf": [
-            {
-              "items": { "$ref": "#/$defs/MechanicRequirement" },
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Conditions that must be met",
-          "title": "Requirements"
+          "$ref": "#/$defs/RequirementSet",
+          "description": "Conditions that must be met"
         }
       },
       "required": ["event"],
@@ -724,18 +704,8 @@
           "description": "Data query whose results populate the attribute"
         },
         "requirements": {
-          "anyOf": [
-            {
-              "items": { "$ref": "#/$defs/MechanicRequirement" },
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Conditions that must be met for this modification to apply",
-          "title": "Requirements"
+          "$ref": "#/$defs/RequirementSet",
+          "description": "Conditions that must be met for this modification to apply"
         }
       },
       "required": ["target"],
@@ -1042,18 +1012,8 @@
           "title": "Scaling"
         },
         "requirements": {
-          "anyOf": [
-            {
-              "items": { "$ref": "#/$defs/MechanicRequirement" },
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Requirements that must be met for this mechanic to apply",
-          "title": "Requirements"
+          "$ref": "#/$defs/RequirementSet",
+          "description": "Requirements that must be met for this mechanic to apply"
         },
         "suggested": {
           "default": false,
@@ -1671,18 +1631,8 @@
           "title": "Effects"
         },
         "requirements": {
-          "anyOf": [
-            {
-              "items": { "$ref": "#/$defs/MechanicRequirement" },
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Requirements that must be met",
-          "title": "Requirements"
+          "$ref": "#/$defs/RequirementSet",
+          "description": "Requirements that must be met"
         },
         "scaling": {
           "anyOf": [
@@ -2523,18 +2473,8 @@
           "description": "Target of the effect (e.g., {'type': 'attacker'}, {'type': 'attackers'})"
         },
         "requirements": {
-          "anyOf": [
-            {
-              "items": { "$ref": "#/$defs/MechanicRequirement" },
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Conditions for the disadvantage to apply",
-          "title": "Requirements"
+          "$ref": "#/$defs/RequirementSet",
+          "description": "Conditions for the disadvantage to apply"
         },
         "count": {
           "anyOf": [
@@ -2580,18 +2520,8 @@
           "type": "string"
         },
         "requirements": {
-          "anyOf": [
-            {
-              "items": { "$ref": "#/$defs/MechanicRequirement" },
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Conditions that must be met",
-          "title": "Requirements"
+          "$ref": "#/$defs/RequirementSet",
+          "description": "Conditions that must be met"
         }
       },
       "required": ["skill"],
@@ -3957,14 +3887,17 @@
         "item": {
           "anyOf": [
             {
-              "type": "string"
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
             },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "description": "Specific item that must be equipped (for accessories)",
+          "description": "Item(s) that must be equipped (matches any one)",
           "title": "Item"
         },
         "function": {
@@ -4044,18 +3977,8 @@
           "title": "Type"
         },
         "requirements": {
-          "anyOf": [
-            {
-              "items": { "$ref": "#/$defs/MechanicRequirement" },
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Conditions for this movement to apply (e.g., size limits)",
-          "title": "Requirements"
+          "$ref": "#/$defs/RequirementSet",
+          "description": "Conditions for this movement to apply (e.g., size limits)"
         },
         "cost": {
           "anyOf": [
@@ -5295,18 +5218,8 @@
           "type": "array"
         },
         "requirements": {
-          "anyOf": [
-            {
-              "items": { "$ref": "#/$defs/MechanicRequirement" },
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Requirements that must be met",
-          "title": "Requirements"
+          "$ref": "#/$defs/RequirementSet",
+          "description": "Requirements that must be met"
         }
       },
       "required": ["type", "category", "proficiencies"],
@@ -5401,12 +5314,14 @@
           "size": "#/$defs/SizeRequirement",
           "spell": "#/$defs/SpellRequirement",
           "status": "#/$defs/StatusRequirement",
-          "weapon_property": "#/$defs/WeaponPropertyRequirement"
+          "weapon_property": "#/$defs/WeaponPropertyRequirement",
+          "attribute": "#/$defs/AttributeRequirement"
         },
         "propertyName": "type"
       },
       "oneOf": [
         { "$ref": "#/$defs/AbilityCheckRequirement" },
+        { "$ref": "#/$defs/AttributeRequirement" },
         { "$ref": "#/$defs/AttackRequirement" },
         { "$ref": "#/$defs/AttackResultRequirement" },
         { "$ref": "#/$defs/CombatStateRequirement" },
@@ -5430,6 +5345,35 @@
         { "$ref": "#/$defs/StatusRequirement" },
         { "$ref": "#/$defs/WeaponPropertyRequirement" }
       ]
+    },
+    "RequirementSet": {
+      "description": "A set of requirements. Array form uses AND logic (all must be met). Object form with any:true uses OR logic (one must be met).",
+      "anyOf": [
+        {
+          "items": { "$ref": "#/$defs/MechanicRequirement" },
+          "type": "array"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "any": {
+              "const": true,
+              "description": "When true, only one condition needs to be met (OR logic)",
+              "type": "boolean"
+            },
+            "conditions": {
+              "items": { "$ref": "#/$defs/MechanicRequirement" },
+              "type": "array"
+            }
+          },
+          "required": ["any", "conditions"],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
     },
     "ProficiencyRequirement": {
       "description": "Requirement that the character has a specific proficiency.",
@@ -6518,18 +6462,8 @@
           "description": "When the ability recharges"
         },
         "requirements": {
-          "anyOf": [
-            {
-              "items": { "$ref": "#/$defs/MechanicRequirement" },
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Requirements (e.g., minimum level)",
-          "title": "Requirements"
+          "$ref": "#/$defs/RequirementSet",
+          "description": "Requirements (e.g., minimum level)"
         }
       },
       "required": ["type", "ability"],
@@ -6829,18 +6763,8 @@
           "title": "Modifier"
         },
         "requirements": {
-          "anyOf": [
-            {
-              "items": { "$ref": "#/$defs/MechanicRequirement" },
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Conditions that must be met for this immunity",
-          "title": "Requirements"
+          "$ref": "#/$defs/RequirementSet",
+          "description": "Conditions that must be met for this immunity"
         }
       },
       "required": ["status"],

@@ -192,7 +192,7 @@
         "effects": [
           {
             "attribute": {
-              "target": "movement.running_jump_minimum",
+              "target": "movement.jump.running.move",
               "calculation": {
                 "operation": "set",
                 "operators": [{ "type": "integer", "value": 5 }]
@@ -319,7 +319,7 @@
         "requirements": [
           {
             "type": "equipment",
-            "item": "Cook's Utensils"
+            "item": ["Cook's Utensils"]
           }
         ],
         "target": {
@@ -349,7 +349,7 @@
         "requirements": [
           {
             "type": "equipment",
-            "item": "Cook's Utensils"
+            "item": ["Cook's Utensils"]
           }
         ],
         "effects": [
@@ -435,7 +435,7 @@
           },
           {
             "type": "equipment",
-            "item": "Hand Crossbow",
+            "item": ["Hand Crossbow"],
             "holding": true
           }
         ],
@@ -1235,7 +1235,7 @@
           {
             "type": "equipment",
             "category": "gear",
-            "item": "Healer's Kit",
+            "item": ["Healer's Kit"],
             "consume": true
           }
         ],
@@ -1575,6 +1575,650 @@
             }
           }
         ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:mage-slayer",
+    "name": "Mage Slayer",
+    "description": "You have practiced techniques useful in melee combat against spellcasters, gaining the following benefits:",
+    "bonuses": [
+      "When a creature within 5 feet of you casts a spell, you can use your reaction to make a melee weapon attack against that creature.",
+      "When you damage a creature that is concentrating on a spell, that creature has disadvantage on the saving throw it makes to maintain its concentration.",
+      "You have advantage on saving throws against spells cast by creatures within 5 feet of you."
+    ],
+    "mechanics": [
+      {
+        "type": "reaction",
+        "name": "Mage Slayer Attack",
+        "trigger": {
+          "event": ["cast_spell"],
+          "source": {
+            "range": { "value": 5, "unit": "feet" }
+          }
+        },
+        "effects": [
+          {
+            "grants": {
+              "name": "Attack",
+              "type": "melee"
+            }
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "name": "Saving Throw Advantage",
+        "trigger": {
+          "event": ["saving_throw"],
+          "source": {
+            "type": ["spell"],
+            "range": { "value": 5, "unit": "feet" }
+          }
+        },
+        "effects": [
+          {
+            "advantage": {
+              "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
+            }
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "name": "Concentration Disruption",
+        "trigger": {
+          "event": ["damage"]
+        },
+        "effects": [
+          {
+            "disadvantage": {
+              "saving_throw": ["Constitution"]
+            },
+            "target": {
+              "type": "event_recipient"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:magic-initiate",
+    "name": "Magic Initiate",
+    "description": "Choose a class: bard, cleric, druid, sorcerer, warlock, or wizard. You learn two cantrips of your choice from that class's spell list. In addition, choose one 1st-level spell from that same list. You learn that spell and can cast it at its lowest level. Once you cast it, you must finish a long rest before you can cast it again using this feat.",
+    "bonuses": [
+      "You learn two cantrips of your choice from a chosen class's spell list.",
+      "You learn one 1st-level spell from that same list. You can cast it once per long rest without expending a spell slot.",
+      "Your spellcasting ability for these spells depends on the class you chose: Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid; or Intelligence for wizard."
+    ],
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "query",
+        "name": "Spellcasting Class",
+        "count": 1,
+        "query": {
+          "source": "classes",
+          "params": {
+            "capability": "spellcasting"
+          }
+        }
+      },
+      {
+        "type": "choice",
+        "choice_type": "query",
+        "name": "Cantrips",
+        "count": 2,
+        "query": {
+          "source": "spells",
+          "params": {
+            "level": 0
+          }
+        }
+      },
+      {
+        "type": "spellcasting",
+        "name": "1st-Level Spell",
+        "ability": "selected_class",
+        "query": {
+          "source": "spells",
+          "params": {
+            "level": 1
+          }
+        },
+        "uses": {
+          "value": 1
+        },
+        "recharge": "long_rest"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:martial-adept",
+    "name": "Martial Adept",
+    "description": "You have martial training that allows you to perform special combat maneuvers.",
+    "bonuses": [
+      "You learn two maneuvers of your choice from among those available to the Battle Master archetype in the fighter class.",
+      "You gain one superiority die, which is a d6. This die is used to fuel your maneuvers. It is added to any superiority dice you have from another source. If you don't have superiority dice, the die is expended when you use it. You regain it when you finish a short or long rest."
+    ],
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "query",
+        "count": 2,
+        "query": {
+          "source": "maneuvers"
+        }
+      },
+      {
+        "type": "resource",
+        "id": "superiority_dice",
+        "name": "Superiority Dice",
+        "count": 1,
+        "recharge": "short_rest",
+        "dice_sides": 6
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:medium-armor-master",
+    "name": "Medium Armor Master",
+    "description": "You have practiced moving in medium armor to gain the following benefits:",
+    "requirements": [
+      {
+        "type": "proficiency",
+        "category": "armor",
+        "value": "Medium Armor"
+      }
+    ],
+    "bonuses": [
+      "Wearing medium armor doesn't impose disadvantage on your Dexterity (Stealth) checks.",
+      "When you wear medium armor, you can add 3, rather than 2, from your Dexterity modifier to your AC."
+    ],
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "No Stealth Penalty",
+        "effects": [
+          {
+            "attribute": {
+              "target": "armor.stealth_disadvantage",
+              "calculation": {
+                "operation": "set",
+                "operators": [{ "type": "boolean", "value": false }]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "name": "Increased Dex Cap",
+        "effects": [
+          {
+            "attribute": {
+              "target": "armor.max_dex_bonus",
+              "calculation": {
+                "operation": "set",
+                "operators": [{ "type": "integer", "value": 3 }]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:metamagic-adept",
+    "name": "Metamagic Adept",
+    "description": "You've learned how to exert your will on your spells to alter how they function.",
+    "requirements": [
+      {
+        "type": "attribute",
+        "attribute": "spell_slots",
+        "minimum": 1
+      }
+    ],
+    "bonuses": [
+      "You learn two Metamagic options of your choice from the sorcerer class. You can use only one Metamagic option on a spell when you cast it, unless the option says otherwise. Whenever you reach a level that grants the Ability Score Improvement feature, you can replace one of these Metamagic options with another one from the sorcerer class.",
+      "You gain 2 sorcery points to spend on Metamagic (these points are added to any sorcery points you have from another source but can only be used for Metamagic). You regain all spent sorcery points when you finish a long rest."
+    ],
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "query",
+        "count": 2,
+        "query": {
+          "source": "metamagic"
+        }
+      },
+      {
+        "type": "resource",
+        "id": "sorcery_points",
+        "name": "Sorcery Points",
+        "count": 2,
+        "recharge": "long_rest"
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:mobile",
+    "name": "Mobile",
+    "description": "You are exceptionally speedy and agile. You gain the following benefits:",
+    "bonuses": [
+      "Your speed increases by 10 feet.",
+      "When you use the Dash action, difficult terrain doesn't cost you extra movement on that turn.",
+      "When you make a melee attack against a creature, you don't provoke opportunity attacks from that creature for the rest of the turn, whether you hit or not."
+    ],
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "Speed Increase",
+        "effects": [
+          {
+            "attribute": {
+              "target": "movement.base",
+              "calculation": {
+                "operation": "add",
+                "operators": [{ "type": "integer", "value": 10 }]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "name": "Nimble Dash",
+        "trigger": {
+          "event": ["move"],
+          "action": "dash"
+        },
+        "effects": [
+          {
+            "immunity": {
+              "category": "terrain",
+              "type": "difficult"
+            }
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "name": "Elusive Target",
+        "trigger": {
+          "event": ["attack"],
+          "source": {
+            "type": ["melee"]
+          }
+        },
+        "effects": [
+          {
+            "immunity": {
+              "category": "trigger",
+              "to": "opportunity_attack",
+              "from": "attack_target"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:moderately-armored",
+    "name": "Moderately Armored",
+    "description": "You have trained to master the use of medium armor and shields, gaining the following benefits:",
+    "requirements": [
+      {
+        "type": "proficiency",
+        "category": "armor",
+        "value": "Light Armor"
+      }
+    ],
+    "bonuses": [
+      "Increase your Strength or Dexterity score by 1, to a maximum of 20.",
+      "You gain proficiency with medium armor and shields."
+    ],
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "ability_score",
+        "name": "Ability Score Increase",
+        "count": 1,
+        "options": [
+          { "type": "simple", "name": "Strength" },
+          { "type": "simple", "name": "Dexterity" }
+        ],
+        "value": {
+          "operation": "add",
+          "operators": [{ "type": "integer", "value": 1 }]
+        }
+      },
+      {
+        "type": "proficiency",
+        "category": "armor",
+        "proficiencies": ["Medium Armor", "Shield"]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:observant",
+    "name": "Observant",
+    "description": "Quick to notice details of your environment, you gain the following benefits:",
+    "bonuses": [
+      "Increase your Intelligence or Wisdom score by 1, to a maximum of 20.",
+      "If you can see a creature's mouth while it is speaking a language you understand, you can interpret what it's saying by reading its lips.",
+      "You have a +5 bonus to your passive Wisdom (Perception) and passive Intelligence (Investigation) scores."
+    ],
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "ability_score",
+        "name": "Ability Score Increase",
+        "count": 1,
+        "options": [
+          { "type": "simple", "name": "Intelligence" },
+          { "type": "simple", "name": "Wisdom" }
+        ],
+        "value": {
+          "operation": "add",
+          "operators": [{ "type": "integer", "value": 1 }]
+        }
+      },
+      {
+        "type": "passive",
+        "name": "Passive Perception Bonus",
+        "effects": [
+          {
+            "attribute": {
+              "target": "senses.perception",
+              "calculation": {
+                "operation": "add",
+                "operators": [{ "type": "integer", "value": 5 }]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "name": "Passive Investigation Bonus",
+        "effects": [
+          {
+            "attribute": {
+              "target": "senses.investigation",
+              "calculation": {
+                "operation": "add",
+                "operators": [{ "type": "integer", "value": 5 }]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:piercer",
+    "name": "Piercer",
+    "description": "You have achieved a penetrating precision in combat, granting you the following benefits:",
+    "bonuses": [
+      "Increase your Strength or Dexterity by 1, to a maximum of 20.",
+      "Once per turn, when you hit a creature with an attack that deals piercing damage, you can reroll one of the attack's damage dice and use the new roll.",
+      "When you score a critical hit that deals piercing damage to a creature, you can roll one additional damage die when determining the extra piercing damage the target takes."
+    ],
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "ability_score",
+        "name": "Ability Score Increase",
+        "count": 1,
+        "options": [
+          { "type": "simple", "name": "Strength" },
+          { "type": "simple", "name": "Dexterity" }
+        ],
+        "value": {
+          "operation": "add",
+          "operators": [{ "type": "integer", "value": 1 }]
+        }
+      },
+      {
+        "type": "optional",
+        "name": "Piercing Reroll",
+        "trigger": {
+          "event": ["damage"],
+          "damage_type": "piercing"
+        },
+        "effects": [
+          {
+            "roll_modifier": {
+              "reroll": {
+                "replace": true
+              }
+            }
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "turn"
+      },
+      {
+        "type": "critical_hit",
+        "name": "Piercing Critical",
+        "trigger": {
+          "event": ["hit"],
+          "damage_type": "piercing"
+        },
+        "effects": [
+          {
+            "damage_bonus": {
+              "extra_dice": 1,
+              "inherit_type": true
+            }
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:poisoner",
+    "name": "Poisoner",
+    "description": "You can prepare and deliver deadly poisons, granting you the following benefits:",
+    "bonuses": [
+      "When you make a damage roll that deals poison damage, it ignores resistance to poison damage.",
+      "You gain proficiency with the poisoner's kit if you don't already have it.",
+      "As an action, you can apply a poison you have to one weapon or up to three pieces of ammunition. A creature hit must succeed on a DC 14 Constitution saving throw or take 2d8 poison damage and become poisoned until the end of your next turn."
+    ],
+    "mechanics": [
+      {
+        "type": "immunity",
+        "name": "Bypass Poison Resistance",
+        "trigger": {
+          "event": ["damage"],
+          "damage_type": "poison"
+        }
+      },
+      {
+        "type": "proficiency",
+        "category": "tool",
+        "proficiencies": ["Poisoner's Kit"]
+      },
+      {
+        "type": "action",
+        "name": "Apply Poison",
+        "requirements": [
+          {
+            "type": "inventory_item",
+            "name_contains": ["Poison"]
+          }
+        ],
+        "saving_throw": {
+          "ability": "Constitution",
+          "dc": {
+            "base": 14
+          }
+        },
+        "damage": {
+          "dice": "2d8",
+          "type": ["poison"]
+        },
+        "effects": [
+          {
+            "apply_status": {
+              "id": "status:poisoned"
+            },
+            "duration": {
+              "value": 1,
+              "unit": "rounds",
+              "until": ["end_turn"]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:polearm-master",
+    "name": "Polearm Master",
+    "description": "You can keep your enemies at bay with reach weapons. You gain the following benefits:",
+    "bonuses": [
+      "When you take the Attack action and attack with only a glaive, halberd, quarterstaff, or spear, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.",
+      "While you are wielding a glaive, halberd, pike, quarterstaff, or spear, other creatures provoke an opportunity attack from you when they enter your reach."
+    ],
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "name": "Butt End Attack",
+        "requirements": [
+          {
+            "type": "equipment",
+            "item": ["Glaive", "Halberd", "Quarterstaff", "Spear"]
+          }
+        ],
+        "grants": {
+          "name": "Attack",
+          "count": 1,
+          "activation": "bonus_action",
+          "interaction": {
+            "name": "Attack"
+          }
+        },
+        "damage": {
+          "dice": "1d4",
+          "type": ["bludgeoning"]
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:resilient",
+    "name": "Resilient",
+    "description": "Choose one ability score. You gain the following benefits:",
+    "bonuses": [
+      "Increase the chosen ability score by 1, to a maximum of 20.",
+      "You gain proficiency in saving throws using the chosen ability."
+    ],
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "ability_score",
+        "name": "Ability Score Increase",
+        "count": 1,
+        "options": [
+          { "type": "simple", "name": "Strength" },
+          { "type": "simple", "name": "Dexterity" },
+          { "type": "simple", "name": "Constitution" },
+          { "type": "simple", "name": "Intelligence" },
+          { "type": "simple", "name": "Wisdom" },
+          { "type": "simple", "name": "Charisma" }
+        ],
+        "value": {
+          "operation": "add",
+          "operators": [{ "type": "integer", "value": 1 }]
+        }
+      },
+      {
+        "type": "proficiency",
+        "category": "saving_throw",
+        "proficiencies": ["chosen"]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:ritual-caster",
+    "name": "Ritual Caster",
+    "description": "You have learned a number of spells that you can cast as rituals. These spells are written in a ritual book, which you must have in hand while casting one of them.",
+    "requirements": {
+      "any": true,
+      "conditions": [
+        {
+          "type": "attribute",
+          "attribute": "Intelligence",
+          "minimum": 13
+        },
+        {
+          "type": "attribute",
+          "attribute": "Wisdom",
+          "minimum": 13
+        }
+      ]
+    },
+    "bonuses": [
+      "You choose a class: bard, cleric, druid, sorcerer, warlock, or wizard. You acquire a ritual book holding two 1st-level spells of your choice from that class's spell list that have the ritual tag.",
+      "If you come across a spell in written form, you might be able to add it to your ritual book. The spell must be on the spell list for the class you chose, the spell's level can be no higher than half your level (rounded up), and it must have the ritual tag."
+    ],
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "query",
+        "name": "Spellcasting Class",
+        "count": 1,
+        "query": {
+          "source": "classes",
+          "params": {
+            "capability": "spellcasting"
+          }
+        }
+      },
+      {
+        "type": "granted_spells",
+        "spells": [],
+        "choices": [
+          {
+            "count": 2,
+            "criteria": {
+              "level": 1,
+              "tags": ["ritual"]
+            }
+          }
+        ],
+        "ritual_only": true
       }
     ],
     "source": "phb",
