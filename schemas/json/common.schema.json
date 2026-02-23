@@ -5351,28 +5351,34 @@
         { "$ref": "#/$defs/WeaponPropertyRequirement" }
       ]
     },
-    "RequirementSet": {
-      "description": "A set of requirements. Array form uses AND logic (all must be met). Object form with operator specifies AND/OR logic explicitly and supports nesting.",
-      "anyOf": [
-        {
+    "CompoundRequirement": {
+      "description": "Group of conditions with explicit AND/OR logic.",
+      "type": "object",
+      "properties": {
+        "operator": {
+          "enum": ["and", "or"],
+          "description": "Logical operator: 'and' requires all conditions, 'or' requires at least one",
+          "type": "string"
+        },
+        "conditions": {
           "items": { "$ref": "#/$defs/MechanicRequirement" },
           "type": "array"
-        },
+        }
+      },
+      "required": ["operator", "conditions"],
+      "additionalProperties": false
+    },
+    "RequirementSet": {
+      "description": "A list of requirements. Simple requirements use implicit AND logic. Compound entries (with operator/conditions) express explicit AND/OR logic.",
+      "anyOf": [
         {
-          "type": "object",
-          "properties": {
-            "operator": {
-              "enum": ["and", "or"],
-              "description": "Logical operator: 'and' requires all conditions, 'or' requires at least one",
-              "type": "string"
-            },
-            "conditions": {
-              "items": { "$ref": "#/$defs/MechanicRequirement" },
-              "type": "array"
-            }
+          "items": {
+            "anyOf": [
+              { "$ref": "#/$defs/MechanicRequirement" },
+              { "$ref": "#/$defs/CompoundRequirement" }
+            ]
           },
-          "required": ["operator", "conditions"],
-          "additionalProperties": false
+          "type": "array"
         },
         {
           "type": "null"

@@ -2174,21 +2174,23 @@
     "id": "feat:ritual-caster",
     "name": "Ritual Caster",
     "description": "You have learned a number of spells that you can cast as rituals. These spells are written in a ritual book, which you must have in hand while casting one of them.",
-    "requirements": {
-      "operator": "or",
-      "conditions": [
-        {
-          "type": "attribute",
-          "attribute": "Intelligence",
-          "minimum": 13
-        },
-        {
-          "type": "attribute",
-          "attribute": "Wisdom",
-          "minimum": 13
-        }
-      ]
-    },
+    "requirements": [
+      {
+        "operator": "or",
+        "conditions": [
+          {
+            "type": "attribute",
+            "attribute": "Intelligence",
+            "minimum": 13
+          },
+          {
+            "type": "attribute",
+            "attribute": "Wisdom",
+            "minimum": 13
+          }
+        ]
+      }
+    ],
     "bonuses": [
       "You choose a class: bard, cleric, druid, sorcerer, warlock, or wizard. You acquire a ritual book holding two 1st-level spells of your choice from that class's spell list that have the ritual tag.",
       "If you come across a spell in written form, you might be able to add it to your ritual book. The spell must be on the spell list for the class you chose, the spell's level can be no higher than half your level (rounded up), and it must have the ritual tag."

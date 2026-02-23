@@ -587,21 +587,23 @@
     ],
     "source": "phb",
     "ruleset": "dnd5e",
-    "multiclassing": {
-      "operator": "or",
-      "conditions": [
-        {
-          "type": "attribute",
-          "attribute": "Strength",
-          "minimum": 13
-        },
-        {
-          "type": "attribute",
-          "attribute": "Dexterity",
-          "minimum": 13
-        }
-      ]
-    }
+    "multiclassing": [
+      {
+        "operator": "or",
+        "conditions": [
+          {
+            "type": "attribute",
+            "attribute": "Strength",
+            "minimum": 13
+          },
+          {
+            "type": "attribute",
+            "attribute": "Dexterity",
+            "minimum": 13
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "subclass:battle-master",
