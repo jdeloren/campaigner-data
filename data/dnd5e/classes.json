@@ -107,14 +107,13 @@
     ],
     "source": "phb",
     "ruleset": "dnd5e",
-    "multiclassing": {
-      "requirements": [
-        {
-          "ability": "Dexterity",
-          "minimum_score": 13
-        }
-      ]
-    }
+    "multiclassing": [
+      {
+        "type": "attribute",
+        "attribute": "Dexterity",
+        "minimum": 13
+      }
+    ]
   },
   {
     "id": "subclass:thief",
@@ -589,19 +588,17 @@
     "source": "phb",
     "ruleset": "dnd5e",
     "multiclassing": {
-      "requirements": [
+      "operator": "or",
+      "conditions": [
         {
-          "operator": "or",
-          "conditions": [
-            {
-              "ability": "Strength",
-              "minimum_score": 13
-            },
-            {
-              "ability": "Dexterity",
-              "minimum_score": 13
-            }
-          ]
+          "type": "attribute",
+          "attribute": "Strength",
+          "minimum": 13
+        },
+        {
+          "type": "attribute",
+          "attribute": "Dexterity",
+          "minimum": 13
         }
       ]
     }
@@ -1024,14 +1021,13 @@
     ],
     "source": "phb",
     "ruleset": "dnd5e",
-    "multiclassing": {
-      "requirements": [
-        {
-          "ability": "Wisdom",
-          "minimum_score": 13
-        }
-      ]
-    },
+    "multiclassing": [
+      {
+        "type": "attribute",
+        "attribute": "Wisdom",
+        "minimum": 13
+      }
+    ],
     "spellcasting": {
       "ability": "Wisdom",
       "type": "prepared",
@@ -1299,14 +1295,13 @@
     ],
     "source": "phb",
     "ruleset": "dnd5e",
-    "multiclassing": {
-      "requirements": [
-        {
-          "ability": "Strength",
-          "minimum_score": 13
-        }
-      ]
-    }
+    "multiclassing": [
+      {
+        "type": "attribute",
+        "attribute": "Strength",
+        "minimum": 13
+      }
+    ]
   },
   {
     "id": "subclass:path-of-the-berserker",
@@ -1805,14 +1800,13 @@
         }
       }
     },
-    "multiclassing": {
-      "requirements": [
-        {
-          "ability": "Charisma",
-          "minimum_score": 13
-        }
-      ]
-    }
+    "multiclassing": [
+      {
+        "type": "attribute",
+        "attribute": "Charisma",
+        "minimum": 13
+      }
+    ]
   },
   {
     "id": "subclass:college-of-lore",

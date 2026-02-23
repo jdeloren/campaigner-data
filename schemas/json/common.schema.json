@@ -2506,7 +2506,7 @@
       "type": "object"
     },
     "DisadvantageImmunity": {
-      "description": "Immunity to disadvantage on a specific skill or check.",
+      "description": "Immunity to disadvantage on a specific skill, event, or weapon property.",
       "properties": {
         "category": {
           "const": "disadvantage",
@@ -2515,16 +2515,37 @@
           "type": "string"
         },
         "skill": {
+          "anyOf": [
+            { "type": "string" },
+            { "type": "null" }
+          ],
+          "default": null,
           "description": "Skill immune to disadvantage on (e.g., 'Perception')",
-          "title": "Skill",
-          "type": "string"
+          "title": "Skill"
+        },
+        "event": {
+          "anyOf": [
+            { "type": "string" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Event immune to disadvantage on (e.g., 'attack')",
+          "title": "Event"
+        },
+        "weapon_property": {
+          "anyOf": [
+            { "type": "string" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Weapon property whose disadvantage is ignored (e.g., 'Range')",
+          "title": "Weapon Property"
         },
         "requirements": {
           "$ref": "#/$defs/RequirementSet",
           "description": "Conditions that must be met"
         }
       },
-      "required": ["skill"],
       "title": "DisadvantageImmunity",
       "type": "object"
     },
@@ -2971,7 +2992,6 @@
                     "count": "#/$defs/CountRequirement",
                     "creature_type": "#/$defs/CreatureTypeRequirement",
                     "distance": "#/$defs/DistanceRequirement",
-                    "effect_target": "#/$defs/EffectTargetRequirement",
                     "environment": "#/$defs/EnvironmentRequirement",
                     "equipment": "#/$defs/EquipmentRequirement",
                     "function": "#/$defs/FunctionRequirement",
@@ -3030,9 +3050,6 @@
                   },
                   {
                     "$ref": "#/$defs/ProximityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EffectTargetRequirement"
                   },
                   {
                     "$ref": "#/$defs/ImmunityRequirement"
@@ -3552,26 +3569,6 @@
       },
       "required": ["effect"],
       "title": "EffectImmunity",
-      "type": "object"
-    },
-    "EffectTargetRequirement": {
-      "description": "Requirement based on who the effect targets (self vs others).",
-      "properties": {
-        "type": {
-          "const": "effect_target",
-          "default": "effect_target",
-          "title": "Type",
-          "type": "string"
-        },
-        "value": {
-          "description": "Target constraint",
-          "enum": ["not_self", "self", "ally", "enemy", "creature"],
-          "title": "Value",
-          "type": "string"
-        }
-      },
-      "required": ["value"],
-      "title": "EffectTargetRequirement",
       "type": "object"
     },
     "Entity": {
@@ -5299,7 +5296,6 @@
           "count": "#/$defs/CountRequirement",
           "creature_type": "#/$defs/CreatureTypeRequirement",
           "distance": "#/$defs/DistanceRequirement",
-          "effect_target": "#/$defs/EffectTargetRequirement",
           "environment": "#/$defs/EnvironmentRequirement",
           "equipment": "#/$defs/EquipmentRequirement",
           "function": "#/$defs/FunctionRequirement",
@@ -5328,7 +5324,6 @@
         { "$ref": "#/$defs/CountRequirement" },
         { "$ref": "#/$defs/CreatureTypeRequirement" },
         { "$ref": "#/$defs/DistanceRequirement" },
-        { "$ref": "#/$defs/EffectTargetRequirement" },
         { "$ref": "#/$defs/EnvironmentRequirement" },
         { "$ref": "#/$defs/EquipmentRequirement" },
         { "$ref": "#/$defs/FunctionRequirement" },
@@ -5347,7 +5342,7 @@
       ]
     },
     "RequirementSet": {
-      "description": "A set of requirements. Array form uses AND logic (all must be met). Object form with any:true uses OR logic (one must be met).",
+      "description": "A set of requirements. Array form uses AND logic (all must be met). Object form with operator specifies AND/OR logic explicitly and supports nesting.",
       "anyOf": [
         {
           "items": { "$ref": "#/$defs/MechanicRequirement" },
@@ -5356,17 +5351,17 @@
         {
           "type": "object",
           "properties": {
-            "any": {
-              "const": true,
-              "description": "When true, only one condition needs to be met (OR logic)",
-              "type": "boolean"
+            "operator": {
+              "enum": ["and", "or"],
+              "description": "Logical operator: 'and' requires all conditions, 'or' requires at least one",
+              "type": "string"
             },
             "conditions": {
               "items": { "$ref": "#/$defs/MechanicRequirement" },
               "type": "array"
             }
           },
-          "required": ["any", "conditions"],
+          "required": ["operator", "conditions"],
           "additionalProperties": false
         },
         {
@@ -5417,6 +5412,9 @@
                   },
                   {
                     "type": "integer"
+                  },
+                  {
+                    "type": "boolean"
                   }
                 ]
               },
@@ -7756,6 +7754,15 @@
           "default": null,
           "description": "Relationship of the source to the caster (e.g., 'friendly' for allied creatures)",
           "title": "Disposition"
+        },
+        "ability": {
+          "anyOf": [
+            { "type": "string" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Ability the triggering event uses (e.g., 'Dexterity' for a Dex saving throw)",
+          "title": "Ability"
         }
       },
       "title": "TriggerSource",
@@ -7847,8 +7854,32 @@
             }
           ],
           "default": null,
-          "description": "Exclude a specific target from matching (e.g., 'spell_target')",
+          "description": "Exclude a specific target from matching (e.g., 'self')",
           "title": "Exclude"
+        },
+        "has_features": {
+          "anyOf": [
+            {
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Target must have all of these features (e.g., ['feat:sentinel'])",
+          "title": "Has Features"
+        },
+        "lacks_features": {
+          "anyOf": [
+            {
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Target must not have any of these features (e.g., ['feat:sentinel'])",
+          "title": "Lacks Features"
         }
       },
       "title": "TriggerTarget",

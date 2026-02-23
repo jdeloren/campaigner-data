@@ -1581,13 +1581,6 @@ Requirements restrict when mechanics/effects apply. All use `type` as discrimina
 { "type": "immunity", "to": "frightened", "negate": true }
 ```
 
-#### Effect Target Requirement
-
-```json
-{ "type": "effect_target", "value": "not_self" }
-{ "type": "effect_target", "value": "ally" }
-```
-
 #### Inventory Item Requirement
 
 ```json

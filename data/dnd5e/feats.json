@@ -2175,7 +2175,7 @@
     "name": "Ritual Caster",
     "description": "You have learned a number of spells that you can cast as rituals. These spells are written in a ritual book, which you must have in hand while casting one of them.",
     "requirements": {
-      "any": true,
+      "operator": "or",
       "conditions": [
         {
           "type": "attribute",
@@ -2219,6 +2219,687 @@
           }
         ],
         "ritual_only": true
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:savage-attacker",
+    "name": "Savage Attacker",
+    "description": "Once per turn when you roll damage for a melee weapon attack, you can reroll the weapon's damage dice and use either total.",
+    "mechanics": [
+      {
+        "type": "optional",
+        "name": "Savage Attacker",
+        "trigger": {
+          "event": ["damage"],
+          "source": {
+            "type": ["melee", "weapon"]
+          }
+        },
+        "effects": [
+          {
+            "roll_modifier": {
+              "reroll": {
+                "replace": false
+              }
+            }
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "turn"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:sentinel",
+    "name": "Sentinel",
+    "description": "You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:",
+    "bonuses": [
+      "When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.",
+      "Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.",
+      "When a creature within 5 feet of you makes an attack against a target other than you (and that target doesn't have this feat), you can use your reaction to make a melee weapon attack against the attacking creature."
+    ],
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "Halt",
+        "trigger": {
+          "event": ["hit"],
+          "source": {
+            "type": ["opportunity_attack"]
+          }
+        },
+        "effects": [
+          {
+            "target": {
+              "type": "event_recipient"
+            },
+            "attribute": {
+              "target": "movement.base",
+              "calculation": {
+                "operation": "set",
+                "operators": [{ "type": "integer", "value": 0 }]
+              }
+            },
+            "duration": {
+              "value": 1,
+              "unit": "rounds",
+              "until": ["end_turn"]
+            }
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "name": "Ignore Disengage",
+        "grants": {
+          "name": "Opportunity Attack",
+          "interaction": {
+            "ignore_requirements": ["Disengage"]
+          }
+        }
+      },
+      {
+        "type": "reaction",
+        "name": "Guardian Strike",
+        "trigger": {
+          "event": ["attack"],
+          "source": {
+            "range": { "value": 5, "unit": "feet" }
+          },
+          "target": {
+            "exclude": "self",
+            "lacks_features": ["feat:sentinel"]
+          }
+        },
+        "effects": [
+          {
+            "grants": {
+              "name": "Attack",
+              "type": "melee",
+              "count": 1
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:shadow-touched",
+    "name": "Shadow Touched",
+    "description": "Your exposure to the Shadowfell's magic has changed you, granting you the following benefits:",
+    "bonuses": [
+      "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
+      "You learn the Invisibility spell and one 1st-level spell of your choice. The 1st-level spell must be from the Illusion or Necromancy school of magic. You can cast each of these spells without expending a spell slot. Once you cast either of these spells in this way, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat."
+    ],
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "ability_score",
+        "name": "Ability Score Increase",
+        "count": 1,
+        "options": [
+          { "type": "simple", "name": "Intelligence" },
+          { "type": "simple", "name": "Wisdom" },
+          { "type": "simple", "name": "Charisma" }
+        ],
+        "value": {
+          "operation": "add",
+          "operators": [{ "type": "integer", "value": 1 }]
+        }
+      },
+      {
+        "type": "granted_spells",
+        "spells": ["spell:invisibility"],
+        "choices": [
+          {
+            "count": 1,
+            "criteria": {
+              "level": 1,
+              "schools": ["Illusion", "Necromancy"]
+            }
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "long_rest"
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:sharpshooter",
+    "name": "Sharpshooter",
+    "description": "You have mastered ranged weapons and can make shots that others find impossible. You gain the following benefits:",
+    "bonuses": [
+      "Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.",
+      "Your ranged weapon attacks ignore half cover and three-quarters cover.",
+      "Before you make an attack with a ranged weapon that you are proficient with, you can choose to take a -5 penalty to the attack roll. If the attack hits, you add +10 to the attack's damage roll."
+    ],
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "No Long Range Disadvantage",
+        "trigger": {
+          "event": ["attack"],
+          "source": {
+            "type": ["ranged", "weapon"]
+          }
+        },
+        "effects": [
+          {
+            "immunity": {
+              "category": "disadvantage",
+              "weapon_property": "Range"
+            }
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "name": "Ignore Cover",
+        "trigger": {
+          "event": ["attack"],
+          "source": {
+            "type": ["ranged", "weapon"]
+          }
+        },
+        "grants": {
+          "name": "Attack",
+          "interaction": {
+            "ignore_requirements": ["half_cover", "three_quarters_cover"]
+          }
+        }
+      },
+      {
+        "type": "optional",
+        "name": "Steady Aim",
+        "trigger": {
+          "event": ["attack"],
+          "source": {
+            "type": ["ranged"]
+          }
+        },
+        "requirements": [
+          {
+            "type": "equipment",
+            "proficient": true
+          }
+        ],
+        "effects": [
+          {
+            "attribute": {
+              "target": "attack_roll",
+              "calculation": {
+                "operation": "add",
+                "operators": [{ "type": "integer", "value": -5 }]
+              }
+            }
+          },
+          {
+            "damage_bonus": {
+              "bonus": 10
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:shield-master",
+    "name": "Shield Master",
+    "description": "You use shields not just for protection but also for offense. You gain the following benefits while you are wielding a shield:",
+    "bonuses": [
+      "If you take the Attack action on your turn, you can use a bonus action to try to shove a creature within 5 feet of you with your shield.",
+      "If you aren't incapacitated, you can add your shield's AC bonus to any Dexterity saving throw you make against a spell or other harmful effect that targets only you.",
+      "If you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you can use your reaction to take no damage if you succeed on the saving throw, interposing your shield between yourself and the source of the effect."
+    ],
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "name": "Shield Bash",
+        "requirements": [
+          {
+            "type": "equipment",
+            "slot": "off_hand",
+            "item": ["Shield"]
+          }
+        ],
+        "grants": {
+          "name": "Shove",
+          "count": 1,
+          "activation": "bonus_action",
+          "interaction": {
+            "name": "Attack"
+          }
+        }
+      },
+      {
+        "type": "passive",
+        "name": "Shield Save Bonus",
+        "trigger": {
+          "event": ["saving_throw"],
+          "source": {
+            "type": ["spell"]
+          }
+        },
+        "requirements": [
+          {
+            "type": "equipment",
+            "slot": "off_hand",
+            "item": ["Shield"]
+          },
+          {
+            "type": "status",
+            "value": "incapacitated",
+            "negate": true
+          }
+        ],
+        "effects": [
+          {
+            "attribute": {
+              "target": "saving_throw.Dexterity",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "attribute",
+                    "value": "equipment.shield.ac_bonus"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "reaction",
+        "name": "Evasion",
+        "trigger": {
+          "event": ["saving_throw"],
+          "result": "success"
+        },
+        "requirements": [
+          {
+            "type": "equipment",
+            "slot": "off_hand",
+            "item": ["Shield"]
+          }
+        ],
+        "effects": [
+          {
+            "damage_response": {
+              "category": "immunity",
+              "source": {
+                "save": "Dexterity",
+                "half_damage": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:shield-master",
+    "name": "Shield Master",
+    "description": "You use shields not just for protection but also for offense. You gain the following benefits while you are wielding a shield:",
+    "bonuses": [
+      "If you take the Attack action on your turn, you can use a bonus action to try to shove a creature within 5 feet of you with your shield.",
+      "If you aren't incapacitated, you can add your shield's AC bonus to any Dexterity saving throw you make against a spell or other harmful effect that targets only you.",
+      "If you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you can use your reaction to take no damage if you succeed on the saving throw, interposing your shield between yourself and the source of the effect."
+    ],
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "name": "Shield Bash",
+        "requirements": [
+          {
+            "type": "equipment",
+            "slot": "off_hand",
+            "item": ["Shield"]
+          }
+        ],
+        "grants": {
+          "name": "Shove",
+          "count": 1,
+          "activation": "bonus_action",
+          "interaction": {
+            "name": "Attack"
+          }
+        }
+      },
+      {
+        "type": "passive",
+        "name": "Shield Save Bonus",
+        "trigger": {
+          "event": ["saving_throw"],
+          "source": {
+            "ability": "Dexterity"
+          },
+          "target": {
+            "type": "self"
+          }
+        },
+        "requirements": [
+          {
+            "type": "equipment",
+            "slot": "off_hand",
+            "item": ["Shield"]
+          },
+          {
+            "type": "status",
+            "value": "incapacitated",
+            "negate": true
+          }
+        ],
+        "effects": [
+          {
+            "calculation": {
+              "operation": "add",
+              "operators": [
+                {
+                  "type": "attribute",
+                  "value": "equipment.shield.armor_class.base"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "type": "reaction",
+        "name": "Shield Evasion",
+        "trigger": {
+          "event": ["saving_throw"],
+          "source": {
+            "ability": "Dexterity"
+          },
+          "timing": "resolved"
+        },
+        "requirements": [
+          {
+            "type": "equipment",
+            "slot": "off_hand",
+            "item": ["Shield"]
+          }
+        ],
+        "effects": [
+          {
+            "on_success": {
+              "calculation": {
+                "operation": "multiply",
+                "operators": [{ "type": "integer", "value": 0 }]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:skill-expert",
+    "name": "Skill Expert",
+    "description": "You have honed your proficiency with particular skills, granting you the following benefits:",
+    "bonuses": [
+      "Increase one ability score of your choice by 1, to a maximum of 20.",
+      "You gain proficiency in one skill of your choice.",
+      "Choose one skill in which you have proficiency. You gain expertise with that skill, which means your proficiency bonus is doubled for any ability check you make with it. The skill you choose must be one that isn't already benefiting from a feature, such as Expertise, that doubles your proficiency bonus."
+    ],
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "ability_score",
+        "name": "Ability Score Increase",
+        "count": 1,
+        "options": [
+          { "type": "simple", "name": "Strength" },
+          { "type": "simple", "name": "Dexterity" },
+          { "type": "simple", "name": "Constitution" },
+          { "type": "simple", "name": "Intelligence" },
+          { "type": "simple", "name": "Wisdom" },
+          { "type": "simple", "name": "Charisma" }
+        ],
+        "value": {
+          "operation": "add",
+          "operators": [{ "type": "integer", "value": 1 }]
+        }
+      },
+      {
+        "type": "choice",
+        "choice_type": "skill",
+        "name": "Skill Proficiency",
+        "count": 1
+      },
+      {
+        "type": "choice",
+        "choice_type": "expertise",
+        "name": "Expertise",
+        "count": 1
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:skilled",
+    "name": "Skilled",
+    "description": "You gain proficiency in any combination of three skills or tools of your choice.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "name": "Proficiency",
+        "count": 3,
+        "options": [
+          {
+            "type": "nested",
+            "name": "Skill",
+            "choice": { "choice_type": "skill", "count": 1 }
+          },
+          {
+            "type": "nested",
+            "name": "Tool",
+            "choice": { "choice_type": "tool", "count": 1 }
+          }
+        ]
+      }
+    ],
+    "repeatable": true,
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:skulker",
+    "name": "Skulker",
+    "description": "You are expert at slinking through shadows. You gain the following benefits:",
+    "requirements": [
+      {
+        "type": "attribute",
+        "attribute": "Dexterity",
+        "minimum": 13
+      }
+    ],
+    "bonuses": [
+      "You can try to hide when you are lightly obscured from the creature from which you are hiding.",
+      "When you are hidden from a creature and miss it with a ranged weapon attack, making the attack doesn't reveal your position.",
+      "Dim light doesn't impose disadvantage on your Wisdom (Perception) checks relying on sight."
+    ],
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "Dim Light Vision",
+        "effects": [
+          {
+            "immunity": {
+              "category": "disadvantage",
+              "skill": "Perception",
+              "event": "ability_check"
+            }
+          }
+        ],
+        "requirements": [
+          {
+            "type": "environment",
+            "lighting": "dim_light"
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:slasher",
+    "name": "Slasher",
+    "description": "You've learned where to cut to have the greatest results, granting you the following benefits:",
+    "bonuses": [
+      "Increase your Strength or Dexterity by 1, to a maximum of 20.",
+      "Once per turn when you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10 feet until the start of your next turn.",
+      "When you score a critical hit that deals slashing damage to a creature, you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls."
+    ],
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "ability_score",
+        "name": "Ability Score Increase",
+        "count": 1,
+        "options": [
+          { "type": "simple", "name": "Strength" },
+          { "type": "simple", "name": "Dexterity" }
+        ],
+        "value": {
+          "operation": "add",
+          "operators": [{ "type": "integer", "value": 1 }]
+        }
+      },
+      {
+        "type": "optional",
+        "name": "Hamstring",
+        "trigger": {
+          "event": ["hit"],
+          "damage_type": "slashing"
+        },
+        "effects": [
+          {
+            "target": { "type": "event_recipient" },
+            "attribute": {
+              "target": "movement.base",
+              "calculation": {
+                "operation": "add",
+                "operators": [{ "type": "integer", "value": -10 }]
+              }
+            },
+            "duration": { "value": 1, "unit": "rounds", "until": ["start_turn"] }
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "turn"
+      },
+      {
+        "type": "critical_hit",
+        "name": "Grievous Wound",
+        "trigger": {
+          "event": ["hit"],
+          "damage_type": "slashing"
+        },
+        "effects": [
+          {
+            "target": { "type": "event_recipient" },
+            "disadvantage": {
+              "attack": "all"
+            },
+            "duration": { "value": 1, "unit": "rounds", "until": ["start_turn"] }
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:spell-sniper",
+    "name": "Spell Sniper",
+    "description": "You have learned techniques to enhance your attacks with certain kinds of spells, gaining the following benefits:",
+    "requirements": [
+      {
+        "type": "function",
+        "function": "character.has_spellcasting"
+      }
+    ],
+    "bonuses": [
+      "When you cast a spell that requires you to make an attack roll, the spell's range is doubled.",
+      "Your ranged spell attacks ignore half cover and three-quarters cover.",
+      "You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. Your spellcasting ability for this cantrip depends on the spell list you chose from."
+    ],
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "Extended Spell Range",
+        "trigger": {
+          "event": ["attack"],
+          "source": {
+            "type": ["spell"]
+          }
+        },
+        "effects": [
+          {
+            "attribute": {
+              "target": "spell.range",
+              "calculation": {
+                "operation": "multiply",
+                "operators": [{ "type": "integer", "value": 2 }]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "name": "Ignore Cover",
+        "trigger": {
+          "event": ["attack"],
+          "source": {
+            "type": ["ranged", "spell"]
+          }
+        },
+        "grants": {
+          "name": "Attack",
+          "interaction": {
+            "ignore_requirements": ["half_cover", "three_quarters_cover"]
+          }
+        }
+      },
+      {
+        "type": "choice",
+        "choice_type": "query",
+        "name": "Cantrip",
+        "count": 1,
+        "query": {
+          "source": "spells",
+          "params": {
+            "level": 0,
+            "damage": true,
+            "saving_throw": false
+          }
+        }
       }
     ],
     "source": "phb",

@@ -413,16 +413,15 @@
             "type": "passive",
             "trigger": {
               "event": ["cast_spell"],
-              "effect": ["healing"]
+              "effect": ["healing"],
+              "target": {
+                "exclude": "self"
+              }
             },
             "requirements": [
               {
                 "type": "spell",
                 "minimum": 1
-              },
-              {
-                "type": "effect_target",
-                "value": "not_self"
               }
             ],
             "effects": [
