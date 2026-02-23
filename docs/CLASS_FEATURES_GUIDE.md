@@ -163,8 +163,7 @@ Covers most activated abilities and passive effects. The `type` field can be:
   "effects": [
     {
       "advantage": {
-        "on": "saving_throw",
-        "ability": ["Dexterity"]
+        "saving_throw": ["Dexterity"]
       },
       "requirements": [
         {
@@ -696,7 +695,7 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
 ```json
 {
   "advantage": {
-    "on": "attack"
+    "attack": "all"
   }
 }
 ```
@@ -706,8 +705,7 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
 ```json
 {
   "advantage": {
-    "on": "ability_check",
-    "ability": ["Strength"]
+    "ability": "Strength"
   }
 }
 ```
@@ -717,7 +715,7 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
 ```json
 {
   "advantage": {
-    "on": "saving_throw",
+    "saving_throw": ["all"],
     "against": {
       "origin": "magical"
     }
@@ -730,9 +728,9 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
 ```json
 {
   "disadvantage": {
-    "on": "attack",
-    "against": {
-      "target": "character"
+    "attack": "all",
+    "target": {
+      "type": "attackers"
     }
   }
 }
@@ -743,10 +741,9 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
 ```json
 {
   "disadvantage": {
-    "on": "saving_throw",
-    "ability": ["Wisdom"],
+    "saving_throw": ["Wisdom"],
     "against": {
-      "from_source": "character"
+      "source": "character"
     }
   }
 }
@@ -754,12 +751,15 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
 
 #### Advantage/Disadvantage Fields
 
-| Field         | Type     | Description                                                |
-| ------------- | -------- | ---------------------------------------------------------- |
-| `on`          | string   | What's affected: `attack`, `saving_throw`, `ability_check` |
-| `ability`     | string[] | Specific abilities (for saves/checks)                      |
-| `weapon_type` | string[] | Weapon types: `melee`, `ranged`                            |
-| `against`     | Against  | Who/what the rolls are against                             |
+| Field          | Type     | Description                                               |
+| -------------- | -------- | --------------------------------------------------------- |
+| `attack`       | string   | Attack type: `"all"`, `"melee"`, `"ranged"`               |
+| `saving_throw` | string[] | Saving throw abilities (e.g., `["Dexterity"]`, `["all"]`) |
+| `skill`        | string   | Skill check (e.g., `"Stealth"`, `"Perception"`)           |
+| `ability`      | string   | Raw ability check (e.g., `"Strength"`)                    |
+| `initiative`   | boolean  | Initiative rolls (`true`)                                 |
+| `against`      | Against  | Who/what the rolls are against                            |
+| `target`       | Target   | Who is affected (e.g., `{ "type": "attackers" }`)         |
 
 ### Status Effects
 
@@ -1053,7 +1053,7 @@ Adds bonuses to rolls.
 ```json
 {
   "roll_modifier": {
-    "on": "saving_throw",
+    "type": "saving_throw",
     "calculation": {
       "operation": "add",
       "operators": [{ "type": "ability_modifier", "ability": "Charisma" }]
@@ -1068,7 +1068,7 @@ Adds bonuses to rolls.
 ```json
 {
   "roll_modifier": {
-    "on": "initiative",
+    "type": "initiative",
     "calculation": {
       "operation": "add",
       "operators": [{ "type": "attribute", "value": "proficiency_bonus" }]
@@ -1082,7 +1082,7 @@ Adds bonuses to rolls.
 ```json
 {
   "roll_modifier": {
-    "on": ["attack", "ability_check", "saving_throw"],
+    "type": ["attack", "ability_check", "saving_throw"],
     "calculation": {
       "operation": "add",
       "operators": [{ "type": "resource_die", "value": "bardic_inspiration" }]
@@ -1108,7 +1108,7 @@ Persistent area effects around a character.
     },
     "effect": {
       "roll_modifier": {
-        "on": "saving_throw",
+        "type": "saving_throw",
         "calculation": {
           "operation": "add",
           "operators": [{ "type": "ability_modifier", "ability": "Charisma" }]
@@ -1140,7 +1140,7 @@ Persistent area effects around a character.
       {
         "name": "aura_disadvantage",
         "effect": {
-          "disadvantage": { "on": "attack" }
+          "disadvantage": { "attack": "all" }
         }
       }
     ]
@@ -2064,7 +2064,7 @@ Shared resource, multiple options:
         },
         "effect": {
           "roll_modifier": {
-            "on": "saving_throw",
+            "type": "saving_throw",
             "calculation": {
               "operation": "add",
               "operators": [{ "type": "ability_modifier", "ability": "Charisma" }]
@@ -2095,20 +2095,17 @@ Shared resource, multiple options:
   "effects": [
     {
       "apply_status": {
-        "name": "raging",
-        "source": "character"
+        "id": "status:raging"
       }
     },
     {
       "advantage": {
-        "on": "ability_check",
-        "ability": ["Strength"]
+        "ability": "Strength"
       }
     },
     {
       "advantage": {
-        "on": "saving_throw",
-        "ability": ["Strength"]
+        "saving_throw": ["Strength"]
       }
     },
     {
