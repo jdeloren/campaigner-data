@@ -1293,8 +1293,14 @@
       "type": "object"
     },
     "Calculation": {
-      "description": "Pure math operation that produces a value.\n\nContext from the trigger or mechanic type determines what the result modifies.",
+      "description": "Pure math operation that produces a value.\n\nContext from the trigger or mechanic type determines what the result modifies.\nCan be nested as an operand inside another Calculation using type: \"calculation\".",
       "properties": {
+        "type": {
+          "const": "calculation",
+          "default": "calculation",
+          "title": "Type",
+          "type": "string"
+        },
         "operation": {
           "description": "Math operation to perform",
           "enum": ["add", "subtract", "multiply", "divide", "max", "min", "set"],
@@ -1310,6 +1316,7 @@
                 "action_modifier": "#/$defs/ActionModifierOperand",
                 "attribute": "#/$defs/AttributeOperand",
                 "boolean": "#/$defs/BooleanOperand",
+                "calculation": "#/$defs/Calculation",
                 "class_level": "#/$defs/ClassLevelOperand",
                 "dice": "#/$defs/DiceOperand",
                 "function": "#/$defs/FunctionOperand",
@@ -1361,6 +1368,9 @@
               },
               {
                 "$ref": "#/$defs/ScalingOperand"
+              },
+              {
+                "$ref": "#/$defs/Calculation"
               }
             ]
           },
@@ -7616,7 +7626,8 @@
         "long_rest",
         "initiative_roll",
         "equip",
-        "unequip"
+        "unequip",
+        "level_up"
       ],
       "title": "TriggerEvent",
       "type": "string"

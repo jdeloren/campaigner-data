@@ -1015,6 +1015,7 @@
     "weight": 1.0,
     "description": "A sturdy wooden pin used to secure ropes on sailing vessels. Can be used as an improvised club.",
     "category": "adventuring_gear",
+    "properties": ["Improvised"],
     "source": "phb",
     "ruleset": "dnd5e"
   },
@@ -1963,6 +1964,7 @@
     },
     "weight": 1.0,
     "description": "As an action, you can splash the contents of this vial onto a creature within 5 feet of you or throw the vial up to 20 feet, shattering it on impact. In either case, make a ranged attack against a creature or object, treating the acid as an improvised weapon. On a hit, the target takes 2d6 acid damage.",
+    "properties": ["Improvised"],
     "mechanics": [
       {
         "type": "action",
@@ -1999,6 +2001,7 @@
     },
     "weight": 1.0,
     "description": "This sticky, adhesive fluid ignites when exposed to air. As an action, you can throw this flask up to 20 feet, shattering it on impact. Make a ranged attack against a creature or object, treating the alchemist's fire as an improvised weapon. On a hit, the target takes 1d4 fire damage at the start of each of its turns. A creature can end this damage by using its action to make a DC 10 Dexterity check to extinguish the flames.",
+    "properties": ["Improvised"],
     "mechanics": [
       {
         "type": "action",
@@ -2242,6 +2245,7 @@
     },
     "weight": 1.0,
     "description": "As an action, you can splash the contents of this flask onto a creature within 5 feet of you or throw it up to 20 feet, shattering it on impact. In either case, make a ranged attack against a target creature, treating the holy water as an improvised weapon. If the target is a fiend or undead, it takes 2d6 radiant damage.",
+    "properties": ["Improvised"],
     "mechanics": [
       {
         "type": "action",
@@ -2449,6 +2453,7 @@
     },
     "weight": 1.0,
     "description": "Oil usually comes in a clay flask that holds 1 pint. As an action, you can splash the oil in this flask onto a creature within 5 feet of you or throw it up to 20 feet, shattering it on impact. Make a ranged attack against a target creature or object, treating the oil as an improvised weapon. On a hit, the target is covered in oil. If the target takes any fire damage before the oil dries (after 1 minute), the target takes an additional 5 fire damage from the burning oil. You can also pour a flask of oil on the ground to cover a 5-foot-square area, provided that the surface is level. If lit, the oil burns for 2 rounds and deals 5 fire damage to any creature that enters the area or ends its turn in the area. A creature can take this damage only once per turn.",
+    "properties": ["Improvised"],
     "mechanics": [
       {
         "type": "action",
@@ -2585,6 +2590,7 @@
     },
     "weight": 1.0,
     "description": "A torch burns for 1 hour, providing bright light in a 20-foot radius and dim light for an additional 20 feet. If you make a melee attack with a burning torch and hit, it deals 1 fire damage.",
+    "properties": ["Improvised"],
     "mechanics": [
       {
         "type": "passive",

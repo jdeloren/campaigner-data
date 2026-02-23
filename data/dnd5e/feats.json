@@ -2904,5 +2904,324 @@
     ],
     "source": "phb",
     "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:tavern-brawler",
+    "name": "Tavern Brawler",
+    "description": "Accustomed to rough-and-tumble fighting using whatever is at hand, you gain the following benefits:",
+    "bonuses": [
+      "Increase your Strength or Constitution score by 1, to a maximum of 20.",
+      "You are proficient with improvised weapons.",
+      "Your unarmed strike uses a d4 for damage.",
+      "When you hit a creature with an unarmed strike or an improvised weapon on your turn, you can use a bonus action to attempt to grapple the target."
+    ],
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "ability_score",
+        "name": "Ability Score Increase",
+        "count": 1,
+        "options": [
+          { "type": "simple", "name": "Strength" },
+          { "type": "simple", "name": "Constitution" }
+        ],
+        "value": {
+          "operation": "add",
+          "operators": [{ "type": "integer", "value": 1 }]
+        }
+      },
+      {
+        "type": "proficiency",
+        "category": "weapon",
+        "proficiencies": ["Improvised"]
+      },
+      {
+        "type": "passive",
+        "name": "Unarmed Fighting",
+        "trigger": {
+          "event": ["hit"],
+          "source": {
+            "type": ["unarmed"]
+          }
+        },
+        "effects": [
+          {
+            "damage": {
+              "dice": "1d4",
+              "type": ["bludgeoning"]
+            }
+          }
+        ]
+      },
+      {
+        "type": "bonus_action",
+        "name": "Brawler's Grapple",
+        "trigger": {
+          "event": ["hit"],
+          "source": {
+            "type": ["unarmed", "improvised"]
+          }
+        },
+        "grants": {
+          "name": "Grapple",
+          "count": 1,
+          "activation": "bonus_action"
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:telekinetic",
+    "name": "Telekinetic",
+    "description": "You learn to move things with your mind, granting you the following benefits:",
+    "bonuses": [
+      "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
+      "You learn the mage hand cantrip. You can cast it without verbal or somatic components, and you can make the spectral hand invisible. If you already know this spell, its range increases by 30 feet when you cast it. Its spellcasting ability is the ability increased by this feat.",
+      "As a bonus action, you can try to telekinetically shove one creature you can see within 30 feet of you. When you do so, the target must succeed on a Strength saving throw (DC equal to your spell save DC) or be moved 5 feet toward or away from you. A creature can willingly fail this save."
+    ],
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "ability_score",
+        "name": "Ability Score Increase",
+        "count": 1,
+        "options": [
+          { "type": "simple", "name": "Intelligence" },
+          { "type": "simple", "name": "Wisdom" },
+          { "type": "simple", "name": "Charisma" }
+        ],
+        "value": {
+          "operation": "add",
+          "operators": [{ "type": "integer", "value": 1 }]
+        }
+      },
+      {
+        "type": "granted_spells",
+        "spells": ["spell:mage-hand"]
+      },
+      {
+        "type": "bonus_action",
+        "name": "Telekinetic Shove",
+        "target": {
+          "type": "creature",
+          "count": 1,
+          "requirements": [
+            {
+              "type": "perception",
+              "observer": "character",
+              "subject": "target",
+              "senses": ["sight"]
+            },
+            {
+              "type": "distance",
+              "value": 30,
+              "unit": "feet",
+              "to": "character",
+              "comparison": "within"
+            }
+          ]
+        },
+        "saving_throw": {
+          "ability": "Strength",
+          "dc": {
+            "ref": "spell_save_dc"
+          }
+        },
+        "on_failure": {
+          "forced_movement": {
+            "type": "push",
+            "distance": { "value": 5, "unit": "feet" },
+            "direction": "away"
+          }
+        }
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:telepathic",
+    "name": "Telepathic",
+    "description": "You awaken the ability to mentally connect with others, granting you the following benefits:",
+    "bonuses": [
+      "Increase your Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
+      "You can speak telepathically to any creature you can see within 60 feet of you. Your telepathic utterances are in a language you know, and the creature understands you only if it knows that language. Your communication doesn't give the creature the ability to respond to you telepathically.",
+      "You can cast the detect thoughts spell, requiring no spell slot or components, and you must finish a long rest before you can cast it this way again. Your spellcasting ability for the spell is the ability increased by this feat."
+    ],
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "ability_score",
+        "name": "Ability Score Increase",
+        "count": 1,
+        "options": [
+          { "type": "simple", "name": "Intelligence" },
+          { "type": "simple", "name": "Wisdom" },
+          { "type": "simple", "name": "Charisma" }
+        ],
+        "value": {
+          "operation": "add",
+          "operators": [{ "type": "integer", "value": 1 }]
+        }
+      },
+      {
+        "type": "granted_spells",
+        "spells": ["spell:detect-thoughts"],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "long_rest"
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:tough",
+    "name": "Tough",
+    "description": "Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.",
+    "bonuses": [
+      "Your hit point maximum increases by an amount equal to twice your level when you gain this feat.",
+      "Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points."
+    ],
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "Initial Toughness",
+        "effects": [
+          {
+            "attribute": {
+              "target": "hit_points",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "calculation",
+                    "operation": "multiply",
+                    "operators": [
+                      { "type": "attribute", "value": "level" },
+                      { "type": "integer", "value": 2 }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "name": "Ongoing Toughness",
+        "trigger": {
+          "event": ["level_up"]
+        },
+        "effects": [
+          {
+            "attribute": {
+              "target": "hit_points",
+              "calculation": {
+                "operation": "add",
+                "operators": [{ "type": "integer", "value": 2 }]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:war-caster",
+    "name": "War Caster",
+    "description": "You have practiced casting spells in the midst of combat, learning techniques that grant you the following benefits:",
+    "bonuses": [
+      "You have advantage on Constitution saving throws that you make to maintain your concentration on a spell when you take damage.",
+      "You can perform the somatic components of spells even when you have weapons or a shield in one or both hands.",
+      "When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a spell at the creature, rather than making an opportunity attack. The spell must have a casting time of 1 action and must target only that creature."
+    ],
+    "requirements": [
+      {
+        "type": "function",
+        "function": "character.has_spellcasting"
+      }
+    ],
+    "mechanics": [
+      {
+        "type": "advantage",
+        "name": "Concentration Advantage",
+        "trigger": {
+          "event": ["saving_throw"],
+          "source": {
+            "ability": "Constitution"
+          }
+        },
+        "effects": [
+          {
+            "advantage": {
+              "saving_throw": ["Constitution"]
+            }
+          }
+        ]
+      },
+      {
+        "type": "reaction",
+        "name": "Spell Opportunity Attack",
+        "trigger": {
+          "event": ["move"],
+          "source": {
+            "type": ["opportunity_attack"]
+          }
+        },
+        "grants": {
+          "name": "Cast a Spell",
+          "count": 1,
+          "activation": "reaction"
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:weapon-master",
+    "name": "Weapon Master",
+    "description": "You have practiced extensively with a variety of weapons, gaining the following benefits:",
+    "bonuses": [
+      "Increase your Strength or Dexterity score by 1, to a maximum of 20.",
+      "You gain proficiency with four weapons of your choice. Each one must be a simple or a martial weapon."
+    ],
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "ability_score",
+        "name": "Ability Score Increase",
+        "count": 1,
+        "options": [
+          { "type": "simple", "name": "Strength" },
+          { "type": "simple", "name": "Dexterity" }
+        ],
+        "value": {
+          "operation": "add",
+          "operators": [{ "type": "integer", "value": 1 }]
+        }
+      },
+      {
+        "type": "choice",
+        "choice_type": "query",
+        "name": "Weapon Proficiency",
+        "count": 4,
+        "query": {
+          "source": "equipment",
+          "params": {
+            "category": "weapon"
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
   }
 ]
