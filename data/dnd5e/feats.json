@@ -1843,8 +1843,8 @@
         "type": "passive",
         "name": "Nimble Dash",
         "trigger": {
-          "event": ["move"],
-          "action": "dash"
+          "event": ["action"],
+          "action": "Dash"
         },
         "effects": [
           {
@@ -2591,7 +2591,7 @@
         "trigger": {
           "event": ["saving_throw"],
           "source": {
-            "ability": "Dexterity"
+            "ability": ["Dexterity"]
           },
           "target": {
             "type": "self"
@@ -2629,7 +2629,7 @@
         "trigger": {
           "event": ["saving_throw"],
           "source": {
-            "ability": "Dexterity"
+            "ability": ["Dexterity"]
           },
           "timing": "resolved"
         },
@@ -3157,7 +3157,7 @@
         "trigger": {
           "event": ["saving_throw"],
           "source": {
-            "ability": "Constitution"
+            "ability": ["Constitution"]
           }
         },
         "effects": [
@@ -3224,6 +3224,407 @@
       }
     ],
     "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:bountiful-luck",
+    "name": "Bountiful Luck",
+    "description": "Your people have extraordinary luck, which you have learned to mystically lend to your companions when you can see them. You're not combative; you just let things happen. When an ally you can see within 30 feet of you rolls a 1 on the d20 for an attack roll, an ability check, or a saving throw, you can use your reaction to let the ally reroll the die. The ally must use the new roll.",
+    "bonuses": [
+      "When an ally you can see within 30 feet of you rolls a 1 on the d20 for an attack roll, an ability check, or a saving throw, you can use your reaction to let the ally reroll the die. The ally must use the new roll."
+    ],
+    "requirements": [
+      {
+        "type": "race",
+        "race": "race:halfling"
+      }
+    ],
+    "mechanics": [
+      {
+        "type": "reaction",
+        "name": "Bountiful Luck",
+        "trigger": {
+          "event": ["attack", "ability_check", "saving_throw"],
+          "target": {
+            "type": "creature",
+            "disposition": "friendly",
+            "requirements": [
+              {
+                "type": "perception",
+                "observer": "character",
+                "subject": "target",
+                "senses": ["sight"]
+              },
+              {
+                "type": "distance",
+                "value": 30,
+                "unit": "feet",
+                "to": "character",
+                "comparison": "within"
+              }
+            ]
+          }
+        },
+        "effects": [
+          {
+            "roll_modifier": {
+              "reroll": {
+                "on": [1],
+                "replace": true
+              }
+            }
+          },
+          {
+            "apply_status": {
+              "id": "status:lucky_blocked",
+              "constraints": {
+                "features": {
+                  "blocked_features": ["Lucky"]
+                }
+              },
+              "duration": {
+                "value": 1,
+                "unit": "turns",
+                "timing": "end_turn"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:dragon-fear",
+    "name": "Dragon Fear",
+    "enhances": "Breath Weapon",
+    "description": "When you use your Breath Weapon, you can choose to roar instead, forcing each creature of your choice within 30 feet of you to make a Wisdom saving throw. A target automatically succeeds on the save if it can't hear or see you. On a failed save, a target becomes frightened of you for 1 minute. The frightened target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
+    "bonuses": [
+      "Increase your Strength, Constitution, or Charisma score by 1, to a maximum of 20.",
+      "Instead of exhaling destructive energy, you can expend a use of your Breath Weapon trait to roar, forcing each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). On a failed save, a target is frightened of you for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+    ],
+    "requirements": [
+      {
+        "type": "race",
+        "race": "race:dragonborn"
+      }
+    ],
+    "mechanics": [
+      {
+        "type": "choice",
+        "name": "Ability Score Increase",
+        "choice_type": "ability_score",
+        "count": 1,
+        "options": [
+          { "type": "simple", "name": "Strength" },
+          { "type": "simple", "name": "Constitution" },
+          { "type": "simple", "name": "Charisma" }
+        ],
+        "effects": [
+          {
+            "attribute": {
+              "target": "choice",
+              "calculation": {
+                "operation": "add",
+                "operators": [{ "type": "integer", "value": 1 }]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "action",
+        "name": "Dragon Fear",
+        "effects": [
+          {
+            "area": {
+              "shape": "radius",
+              "size": 30,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "target": {
+              "type": "creatures",
+              "choice": true
+            },
+            "requirements": [
+              {
+                "type": "perception",
+                "observer": "target",
+                "subject": "character",
+                "senses": ["sight", "hearing"],
+                "match": "any"
+              }
+            ],
+            "saving_throw": {
+              "ability": "Wisdom",
+              "dc": {
+                "base": 8,
+                "add": "proficiency_bonus",
+                "ability": ["Charisma"]
+              }
+            },
+            "on_failure": {
+              "apply_status": {
+                "id": "status:frightened",
+                "source": "character",
+                "duration": {
+                  "value": 1,
+                  "unit": "minutes"
+                },
+                "escape": {
+                  "ability": "Wisdom",
+                  "dc": {
+                    "base": 8,
+                    "add": "proficiency_bonus",
+                    "ability": ["Charisma"]
+                  },
+                  "timing": "end_turn"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:dragon-hide",
+    "name": "Dragon Hide",
+    "description": "You manifest scales and claws reminiscent of your draconic ancestors.",
+    "bonuses": [
+      "Increase your Strength, Constitution, or Charisma score by 1, to a maximum of 20.",
+      "Your scales harden. While you aren't wearing armor, you can calculate your AC as 13 + your Dexterity modifier. You can use a shield and still gain this benefit.",
+      "You grow retractable claws from the tips of your fingers. Dealing 1d4 slashing damage on a hit, they count as natural weapons with which you are proficient."
+    ],
+    "requirements": [
+      {
+        "type": "race",
+        "race": "race:dragonborn"
+      }
+    ],
+    "mechanics": [
+      {
+        "type": "choice",
+        "name": "Ability Score Increase",
+        "choice_type": "ability_score",
+        "count": 1,
+        "options": [
+          { "type": "simple", "name": "Strength" },
+          { "type": "simple", "name": "Constitution" },
+          { "type": "simple", "name": "Charisma" }
+        ],
+        "effects": [
+          {
+            "attribute": {
+              "target": "choice",
+              "calculation": {
+                "operation": "add",
+                "operators": [{ "type": "integer", "value": 1 }]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "name": "Natural Armor",
+        "requirements": [
+          {
+            "type": "equipment",
+            "slot": "armor",
+            "occupied": false
+          }
+        ],
+        "effects": [
+          {
+            "attribute": {
+              "target": "armor_class",
+              "calculation": {
+                "operation": "set",
+                "operators": [
+                  { "type": "integer", "value": 13 },
+                  { "type": "ability_modifier", "ability": "Dexterity" }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "name": "Retractable Claws",
+        "trigger": {
+          "event": ["hit"],
+          "source": {
+            "type": ["unarmed"]
+          }
+        },
+        "effects": [
+          {
+            "damage": {
+              "dice": "1d4",
+              "type": ["slashing"]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:dwarven-fortitude",
+    "name": "Dwarven Fortitude",
+    "description": "You have the blood of dwarf heroes flowing through your veins.",
+    "bonuses": [
+      "Increase your Constitution score by 1, to a maximum of 20.",
+      "Whenever you take the Dodge action in combat, you can spend one Hit Die to heal yourself. Roll the die, add your Constitution modifier, and regain a number of hit points equal to the total (minimum of 0)."
+    ],
+    "requirements": [
+      {
+        "type": "race",
+        "race": "race:dwarf"
+      }
+    ],
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "Ability Score Increase",
+        "effects": [
+          {
+            "attribute": {
+              "target": "ability_scores.Constitution",
+              "calculation": {
+                "operation": "add",
+                "operators": [{ "type": "integer", "value": 1 }]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "optional",
+        "name": "Dodge Healing",
+        "trigger": {
+          "event": ["action"],
+          "action": "Dodge"
+        },
+        "cost": [
+          {
+            "resource": "hit_dice",
+            "amount": 1
+          }
+        ],
+        "effects": [
+          {
+            "healing": {
+              "dice": "hit_die",
+              "bonus": {
+                "operation": "add",
+                "operators": [{ "type": "ability_modifier", "ability": "Constitution" }]
+              },
+              "minimum": 0
+            }
+          }
+        ]
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:drow-high-magic",
+    "name": "Drow High Magic",
+    "description": "You learn more of the magic typical of dark elves. You learn the detect magic spell and can cast it at will, without expending a spell slot. You also learn levitate and dispel magic, each of which you can cast once without expending a spell slot. You regain the ability to cast those two spells in this way when you finish a long rest. Charisma is your spellcasting ability for all three spells.",
+    "requirements": [
+      {
+        "type": "race",
+        "race": "race:drow"
+      }
+    ],
+    "mechanics": [
+      {
+        "type": "granted_spells",
+        "spells": ["spell:detect-magic"],
+        "spellcasting_ability": "Charisma"
+      },
+      {
+        "type": "granted_spells",
+        "spells": ["spell:levitate", "spell:dispel-magic"],
+        "spellcasting_ability": "Charisma",
+        "uses": {
+          "value": 1
+        },
+        "recharge": "long_rest"
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:elven-accuracy",
+    "name": "Elven Accuracy",
+    "description": "The accuracy of elves is legendary, especially that of elf archers and spellcasters. You have uncanny aim with attacks that rely on precision rather than brute force.",
+    "bonuses": [
+      "Increase your Dexterity, Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.",
+      "Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once."
+    ],
+    "requirements": [
+      {
+        "type": "race",
+        "race": ["race:elf", "race:half-elf"]
+      }
+    ],
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "ability_score",
+        "name": "Ability Score Increase",
+        "count": 1,
+        "options": [
+          { "type": "simple", "name": "Dexterity" },
+          { "type": "simple", "name": "Intelligence" },
+          { "type": "simple", "name": "Wisdom" },
+          { "type": "simple", "name": "Charisma" }
+        ],
+        "effects": [
+          {
+            "attribute": {
+              "target": "choice",
+              "calculation": {
+                "operation": "add",
+                "operators": [{ "type": "integer", "value": 1 }]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "name": "Elven Accuracy",
+        "trigger": {
+          "event": ["attack"],
+          "source": {
+            "ability": ["Dexterity", "Intelligence", "Wisdom", "Charisma"]
+          },
+          "advantage": "advantage"
+        },
+        "effects": [
+          {
+            "roll_modifier": {
+              "reroll": {
+                "replace": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "xge",
     "ruleset": "dnd5e"
   }
 ]

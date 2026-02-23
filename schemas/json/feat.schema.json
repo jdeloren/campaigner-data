@@ -20,6 +20,19 @@
         "title": "Description",
         "type": "string"
       },
+      "enhances": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Name of feature this feat modifies in place (e.g., Dragon Fear enhances Breath Weapon).",
+        "title": "Enhances"
+      },
       "bonuses": {
         "anyOf": [
           {

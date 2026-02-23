@@ -2525,28 +2525,19 @@
           "type": "string"
         },
         "skill": {
-          "anyOf": [
-            { "type": "string" },
-            { "type": "null" }
-          ],
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
           "default": null,
           "description": "Skill immune to disadvantage on (e.g., 'Perception')",
           "title": "Skill"
         },
         "event": {
-          "anyOf": [
-            { "type": "string" },
-            { "type": "null" }
-          ],
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
           "default": null,
           "description": "Event immune to disadvantage on (e.g., 'attack')",
           "title": "Event"
         },
         "weapon_property": {
-          "anyOf": [
-            { "type": "string" },
-            { "type": "null" }
-          ],
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
           "default": null,
           "description": "Weapon property whose disadvantage is ignored (e.g., 'Range')",
           "title": "Weapon Property"
@@ -2696,7 +2687,7 @@
       "type": "object"
     },
     "Duration": {
-      "description": "Duration specification for effects, statuses, and mechanics.\n\nSupports multiple patterns:\n- Fixed: {\"value\": 1, \"unit\": \"turns\"}\n- With timing: {\"value\": 1, \"unit\": \"turns\", \"timing\": \"start\"}\n- Event-based ending: {\"until\": [\"move_end\"]}\n- Combined: {\"value\": 1, \"unit\": \"minutes\", \"until\": [\"attack\", \"cast_spell\"]}",
+      "description": "Duration specification for effects, statuses, and mechanics.\n\nSupports multiple patterns:\n- Fixed: {\"value\": 1, \"unit\": \"turns\"}\n- With timing: {\"value\": 1, \"unit\": \"turns\", \"timing\": \"start_turn\"}\n- Event-based ending: {\"until\": [\"move_end\"]}\n- Combined: {\"value\": 1, \"unit\": \"minutes\", \"until\": [\"attack\", \"cast_spell\"]}",
       "properties": {
         "value": {
           "anyOf": [
@@ -2728,7 +2719,7 @@
         "timing": {
           "anyOf": [
             {
-              "enum": ["start", "end"],
+              "enum": ["start_turn", "end_turn"],
               "type": "string"
             },
             {
@@ -3017,7 +3008,8 @@
                     "spell": "#/$defs/SpellRequirement",
                     "status": "#/$defs/StatusRequirement",
                     "weapon_property": "#/$defs/WeaponPropertyRequirement",
-                    "attribute": "#/$defs/AttributeRequirement"
+                    "attribute": "#/$defs/AttributeRequirement",
+                    "race": "#/$defs/RaceRequirement"
                   },
                   "propertyName": "type"
                 },
@@ -3090,6 +3082,9 @@
                   },
                   {
                     "$ref": "#/$defs/AttributeRequirement"
+                  },
+                  {
+                    "$ref": "#/$defs/RaceRequirement"
                   }
                 ]
               },
@@ -5295,6 +5290,25 @@
       "title": "ProximityRequirement",
       "type": "object"
     },
+    "RaceRequirement": {
+      "description": "Requirement based on character race (uses race ID).",
+      "properties": {
+        "type": {
+          "const": "race",
+          "default": "race",
+          "title": "Type",
+          "type": "string"
+        },
+        "race": {
+          "anyOf": [{ "type": "string" }, { "items": { "type": "string" }, "type": "array" }],
+          "description": "Race ID(s) to match (e.g., 'race:halfling', ['race:elf', 'race:half-elf'])",
+          "title": "Race"
+        }
+      },
+      "required": ["race"],
+      "title": "RaceRequirement",
+      "type": "object"
+    },
     "MechanicRequirement": {
       "description": "A single mechanic requirement, discriminated by type.",
       "discriminator": {
@@ -5302,6 +5316,7 @@
           "ability_check": "#/$defs/AbilityCheckRequirement",
           "attack": "#/$defs/AttackRequirement",
           "attack_result": "#/$defs/AttackResultRequirement",
+          "attribute": "#/$defs/AttributeRequirement",
           "combat_state": "#/$defs/CombatStateRequirement",
           "count": "#/$defs/CountRequirement",
           "creature_type": "#/$defs/CreatureTypeRequirement",
@@ -5316,12 +5331,12 @@
           "level": "#/$defs/LevelRequirement",
           "perception": "#/$defs/PerceptionRequirement",
           "proximity": "#/$defs/ProximityRequirement",
+          "race": "#/$defs/RaceRequirement",
           "resource": "#/$defs/ResourceRequirement",
           "size": "#/$defs/SizeRequirement",
           "spell": "#/$defs/SpellRequirement",
           "status": "#/$defs/StatusRequirement",
-          "weapon_property": "#/$defs/WeaponPropertyRequirement",
-          "attribute": "#/$defs/AttributeRequirement"
+          "weapon_property": "#/$defs/WeaponPropertyRequirement"
         },
         "propertyName": "type"
       },
@@ -5344,6 +5359,7 @@
         { "$ref": "#/$defs/PerceptionRequirement" },
         { "$ref": "#/$defs/ProficiencyRequirement" },
         { "$ref": "#/$defs/ProximityRequirement" },
+        { "$ref": "#/$defs/RaceRequirement" },
         { "$ref": "#/$defs/ResourceRequirement" },
         { "$ref": "#/$defs/SizeRequirement" },
         { "$ref": "#/$defs/SpellRequirement" },
@@ -5373,10 +5389,7 @@
       "anyOf": [
         {
           "items": {
-            "anyOf": [
-              { "$ref": "#/$defs/MechanicRequirement" },
-              { "$ref": "#/$defs/CompoundRequirement" }
-            ]
+            "anyOf": [{ "$ref": "#/$defs/MechanicRequirement" }, { "$ref": "#/$defs/CompoundRequirement" }]
           },
           "type": "array"
         },
@@ -7633,7 +7646,8 @@
         "initiative_roll",
         "equip",
         "unequip",
-        "level_up"
+        "level_up",
+        "action"
       ],
       "title": "TriggerEvent",
       "type": "string"
@@ -7774,11 +7788,14 @@
         },
         "ability": {
           "anyOf": [
-            { "type": "string" },
+            {
+              "items": { "type": "string" },
+              "type": "array"
+            },
             { "type": "null" }
           ],
           "default": null,
-          "description": "Ability the triggering event uses (e.g., 'Dexterity' for a Dex saving throw)",
+          "description": "Ability(s) the triggering event uses (e.g., ['Dexterity'] for a Dex saving throw)",
           "title": "Ability"
         }
       },

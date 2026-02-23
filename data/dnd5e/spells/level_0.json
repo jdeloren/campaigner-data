@@ -194,7 +194,7 @@
                 "duration": {
                   "value": 1,
                   "unit": "turns",
-                  "timing": "start"
+                  "timing": "start_turn"
                 }
               }
             }
@@ -253,7 +253,7 @@
                 "duration": {
                   "value": 1,
                   "unit": "turns",
-                  "timing": "start",
+                  "timing": "start_turn",
                   "of": "self"
                 }
               }
@@ -1928,7 +1928,7 @@
               "duration": {
                 "value": 1,
                 "unit": "turns",
-                "timing": "start",
+                "timing": "start_turn",
                 "of": "self"
               }
             }
@@ -2230,7 +2230,7 @@
                 "duration": {
                   "value": 1,
                   "unit": "turns",
-                  "timing": "start"
+                  "timing": "start_turn"
                 }
               }
             }
