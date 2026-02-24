@@ -46,7 +46,7 @@
                 "advantage": {
                   "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
                   "against": {
-                    "status": ["charmed"]
+                    "status": ["status:charmed"]
                   }
                 }
               }
@@ -388,7 +388,7 @@
                 "advantage": {
                   "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
                   "against": {
-                    "status": ["charmed"]
+                    "status": ["status:charmed"]
                   }
                 }
               },
@@ -500,10 +500,12 @@
             "type": "passive",
             "effects": [
               {
-                "ignore_requirement": {
-                  "type": "attribute",
-                  "attribute": "Strength"
-                }
+                "ignore_requirements": [
+                  {
+                    "type": "attribute",
+                    "attribute": "Strength"
+                  }
+                ]
               }
             ]
           }
@@ -2089,7 +2091,8 @@
             },
             "requirements": [
               {
-                "type": "hit_points",
+                "type": "attribute",
+                "attribute": "hit_points.current",
                 "comparison": "at_least",
                 "calculation": {
                   "operation": "subtract",
@@ -2488,7 +2491,7 @@
                 "advantage": {
                   "saving_throw": ["all"],
                   "against": {
-                    "condition": "frightened"
+                    "status": ["status:frightened"]
                   }
                 }
               }
@@ -2597,7 +2600,7 @@
                 "advantage": {
                   "saving_throw": ["all"],
                   "against": {
-                    "damage_type": ["poison"]
+                    "status": ["status:poisoned"]
                   }
                 }
               }

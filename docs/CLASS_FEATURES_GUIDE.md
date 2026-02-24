@@ -717,7 +717,7 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
   "advantage": {
     "saving_throw": ["all"],
     "against": {
-      "origin": "magical"
+      "source": "magical"
     }
   }
 }
@@ -751,15 +751,17 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
 
 #### Advantage/Disadvantage Fields
 
-| Field          | Type     | Description                                               |
-| -------------- | -------- | --------------------------------------------------------- |
-| `attack`       | string   | Attack type: `"all"`, `"melee"`, `"ranged"`               |
-| `saving_throw` | string[] | Saving throw abilities (e.g., `["Dexterity"]`, `["all"]`) |
-| `skill`        | string   | Skill check (e.g., `"Stealth"`, `"Perception"`)           |
-| `ability`      | string   | Raw ability check (e.g., `"Strength"`)                    |
-| `initiative`   | boolean  | Initiative rolls (`true`)                                 |
-| `against`      | Against  | Who/what the rolls are against                            |
-| `target`       | Target   | Who is affected (e.g., `{ "type": "attackers" }`)         |
+| Field          | Type     | Description                                                                      |
+| -------------- | -------- | -------------------------------------------------------------------------------- |
+| `attack`       | string   | Attack type: `"all"`, `"melee"`, `"ranged"`                                      |
+| `saving_throw` | string[] | Saving throw abilities (e.g., `["Dexterity"]`, `["all"]`)                        |
+| `skill`        | string   | Skill check (e.g., `"Stealth"`, `"Perception"`)                                  |
+| `ability`      | string   | Raw ability check (e.g., `"Strength"`)                                           |
+| `initiative`   | boolean  | Initiative rolls (`true`)                                                        |
+| `against`      | Against  | Who/what the rolls are against                                                   |
+| `target`       | Target   | Who is affected (e.g., `{ "type": "attackers" }`)                                |
+| `attacker`     | string   | EntityReference for who has advantage/disadvantage on attacks against the target |
+| `negate`       | boolean  | If true, negates advantage/disadvantage instead of granting it                   |
 
 ### Status Effects
 
@@ -768,20 +770,22 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
 ```json
 {
   "apply_status": {
-    "name": "frightened",
+    "id": "status:frightened",
     "source": "character",
     "action": "Menacing Attack",
-    "duration": { "value": 1, "unit": "rounds", "ends": "end_of_next_turn" }
+    "duration": { "value": 1, "unit": "rounds", "timing": "end_turn", "to": "event_actor" }
   }
 }
 ```
+
+The `id` field references a status definition with a `status:` prefix. Duration uses `timing` (`start_turn` or `end_turn`) and `to` (an EntityReference like `event_actor` or `event_recipient`) instead of the old `ends` field.
 
 #### Status with Concentration
 
 ```json
 {
   "apply_status": {
-    "name": "charmed",
+    "id": "status:charmed",
     "source": "character",
     "action": "Charm Person",
     "concentration": true,
@@ -795,7 +799,7 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
 ```json
 {
   "apply_status": {
-    "name": "frightened",
+    "id": "status:frightened",
     "source": "character",
     "modifier": "character"
   }
@@ -807,7 +811,7 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
 ```json
 {
   "apply_status": {
-    "name": "hexed",
+    "id": "status:hexed",
     "source": "character",
     "action": "Hex",
     "concentration": true,
@@ -824,22 +828,25 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
 ```json
 {
   "apply_status": {
-    "name": "grappled",
+    "id": "status:grappled",
     "source": "character",
     "escape": {
       "ability": ["Strength", "Dexterity"],
       "dc": { "type": "ability_check", "ability": "Strength" }
-    }
+    },
+    "duration": { "timing": "end_turn" }
   }
 }
 ```
+
+Escape saves use `duration` with `timing` to define when the save occurs (e.g., end of the affected creature's turn).
 
 #### Status with Constraints
 
 ```json
 {
   "apply_status": {
-    "name": "charmed",
+    "id": "status:charmed",
     "source": "character",
     "constraints": {
       "cannot_attack": "character",
@@ -1268,7 +1275,7 @@ Persistent area effects around a character.
     "dice": "5d8",
     "resource": "hp"
   },
-  "apply_status": { "name": "unconscious" }
+  "apply_status": { "id": "status:unconscious" }
 }
 ```
 
@@ -1434,6 +1441,65 @@ Calculations produce values using typed operands and operations.
 }
 ```
 
+### Compound Calculations
+
+For multi-step formulas, nest a `calculation` as an operand inside another calculation. The inner calculation resolves first, then its result is used in the outer operation.
+
+#### Example: 8 + proficiency + ability modifier
+
+```json
+{
+  "calculation": {
+    "operation": "add",
+    "operators": [
+      { "type": "integer", "value": 8 },
+      { "type": "attribute", "value": "proficiency_bonus" },
+      { "type": "ability_modifier", "ability": "Wisdom" }
+    ]
+  }
+}
+```
+
+#### Example: max(1, Charisma modifier) — minimum floor
+
+```json
+{
+  "calculation": {
+    "operation": "max",
+    "operators": [
+      { "type": "integer", "value": 1 },
+      { "type": "ability_modifier", "ability": "Charisma" }
+    ]
+  }
+}
+```
+
+#### Example: (class level / 2) + ability modifier — nested calculation
+
+```json
+{
+  "calculation": {
+    "operation": "add",
+    "operators": [
+      {
+        "type": "calculation",
+        "calculation": {
+          "operation": "divide",
+          "operators": [
+            { "type": "class_level", "class": "Monk" },
+            { "type": "integer", "value": 2 }
+          ],
+          "rounding": "down"
+        }
+      },
+      { "type": "ability_modifier", "ability": "Wisdom" }
+    ]
+  }
+}
+```
+
+When the formula is a simple sum of multiple values, a flat `add` with all operands is preferred over nesting. Only nest when operations differ (e.g., divide then add).
+
 ---
 
 ## Requirements
@@ -1503,18 +1569,26 @@ Requirements restrict when mechanics/effects apply. All use `type` as discrimina
 { "type": "combat_state", "value": "flanking" }
 ```
 
-#### Hit Points Requirement
+#### Attribute Requirement
 
 ```json
-{ "type": "hit_points", "attribute": "current_hp", "comparison": "less_than", "value": 50 }
-{ "type": "hit_points", "comparison": "at_least", "calculation": { ... } }
+{ "type": "attribute", "attribute": "hit_points.current", "comparison": "less_than", "value": 50 }
+{ "type": "attribute", "attribute": "hit_points.current", "comparison": "at_least", "calculation": { ... } }
+{ "type": "attribute", "attribute": "Intelligence", "maximum": 3 }
+{ "type": "attribute", "attribute": "weight", "maximum": 5 }
+{ "type": "attribute", "attribute": "movement.speed", "minimum": 5 }
 ```
+
+The `attribute` requirement handles all attribute-based checks including ability scores, hit points, weight, and movement. Use `minimum`/`maximum` for simple bounds or `comparison`/`value`/`calculation` for more complex checks.
 
 #### Distance Requirement
 
 ```json
 { "type": "distance", "value": 5, "unit": "feet", "to": "target", "comparison": "within" }
+{ "type": "distance", "unit": "feet", "comparison": "within" }
 ```
+
+The `value` field is optional — omit it when the distance is contextual (e.g., weapon reach during an attack).
 
 ### Perception Requirements
 
@@ -1549,12 +1623,15 @@ Requirements restrict when mechanics/effects apply. All use `type` as discrimina
 
 ### Other Requirements
 
-#### Spell Level Requirement
+#### Spell Requirement
 
 ```json
-{ "type": "spell_level", "minimum": 1 }
-{ "type": "spell_level", "maximum": 5 }
+{ "type": "spell", "minimum": 1 }
+{ "type": "spell", "maximum": 5 }
+{ "type": "spell", "class": "Wizard" }
 ```
+
+The `spell` requirement filters by spell properties — level bounds and/or spell class/list.
 
 #### Resource Requirement
 
@@ -1599,6 +1676,63 @@ For complex checks that need code:
   "context": "character",
   "params": { "resource": "hit_dice", "minimum": 1 }
 }
+```
+
+#### Area Requirement
+
+```json
+{ "type": "area", "area": { "shape": "cube", "size": 5, "unit": "feet" }, "comparison": "less_than_or_equal" }
+```
+
+#### Property Requirement
+
+```json
+{ "type": "property", "value": "magical", "negate": true }
+{ "type": "property", "value": "fuel" }
+```
+
+#### Proficiency Requirement
+
+```json
+{ "type": "proficiency", "category": "armor", "value": "Medium Armor" }
+{ "type": "proficiency", "category": "skill", "value": "Stealth" }
+```
+
+#### Ability Check Requirement
+
+```json
+{ "type": "ability_check", "ability": "Strength" }
+{ "type": "ability_check", "proficient": true }
+{ "type": "ability_check", "check_type": "skill" }
+```
+
+### Compound Requirements
+
+Use `CompoundRequirement` to combine multiple conditions with AND/OR logic. This is useful when a requirement needs OR logic (the default behavior of a requirements array is AND).
+
+```json
+{
+  "operator": "or",
+  "conditions": [
+    { "type": "equipment", "slot": "main_hand", "occupied": false },
+    { "type": "equipment", "slot": "off_hand", "occupied": false }
+  ]
+}
+```
+
+A compound requirement can appear anywhere in a requirements array alongside regular requirements:
+
+```json
+"requirements": [
+  { "type": "status", "value": "raging" },
+  {
+    "operator": "or",
+    "conditions": [
+      { "type": "weapon_property", "value": ["light"] },
+      { "type": "weapon_property", "value": ["finesse"] }
+    ]
+  }
+]
 ```
 
 ---
@@ -1802,13 +1936,31 @@ Use mechanic `"type": "critical_hit"` with a trigger scoped to melee weapon hits
 }
 ```
 
-#### Spell Level Filter
+#### Spell Filter
 
 ```json
 {
   "trigger": {
     "event": ["cast_spell"],
-    "spell_level": 1
+    "spell": { "level": 1 }
+  }
+}
+```
+
+```json
+{
+  "trigger": {
+    "event": ["cast_spell"],
+    "spell": { "level": 0, "class": "Cleric" }
+  }
+}
+```
+
+```json
+{
+  "trigger": {
+    "event": ["cast_spell"],
+    "spell": { "effect": ["healing"] }
   }
 }
 ```
@@ -1867,6 +2019,7 @@ The Target schema defines who/what is affected.
 **Reference types** (contextual):
 
 - `attacker` — The attacking creature
+- `attackers` — All creatures attacking the character
 - `triggering_creature` — Creature that triggered the effect
 - `affected_creature` — Currently affected creature
 - `hit_creature` — Creature that was hit
@@ -1874,27 +2027,69 @@ The Target schema defines who/what is affected.
 
 ### Target Fields
 
-| Field          | Type        | Description                             |
-| -------------- | ----------- | --------------------------------------- |
-| `type`         | string      | Target type (see above)                 |
-| `count`        | int         | Maximum targets                         |
-| `disposition`  | string      | `friendly`, `hostile`, `any`, `willing` |
-| `include_self` | boolean     | Include character in area effects       |
-| `status_query` | StatusQuery | Find creatures with specific status     |
+| Field          | Type                  | Description                                                                      |
+| -------------- | --------------------- | -------------------------------------------------------------------------------- |
+| `type`         | string                | Target type (see above)                                                          |
+| `count`        | int                   | Maximum targets                                                                  |
+| `disposition`  | string                | `friendly`, `hostile`, `any`, `willing`                                          |
+| `include_self` | boolean               | Include character in area effects                                                |
+| `proximity`    | int                   | Distance in feet between targets (e.g., splash)                                  |
+| `requirements` | MechanicRequirement[] | Requirements targets must meet (uses same types as effect/mechanic requirements) |
 
-### Status Query Targeting
+### Target with Requirements
 
-Find creatures affected by a specific ability:
+Use `requirements` to filter targets with the standard MechanicRequirement types (creature_type, status, perception, size, attribute, etc.):
 
 ```json
 {
   "target": {
     "type": "creatures",
-    "status_query": {
-      "name": "charmed",
-      "from_action": "Charm Animals and Plants",
-      "from_source": "character"
-    }
+    "disposition": "hostile",
+    "requirements": [
+      { "type": "creature_type", "value": "Undead" },
+      {
+        "type": "perception",
+        "observer": "target",
+        "subject": "character",
+        "senses": ["sight", "hearing"],
+        "match": "any"
+      }
+    ]
+  }
+}
+```
+
+### Target with Status Filter
+
+Filter targets by active status using a StatusRequirement with `action` and `source` fields:
+
+```json
+{
+  "target": {
+    "type": "creatures",
+    "requirements": [
+      {
+        "type": "status",
+        "value": "charmed",
+        "action": "Charm Animals and Plants",
+        "source": "character"
+      }
+    ]
+  }
+}
+```
+
+### Target with Proximity
+
+For spells like Acid Splash where targets must be close to each other:
+
+```json
+{
+  "target": {
+    "type": "creature",
+    "count": 2,
+    "disposition": "hostile",
+    "proximity": 5
   }
 }
 ```
@@ -2036,7 +2231,7 @@ Shared resource, multiple options:
         },
         "on_failure": {
           "apply_status": {
-            "name": "turned",
+            "id": "status:turned",
             "source": "character",
             "duration": { "value": 1, "unit": "minutes" }
           }
@@ -2117,7 +2312,7 @@ Shared resource, multiple options:
       },
       "requirements": [
         { "type": "weapon_property", "value": ["melee"] },
-        { "type": "attribute", "value": "attack.uses_strength", "equals": true }
+        { "type": "weapon_property", "ability": "Strength" }
       ]
     },
     {
@@ -2145,7 +2340,7 @@ Shared resource, multiple options:
       },
       "on_failure": {
         "apply_status": {
-          "name": "poisoned",
+          "id": "status:poisoned",
           "duration": { "value": 1, "unit": "minutes" }
         }
       },

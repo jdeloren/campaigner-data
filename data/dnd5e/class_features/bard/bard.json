@@ -139,22 +139,22 @@
               ]
             },
             "healing": {
-              "dice": "1d6",
-              "scaling": {
-                "components": {
-                  "dice_sides": {
-                    "by_level": {
-                      "2": 6,
-                      "9": 8,
-                      "13": 10,
-                      "17": 12
-                    }
-                  }
-                }
+              "dice": "scaling.healing_dice"
+            }
+          }
+        ],
+        "scaling": {
+          "components": {
+            "healing_dice": {
+              "by_level": {
+                "2": "1d6",
+                "9": "1d8",
+                "13": "1d10",
+                "17": "1d12"
               }
             }
           }
-        ]
+        }
       }
     ],
     "source": "phb",
@@ -173,7 +173,7 @@
         "name": "magical_inspiration",
         "trigger": {
           "event": ["cast_spell"],
-          "effect": ["healing", "damage"]
+          "spell": { "effect": ["healing", "damage"] }
         },
         "cost": [
           {
@@ -389,7 +389,7 @@
             "advantage": {
               "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
               "against": {
-                "status": ["frightened", "charmed"]
+                "status": ["status:frightened", "status:charmed"]
               }
             },
             "duration": {
@@ -476,7 +476,7 @@
                 "type": "function",
                 "function": "resource.equals",
                 "context": "character",
-                "value": 0
+                "params": { "resource": "bardic_inspiration", "value": 0 }
               }
             ]
           }

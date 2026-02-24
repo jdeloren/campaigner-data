@@ -146,13 +146,9 @@
               "value": "Beast"
             },
             {
-              "type": "function",
-              "function": "ability_scores.is_less_than",
-              "context": "target",
-              "value": 4,
-              "params": {
-                "ability": "Intelligence"
-              }
+              "type": "attribute",
+              "attribute": "Intelligence",
+              "maximum": 3
             }
           ]
         },
@@ -632,10 +628,9 @@
           "type": "object",
           "requirements": [
             {
-              "type": "function",
-              "function": "weight.max",
-              "value": 5,
-              "context": "target"
+              "type": "attribute",
+              "attribute": "weight",
+              "maximum": 5
             }
           ]
         },
@@ -1238,7 +1233,7 @@
                         "type": ["character"]
                       },
                       "condition": {
-                        "type": "range",
+                        "type": "distance",
                         "value": 30,
                         "unit": "feet",
                         "comparison": "greater_than",
@@ -1797,12 +1792,16 @@
             },
             "on_failure": {
               "apply_status": {
-                "id": "status:restrained"
-              },
-              "recurring_damage": {
-                "dice": "scaling.damage",
-                "type": ["piercing"],
-                "timing": "start_turn"
+                "id": "status:restrained",
+                "effect": {
+                  "trigger": {
+                    "event": ["start_turn"]
+                  },
+                  "recurring_damage": {
+                    "dice": "scaling.damage",
+                    "type": ["piercing"]
+                  }
+                }
               }
             }
           }
@@ -2856,7 +2855,7 @@
             "advantage": {
               "skill": "Perception",
               "against": {
-                "status": ["marked"]
+                "status": ["status:marked"]
               }
             }
           },
@@ -2864,7 +2863,7 @@
             "advantage": {
               "skill": "Survival",
               "against": {
-                "status": ["marked"]
+                "status": ["status:marked"]
               }
             }
           }
@@ -3236,7 +3235,7 @@
             {
               "type": "equipment",
               "slot": "armor",
-              "condition": "empty"
+              "occupied": false
             }
           ]
         },
@@ -3372,7 +3371,7 @@
           {
             "immunity": {
               "category": "status",
-              "status": ["charmed", "frightened", "possessed"]
+              "status": ["status:charmed", "status:frightened", "status:possessed"]
             },
             "requirements": [
               {
@@ -3385,7 +3384,7 @@
             "advantage": {
               "saving_throw": ["all"],
               "against": {
-                "status": ["charmed", "frightened", "possessed"]
+                "status": ["status:charmed", "status:frightened", "status:possessed"]
               }
             },
             "requirements": [
@@ -3863,7 +3862,7 @@
             },
             {
               "type": "immunity",
-              "value": ["charmed"],
+              "to": "charmed",
               "negate": true
             }
           ]
@@ -4230,13 +4229,9 @@
               "senses": ["sight"]
             },
             {
-              "type": "function",
-              "function": "ability_scores.is_less_than",
-              "context": "target",
-              "value": 4,
-              "params": {
-                "ability": "Intelligence"
-              }
+              "type": "attribute",
+              "attribute": "Intelligence",
+              "maximum": 3
             }
           ]
         },
@@ -4263,12 +4258,14 @@
                       "dc": {
                         "ref": "spell_save_dc"
                       },
-                      "timing": "end_turn",
                       "advantage": {
                         "trigger": {
                           "event": ["damaged_by"]
                         }
                       }
+                    },
+                    "duration": {
+                      "timing": "end_turn"
                     }
                   }
                 }
@@ -4399,7 +4396,7 @@
                   "type": "creature",
                   "requirements": [
                     {
-                      "type": "range",
+                      "type": "distance",
                       "value": 30,
                       "unit": "feet"
                     },

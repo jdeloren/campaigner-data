@@ -66,6 +66,7 @@
         }
       },
       "title": "AbilityCheckRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "AbilityModifierOperand": {
@@ -85,6 +86,7 @@
       },
       "required": ["ability"],
       "title": "AbilityModifierOperand",
+      "additionalProperties": false,
       "type": "object"
     },
     "ActionModifierOperand": {
@@ -104,6 +106,7 @@
       },
       "required": ["modifier"],
       "title": "ActionModifierOperand",
+      "additionalProperties": false,
       "type": "object"
     },
     "ActionConstraint": {
@@ -140,9 +143,23 @@
           "default": null,
           "description": "If set, the ONLY actions the target can take",
           "title": "Allowed Actions"
+        },
+        "against": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Entity the blocked/allowed actions apply toward (e.g., 'source')",
+          "title": "Against"
         }
       },
       "title": "ActionConstraint",
+      "additionalProperties": false,
       "type": "object"
     },
     "Activation": {
@@ -167,6 +184,7 @@
       },
       "required": ["type"],
       "title": "Activation",
+      "additionalProperties": false,
       "type": "object"
     },
     "ActivationType": {
@@ -275,6 +293,25 @@
           "$ref": "#/$defs/RequirementSet",
           "description": "Conditions for the advantage to apply"
         },
+        "attacker": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Filter by attacker identity (e.g., 'character')",
+          "title": "Attacker"
+        },
+        "negate": {
+          "default": false,
+          "description": "Invert the attacker filter (true = everyone except the attacker)",
+          "title": "Negate",
+          "type": "boolean"
+        },
         "count": {
           "anyOf": [
             {
@@ -302,6 +339,7 @@
         }
       },
       "title": "AdvantageEffect",
+      "additionalProperties": false,
       "type": "object"
     },
     "AdvantageImmunity": {
@@ -325,6 +363,7 @@
       },
       "required": ["event"],
       "title": "AdvantageImmunity",
+      "additionalProperties": false,
       "type": "object"
     },
     "Against": {
@@ -414,9 +453,26 @@
           "default": null,
           "description": "Type of effect this applies against (e.g., 'spell')",
           "title": "Effect Type"
+        },
+        "damage_type": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Damage type(s) the effect applies against (e.g., ['poison', 'fire'])",
+          "title": "Damage Type"
         }
       },
       "title": "Against",
+      "additionalProperties": false,
       "type": "object"
     },
     "Alignment": {
@@ -552,10 +608,39 @@
           ],
           "default": null,
           "description": "Saving throw to escape this status (costs an action to attempt)"
+        },
+        "target": {
+          "anyOf": [
+            {
+              "items": {
+                "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Entities to apply this status to"
+        },
+        "on_end": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/StatusEffect"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Effect applied when this status expires"
         }
       },
       "required": ["id"],
       "title": "ApplyStatus",
+      "additionalProperties": false,
       "type": "object"
     },
     "Area": {
@@ -602,6 +687,7 @@
       },
       "required": ["shape", "size"],
       "title": "Area",
+      "additionalProperties": false,
       "type": "object"
     },
     "Attack": {
@@ -621,6 +707,7 @@
         }
       },
       "title": "Attack",
+      "additionalProperties": false,
       "type": "object"
     },
     "AttackRequirement": {
@@ -669,6 +756,7 @@
       },
       "required": ["value"],
       "title": "AttackResultRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "AttributeModification": {
@@ -710,6 +798,7 @@
       },
       "required": ["target"],
       "title": "AttributeModification",
+      "additionalProperties": false,
       "type": "object"
     },
     "AttributeOperand": {
@@ -729,10 +818,11 @@
       },
       "required": ["value"],
       "title": "AttributeOperand",
+      "additionalProperties": false,
       "type": "object"
     },
     "AttributeRequirement": {
-      "description": "Requirement based on an attribute score minimum.",
+      "description": "Requirement based on an attribute value check.",
       "properties": {
         "type": {
           "const": "attribute",
@@ -741,18 +831,81 @@
           "type": "string"
         },
         "attribute": {
-          "description": "The attribute required (e.g., 'Strength')",
+          "description": "The attribute to check (e.g., 'Strength', 'hit_points.current', 'spell_slots')",
           "title": "Attribute",
           "type": "string"
         },
         "minimum": {
-          "description": "Minimum score required",
-          "title": "Minimum",
-          "type": "integer"
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Minimum score required (shorthand for comparison: at_least)",
+          "title": "Minimum"
+        },
+        "maximum": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Maximum score allowed (shorthand for comparison: at_most)",
+          "title": "Maximum"
+        },
+        "comparison": {
+          "anyOf": [
+            {
+              "enum": ["equals", "greater_than", "less_than", "at_most", "at_least"],
+              "type": "string"
+            },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Comparison operator",
+          "title": "Comparison"
+        },
+        "value": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Static value to compare against",
+          "title": "Value"
+        },
+        "calculation": {
+          "anyOf": [{ "$ref": "#/$defs/Calculation" }, { "type": "null" }],
+          "default": null,
+          "description": "Calculated value to compare against"
         }
       },
-      "required": ["attribute", "minimum"],
+      "required": ["attribute"],
       "title": "AttributeRequirement",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "AreaRequirement": {
+      "description": "Requirement based on area size/shape constraints.",
+      "properties": {
+        "type": {
+          "const": "area",
+          "default": "area",
+          "title": "Type",
+          "type": "string"
+        },
+        "area": {
+          "$ref": "#/$defs/Area",
+          "description": "Area constraint (shape, size, unit)"
+        },
+        "comparison": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "How the area is compared (e.g., 'less_than_or_equal')",
+          "title": "Comparison"
+        }
+      },
+      "required": ["area"],
+      "title": "AreaRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "Aura": {
@@ -827,6 +980,7 @@
         }
       },
       "title": "Aura",
+      "additionalProperties": false,
       "type": "object"
     },
     "AuraGrant": {
@@ -870,6 +1024,7 @@
         }
       },
       "title": "AuraGrant",
+      "additionalProperties": false,
       "type": "object"
     },
     "AuraLayer": {
@@ -916,6 +1071,7 @@
       },
       "required": ["type", "size"],
       "title": "AuraLayer",
+      "additionalProperties": false,
       "type": "object"
     },
     "BaseMechanic": {
@@ -1271,6 +1427,7 @@
         }
       },
       "title": "BlockedBy",
+      "additionalProperties": false,
       "type": "object"
     },
     "BooleanOperand": {
@@ -1290,6 +1447,209 @@
       },
       "required": ["value"],
       "title": "BooleanOperand",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "Buff": {
+      "description": "Temporary non-attribute capability granted to a character. Pair with duration on Effect for time-limited buffs.",
+      "oneOf": [
+        { "$ref": "#/$defs/ProficiencyBuff" },
+        { "$ref": "#/$defs/LanguageBuff" },
+        { "$ref": "#/$defs/SpellBuff" },
+        { "$ref": "#/$defs/SpellSlotBuff" },
+        { "$ref": "#/$defs/ResourceBuff" },
+        { "$ref": "#/$defs/FeatureBuff" }
+      ],
+      "discriminator": {
+        "propertyName": "category",
+        "mapping": {
+          "proficiency": "#/$defs/ProficiencyBuff",
+          "language": "#/$defs/LanguageBuff",
+          "spell": "#/$defs/SpellBuff",
+          "spell_slot": "#/$defs/SpellSlotBuff",
+          "resource": "#/$defs/ResourceBuff",
+          "feature": "#/$defs/FeatureBuff"
+        }
+      }
+    },
+    "ProficiencyBuff": {
+      "description": "Temporary proficiency in a skill, tool, weapon, armor, or saving throw.",
+      "properties": {
+        "category": {
+          "const": "proficiency",
+          "default": "proficiency",
+          "title": "Category",
+          "type": "string"
+        },
+        "subcategory": {
+          "anyOf": [
+            {
+              "enum": ["skill", "tool", "weapon", "armor", "saving_throw"],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Proficiency type. Null when value is 'choice' and engine infers at resolution.",
+          "title": "Subcategory"
+        },
+        "value": {
+          "anyOf": [{ "items": { "type": "string" }, "type": "array" }, { "type": "null" }],
+          "default": null,
+          "description": "Proficiency name(s). Null when paired with a choice block.",
+          "title": "Value"
+        },
+        "choice_type": {
+          "anyOf": [
+            { "items": { "$ref": "#/$defs/ChoiceType" }, "type": "array" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Categories to choose from (e.g., ['skill', 'tool'])"
+        },
+        "count": {
+          "default": 1,
+          "description": "Number of proficiencies to choose",
+          "type": "integer"
+        }
+      },
+      "required": ["category"],
+      "title": "ProficiencyBuff",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "LanguageBuff": {
+      "description": "Temporary knowledge of one or more languages.",
+      "properties": {
+        "category": {
+          "const": "language",
+          "default": "language",
+          "title": "Category",
+          "type": "string"
+        },
+        "value": {
+          "items": { "type": "string" },
+          "type": "array",
+          "description": "Language name(s)",
+          "title": "Value"
+        }
+      },
+      "required": ["category", "value"],
+      "title": "LanguageBuff",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "SpellBuff": {
+      "description": "Temporary ability to cast a specific spell.",
+      "properties": {
+        "category": {
+          "const": "spell",
+          "default": "spell",
+          "title": "Category",
+          "type": "string"
+        },
+        "value": {
+          "items": { "type": "string" },
+          "type": "array",
+          "description": "Spell ID(s)",
+          "title": "Value"
+        },
+        "level": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Spell slot level for casting. Null means use normal slot mechanics.",
+          "title": "Level"
+        },
+        "casting_ability": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Spellcasting ability override. Null uses character default.",
+          "title": "Casting Ability"
+        }
+      },
+      "required": ["category", "value"],
+      "title": "SpellBuff",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "SpellSlotBuff": {
+      "description": "Temporary additional spell slot(s) at a given level.",
+      "properties": {
+        "category": {
+          "const": "spell_slot",
+          "default": "spell_slot",
+          "title": "Category",
+          "type": "string"
+        },
+        "level": {
+          "type": "integer",
+          "description": "Spell slot level (1-9)",
+          "title": "Level"
+        },
+        "count": {
+          "type": "integer",
+          "default": 1,
+          "description": "Number of additional slots",
+          "title": "Count"
+        }
+      },
+      "required": ["category", "level"],
+      "title": "SpellSlotBuff",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "ResourceBuff": {
+      "description": "Temporary additional uses of a named resource pool.",
+      "properties": {
+        "category": {
+          "const": "resource",
+          "default": "resource",
+          "title": "Category",
+          "type": "string"
+        },
+        "pool": {
+          "type": "string",
+          "description": "Resource pool name (e.g., 'channel_divinity', 'superiority_dice')",
+          "title": "Pool"
+        },
+        "count": {
+          "type": "integer",
+          "default": 1,
+          "description": "Number of uses added",
+          "title": "Count"
+        }
+      },
+      "required": ["category", "pool"],
+      "title": "ResourceBuff",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "FeatureBuff": {
+      "description": "Temporary access to a feature or capability.",
+      "properties": {
+        "category": {
+          "const": "feature",
+          "default": "feature",
+          "title": "Category",
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "description": "Feature ID (e.g., 'feat:darkvision')",
+          "title": "Value"
+        },
+        "target": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Target for parameterized features (e.g., skill name for expertise)",
+          "title": "Target"
+        }
+      },
+      "required": ["category", "value"],
+      "title": "FeatureBuff",
+      "additionalProperties": false,
       "type": "object"
     },
     "Calculation": {
@@ -1390,6 +1750,19 @@
           "default": null,
           "description": "Rounding direction for divide",
           "title": "Rounding"
+        },
+        "minimum": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Floor for the calculation result",
+          "title": "Minimum"
         }
       },
       "required": ["operation", "operators"],
@@ -1468,6 +1841,7 @@
         }
       },
       "title": "Chain",
+      "additionalProperties": false,
       "type": "object"
     },
     "Choice": {
@@ -1502,18 +1876,21 @@
           "description": "Available options to choose from",
           "title": "Options"
         },
-        "source": {
+        "choice_type": {
           "anyOf": [
             {
-              "type": "string"
+              "items": {
+                "$ref": "#/$defs/ChoiceType"
+              },
+              "type": "array"
             },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "description": "External source to draw options from (e.g., 'skills_and_tools')",
-          "title": "Source"
+          "description": "Categories of options to choose from (e.g., ['skill', 'tool'])",
+          "title": "Choice Type"
         },
         "count": {
           "default": 1,
@@ -1523,6 +1900,7 @@
         }
       },
       "title": "Choice",
+      "additionalProperties": false,
       "type": "object"
     },
     "ChoiceMechanic": {
@@ -1685,6 +2063,7 @@
       },
       "required": ["type"],
       "title": "ChoiceMechanic",
+      "additionalProperties": false,
       "type": "object"
     },
     "SimpleChoiceOption": {
@@ -1704,6 +2083,7 @@
       },
       "required": ["type", "name"],
       "title": "SimpleChoiceOption",
+      "additionalProperties": false,
       "type": "object"
     },
     "NestedChoiceOption": {
@@ -1727,6 +2107,7 @@
       },
       "required": ["type", "name", "choice"],
       "title": "NestedChoiceOption",
+      "additionalProperties": false,
       "type": "object"
     },
     "TraitRefChoiceOption": {
@@ -1751,6 +2132,7 @@
       },
       "required": ["type", "race", "trait"],
       "title": "TraitRefChoiceOption",
+      "additionalProperties": false,
       "type": "object"
     },
     "ChoiceType": {
@@ -1790,6 +2172,7 @@
       },
       "required": ["class"],
       "title": "ClassLevelOperand",
+      "additionalProperties": false,
       "type": "object"
     },
     "CombatStateRequirement": {
@@ -1816,6 +2199,7 @@
       },
       "required": ["value"],
       "title": "CombatStateRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "Contest": {
@@ -1889,6 +2273,7 @@
       },
       "required": ["status", "max"],
       "title": "CountRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "CreatureSize": {
@@ -1929,6 +2314,7 @@
       },
       "required": ["value"],
       "title": "CreatureTypeRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "Currency": {
@@ -1951,6 +2337,7 @@
       },
       "required": ["amount", "currency"],
       "title": "CurrencyCost",
+      "additionalProperties": false,
       "type": "object"
     },
     "Damage": {
@@ -2014,6 +2401,12 @@
           "description": "Damage source: 'weapon' or 'spell'",
           "title": "Source"
         },
+        "magical": {
+          "default": false,
+          "description": "Whether the damage counts as magical for resistance/immunity purposes",
+          "title": "Magical",
+          "type": "boolean"
+        },
         "auto_hit": {
           "default": false,
           "description": "Damage bypasses attack roll",
@@ -2072,6 +2465,7 @@
         }
       },
       "title": "Damage",
+      "additionalProperties": false,
       "type": "object"
     },
     "DamageElement": {
@@ -2130,9 +2524,22 @@
           ],
           "default": null,
           "description": "Constraint on the damage source (e.g., weapon attacks)"
+        },
+        "calculation": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Calculation"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Calculation to apply to incoming damage (e.g., subtract 3, divide by 2)"
         }
       },
       "title": "DamageResponse",
+      "additionalProperties": false,
       "type": "object"
     },
     "DamageResponseSource": {
@@ -2166,9 +2573,36 @@
           "default": null,
           "description": "Whether the damage source is magical (false = nonmagical only)",
           "title": "Magical"
+        },
+        "half_damage": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Whether the damage source deals half damage on a successful save",
+          "title": "Half Damage"
+        },
+        "save": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Ability"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Saving throw ability the damage requires (e.g., 'Dexterity')",
+          "title": "Save"
         }
       },
       "title": "DamageResponseSource",
+      "additionalProperties": false,
       "type": "object"
     },
     "DamageTarget": {
@@ -2271,6 +2705,7 @@
         }
       },
       "title": "Detection",
+      "additionalProperties": false,
       "type": "object"
     },
     "DiceCondition": {
@@ -2290,6 +2725,7 @@
       },
       "required": ["dice_sides", "check"],
       "title": "DiceCondition",
+      "additionalProperties": false,
       "type": "object"
     },
     "DiceOperand": {
@@ -2309,6 +2745,7 @@
       },
       "required": ["dice"],
       "title": "DiceOperand",
+      "additionalProperties": false,
       "type": "object"
     },
     "DifficultyClass": {
@@ -2384,6 +2821,7 @@
         }
       },
       "title": "DifficultyClass",
+      "additionalProperties": false,
       "type": "object"
     },
     "DisadvantageEffect": {
@@ -2486,6 +2924,25 @@
           "$ref": "#/$defs/RequirementSet",
           "description": "Conditions for the disadvantage to apply"
         },
+        "attacker": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Filter by attacker identity (e.g., 'character')",
+          "title": "Attacker"
+        },
+        "negate": {
+          "default": false,
+          "description": "Invert the attacker filter (true = everyone except the attacker)",
+          "title": "Negate",
+          "type": "boolean"
+        },
         "count": {
           "anyOf": [
             {
@@ -2513,6 +2970,7 @@
         }
       },
       "title": "DisadvantageEffect",
+      "additionalProperties": false,
       "type": "object"
     },
     "DisadvantageImmunity": {
@@ -2548,6 +3006,7 @@
         }
       },
       "title": "DisadvantageImmunity",
+      "additionalProperties": false,
       "type": "object"
     },
     "Distance": {
@@ -2605,14 +3064,23 @@
           "default": null,
           "description": "Computed distance (e.g., half movement speed)"
         },
-        "maximum": {
-          "default": false,
-          "description": "Whether this is a maximum ('up to') distance",
-          "title": "Maximum",
-          "type": "boolean"
+        "comparison": {
+          "anyOf": [
+            {
+              "enum": ["at_most", "at_least", "exactly"],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "How the distance value is interpreted (e.g., 'at_most' for 'up to X feet')",
+          "title": "Comparison"
         }
       },
       "title": "Distance",
+      "additionalProperties": false,
       "type": "object"
     },
     "DistanceRequirement": {
@@ -2625,9 +3093,20 @@
           "type": "string"
         },
         "value": {
-          "description": "Distance value",
-          "title": "Value",
-          "type": "integer"
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "#/$defs/Calculation"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Distance value — integer for fixed distances, Calculation for dynamic values",
+          "title": "Value"
         },
         "unit": {
           "default": "feet",
@@ -2662,10 +3141,86 @@
           "default": null,
           "description": "Comparison type",
           "title": "Comparison"
+        },
+        "entities": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Entity types that must be within the distance (e.g., 'ally', 'hostile', 'mage_hand')",
+          "title": "Entities"
+        }
+      },
+      "required": [],
+      "title": "DistanceRequirement",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "MovementRequirement": {
+      "description": "Requirement based on movement distance this turn.",
+      "properties": {
+        "type": {
+          "const": "movement",
+          "default": "movement",
+          "title": "Type",
+          "type": "string"
+        },
+        "value": {
+          "description": "Distance moved",
+          "title": "Value",
+          "type": "integer"
+        },
+        "unit": {
+          "default": "feet",
+          "description": "Distance unit",
+          "enum": ["feet"],
+          "title": "Unit",
+          "type": "string"
+        },
+        "to": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Direction of movement (e.g., 'target')",
+          "title": "To"
         }
       },
       "required": ["value"],
-      "title": "DistanceRequirement",
+      "title": "MovementRequirement",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "RollResultRequirement": {
+      "description": "Requirement based on the result of a die roll.",
+      "properties": {
+        "type": {
+          "const": "roll_result",
+          "default": "roll_result",
+          "title": "Type",
+          "type": "string"
+        },
+        "value": {
+          "description": "The roll value to check against",
+          "title": "Value",
+          "type": "integer"
+        },
+        "comparison": {
+          "description": "Comparison operator",
+          "enum": ["equal", "greater_than", "less_than", "greater_than_or_equal", "less_than_or_equal"],
+          "title": "Comparison",
+          "type": "string"
+        }
+      },
+      "required": ["value", "comparison"],
+      "title": "RollResultRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "Distribution": {
@@ -2684,6 +3239,7 @@
       },
       "required": ["dice", "resource"],
       "title": "Distribution",
+      "additionalProperties": false,
       "type": "object"
     },
     "Duration": {
@@ -2729,6 +3285,29 @@
           "default": null,
           "description": "When in the turn the duration expires",
           "title": "Timing"
+        },
+        "to": {
+          "anyOf": [
+            {
+              "enum": [
+                "character",
+                "target",
+                "source",
+                "attacker",
+                "ally",
+                "illusion",
+                "event_actor",
+                "event_recipient"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Whose turn the timing refers to (e.g., 'event_actor', 'event_recipient')",
+          "title": "To"
         },
         "until": {
           "anyOf": [
@@ -2778,6 +3357,7 @@
         }
       },
       "title": "Duration",
+      "additionalProperties": false,
       "type": "object"
     },
     "Effect": {
@@ -2943,6 +3523,18 @@
           "default": null,
           "description": "Action or ability granted"
         },
+        "buff": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Buff"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Temporary non-attribute capability granted by this effect"
+        },
         "environment": {
           "anyOf": [
             {
@@ -2981,120 +3573,7 @@
           "description": "Attribute modification"
         },
         "requirements": {
-          "anyOf": [
-            {
-              "items": {
-                "discriminator": {
-                  "mapping": {
-                    "ability_check": "#/$defs/AbilityCheckRequirement",
-                    "attack": "#/$defs/AttackRequirement",
-                    "attack_result": "#/$defs/AttackResultRequirement",
-                    "combat_state": "#/$defs/CombatStateRequirement",
-                    "count": "#/$defs/CountRequirement",
-                    "creature_type": "#/$defs/CreatureTypeRequirement",
-                    "distance": "#/$defs/DistanceRequirement",
-                    "environment": "#/$defs/EnvironmentRequirement",
-                    "equipment": "#/$defs/EquipmentRequirement",
-                    "function": "#/$defs/FunctionRequirement",
-                    "proficiency": "#/$defs/ProficiencyRequirement",
-                    "hit_points": "#/$defs/HitPointsRequirement",
-                    "immunity": "#/$defs/ImmunityRequirement",
-                    "inventory_item": "#/$defs/InventoryItemRequirement",
-                    "level": "#/$defs/LevelRequirement",
-                    "perception": "#/$defs/PerceptionRequirement",
-                    "proximity": "#/$defs/ProximityRequirement",
-                    "resource": "#/$defs/ResourceRequirement",
-                    "size": "#/$defs/SizeRequirement",
-                    "spell": "#/$defs/SpellRequirement",
-                    "status": "#/$defs/StatusRequirement",
-                    "weapon_property": "#/$defs/WeaponPropertyRequirement",
-                    "attribute": "#/$defs/AttributeRequirement",
-                    "race": "#/$defs/RaceRequirement"
-                  },
-                  "propertyName": "type"
-                },
-                "oneOf": [
-                  {
-                    "$ref": "#/$defs/EquipmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/PerceptionRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/WeaponPropertyRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/StatusRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CreatureTypeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttackResultRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/InventoryItemRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AbilityCheckRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/HitPointsRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SpellRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/DistanceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ProximityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ImmunityRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/LevelRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CombatStateRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/EnvironmentRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ResourceRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/SizeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/CountRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/FunctionRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/ProficiencyRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/AttributeRequirement"
-                  },
-                  {
-                    "$ref": "#/$defs/RaceRequirement"
-                  }
-                ]
-              },
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
+          "$ref": "#/$defs/RequirementSet",
           "description": "Requirements for this effect",
           "title": "Requirements"
         },
@@ -3540,17 +4019,20 @@
           "default": null,
           "description": "Sustained effect repeatable on subsequent turns (e.g., Witch Bolt)"
         },
-        "ignore_requirement": {
+        "ignore_requirements": {
           "anyOf": [
             {
-              "$ref": "#/$defs/IgnoreRequirement"
+              "items": {
+                "$ref": "#/$defs/IgnoreRequirement"
+              },
+              "type": "array"
             },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "description": "Requirement that this effect allows bypassing"
+          "description": "Requirements that this effect allows bypassing"
         }
       },
       "additionalProperties": false,
@@ -3570,10 +4052,23 @@
           "description": "Effect name immune to (e.g., 'disarm')",
           "title": "Effect",
           "type": "string"
+        },
+        "target": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Target"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "What the immunity applies to (e.g., bonded weapon)"
         }
       },
       "required": ["effect"],
       "title": "EffectImmunity",
+      "additionalProperties": false,
       "type": "object"
     },
     "Entity": {
@@ -3709,6 +4204,7 @@
       },
       "required": ["category", "type"],
       "title": "Entity",
+      "additionalProperties": false,
       "type": "object"
     },
     "EntityInteraction": {
@@ -3734,6 +4230,7 @@
       },
       "required": ["action"],
       "title": "Interaction",
+      "additionalProperties": false,
       "type": "object"
     },
     "Environment": {
@@ -3794,6 +4291,7 @@
       },
       "required": ["area"],
       "title": "Environment",
+      "additionalProperties": false,
       "type": "object"
     },
     "EnvironmentRequirement": {
@@ -3834,6 +4332,7 @@
         }
       },
       "title": "EnvironmentRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "EquipmentRequirement": {
@@ -3902,6 +4401,20 @@
           "description": "Item(s) that must be equipped (matches any one)",
           "title": "Item"
         },
+        "material": {
+          "anyOf": [
+            {
+              "enum": ["leather", "metal", "cloth"],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Required material of equipped item",
+          "title": "Material"
+        },
         "function": {
           "anyOf": [
             {
@@ -3915,6 +4428,22 @@
           "description": "Function reference for complex checks (e.g., 'equipment.is_wearing_heavy_armor')",
           "title": "Function"
         },
+        "property": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Required property on the equipped item (e.g., 'Melee', 'Martial')",
+          "title": "Property"
+        },
         "negate": {
           "default": false,
           "description": "Invert the check result",
@@ -3923,6 +4452,7 @@
         }
       },
       "title": "EquipmentRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "ForcedMovement": {
@@ -4003,6 +4533,7 @@
       },
       "required": ["direction"],
       "title": "ForcedMovement",
+      "additionalProperties": false,
       "type": "object"
     },
     "FunctionOperand": {
@@ -4048,6 +4579,7 @@
       },
       "required": ["function"],
       "title": "FunctionOperand",
+      "additionalProperties": false,
       "type": "object"
     },
     "FunctionRequirement": {
@@ -4103,6 +4635,7 @@
       },
       "required": ["function"],
       "title": "FunctionRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "Grant": {
@@ -4255,6 +4788,7 @@
       },
       "required": ["name"],
       "title": "Grant",
+      "additionalProperties": false,
       "type": "object"
     },
     "GrantInteraction": {
@@ -4361,6 +4895,7 @@
         }
       },
       "title": "Interaction",
+      "additionalProperties": false,
       "type": "object"
     },
     "GrantedSpellsMechanic": {
@@ -4404,10 +4939,63 @@
           "description": "Whether these spells can only be cast as rituals",
           "title": "Ritual Only",
           "type": "boolean"
+        },
+        "choices": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/SpellGrantChoice"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Spell choices with criteria (level, school restrictions)",
+          "title": "Choices"
+        },
+        "uses": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Uses"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Usage limits for this mechanic"
+        },
+        "recharge": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RechargeType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "When the resource recharges"
+        },
+        "spellcasting_ability": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Ability"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Ability used for spellcasting (e.g., Charisma for racial spells)"
         }
       },
       "required": ["type", "spells"],
       "title": "GrantedSpellsMechanic",
+      "additionalProperties": false,
       "type": "object"
     },
     "Healing": {
@@ -4488,71 +5076,7 @@
         }
       },
       "title": "Healing",
-      "type": "object"
-    },
-    "HitPointsRequirement": {
-      "description": "Requirement based on hit points.",
-      "properties": {
-        "type": {
-          "const": "hit_points",
-          "default": "hit_points",
-          "title": "Type",
-          "type": "string"
-        },
-        "attribute": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "HP attribute to check",
-          "title": "Attribute"
-        },
-        "comparison": {
-          "anyOf": [
-            {
-              "enum": ["equals", "greater_than", "less_than", "at_most", "at_least"],
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Comparison operator",
-          "title": "Comparison"
-        },
-        "value": {
-          "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Static value to compare against",
-          "title": "Value"
-        },
-        "calculation": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/Calculation"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Calculated value to compare against"
-        }
-      },
-      "title": "HitPointsRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "IgnoreRequirement": {
@@ -4562,6 +5086,19 @@
           "description": "The type of requirement to ignore (e.g., 'attribute')",
           "title": "Type",
           "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Specific value to ignore (e.g., 'Loading' for weapon_property type)",
+          "title": "Value"
         },
         "attribute": {
           "anyOf": [
@@ -4592,6 +5129,7 @@
       },
       "required": ["type"],
       "title": "IgnoreRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "ImmunityRequirement": {
@@ -4617,6 +5155,7 @@
       },
       "required": ["to"],
       "title": "ImmunityRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "ImmunitySource": {
@@ -4630,6 +5169,7 @@
       },
       "required": ["origin"],
       "title": "ImmunitySource",
+      "additionalProperties": false,
       "type": "object"
     },
     "IntegerOperand": {
@@ -4649,6 +5189,7 @@
       },
       "required": ["value"],
       "title": "IntegerOperand",
+      "additionalProperties": false,
       "type": "object"
     },
     "InventoryItemRequirement": {
@@ -4691,6 +5232,7 @@
         }
       },
       "title": "InventoryItemRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "LevelRequirement": {
@@ -4730,6 +5272,7 @@
         }
       },
       "title": "LevelRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "Lighting": {
@@ -4783,6 +5326,7 @@
       },
       "required": ["level"],
       "title": "Lighting",
+      "additionalProperties": false,
       "type": "object"
     },
     "LocationVisibility": {
@@ -4804,6 +5348,7 @@
         }
       },
       "title": "LocationVisibility",
+      "additionalProperties": false,
       "type": "object"
     },
     "Manipulate": {
@@ -4824,6 +5369,7 @@
       },
       "required": ["model", "operation"],
       "title": "Manipulate",
+      "additionalProperties": false,
       "type": "object"
     },
     "NestedChoice": {
@@ -4877,6 +5423,7 @@
       },
       "required": ["choice_type"],
       "title": "NestedChoice",
+      "additionalProperties": false,
       "type": "object"
     },
     "Movement": {
@@ -4976,6 +5523,7 @@
         }
       },
       "title": "Movement",
+      "additionalProperties": false,
       "type": "object"
     },
     "MovementConstraint": {
@@ -5024,6 +5572,7 @@
         }
       },
       "title": "MovementConstraint",
+      "additionalProperties": false,
       "type": "object"
     },
     "Origin": {
@@ -5072,6 +5621,7 @@
       },
       "required": ["observer", "subject", "senses"],
       "title": "Perception",
+      "additionalProperties": false,
       "type": "object"
     },
     "PerceptionRequirement": {
@@ -5120,6 +5670,7 @@
       },
       "required": ["observer", "subject", "senses"],
       "title": "PerceptionRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "Placement": {
@@ -5194,6 +5745,7 @@
         }
       },
       "title": "Placement",
+      "additionalProperties": false,
       "type": "object"
     },
     "ProficiencyMechanic": {
@@ -5226,6 +5778,7 @@
       },
       "required": ["type", "category", "proficiencies"],
       "title": "ProficiencyMechanic",
+      "additionalProperties": false,
       "type": "object"
     },
     "Projectile": {
@@ -5256,38 +5809,7 @@
       },
       "required": ["count", "damage"],
       "title": "Projectile",
-      "type": "object"
-    },
-    "ProximityRequirement": {
-      "description": "Requirement based on proximity between entities.",
-      "properties": {
-        "type": {
-          "const": "proximity",
-          "default": "proximity",
-          "title": "Type",
-          "type": "string"
-        },
-        "entities": {
-          "description": "Entities to check proximity from (e.g., 'self', 'mage_hand', 'illusion')",
-          "items": {
-            "type": "string"
-          },
-          "title": "Entities",
-          "type": "array"
-        },
-        "distance": {
-          "description": "Distance in feet",
-          "title": "Distance",
-          "type": "integer"
-        },
-        "to": {
-          "description": "Reference point to measure distance to (e.g., 'target')",
-          "title": "To",
-          "type": "string"
-        }
-      },
-      "required": ["entities", "distance", "to"],
-      "title": "ProximityRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "RaceRequirement": {
@@ -5307,6 +5829,7 @@
       },
       "required": ["race"],
       "title": "RaceRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "MechanicRequirement": {
@@ -5314,6 +5837,7 @@
       "discriminator": {
         "mapping": {
           "ability_check": "#/$defs/AbilityCheckRequirement",
+          "area": "#/$defs/AreaRequirement",
           "attack": "#/$defs/AttackRequirement",
           "attack_result": "#/$defs/AttackResultRequirement",
           "attribute": "#/$defs/AttributeRequirement",
@@ -5325,13 +5849,14 @@
           "equipment": "#/$defs/EquipmentRequirement",
           "function": "#/$defs/FunctionRequirement",
           "proficiency": "#/$defs/ProficiencyRequirement",
-          "hit_points": "#/$defs/HitPointsRequirement",
           "immunity": "#/$defs/ImmunityRequirement",
           "inventory_item": "#/$defs/InventoryItemRequirement",
           "level": "#/$defs/LevelRequirement",
+          "movement": "#/$defs/MovementRequirement",
           "perception": "#/$defs/PerceptionRequirement",
-          "proximity": "#/$defs/ProximityRequirement",
+          "property": "#/$defs/PropertyRequirement",
           "race": "#/$defs/RaceRequirement",
+          "roll_result": "#/$defs/RollResultRequirement",
           "resource": "#/$defs/ResourceRequirement",
           "size": "#/$defs/SizeRequirement",
           "spell": "#/$defs/SpellRequirement",
@@ -5342,6 +5867,7 @@
       },
       "oneOf": [
         { "$ref": "#/$defs/AbilityCheckRequirement" },
+        { "$ref": "#/$defs/AreaRequirement" },
         { "$ref": "#/$defs/AttributeRequirement" },
         { "$ref": "#/$defs/AttackRequirement" },
         { "$ref": "#/$defs/AttackResultRequirement" },
@@ -5352,14 +5878,15 @@
         { "$ref": "#/$defs/EnvironmentRequirement" },
         { "$ref": "#/$defs/EquipmentRequirement" },
         { "$ref": "#/$defs/FunctionRequirement" },
-        { "$ref": "#/$defs/HitPointsRequirement" },
         { "$ref": "#/$defs/ImmunityRequirement" },
         { "$ref": "#/$defs/InventoryItemRequirement" },
         { "$ref": "#/$defs/LevelRequirement" },
+        { "$ref": "#/$defs/MovementRequirement" },
         { "$ref": "#/$defs/PerceptionRequirement" },
         { "$ref": "#/$defs/ProficiencyRequirement" },
-        { "$ref": "#/$defs/ProximityRequirement" },
+        { "$ref": "#/$defs/PropertyRequirement" },
         { "$ref": "#/$defs/RaceRequirement" },
+        { "$ref": "#/$defs/RollResultRequirement" },
         { "$ref": "#/$defs/ResourceRequirement" },
         { "$ref": "#/$defs/SizeRequirement" },
         { "$ref": "#/$defs/SpellRequirement" },
@@ -5421,6 +5948,33 @@
       },
       "required": ["category", "value"],
       "title": "ProficiencyRequirement",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "PropertyRequirement": {
+      "description": "Requirement based on object properties (e.g., magical, fuel).",
+      "properties": {
+        "type": {
+          "const": "property",
+          "default": "property",
+          "title": "Type",
+          "type": "string"
+        },
+        "value": {
+          "description": "Property name to check (e.g., 'magical', 'fuel')",
+          "title": "Value",
+          "type": "string"
+        },
+        "negate": {
+          "default": false,
+          "description": "If true, property must NOT be present",
+          "title": "Negate",
+          "type": "boolean"
+        }
+      },
+      "required": ["value"],
+      "title": "PropertyRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "Query": {
@@ -5460,6 +6014,7 @@
       },
       "required": ["source"],
       "title": "Query",
+      "additionalProperties": false,
       "type": "object"
     },
     "RechargeType": {
@@ -5495,6 +6050,7 @@
       },
       "required": ["target", "count"],
       "title": "Recover",
+      "additionalProperties": false,
       "type": "object"
     },
     "RecoverMaxLevel": {
@@ -5524,6 +6080,7 @@
       },
       "required": ["calculation", "operation", "divisor", "rounding"],
       "title": "RecoverMaxLevel",
+      "additionalProperties": false,
       "type": "object"
     },
     "Reroll": {
@@ -5598,6 +6155,7 @@
       },
       "required": ["amount", "resource"],
       "title": "ResourceCost",
+      "additionalProperties": false,
       "type": "object"
     },
     "ResourceCount": {
@@ -5683,6 +6241,7 @@
       },
       "required": ["type"],
       "title": "ResourceCount",
+      "additionalProperties": false,
       "type": "object"
     },
     "ResourceDieOperand": {
@@ -5702,6 +6261,7 @@
       },
       "required": ["value"],
       "title": "ResourceDieOperand",
+      "additionalProperties": false,
       "type": "object"
     },
     "ResourceMechanic": {
@@ -5781,6 +6341,7 @@
       },
       "required": ["type", "id", "name", "recharge"],
       "title": "ResourceMechanic",
+      "additionalProperties": false,
       "type": "object"
     },
     "ResourceRequirement": {
@@ -5811,6 +6372,7 @@
       },
       "required": ["resource", "comparison", "value"],
       "title": "ResourceRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "RetrainMechanic": {
@@ -5851,6 +6413,19 @@
           "title": "Optional",
           "type": "boolean"
         },
+        "triggered_by": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Feature or event that triggers the retrain opportunity (e.g., 'Ability Score Improvement')",
+          "title": "Triggered By"
+        },
         "source": {
           "anyOf": [
             {
@@ -5866,6 +6441,7 @@
       },
       "required": ["type", "attribute", "operation"],
       "title": "RetrainMechanic",
+      "additionalProperties": false,
       "type": "object"
     },
     "RetrainSource": {
@@ -5915,6 +6491,7 @@
       },
       "required": ["list"],
       "title": "RetrainSource",
+      "additionalProperties": false,
       "type": "object"
     },
     "Roll": {
@@ -5940,6 +6517,7 @@
       },
       "required": ["type"],
       "title": "Roll",
+      "additionalProperties": false,
       "type": "object"
     },
     "RollModifier": {
@@ -6040,6 +6618,7 @@
         }
       },
       "title": "RollResultOperand",
+      "additionalProperties": false,
       "type": "object"
     },
     "RollThreshold": {
@@ -6073,6 +6652,7 @@
         }
       },
       "title": "RollThreshold",
+      "additionalProperties": false,
       "type": "object"
     },
     "Ruleset": {
@@ -6126,6 +6706,7 @@
         }
       },
       "title": "SaveAdvantage",
+      "additionalProperties": false,
       "type": "object"
     },
     "SavingThrow": {
@@ -6159,10 +6740,35 @@
           ],
           "default": null,
           "description": "Conditions granting advantage on this save"
+        },
+        "on_failure": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Effect"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "What happens on a failed save"
+        },
+        "on_success": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Effect"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "What happens on a successful save"
         }
       },
       "required": ["ability"],
       "title": "SavingThrow",
+      "additionalProperties": false,
       "type": "object"
     },
     "Scaling": {
@@ -6239,6 +6845,7 @@
         }
       },
       "title": "Scaling",
+      "additionalProperties": false,
       "type": "object"
     },
     "ScalingOperand": {
@@ -6258,6 +6865,7 @@
       },
       "required": ["value"],
       "title": "ScalingOperand",
+      "additionalProperties": false,
       "type": "object"
     },
     "ScalingReference": {
@@ -6271,6 +6879,7 @@
       },
       "required": ["scaling"],
       "title": "ScalingReference",
+      "additionalProperties": false,
       "type": "object"
     },
     "SizeRequirement": {
@@ -6298,6 +6907,7 @@
       },
       "oneOf": [{ "required": ["value"] }, { "required": ["ref"] }],
       "title": "SizeRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "SkillCheck": {
@@ -6315,6 +6925,7 @@
       },
       "required": ["skill", "dc"],
       "title": "SkillCheck",
+      "additionalProperties": false,
       "type": "object"
     },
     "Source": {
@@ -6342,6 +6953,62 @@
       },
       "required": ["spell"],
       "title": "SpellImmunity",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "SpellGrantChoice": {
+      "description": "A spell choice within a granted_spells mechanic (e.g., 'pick 1 level-1 Divination or Enchantment spell').",
+      "properties": {
+        "count": {
+          "description": "Number of spells to choose",
+          "title": "Count",
+          "type": "integer"
+        },
+        "criteria": {
+          "$ref": "#/$defs/SpellGrantCriteria"
+        }
+      },
+      "required": ["count", "criteria"],
+      "title": "SpellGrantChoice",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "SpellGrantCriteria": {
+      "description": "Filtering criteria for spell grant choices.",
+      "properties": {
+        "level": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Required spell level",
+          "title": "Level"
+        },
+        "schools": {
+          "anyOf": [
+            {
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Allowed spell schools",
+          "title": "Schools"
+        },
+        "tags": {
+          "anyOf": [
+            {
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Required spell tags (e.g., 'ritual')",
+          "title": "Tags"
+        }
+      },
+      "title": "SpellGrantCriteria",
+      "additionalProperties": false,
       "type": "object"
     },
     "SpellLevelCastOperand": {
@@ -6355,6 +7022,7 @@
         }
       },
       "title": "SpellLevelCastOperand",
+      "additionalProperties": false,
       "type": "object"
     },
     "SpellRequirement": {
@@ -6407,6 +7075,7 @@
         }
       },
       "title": "SpellRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "SpellcastingMechanic": {
@@ -6495,6 +7164,7 @@
       },
       "required": ["type", "ability"],
       "title": "SpellcastingMechanic",
+      "additionalProperties": false,
       "type": "object"
     },
     "StatusConstraint": {
@@ -6535,9 +7205,38 @@
           ],
           "default": null,
           "description": "Spell component restrictions (e.g., can't speak blocks verbal)"
+        },
+        "features": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/FeatureConstraint"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Feature restrictions (e.g., blocked features)"
         }
       },
       "title": "StatusConstraint",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "FeatureConstraint": {
+      "description": "Feature restrictions imposed by a status.\n\nBlocks specific features from being used while the status is active.\n\nExample — Bountiful Luck (blocks Lucky):\n{\"blocked_features\": [\"Lucky\"]}",
+      "properties": {
+        "blocked_features": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "description": "Features that cannot be used while this status is active"
+        }
+      },
+      "required": ["blocked_features"],
+      "title": "FeatureConstraint",
+      "additionalProperties": false,
       "type": "object"
     },
     "ComponentConstraint": {
@@ -6553,6 +7252,7 @@
       },
       "required": ["blocked"],
       "title": "ComponentConstraint",
+      "additionalProperties": false,
       "type": "object"
     },
     "StatusEffect": {
@@ -6706,6 +7406,18 @@
           "default": null,
           "description": "Action or ability granted"
         },
+        "requirements": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RequirementSet"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Requirements that must be met for this effect to apply"
+        },
         "on_failure": {
           "anyOf": [
             {
@@ -6729,9 +7441,22 @@
           ],
           "default": null,
           "description": "What happens on a successful save"
+        },
+        "apply_status": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ApplyStatus"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Status to apply (e.g., exhaustion when frenzy ends)"
         }
       },
       "title": "StatusEffect",
+      "additionalProperties": false,
       "type": "object"
     },
     "StatusImmunity": {
@@ -6796,6 +7521,7 @@
       },
       "required": ["status"],
       "title": "StatusImmunity",
+      "additionalProperties": false,
       "type": "object"
     },
     "StatusRequirement": {
@@ -6827,10 +7553,38 @@
           "description": "If true, status must NOT be active",
           "title": "Negate",
           "type": "boolean"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Filter to status applied by this entity",
+          "title": "Source"
+        },
+        "action": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Filter to status applied by this action",
+          "title": "Action"
         }
       },
       "required": ["value"],
       "title": "StatusRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "StringOperand": {
@@ -6850,6 +7604,7 @@
       },
       "required": ["value"],
       "title": "StringOperand",
+      "additionalProperties": false,
       "type": "object"
     },
     "SuccessCondition": {
@@ -6876,6 +7631,7 @@
       },
       "required": ["comparison", "value"],
       "title": "SuccessCondition",
+      "additionalProperties": false,
       "type": "object"
     },
     "Surface": {
@@ -6890,6 +7646,7 @@
       },
       "required": ["type"],
       "title": "Surface",
+      "additionalProperties": false,
       "type": "object"
     },
     "Sustained": {
@@ -6919,6 +7676,7 @@
       },
       "required": ["cost", "damage"],
       "title": "Sustained",
+      "additionalProperties": false,
       "type": "object"
     },
     "Target": {
@@ -7008,303 +7766,32 @@
           "title": "Order"
         },
         "requirements": {
+          "$ref": "#/$defs/RequirementSet",
+          "description": "Conditions that potential targets must meet"
+        },
+        "proximity": {
           "anyOf": [
             {
-              "items": {
-                "$ref": "#/$defs/TargetRequirement"
-              },
-              "type": "array"
+              "type": "integer"
             },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "description": "Conditions that potential targets must meet",
-          "title": "Requirements"
+          "description": "Maximum distance in feet between selected targets (for multi-target effects)",
+          "title": "Proximity"
+        },
+        "choice": {
+          "default": false,
+          "description": "Whether the caster chooses which targets are affected",
+          "title": "Choice",
+          "type": "boolean"
         }
       },
       "required": ["type"],
       "title": "Target",
-      "type": "object"
-    },
-    "TargetRequirement": {
-      "description": "A condition that potential targets must meet.",
-      "properties": {
-        "type": {
-          "description": "Type of requirement",
-          "enum": [
-            "perception",
-            "creature_type",
-            "size",
-            "status",
-            "equipment",
-            "hit_points",
-            "immunity",
-            "range",
-            "spent_hit_dice",
-            "function",
-            "area",
-            "distance",
-            "property"
-          ],
-          "title": "Type",
-          "type": "string"
-        },
-        "disabled": {
-          "default": false,
-          "description": "Skip enforcement of this requirement (intent preserved in data)",
-          "title": "Disabled",
-          "type": "boolean"
-        },
-        "observer": {
-          "anyOf": [
-            {
-              "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Entity that must perceive (required for perception type)",
-          "title": "Observer"
-        },
-        "subject": {
-          "anyOf": [
-            {
-              "enum": ["character", "target", "source", "attacker", "ally", "illusion"],
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Entity that must be perceived (required for perception type)",
-          "title": "Subject"
-        },
-        "senses": {
-          "anyOf": [
-            {
-              "items": {
-                "enum": ["sight", "hearing"],
-                "type": "string"
-              },
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Required senses: sight, hearing (required for perception type)",
-          "title": "Senses"
-        },
-        "negate": {
-          "default": false,
-          "description": "If true, observer must NOT perceive subject (perception type only)",
-          "title": "Negate",
-          "type": "boolean"
-        },
-        "value": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "integer"
-            },
-            {
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Required value(s) - for non-perception types",
-          "title": "Value"
-        },
-        "match": {
-          "default": "all",
-          "description": "For array values/senses, whether any or all must match",
-          "enum": ["any", "all"],
-          "title": "Match",
-          "type": "string"
-        },
-        "modifier": {
-          "anyOf": [
-            {
-              "const": "not",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Negates the requirement (e.g., NOT immune to frightened)",
-          "title": "Modifier"
-        },
-        "minimum": {
-          "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Minimum value (for numeric requirements like spent_hit_dice)",
-          "title": "Minimum"
-        },
-        "function": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Function name for 'function' type requirements",
-          "title": "Function"
-        },
-        "context": {
-          "anyOf": [
-            {
-              "enum": ["character", "target"],
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Context for function evaluation",
-          "title": "Context"
-        },
-        "comparison": {
-          "anyOf": [
-            {
-              "enum": [
-                "equals",
-                "not_equals",
-                "greater_than",
-                "less_than",
-                "greater_than_or_equal",
-                "less_than_or_equal",
-                "within"
-              ],
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Comparison operator for requirement evaluation",
-          "title": "Comparison"
-        },
-        "attribute": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Attribute to check (e.g., 'hit_points')",
-          "title": "Attribute"
-        },
-        "calculation": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/Calculation"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Calculated value to compare against"
-        },
-        "unit": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Unit for range/distance requirements (e.g., 'feet')",
-          "title": "Unit"
-        },
-        "to": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Reference entity for distance requirements",
-          "title": "To"
-        },
-        "area": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/Area"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Area constraint for area-type requirements"
-        },
-        "from_action": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Filter status to one applied by this action",
-          "title": "From Action"
-        },
-        "from_source": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Filter status to one applied by this entity",
-          "title": "From Source"
-        }
-      },
-      "required": ["type"],
-      "title": "TargetRequirement",
+      "additionalProperties": false,
       "type": "object"
     },
     "Terrain": {
@@ -7332,6 +7819,7 @@
       },
       "required": ["type"],
       "title": "Terrain",
+      "additionalProperties": false,
       "type": "object"
     },
     "Timing": {
@@ -7396,34 +7884,17 @@
           "description": "Result of the triggering event: 'success' or 'failure'. Context determines meaning (hit/miss for attacks, pass/fail for saves).",
           "title": "Result"
         },
-        "effect": {
+        "spell": {
           "anyOf": [
             {
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
+              "$ref": "#/$defs/TriggerSpell"
             },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "description": "Effect type(s) of the triggering spell or ability (e.g., ['healing'], ['healing', 'damage']).",
-          "title": "Effect"
-        },
-        "spell_level": {
-          "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Minimum spell level at casting (0 for cantrips). Triggers on spells cast at this level or higher.",
-          "title": "Spell Level"
+          "description": "Spell-specific filters for cast_spell triggers (level, class, effect type)"
         },
         "status": {
           "anyOf": [
@@ -7464,7 +7935,7 @@
         "condition": {
           "anyOf": [
             {
-              "$ref": "#/$defs/TriggerCondition"
+              "$ref": "#/$defs/MechanicRequirement"
             },
             {
               "type": "null"
@@ -7613,6 +8084,7 @@
         }
       },
       "title": "TriggerCondition",
+      "additionalProperties": false,
       "type": "object"
     },
     "TriggerEvent": {
@@ -7670,6 +8142,7 @@
       },
       "required": ["type"],
       "title": "TerrainImmunity",
+      "additionalProperties": false,
       "type": "object"
     },
     "TriggerImmunity": {
@@ -7702,6 +8175,57 @@
       },
       "required": ["to"],
       "title": "TriggerImmunity",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "TriggerSpell": {
+      "description": "Spell-specific filters for cast_spell triggers.",
+      "properties": {
+        "level": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Minimum spell level at casting (0 for cantrips). Triggers on spells cast at this level or higher.",
+          "title": "Level"
+        },
+        "class": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Class spell list the spell belongs to (e.g., 'Cleric' for cleric cantrips)",
+          "title": "Class"
+        },
+        "effect": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Effect type(s) of the spell (e.g., ['healing'], ['healing', 'damage'])",
+          "title": "Effect"
+        }
+      },
+      "title": "TriggerSpell",
+      "additionalProperties": false,
       "type": "object"
     },
     "TriggerSource": {
@@ -7800,6 +8324,7 @@
         }
       },
       "title": "TriggerSource",
+      "additionalProperties": false,
       "type": "object"
     },
     "TriggerStatus": {
@@ -7826,6 +8351,7 @@
       },
       "required": ["name"],
       "title": "TriggerStatus",
+      "additionalProperties": false,
       "type": "object"
     },
     "TriggerTarget": {
@@ -7914,9 +8440,28 @@
           "default": null,
           "description": "Target must not have any of these features (e.g., ['feat:sentinel'])",
           "title": "Lacks Features"
+        },
+        "disposition": {
+          "anyOf": [
+            {
+              "enum": ["friendly", "hostile", "neutral", "any", "willing"],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Relationship of target to the character",
+          "title": "Disposition"
+        },
+        "requirements": {
+          "$ref": "#/$defs/RequirementSet",
+          "description": "Conditions the trigger target must meet"
         }
       },
       "title": "TriggerTarget",
+      "additionalProperties": false,
       "type": "object"
     },
     "Uses": {
@@ -7963,6 +8508,7 @@
         }
       },
       "title": "Uses",
+      "additionalProperties": false,
       "type": "object"
     },
     "Visibility": {
@@ -7983,6 +8529,7 @@
       },
       "required": ["level"],
       "title": "Visibility",
+      "additionalProperties": false,
       "type": "object"
     },
     "WeaponPropertyRequirement": {
@@ -7994,17 +8541,31 @@
           "title": "Type",
           "type": "string"
         },
-        "value": {
+        "property": {
           "description": "Weapon must have one of these properties",
           "items": {
             "type": "string"
           },
-          "title": "Value",
+          "title": "Property",
           "type": "array"
+        },
+        "proficient": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Whether the character must be proficient with the weapon",
+          "title": "Proficient"
         }
       },
-      "required": ["value"],
+      "required": ["property"],
       "title": "WeaponPropertyRequirement",
+      "additionalProperties": false,
       "type": "object"
     }
   }

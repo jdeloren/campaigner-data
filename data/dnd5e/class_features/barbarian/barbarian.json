@@ -42,13 +42,13 @@
             "damage_bonus": {
               "dice": "scaling.damage_bonus"
             },
-            "requirements": [
-              {
-                "type": "weapon_property",
-                "value": ["melee"],
-                "ability": "Strength"
+            "trigger": {
+              "event": ["damage"],
+              "source": {
+                "type": ["melee", "weapon"],
+                "ability": ["Strength"]
               }
-            ]
+            }
           }
         ],
         "scaling": {
@@ -182,19 +182,16 @@
       {
         "type": "advantage",
         "trigger": {
-          "event": ["attack"]
+          "event": ["attack"],
+          "source": {
+            "type": ["melee", "weapon"],
+            "ability": ["Strength"]
+          }
         },
         "effects": [
           {
             "advantage": {
               "attack": "melee",
-              "requirements": [
-                {
-                  "type": "weapon_property",
-                  "value": ["melee"],
-                  "ability": "Strength"
-                }
-              ],
               "duration": {
                 "value": 1,
                 "unit": "turns"
@@ -521,7 +518,7 @@
             "value": "raging"
           },
           {
-            "type": "hit_points",
+            "type": "attribute",
             "attribute": "hit_points.current",
             "comparison": "equals",
             "value": 0

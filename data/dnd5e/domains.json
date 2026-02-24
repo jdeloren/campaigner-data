@@ -87,14 +87,10 @@
             ],
             "effects": [
               {
-                "choice": {
-                  "source": "skills_and_tools",
+                "buff": {
+                  "category": "proficiency",
+                  "choice_type": ["skill", "tool"],
                   "count": 1
-                },
-                "attribute": {
-                  "target": "proficiencies.temporary",
-                  "operation": "add",
-                  "value": "choice"
                 },
                 "duration": {
                   "value": 10,
@@ -134,7 +130,7 @@
                       "senses": ["sight"]
                     },
                     {
-                      "type": "range",
+                      "type": "distance",
                       "value": 60,
                       "unit": "feet"
                     }
@@ -189,12 +185,7 @@
             "type": "damage_bonus",
             "trigger": {
               "event": ["cast_spell"],
-              "source": {
-                "type": ["spell"],
-                "spell_level": 0,
-                "class": "Cleric",
-                "source": "character"
-              }
+              "spell": { "level": 0, "class": "Cleric" }
             },
             "damage": {
               "bonus": {
@@ -289,7 +280,7 @@
             "type": "passive",
             "trigger": {
               "event": ["cast_spell"],
-              "effect": ["healing"]
+              "spell": { "effect": ["healing"] }
             },
             "requirements": [
               {
@@ -353,8 +344,8 @@
                       "negate": true
                     },
                     {
-                      "type": "hit_points",
-                      "attribute": "hit_points",
+                      "type": "attribute",
+                      "attribute": "hit_points.current",
                       "comparison": "less_than",
                       "calculation": {
                         "operation": "divide",
@@ -413,7 +404,7 @@
             "type": "passive",
             "trigger": {
               "event": ["cast_spell"],
-              "effect": ["healing"],
+              "spell": { "effect": ["healing"] },
               "target": {
                 "exclude": "self"
               }
@@ -498,7 +489,7 @@
             "type": "passive",
             "trigger": {
               "event": ["cast_spell"],
-              "effect": ["healing"]
+              "spell": { "effect": ["healing"] }
             },
             "effects": [
               {
@@ -761,12 +752,7 @@
             "type": "damage_bonus",
             "trigger": {
               "event": ["cast_spell"],
-              "source": {
-                "type": ["spell"],
-                "spell_level": 0,
-                "class": "Cleric",
-                "source": "character"
-              }
+              "spell": { "level": 0, "class": "Cleric" }
             },
             "damage": {
               "bonus": {
@@ -831,7 +817,7 @@
                 "disadvantage": {
                   "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
                   "against": {
-                    "type": "spell",
+                    "effect_type": "spell",
                     "damage_type": ["fire", "radiant"]
                   }
                 }
@@ -954,8 +940,7 @@
                   "requirements": [
                     {
                       "type": "creature_type",
-                      "value": ["Beast", "Plant"],
-                      "match": "any"
+                      "value": ["Beast", "Plant"]
                     }
                   ]
                 },
@@ -1103,8 +1088,8 @@
                 {
                   "type": "status",
                   "value": "charmed",
-                  "from_action": "Charm Animals and Plants",
-                  "from_source": "character"
+                  "action": "Charm Animals and Plants",
+                  "source": "character"
                 }
               ]
             },
@@ -1315,7 +1300,7 @@
                   "distance": {
                     "value": 10,
                     "unit": "feet",
-                    "maximum": true
+                    "comparison": "at_most"
                   }
                 }
               }
@@ -1504,10 +1489,11 @@
                   "attack": "all",
                   "requirements": [
                     {
-                      "type": "proximity",
-                      "entities": ["self", "illusion"],
-                      "distance": 5,
-                      "to": "target"
+                      "type": "distance",
+                      "value": 5,
+                      "comparison": "within",
+                      "to": "target",
+                      "entities": ["self", "illusion"]
                     },
                     {
                       "type": "perception",

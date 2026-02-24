@@ -137,23 +137,17 @@
             "apply_status": {
               "id": "status:distracted",
               "effect": {
-                "trigger": {
-                  "event": ["attack"],
-                  "source": {
-                    "exclude": "character"
-                  }
-                },
                 "advantage": {
-                  "attack": "all"
+                  "attack": "all",
+                  "attacker": "character",
+                  "negate": true
                 }
-              },
-              "uses": {
-                "value": 1
               },
               "duration": {
                 "value": 1,
                 "unit": "turns",
-                "timing": "start_turn"
+                "timing": "start_turn",
+                "until": ["attacked_by"]
               }
             }
           }
@@ -223,31 +217,25 @@
               "type": "creature",
               "requirements": [
                 {
-                  "type": "range",
+                  "type": "distance",
                   "value": 5,
-                  "unit": "feet"
+                  "unit": "feet",
+                  "comparison": "within"
                 }
               ]
             },
             "apply_status": {
               "id": "status:feinted",
               "effect": {
-                "trigger": {
-                  "event": ["attack"],
-                  "source": {
-                    "is": "character"
-                  }
-                },
                 "advantage": {
-                  "attack": "all"
+                  "attack": "all",
+                  "attacker": "character"
                 }
-              },
-              "uses": {
-                "value": 1
               },
               "duration": {
                 "value": 0,
-                "unit": "turns"
+                "unit": "turns",
+                "until": ["attacked_by"]
               }
             }
           },
@@ -307,9 +295,8 @@
                   "effect": {
                     "disadvantage": {
                       "attack": "all",
-                      "against": {
-                        "exclude": "character"
-                      }
+                      "attacker": "character",
+                      "negate": true
                     }
                   },
                   "duration": {
@@ -620,7 +607,7 @@
                   "distance": {
                     "value": 15,
                     "unit": "feet",
-                    "maximum": true
+                    "comparison": "at_most"
                   }
                 }
               }
@@ -764,13 +751,13 @@
                 "requirements": [
                   {
                     "type": "distance",
-                    "comparison": "less_than_or_equal",
+                    "comparison": "within",
                     "value": 5,
                     "unit": "feet",
                     "to": "event_recipient"
                   },
                   {
-                    "type": "range",
+                    "type": "distance",
                     "comparison": "within",
                     "to": "character"
                   }

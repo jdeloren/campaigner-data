@@ -99,19 +99,21 @@
         "type": "passive",
         "name": "Unseen Attackers",
         "trigger": {
-          "event": ["attacked_by"]
+          "event": ["attacked_by"],
+          "source": {
+            "perception": {
+              "observer": "character",
+              "subject": "attacker",
+              "senses": ["sight"],
+              "negate": true
+            }
+          }
         },
         "effects": [
           {
             "immunity": {
               "category": "advantage",
-              "event": "attack",
-              "source": {
-                "detection": {
-                  "detects": ["creatures"],
-                  "ignores_status": ["unseen"]
-                }
-              }
+              "event": "attack"
             }
           }
         ]
@@ -393,16 +395,8 @@
         "name": "Ignore Loading",
         "effects": [
           {
-            "target": {
-              "type": "weapon",
-              "name_contains": ["Crossbow"]
-            },
-            "grants": {
-              "name": "Ignore Loading",
-              "interaction": {
-                "ignore_requirements": ["Loading"]
-              }
-            }
+            "ignore_requirements": [{ "type": "weapon_property", "value": "Loading" }],
+            "requirements": [{ "type": "weapon_property", "property": ["Crossbow"] }]
           }
         ]
       },
@@ -417,10 +411,11 @@
         },
         "requirements": [
           {
-            "type": "proximity",
-            "entities": ["hostile"],
-            "distance": 5,
-            "to": "self"
+            "type": "distance",
+            "value": 5,
+            "comparison": "within",
+            "to": "self",
+            "entities": ["hostile"]
           }
         ]
       },
@@ -435,8 +430,7 @@
           },
           {
             "type": "equipment",
-            "item": ["Hand Crossbow"],
-            "holding": true
+            "item": ["Hand Crossbow"]
           }
         ],
         "grants": {
@@ -565,8 +559,8 @@
         },
         "requirements": [
           {
-            "type": "equipment",
-            "weapon_property": "Finesse",
+            "type": "weapon_property",
+            "property": ["Finesse"],
             "proficient": true
           }
         ],
@@ -605,18 +599,8 @@
         "type": "passive",
         "name": "Dual Wielder AC",
         "requirements": [
-          {
-            "type": "equipment",
-            "slot": "main_hand",
-            "category": "weapon",
-            "subcategory": "melee"
-          },
-          {
-            "type": "equipment",
-            "slot": "off_hand",
-            "category": "weapon",
-            "subcategory": "melee"
-          }
+          { "type": "equipment", "slot": "main_hand", "property": ["Melee"] },
+          { "type": "equipment", "slot": "off_hand", "property": ["Melee"] }
         ],
         "effects": [
           {
@@ -635,15 +619,7 @@
         "name": "Non-Light Two-Weapon Fighting",
         "effects": [
           {
-            "grants": {
-              "name": "Attack",
-              "source": {
-                "slot": "off_hand"
-              },
-              "interaction": {
-                "ignore_requirements": ["Light"]
-              }
-            }
+            "ignore_requirements": [{ "type": "weapon_property", "value": "Light" }]
           }
         ]
       }
@@ -792,15 +768,10 @@
         "query": {
           "source": "invocations",
           "params": {
-            "prerequisite": "none"
-          }
-        },
-        "requirements": [
-          {
-            "type": "level",
+            "prerequisite": "none",
             "class": "Warlock"
           }
-        ]
+        }
       }
     ],
     "source": "tce",
@@ -912,14 +883,7 @@
     "id": "feat:fighting-initiate",
     "name": "Fighting Initiate",
     "description": "Your martial training has helped you develop a particular style of fighting. As a result, you learn one Fighting Style option of your choice from the fighter class. If you already have a style, the one you choose must be different. Whenever you reach a level that grants the Ability Score Improvement feature, you can replace this feat's fighting style with another one from the fighter class that you don't have.",
-    "requirements": [
-      {
-        "type": "equipment",
-        "category": "weapon",
-        "subcategory": "martial",
-        "proficient": true
-      }
-    ],
+    "requirements": [{ "type": "proficiency", "category": "weapon", "value": "Martial" }],
     "mechanics": [
       {
         "type": "choice",
@@ -977,7 +941,7 @@
           {
             "type": "status",
             "value": "grappled",
-            "target": "attacker"
+            "source": "character"
           }
         ],
         "effects": [
@@ -994,7 +958,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "status:grappled"
+            "value": "grappled"
           }
         ],
         "effects": [
@@ -1005,7 +969,7 @@
             "on_success": {
               "apply_status": {
                 "id": "status:restrained",
-                "target": ["self", "target"]
+                "target": ["character", "target"]
               }
             }
           }
@@ -1037,11 +1001,9 @@
           {
             "grants": {
               "name": "Attack",
-              "source": {
-                "type": ["melee"]
-              },
+              "type": "melee",
               "count": 1,
-              "action": "bonus_action"
+              "activation": "bonus_action"
             }
           }
         ]
@@ -1057,7 +1019,8 @@
         },
         "requirements": [
           {
-            "type": "hit_points",
+            "type": "attribute",
+            "attribute": "hit_points.current",
             "comparison": "at_least",
             "calculation": {
               "operation": "subtract",
@@ -1079,9 +1042,7 @@
           {
             "grants": {
               "name": "Attack",
-              "source": {
-                "type": ["melee"]
-              },
+              "type": "melee",
               "count": 1
             }
           }
@@ -1098,8 +1059,8 @@
         },
         "requirements": [
           {
-            "type": "equipment",
-            "weapon_property": "Heavy",
+            "type": "weapon_property",
+            "property": ["Heavy"],
             "proficient": true
           }
         ],
@@ -1160,16 +1121,8 @@
         "name": "Ignore Loading",
         "effects": [
           {
-            "target": {
-              "type": "weapon",
-              "category": "firearm"
-            },
-            "grants": {
-              "name": "Ignore Loading",
-              "interaction": {
-                "ignore_requirements": ["Loading"]
-              }
-            }
+            "ignore_requirements": [{ "type": "weapon_property", "value": "Loading" }],
+            "requirements": [{ "type": "weapon_property", "property": ["Firearm"] }]
           }
         ]
       },
@@ -1184,10 +1137,11 @@
         },
         "requirements": [
           {
-            "type": "proximity",
-            "entities": ["hostile"],
-            "distance": 5,
-            "to": "self"
+            "type": "distance",
+            "value": 5,
+            "comparison": "within",
+            "to": "self",
+            "entities": ["hostile"]
           }
         ]
       }
@@ -1208,7 +1162,7 @@
         "type": "passive",
         "name": "Stabilize and Heal",
         "trigger": {
-          "event": ["healed_by"],
+          "event": ["heal"],
           "source": {
             "resource": "healer_kit"
           }
@@ -1216,8 +1170,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "status:stabilized",
-            "target": "target"
+            "value": "stabilized"
           }
         ],
         "effects": [
@@ -1231,22 +1184,22 @@
       {
         "type": "action",
         "name": "Healer's Touch",
-        "requirements": [
-          {
-            "type": "equipment",
-            "category": "gear",
-            "item": ["Healer's Kit"],
-            "consume": true
+        "trigger": {
+          "event": ["heal"],
+          "source": {
+            "resource": "healer_kit"
           }
-        ],
+        },
         "effects": [
           {
             "healing": {
               "dice": "1d6",
-              "bonus": 4,
-              "additional": {
-                "type": "attribute",
-                "value": "target.hit_dice.max"
+              "bonus": {
+                "operation": "add",
+                "operators": [
+                  { "type": "integer", "value": 4 },
+                  { "type": "attribute", "value": "level" }
+                ]
               }
             }
           }
@@ -1265,14 +1218,7 @@
     "name": "Heavily Armored",
     "description": "You have trained to master the use of heavy armor, gaining the following benefits:",
     "bonuses": ["Increase your Strength score by 1, to a maximum of 20.", "You gain proficiency with heavy armor."],
-    "requirements": [
-      {
-        "type": "equipment",
-        "category": "armor",
-        "subcategory": "medium",
-        "proficient": true
-      }
-    ],
+    "requirements": [{ "type": "proficiency", "category": "armor", "value": "Medium" }],
     "mechanics": [
       {
         "type": "passive",
@@ -1306,14 +1252,7 @@
       "Increase your Strength score by 1, to a maximum of 20.",
       "While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from nonmagical weapons is reduced by 3."
     ],
-    "requirements": [
-      {
-        "type": "equipment",
-        "category": "armor",
-        "subcategory": "heavy",
-        "proficient": true
-      }
-    ],
+    "requirements": [{ "type": "proficiency", "category": "armor", "value": "Heavy" }],
     "mechanics": [
       {
         "type": "passive",
@@ -1333,14 +1272,7 @@
       {
         "type": "resistance",
         "name": "Damage Reduction",
-        "requirements": [
-          {
-            "type": "equipment",
-            "category": "armor",
-            "subcategory": "heavy",
-            "equipped": true
-          }
-        ],
+        "requirements": [{ "type": "equipment", "slot": "armor", "property": ["Heavy"] }],
         "effects": [
           {
             "damage_response": {
@@ -1379,9 +1311,9 @@
           "count": 6,
           "type": "creature",
           "disposition": "friendly",
-          "range": 30,
-          "includes_self": true
+          "include_self": true
         },
+        "range": { "value": 30, "unit": "feet" },
         "effects": [
           {
             "healing": {
@@ -1683,7 +1615,6 @@
       },
       {
         "type": "spellcasting",
-        "name": "1st-Level Spell",
         "ability": "selected_class",
         "query": {
           "source": "spells",
@@ -1737,7 +1668,7 @@
       {
         "type": "proficiency",
         "category": "armor",
-        "value": "Medium Armor"
+        "value": "Medium"
       }
     ],
     "bonuses": [
@@ -1886,7 +1817,7 @@
       {
         "type": "proficiency",
         "category": "armor",
-        "value": "Light Armor"
+        "value": "Light"
       }
     ],
     "bonuses": [
@@ -2030,11 +1961,20 @@
         "effects": [
           {
             "damage_bonus": {
-              "extra_dice": 1,
+              "dice": "scaling.extra_dice",
               "inherit_type": true
             }
           }
-        ]
+        ],
+        "scaling": {
+          "components": {
+            "extra_dice": {
+              "by_level": {
+                "1": 1
+              }
+            }
+          }
+        }
       }
     ],
     "source": "tce",
@@ -2300,12 +2240,14 @@
       {
         "type": "passive",
         "name": "Ignore Disengage",
-        "grants": {
-          "name": "Opportunity Attack",
-          "interaction": {
-            "ignore_requirements": ["Disengage"]
+        "trigger": {
+          "event": ["move"]
+        },
+        "effects": [
+          {
+            "ignore_requirements": [{ "type": "status", "value": "disengaged" }]
           }
-        }
+        ]
       },
       {
         "type": "reaction",
@@ -2416,12 +2358,14 @@
             "type": ["ranged", "weapon"]
           }
         },
-        "grants": {
-          "name": "Attack",
-          "interaction": {
-            "ignore_requirements": ["half_cover", "three_quarters_cover"]
+        "effects": [
+          {
+            "ignore_requirements": [
+              { "type": "cover", "value": "half" },
+              { "type": "cover", "value": "three_quarters" }
+            ]
           }
-        }
+        ]
       },
       {
         "type": "optional",
@@ -2434,7 +2378,8 @@
         },
         "requirements": [
           {
-            "type": "equipment",
+            "type": "weapon_property",
+            "property": ["Ranged"],
             "proficient": true
           }
         ],
@@ -2882,12 +2827,14 @@
             "type": ["ranged", "spell"]
           }
         },
-        "grants": {
-          "name": "Attack",
-          "interaction": {
-            "ignore_requirements": ["half_cover", "three_quarters_cover"]
+        "effects": [
+          {
+            "ignore_requirements": [
+              { "type": "cover", "value": "half" },
+              { "type": "cover", "value": "three_quarters" }
+            ]
           }
-        }
+        ]
       },
       {
         "type": "choice",
@@ -3379,8 +3326,7 @@
                     "base": 8,
                     "add": "proficiency_bonus",
                     "ability": ["Charisma"]
-                  },
-                  "timing": "end_turn"
+                  }
                 }
               }
             }
@@ -3525,9 +3471,9 @@
               "dice": "hit_die",
               "bonus": {
                 "operation": "add",
-                "operators": [{ "type": "ability_modifier", "ability": "Constitution" }]
-              },
-              "minimum": 0
+                "operators": [{ "type": "ability_modifier", "ability": "Constitution" }],
+                "minimum": 0
+              }
             }
           }
         ]

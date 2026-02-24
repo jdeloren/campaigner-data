@@ -142,7 +142,7 @@
                   {
                     "event": ["end_turn"],
                     "condition": {
-                      "type": "range",
+                      "type": "distance",
                       "value": 60,
                       "unit": "feet",
                       "comparison": "greater_than",

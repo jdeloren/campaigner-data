@@ -24,7 +24,7 @@
       "type": ["bludgeoning"]
     },
     "weight": 2.0,
-    "properties": ["Light"],
+    "properties": ["Simple", "Melee", "Light"],
     "subcategory": "simple_melee",
     "category": "weapon",
     "source": "phb",
@@ -55,7 +55,7 @@
       "type": ["piercing"]
     },
     "weight": 1.0,
-    "properties": ["Finesse", "Light", "Thrown (20/60)"],
+    "properties": ["Simple", "Melee", "Finesse", "Light", "Thrown (20/60)"],
     "subcategory": "simple_melee",
     "category": "weapon",
     "source": "phb",
@@ -73,7 +73,7 @@
       "type": ["bludgeoning"]
     },
     "weight": 10.0,
-    "properties": ["Two-handed"],
+    "properties": ["Simple", "Melee", "Two-handed"],
     "subcategory": "simple_melee",
     "category": "weapon",
     "source": "phb",
@@ -91,7 +91,7 @@
       "type": ["slashing"]
     },
     "weight": 2.0,
-    "properties": ["Light", "Thrown (20/60)"],
+    "properties": ["Simple", "Melee", "Light", "Thrown (20/60)"],
     "subcategory": "simple_melee",
     "category": "weapon",
     "source": "phb",
@@ -109,7 +109,7 @@
       "type": ["piercing"]
     },
     "weight": 2.0,
-    "properties": ["Thrown (30/120)"],
+    "properties": ["Simple", "Melee", "Thrown (30/120)"],
     "subcategory": "simple_melee",
     "category": "weapon",
     "source": "phb",
@@ -127,7 +127,7 @@
       "type": ["bludgeoning"]
     },
     "weight": 2.0,
-    "properties": ["Light", "Thrown (20/60)"],
+    "properties": ["Simple", "Melee", "Light", "Thrown (20/60)"],
     "subcategory": "simple_melee",
     "category": "weapon",
     "source": "phb",
@@ -145,7 +145,7 @@
       "type": ["bludgeoning"]
     },
     "weight": 4.0,
-    "properties": [],
+    "properties": ["Simple", "Melee"],
     "subcategory": "simple_melee",
     "category": "weapon",
     "source": "phb",
@@ -163,7 +163,7 @@
       "type": ["bludgeoning"]
     },
     "weight": 4.0,
-    "properties": ["Versatile (1d8)"],
+    "properties": ["Simple", "Melee", "Versatile (1d8)"],
     "subcategory": "simple_melee",
     "category": "weapon",
     "source": "phb",
@@ -181,7 +181,7 @@
       "type": ["slashing"]
     },
     "weight": 2.0,
-    "properties": ["Light"],
+    "properties": ["Simple", "Melee", "Light"],
     "subcategory": "simple_melee",
     "category": "weapon",
     "source": "phb",
@@ -212,7 +212,7 @@
       "type": ["piercing"]
     },
     "weight": 3.0,
-    "properties": ["Thrown (20/60)", "Versatile (1d8)"],
+    "properties": ["Simple", "Melee", "Thrown (20/60)", "Versatile (1d8)"],
     "subcategory": "simple_melee",
     "category": "weapon",
     "source": "phb",
@@ -230,7 +230,7 @@
       "type": ["piercing"]
     },
     "weight": 5.0,
-    "properties": ["Ammunition", "Range (80/320)", "Loading", "Two-handed"],
+    "properties": ["Simple", "Ranged", "Ammunition", "Crossbow", "Range (80/320)", "Loading", "Two-handed"],
     "subcategory": "simple_ranged",
     "category": "weapon",
     "source": "phb",
@@ -248,7 +248,7 @@
       "type": ["piercing"]
     },
     "weight": 0.25,
-    "properties": ["Finesse", "Thrown (20/60)"],
+    "properties": ["Simple", "Ranged", "Finesse", "Thrown (20/60)"],
     "subcategory": "simple_ranged",
     "category": "weapon",
     "source": "phb",
@@ -266,7 +266,7 @@
       "type": ["piercing"]
     },
     "weight": 2.0,
-    "properties": ["Ammunition", "Range (80/320)", "Two-handed"],
+    "properties": ["Simple", "Ranged", "Ammunition", "Range (80/320)", "Two-handed"],
     "subcategory": "simple_ranged",
     "category": "weapon",
     "source": "phb",
@@ -284,7 +284,7 @@
       "type": ["bludgeoning"]
     },
     "weight": 0.0,
-    "properties": ["Ammunition", "Range (30/120)"],
+    "properties": ["Simple", "Ranged", "Ammunition", "Range (30/120)"],
     "subcategory": "simple_ranged",
     "category": "weapon",
     "source": "phb",
@@ -307,7 +307,8 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "subcategory": "light_armor"
+    "subcategory": "light_armor",
+    "properties": ["Light"]
   },
   {
     "id": "equip:leather-armor",
@@ -326,7 +327,8 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "subcategory": "light_armor"
+    "subcategory": "light_armor",
+    "properties": ["Light"]
   },
   {
     "id": "equip:studded-leather",
@@ -345,7 +347,8 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "subcategory": "light_armor"
+    "subcategory": "light_armor",
+    "properties": ["Light"]
   },
   {
     "id": "equip:hide-armor",
@@ -364,7 +367,8 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "subcategory": "medium_armor"
+    "subcategory": "medium_armor",
+    "properties": ["Medium"]
   },
   {
     "id": "equip:chain-shirt",
@@ -383,7 +387,8 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "subcategory": "medium_armor"
+    "subcategory": "medium_armor",
+    "properties": ["Medium"]
   },
   {
     "id": "equip:scale-mail",
@@ -402,7 +407,8 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "subcategory": "medium_armor"
+    "subcategory": "medium_armor",
+    "properties": ["Medium"]
   },
   {
     "id": "equip:spiked-armor",
@@ -421,7 +427,8 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "subcategory": "medium_armor"
+    "subcategory": "medium_armor",
+    "properties": ["Medium"]
   },
   {
     "id": "equip:breastplate",
@@ -440,7 +447,8 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "subcategory": "medium_armor"
+    "subcategory": "medium_armor",
+    "properties": ["Medium"]
   },
   {
     "id": "equip:halfplate",
@@ -459,7 +467,8 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "subcategory": "medium_armor"
+    "subcategory": "medium_armor",
+    "properties": ["Medium"]
   },
   {
     "id": "equip:ring-mail",
@@ -478,7 +487,8 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "subcategory": "heavy_armor"
+    "subcategory": "heavy_armor",
+    "properties": ["Heavy"]
   },
   {
     "id": "equip:chain-mail",
@@ -504,7 +514,8 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "subcategory": "heavy_armor"
+    "subcategory": "heavy_armor",
+    "properties": ["Heavy"]
   },
   {
     "id": "equip:splint-mail",
@@ -530,7 +541,8 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "subcategory": "heavy_armor"
+    "subcategory": "heavy_armor",
+    "properties": ["Heavy"]
   },
   {
     "id": "equip:plate-mail",
@@ -556,7 +568,8 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "subcategory": "heavy_armor"
+    "subcategory": "heavy_armor",
+    "properties": ["Heavy"]
   },
   {
     "id": "equip:shield",
@@ -575,7 +588,8 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "subcategory": "shield"
+    "subcategory": "shield",
+    "properties": ["Shield"]
   },
   {
     "id": "equip:burglars-pack",
@@ -2055,7 +2069,7 @@
             "advantage": {
               "saving_throw": ["Constitution"],
               "against": {
-                "damage_type": "poison"
+                "status": ["status:poisoned"]
               }
             },
             "duration": {
@@ -2221,8 +2235,8 @@
               "type": "creature",
               "requirements": [
                 {
-                  "type": "hit_points",
-                  "attribute": "current",
+                  "type": "attribute",
+                  "attribute": "hit_points.current",
                   "comparison": "equals",
                   "value": 0
                 }
@@ -3118,7 +3132,7 @@
       "type": ["slashing"]
     },
     "weight": 4.0,
-    "properties": ["Versatile (1d10)"],
+    "properties": ["Martial", "Melee", "Versatile (1d10)"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3136,7 +3150,7 @@
       "type": ["bludgeoning"]
     },
     "weight": 2.0,
-    "properties": [],
+    "properties": ["Martial", "Melee"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3154,7 +3168,7 @@
       "type": ["slashing"]
     },
     "weight": 6.0,
-    "properties": ["Heavy", "Reach", "Two-handed"],
+    "properties": ["Martial", "Melee", "Heavy", "Reach", "Two-handed"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3172,7 +3186,7 @@
       "type": ["slashing"]
     },
     "weight": 7.0,
-    "properties": ["Heavy", "Two-handed"],
+    "properties": ["Martial", "Melee", "Heavy", "Two-handed"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3190,7 +3204,7 @@
       "type": ["slashing"]
     },
     "weight": 6.0,
-    "properties": ["Heavy", "Two-handed"],
+    "properties": ["Martial", "Melee", "Heavy", "Two-handed"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3208,7 +3222,7 @@
       "type": ["slashing"]
     },
     "weight": 6.0,
-    "properties": ["Heavy", "Reach", "Two-handed"],
+    "properties": ["Martial", "Melee", "Heavy", "Reach", "Two-handed"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3226,7 +3240,7 @@
       "type": ["piercing"]
     },
     "weight": 6.0,
-    "properties": ["Reach", "Special"],
+    "properties": ["Martial", "Melee", "Reach", "Special"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3244,7 +3258,7 @@
       "type": ["slashing"]
     },
     "weight": 3.0,
-    "properties": ["Versatile (1d10)"],
+    "properties": ["Martial", "Melee", "Versatile (1d10)"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3262,7 +3276,7 @@
       "type": ["bludgeoning"]
     },
     "weight": 10.0,
-    "properties": ["Heavy", "Two-handed"],
+    "properties": ["Martial", "Melee", "Heavy", "Two-handed"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3280,7 +3294,7 @@
       "type": ["piercing"]
     },
     "weight": 4.0,
-    "properties": [],
+    "properties": ["Martial", "Melee"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3298,7 +3312,7 @@
       "type": ["piercing"]
     },
     "weight": 18.0,
-    "properties": ["Heavy", "Reach", "Two-handed"],
+    "properties": ["Martial", "Melee", "Heavy", "Reach", "Two-handed"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3316,7 +3330,7 @@
       "type": ["piercing"]
     },
     "weight": 2.0,
-    "properties": ["Finesse"],
+    "properties": ["Martial", "Melee", "Finesse"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3334,7 +3348,7 @@
       "type": ["slashing"]
     },
     "weight": 3.0,
-    "properties": ["Finesse", "Light"],
+    "properties": ["Martial", "Melee", "Finesse", "Light"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3352,7 +3366,7 @@
       "type": ["piercing"]
     },
     "weight": 2.0,
-    "properties": ["Finesse", "Light"],
+    "properties": ["Martial", "Melee", "Finesse", "Light"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3370,7 +3384,7 @@
       "type": ["piercing"]
     },
     "weight": 4.0,
-    "properties": ["Thrown (20/60)", "Versatile (1d8)"],
+    "properties": ["Martial", "Melee", "Thrown (20/60)", "Versatile (1d8)"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3388,7 +3402,7 @@
       "type": ["piercing"]
     },
     "weight": 2.0,
-    "properties": [],
+    "properties": ["Martial", "Melee"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3406,7 +3420,7 @@
       "type": ["bludgeoning"]
     },
     "weight": 2.0,
-    "properties": ["Versatile (1d10)"],
+    "properties": ["Martial", "Melee", "Versatile (1d10)"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3424,7 +3438,7 @@
       "type": ["slashing"]
     },
     "weight": 3.0,
-    "properties": ["Finesse", "Reach"],
+    "properties": ["Martial", "Melee", "Finesse", "Reach"],
     "subcategory": "martial_melee",
     "category": "weapon",
     "source": "phb",
@@ -3442,7 +3456,7 @@
       "type": ["piercing"]
     },
     "weight": 1.0,
-    "properties": ["Ammunition", "Range (25/100)", "Loading"],
+    "properties": ["Martial", "Ranged", "Ammunition", "Range (25/100)", "Loading"],
     "subcategory": "martial_ranged",
     "category": "weapon",
     "source": "phb",
@@ -3460,7 +3474,7 @@
       "type": ["piercing"]
     },
     "weight": 3.0,
-    "properties": ["Ammunition", "Range (30/120)", "Light", "Loading"],
+    "properties": ["Martial", "Ranged", "Ammunition", "Crossbow", "Range (30/120)", "Light", "Loading"],
     "subcategory": "martial_ranged",
     "category": "weapon",
     "source": "phb",
@@ -3478,7 +3492,7 @@
       "type": ["piercing"]
     },
     "weight": 18.0,
-    "properties": ["Ammunition", "Range (100/400)", "Heavy", "Loading", "Two-handed"],
+    "properties": ["Martial", "Ranged", "Ammunition", "Crossbow", "Range (100/400)", "Heavy", "Loading", "Two-handed"],
     "subcategory": "martial_ranged",
     "category": "weapon",
     "source": "phb",
@@ -3496,7 +3510,7 @@
       "type": ["piercing"]
     },
     "weight": 2.0,
-    "properties": ["Ammunition", "Range (150/600)", "Heavy", "Two-handed"],
+    "properties": ["Martial", "Ranged", "Ammunition", "Range (150/600)", "Heavy", "Two-handed"],
     "subcategory": "martial_ranged",
     "category": "weapon",
     "source": "phb",

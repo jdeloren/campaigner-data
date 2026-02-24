@@ -90,10 +90,11 @@
               "attack": "all",
               "requirements": [
                 {
-                  "type": "proximity",
-                  "entities": ["mage_hand"],
-                  "distance": 5,
-                  "to": "target"
+                  "type": "distance",
+                  "value": 5,
+                  "comparison": "within",
+                  "to": "target",
+                  "entities": ["mage_hand"]
                 }
               ]
             }

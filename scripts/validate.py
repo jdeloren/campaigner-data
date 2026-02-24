@@ -201,6 +201,19 @@ def validate_ruleset(ruleset: str, syntax_only: bool = False) -> tuple[int, int,
     return total, valid, errors
 
 
+def lint_schema_strict_objects(schema_path: Path) -> list[str]:
+    """Check that all $defs with type: object have additionalProperties: false."""
+    with open(schema_path, "r", encoding="utf-8") as f:
+        schema = json.load(f)
+
+    defs = schema.get("$defs", {})
+    violations = []
+    for name, definition in defs.items():
+        if definition.get("type") == "object" and "additionalProperties" not in definition:
+            violations.append(name)
+    return violations
+
+
 def main():
     parser = argparse.ArgumentParser(description="Validate game data files")
     parser.add_argument(
@@ -268,6 +281,15 @@ def main():
         if args.verbose:
             print(f"  {valid}/{count} files valid")
 
+    # Lint schemas for missing additionalProperties: false
+    schema_lint_errors = []
+    if not args.syntax_only:
+        common_schema = SCHEMAS_DIR / "common.schema.json"
+        if common_schema.exists():
+            violations = lint_schema_strict_objects(common_schema)
+            if violations:
+                schema_lint_errors = violations
+
     # Print results
     print()
     if all_errors:
@@ -277,10 +299,16 @@ def main():
             print(f"  {rel_path}: {error}")
         print()
 
+    if schema_lint_errors:
+        print(f"Schema lint: {len(schema_lint_errors)} definition(s) missing additionalProperties: false")
+        for name in schema_lint_errors:
+            print(f"  $defs/{name}")
+        print()
+
     mode = "syntax" if args.syntax_only else "schema"
     print(f"Validation complete ({mode}): {total_valid}/{total_files} files valid")
 
-    sys.exit(0 if not all_errors else 1)
+    sys.exit(0 if (not all_errors and not schema_lint_errors) else 1)
 
 
 if __name__ == "__main__":

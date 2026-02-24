@@ -511,7 +511,7 @@
                       },
                       {
                         "type": "immunity",
-                        "value": "frightened",
+                        "to": "frightened",
                         "negate": true
                       }
                     ]
@@ -585,8 +585,7 @@
               "requirements": [
                 {
                   "type": "size",
-                  "value": ["Large", "Medium", "Small", "Tiny"],
-                  "match": "any"
+                  "value": ["Large", "Medium", "Small", "Tiny"]
                 }
               ]
             },

@@ -34,14 +34,7 @@
           "type": "creatures",
           "count": 2,
           "disposition": "hostile",
-          "requirements": [
-            {
-              "type": "range",
-              "value": 5,
-              "unit": "feet",
-              "between": "targets"
-            }
-          ]
+          "proximity": 5
         },
         "effects": [
           {
@@ -254,7 +247,7 @@
                   "value": 1,
                   "unit": "turns",
                   "timing": "start_turn",
-                  "of": "self"
+                  "to": "event_actor"
                 }
               }
             }
@@ -346,7 +339,7 @@
                         {
                           "type": "property",
                           "value": "fuel",
-                          "disabled": true
+                          "negate": true
                         }
                       ]
                     },
@@ -819,10 +812,9 @@
                       "type": "object",
                       "requirements": [
                         {
-                          "type": "function",
-                          "function": "weight.max",
-                          "value": 5,
-                          "context": "target"
+                          "type": "attribute",
+                          "attribute": "weight",
+                          "maximum": 5
                         }
                       ]
                     },
@@ -1053,7 +1045,13 @@
               "forced_movement": {
                 "direction": "random",
                 "distance": 5,
-                "requires_speed": 5
+                "requirements": [
+                  {
+                    "type": "attribute",
+                    "attribute": "movement.speed",
+                    "minimum": 5
+                  }
+                ]
               }
             }
           }
@@ -1185,7 +1183,7 @@
                     "type": "creature",
                     "requirements": [
                       {
-                        "type": "range",
+                        "type": "distance",
                         "value": 5,
                         "unit": "feet"
                       }
@@ -1501,12 +1499,10 @@
                     "value": "1d4"
                   }
                 },
-                "uses": {
-                  "value": 1
-                },
                 "duration": {
                   "value": 1,
-                  "unit": "rounds"
+                  "unit": "rounds",
+                  "until": ["saving_throw"]
                 }
               }
             }
@@ -1791,7 +1787,14 @@
     "mechanics": [
       {
         "type": "action",
+        "name": "Produce Flame",
         "effects": [
+          {
+            "apply_status": {
+              "id": "status:flame_produced",
+              "source": "character"
+            }
+          },
           {
             "entity": {
               "category": "light",
@@ -1799,11 +1802,11 @@
             },
             "requirements": [
               {
-                "type": "equipment",
-                "function": "equipment.is_slot_available",
-                "params": {
-                  "slots": ["main_hand", "off_hand"]
-                }
+                "operator": "or",
+                "conditions": [
+                  { "type": "equipment", "slot": "main_hand", "occupied": false },
+                  { "type": "equipment", "slot": "off_hand", "occupied": false }
+                ]
               }
             ],
             "aura": {
@@ -1838,7 +1841,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "produce_flame"
+            "value": "flame_produced"
           }
         ],
         "ends_spell": true,
@@ -1929,7 +1932,7 @@
                 "value": 1,
                 "unit": "turns",
                 "timing": "start_turn",
-                "of": "self"
+                "to": "event_actor"
               }
             }
           }
@@ -2037,9 +2040,9 @@
               "ability": "Dexterity",
               "dc": {
                 "ref": "spell_save_dc"
-              },
-              "ignore_cover": true
+              }
             },
+            "ignore_requirements": [{ "type": "cover" }],
             "on_failure": {
               "damage": {
                 "dice": "scaling.damage",
@@ -2148,7 +2151,7 @@
           "requirements": [
             {
               "type": "equipment",
-              "value": ["Club", "Quarterstaff"]
+              "item": ["Club", "Quarterstaff"]
             }
           ]
         },
@@ -2208,16 +2211,15 @@
         "effects": [
           {
             "advantage": {
-              "attack": "all",
-              "requirements": [
-                {
-                  "type": "function",
-                  "function": "target.armor.material",
-                  "comparison": "equals",
-                  "value": "metal"
-                }
-              ]
-            }
+              "attack": "all"
+            },
+            "requirements": [
+              {
+                "type": "equipment",
+                "slot": "armor",
+                "material": "metal"
+              }
+            ]
           },
           {
             "on_hit": {
@@ -2260,10 +2262,10 @@
           "type": "creature",
           "requirements": [
             {
-              "type": "hit_points",
-              "conditions": {
-                "maximum": 0
-              }
+              "type": "attribute",
+              "attribute": "hit_points.current",
+              "comparison": "equals",
+              "value": 0
             },
             {
               "type": "creature_type",
@@ -2724,7 +2726,7 @@
                 "duration": {
                   "value": 1,
                   "unit": "turns",
-                  "of": "target"
+                  "to": "event_recipient"
                 }
               }
             },

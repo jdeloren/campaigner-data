@@ -283,7 +283,10 @@
             "type": "distance",
             "to": "event_actor",
             "comparison": "greater_than",
-            "value": "combat.melee_reach"
+            "value": {
+              "operation": "set",
+              "operators": [{ "type": "attribute", "value": "combat.melee_reach" }]
+            }
           }
         }
       ]

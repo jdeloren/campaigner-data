@@ -304,7 +304,7 @@
         "type": "damage_bonus",
         "trigger": {
           "event": ["cast_spell"],
-          "spell_level": 0
+          "spell": { "level": 0 }
         },
         "damage": {
           "dice": "1d8",

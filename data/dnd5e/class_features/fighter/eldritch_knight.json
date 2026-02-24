@@ -15,11 +15,11 @@
         },
         "effects": [
           {
+            "target": {
+              "type": "weapon"
+            },
             "apply_status": {
-              "id": "status:bonded",
-              "target": {
-                "type": "weapon"
-              }
+              "id": "status:bonded"
             }
           }
         ],
@@ -37,14 +37,18 @@
           {
             "immunity": {
               "category": "effect",
-              "effect": "disarm"
+              "effect": "disarm",
+              "target": {
+                "type": "weapon",
+                "requirements": [
+                  {
+                    "type": "status",
+                    "value": "bonded"
+                  }
+                ]
+              }
             },
             "requirements": [
-              {
-                "type": "status",
-                "target": "weapon",
-                "value": "bonded"
-              },
               {
                 "type": "status",
                 "value": "incapacitated",
@@ -60,7 +64,12 @@
           {
             "target": {
               "type": "weapon",
-              "status": "bonded"
+              "requirements": [
+                {
+                  "type": "status",
+                  "value": "bonded"
+                }
+              ]
             },
             "movement": {
               "type": "teleport",
@@ -84,7 +93,7 @@
         "type": "bonus_action",
         "trigger": {
           "event": ["cast_spell"],
-          "spell_level": 0
+          "spell": { "level": 0 }
         },
         "effects": [
           {

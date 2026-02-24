@@ -157,13 +157,14 @@
         },
         "requirements": [
           {
-            "type": "hit_points",
+            "type": "attribute",
+            "attribute": "hit_points.current",
             "comparison": "greater_than",
             "value": 0
           },
           {
-            "type": "hit_points",
-            "attribute": "hit_points",
+            "type": "attribute",
+            "attribute": "hit_points.current",
             "comparison": "at_most",
             "calculation": {
               "operation": "divide",

@@ -127,9 +127,6 @@
         "type": "passive",
         "trigger": {
           "event": ["cast_spell"],
-          "source": {
-            "type": ["spell"]
-          },
           "activation": "action"
         },
         "requirements": [
