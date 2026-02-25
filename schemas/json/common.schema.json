@@ -5741,8 +5741,8 @@
           "type": "string"
         },
         "category": {
-          "description": "What kind of proficiency (skill, weapon, armor, saving_throw, tool)",
-          "enum": ["skill", "weapon", "armor", "saving_throw", "tool"],
+          "description": "What kind of proficiency (skill, weapon, armor, saving_throw, tool, language)",
+          "enum": ["skill", "weapon", "armor", "saving_throw", "tool", "language"],
           "title": "Category",
           "type": "string"
         },
