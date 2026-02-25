@@ -70,7 +70,8 @@
               },
               {
                 "type": "equipment",
-                "function": "equipment.is_wearing_heavy_armor",
+                "slot": "armor",
+                "property": ["Heavy"],
                 "negate": true
               },
               {
@@ -99,7 +100,8 @@
               },
               {
                 "type": "equipment",
-                "function": "equipment.is_wearing_heavy_armor",
+                "slot": "armor",
+                "property": ["Heavy"],
                 "negate": true
               },
               {
@@ -126,7 +128,8 @@
               },
               {
                 "type": "equipment",
-                "function": "equipment.is_wearing_heavy_armor",
+                "slot": "armor",
+                "property": ["Heavy"],
                 "negate": true
               },
               {

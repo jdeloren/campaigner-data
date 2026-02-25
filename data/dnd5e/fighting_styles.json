@@ -231,7 +231,8 @@
         "requirements": [
           {
             "type": "equipment",
-            "function": "equipment.is_using_shield"
+            "slot": "off_hand",
+            "item": ["Shield"]
           },
           {
             "type": "perception",
