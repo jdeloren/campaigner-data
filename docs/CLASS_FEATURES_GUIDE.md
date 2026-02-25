@@ -1524,11 +1524,43 @@ Requirements restrict when mechanics/effects apply. All use `type` as discrimina
 
 #### Equipment Requirement
 
+Checks what a character has equipped. Fields can be combined to create specific conditions.
+
+**Available fields:**
+
+- `slot` — `"armor"`, `"main_hand"`, or `"off_hand"`
+- `occupied` — `true` (slot must be filled) or `false` (slot must be empty)
+- `grip` — `"one-handed"` or `"two-handed"` (main_hand slot only)
+- `item` — Array of item names; matches if any one is equipped
+- `property` — Array of required properties on the equipped item (e.g., `"Heavy"`, `"Melee"`)
+- `material` — `"leather"`, `"metal"`, or `"cloth"`
+- `negate` — `true` to invert the entire check
+
 ```json
-{ "type": "equipment", "slot": "armor", "occupied": false }
+// Slot occupancy — wearing any armor
+{ "type": "equipment", "slot": "armor", "occupied": true }
+
+// Slot empty — nothing in off hand
+{ "type": "equipment", "slot": "off_hand", "occupied": false }
+
+// Grip check — wielding a two-handed weapon
 { "type": "equipment", "slot": "main_hand", "grip": "two-handed" }
-{ "type": "equipment", "function": "equipment.is_wearing_heavy_armor", "negate": true }
-{ "type": "equipment", "item": "shield" }
+
+// Specific item — must have a Shield equipped in off hand
+{ "type": "equipment", "slot": "off_hand", "item": ["Shield"] }
+
+// Property check — wearing Heavy armor
+{ "type": "equipment", "slot": "armor", "property": ["Heavy"] }
+
+// Property check on weapon — melee weapon in each hand (Dual Wielder)
+{ "type": "equipment", "slot": "main_hand", "property": ["Melee"] }
+{ "type": "equipment", "slot": "off_hand", "property": ["Melee"] }
+
+// Negated — NOT wearing heavy armor (Barbarian Rage)
+{ "type": "equipment", "slot": "armor", "property": ["Heavy"], "negate": true }
+
+// Item without slot — must have item in inventory/equipped anywhere
+{ "type": "equipment", "item": ["holy symbol"] }
 ```
 
 #### Weapon Property Requirement
@@ -2286,7 +2318,7 @@ Shared resource, multiple options:
   "cost": [{ "type": "resource", "resource": "rage", "amount": 1 }],
   "duration": { "value": 1, "unit": "minutes" },
   "concentration": false,
-  "requirements": [{ "type": "equipment", "function": "equipment.is_wearing_heavy_armor", "negate": true }],
+  "requirements": [{ "type": "equipment", "slot": "armor", "property": ["Heavy"], "negate": true }],
   "effects": [
     {
       "apply_status": {
