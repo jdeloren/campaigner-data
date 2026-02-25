@@ -6988,6 +6988,15 @@
           "default": null,
           "description": "Required spell tags (e.g., 'ritual')",
           "title": "Tags"
+        },
+        "class": {
+          "anyOf": [
+            { "type": "string" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Filter to spells on a specific class's spell list (e.g., 'Druid')",
+          "title": "Class"
         }
       },
       "title": "SpellGrantCriteria",
