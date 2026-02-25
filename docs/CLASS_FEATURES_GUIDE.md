@@ -206,7 +206,7 @@ Passive mechanics can have triggers for "when X happens" effects:
       "scaling_key": "damage"
     }
   ],
-  "requirements": [{ "type": "weapon_property", "value": ["finesse", "ranged"] }],
+  "requirements": [{ "type": "weapon_property", "property": ["Finesse", "Ranged"] }],
   "scaling": {
     "damage": {
       "1": "1d6",
@@ -1000,7 +1000,7 @@ Grants actions or abilities.
   },
   "requirements": [
     { "type": "attack", "hand": "main_hand" },
-    { "type": "weapon_property", "value": ["light"] }
+    { "type": "weapon_property", "property": ["Light"] }
   ]
 }
 ```
@@ -1025,7 +1025,16 @@ Grants actions or abilities.
 {
   "grants": {
     "name": "Move",
-    "distance": { "value": "half_speed", "unit": "feet" },
+    "distance": {
+      "calculation": {
+        "operation": "multiply",
+        "operators": [
+          { "type": "attribute", "value": "movement.base" },
+          { "type": "fraction", "value": "1/2" }
+        ]
+      },
+      "unit": "feet"
+    },
     "immunity": {
       "to": "opportunity_attack",
       "from": { "type": "target" }
@@ -1053,104 +1062,131 @@ Grants actions or abilities.
 
 ### Roll Modifiers
 
-Adds bonuses to rolls.
+Modifies how dice rolls are resolved. Specify either `function`, `reroll`, or `operation`+`value`.
 
-#### Add Charisma to Saves (Aura of Protection)
+**Available fields:**
+
+- `type` — `"saving_throw"`, `"attack"`, or `"ability_check"` (scope which rolls this applies to; null applies to triggering roll)
+- `function` — Function reference (e.g., `"roller.max_roll"`, `"roller.reroll_ones"`)
+- `reroll` — Reroll dice showing specific values (see Reroll schema)
+- `operation` — `"add"` or `"subtract"`
+- `value` — Value to add/subtract (e.g., `"superiority_die"`)
+- `minimum` — Floor value for the roll result (e.g., `10` for Reliable Talent)
+
+#### Reroll Failed Saves (Halfling Lucky)
 
 ```json
 {
   "roll_modifier": {
     "type": "saving_throw",
-    "calculation": {
-      "operation": "add",
-      "operators": [{ "type": "ability_modifier", "ability": "Charisma" }]
-    },
-    "minimum": 1
-  }
-}
-```
-
-#### Add Proficiency to Initiative
-
-```json
-{
-  "roll_modifier": {
-    "type": "initiative",
-    "calculation": {
-      "operation": "add",
-      "operators": [{ "type": "attribute", "value": "proficiency_bonus" }]
+    "reroll": {
+      "result": false
     }
   }
 }
 ```
 
-#### Bardic Inspiration Die
+#### Maximize Healing Dice
 
 ```json
 {
   "roll_modifier": {
-    "type": ["attack", "ability_check", "saving_throw"],
-    "calculation": {
-      "operation": "add",
-      "operators": [{ "type": "resource_die", "value": "bardic_inspiration" }]
-    }
+    "function": "roller.max_roll"
+  }
+}
+```
+
+#### Minimum Roll of 10 (Reliable Talent)
+
+```json
+{
+  "roll_modifier": {
+    "type": "ability_check",
+    "minimum": 10
   }
 }
 ```
 
 ### Auras
 
-Persistent area effects around a character.
+Persistent area effects around a character. Two patterns:
 
-#### Aura of Protection
+- **Mechanical auras** (Paladin, Barbarian): use `radius`, `target`, `grants`
+- **Lighting auras** (Light, Dancing Lights): use `layers` with light types
+
+**Available fields:**
+
+- `origin` — `"self"`, `"target"`, `"created"`, `"each_light"`, `"point"`, `"weapon"` (default: `"self"`)
+- `radius` — Integer radius for mechanical auras (default: `0`)
+- `unit` — `"feet"` or `"miles"` (default: `"feet"`)
+- `shape` — `"radius"`, `"cone"`, `"cube"`, `"sphere"`, `"cylinder"`, `"line"` (default: `"radius"`)
+- `target` — Who the aura affects (Target object with `type`, `disposition`, `include_self`)
+- `grants` — AuraGrant modifier applied to affected creatures (`advantage`, `disadvantage`, or `attribute`)
+- `layers` — Array of AuraLayer objects for lighting only (`type`, `shape`, `size`, `unit`, `color`)
+
+#### Mechanical Aura — Wolf Totem (advantage for allies)
 
 ```json
 {
   "aura": {
-    "radius": { "value": 10, "unit": "feet" },
-    "affects": {
+    "radius": 5,
+    "unit": "feet",
+    "target": {
       "type": "creatures",
       "disposition": "friendly",
-      "include_self": true
+      "include_self": false
     },
-    "effect": {
-      "roll_modifier": {
-        "type": "saving_throw",
-        "calculation": {
-          "operation": "add",
-          "operators": [{ "type": "ability_modifier", "ability": "Charisma" }]
-        },
-        "minimum": 1
+    "grants": {
+      "advantage": {
+        "attack": "melee",
+        "against": { "disposition": "hostile" }
       }
     }
-  },
-  "requirements": [{ "type": "status", "value": "incapacitated", "negate": true }],
-  "scaling": {
-    "radius": { "18": 30 }
   }
 }
 ```
 
-#### Aura with Multiple Effects
+#### Mechanical Aura — Bear Totemic Attunement (disadvantage for enemies)
 
 ```json
 {
   "aura": {
-    "radius": { "value": 10, "unit": "feet" },
-    "affects": { "type": "creatures", "disposition": "hostile" },
-    "layers": [
-      {
-        "name": "aura_damage",
-        "trigger": { "event": ["start_turn"] },
-        "damage": { "dice": "1d4", "type": ["radiant"] }
-      },
-      {
-        "name": "aura_disadvantage",
-        "effect": {
-          "disadvantage": { "attack": "all" }
-        }
+    "radius": 5,
+    "unit": "feet",
+    "target": {
+      "type": "creatures",
+      "disposition": "hostile"
+    },
+    "grants": {
+      "disadvantage": {
+        "attack": "all"
       }
+    }
+  }
+}
+```
+
+#### Lighting Aura — Light Cantrip
+
+```json
+{
+  "aura": {
+    "origin": "created",
+    "layers": [
+      { "type": "bright_light", "shape": "radius", "size": 20, "unit": "feet" },
+      { "type": "dim_light", "shape": "radius", "size": 20, "unit": "feet" }
     ]
+  }
+}
+```
+
+#### Lighting Aura — Dancing Lights (with color choice)
+
+```json
+{
+  "aura": {
+    "origin": "each_light",
+    "layers": [{ "type": "dim_light", "shape": "radius", "size": 10, "unit": "feet", "color": "choice" }]
   }
 }
 ```
@@ -1218,14 +1254,24 @@ Persistent area effects around a character.
 
 ### Environmental Effects
 
-#### Create Light
+Describes static properties of an area: shape, terrain, visibility, lighting, surface.
+Dynamic effects (damage on enter, saves) use Effect-level `trigger`/`saving_throw`/`on_failure`.
+
+**Available fields:**
+
+- `area` — **Required.** Shape and size of the affected area (Area object)
+- `lighting` — Light level changes (Lighting object with `level`, `color`, `radius`, `dim_radius`)
+- `terrain` — Movement/terrain effects (Terrain object with `type`: `"normal"`, `"difficult"`, `"greater_difficult"`, `"impassable"`)
+- `visibility` — Vision obstruction (Visibility object)
+- `surface` — Surface type (Surface object)
+
+#### Create Light (Candle)
 
 ```json
 {
   "environment": {
-    "type": "lighting",
-    "bright_light": { "value": 20, "unit": "feet" },
-    "dim_light": { "value": 20, "unit": "feet" }
+    "area": { "shape": "radius", "size": 5, "unit": "feet" },
+    "lighting": { "level": "bright" }
   }
 }
 ```
@@ -1235,20 +1281,19 @@ Persistent area effects around a character.
 ```json
 {
   "environment": {
-    "type": "terrain",
-    "difficult": true
+    "area": { "shape": "sphere", "size": 20, "unit": "feet", "origin": "point" },
+    "terrain": { "type": "difficult" }
   }
 }
 ```
 
-#### Create Hazard
+#### Create Hazard (Burning Surface)
 
 ```json
 {
   "environment": {
-    "type": "hazard",
-    "damage": { "dice": "2d6", "type": ["fire"] },
-    "trigger": { "event": ["enter_area", "start_turn_in_area"] }
+    "area": { "shape": "cube", "size": 5, "origin": "point" },
+    "surface": { "type": "burning" }
   }
 }
 ```
@@ -1566,8 +1611,8 @@ Checks what a character has equipped. Fields can be combined to create specific 
 #### Weapon Property Requirement
 
 ```json
-{ "type": "weapon_property", "value": ["finesse", "light"] }
-{ "type": "weapon_property", "value": ["ranged"] }
+{ "type": "weapon_property", "property": ["Finesse", "Light"] }
+{ "type": "weapon_property", "property": ["Ranged"] }
 ```
 
 #### Creature Type Requirement
@@ -1760,8 +1805,8 @@ A compound requirement can appear anywhere in a requirements array alongside reg
   {
     "operator": "or",
     "conditions": [
-      { "type": "weapon_property", "value": ["light"] },
-      { "type": "weapon_property", "value": ["finesse"] }
+      { "type": "weapon_property", "property": ["Light"] },
+      { "type": "weapon_property", "property": ["Finesse"] }
     ]
   }
 ]
@@ -2254,7 +2299,8 @@ Shared resource, multiple options:
         },
         "area": {
           "shape": "sphere",
-          "radius": { "value": 30, "unit": "feet" },
+          "size": 30,
+          "unit": "feet",
           "origin": "self"
         },
         "saving_throw": {
@@ -2274,7 +2320,7 @@ Shared resource, multiple options:
 ]
 ```
 
-### Aura with Scaling Radius
+### Mechanical Aura with Scaling Radius (Paladin Aura of Protection)
 
 ```json
 {
@@ -2283,20 +2329,20 @@ Shared resource, multiple options:
   "effects": [
     {
       "aura": {
-        "radius": { "value": 10, "unit": "feet" },
-        "affects": {
+        "radius": 10,
+        "unit": "feet",
+        "target": {
           "type": "creatures",
           "disposition": "friendly",
           "include_self": true
         },
-        "effect": {
-          "roll_modifier": {
-            "type": "saving_throw",
+        "grants": {
+          "attribute": {
+            "target": "saving_throw.all",
             "calculation": {
               "operation": "add",
               "operators": [{ "type": "ability_modifier", "ability": "Charisma" }]
-            },
-            "minimum": 1
+            }
           }
         }
       }
@@ -2342,10 +2388,7 @@ Shared resource, multiple options:
           "operators": [{ "type": "scaling", "value": "rage_damage" }]
         }
       },
-      "requirements": [
-        { "type": "weapon_property", "value": ["melee"] },
-        { "type": "weapon_property", "ability": "Strength" }
-      ]
+      "requirements": [{ "type": "weapon_property", "property": ["Melee"] }]
     },
     {
       "damage_response": {
