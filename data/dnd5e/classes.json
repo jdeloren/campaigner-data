@@ -7,8 +7,8 @@
     "primary_ability": ["Dexterity"],
     "saving_throw_proficiencies": ["Dexterity", "Intelligence"],
     "proficiencies": {
-      "armor": ["Light Armor"],
-      "weapons": ["Simple Melee", "Simple Ranged", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
+      "armor": ["Light"],
+      "weapons": ["Simple", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
       "tools": [
         {
           "type": "fixed",
@@ -124,8 +124,8 @@
     "primary_ability": ["Dexterity"],
     "saving_throw_proficiencies": ["Dexterity", "Intelligence"],
     "proficiencies": {
-      "armor": ["Light Armor"],
-      "weapons": ["Simple Melee", "Simple Ranged", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
+      "armor": ["Light"],
+      "weapons": ["Simple", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
       "tools": [
         {
           "type": "fixed",
@@ -160,8 +160,8 @@
     "primary_ability": ["Dexterity"],
     "saving_throw_proficiencies": ["Dexterity", "Intelligence"],
     "proficiencies": {
-      "armor": ["Light Armor"],
-      "weapons": ["Simple Melee", "Simple Ranged", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
+      "armor": ["Light"],
+      "weapons": ["Simple", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
       "tools": [
         {
           "type": "fixed",
@@ -196,8 +196,8 @@
     "primary_ability": ["Dexterity", "Intelligence"],
     "saving_throw_proficiencies": ["Dexterity", "Intelligence"],
     "proficiencies": {
-      "armor": ["Light Armor"],
-      "weapons": ["Simple Melee", "Simple Ranged", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
+      "armor": ["Light"],
+      "weapons": ["Simple", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
       "tools": [
         {
           "type": "fixed",
@@ -472,7 +472,7 @@
     "saving_throw_proficiencies": ["Strength", "Constitution"],
     "proficiencies": {
       "armor": ["All", "Shields"],
-      "weapons": ["Simple Melee", "Simple Ranged", "Martial Melee", "Martial Ranged"],
+      "weapons": ["Simple", "Martial"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -615,7 +615,7 @@
     "saving_throw_proficiencies": ["Strength", "Constitution"],
     "proficiencies": {
       "armor": ["All", "Shields"],
-      "weapons": ["Simple Melee", "Simple Ranged", "Martial Melee", "Martial Ranged"],
+      "weapons": ["Simple", "Martial"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -642,7 +642,7 @@
     "saving_throw_proficiencies": ["Strength", "Constitution"],
     "proficiencies": {
       "armor": ["All", "Shields"],
-      "weapons": ["Simple Melee", "Simple Ranged", "Martial Melee", "Martial Ranged"],
+      "weapons": ["Simple", "Martial"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -662,7 +662,7 @@
     "saving_throw_proficiencies": ["Strength", "Constitution"],
     "proficiencies": {
       "armor": ["All", "Shields"],
-      "weapons": ["Simple Melee", "Simple Ranged", "Martial Melee", "Martial Ranged"],
+      "weapons": ["Simple", "Martial"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -925,8 +925,8 @@
     "primary_ability": ["Wisdom"],
     "saving_throw_proficiencies": ["Wisdom", "Charisma"],
     "proficiencies": {
-      "armor": ["Light Armor", "Medium Armor", "Shields"],
-      "weapons": ["Simple Melee", "Simple Ranged"],
+      "armor": ["Light", "Medium", "Shields"],
+      "weapons": ["Simple"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -1237,8 +1237,8 @@
     "primary_ability": ["Strength"],
     "saving_throw_proficiencies": ["Strength", "Constitution"],
     "proficiencies": {
-      "armor": ["Light Armor", "Medium Armor", "Shields"],
-      "weapons": ["Simple weapons", "Martial weapons"],
+      "armor": ["Light", "Medium", "Shields"],
+      "weapons": ["Simple", "Martial"],
       "tools": [
         {
           "type": "choice",
@@ -1261,7 +1261,7 @@
             "quantity": 1
           },
           {
-            "item": "any martial weapon",
+            "item": "any martial melee weapon",
             "quantity": 1
           }
         ]
@@ -1314,8 +1314,8 @@
     "primary_ability": ["Strength"],
     "saving_throw_proficiencies": ["Strength", "Constitution"],
     "proficiencies": {
-      "armor": ["Light Armor", "Medium Armor", "Shields"],
-      "weapons": ["Simple weapons", "Martial weapons"],
+      "armor": ["Light", "Medium", "Shields"],
+      "weapons": ["Simple", "Martial"],
       "tools": [
         {
           "type": "choice",
@@ -1340,8 +1340,8 @@
     "primary_ability": ["Strength"],
     "saving_throw_proficiencies": ["Strength", "Constitution"],
     "proficiencies": {
-      "armor": ["Light Armor", "Medium Armor", "Shields"],
-      "weapons": ["Simple weapons", "Martial weapons"],
+      "armor": ["Light", "Medium", "Shields"],
+      "weapons": ["Simple", "Martial"],
       "tools": [
         {
           "type": "choice",
@@ -1365,8 +1365,8 @@
     "primary_ability": ["Charisma"],
     "saving_throw_proficiencies": ["Dexterity", "Charisma"],
     "proficiencies": {
-      "armor": ["Light Armor"],
-      "weapons": ["Simple Melee", "Simple Ranged", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
+      "armor": ["Light"],
+      "weapons": ["Simple", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
       "tools": [
         {
           "type": "choice",
@@ -1819,8 +1819,8 @@
     "primary_ability": ["Charisma"],
     "saving_throw_proficiencies": ["Dexterity", "Charisma"],
     "proficiencies": {
-      "armor": ["Light Armor"],
-      "weapons": ["Simple Melee", "Simple Ranged", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
+      "armor": ["Light"],
+      "weapons": ["Simple", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
       "tools": [
         {
           "type": "choice",
@@ -1864,8 +1864,8 @@
     "primary_ability": ["Charisma"],
     "saving_throw_proficiencies": ["Dexterity", "Charisma"],
     "proficiencies": {
-      "armor": ["Light Armor"],
-      "weapons": ["Simple Melee", "Simple Ranged", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
+      "armor": ["Light"],
+      "weapons": ["Simple", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
       "tools": [
         {
           "type": "choice",

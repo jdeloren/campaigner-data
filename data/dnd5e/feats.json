@@ -1398,7 +1398,7 @@
       {
         "type": "proficiency",
         "category": "armor",
-        "proficiencies": ["Light Armor"]
+        "proficiencies": ["Light"]
       }
     ],
     "source": "phb",
@@ -1842,7 +1842,7 @@
       {
         "type": "proficiency",
         "category": "armor",
-        "proficiencies": ["Medium Armor", "Shield"]
+        "proficiencies": ["Medium", "Shield"]
       }
     ],
     "source": "phb",

@@ -1481,20 +1481,6 @@
           "title": "Category",
           "type": "string"
         },
-        "subcategory": {
-          "anyOf": [
-            {
-              "enum": ["skill", "tool", "weapon", "armor", "saving_throw"],
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Proficiency type. Null when value is 'choice' and engine infers at resolution.",
-          "title": "Subcategory"
-        },
         "value": {
           "anyOf": [{ "items": { "type": "string" }, "type": "array" }, { "type": "null" }],
           "default": null,
@@ -1502,10 +1488,7 @@
           "title": "Value"
         },
         "choice_type": {
-          "anyOf": [
-            { "items": { "$ref": "#/$defs/ChoiceType" }, "type": "array" },
-            { "type": "null" }
-          ],
+          "anyOf": [{ "items": { "$ref": "#/$defs/ChoiceType" }, "type": "array" }, { "type": "null" }],
           "default": null,
           "description": "Categories to choose from (e.g., ['skill', 'tool'])"
         },
@@ -4425,7 +4408,7 @@
             }
           ],
           "default": null,
-          "description": "Function reference for complex checks (e.g., 'equipment.is_wearing_heavy_armor')",
+          "description": "Function reference for complex checks",
           "title": "Function"
         },
         "property": {

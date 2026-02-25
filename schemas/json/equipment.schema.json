@@ -52,19 +52,6 @@
         "$ref": "#/$defs/EquipmentCategory",
         "description": "Equipment category"
       },
-      "subcategory": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "default": null,
-        "description": "Equipment subcategory",
-        "title": "Subcategory"
-      },
       "description": {
         "anyOf": [
           {

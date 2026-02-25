@@ -262,7 +262,7 @@
           {
             "type": "proficiency",
             "category": "armor",
-            "proficiencies": ["Heavy Armor"]
+            "proficiencies": ["Heavy"]
           }
         ],
         "description": "You gain proficiency with heavy armor."
@@ -904,7 +904,7 @@
           {
             "type": "proficiency",
             "category": "armor",
-            "proficiencies": ["Heavy Armor"]
+            "proficiencies": ["Heavy"]
           }
         ],
         "description": "You gain proficiency with heavy armor."
@@ -1151,12 +1151,12 @@
           {
             "type": "proficiency",
             "category": "armor",
-            "proficiencies": ["Heavy Armor"]
+            "proficiencies": ["Heavy"]
           },
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": ["Martial Melee"]
+            "proficiencies": ["Martial"]
           }
         ]
       },
@@ -1662,12 +1662,12 @@
           {
             "type": "proficiency",
             "category": "armor",
-            "proficiencies": ["Heavy Armor"]
+            "proficiencies": ["Heavy"]
           },
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": ["Martial Melee", "Martial Ranged"]
+            "proficiencies": ["Martial"]
           }
         ],
         "description": "You gain proficiency with heavy armor and martial weapons."
