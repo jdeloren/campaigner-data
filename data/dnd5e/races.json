@@ -102,7 +102,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Elf",
+    "base_race": "race:elf",
     "traits": [
       {
         "name": "Elf Weapon Training",
@@ -168,7 +168,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Elf",
+    "base_race": "race:elf",
     "traits": [
       {
         "name": "Elf Weapon Training",
@@ -240,7 +240,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Elf",
+    "base_race": "race:elf",
     "traits": [
       {
         "name": "Sunlight Sensitivity",
@@ -617,7 +617,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dwarf",
+    "base_race": "race:dwarf",
     "traits": [
       {
         "name": "Dwarven Toughness",
@@ -669,7 +669,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dwarf",
+    "base_race": "race:dwarf",
     "traits": [
       {
         "name": "Dwarven Armor Training",
@@ -754,7 +754,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dragonborn",
+    "base_race": "race:dragonborn",
     "traits": [
       {
         "name": "Breath Weapon",
@@ -870,7 +870,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dragonborn",
+    "base_race": "race:dragonborn",
     "traits": [
       {
         "name": "Breath Weapon",
@@ -986,7 +986,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dragonborn",
+    "base_race": "race:dragonborn",
     "traits": [
       {
         "name": "Breath Weapon",
@@ -1102,7 +1102,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dragonborn",
+    "base_race": "race:dragonborn",
     "traits": [
       {
         "name": "Breath Weapon",
@@ -1218,7 +1218,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dragonborn",
+    "base_race": "race:dragonborn",
     "traits": [
       {
         "name": "Breath Weapon",
@@ -1334,7 +1334,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dragonborn",
+    "base_race": "race:dragonborn",
     "traits": [
       {
         "name": "Breath Weapon",
@@ -1450,7 +1450,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dragonborn",
+    "base_race": "race:dragonborn",
     "traits": [
       {
         "name": "Breath Weapon",
@@ -1566,7 +1566,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dragonborn",
+    "base_race": "race:dragonborn",
     "traits": [
       {
         "name": "Breath Weapon",
@@ -1682,7 +1682,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dragonborn",
+    "base_race": "race:dragonborn",
     "traits": [
       {
         "name": "Breath Weapon",
@@ -1798,7 +1798,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dragonborn",
+    "base_race": "race:dragonborn",
     "traits": [
       {
         "name": "Breath Weapon",
@@ -1951,7 +1951,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Human",
+    "base_race": "race:human",
     "traits": [],
     "languages": []
   },
@@ -1970,7 +1970,7 @@
     "ability_score_increases": {},
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Human",
+    "base_race": "race:human",
     "traits": [
       {
         "name": "Ability Score Increase",
@@ -2246,7 +2246,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Gnome",
+    "base_race": "race:gnome",
     "traits": [
       {
         "name": "Natural Illusionist",
@@ -2309,7 +2309,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Gnome",
+    "base_race": "race:gnome",
     "traits": [
       {
         "name": "Artificer's Lore",
@@ -2558,7 +2558,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Halfling",
+    "base_race": "race:halfling",
     "subraces": [],
     "traits": [
       {
@@ -2591,7 +2591,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Halfling",
+    "base_race": "race:halfling",
     "subraces": [],
     "traits": [
       {
@@ -2703,7 +2703,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Tiefling",
+    "base_race": "race:tiefling",
     "subraces": [],
     "traits": [
       {
