@@ -1,7 +1,7 @@
 [
   {
     "id": "feat:improved-critical",
-    "class": "Champion",
+    "class": "subclass:champion",
     "level": 3,
     "name": "Improved Critical",
     "description": "Your weapon attacks score a critical hit on a roll of 19 or 20.",
@@ -32,7 +32,7 @@
   },
   {
     "id": "feat:remarkable-athlete",
-    "class": "Champion",
+    "class": "subclass:champion",
     "level": 7,
     "name": "Remarkable Athlete",
     "description": "You can add half your proficiency bonus (rounded up) to any Strength, Dexterity, or Constitution check you make that doesn't already use your proficiency bonus. In addition, when you make a running long jump, the distance you can cover increases by a number of feet equal to your Strength modifier.",
@@ -92,7 +92,7 @@
   },
   {
     "id": "feat:additional-fighting-style",
-    "class": "Champion",
+    "class": "subclass:champion",
     "level": 10,
     "name": "Additional Fighting Style",
     "description": "You can choose a second option from the Fighting Style class feature.",
@@ -103,7 +103,7 @@
         "query": {
           "source": "fighting_styles",
           "params": {
-            "class": "Fighter"
+            "class": "class:fighter"
           }
         }
       }
@@ -113,7 +113,7 @@
   },
   {
     "id": "feat:superior-critical",
-    "class": "Champion",
+    "class": "subclass:champion",
     "level": 15,
     "name": "Superior Critical",
     "description": "Your weapon attacks score a critical hit on a roll of 18-20.",
@@ -144,7 +144,7 @@
   },
   {
     "id": "feat:survivor",
-    "class": "Champion",
+    "class": "subclass:champion",
     "level": 18,
     "name": "Survivor",
     "description": "You attain the pinnacle of resilience in battle. At the start of each of your turns, you regain hit points equal to 5 + your Constitution modifier if you have no more than half of your hit points left. You don't gain this benefit if you have 0 hit points.",

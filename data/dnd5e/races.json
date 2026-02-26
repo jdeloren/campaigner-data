@@ -126,7 +126,7 @@
               "source": "spells",
               "params": {
                 "level": 0,
-                "class": "Wizard"
+                "class": "class:wizard"
               }
             }
           }
@@ -2332,7 +2332,12 @@
                   "target": "proficiency_bonus",
                   "calculation": {
                     "operation": "multiply",
-                    "operators": [{ "type": "integer", "value": 2 }]
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 2
+                      }
+                    ]
                   }
                 }
               }

@@ -1,7 +1,7 @@
 [
   {
     "id": "feat:fighting-style",
-    "class": "Fighter",
+    "class": "class:fighter",
     "level": 1,
     "name": "Fighting Style",
     "description": "You adopt a particular style of fighting as your specialty. Choose one of the following options. You can't take a Fighting Style option more than once, even if you later get to choose again.",
@@ -12,7 +12,7 @@
         "query": {
           "source": "fighting_styles",
           "params": {
-            "class": "Fighter"
+            "class": "class:fighter"
           }
         }
       }
@@ -22,7 +22,7 @@
   },
   {
     "id": "feat:second-wind",
-    "class": "Fighter",
+    "class": "class:fighter",
     "level": 1,
     "name": "Second Wind",
     "description": "You have a limited well of stamina that you can draw on to protect yourself from harm.",
@@ -41,7 +41,7 @@
                   },
                   {
                     "type": "class_level",
-                    "class": "Fighter"
+                    "class": "class:fighter"
                   }
                 ]
               }
@@ -59,7 +59,7 @@
   },
   {
     "id": "feat:action-surge",
-    "class": "Fighter",
+    "class": "class:fighter",
     "level": 2,
     "name": "Action Surge",
     "description": "You can push yourself beyond your normal limits for a moment. On your turn, you can take one additional action.",
@@ -103,7 +103,7 @@
   },
   {
     "id": "feat:martial-archetype",
-    "class": "Fighter",
+    "class": "class:fighter",
     "level": 3,
     "name": "Martial Archetype",
     "description": "At 3rd level, you choose an archetype that you strive to emulate in your combat styles and techniques.",
@@ -118,7 +118,7 @@
   },
   {
     "id": "feat:ability-score-improvement",
-    "class": "Fighter",
+    "class": "class:fighter",
     "level": [4, 6, 8, 12, 14, 16, 19],
     "name": "Ability Score Improvement",
     "description": "Increase one ability score by 2 or two ability scores by 1 or one feat",
@@ -159,7 +159,7 @@
   },
   {
     "id": "feat:extra-attack",
-    "class": "Fighter",
+    "class": "class:fighter",
     "level": 5,
     "name": "Extra Attack",
     "description": "You can attack twice, instead of once, whenever you take the Attack action on your turn. The number of attacks increases to three when you reach 11th level in this class and to four when you reach 20th level in this class.",
@@ -184,7 +184,7 @@
   },
   {
     "id": "feat:indomitable",
-    "class": "Fighter",
+    "class": "class:fighter",
     "level": 9,
     "name": "Indomitable",
     "description": "You can reroll a saving throw that you fail. If you do so, you must use the new roll.",
@@ -226,7 +226,7 @@
   },
   {
     "id": "feat:martial-versatility",
-    "class": "Fighter",
+    "class": "class:fighter",
     "level": 4,
     "name": "Martial Versatility",
     "description": "Whenever you reach a level in this class that grants the Ability Score Improvement feature, you can do one of the following, as you `shi`ft the focus of your martial practice: Replace a fighting style you know with another fighting style available to fighters.",

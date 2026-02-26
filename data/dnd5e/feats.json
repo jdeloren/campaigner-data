@@ -18,7 +18,12 @@
               "target": "ability_scores.Charisma",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 1 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
               }
             }
           }
@@ -89,7 +94,12 @@
               "target": "initiative",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 5 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 5
+                  }
+                ]
               }
             }
           }
@@ -150,7 +160,12 @@
         ],
         "value": {
           "operation": "add",
-          "operators": [{ "type": "integer", "value": 1 }]
+          "operators": [
+            {
+              "type": "integer",
+              "value": 1
+            }
+          ]
         }
       },
       {
@@ -162,7 +177,12 @@
               "target": "movement.stand",
               "calculation": {
                 "operation": "set",
-                "operators": [{ "type": "integer", "value": 5 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 5
+                  }
+                ]
               }
             }
           }
@@ -197,7 +217,12 @@
               "target": "movement.jump.running.move",
               "calculation": {
                 "operation": "set",
-                "operators": [{ "type": "integer", "value": 5 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 5
+                  }
+                ]
               }
             }
           }
@@ -303,7 +328,12 @@
         ],
         "value": {
           "operation": "add",
-          "operators": [{ "type": "integer", "value": 1 }]
+          "operators": [
+            {
+              "type": "integer",
+              "value": 1
+            }
+          ]
         }
       },
       {
@@ -365,7 +395,12 @@
             "healing": {
               "calculation": {
                 "operation": "set",
-                "operators": [{ "type": "attribute", "value": "proficiency_bonus" }]
+                "operators": [
+                  {
+                    "type": "attribute",
+                    "value": "proficiency_bonus"
+                  }
+                ]
               },
               "barrier": true
             },
@@ -395,8 +430,18 @@
         "name": "Ignore Loading",
         "effects": [
           {
-            "ignore_requirements": [{ "type": "weapon_property", "value": "Loading" }],
-            "requirements": [{ "type": "weapon_property", "property": ["Crossbow"] }]
+            "ignore_requirements": [
+              {
+                "type": "weapon_property",
+                "value": "Loading"
+              }
+            ],
+            "requirements": [
+              {
+                "type": "weapon_property",
+                "property": ["Crossbow"]
+              }
+            ]
           }
         ]
       },
@@ -473,7 +518,12 @@
         ],
         "value": {
           "operation": "add",
-          "operators": [{ "type": "integer", "value": 1 }]
+          "operators": [
+            {
+              "type": "integer",
+              "value": 1
+            }
+          ]
         }
       },
       {
@@ -599,8 +649,16 @@
         "type": "passive",
         "name": "Dual Wielder AC",
         "requirements": [
-          { "type": "equipment", "slot": "main_hand", "property": ["Melee"] },
-          { "type": "equipment", "slot": "off_hand", "property": ["Melee"] }
+          {
+            "type": "equipment",
+            "slot": "main_hand",
+            "property": ["Melee"]
+          },
+          {
+            "type": "equipment",
+            "slot": "off_hand",
+            "property": ["Melee"]
+          }
         ],
         "effects": [
           {
@@ -608,7 +666,12 @@
               "target": "armor_class",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 1 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
               }
             }
           }
@@ -619,7 +682,12 @@
         "name": "Non-Light Two-Weapon Fighting",
         "effects": [
           {
-            "ignore_requirements": [{ "type": "weapon_property", "value": "Light" }]
+            "ignore_requirements": [
+              {
+                "type": "weapon_property",
+                "value": "Light"
+              }
+            ]
           }
         ]
       }
@@ -711,7 +779,12 @@
               "target": "ability_scores.Constitution",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 1 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
               }
             }
           }
@@ -738,7 +811,10 @@
                   "type": "ability_modifier",
                   "ability": "Constitution"
                 },
-                { "type": "integer", "value": 2 }
+                {
+                  "type": "integer",
+                  "value": 2
+                }
               ]
             }
           }
@@ -769,7 +845,7 @@
           "source": "invocations",
           "params": {
             "prerequisite": "none",
-            "class": "Warlock"
+            "class": "class:warlock"
           }
         }
       }
@@ -796,11 +872,26 @@
         "name": "Damage Type",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Acid" },
-          { "type": "simple", "name": "Cold" },
-          { "type": "simple", "name": "Fire" },
-          { "type": "simple", "name": "Lightning" },
-          { "type": "simple", "name": "Thunder" }
+          {
+            "type": "simple",
+            "name": "Acid"
+          },
+          {
+            "type": "simple",
+            "name": "Cold"
+          },
+          {
+            "type": "simple",
+            "name": "Fire"
+          },
+          {
+            "type": "simple",
+            "name": "Lightning"
+          },
+          {
+            "type": "simple",
+            "name": "Thunder"
+          }
         ]
       },
       {
@@ -849,13 +940,27 @@
         "name": "Ability Score Increase",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Intelligence" },
-          { "type": "simple", "name": "Wisdom" },
-          { "type": "simple", "name": "Charisma" }
+          {
+            "type": "simple",
+            "name": "Intelligence"
+          },
+          {
+            "type": "simple",
+            "name": "Wisdom"
+          },
+          {
+            "type": "simple",
+            "name": "Charisma"
+          }
         ],
         "value": {
           "operation": "add",
-          "operators": [{ "type": "integer", "value": 1 }]
+          "operators": [
+            {
+              "type": "integer",
+              "value": 1
+            }
+          ]
         }
       },
       {
@@ -883,7 +988,13 @@
     "id": "feat:fighting-initiate",
     "name": "Fighting Initiate",
     "description": "Your martial training has helped you develop a particular style of fighting. As a result, you learn one Fighting Style option of your choice from the fighter class. If you already have a style, the one you choose must be different. Whenever you reach a level that grants the Ability Score Improvement feature, you can replace this feat's fighting style with another one from the fighter class that you don't have.",
-    "requirements": [{ "type": "proficiency", "category": "weapon", "value": "Martial" }],
+    "requirements": [
+      {
+        "type": "proficiency",
+        "category": "weapon",
+        "value": "Martial"
+      }
+    ],
     "mechanics": [
       {
         "type": "choice",
@@ -893,7 +1004,7 @@
         "query": {
           "source": "fighting_styles",
           "params": {
-            "class": "Fighter"
+            "class": "class:fighter"
           }
         }
       },
@@ -907,7 +1018,7 @@
         "source": {
           "list": "fighting_styles",
           "filter": {
-            "class": "Fighter"
+            "class": "class:fighter"
           }
         }
       }
@@ -1070,7 +1181,12 @@
               "target": "attack_roll",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": -5 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": -5
+                  }
+                ]
               }
             }
           },
@@ -1105,7 +1221,12 @@
               "target": "ability_scores.Dexterity",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 1 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
               }
             }
           }
@@ -1121,8 +1242,18 @@
         "name": "Ignore Loading",
         "effects": [
           {
-            "ignore_requirements": [{ "type": "weapon_property", "value": "Loading" }],
-            "requirements": [{ "type": "weapon_property", "property": ["Firearm"] }]
+            "ignore_requirements": [
+              {
+                "type": "weapon_property",
+                "value": "Loading"
+              }
+            ],
+            "requirements": [
+              {
+                "type": "weapon_property",
+                "property": ["Firearm"]
+              }
+            ]
           }
         ]
       },
@@ -1197,8 +1328,14 @@
               "bonus": {
                 "operation": "add",
                 "operators": [
-                  { "type": "integer", "value": 4 },
-                  { "type": "attribute", "value": "level" }
+                  {
+                    "type": "integer",
+                    "value": 4
+                  },
+                  {
+                    "type": "attribute",
+                    "value": "level"
+                  }
                 ]
               }
             }
@@ -1218,7 +1355,13 @@
     "name": "Heavily Armored",
     "description": "You have trained to master the use of heavy armor, gaining the following benefits:",
     "bonuses": ["Increase your Strength score by 1, to a maximum of 20.", "You gain proficiency with heavy armor."],
-    "requirements": [{ "type": "proficiency", "category": "armor", "value": "Medium" }],
+    "requirements": [
+      {
+        "type": "proficiency",
+        "category": "armor",
+        "value": "Medium"
+      }
+    ],
     "mechanics": [
       {
         "type": "passive",
@@ -1229,7 +1372,12 @@
               "target": "ability_scores.Strength",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 1 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
               }
             }
           }
@@ -1252,7 +1400,13 @@
       "Increase your Strength score by 1, to a maximum of 20.",
       "While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from nonmagical weapons is reduced by 3."
     ],
-    "requirements": [{ "type": "proficiency", "category": "armor", "value": "Heavy" }],
+    "requirements": [
+      {
+        "type": "proficiency",
+        "category": "armor",
+        "value": "Heavy"
+      }
+    ],
     "mechanics": [
       {
         "type": "passive",
@@ -1263,7 +1417,12 @@
               "target": "ability_scores.Strength",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 1 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
               }
             }
           }
@@ -1272,7 +1431,13 @@
       {
         "type": "resistance",
         "name": "Damage Reduction",
-        "requirements": [{ "type": "equipment", "slot": "armor", "property": ["Heavy"] }],
+        "requirements": [
+          {
+            "type": "equipment",
+            "slot": "armor",
+            "property": ["Heavy"]
+          }
+        ],
         "effects": [
           {
             "damage_response": {
@@ -1282,7 +1447,12 @@
               },
               "calculation": {
                 "operation": "subtract",
-                "operators": [{ "type": "integer", "value": 3 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 3
+                  }
+                ]
               }
             }
           }
@@ -1313,15 +1483,24 @@
           "disposition": "friendly",
           "include_self": true
         },
-        "range": { "value": 30, "unit": "feet" },
+        "range": {
+          "value": 30,
+          "unit": "feet"
+        },
         "effects": [
           {
             "healing": {
               "calculation": {
                 "operation": "add",
                 "operators": [
-                  { "type": "attribute", "value": "level" },
-                  { "type": "ability_modifier", "ability": "Charisma" }
+                  {
+                    "type": "attribute",
+                    "value": "level"
+                  },
+                  {
+                    "type": "ability_modifier",
+                    "ability": "Charisma"
+                  }
                 ]
               },
               "barrier": true
@@ -1387,12 +1566,23 @@
         "name": "Ability Score Increase",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Strength" },
-          { "type": "simple", "name": "Dexterity" }
+          {
+            "type": "simple",
+            "name": "Strength"
+          },
+          {
+            "type": "simple",
+            "name": "Dexterity"
+          }
         ],
         "value": {
           "operation": "add",
-          "operators": [{ "type": "integer", "value": 1 }]
+          "operators": [
+            {
+              "type": "integer",
+              "value": 1
+            }
+          ]
         }
       },
       {
@@ -1528,7 +1718,10 @@
         "trigger": {
           "event": ["cast_spell"],
           "source": {
-            "range": { "value": 5, "unit": "feet" }
+            "range": {
+              "value": 5,
+              "unit": "feet"
+            }
           }
         },
         "effects": [
@@ -1547,7 +1740,10 @@
           "event": ["saving_throw"],
           "source": {
             "type": ["spell"],
-            "range": { "value": 5, "unit": "feet" }
+            "range": {
+              "value": 5,
+              "unit": "feet"
+            }
           }
         },
         "effects": [
@@ -1685,7 +1881,12 @@
               "target": "armor.stealth_disadvantage",
               "calculation": {
                 "operation": "set",
-                "operators": [{ "type": "boolean", "value": false }]
+                "operators": [
+                  {
+                    "type": "boolean",
+                    "value": false
+                  }
+                ]
               }
             }
           }
@@ -1700,7 +1901,12 @@
               "target": "armor.max_dex_bonus",
               "calculation": {
                 "operation": "set",
-                "operators": [{ "type": "integer", "value": 3 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 3
+                  }
+                ]
               }
             }
           }
@@ -1764,7 +1970,12 @@
               "target": "movement.base",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 10 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 10
+                  }
+                ]
               }
             }
           }
@@ -1831,12 +2042,23 @@
         "name": "Ability Score Increase",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Strength" },
-          { "type": "simple", "name": "Dexterity" }
+          {
+            "type": "simple",
+            "name": "Strength"
+          },
+          {
+            "type": "simple",
+            "name": "Dexterity"
+          }
         ],
         "value": {
           "operation": "add",
-          "operators": [{ "type": "integer", "value": 1 }]
+          "operators": [
+            {
+              "type": "integer",
+              "value": 1
+            }
+          ]
         }
       },
       {
@@ -1864,12 +2086,23 @@
         "name": "Ability Score Increase",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Intelligence" },
-          { "type": "simple", "name": "Wisdom" }
+          {
+            "type": "simple",
+            "name": "Intelligence"
+          },
+          {
+            "type": "simple",
+            "name": "Wisdom"
+          }
         ],
         "value": {
           "operation": "add",
-          "operators": [{ "type": "integer", "value": 1 }]
+          "operators": [
+            {
+              "type": "integer",
+              "value": 1
+            }
+          ]
         }
       },
       {
@@ -1881,7 +2114,12 @@
               "target": "senses.perception",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 5 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 5
+                  }
+                ]
               }
             }
           }
@@ -1896,7 +2134,12 @@
               "target": "senses.investigation",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 5 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 5
+                  }
+                ]
               }
             }
           }
@@ -1922,12 +2165,23 @@
         "name": "Ability Score Increase",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Strength" },
-          { "type": "simple", "name": "Dexterity" }
+          {
+            "type": "simple",
+            "name": "Strength"
+          },
+          {
+            "type": "simple",
+            "name": "Dexterity"
+          }
         ],
         "value": {
           "operation": "add",
-          "operators": [{ "type": "integer", "value": 1 }]
+          "operators": [
+            {
+              "type": "integer",
+              "value": 1
+            }
+          ]
         }
       },
       {
@@ -2089,16 +2343,39 @@
         "name": "Ability Score Increase",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Strength" },
-          { "type": "simple", "name": "Dexterity" },
-          { "type": "simple", "name": "Constitution" },
-          { "type": "simple", "name": "Intelligence" },
-          { "type": "simple", "name": "Wisdom" },
-          { "type": "simple", "name": "Charisma" }
+          {
+            "type": "simple",
+            "name": "Strength"
+          },
+          {
+            "type": "simple",
+            "name": "Dexterity"
+          },
+          {
+            "type": "simple",
+            "name": "Constitution"
+          },
+          {
+            "type": "simple",
+            "name": "Intelligence"
+          },
+          {
+            "type": "simple",
+            "name": "Wisdom"
+          },
+          {
+            "type": "simple",
+            "name": "Charisma"
+          }
         ],
         "value": {
           "operation": "add",
-          "operators": [{ "type": "integer", "value": 1 }]
+          "operators": [
+            {
+              "type": "integer",
+              "value": 1
+            }
+          ]
         }
       },
       {
@@ -2226,7 +2503,12 @@
               "target": "movement.base",
               "calculation": {
                 "operation": "set",
-                "operators": [{ "type": "integer", "value": 0 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 0
+                  }
+                ]
               }
             },
             "duration": {
@@ -2245,7 +2527,12 @@
         },
         "effects": [
           {
-            "ignore_requirements": [{ "type": "status", "value": "disengaged" }]
+            "ignore_requirements": [
+              {
+                "type": "status",
+                "value": "disengaged"
+              }
+            ]
           }
         ]
       },
@@ -2255,7 +2542,10 @@
         "trigger": {
           "event": ["attack"],
           "source": {
-            "range": { "value": 5, "unit": "feet" }
+            "range": {
+              "value": 5,
+              "unit": "feet"
+            }
           },
           "target": {
             "exclude": "self",
@@ -2291,13 +2581,27 @@
         "name": "Ability Score Increase",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Intelligence" },
-          { "type": "simple", "name": "Wisdom" },
-          { "type": "simple", "name": "Charisma" }
+          {
+            "type": "simple",
+            "name": "Intelligence"
+          },
+          {
+            "type": "simple",
+            "name": "Wisdom"
+          },
+          {
+            "type": "simple",
+            "name": "Charisma"
+          }
         ],
         "value": {
           "operation": "add",
-          "operators": [{ "type": "integer", "value": 1 }]
+          "operators": [
+            {
+              "type": "integer",
+              "value": 1
+            }
+          ]
         }
       },
       {
@@ -2361,8 +2665,14 @@
         "effects": [
           {
             "ignore_requirements": [
-              { "type": "cover", "value": "half" },
-              { "type": "cover", "value": "three_quarters" }
+              {
+                "type": "cover",
+                "value": "half"
+              },
+              {
+                "type": "cover",
+                "value": "three_quarters"
+              }
             ]
           }
         ]
@@ -2389,7 +2699,12 @@
               "target": "attack_roll",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": -5 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": -5
+                  }
+                ]
               }
             }
           },
@@ -2590,7 +2905,12 @@
             "on_success": {
               "calculation": {
                 "operation": "multiply",
-                "operators": [{ "type": "integer", "value": 0 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 0
+                  }
+                ]
               }
             }
           }
@@ -2616,16 +2936,39 @@
         "name": "Ability Score Increase",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Strength" },
-          { "type": "simple", "name": "Dexterity" },
-          { "type": "simple", "name": "Constitution" },
-          { "type": "simple", "name": "Intelligence" },
-          { "type": "simple", "name": "Wisdom" },
-          { "type": "simple", "name": "Charisma" }
+          {
+            "type": "simple",
+            "name": "Strength"
+          },
+          {
+            "type": "simple",
+            "name": "Dexterity"
+          },
+          {
+            "type": "simple",
+            "name": "Constitution"
+          },
+          {
+            "type": "simple",
+            "name": "Intelligence"
+          },
+          {
+            "type": "simple",
+            "name": "Wisdom"
+          },
+          {
+            "type": "simple",
+            "name": "Charisma"
+          }
         ],
         "value": {
           "operation": "add",
-          "operators": [{ "type": "integer", "value": 1 }]
+          "operators": [
+            {
+              "type": "integer",
+              "value": 1
+            }
+          ]
         }
       },
       {
@@ -2657,12 +3000,18 @@
           {
             "type": "nested",
             "name": "Skill",
-            "choice": { "choice_type": "skill", "count": 1 }
+            "choice": {
+              "choice_type": "skill",
+              "count": 1
+            }
           },
           {
             "type": "nested",
             "name": "Tool",
-            "choice": { "choice_type": "tool", "count": 1 }
+            "choice": {
+              "choice_type": "tool",
+              "count": 1
+            }
           }
         ]
       }
@@ -2727,12 +3076,23 @@
         "name": "Ability Score Increase",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Strength" },
-          { "type": "simple", "name": "Dexterity" }
+          {
+            "type": "simple",
+            "name": "Strength"
+          },
+          {
+            "type": "simple",
+            "name": "Dexterity"
+          }
         ],
         "value": {
           "operation": "add",
-          "operators": [{ "type": "integer", "value": 1 }]
+          "operators": [
+            {
+              "type": "integer",
+              "value": 1
+            }
+          ]
         }
       },
       {
@@ -2744,15 +3104,26 @@
         },
         "effects": [
           {
-            "target": { "type": "event_recipient" },
+            "target": {
+              "type": "event_recipient"
+            },
             "attribute": {
               "target": "movement.base",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": -10 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": -10
+                  }
+                ]
               }
             },
-            "duration": { "value": 1, "unit": "rounds", "until": ["start_turn"] }
+            "duration": {
+              "value": 1,
+              "unit": "rounds",
+              "until": ["start_turn"]
+            }
           }
         ],
         "uses": {
@@ -2769,11 +3140,17 @@
         },
         "effects": [
           {
-            "target": { "type": "event_recipient" },
+            "target": {
+              "type": "event_recipient"
+            },
             "disadvantage": {
               "attack": "all"
             },
-            "duration": { "value": 1, "unit": "rounds", "until": ["start_turn"] }
+            "duration": {
+              "value": 1,
+              "unit": "rounds",
+              "until": ["start_turn"]
+            }
           }
         ]
       }
@@ -2812,7 +3189,12 @@
               "target": "spell.range",
               "calculation": {
                 "operation": "multiply",
-                "operators": [{ "type": "integer", "value": 2 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
+                ]
               }
             }
           }
@@ -2830,8 +3212,14 @@
         "effects": [
           {
             "ignore_requirements": [
-              { "type": "cover", "value": "half" },
-              { "type": "cover", "value": "three_quarters" }
+              {
+                "type": "cover",
+                "value": "half"
+              },
+              {
+                "type": "cover",
+                "value": "three_quarters"
+              }
             ]
           }
         ]
@@ -2871,12 +3259,23 @@
         "name": "Ability Score Increase",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Strength" },
-          { "type": "simple", "name": "Constitution" }
+          {
+            "type": "simple",
+            "name": "Strength"
+          },
+          {
+            "type": "simple",
+            "name": "Constitution"
+          }
         ],
         "value": {
           "operation": "add",
-          "operators": [{ "type": "integer", "value": 1 }]
+          "operators": [
+            {
+              "type": "integer",
+              "value": 1
+            }
+          ]
         }
       },
       {
@@ -2937,13 +3336,27 @@
         "name": "Ability Score Increase",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Intelligence" },
-          { "type": "simple", "name": "Wisdom" },
-          { "type": "simple", "name": "Charisma" }
+          {
+            "type": "simple",
+            "name": "Intelligence"
+          },
+          {
+            "type": "simple",
+            "name": "Wisdom"
+          },
+          {
+            "type": "simple",
+            "name": "Charisma"
+          }
         ],
         "value": {
           "operation": "add",
-          "operators": [{ "type": "integer", "value": 1 }]
+          "operators": [
+            {
+              "type": "integer",
+              "value": 1
+            }
+          ]
         }
       },
       {
@@ -2981,7 +3394,10 @@
         "on_failure": {
           "forced_movement": {
             "type": "push",
-            "distance": { "value": 5, "unit": "feet" },
+            "distance": {
+              "value": 5,
+              "unit": "feet"
+            },
             "direction": "away"
           }
         }
@@ -3006,13 +3422,27 @@
         "name": "Ability Score Increase",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Intelligence" },
-          { "type": "simple", "name": "Wisdom" },
-          { "type": "simple", "name": "Charisma" }
+          {
+            "type": "simple",
+            "name": "Intelligence"
+          },
+          {
+            "type": "simple",
+            "name": "Wisdom"
+          },
+          {
+            "type": "simple",
+            "name": "Charisma"
+          }
         ],
         "value": {
           "operation": "add",
-          "operators": [{ "type": "integer", "value": 1 }]
+          "operators": [
+            {
+              "type": "integer",
+              "value": 1
+            }
+          ]
         }
       },
       {
@@ -3050,8 +3480,14 @@
                     "type": "calculation",
                     "operation": "multiply",
                     "operators": [
-                      { "type": "attribute", "value": "level" },
-                      { "type": "integer", "value": 2 }
+                      {
+                        "type": "attribute",
+                        "value": "level"
+                      },
+                      {
+                        "type": "integer",
+                        "value": 2
+                      }
                     ]
                   }
                 ]
@@ -3072,7 +3508,12 @@
               "target": "hit_points",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 2 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
+                ]
               }
             }
           }
@@ -3149,12 +3590,23 @@
         "name": "Ability Score Increase",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Strength" },
-          { "type": "simple", "name": "Dexterity" }
+          {
+            "type": "simple",
+            "name": "Strength"
+          },
+          {
+            "type": "simple",
+            "name": "Dexterity"
+          }
         ],
         "value": {
           "operation": "add",
-          "operators": [{ "type": "integer", "value": 1 }]
+          "operators": [
+            {
+              "type": "integer",
+              "value": 1
+            }
+          ]
         }
       },
       {
@@ -3264,9 +3716,18 @@
         "choice_type": "ability_score",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Strength" },
-          { "type": "simple", "name": "Constitution" },
-          { "type": "simple", "name": "Charisma" }
+          {
+            "type": "simple",
+            "name": "Strength"
+          },
+          {
+            "type": "simple",
+            "name": "Constitution"
+          },
+          {
+            "type": "simple",
+            "name": "Charisma"
+          }
         ],
         "effects": [
           {
@@ -3274,7 +3735,12 @@
               "target": "choice",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 1 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
               }
             }
           }
@@ -3359,9 +3825,18 @@
         "choice_type": "ability_score",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Strength" },
-          { "type": "simple", "name": "Constitution" },
-          { "type": "simple", "name": "Charisma" }
+          {
+            "type": "simple",
+            "name": "Strength"
+          },
+          {
+            "type": "simple",
+            "name": "Constitution"
+          },
+          {
+            "type": "simple",
+            "name": "Charisma"
+          }
         ],
         "effects": [
           {
@@ -3369,7 +3844,12 @@
               "target": "choice",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 1 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
               }
             }
           }
@@ -3392,8 +3872,14 @@
               "calculation": {
                 "operation": "set",
                 "operators": [
-                  { "type": "integer", "value": 13 },
-                  { "type": "ability_modifier", "ability": "Dexterity" }
+                  {
+                    "type": "integer",
+                    "value": 13
+                  },
+                  {
+                    "type": "ability_modifier",
+                    "ability": "Dexterity"
+                  }
                 ]
               }
             }
@@ -3446,7 +3932,12 @@
               "target": "ability_scores.Constitution",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 1 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
               }
             }
           }
@@ -3471,7 +3962,12 @@
               "dice": "hit_die",
               "bonus": {
                 "operation": "add",
-                "operators": [{ "type": "ability_modifier", "ability": "Constitution" }],
+                "operators": [
+                  {
+                    "type": "ability_modifier",
+                    "ability": "Constitution"
+                  }
+                ],
                 "minimum": 0
               }
             }
@@ -3532,10 +4028,22 @@
         "name": "Ability Score Increase",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Dexterity" },
-          { "type": "simple", "name": "Intelligence" },
-          { "type": "simple", "name": "Wisdom" },
-          { "type": "simple", "name": "Charisma" }
+          {
+            "type": "simple",
+            "name": "Dexterity"
+          },
+          {
+            "type": "simple",
+            "name": "Intelligence"
+          },
+          {
+            "type": "simple",
+            "name": "Wisdom"
+          },
+          {
+            "type": "simple",
+            "name": "Charisma"
+          }
         ],
         "effects": [
           {
@@ -3543,7 +4051,12 @@
               "target": "choice",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 1 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
               }
             }
           }
@@ -3594,8 +4107,14 @@
         "name": "Ability Score Increase",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Dexterity" },
-          { "type": "simple", "name": "Intelligence" }
+          {
+            "type": "simple",
+            "name": "Dexterity"
+          },
+          {
+            "type": "simple",
+            "name": "Intelligence"
+          }
         ],
         "effects": [
           {
@@ -3603,7 +4122,12 @@
               "target": "choice",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 1 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
               }
             }
           }
@@ -3660,8 +4184,14 @@
         "name": "Ability Score Increase",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Intelligence" },
-          { "type": "simple", "name": "Charisma" }
+          {
+            "type": "simple",
+            "name": "Intelligence"
+          },
+          {
+            "type": "simple",
+            "name": "Charisma"
+          }
         ],
         "effects": [
           {
@@ -3669,7 +4199,12 @@
               "target": "choice",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 1 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
               }
             }
           }
@@ -3715,8 +4250,14 @@
         "name": "Ability Score Increase",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Intelligence" },
-          { "type": "simple", "name": "Charisma" }
+          {
+            "type": "simple",
+            "name": "Intelligence"
+          },
+          {
+            "type": "simple",
+            "name": "Charisma"
+          }
         ],
         "effects": [
           {
@@ -3724,7 +4265,12 @@
               "target": "choice",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 1 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
               }
             }
           }
@@ -3833,7 +4379,12 @@
               "target": "ability_scores.Constitution.score",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 1 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
               }
             }
           }
@@ -3891,8 +4442,14 @@
         "name": "Ability Score Increase",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Strength" },
-          { "type": "simple", "name": "Constitution" }
+          {
+            "type": "simple",
+            "name": "Strength"
+          },
+          {
+            "type": "simple",
+            "name": "Constitution"
+          }
         ],
         "effects": [
           {
@@ -3900,7 +4457,12 @@
               "target": "choice",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 1 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
               }
             }
           }
@@ -4009,9 +4571,18 @@
         "name": "Ability Score Increase",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Dexterity" },
-          { "type": "simple", "name": "Constitution" },
-          { "type": "simple", "name": "Charisma" }
+          {
+            "type": "simple",
+            "name": "Dexterity"
+          },
+          {
+            "type": "simple",
+            "name": "Constitution"
+          },
+          {
+            "type": "simple",
+            "name": "Charisma"
+          }
         ],
         "effects": [
           {
@@ -4019,7 +4590,12 @@
               "target": "choice",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 1 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
               }
             }
           }
@@ -4092,8 +4668,14 @@
         "name": "Ability Score Increase",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Strength" },
-          { "type": "simple", "name": "Dexterity" }
+          {
+            "type": "simple",
+            "name": "Strength"
+          },
+          {
+            "type": "simple",
+            "name": "Dexterity"
+          }
         ],
         "effects": [
           {
@@ -4101,7 +4683,12 @@
               "target": "choice",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 1 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
               }
             }
           }
@@ -4116,7 +4703,12 @@
               "target": "movement.base",
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 5 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 5
+                  }
+                ]
               }
             }
           }
@@ -4128,8 +4720,14 @@
         "name": "Skill Proficiency",
         "count": 1,
         "options": [
-          { "type": "simple", "name": "Acrobatics" },
-          { "type": "simple", "name": "Athletics" }
+          {
+            "type": "simple",
+            "name": "Acrobatics"
+          },
+          {
+            "type": "simple",
+            "name": "Athletics"
+          }
         ]
       },
       {
@@ -4183,7 +4781,7 @@
             "count": 1,
             "criteria": {
               "level": 0,
-              "class": "Druid"
+              "class": "class:druid"
             }
           }
         ],
