@@ -1,10 +1,11 @@
 {
   "background": "1.0.3",
-  "class": "1.0.2",
+  "class": "1.0.3",
   "class_feature": "1.0.2",
   "deity": "1.0.2",
   "domain": "1.0.2",
-  "equipment": "1.0.3",
+  "equipment": "1.0.4",
+  "feat": "0.1.0",
   "fighting_style": "1.0.2",
   "maneuver": "1.0.2",
   "race": "1.0.2",
