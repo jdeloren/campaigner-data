@@ -250,7 +250,7 @@
     "requirements": [
       {
         "type": "size",
-        "value": "within_one_category"
+        "ref": "one_larger"
       },
       {
         "type": "free_hand",
@@ -282,7 +282,7 @@
     "requirements": [
       {
         "type": "size",
-        "value": "within_one_category"
+        "ref": "one_larger"
       }
     ]
   }

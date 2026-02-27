@@ -33,7 +33,8 @@
             "category": "skill",
             "proficiencies": ["Perception"]
           }
-        ]
+        ],
+        "id": "trait:elf-keen-senses"
       },
       {
         "name": "Fey Ancestry",
@@ -46,7 +47,7 @@
                 "advantage": {
                   "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
                   "against": {
-                    "status": ["charmed"]
+                    "status": ["status:charmed"]
                   }
                 }
               }
@@ -66,7 +67,8 @@
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:elf-fey-ancestry"
       }
     ],
     "languages": [
@@ -102,7 +104,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Elf",
+    "base_race": "race:elf",
     "traits": [
       {
         "name": "Elf Weapon Training",
@@ -113,7 +115,8 @@
             "category": "weapon",
             "proficiencies": ["Longsword", "Shortsword", "Shortbow", "Longbow"]
           }
-        ]
+        ],
+        "id": "trait:high-elf-elf-weapon-training"
       },
       {
         "name": "Cantrip",
@@ -126,11 +129,12 @@
               "source": "spells",
               "params": {
                 "level": 0,
-                "class": "Wizard"
+                "class": "class:wizard"
               }
             }
           }
-        ]
+        ],
+        "id": "trait:high-elf-cantrip"
       },
       {
         "name": "Extra Language",
@@ -141,7 +145,8 @@
             "choice_type": "language",
             "count": 1
           }
-        ]
+        ],
+        "id": "trait:high-elf-extra-language"
       }
     ],
     "languages": []
@@ -168,7 +173,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Elf",
+    "base_race": "race:elf",
     "traits": [
       {
         "name": "Elf Weapon Training",
@@ -179,7 +184,8 @@
             "category": "weapon",
             "proficiencies": ["Longsword", "Shortsword", "Shortbow", "Longbow"]
           }
-        ]
+        ],
+        "id": "trait:wood-elf-elf-weapon-training"
       },
       {
         "name": "Fleet of Foot",
@@ -190,7 +196,7 @@
             "effects": [
               {
                 "attribute": {
-                  "target": "speed",
+                  "target": "movement.base",
                   "calculation": {
                     "operation": "set",
                     "operators": [
@@ -204,7 +210,8 @@
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:wood-elf-fleet-of-foot"
       },
       {
         "name": "Mask of the Wild",
@@ -213,7 +220,8 @@
           {
             "type": "special"
           }
-        ]
+        ],
+        "id": "trait:wood-elf-mask-of-the-wild"
       }
     ],
     "languages": []
@@ -240,7 +248,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Elf",
+    "base_race": "race:elf",
     "traits": [
       {
         "name": "Sunlight Sensitivity",
@@ -249,7 +257,8 @@
           {
             "type": "special"
           }
-        ]
+        ],
+        "id": "trait:drow-sunlight-sensitivity"
       },
       {
         "name": "Drow Magic",
@@ -293,7 +302,8 @@
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:drow-drow-magic"
       },
       {
         "name": "Drow Weapon Training",
@@ -304,7 +314,8 @@
             "category": "weapon",
             "proficiencies": ["Rapier", "Shortsword", "Hand Crossbow"]
           }
-        ]
+        ],
+        "id": "trait:drow-drow-weapon-training"
       }
     ],
     "languages": []
@@ -375,7 +386,8 @@
               ]
             }
           }
-        ]
+        ],
+        "id": "trait:half-elf-ability-score-increase"
       },
       {
         "name": "Fey Ancestry",
@@ -388,7 +400,7 @@
                 "advantage": {
                   "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
                   "against": {
-                    "status": ["charmed"]
+                    "status": ["status:charmed"]
                   }
                 }
               },
@@ -403,7 +415,8 @@
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:half-elf-fey-ancestry"
       },
       {
         "name": "Half-Elf Versatility",
@@ -449,7 +462,8 @@
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:half-elf-half-elf-versatility"
       }
     ],
     "languages": [
@@ -500,14 +514,17 @@
             "type": "passive",
             "effects": [
               {
-                "ignore_requirement": {
-                  "type": "attribute",
-                  "attribute": "Strength"
-                }
+                "ignore_requirements": [
+                  {
+                    "type": "attribute",
+                    "attribute": "Strength"
+                  }
+                ]
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:dwarf-speed"
       },
       {
         "name": "Dwarven Resilience",
@@ -515,23 +532,31 @@
         "mechanics": [
           {
             "type": "passive",
+            "trigger": {
+              "event": ["saving_throw"],
+              "context": ["poison"]
+            },
             "effects": [
               {
                 "advantage": {
-                  "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
-                  "against": {
-                    "damage_type": ["poison"]
-                  }
+                  "saving_throw": ["all"]
                 }
-              },
+              }
+            ]
+          },
+          {
+            "type": "resistance",
+            "effects": [
               {
-                "resistance": {
-                  "damage_type": ["poison"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["poison"]
                 }
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:dwarf-dwarven-resilience"
       },
       {
         "name": "Dwarven Combat Training",
@@ -542,7 +567,8 @@
             "category": "weapon",
             "proficiencies": ["battleaxe", "handaxe", "light hammer", "warhammer"]
           }
-        ]
+        ],
+        "id": "trait:dwarf-dwarven-combat-training"
       },
       {
         "name": "Tool Proficiency",
@@ -567,12 +593,14 @@
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:dwarf-tool-proficiency"
       },
       {
         "name": "Stonecunning",
         "description": "Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.",
-        "mechanics": []
+        "mechanics": [],
+        "id": "trait:dwarf-stonecunning"
       }
     ],
     "languages": [
@@ -589,7 +617,7 @@
   {
     "id": "race:hill-dwarf",
     "name": "Hill Dwarf",
-    "description": "As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience. The gold dwarves of Faerûn in their mighty southern kingdom are hill dwarves, as are the exiled Neidar and the debased Klar of Krynn.",
+    "description": "As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience. The gold dwarves of Faer\u00fbn in their mighty southern kingdom are hill dwarves, as are the exiled Neidar and the debased Klar of Krynn.",
     "size": "Medium",
     "speed": 25,
     "creature_type": "Humanoid",
@@ -608,7 +636,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dwarf",
+    "base_race": "race:dwarf",
     "traits": [
       {
         "name": "Dwarven Toughness",
@@ -633,7 +661,8 @@
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:hill-dwarf-dwarven-toughness"
       }
     ],
     "languages": []
@@ -641,7 +670,7 @@
   {
     "id": "race:mountain-dwarf",
     "name": "Mountain Dwarf",
-    "description": "As a mountain dwarf, you're strong and hardy, accustomed to a difficult life in rugged terrain. You're probably on the tall side for a dwarf, and tend toward lighter coloration. The shield dwarves of northern Faerûn are mountain dwarves.",
+    "description": "As a mountain dwarf, you're strong and hardy, accustomed to a difficult life in rugged terrain. You're probably on the tall side for a dwarf, and tend toward lighter coloration. The shield dwarves of northern Faer\u00fbn are mountain dwarves.",
     "size": "Medium",
     "speed": 25,
     "creature_type": "Humanoid",
@@ -660,7 +689,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dwarf",
+    "base_race": "race:dwarf",
     "traits": [
       {
         "name": "Dwarven Armor Training",
@@ -669,9 +698,10 @@
           {
             "type": "proficiency",
             "category": "armor",
-            "proficiencies": ["Light Armor", "medium armor"]
+            "proficiencies": ["Light", "Medium"]
           }
-        ]
+        ],
+        "id": "trait:mountain-dwarf-dwarven-armor-training"
       }
     ],
     "languages": []
@@ -745,7 +775,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dragonborn",
+    "base_race": "race:dragonborn",
     "traits": [
       {
         "name": "Breath Weapon",
@@ -817,7 +847,8 @@
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:black-dragonborn-breath-weapon"
       },
       {
         "name": "Damage Resistance",
@@ -827,13 +858,15 @@
             "type": "passive",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["acid"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["acid"]
                 }
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:black-dragonborn-damage-resistance"
       }
     ],
     "languages": []
@@ -860,7 +893,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dragonborn",
+    "base_race": "race:dragonborn",
     "traits": [
       {
         "name": "Breath Weapon",
@@ -932,7 +965,8 @@
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:blue-dragonborn-breath-weapon"
       },
       {
         "name": "Damage Resistance",
@@ -942,13 +976,15 @@
             "type": "passive",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["lightning"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["lightning"]
                 }
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:blue-dragonborn-damage-resistance"
       }
     ],
     "languages": []
@@ -975,7 +1011,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dragonborn",
+    "base_race": "race:dragonborn",
     "traits": [
       {
         "name": "Breath Weapon",
@@ -1047,7 +1083,8 @@
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:brass-dragonborn-breath-weapon"
       },
       {
         "name": "Damage Resistance",
@@ -1057,13 +1094,15 @@
             "type": "passive",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["fire"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["fire"]
                 }
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:brass-dragonborn-damage-resistance"
       }
     ],
     "languages": []
@@ -1090,7 +1129,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dragonborn",
+    "base_race": "race:dragonborn",
     "traits": [
       {
         "name": "Breath Weapon",
@@ -1162,7 +1201,8 @@
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:bronze-dragonborn-breath-weapon"
       },
       {
         "name": "Damage Resistance",
@@ -1172,13 +1212,15 @@
             "type": "passive",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["lightning"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["lightning"]
                 }
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:bronze-dragonborn-damage-resistance"
       }
     ],
     "languages": []
@@ -1205,7 +1247,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dragonborn",
+    "base_race": "race:dragonborn",
     "traits": [
       {
         "name": "Breath Weapon",
@@ -1277,7 +1319,8 @@
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:copper-dragonborn-breath-weapon"
       },
       {
         "name": "Damage Resistance",
@@ -1287,13 +1330,15 @@
             "type": "passive",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["acid"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["acid"]
                 }
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:copper-dragonborn-damage-resistance"
       }
     ],
     "languages": []
@@ -1320,7 +1365,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dragonborn",
+    "base_race": "race:dragonborn",
     "traits": [
       {
         "name": "Breath Weapon",
@@ -1392,7 +1437,8 @@
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:gold-dragonborn-breath-weapon"
       },
       {
         "name": "Damage Resistance",
@@ -1402,13 +1448,15 @@
             "type": "passive",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["fire"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["fire"]
                 }
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:gold-dragonborn-damage-resistance"
       }
     ],
     "languages": []
@@ -1435,7 +1483,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dragonborn",
+    "base_race": "race:dragonborn",
     "traits": [
       {
         "name": "Breath Weapon",
@@ -1507,7 +1555,8 @@
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:green-dragonborn-breath-weapon"
       },
       {
         "name": "Damage Resistance",
@@ -1517,13 +1566,15 @@
             "type": "passive",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["poison"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["poison"]
                 }
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:green-dragonborn-damage-resistance"
       }
     ],
     "languages": []
@@ -1550,7 +1601,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dragonborn",
+    "base_race": "race:dragonborn",
     "traits": [
       {
         "name": "Breath Weapon",
@@ -1622,7 +1673,8 @@
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:red-dragonborn-breath-weapon"
       },
       {
         "name": "Damage Resistance",
@@ -1632,13 +1684,15 @@
             "type": "passive",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["fire"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["fire"]
                 }
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:red-dragonborn-damage-resistance"
       }
     ],
     "languages": []
@@ -1665,7 +1719,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dragonborn",
+    "base_race": "race:dragonborn",
     "traits": [
       {
         "name": "Breath Weapon",
@@ -1737,7 +1791,8 @@
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:silver-dragonborn-breath-weapon"
       },
       {
         "name": "Damage Resistance",
@@ -1747,13 +1802,15 @@
             "type": "passive",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["cold"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["cold"]
                 }
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:silver-dragonborn-damage-resistance"
       }
     ],
     "languages": []
@@ -1780,7 +1837,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Dragonborn",
+    "base_race": "race:dragonborn",
     "traits": [
       {
         "name": "Breath Weapon",
@@ -1852,7 +1909,8 @@
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:white-dragonborn-breath-weapon"
       },
       {
         "name": "Damage Resistance",
@@ -1862,13 +1920,15 @@
             "type": "passive",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["cold"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["cold"]
                 }
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:white-dragonborn-damage-resistance"
       }
     ],
     "languages": []
@@ -1900,7 +1960,8 @@
             "choice_type": "language",
             "count": 1
           }
-        ]
+        ],
+        "id": "trait:human-extra-language"
       }
     ],
     "languages": [
@@ -1932,7 +1993,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Human",
+    "base_race": "race:human",
     "traits": [],
     "languages": []
   },
@@ -1951,7 +2012,7 @@
     "ability_score_increases": {},
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Human",
+    "base_race": "race:human",
     "traits": [
       {
         "name": "Ability Score Increase",
@@ -1998,7 +2059,8 @@
               ]
             }
           }
-        ]
+        ],
+        "id": "trait:variant-human-ability-score-increase"
       },
       {
         "name": "Skills",
@@ -2009,7 +2071,8 @@
             "choice_type": "skill",
             "count": 1
           }
-        ]
+        ],
+        "id": "trait:variant-human-skills"
       },
       {
         "name": "Feat",
@@ -2020,7 +2083,8 @@
             "choice_type": "feat",
             "count": 1
           }
-        ]
+        ],
+        "id": "trait:variant-human-feat"
       }
     ],
     "languages": []
@@ -2059,7 +2123,8 @@
             "category": "skill",
             "proficiencies": ["Intimidation"]
           }
-        ]
+        ],
+        "id": "trait:half-orc-menacing"
       },
       {
         "name": "Relentless Endurance",
@@ -2072,7 +2137,8 @@
             },
             "requirements": [
               {
-                "type": "hit_points",
+                "type": "attribute",
+                "attribute": "hit_points.current",
                 "comparison": "at_least",
                 "calculation": {
                   "operation": "subtract",
@@ -2111,7 +2177,8 @@
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:half-orc-relentless-endurance"
       },
       {
         "name": "Savage Attacks",
@@ -2119,22 +2186,23 @@
         "mechanics": [
           {
             "type": "critical_hit",
-            "requirements": [
-              {
-                "type": "attack",
-                "attack_type": ["melee_weapon"]
+            "trigger": {
+              "event": ["hit"],
+              "source": {
+                "type": ["melee", "weapon"]
               }
-            ],
+            },
             "effects": [
               {
-                "damage_bonus": {
-                  "dice": "weapon_die",
-                  "count": 1
+                "roll_modifier": {
+                  "operation": "add",
+                  "value": "weapon_die"
                 }
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:half-orc-savage-attacks"
       }
     ],
     "languages": [
@@ -2190,7 +2258,8 @@
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:gnome-gnome-cunning"
       }
     ],
     "languages": [
@@ -2226,7 +2295,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Gnome",
+    "base_race": "race:gnome",
     "traits": [
       {
         "name": "Natural Illusionist",
@@ -2238,7 +2307,8 @@
             "ability": "Intelligence",
             "components": ["Somatic", "Material"]
           }
-        ]
+        ],
+        "id": "trait:forest-gnome-natural-illusionist"
       },
       {
         "name": "Speak with Small Beasts",
@@ -2262,7 +2332,8 @@
               ]
             }
           }
-        ]
+        ],
+        "id": "trait:forest-gnome-speak-with-small-beasts"
       }
     ],
     "languages": []
@@ -2289,7 +2360,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Gnome",
+    "base_race": "race:gnome",
     "traits": [
       {
         "name": "Artificer's Lore",
@@ -2297,16 +2368,34 @@
         "mechanics": [
           {
             "type": "passive",
+            "trigger": {
+              "event": ["ability_check"],
+              "context": ["magic_items", "alchemical_objects", "technological_devices"]
+            },
             "effects": [
               {
-                "expertise": {
-                  "skill": "History",
-                  "context": ["magic items", "alchemical objects", "technological devices"]
+                "advantage": {
+                  "skill": "History"
+                }
+              },
+              {
+                "attribute": {
+                  "target": "proficiency_bonus",
+                  "calculation": {
+                    "operation": "multiply",
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 2
+                      }
+                    ]
+                  }
                 }
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:rock-gnome-artificer's-lore"
       },
       {
         "name": "Tinker",
@@ -2315,7 +2404,7 @@
           {
             "type": "proficiency",
             "category": "tool",
-            "proficiencies": ["tinker's tools"]
+            "proficiencies": ["Tinker's Tools"]
           },
           {
             "type": "special",
@@ -2333,7 +2422,7 @@
             "requirements": [
               {
                 "type": "equipment",
-                "item": "tinker's tools"
+                "item": ["Tinker's Tools"]
               }
             ],
             "max_active_effects": 3,
@@ -2392,7 +2481,8 @@
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:rock-gnome-tinker"
       }
     ],
     "languages": []
@@ -2430,24 +2520,24 @@
             "type": "passive",
             "trigger": {
               "event": ["attack", "ability_check", "saving_throw"],
-              "conditions": [
-                {
-                  "type": "roll_result",
-                  "value": 1,
-                  "comparison": "equal"
-                }
-              ]
+              "condition": {
+                "type": "roll_result",
+                "value": 1,
+                "comparison": "equal"
+              }
             },
             "effects": [
               {
-                "reroll": {
-                  "dice": "d20",
-                  "replace": true
+                "roll_modifier": {
+                  "reroll": {
+                    "replace": true
+                  }
                 }
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:halfling-lucky"
       },
       {
         "name": "Brave",
@@ -2460,13 +2550,14 @@
                 "advantage": {
                   "saving_throw": ["all"],
                   "against": {
-                    "condition": "frightened"
+                    "status": ["status:frightened"]
                   }
                 }
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:halfling-brave"
       },
       {
         "name": "Nimble",
@@ -2486,7 +2577,8 @@
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:halfling-nimble"
       }
     ],
     "languages": [
@@ -2522,13 +2614,14 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Halfling",
+    "base_race": "race:halfling",
     "subraces": [],
     "traits": [
       {
         "name": "Naturally Stealthy",
         "description": "You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you.",
-        "mechanics": []
+        "mechanics": [],
+        "id": "trait:lightfoot-halfling-naturally-stealthy"
       }
     ],
     "languages": []
@@ -2555,7 +2648,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Halfling",
+    "base_race": "race:halfling",
     "subraces": [],
     "traits": [
       {
@@ -2569,7 +2662,7 @@
                 "advantage": {
                   "saving_throw": ["all"],
                   "against": {
-                    "damage_type": ["poison"]
+                    "status": ["status:poisoned"]
                   }
                 }
               }
@@ -2579,13 +2672,15 @@
             "type": "resistance",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["poison"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["poison"]
                 }
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:stout-halfling-stout-resilience"
       }
     ],
     "languages": []
@@ -2623,13 +2718,15 @@
             "type": "resistance",
             "effects": [
               {
-                "resistance": {
-                  "damage_type": ["fire"]
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["fire"]
                 }
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:tiefling-hellish-resistance"
       }
     ],
     "languages": [
@@ -2665,7 +2762,7 @@
     },
     "source": "phb",
     "ruleset": "dnd5e",
-    "base_race": "Tiefling",
+    "base_race": "race:tiefling",
     "subraces": [],
     "traits": [
       {
@@ -2710,7 +2807,8 @@
               }
             ]
           }
-        ]
+        ],
+        "id": "trait:asmodeus-tiefling-infernal-legacy"
       }
     ],
     "languages": []

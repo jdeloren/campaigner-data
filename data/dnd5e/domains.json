@@ -5,7 +5,7 @@
     "description": "The gods of knowledge - including Oghma, Boccob, Gilean, Aureon, and Thoth - value learning and understanding above all. Some teach that knowledge is to be gathered and shared in libraries and universities, or promote the practical knowledge of craft and invention. Some deities hoard knowledge and keep its secrets to themselves. And some promise their followers that they will gain tremendous power if they unlock the secrets of the multiverse. Followers of these gods study esoteric lore, collect old tomes, delve into the secret places of the earth, and learn all they can. Some gods of knowledge promote the practical knowledge of craft and invention, including smith deities like Gond, Reorx, Onatar, Moradin, Hephaestus, and Goibhniu.",
     "source": "phb",
     "ruleset": "dnd5e",
-    "class": "Cleric",
+    "class": "class:cleric",
     "features": [
       {
         "id": "feat:knowledge-domain-spell-knowledge",
@@ -14,7 +14,7 @@
         "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you have a domain spell that doesn't appear on the cleric spell list, the spell is nonetheless a cleric spell for you.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "granted_spells",
@@ -36,7 +36,7 @@
         "description": "At 1st level, you learn two languages of your choice. You also become proficient in your choice of two of the following skills: Arcana, History, Nature, or Religion. Your proficiency bonus is doubled for any ability check you make that uses either of those skills.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "choice",
@@ -75,7 +75,7 @@
         "description": "Starting at 2nd level, you can use your Channel Divinity to tap into a divine well of knowledge. As an action, you choose one skill or tool. For 10 minutes, you have proficiency with the chosen skill or tool.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "action",
@@ -87,14 +87,10 @@
             ],
             "effects": [
               {
-                "choice": {
-                  "source": "skills_and_tools",
+                "buff": {
+                  "category": "proficiency",
+                  "choice_type": ["skill", "tool"],
                   "count": 1
-                },
-                "attribute": {
-                  "target": "proficiencies.temporary",
-                  "operation": "add",
-                  "value": "choice"
                 },
                 "duration": {
                   "value": 10,
@@ -112,7 +108,7 @@
         "description": "At 6th level, you can use your Channel Divinity to read a creature's thoughts. You can then use your access to the creature's mind to command it. As an action, choose one creature that you can see within 60 feet of you. That creature must make a Wisdom saving throw. If the creature succeeds on the saving throw, you can't use this feature on it again until you finish a long rest. If the creature fails its save, you can read its surface thoughts (those foremost in its mind, reflecting its current emotions and what it is actively thinking about) when it is within 60 feet of you. This effect lasts for 1 minute. During that time, you can use your action to end this effect and cast the suggestion spell on the creature without expending a spell slot. The target automatically fails its saving throw against the spell.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "action",
@@ -134,7 +130,7 @@
                       "senses": ["sight"]
                     },
                     {
-                      "type": "range",
+                      "type": "distance",
                       "value": 60,
                       "unit": "feet"
                     }
@@ -183,17 +179,15 @@
         "description": "Starting at 8th level, you add your Wisdom modifier to the damage you deal with any cleric cantrip.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "damage_bonus",
             "trigger": {
               "event": ["cast_spell"],
-              "source": {
-                "type": ["spell"],
-                "spell_level": 0,
-                "class": "Cleric",
-                "source": "character"
+              "spell": {
+                "level": 0,
+                "class": "class:cleric"
               }
             },
             "damage": {
@@ -217,7 +211,7 @@
         "description": "Starting at 17th level, you can call up visions of the past that relate to an object you hold or your immediate surroundings. You spend at least 1 minute in meditation and prayer, then receive dreamlike, shadowy glimpses of recent events. You can meditate in this way for a number of minutes equal to your Wisdom score and must maintain concentration during that time, as if you were casting a spell. Once you use this feature, you can't use it again until you finish a short or long rest.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "special",
@@ -236,7 +230,7 @@
     "description": "The Life domain focuses on the vibrant positive energy - one of the fundamental forces of the universe - that sustains all life. The gods of life promote vitality and health through healing the sick and wounded, caring for those in need, and driving away the forces of death and undeath. Almost any non-evil deity can claim influence over this domain, particularly agricultural deities (such as Chauntea, Arawai, and Demeter), sun gods (such as Lathander, Pelor, and Re-Horakhty), gods of healing or endurance (such as Ilmater, Mishakal, Apollo, and Diancecht), and gods of home and community (such as Hestia, Hathor, and Boldrci).",
     "source": "phb",
     "ruleset": "dnd5e",
-    "class": "Cleric",
+    "class": "class:cleric",
     "features": [
       {
         "id": "feat:life-domain-spells",
@@ -245,7 +239,7 @@
         "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "granted_spells",
@@ -266,12 +260,12 @@
         "name": "Bonus Proficiency",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "proficiency",
             "category": "armor",
-            "proficiencies": ["Heavy Armor"]
+            "proficiencies": ["Heavy"]
           }
         ],
         "description": "You gain proficiency with heavy armor."
@@ -283,21 +277,20 @@
         "description": "Your healing spells are more effective. Whenever you use a spell of 1st level or higher to restore hit points to a creature, the creature regains additional hit points equal to 2 + the spell's level.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "passive",
-            "modifies": "healing",
             "trigger": {
               "event": ["cast_spell"],
-              "effect": ["healing"]
+              "spell": {
+                "effect": ["healing"]
+              }
             },
             "requirements": [
               {
-                "type": "spell_level",
-                "value": {
-                  "minimum": 1
-                }
+                "type": "spell",
+                "minimum": 1
               }
             ],
             "effects": [
@@ -328,7 +321,7 @@
         "description": "You can use your Channel Divinity to heal the badly injured. As an action, you present your holy symbol and evoke healing energy that can restore a number of hit points equal to five times your cleric level. Choose any creatures within 30 feet of you, and divide those hit points among them. This feature can restore a creature to no more than half of its hit point maximum. You can't use this feature on an undead or a construct.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "action",
@@ -341,7 +334,7 @@
             "requirements": [
               {
                 "type": "equipment",
-                "item": "holy symbol"
+                "item": ["holy symbol"]
               }
             ],
             "effects": [
@@ -356,8 +349,8 @@
                       "negate": true
                     },
                     {
-                      "type": "hit_points",
-                      "attribute": "hit_points",
+                      "type": "attribute",
+                      "attribute": "hit_points.current",
                       "comparison": "less_than",
                       "calculation": {
                         "operation": "divide",
@@ -392,7 +385,7 @@
                       },
                       {
                         "type": "class_level",
-                        "class": "Cleric"
+                        "class": "class:cleric"
                       }
                     ]
                   },
@@ -410,24 +403,23 @@
         "description": "The healing spells you cast on others heal you as well. Beginning at 6th level, when you cast a spell of 1st level or higher that restores hit points to a creature other than you, you regain hit points equal to 2 + the spell's level.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "passive",
             "trigger": {
               "event": ["cast_spell"],
-              "effect": ["healing"]
+              "spell": {
+                "effect": ["healing"]
+              },
+              "target": {
+                "exclude": "self"
+              }
             },
             "requirements": [
               {
-                "type": "spell_level",
-                "value": {
-                  "minimum": 1
-                }
-              },
-              {
-                "type": "effect_target",
-                "value": "not_self"
+                "type": "spell",
+                "minimum": 1
               }
             ],
             "effects": [
@@ -489,7 +481,7 @@
         ],
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric"
+        "class": "class:cleric"
       },
       {
         "id": "feat:life-supreme-healing",
@@ -498,14 +490,15 @@
         "description": "When you would normally roll one or more dice to restore hit points with a spell, you instead use the highest number possible for each die.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "passive",
-            "modifies": "healing",
             "trigger": {
               "event": ["cast_spell"],
-              "effect": ["healing"]
+              "spell": {
+                "effect": ["healing"]
+              }
             },
             "effects": [
               {
@@ -525,7 +518,7 @@
     "description": "Gods of light - including Helm, Lathander, Pholtus, Branchala, the Silver Flame, Belenus, Apollo, and Re-Horakhty - promote the ideals of rebirth and renewal, truth, vigilance, and beauty, often using the symbol of the sun. Some of these gods are portrayed as the sun itself or as a charioteer who guides the sun across the sky. Others are tireless sentinels whose eyes pierce every shadow and see through every deception. Some are deities of beauty and artistry, who teach that art is a vehicle for the soul's improvement. Clerics of a god of light are enlightened souls infused with radiance and the power of their gods' discerning vision, charged with chasing away lies and burning away darkness.",
     "source": "phb",
     "ruleset": "dnd5e",
-    "class": "Cleric",
+    "class": "class:cleric",
     "features": [
       {
         "id": "feat:light-domain-spells",
@@ -534,7 +527,7 @@
         "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "granted_spells",
@@ -556,7 +549,7 @@
         "description": "You gain the Light cantrip if you don't already know it. This cantrip doesn't count against the number of cleric cantrips you know.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "granted_spells",
@@ -573,7 +566,7 @@
         "description": "You can interpose divine light between yourself and an attacking enemy.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "reaction",
@@ -624,7 +617,7 @@
         "description": "You can use your Channel Divinity to harness sunlight, banishing darkness and dealing radiant damage to your foes. As an action, you present your holy symbol, and any magical darkness within 30 feet of you is dispelled. Additionally, each hostile creature within 30 feet of you must make a Constitution saving throw. A creature takes radiant damage equal to 2d10 + your cleric level on a failed saving throw, and half as much damage on a successful one. A creature that has total cover from you is not affected.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "action",
@@ -637,7 +630,7 @@
             "requirements": [
               {
                 "type": "equipment",
-                "item": "holy symbol"
+                "item": ["holy symbol"]
               }
             ],
             "effects": [
@@ -692,7 +685,7 @@
                         "operators": [
                           {
                             "type": "class_level",
-                            "class": "Cleric"
+                            "class": "class:cleric"
                           }
                         ]
                       },
@@ -712,7 +705,7 @@
         "description": "You can also use your Warding Flare feature when a creature that you can see within 30 feet of you attacks a creature other than you.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "extends": ["Warding Flare"],
         "mechanics": [
           {
@@ -762,17 +755,15 @@
         "description": "You add your Wisdom modifier to the damage you deal with any cleric cantrip.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "damage_bonus",
             "trigger": {
               "event": ["cast_spell"],
-              "source": {
-                "type": ["spell"],
-                "spell_level": 0,
-                "class": "Cleric",
-                "source": "character"
+              "spell": {
+                "level": 0,
+                "class": "class:cleric"
               }
             },
             "damage": {
@@ -796,7 +787,7 @@
         "description": "You can use your action to activate an aura of sunlight that lasts for 1 minute or until you dismiss it using another action. You emit bright light in a 60-foot radius and dim light 30 feet beyond that. Your enemies in the bright light have disadvantage on saving throws against any spell that deals fire or radiant damage.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "action",
@@ -833,16 +824,13 @@
                   "shape": "radius",
                   "size": 60,
                   "unit": "feet",
-                  "origin": "self",
-                  "light_level": "bright"
+                  "origin": "self"
                 },
-                "effect": {
-                  "disadvantage": {
-                    "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
-                    "against": {
-                      "type": "spell",
-                      "damage_type": ["fire", "radiant"]
-                    }
+                "disadvantage": {
+                  "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
+                  "against": {
+                    "effect_type": "spell",
+                    "damage_type": ["fire", "radiant"]
                   }
                 }
               }
@@ -858,7 +846,7 @@
     "description": "Gods of nature are as varied as the natural world itself; from inscrutable gods of the deep forests (such as Silvanus, Obad-Hai, Chislev, Balinor, and Pan) to friendly deities associated with particular springs and groves (such as Eldath). Druids revere nature as a whole and might serve one of these deities, practicing mysterious rites and reciting all-but-forgotten prayers in their own secret tongue. But many of these gods have clerics as well, champions who take a more active role in advancing the interests of a particular nature god. These clerics might hunt the evil monstrosities that despoil the woodlands, bless the harvest of the faithful, or wither the crops of those who anger their gods.",
     "source": "phb",
     "ruleset": "dnd5e",
-    "class": "Cleric",
+    "class": "class:cleric",
     "features": [
       {
         "id": "feat:nature-domain-spell-knowledge",
@@ -867,7 +855,7 @@
         "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you have a domain spell that doesn't appear on the cleric spell list, the spell is nonetheless a cleric spell for you.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "granted_spells",
@@ -908,7 +896,7 @@
         "description": "You learn one cantrip of your choice from the druid spell list.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "choice",
@@ -923,12 +911,12 @@
         "name": "Bonus Proficiency",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "proficiency",
             "category": "armor",
-            "proficiencies": ["Heavy Armor"]
+            "proficiencies": ["Heavy"]
           }
         ],
         "description": "You gain proficiency with heavy armor."
@@ -940,7 +928,7 @@
         "description": "You can use your Channel Divinity to charm animals and plants.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "action",
@@ -953,7 +941,7 @@
             "requirements": [
               {
                 "type": "equipment",
-                "item": "holy symbol"
+                "item": ["holy symbol"]
               }
             ],
             "effects": [
@@ -964,8 +952,7 @@
                   "requirements": [
                     {
                       "type": "creature_type",
-                      "value": ["Beast", "Plant"],
-                      "match": "any"
+                      "value": ["Beast", "Plant"]
                     }
                   ]
                 },
@@ -1005,7 +992,7 @@
         "description": "When you or a creature within 30 feet of you takes acid, cold, fire, lightning, or thunder damage, you can use your reaction to grant resistance to the creature against that instance of the damage.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "reaction",
@@ -1049,7 +1036,7 @@
         "description": "You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 cold, fire, or lightning damage (your choice) to the target. When you reach 14th level, the extra damage increases to 2d8.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "damage_bonus",
@@ -1103,7 +1090,7 @@
         "description": "You gain the ability to command animals and plant creatures. While creatures are charmed by your Charm Animals and Plants feature, you can take a bonus action on your turn to verbally command what each of those creatures will do on its next turn.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "bonus_action",
@@ -1113,8 +1100,8 @@
                 {
                   "type": "status",
                   "value": "charmed",
-                  "from_action": "Charm Animals and Plants",
-                  "from_source": "character"
+                  "action": "Charm Animals and Plants",
+                  "source": "character"
                 }
               ]
             },
@@ -1140,7 +1127,7 @@
     "description": "Gods whose portfolios include the Tempest domain - including Talos, Umberlee, Kord, Zeboim, the Devourer, Zeus, and Thor - govern storms, sea, and, sky. They include gods of lightning and thunder, gods of earthquakes, some fire gods, and certain gods of violence, physical strength, and courage. In some pantheons, a god of this domain rules over other deities and is known for swift justice delivered by thunderbolts. In the pantheons of seafaring people, gods of this domain are ocean deities and the patrons of sailors. Tempest gods send their clerics to inspire fear in the common folk, either to keep those folk on the path of righteousness or to encourage them to offer sacrifices of propitiation to ward off divine wrath.",
     "source": "phb",
     "ruleset": "dnd5e",
-    "class": "Cleric",
+    "class": "class:cleric",
     "features": [
       {
         "id": "feat:tempest-domain-spell-knowledge",
@@ -1149,7 +1136,7 @@
         "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you have a domain spell that doesn't appear on the cleric spell list, the spell is nonetheless a cleric spell for you.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "granted_spells",
@@ -1171,17 +1158,17 @@
         "description": "At 1st level, you gain proficiency with martial weapons and heavy armor.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "proficiency",
             "category": "armor",
-            "proficiencies": ["Heavy Armor"]
+            "proficiencies": ["Heavy"]
           },
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": ["Martial Melee"]
+            "proficiencies": ["Martial"]
           }
         ]
       },
@@ -1192,7 +1179,7 @@
         "description": "You can thunderously rebuke attackers.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "reaction",
@@ -1268,7 +1255,7 @@
         "description": "When you roll lightning or thunder damage, you can use your Channel Divinity to deal maximum damage instead of rolling.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "optional",
@@ -1299,7 +1286,7 @@
         "description": "When you deal lightning damage to a Large or smaller creature, you can also push it up to 10 feet away from you.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "passive",
@@ -1325,7 +1312,7 @@
                   "distance": {
                     "value": 10,
                     "unit": "feet",
-                    "maximum": true
+                    "comparison": "at_most"
                   }
                 }
               }
@@ -1368,7 +1355,7 @@
         ],
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric"
+        "class": "class:cleric"
       },
       {
         "id": "feat:tempest-stormborn",
@@ -1377,7 +1364,7 @@
         "description": "You have a flying speed equal to your current walking speed whenever you are not underground or indoors.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "passive",
@@ -1414,7 +1401,7 @@
     "description": "Gods of trickery - such as Tymora, Beshaba, Olidammara, the Traveler, Garl Glittergold, and Loki - are mischief-makers and instigators who stand as a constant challenge to the accepted order among both gods and mortals. They're patrons of thieves, scoundrels, gamblers, rebels, and liberators. Their clerics are a disruptive force in the world, puncturing pride, mocking tyrants, stealing from the rich, freeing captives, and flouting hollow traditions. They prefer subterfuge, pranks, deception, and theft rather than direct confrontation.",
     "source": "phb",
     "ruleset": "dnd5e",
-    "class": "Cleric",
+    "class": "class:cleric",
     "features": [
       {
         "id": "feat:trickery-domain-spell-knowledge",
@@ -1423,7 +1410,7 @@
         "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you have a domain spell that doesn't appear on the cleric spell list, the spell is nonetheless a cleric spell for you.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "granted_spells",
@@ -1445,7 +1432,7 @@
         "description": "You can use your action to touch a willing creature other than yourself to give it advantage on Dexterity (Stealth) checks. This blessing lasts for 1 hour or until you use this feature again.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "action",
@@ -1480,7 +1467,7 @@
         "description": "You can use your action to create a perfect illusion of yourself that lasts for 1 minute, or until you lose your concentration (as if you were concentrating on a spell). The illusion appears in an unoccupied space that you can see within 30 feet of you. As a bonus action on your turn, you can move the illusion up to 30 feet to a space you can see, but it must remain within 120 feet of you. For the duration, you can cast spells as though you were in the illusion's space, but you must use your own senses. Additionally, when both you and your illusion are within 5 feet of a creature that can see the illusion, you have advantage on attack rolls against that creature, given how distracting the illusion is to the target.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "action",
@@ -1514,10 +1501,11 @@
                   "attack": "all",
                   "requirements": [
                     {
-                      "type": "proximity",
-                      "entities": ["self", "illusion"],
-                      "distance": 5,
-                      "to": "target"
+                      "type": "distance",
+                      "value": 5,
+                      "comparison": "within",
+                      "to": "target",
+                      "entities": ["self", "illusion"]
                     },
                     {
                       "type": "perception",
@@ -1561,7 +1549,7 @@
         "description": "You can use your Channel Divinity to vanish.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "action",
@@ -1588,7 +1576,7 @@
         "description": "You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 poison damage to the target. When you reach 14th level, the extra damage increases to 2d8.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "damage_bonus",
@@ -1625,22 +1613,21 @@
         "description": "You can create up to four duplicates of yourself, instead of one, when you use Invoke Duplicity. As a bonus action on your turn, you can move any number of them up to 30 feet, to a maximum range of 120 feet.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "enhances": "Invoke Duplicity",
         "mechanics": [
           {
             "type": "special",
-            "modifies": "Invoke Duplicity",
-            "changes": {
-              "summon.count": {
-                "value": 4,
-                "player_choice": {
-                  "min": 1,
-                  "max": 4
+            "name": "Improved Duplicity",
+            "effects": [
+              {
+                "entity": {
+                  "category": "illusion",
+                  "type": "duplicate",
+                  "count": 4
                 }
-              },
-              "grants.move_illusion.movement.target.count": "any"
-            }
+              }
+            ]
           }
         ]
       }
@@ -1652,7 +1639,7 @@
     "description": "War has many manifestations. It can make heroes of ordinary people. It can be desperate and horrific, with acts of cruelty and cowardice eclipsing instances of excellence and courage. In either case, the gods of war watch over warriors and reward them for their great deeds. The clerics of such gods excel in battle, inspiring others to fight the good fight or offering acts of violence as prayers. Gods of war include champions of honor and chivalry (such as Torm, Heironeous, and Kiri-Jolith) as well as gods of destruction and pillage (such as Erythnul, the Fury, Gruumsh, and Ares) and gods of conquest and domination (such as Bane, Hextor, and Maglubiyet). Other war gods (such as Tempus, Nike, and Nuada) take a more neutral stance, promoting war in all its manifestations and supporting warriors in any circumstance.",
     "source": "phb",
     "ruleset": "dnd5e",
-    "class": "Cleric",
+    "class": "class:cleric",
     "features": [
       {
         "id": "feat:war-domain-spell-knowledge",
@@ -1661,7 +1648,7 @@
         "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you have a domain spell that doesn't appear on the cleric spell list, the spell is nonetheless a cleric spell for you.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "granted_spells",
@@ -1682,17 +1669,17 @@
         "name": "Bonus Proficiencies",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "proficiency",
             "category": "armor",
-            "proficiencies": ["Heavy Armor"]
+            "proficiencies": ["Heavy"]
           },
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": ["Martial Melee", "Martial Ranged"]
+            "proficiencies": ["Martial"]
           }
         ],
         "description": "You gain proficiency with heavy armor and martial weapons."
@@ -1704,7 +1691,7 @@
         "description": "Your god delivers bolts of inspiration to you while you are engaged in battle.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "bonus_action",
@@ -1736,7 +1723,7 @@
         "description": "You can use your Channel Divinity to strike with supernatural accuracy.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "optional",
@@ -1771,7 +1758,7 @@
         "name": "War God's Blessing",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "reaction",
@@ -1842,7 +1829,7 @@
         ],
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric"
+        "class": "class:cleric"
       },
       {
         "id": "feat:war-avatar-of-battle",
@@ -1851,7 +1838,7 @@
         "description": "You gain resistance to bludgeoning, piercing, and slashing damage from nonmagical attacks.",
         "source": "phb",
         "ruleset": "dnd5e",
-        "class": "Cleric",
+        "class": "class:cleric",
         "mechanics": [
           {
             "type": "passive",

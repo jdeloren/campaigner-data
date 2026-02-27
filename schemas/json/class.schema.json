@@ -107,18 +107,8 @@
         "title": "Starting Equipment"
       },
       "multiclassing": {
-        "anyOf": [
-          {
-            "additionalProperties": true,
-            "type": "object"
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "default": null,
-        "description": "Multiclassing requirements structure",
-        "title": "Multiclassing"
+        "$ref": "common.schema.json#/$defs/RequirementSet",
+        "description": "Requirements to multiclass into this class"
       },
       "spellcasting": {
         "anyOf": [

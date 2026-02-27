@@ -163,8 +163,7 @@ Covers most activated abilities and passive effects. The `type` field can be:
   "effects": [
     {
       "advantage": {
-        "on": "saving_throw",
-        "ability": ["Dexterity"]
+        "saving_throw": ["Dexterity"]
       },
       "requirements": [
         {
@@ -207,7 +206,7 @@ Passive mechanics can have triggers for "when X happens" effects:
       "scaling_key": "damage"
     }
   ],
-  "requirements": [{ "type": "weapon_property", "value": ["finesse", "ranged"] }],
+  "requirements": [{ "type": "weapon_property", "property": ["Finesse", "Ranged"] }],
   "scaling": {
     "damage": {
       "1": "1d6",
@@ -696,7 +695,7 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
 ```json
 {
   "advantage": {
-    "on": "attack"
+    "attack": "all"
   }
 }
 ```
@@ -706,8 +705,7 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
 ```json
 {
   "advantage": {
-    "on": "ability_check",
-    "ability": ["Strength"]
+    "ability": "Strength"
   }
 }
 ```
@@ -717,9 +715,9 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
 ```json
 {
   "advantage": {
-    "on": "saving_throw",
+    "saving_throw": ["all"],
     "against": {
-      "origin": "magical"
+      "source": "magical"
     }
   }
 }
@@ -730,9 +728,9 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
 ```json
 {
   "disadvantage": {
-    "on": "attack",
-    "against": {
-      "target": "character"
+    "attack": "all",
+    "target": {
+      "type": "attackers"
     }
   }
 }
@@ -743,10 +741,9 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
 ```json
 {
   "disadvantage": {
-    "on": "saving_throw",
-    "ability": ["Wisdom"],
+    "saving_throw": ["Wisdom"],
     "against": {
-      "from_source": "character"
+      "source": "character"
     }
   }
 }
@@ -754,12 +751,17 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
 
 #### Advantage/Disadvantage Fields
 
-| Field         | Type     | Description                                                |
-| ------------- | -------- | ---------------------------------------------------------- |
-| `on`          | string   | What's affected: `attack`, `saving_throw`, `ability_check` |
-| `ability`     | string[] | Specific abilities (for saves/checks)                      |
-| `weapon_type` | string[] | Weapon types: `melee`, `ranged`                            |
-| `against`     | Against  | Who/what the rolls are against                             |
+| Field          | Type     | Description                                                                      |
+| -------------- | -------- | -------------------------------------------------------------------------------- |
+| `attack`       | string   | Attack type: `"all"`, `"melee"`, `"ranged"`                                      |
+| `saving_throw` | string[] | Saving throw abilities (e.g., `["Dexterity"]`, `["all"]`)                        |
+| `skill`        | string   | Skill check (e.g., `"Stealth"`, `"Perception"`)                                  |
+| `ability`      | string   | Raw ability check (e.g., `"Strength"`)                                           |
+| `initiative`   | boolean  | Initiative rolls (`true`)                                                        |
+| `against`      | Against  | Who/what the rolls are against                                                   |
+| `target`       | Target   | Who is affected (e.g., `{ "type": "attackers" }`)                                |
+| `attacker`     | string   | EntityReference for who has advantage/disadvantage on attacks against the target |
+| `negate`       | boolean  | If true, negates advantage/disadvantage instead of granting it                   |
 
 ### Status Effects
 
@@ -768,20 +770,22 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
 ```json
 {
   "apply_status": {
-    "name": "frightened",
+    "id": "status:frightened",
     "source": "character",
     "action": "Menacing Attack",
-    "duration": { "value": 1, "unit": "rounds", "ends": "end_of_next_turn" }
+    "duration": { "value": 1, "unit": "rounds", "timing": "end_turn", "to": "event_actor" }
   }
 }
 ```
+
+The `id` field references a status definition with a `status:` prefix. Duration uses `timing` (`start_turn` or `end_turn`) and `to` (an EntityReference like `event_actor` or `event_recipient`) instead of the old `ends` field.
 
 #### Status with Concentration
 
 ```json
 {
   "apply_status": {
-    "name": "charmed",
+    "id": "status:charmed",
     "source": "character",
     "action": "Charm Person",
     "concentration": true,
@@ -795,7 +799,7 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
 ```json
 {
   "apply_status": {
-    "name": "frightened",
+    "id": "status:frightened",
     "source": "character",
     "modifier": "character"
   }
@@ -807,7 +811,7 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
 ```json
 {
   "apply_status": {
-    "name": "hexed",
+    "id": "status:hexed",
     "source": "character",
     "action": "Hex",
     "concentration": true,
@@ -824,22 +828,25 @@ Effects describe what happens when a mechanic activates. The `Effect` model has 
 ```json
 {
   "apply_status": {
-    "name": "grappled",
+    "id": "status:grappled",
     "source": "character",
     "escape": {
       "ability": ["Strength", "Dexterity"],
       "dc": { "type": "ability_check", "ability": "Strength" }
-    }
+    },
+    "duration": { "timing": "end_turn" }
   }
 }
 ```
+
+Escape saves use `duration` with `timing` to define when the save occurs (e.g., end of the affected creature's turn).
 
 #### Status with Constraints
 
 ```json
 {
   "apply_status": {
-    "name": "charmed",
+    "id": "status:charmed",
     "source": "character",
     "constraints": {
       "cannot_attack": "character",
@@ -987,13 +994,13 @@ Grants actions or abilities.
 {
   "grants": {
     "name": "Attack",
-    "type": "melee_weapon",
+    "type": "melee",
     "activation": "bonus_action",
     "count": 1
   },
   "requirements": [
     { "type": "attack", "hand": "main_hand" },
-    { "type": "weapon_property", "value": ["light"] }
+    { "type": "weapon_property", "property": ["Light"] }
   ]
 }
 ```
@@ -1004,7 +1011,7 @@ Grants actions or abilities.
 {
   "grants": {
     "name": "Attack",
-    "type": "melee_weapon",
+    "type": "melee",
     "activation": "reaction",
     "count": 1,
     "target": { "type": "triggering_creature" }
@@ -1018,7 +1025,16 @@ Grants actions or abilities.
 {
   "grants": {
     "name": "Move",
-    "distance": { "value": "half_speed", "unit": "feet" },
+    "distance": {
+      "calculation": {
+        "operation": "multiply",
+        "operators": [
+          { "type": "attribute", "value": "movement.base" },
+          { "type": "fraction", "value": "1/2" }
+        ]
+      },
+      "unit": "feet"
+    },
     "immunity": {
       "to": "opportunity_attack",
       "from": { "type": "target" }
@@ -1046,104 +1062,131 @@ Grants actions or abilities.
 
 ### Roll Modifiers
 
-Adds bonuses to rolls.
+Modifies how dice rolls are resolved. Specify either `function`, `reroll`, or `operation`+`value`.
 
-#### Add Charisma to Saves (Aura of Protection)
+**Available fields:**
 
-```json
-{
-  "roll_modifier": {
-    "on": "saving_throw",
-    "calculation": {
-      "operation": "add",
-      "operators": [{ "type": "ability_modifier", "ability": "Charisma" }]
-    },
-    "minimum": 1
-  }
-}
-```
+- `type` — `"saving_throw"`, `"attack"`, or `"ability_check"` (scope which rolls this applies to; null applies to triggering roll)
+- `function` — Function reference (e.g., `"roller.max_roll"`, `"roller.reroll_ones"`)
+- `reroll` — Reroll dice showing specific values (see Reroll schema)
+- `operation` — `"add"` or `"subtract"`
+- `value` — Value to add/subtract (e.g., `"superiority_die"`)
+- `minimum` — Floor value for the roll result (e.g., `10` for Reliable Talent)
 
-#### Add Proficiency to Initiative
+#### Reroll Failed Saves (Halfling Lucky)
 
 ```json
 {
   "roll_modifier": {
-    "on": "initiative",
-    "calculation": {
-      "operation": "add",
-      "operators": [{ "type": "attribute", "value": "proficiency_bonus" }]
+    "type": "saving_throw",
+    "reroll": {
+      "result": false
     }
   }
 }
 ```
 
-#### Bardic Inspiration Die
+#### Maximize Healing Dice
 
 ```json
 {
   "roll_modifier": {
-    "on": ["attack", "ability_check", "saving_throw"],
-    "calculation": {
-      "operation": "add",
-      "operators": [{ "type": "resource_die", "value": "bardic_inspiration" }]
-    }
+    "function": "roller.max_roll"
+  }
+}
+```
+
+#### Minimum Roll of 10 (Reliable Talent)
+
+```json
+{
+  "roll_modifier": {
+    "type": "ability_check",
+    "minimum": 10
   }
 }
 ```
 
 ### Auras
 
-Persistent area effects around a character.
+Persistent area effects around a character. Two patterns:
 
-#### Aura of Protection
+- **Mechanical auras** (Paladin, Barbarian): use `radius`, `target`, `grants`
+- **Lighting auras** (Light, Dancing Lights): use `layers` with light types
+
+**Available fields:**
+
+- `origin` — `"self"`, `"target"`, `"created"`, `"each_light"`, `"point"`, `"weapon"` (default: `"self"`)
+- `radius` — Integer radius for mechanical auras (default: `0`)
+- `unit` — `"feet"` or `"miles"` (default: `"feet"`)
+- `shape` — `"radius"`, `"cone"`, `"cube"`, `"sphere"`, `"cylinder"`, `"line"` (default: `"radius"`)
+- `target` — Who the aura affects (Target object with `type`, `disposition`, `include_self`)
+- `grants` — AuraGrant modifier applied to affected creatures (`advantage`, `disadvantage`, or `attribute`)
+- `layers` — Array of AuraLayer objects for lighting only (`type`, `shape`, `size`, `unit`, `color`)
+
+#### Mechanical Aura — Wolf Totem (advantage for allies)
 
 ```json
 {
   "aura": {
-    "radius": { "value": 10, "unit": "feet" },
-    "affects": {
+    "radius": 5,
+    "unit": "feet",
+    "target": {
       "type": "creatures",
       "disposition": "friendly",
-      "include_self": true
+      "include_self": false
     },
-    "effect": {
-      "roll_modifier": {
-        "on": "saving_throw",
-        "calculation": {
-          "operation": "add",
-          "operators": [{ "type": "ability_modifier", "ability": "Charisma" }]
-        },
-        "minimum": 1
+    "grants": {
+      "advantage": {
+        "attack": "melee",
+        "against": { "disposition": "hostile" }
       }
     }
-  },
-  "requirements": [{ "type": "status", "value": "incapacitated", "negate": true }],
-  "scaling": {
-    "radius": { "18": 30 }
   }
 }
 ```
 
-#### Aura with Multiple Effects
+#### Mechanical Aura — Bear Totemic Attunement (disadvantage for enemies)
 
 ```json
 {
   "aura": {
-    "radius": { "value": 10, "unit": "feet" },
-    "affects": { "type": "creatures", "disposition": "hostile" },
-    "layers": [
-      {
-        "name": "aura_damage",
-        "trigger": { "event": ["start_turn"] },
-        "damage": { "dice": "1d4", "type": ["radiant"] }
-      },
-      {
-        "name": "aura_disadvantage",
-        "effect": {
-          "disadvantage": { "on": "attack" }
-        }
+    "radius": 5,
+    "unit": "feet",
+    "target": {
+      "type": "creatures",
+      "disposition": "hostile"
+    },
+    "grants": {
+      "disadvantage": {
+        "attack": "all"
       }
+    }
+  }
+}
+```
+
+#### Lighting Aura — Light Cantrip
+
+```json
+{
+  "aura": {
+    "origin": "created",
+    "layers": [
+      { "type": "bright_light", "shape": "radius", "size": 20, "unit": "feet" },
+      { "type": "dim_light", "shape": "radius", "size": 20, "unit": "feet" }
     ]
+  }
+}
+```
+
+#### Lighting Aura — Dancing Lights (with color choice)
+
+```json
+{
+  "aura": {
+    "origin": "each_light",
+    "layers": [{ "type": "dim_light", "shape": "radius", "size": 10, "unit": "feet", "color": "choice" }]
   }
 }
 ```
@@ -1211,14 +1254,24 @@ Persistent area effects around a character.
 
 ### Environmental Effects
 
-#### Create Light
+Describes static properties of an area: shape, terrain, visibility, lighting, surface.
+Dynamic effects (damage on enter, saves) use Effect-level `trigger`/`saving_throw`/`on_failure`.
+
+**Available fields:**
+
+- `area` — **Required.** Shape and size of the affected area (Area object)
+- `lighting` — Light level changes (Lighting object with `level`, `color`, `radius`, `dim_radius`)
+- `terrain` — Movement/terrain effects (Terrain object with `type`: `"normal"`, `"difficult"`, `"greater_difficult"`, `"impassable"`)
+- `visibility` — Vision obstruction (Visibility object)
+- `surface` — Surface type (Surface object)
+
+#### Create Light (Candle)
 
 ```json
 {
   "environment": {
-    "type": "lighting",
-    "bright_light": { "value": 20, "unit": "feet" },
-    "dim_light": { "value": 20, "unit": "feet" }
+    "area": { "shape": "radius", "size": 5, "unit": "feet" },
+    "lighting": { "level": "bright" }
   }
 }
 ```
@@ -1228,20 +1281,19 @@ Persistent area effects around a character.
 ```json
 {
   "environment": {
-    "type": "terrain",
-    "difficult": true
+    "area": { "shape": "sphere", "size": 20, "unit": "feet", "origin": "point" },
+    "terrain": { "type": "difficult" }
   }
 }
 ```
 
-#### Create Hazard
+#### Create Hazard (Burning Surface)
 
 ```json
 {
   "environment": {
-    "type": "hazard",
-    "damage": { "dice": "2d6", "type": ["fire"] },
-    "trigger": { "event": ["enter_area", "start_turn_in_area"] }
+    "area": { "shape": "cube", "size": 5, "origin": "point" },
+    "surface": { "type": "burning" }
   }
 }
 ```
@@ -1268,7 +1320,7 @@ Persistent area effects around a character.
     "dice": "5d8",
     "resource": "hp"
   },
-  "apply_status": { "name": "unconscious" }
+  "apply_status": { "id": "status:unconscious" }
 }
 ```
 
@@ -1434,6 +1486,65 @@ Calculations produce values using typed operands and operations.
 }
 ```
 
+### Compound Calculations
+
+For multi-step formulas, nest a `calculation` as an operand inside another calculation. The inner calculation resolves first, then its result is used in the outer operation.
+
+#### Example: 8 + proficiency + ability modifier
+
+```json
+{
+  "calculation": {
+    "operation": "add",
+    "operators": [
+      { "type": "integer", "value": 8 },
+      { "type": "attribute", "value": "proficiency_bonus" },
+      { "type": "ability_modifier", "ability": "Wisdom" }
+    ]
+  }
+}
+```
+
+#### Example: max(1, Charisma modifier) — minimum floor
+
+```json
+{
+  "calculation": {
+    "operation": "max",
+    "operators": [
+      { "type": "integer", "value": 1 },
+      { "type": "ability_modifier", "ability": "Charisma" }
+    ]
+  }
+}
+```
+
+#### Example: (class level / 2) + ability modifier — nested calculation
+
+```json
+{
+  "calculation": {
+    "operation": "add",
+    "operators": [
+      {
+        "type": "calculation",
+        "calculation": {
+          "operation": "divide",
+          "operators": [
+            { "type": "class_level", "class": "Monk" },
+            { "type": "integer", "value": 2 }
+          ],
+          "rounding": "down"
+        }
+      },
+      { "type": "ability_modifier", "ability": "Wisdom" }
+    ]
+  }
+}
+```
+
+When the formula is a simple sum of multiple values, a flat `add` with all operands is preferred over nesting. Only nest when operations differ (e.g., divide then add).
+
 ---
 
 ## Requirements
@@ -1458,18 +1569,50 @@ Requirements restrict when mechanics/effects apply. All use `type` as discrimina
 
 #### Equipment Requirement
 
+Checks what a character has equipped. Fields can be combined to create specific conditions.
+
+**Available fields:**
+
+- `slot` — `"armor"`, `"main_hand"`, or `"off_hand"`
+- `occupied` — `true` (slot must be filled) or `false` (slot must be empty)
+- `grip` — `"one-handed"` or `"two-handed"` (main_hand slot only)
+- `item` — Array of item names; matches if any one is equipped
+- `property` — Array of required properties on the equipped item (e.g., `"Heavy"`, `"Melee"`)
+- `material` — `"leather"`, `"metal"`, or `"cloth"`
+- `negate` — `true` to invert the entire check
+
 ```json
-{ "type": "equipment", "slot": "armor", "occupied": false }
+// Slot occupancy — wearing any armor
+{ "type": "equipment", "slot": "armor", "occupied": true }
+
+// Slot empty — nothing in off hand
+{ "type": "equipment", "slot": "off_hand", "occupied": false }
+
+// Grip check — wielding a two-handed weapon
 { "type": "equipment", "slot": "main_hand", "grip": "two-handed" }
-{ "type": "equipment", "function": "equipment.is_wearing_heavy_armor", "negate": true }
-{ "type": "equipment", "item": "shield" }
+
+// Specific item — must have a Shield equipped in off hand
+{ "type": "equipment", "slot": "off_hand", "item": ["Shield"] }
+
+// Property check — wearing Heavy armor
+{ "type": "equipment", "slot": "armor", "property": ["Heavy"] }
+
+// Property check on weapon — melee weapon in each hand (Dual Wielder)
+{ "type": "equipment", "slot": "main_hand", "property": ["Melee"] }
+{ "type": "equipment", "slot": "off_hand", "property": ["Melee"] }
+
+// Negated — NOT wearing heavy armor (Barbarian Rage)
+{ "type": "equipment", "slot": "armor", "property": ["Heavy"], "negate": true }
+
+// Item without slot — must have item in inventory/equipped anywhere
+{ "type": "equipment", "item": ["holy symbol"] }
 ```
 
 #### Weapon Property Requirement
 
 ```json
-{ "type": "weapon_property", "value": ["finesse", "light"] }
-{ "type": "weapon_property", "value": ["ranged"] }
+{ "type": "weapon_property", "property": ["Finesse", "Light"] }
+{ "type": "weapon_property", "property": ["Ranged"] }
 ```
 
 #### Creature Type Requirement
@@ -1503,18 +1646,26 @@ Requirements restrict when mechanics/effects apply. All use `type` as discrimina
 { "type": "combat_state", "value": "flanking" }
 ```
 
-#### Hit Points Requirement
+#### Attribute Requirement
 
 ```json
-{ "type": "hit_points", "attribute": "current_hp", "comparison": "less_than", "value": 50 }
-{ "type": "hit_points", "comparison": "at_least", "calculation": { ... } }
+{ "type": "attribute", "attribute": "hit_points.current", "comparison": "less_than", "value": 50 }
+{ "type": "attribute", "attribute": "hit_points.current", "comparison": "at_least", "calculation": { ... } }
+{ "type": "attribute", "attribute": "Intelligence", "maximum": 3 }
+{ "type": "attribute", "attribute": "weight", "maximum": 5 }
+{ "type": "attribute", "attribute": "movement.speed", "minimum": 5 }
 ```
+
+The `attribute` requirement handles all attribute-based checks including ability scores, hit points, weight, and movement. Use `minimum`/`maximum` for simple bounds or `comparison`/`value`/`calculation` for more complex checks.
 
 #### Distance Requirement
 
 ```json
 { "type": "distance", "value": 5, "unit": "feet", "to": "target", "comparison": "within" }
+{ "type": "distance", "unit": "feet", "comparison": "within" }
 ```
+
+The `value` field is optional — omit it when the distance is contextual (e.g., weapon reach during an attack).
 
 ### Perception Requirements
 
@@ -1549,12 +1700,15 @@ Requirements restrict when mechanics/effects apply. All use `type` as discrimina
 
 ### Other Requirements
 
-#### Spell Level Requirement
+#### Spell Requirement
 
 ```json
-{ "type": "spell_level", "minimum": 1 }
-{ "type": "spell_level", "maximum": 5 }
+{ "type": "spell", "minimum": 1 }
+{ "type": "spell", "maximum": 5 }
+{ "type": "spell", "class": "Wizard" }
 ```
+
+The `spell` requirement filters by spell properties — level bounds and/or spell class/list.
 
 #### Resource Requirement
 
@@ -1581,13 +1735,6 @@ Requirements restrict when mechanics/effects apply. All use `type` as discrimina
 { "type": "immunity", "to": "frightened", "negate": true }
 ```
 
-#### Effect Target Requirement
-
-```json
-{ "type": "effect_target", "value": "not_self" }
-{ "type": "effect_target", "value": "ally" }
-```
-
 #### Inventory Item Requirement
 
 ```json
@@ -1608,6 +1755,63 @@ For complex checks that need code:
 }
 ```
 
+#### Area Requirement
+
+```json
+{ "type": "area", "area": { "shape": "cube", "size": 5, "unit": "feet" }, "comparison": "less_than_or_equal" }
+```
+
+#### Property Requirement
+
+```json
+{ "type": "property", "value": "magical", "negate": true }
+{ "type": "property", "value": "fuel" }
+```
+
+#### Proficiency Requirement
+
+```json
+{ "type": "proficiency", "category": "armor", "value": "Medium Armor" }
+{ "type": "proficiency", "category": "skill", "value": "Stealth" }
+```
+
+#### Ability Check Requirement
+
+```json
+{ "type": "ability_check", "ability": "Strength" }
+{ "type": "ability_check", "proficient": true }
+{ "type": "ability_check", "check_type": "skill" }
+```
+
+### Compound Requirements
+
+Use `CompoundRequirement` to combine multiple conditions with AND/OR logic. This is useful when a requirement needs OR logic (the default behavior of a requirements array is AND).
+
+```json
+{
+  "operator": "or",
+  "conditions": [
+    { "type": "equipment", "slot": "main_hand", "occupied": false },
+    { "type": "equipment", "slot": "off_hand", "occupied": false }
+  ]
+}
+```
+
+A compound requirement can appear anywhere in a requirements array alongside regular requirements:
+
+```json
+"requirements": [
+  { "type": "status", "value": "raging" },
+  {
+    "operator": "or",
+    "conditions": [
+      { "type": "weapon_property", "property": ["Light"] },
+      { "type": "weapon_property", "property": ["Finesse"] }
+    ]
+  }
+]
+```
+
 ---
 
 ## Triggers
@@ -1621,16 +1825,13 @@ Triggers define when reactive mechanics activate. They're used for reactions, pa
 | `attack`         | When an attack is made        |
 | `hit`            | When an attack hits           |
 | `miss`           | When an attack misses         |
-| `critical_hit`   | When a critical hit occurs    |
-| `take_damage`    | When damage is received       |
-| `deal_damage`    | When damage is dealt          |
+| `damage`         | When damage is received       |
+| `damaged_by`     | When damage is dealt          |
 | `cast_spell`     | When a spell is cast          |
 | `saving_throw`   | When a save is made           |
 | `ability_check`  | When an ability check is made |
 | `start_turn`     | At the start of a turn        |
 | `end_turn`       | At the end of a turn          |
-| `death`          | When a creature dies          |
-| `drop_to_zero`   | When HP drops to 0            |
 | `enter_area`     | When entering an area         |
 | `leave_area`     | When leaving an area          |
 | `move`           | When movement occurs          |
@@ -1664,7 +1865,7 @@ Triggers define when reactive mechanics activate. They're used for reactions, pa
 ```json
 {
   "trigger": {
-    "event": ["take_damage"],
+    "event": ["damaged_by"],
     "source": {
       "type": ["melee", "weapon"],
       "origin": "nonmagical"
@@ -1697,7 +1898,7 @@ Source fields:
 ```json
 {
   "trigger": {
-    "event": ["take_damage"],
+    "event": ["damaged_by"],
     "target": {
       "type": "ally",
       "range": { "value": 30, "unit": "feet" }
@@ -1738,7 +1939,7 @@ Target fields:
 ```json
 {
   "trigger": {
-    "event": ["take_damage"],
+    "event": ["damaged_by"],
     "target": {
       "type": "ally",
       "range": { "value": 30, "unit": "feet" }
@@ -1749,11 +1950,13 @@ Target fields:
 
 #### On Critical Hit with Melee Weapon
 
+Use mechanic `"type": "critical_hit"` with a trigger scoped to melee weapon hits:
+
 ```json
 {
   "trigger": {
-    "event": ["critical_hit"],
-    "source": { "type": ["melee"] }
+    "event": ["hit"],
+    "source": { "type": ["melee", "weapon"] }
   }
 }
 ```
@@ -1804,19 +2007,37 @@ Target fields:
 ```json
 {
   "trigger": {
-    "event": ["take_damage"],
+    "event": ["damaged_by"],
     "damage_type": ["fire", "radiant"]
   }
 }
 ```
 
-#### Spell Level Filter
+#### Spell Filter
 
 ```json
 {
   "trigger": {
     "event": ["cast_spell"],
-    "spell_level": 1
+    "spell": { "level": 1 }
+  }
+}
+```
+
+```json
+{
+  "trigger": {
+    "event": ["cast_spell"],
+    "spell": { "level": 0, "class": "Cleric" }
+  }
+}
+```
+
+```json
+{
+  "trigger": {
+    "event": ["cast_spell"],
+    "spell": { "effect": ["healing"] }
   }
 }
 ```
@@ -1875,6 +2096,7 @@ The Target schema defines who/what is affected.
 **Reference types** (contextual):
 
 - `attacker` — The attacking creature
+- `attackers` — All creatures attacking the character
 - `triggering_creature` — Creature that triggered the effect
 - `affected_creature` — Currently affected creature
 - `hit_creature` — Creature that was hit
@@ -1882,27 +2104,69 @@ The Target schema defines who/what is affected.
 
 ### Target Fields
 
-| Field          | Type        | Description                             |
-| -------------- | ----------- | --------------------------------------- |
-| `type`         | string      | Target type (see above)                 |
-| `count`        | int         | Maximum targets                         |
-| `disposition`  | string      | `friendly`, `hostile`, `any`, `willing` |
-| `include_self` | boolean     | Include character in area effects       |
-| `status_query` | StatusQuery | Find creatures with specific status     |
+| Field          | Type                  | Description                                                                      |
+| -------------- | --------------------- | -------------------------------------------------------------------------------- |
+| `type`         | string                | Target type (see above)                                                          |
+| `count`        | int                   | Maximum targets                                                                  |
+| `disposition`  | string                | `friendly`, `hostile`, `any`, `willing`                                          |
+| `include_self` | boolean               | Include character in area effects                                                |
+| `proximity`    | int                   | Distance in feet between targets (e.g., splash)                                  |
+| `requirements` | MechanicRequirement[] | Requirements targets must meet (uses same types as effect/mechanic requirements) |
 
-### Status Query Targeting
+### Target with Requirements
 
-Find creatures affected by a specific ability:
+Use `requirements` to filter targets with the standard MechanicRequirement types (creature_type, status, perception, size, attribute, etc.):
 
 ```json
 {
   "target": {
     "type": "creatures",
-    "status_query": {
-      "name": "charmed",
-      "from_action": "Charm Animals and Plants",
-      "from_source": "character"
-    }
+    "disposition": "hostile",
+    "requirements": [
+      { "type": "creature_type", "value": "Undead" },
+      {
+        "type": "perception",
+        "observer": "target",
+        "subject": "character",
+        "senses": ["sight", "hearing"],
+        "match": "any"
+      }
+    ]
+  }
+}
+```
+
+### Target with Status Filter
+
+Filter targets by active status using a StatusRequirement with `action` and `source` fields:
+
+```json
+{
+  "target": {
+    "type": "creatures",
+    "requirements": [
+      {
+        "type": "status",
+        "value": "charmed",
+        "action": "Charm Animals and Plants",
+        "source": "character"
+      }
+    ]
+  }
+}
+```
+
+### Target with Proximity
+
+For spells like Acid Splash where targets must be close to each other:
+
+```json
+{
+  "target": {
+    "type": "creature",
+    "count": 2,
+    "disposition": "hostile",
+    "proximity": 5
   }
 }
 ```
@@ -2021,30 +2285,31 @@ Shared resource, multiple options:
       {
         "target": {
           "type": "creatures",
-          "disposition": "hostile"
+          "disposition": "hostile",
+          "requirements": [
+            { "type": "creature_type", "value": "Undead" },
+            {
+              "type": "perception",
+              "observer": "target",
+              "subject": "character",
+              "senses": ["sight", "hearing"],
+              "match": "any"
+            }
+          ]
         },
         "area": {
           "shape": "sphere",
-          "radius": { "value": 30, "unit": "feet" },
+          "size": 30,
+          "unit": "feet",
           "origin": "self"
         },
-        "target_requirements": [
-          { "type": "creature_type", "value": "Undead" },
-          {
-            "type": "perception",
-            "observer": "target",
-            "subject": "character",
-            "senses": ["sight", "hearing"],
-            "match": "any"
-          }
-        ],
         "saving_throw": {
           "ability": "Wisdom",
           "dc": { "type": "spell_save_dc" }
         },
         "on_failure": {
           "apply_status": {
-            "name": "turned",
+            "id": "status:turned",
             "source": "character",
             "duration": { "value": 1, "unit": "minutes" }
           }
@@ -2055,7 +2320,7 @@ Shared resource, multiple options:
 ]
 ```
 
-### Aura with Scaling Radius
+### Mechanical Aura with Scaling Radius (Paladin Aura of Protection)
 
 ```json
 {
@@ -2064,20 +2329,20 @@ Shared resource, multiple options:
   "effects": [
     {
       "aura": {
-        "radius": { "value": 10, "unit": "feet" },
-        "affects": {
+        "radius": 10,
+        "unit": "feet",
+        "target": {
           "type": "creatures",
           "disposition": "friendly",
           "include_self": true
         },
-        "effect": {
-          "roll_modifier": {
-            "on": "saving_throw",
+        "grants": {
+          "attribute": {
+            "target": "saving_throw.all",
             "calculation": {
               "operation": "add",
               "operators": [{ "type": "ability_modifier", "ability": "Charisma" }]
-            },
-            "minimum": 1
+            }
           }
         }
       }
@@ -2099,24 +2364,21 @@ Shared resource, multiple options:
   "cost": [{ "type": "resource", "resource": "rage", "amount": 1 }],
   "duration": { "value": 1, "unit": "minutes" },
   "concentration": false,
-  "requirements": [{ "type": "equipment", "function": "equipment.is_wearing_heavy_armor", "negate": true }],
+  "requirements": [{ "type": "equipment", "slot": "armor", "property": ["Heavy"], "negate": true }],
   "effects": [
     {
       "apply_status": {
-        "name": "raging",
-        "source": "character"
+        "id": "status:raging"
       }
     },
     {
       "advantage": {
-        "on": "ability_check",
-        "ability": ["Strength"]
+        "ability": "Strength"
       }
     },
     {
       "advantage": {
-        "on": "saving_throw",
-        "ability": ["Strength"]
+        "saving_throw": ["Strength"]
       }
     },
     {
@@ -2126,10 +2388,7 @@ Shared resource, multiple options:
           "operators": [{ "type": "scaling", "value": "rage_damage" }]
         }
       },
-      "requirements": [
-        { "type": "weapon_property", "value": ["melee"] },
-        { "type": "attribute", "value": "attack.uses_strength", "equals": true }
-      ]
+      "requirements": [{ "type": "weapon_property", "property": ["Melee"] }]
     },
     {
       "damage_response": {
@@ -2156,7 +2415,7 @@ Shared resource, multiple options:
       },
       "on_failure": {
         "apply_status": {
-          "name": "poisoned",
+          "id": "status:poisoned",
           "duration": { "value": 1, "unit": "minutes" }
         }
       },
@@ -2182,16 +2441,18 @@ Shared resource, multiple options:
   "mechanics": [
     {
       "type": "critical_hit",
-      "trigger": { "event": ["critical_hit"] },
+      "trigger": {
+        "event": ["hit"],
+        "source": { "type": ["melee", "weapon"] }
+      },
       "effects": [
         {
-          "damage_bonus": {
-            "extra_dice": 1,
-            "type": ["weapon_die"]
+          "roll_modifier": {
+            "operation": "add",
+            "value": "weapon_die"
           }
         }
       ],
-      "requirements": [{ "type": "weapon_property", "value": ["melee"] }],
       "scaling": {
         "extra_dice": { "13": 2, "17": 3 }
       }
@@ -2199,72 +2460,3 @@ Shared resource, multiple options:
   ]
 }
 ```
-
----
-
-## Version History
-
-- **v2.0** (2026) - Schema separation and strict validation
-  - Data repository split from application (campaigner-data)
-  - Full JSON Schema validation with strict mode
-  - Discriminated unions for all mechanic and requirement types
-  - Typed Calculation operands replace string-based formulas
-  - AttributeModification model for character attribute changes
-  - StatusEffect model for ongoing status effects
-  - Grant model for action economy modifications
-  - Query model for data-driven attribute population
-  - Complete model documentation with examples
-
-- **v1.4** (2026) - Unified perception schema
-  - **New explicit perception format** with `observer`, `subject`, `senses`, `match`, `negate` fields
-  - **Removed all legacy perception patterns**:
-    - `"value": "can_see"` / `"value": "can_hear"` → explicit `observer`/`subject`/`senses`
-    - `"type": "visibility"` → `"type": "perception"`
-    - `"type": "condition", "value": "can_see_attacker"` → `"type": "perception"`
-    - `"can_see_or_hear_character"` → explicit with `"match": "any"`
-    - `"negate": true` for negation → `"negate": true`
-  - **New location visibility schema** for placement/destination:
-    - `"visibility": "line_of_sight"` for movement destinations
-    - `"space": "unoccupied"` for placement constraints
-  - Added `illusion` as valid entity reference
-  - TriggerSource now accepts full Perception object
-  - All data files migrated: class_features, domains, maneuvers, fighting_styles
-
-- **v1.3** (2026) - Unified target schema
-  - New structured `target` object with `type`, `count`, `disposition`, `include_self`
-  - Replaced string-based targets (`friendly_creatures`, `hostile_creatures`, `allies`) with structured objects
-  - Added `target_requirements` array for filtering (perception, creature_type, size, status, immunity, etc.)
-  - New `against` schema for specifying advantage/disadvantage targets
-  - **Removed `target_type` completely** - all usages migrated to `target` schema:
-    - Class features: `target_type.include/exclude` → `target_requirements` with `creature_type`
-    - Commands: `target_type.category` → `target.type`
-    - Domains: `target_type.disposition/include/exclude` → `target` + `target_requirements`
-  - Updated all aura and area effect examples
-
-- **v1.2** (2026) - Targeting and save standardization
-  - ~~Unified `target_type` object format with `disposition`, `include`, `exclude`~~ **(removed in v1.3)**
-  - ~~Commands use `target_type.category` for target categories~~ **(removed in v1.3 - now uses `target.type`)**
-  - Saving throw outcomes moved inside `saving_throw` object (`on_success`, `on_failure`)
-  - Maneuver DC uses `dc` object with `base` and `add` fields
-  - Feature enhancements (`enhances` field for adding to features without replacing)
-  - Save outcome effects via passive triggers for conditional outcome replacement
-  - Nature and Tempest domain features
-
-- **v1.1** (2025) - Domain and spellcasting support
-  - Triggers system for spells and attacks (`action: "cast"`, `action: "attack"`)
-  - Feature extensions (`extends` field for feature replacement)
-  - Area of effect targeting (`target: "area"` with shape configuration)
-  - Player choice targeting (`player_choice: true`)
-  - Auras with layers for persistent area effects
-  - Granted spells (`type: "granted_spells"`)
-  - Toggle actions for sustained effects
-  - Dynamic uses with minimum values
-  - Life and Light domain features as reference implementations
-
-- **v1.0** (2025) - Initial unified schema
-  - All Rogue class features
-  - Thief subclass features
-  - Core effect types: attribute, damage, advantage, status, action
-  - Requirements system
-  - Scaling mechanics
-  - Choice mechanics

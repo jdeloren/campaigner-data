@@ -1,7 +1,7 @@
 [
   {
     "id": "feat:divine-domain",
-    "class": "Cleric",
+    "class": "class:cleric",
     "level": 1,
     "name": "Divine Domain",
     "description": "Choose one domain related to your deity: Knowledge, Life, Light, Nature, Tempest, Trickery, or War. Your choice grants you domain spells and other features when you choose it at 1st level. It also grants you additional ways to use Channel Divinity when you gain that feature at 2nd level, and additional benefits at 6th, 8th, and 17th levels.",
@@ -16,7 +16,7 @@
   },
   {
     "id": "feat:ability-score-improvement",
-    "class": "Cleric",
+    "class": "class:cleric",
     "level": [4, 8, 12, 16, 19],
     "name": "Ability Score Improvement",
     "description": "Increase one ability score by 2 or two ability scores by 1 or one feat",
@@ -57,7 +57,7 @@
   },
   {
     "id": "feat:cantrip-versatility",
-    "class": "Cleric",
+    "class": "class:cleric",
     "level": 4,
     "name": "Cantrip Versatility",
     "description": "Whenever you reach a level in this class that grants the Ability Score Improvement feature, you can replace one cantrip you learned from this class's Spellcasting feature with another cantrip from the cleric spell list.",
@@ -72,7 +72,7 @@
         "source": {
           "list": "spells",
           "filter": {
-            "class": "Cleric",
+            "class": "class:cleric",
             "level": 0
           }
         }
@@ -83,7 +83,7 @@
   },
   {
     "id": "feat:channel-divinity",
-    "class": "Cleric",
+    "class": "class:cleric",
     "level": 2,
     "name": "Channel Divinity",
     "description": "You gain the ability to channel divine energy directly from your deity, using that energy to fuel magical effects. You start with two such effects: Turn Undead and an effect determined by your domain. Some domains grant you additional effects as you advance in levels, as noted in the domain description.",
@@ -108,7 +108,7 @@
   },
   {
     "id": "feat:turn-undead",
-    "class": "Cleric",
+    "class": "class:cleric",
     "level": 2,
     "name": "Turn Undead",
     "description": "As an action, you present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage. A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the Dodge action.",
@@ -124,7 +124,7 @@
         "requirements": [
           {
             "type": "equipment",
-            "item": "holy symbol"
+            "item": ["holy symbol"]
           }
         ],
         "effects": [
@@ -191,7 +191,7 @@
   },
   {
     "id": "feat:harness-divine-power",
-    "class": "Cleric",
+    "class": "class:cleric",
     "level": 2,
     "name": "Harness Divine Power",
     "description": "You can expend a use of your Channel Divinity to fuel your spells. As a bonus action, you touch your holy symbol, utter a prayer, and regain one expended spell slot, the level of which can be no higher than half your proficiency bonus (rounded up). The number of times you can use this feature is based on the level you've reached in this class: 2nd level, once; 6th level, twice; and 18th level, thrice. You regain all expended uses when you finish a long rest.",
@@ -207,7 +207,7 @@
         "requirements": [
           {
             "type": "equipment",
-            "item": "holy symbol"
+            "item": ["holy symbol"]
           }
         ],
         "effects": [
@@ -243,7 +243,7 @@
   },
   {
     "id": "feat:destroy-undead",
-    "class": "Cleric",
+    "class": "class:cleric",
     "level": 5,
     "name": "Destroy Undead",
     "description": "When an undead fails its saving throw against your Turn Undead feature, the creature is instantly destroyed if its challenge rating is at or below a certain threshold.",
@@ -294,7 +294,7 @@
   },
   {
     "id": "feat:blessed-strikes",
-    "class": "Cleric",
+    "class": "class:cleric",
     "level": 8,
     "name": "Blessed Strikes",
     "description": "You are blessed with divine might in battle. When a creature takes damage from one of your cantrips or weapon attacks, you can also deal 1d8 radiant damage to that creature. Once you deal this damage, you can't use this feature again until the start of your next turn.",
@@ -304,7 +304,9 @@
         "type": "damage_bonus",
         "trigger": {
           "event": ["cast_spell"],
-          "spell_level": 0
+          "spell": {
+            "level": 0
+          }
         },
         "damage": {
           "dice": "1d8",
@@ -338,7 +340,7 @@
   },
   {
     "id": "feat:divine-intervention",
-    "class": "Cleric",
+    "class": "class:cleric",
     "level": 10,
     "name": "Divine Intervention",
     "description": "You can call on your deity to intervene on your behalf when your need is great. Imploring your deity's aid requires you to use your action. Describe the assistance you seek, and roll percentile dice. If you roll a number equal to or lower than your cleric level, your deity intervenes. The DM chooses the nature of the intervention; the effect of any cleric spell or cleric domain spell would be appropriate. If your deity intervenes, you can't use this feature again for 7 days. Otherwise, you can use it again after you finish a long rest. At 20th level, your call for intervention succeeds automatically, no roll required.",

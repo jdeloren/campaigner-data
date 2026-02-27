@@ -1,7 +1,7 @@
 [
   {
     "id": "feat:spirit-seeker",
-    "class": "Path of the Totem Warrior",
+    "class": "subclass:path-of-the-totem-warrior",
     "level": 3,
     "name": "Spirit Seeker",
     "description": "Yours is a path that seeks attunement with the natural world, giving you a kinship with beasts. You gain the ability to cast the Beast Sense and Speak with Animals spells, but only as rituals.",
@@ -17,7 +17,7 @@
   },
   {
     "id": "feat:totem-spirit",
-    "class": "Path of the Totem Warrior",
+    "class": "subclass:path-of-the-totem-warrior",
     "level": 3,
     "name": "Totem Spirit",
     "description": "At 3rd level, when you adopt this path, you choose a totem spirit and gain its feature. You must make or acquire a physical totem object that incorporates fur or feathers, claws, teeth, or bones of the totem animal. At your option, you also gain minor physical attributes that are reminiscent of your totem spirit.",
@@ -70,7 +70,8 @@
               },
               {
                 "type": "equipment",
-                "function": "equipment.is_wearing_heavy_armor",
+                "slot": "armor",
+                "property": ["Heavy"],
                 "negate": true
               },
               {
@@ -99,7 +100,8 @@
               },
               {
                 "type": "equipment",
-                "function": "equipment.is_wearing_heavy_armor",
+                "slot": "armor",
+                "property": ["Heavy"],
                 "negate": true
               },
               {
@@ -126,7 +128,8 @@
               },
               {
                 "type": "equipment",
-                "function": "equipment.is_wearing_heavy_armor",
+                "slot": "armor",
+                "property": ["Heavy"],
                 "negate": true
               },
               {
@@ -137,7 +140,7 @@
             "effects": [
               {
                 "attribute": {
-                  "target": "movement.speed",
+                  "target": "movement.base",
                   "calculation": {
                     "operation": "add",
                     "operators": [
@@ -248,7 +251,7 @@
   },
   {
     "id": "feat:aspect-of-the-beast",
-    "class": "Path of the Totem Warrior",
+    "class": "subclass:path-of-the-totem-warrior",
     "level": 6,
     "name": "Aspect of the Beast",
     "description": "At 6th level, you gain a magical benefit based on the totem animal of your choice. You can choose the same animal you selected at 3rd level or a different one.",
@@ -448,7 +451,7 @@
   },
   {
     "id": "feat:spirit-walker",
-    "class": "Path of the Totem Warrior",
+    "class": "subclass:path-of-the-totem-warrior",
     "level": 10,
     "name": "Spirit Walker",
     "description": "At 10th level, you can cast the Commune with Nature spell, but only as a ritual. When you do so, a spiritual version of one of the animals you chose for Totem Spirit or Aspect of the Beast appears to you to convey the information you seek.",
@@ -464,7 +467,7 @@
   },
   {
     "id": "feat:totemic-attunement",
-    "class": "Path of the Totem Warrior",
+    "class": "subclass:path-of-the-totem-warrior",
     "level": 14,
     "name": "Totemic Attunement",
     "description": "At 14th level, you gain a magical benefit based on a totem animal of your choice. You can choose the same animal you selected previously or a different one.",
@@ -511,7 +514,7 @@
                       },
                       {
                         "type": "immunity",
-                        "value": "frightened",
+                        "to": "frightened",
                         "negate": true
                       }
                     ]
@@ -585,8 +588,7 @@
               "requirements": [
                 {
                   "type": "size",
-                  "value": ["Large", "Medium", "Small", "Tiny"],
-                  "match": "any"
+                  "value": ["Large", "Medium", "Small", "Tiny"]
                 }
               ]
             },
@@ -641,26 +643,29 @@
               {
                 "type": "inventory_item",
                 "name_contains": ["Tiger", "Totem"]
+              },
+              {
+                "type": "size",
+                "value": ["Large", "Medium", "Small", "Tiny"]
               }
             ],
             "trigger": {
               "event": ["attack"],
-              "conditions": [
-                {
-                  "movement": {
-                    "distance": 20,
-                    "unit": "feet",
-                    "direction": "straight_line",
-                    "toward": "target"
-                  },
-                  "type": "melee",
-                  "target_size": ["Large", "Medium", "Small", "Tiny"]
-                }
-              ]
+              "source": {
+                "type": ["melee"]
+              },
+              "condition": {
+                "type": "movement",
+                "value": 20,
+                "unit": "feet",
+                "to": "target"
+              }
             },
             "grants": {
               "name": "Attack",
-              "type": "melee"
+              "type": "melee",
+              "count": 1,
+              "activation": "bonus_action"
             },
             "target": {
               "type": "event_recipient"

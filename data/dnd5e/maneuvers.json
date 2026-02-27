@@ -5,8 +5,8 @@
     "description": "When you take the Attack action on your turn, you can forgo one of your attacks and use a bonus action to direct one of your companions to strike. When you do so, choose a friendly creature who can see or hear you and expend one superiority die. That creature can immediately use its reaction to make one weapon attack, adding the superiority die to the attack's damage roll.",
     "source": "phb",
     "ruleset": "dnd5e",
-    "class": "Fighter",
-    "subclass": "Battle Master",
+    "class": "class:fighter",
+    "subclass": "subclass:battle-master",
     "mechanics": [
       {
         "type": "bonus_action",
@@ -65,8 +65,8 @@
     "description": "When you hit a creature with a weapon attack, you can expend one superiority die to attempt to disarm the target, forcing it to drop one item of your choice that it's holding. You add the superiority die to the attack's damage roll, and the target must make a Strength saving throw. On a failed save, it drops the object you choose. The object lands at its feet.",
     "source": "phb",
     "ruleset": "dnd5e",
-    "class": "Fighter",
-    "subclass": "Battle Master",
+    "class": "class:fighter",
+    "subclass": "subclass:battle-master",
     "mechanics": [
       {
         "type": "special",
@@ -110,8 +110,8 @@
     "description": "When you hit a creature with a weapon attack, you can expend one superiority die to distract the creature, giving your allies an opening. You add the superiority die to the attack's damage roll. The next attack roll against the target by an attacker other than you has advantage if the attack is made before the start of your next turn.",
     "source": "phb",
     "ruleset": "dnd5e",
-    "class": "Fighter",
-    "subclass": "Battle Master",
+    "class": "class:fighter",
+    "subclass": "subclass:battle-master",
     "mechanics": [
       {
         "type": "special",
@@ -137,23 +137,17 @@
             "apply_status": {
               "id": "status:distracted",
               "effect": {
-                "trigger": {
-                  "event": ["attack"],
-                  "source": {
-                    "exclude": "character"
-                  }
-                },
                 "advantage": {
-                  "attack": "all"
+                  "attack": "all",
+                  "attacker": "character",
+                  "negate": true
                 }
-              },
-              "uses": {
-                "value": 1
               },
               "duration": {
                 "value": 1,
                 "unit": "turns",
-                "timing": "start"
+                "timing": "start_turn",
+                "until": ["attacked_by"]
               }
             }
           }
@@ -167,8 +161,8 @@
     "description": "When you move, you can expend one superiority die, rolling the die and adding the number rolled to your AC until you stop moving.",
     "source": "phb",
     "ruleset": "dnd5e",
-    "class": "Fighter",
-    "subclass": "Battle Master",
+    "class": "class:fighter",
+    "subclass": "subclass:battle-master",
     "mechanics": [
       {
         "type": "special",
@@ -206,8 +200,8 @@
     "description": "You can expend one superiority die and use a bonus action on your turn to feint, choosing one creature within 5 feet of you as your target. You have advantage on your next attack roll against that creature this turn. If that attack hits, add the superiority die to the attack's damage roll.",
     "source": "phb",
     "ruleset": "dnd5e",
-    "class": "Fighter",
-    "subclass": "Battle Master",
+    "class": "class:fighter",
+    "subclass": "subclass:battle-master",
     "mechanics": [
       {
         "type": "bonus_action",
@@ -223,31 +217,25 @@
               "type": "creature",
               "requirements": [
                 {
-                  "type": "range",
+                  "type": "distance",
                   "value": 5,
-                  "unit": "feet"
+                  "unit": "feet",
+                  "comparison": "within"
                 }
               ]
             },
             "apply_status": {
               "id": "status:feinted",
               "effect": {
-                "trigger": {
-                  "event": ["attack"],
-                  "source": {
-                    "is": "character"
-                  }
-                },
                 "advantage": {
-                  "attack": "all"
+                  "attack": "all",
+                  "attacker": "character"
                 }
-              },
-              "uses": {
-                "value": 1
               },
               "duration": {
                 "value": 0,
-                "unit": "turns"
+                "unit": "turns",
+                "until": ["attacked_by"]
               }
             }
           },
@@ -272,8 +260,8 @@
     "description": "When you hit a creature with a weapon attack, you can expend one superiority die to attempt to goad the target into attacking you. You add the superiority die to the attack's damage roll, and the target must make a Wisdom saving throw. On a failed save, the target has disadvantage on all attack rolls against targets other than you until the end of your next turn.",
     "source": "phb",
     "ruleset": "dnd5e",
-    "class": "Fighter",
-    "subclass": "Battle Master",
+    "class": "class:fighter",
+    "subclass": "subclass:battle-master",
     "mechanics": [
       {
         "type": "special",
@@ -307,9 +295,8 @@
                   "effect": {
                     "disadvantage": {
                       "attack": "all",
-                      "against": {
-                        "exclude": "character"
-                      }
+                      "attacker": "character",
+                      "negate": true
                     }
                   },
                   "duration": {
@@ -330,8 +317,8 @@
     "description": "When you make a melee weapon attack on your turn, you can expend one superiority die to increase your reach for that attack by 5 feet. If you hit, you add the superiority die to the attack's damage roll.",
     "source": "phb",
     "ruleset": "dnd5e",
-    "class": "Fighter",
-    "subclass": "Battle Master",
+    "class": "class:fighter",
+    "subclass": "subclass:battle-master",
     "mechanics": [
       {
         "type": "special",
@@ -380,8 +367,8 @@
     "description": "When you hit a creature with a weapon attack, you can expend one superiority die to maneuver one of your comrades into a more advantageous position. You add the superiority die to the attack's damage roll, and you choose a friendly creature who can see or hear you. That creature can use its reaction to move up to half its speed without provoking opportunity attacks from the target of your attack.",
     "source": "phb",
     "ruleset": "dnd5e",
-    "class": "Fighter",
-    "subclass": "Battle Master",
+    "class": "class:fighter",
+    "subclass": "subclass:battle-master",
     "mechanics": [
       {
         "type": "special",
@@ -423,7 +410,7 @@
                   "operators": [
                     {
                       "type": "attribute",
-                      "value": "movement.speed"
+                      "value": "movement.base"
                     },
                     {
                       "type": "integer",
@@ -451,8 +438,8 @@
     "description": "When you hit a creature with a weapon attack, you can expend one superiority die to attempt to frighten the target. You add the superiority die to the attack's damage roll, and the target must make a Wisdom saving throw. On a failed save, it is frightened of you until the end of your next turn.",
     "source": "phb",
     "ruleset": "dnd5e",
-    "class": "Fighter",
-    "subclass": "Battle Master",
+    "class": "class:fighter",
+    "subclass": "subclass:battle-master",
     "mechanics": [
       {
         "type": "special",
@@ -502,8 +489,8 @@
     "description": "When another creature damages you with a melee attack, you can use your reaction and expend one superiority die to reduce the damage by the number you roll on your superiority die plus your Dexterity modifier.",
     "source": "phb",
     "ruleset": "dnd5e",
-    "class": "Fighter",
-    "subclass": "Battle Master",
+    "class": "class:fighter",
+    "subclass": "subclass:battle-master",
     "mechanics": [
       {
         "type": "reaction",
@@ -545,8 +532,8 @@
     "description": "When you make a weapon attack roll against a creature, you can expend one superiority die to add it to the roll. You can use this maneuver before or after making the attack roll, but before any effects of the attack are applied.",
     "source": "phb",
     "ruleset": "dnd5e",
-    "class": "Fighter",
-    "subclass": "Battle Master",
+    "class": "class:fighter",
+    "subclass": "subclass:battle-master",
     "mechanics": [
       {
         "type": "special",
@@ -577,8 +564,8 @@
     "description": "When you hit a creature with a weapon attack, you can expend one superiority die to attempt to drive the target back. You add the superiority die to the attack's damage roll, and if the target is Large or smaller, it must make a Strength saving throw. On a failed save, you push the target up to 15 feet away from you.",
     "source": "phb",
     "ruleset": "dnd5e",
-    "class": "Fighter",
-    "subclass": "Battle Master",
+    "class": "class:fighter",
+    "subclass": "subclass:battle-master",
     "mechanics": [
       {
         "type": "special",
@@ -620,7 +607,7 @@
                   "distance": {
                     "value": 15,
                     "unit": "feet",
-                    "maximum": true
+                    "comparison": "at_most"
                   }
                 }
               }
@@ -636,8 +623,8 @@
     "description": "On your turn, you can use a bonus action and expend one superiority die to bolster the resolve of one of your companions. When you do so, choose a friendly creature who can see or hear you. That creature gains temporary hit points equal to the superiority die roll plus your Charisma modifier.",
     "source": "phb",
     "ruleset": "dnd5e",
-    "class": "Fighter",
-    "subclass": "Battle Master",
+    "class": "class:fighter",
+    "subclass": "subclass:battle-master",
     "mechanics": [
       {
         "type": "bonus_action",
@@ -662,10 +649,9 @@
                 }
               ]
             },
-            "attribute": {
-              "target": "temporary_hit_points",
+            "healing": {
               "calculation": {
-                "operation": "set",
+                "operation": "add",
                 "operators": [
                   {
                     "type": "resource_die",
@@ -676,7 +662,8 @@
                     "ability": "Charisma"
                   }
                 ]
-              }
+              },
+              "barrier": true
             }
           }
         ]
@@ -689,8 +676,8 @@
     "description": "When a creature misses you with a melee attack, you can use your reaction and expend one superiority die to make a melee weapon attack against the creature. If you hit, you add the superiority die to the attack's damage roll.",
     "source": "phb",
     "ruleset": "dnd5e",
-    "class": "Fighter",
-    "subclass": "Battle Master",
+    "class": "class:fighter",
+    "subclass": "subclass:battle-master",
     "mechanics": [
       {
         "type": "reaction",
@@ -735,8 +722,8 @@
     "description": "When you hit a creature with a melee weapon attack, you can expend one superiority die to attempt to damage another creature with the same attack. Choose another creature within 5 feet of the original target and within your reach. If the original attack roll would hit the second creature, it takes damage equal to the number you roll on your superiority die. The damage is of the same type dealt by the original attack.",
     "source": "phb",
     "ruleset": "dnd5e",
-    "class": "Fighter",
-    "subclass": "Battle Master",
+    "class": "class:fighter",
+    "subclass": "subclass:battle-master",
     "mechanics": [
       {
         "type": "special",
@@ -764,13 +751,13 @@
                 "requirements": [
                   {
                     "type": "distance",
-                    "comparison": "less_than_or_equal",
+                    "comparison": "within",
                     "value": 5,
                     "unit": "feet",
                     "to": "event_recipient"
                   },
                   {
-                    "type": "range",
+                    "type": "distance",
                     "comparison": "within",
                     "to": "character"
                   }
@@ -793,8 +780,8 @@
     "description": "When you hit a creature with a weapon attack, you can expend one superiority die to attempt to knock the target down. You add the superiority die to the attack's damage roll, and if the target is Large or smaller, it must make a Strength saving throw. On a failed save, you knock the target prone.",
     "source": "phb",
     "ruleset": "dnd5e",
-    "class": "Fighter",
-    "subclass": "Battle Master",
+    "class": "class:fighter",
+    "subclass": "subclass:battle-master",
     "mechanics": [
       {
         "type": "special",

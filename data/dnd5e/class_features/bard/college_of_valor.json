@@ -1,7 +1,7 @@
 [
   {
     "id": "feat:bonus-proficiencies",
-    "class": "College of Valor",
+    "class": "subclass:college-of-valor",
     "level": 3,
     "name": "Bonus Proficiencies",
     "description": "When you join the College of Valor at 3rd level, you gain proficiency with medium armor, shields, and martial weapons.",
@@ -9,12 +9,17 @@
       {
         "type": "proficiency",
         "category": "armor",
-        "proficiencies": ["Medium Armor", "Shields"]
+        "proficiencies": [
+          "Medium",
+          "Shields"
+        ]
       },
       {
         "type": "proficiency",
         "category": "weapon",
-        "proficiencies": ["Martial Melee", "Martial Ranged"]
+        "proficiencies": [
+          "Martial"
+        ]
       }
     ],
     "source": "phb",
@@ -22,7 +27,7 @@
   },
   {
     "id": "feat:combat-inspiration",
-    "class": "College of Valor",
+    "class": "subclass:college-of-valor",
     "level": 3,
     "name": "Combat Inspiration",
     "description": "Also at 3rd level, you learn to inspire others in battle. A creature that has a Bardic Inspiration die from you can roll that die and add the number rolled to a weapon damage roll it just made. Alternatively, when an attack roll is made against the creature, it can use its reaction to roll the Bardic Inspiration die and add the number rolled to its AC against that attack, after seeing the roll but before knowing whether it hits or misses.",
@@ -32,9 +37,13 @@
         "type": "optional",
         "name": "combat_inspiration_damage",
         "trigger": {
-          "event": ["damage"],
+          "event": [
+            "damage"
+          ],
           "source": {
-            "type": ["weapon"]
+            "type": [
+              "weapon"
+            ]
           }
         },
         "cost": [
@@ -63,7 +72,9 @@
         "type": "reaction",
         "name": "combat_inspiration_ac",
         "trigger": {
-          "event": ["attacked_by"],
+          "event": [
+            "attacked_by"
+          ],
           "timing": "after"
         },
         "cost": [
@@ -95,7 +106,7 @@
   },
   {
     "id": "feat:extra-attack",
-    "class": "College of Valor",
+    "class": "subclass:college-of-valor",
     "level": 6,
     "name": "Extra Attack",
     "description": "Starting at 6th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.",
@@ -118,7 +129,7 @@
   },
   {
     "id": "feat:battle-magic",
-    "class": "College of Valor",
+    "class": "subclass:college-of-valor",
     "level": 14,
     "name": "Battle Magic",
     "description": "At 14th level, you have mastered the art of weaving spellcasting and weapon use into a single harmonious act. When you use your action to cast a bard spell, you can make one weapon attack as a bonus action.",
@@ -126,13 +137,17 @@
       {
         "type": "passive",
         "trigger": {
-          "event": ["cast_spell"],
-          "source": {
-            "type": ["spell"]
-          },
-          "spell_class": "Bard",
+          "event": [
+            "cast_spell"
+          ],
           "activation": "action"
         },
+        "requirements": [
+          {
+            "type": "spell",
+            "class": "class:bard"
+          }
+        ],
         "grants": {
           "name": "Attack",
           "type": "weapon",
