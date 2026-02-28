@@ -6289,6 +6289,12 @@
           "$ref": "#/$defs/RechargeType",
           "description": "When the pool recharges"
         },
+        "exclusive": {
+          "default": false,
+          "description": "Whether only one consumer of this pool can be active at a time",
+          "title": "Exclusive",
+          "type": "boolean"
+        },
         "dice_sides": {
           "anyOf": [
             {
