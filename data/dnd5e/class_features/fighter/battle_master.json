@@ -38,6 +38,7 @@
           }
         },
         "recharge": "short_rest",
+        "exclusive": true,
         "dice_sides": 8,
         "scaling": {
           "components": {
