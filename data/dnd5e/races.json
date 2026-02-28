@@ -565,7 +565,7 @@
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": ["battleaxe", "handaxe", "light hammer", "warhammer"]
+            "proficiencies": ["Battleaxe", "Handaxe", "Light Hammer", "Warhammer"]
           }
         ],
         "id": "trait:dwarf-dwarven-combat-training"
