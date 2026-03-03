@@ -6,6 +6,11 @@
       "bump": "patch"
     }
   ],
-  "schemas": [],
+  "schemas": [
+    {
+      "schema": "class",
+      "bump": "patch"
+    }
+  ],
   "repo_bump": "patch"
 }
