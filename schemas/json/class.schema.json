@@ -633,13 +633,10 @@
               "type": "integer"
             },
             {
-              "type": "string"
-            },
-            {
               "$ref": "common.schema.json#/$defs/ResourceCount"
             }
           ],
-          "description": "Pool count - can be static int, formula string, or ResourceCount object",
+          "description": "Pool count - static int or ResourceCount object",
           "title": "Count"
         },
         "recharge": {
