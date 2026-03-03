@@ -6272,9 +6272,6 @@
               "type": "integer"
             },
             {
-              "type": "string"
-            },
-            {
               "$ref": "#/$defs/ResourceCount"
             },
             {
@@ -6282,7 +6279,7 @@
             }
           ],
           "default": null,
-          "description": "Pool count - static int, formula string, or ResourceCount object",
+          "description": "Pool count - static int or ResourceCount object",
           "title": "Count"
         },
         "recharge": {
