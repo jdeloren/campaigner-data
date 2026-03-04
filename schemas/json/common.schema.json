@@ -2306,19 +2306,39 @@
       "type": "string"
     },
     "CurrencyCost": {
-      "description": "Cost in currency.\n\nExample: {\"amount\": 50, \"currency\": \"GP\"}",
+      "description": "Cost in currency.\n\nExample (flat): {\"amount\": 50, \"currency\": \"GP\"}\nExample (calculated): {\"currency\": \"GP\", \"calculation\": {\"operation\": \"multiply\", \"operators\": [...]}}",
       "properties": {
         "amount": {
-          "description": "Numeric cost",
-          "title": "Amount",
-          "type": "number"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Static numeric cost. Use this or calculation, not both.",
+          "title": "Amount"
         },
         "currency": {
           "$ref": "common.schema.json#/$defs/Currency",
           "description": "Currency: CP, SP, EP, GP, PP"
+        },
+        "calculation": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Calculation"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Dynamic cost calculation. Overrides amount when present."
         }
       },
-      "required": ["amount", "currency"],
+      "required": ["currency"],
       "title": "CurrencyCost",
       "additionalProperties": false,
       "type": "object"
@@ -4893,23 +4913,30 @@
         "spells": {
           "anyOf": [
             {
-              "additionalProperties": {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array"
-              },
-              "type": "object"
-            },
-            {
               "items": {
                 "type": "string"
               },
               "type": "array"
+            },
+            {
+              "type": "null"
             }
           ],
-          "description": "Spell level map (e.g., {'1': ['Bless']}) or flat list of spell names",
+          "default": null,
+          "description": "Flat list of spell names, or null when using choices or scaling",
           "title": "Spells"
+        },
+        "scaling": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Scaling"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Level-gated spell grants (e.g., domain spells unlocked at specific class levels)"
         },
         "always_prepared": {
           "default": false,
@@ -4976,7 +5003,7 @@
           "description": "Ability used for spellcasting (e.g., Charisma for racial spells)"
         }
       },
-      "required": ["type", "spells"],
+      "required": ["type"],
       "title": "GrantedSpellsMechanic",
       "additionalProperties": false,
       "type": "object"
@@ -6014,11 +6041,19 @@
           "type": "string"
         },
         "count": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
           "description": "Number of resources to recover",
-          "title": "Count",
-          "type": "integer"
+          "title": "Count"
         },
-        "max_level": {
+        "maximum_formula": {
           "anyOf": [
             {
               "$ref": "#/$defs/RecoverMaxLevel"
@@ -6028,10 +6063,48 @@
             }
           ],
           "default": null,
-          "description": "Level constraint on recovered resource"
+          "description": "Dynamic level constraint on recovered resource (e.g., half proficiency bonus)"
+        },
+        "budget": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RecoverMaxLevel"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Total points available to spend on recovery choices"
+        },
+        "cost": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "What determines the cost of each recovery choice (e.g., 'slot_level')",
+          "title": "Cost"
+        },
+        "maximum": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Hard cap on the level of recoverable resources",
+          "title": "Maximum"
         }
       },
-      "required": ["target", "count"],
+      "required": ["target"],
       "title": "Recover",
       "additionalProperties": false,
       "type": "object"
@@ -6780,6 +6853,13 @@
                     "$ref": "#/$defs/RollModifier"
                   },
                   {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array",
+                    "description": "List of values (e.g., spell IDs granted at this level)"
+                  },
+                  {
                     "type": "null"
                   }
                 ]
@@ -6997,6 +7077,12 @@
           "default": null,
           "description": "Filter to spells on a specific class's spell list (e.g., 'Druid')",
           "title": "Class"
+        },
+        "known": {
+          "anyOf": [{ "type": "boolean" }, { "type": "null" }],
+          "default": null,
+          "description": "If true, filter to spells the character already knows or has in their spellbook",
+          "title": "Known"
         }
       },
       "title": "SpellGrantCriteria",
@@ -8482,7 +8568,7 @@
             }
           ],
           "default": null,
-          "description": "Attribute reference (e.g., 'scores.wisdom.modifier')",
+          "description": "Attribute reference for dynamic uses (e.g., 'scores.wisdom.modifier')",
           "title": "Calculation"
         },
         "minimum": {
@@ -8497,6 +8583,19 @@
           "default": null,
           "description": "Floor value for calculated uses",
           "title": "Minimum"
+        },
+        "infinite": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "If true, the ability can be used an unlimited number of times",
+          "title": "Infinite"
         }
       },
       "title": "Uses",

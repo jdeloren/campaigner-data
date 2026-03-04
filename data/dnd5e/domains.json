@@ -19,12 +19,14 @@
           {
             "type": "granted_spells",
             "always_prepared": true,
-            "spells": {
-              "1": ["spell:command", "spell:identify"],
-              "3": ["spell:augury", "spell:suggestion"],
-              "5": ["spell:nondetection", "spell:speak-with-dead"],
-              "7": ["spell:arcane-eye", "spell:confusion"],
-              "9": ["spell:legend-lore", "spell:scrying"]
+            "scaling": {
+              "by_level": {
+                "1": ["spell:command", "spell:identify"],
+                "3": ["spell:augury", "spell:suggestion"],
+                "5": ["spell:nondetection", "spell:speak-with-dead"],
+                "7": ["spell:arcane-eye", "spell:confusion"],
+                "9": ["spell:legend-lore", "spell:scrying"]
+              }
             }
           }
         ]
@@ -244,12 +246,14 @@
           {
             "type": "granted_spells",
             "always_prepared": true,
-            "spells": {
-              "1": ["spell:bless", "spell:cure-wounds"],
-              "3": ["spell:lesser-restoration", "spell:spiritual-weapon"],
-              "5": ["spell:beacon-of-hope", "spell:revivify"],
-              "7": ["spell:death-ward", "spell:guardian-of-faith"],
-              "9": ["spell:mass-cure-wounds", "spell:raise-dead"]
+            "scaling": {
+              "by_level": {
+                "1": ["spell:bless", "spell:cure-wounds"],
+                "3": ["spell:lesser-restoration", "spell:spiritual-weapon"],
+                "5": ["spell:beacon-of-hope", "spell:revivify"],
+                "7": ["spell:death-ward", "spell:guardian-of-faith"],
+                "9": ["spell:mass-cure-wounds", "spell:raise-dead"]
+              }
             }
           }
         ]
@@ -532,12 +536,14 @@
           {
             "type": "granted_spells",
             "always_prepared": true,
-            "spells": {
-              "1": ["spell:burning-hands", "spell:faerie-fire"],
-              "3": ["spell:flaming-sphere", "spell:scorching-ray"],
-              "5": ["spell:daylight", "spell:fireball"],
-              "7": ["spell:guardian-of-faith", "spell:wall-of-fire"],
-              "9": ["spell:flame-strike", "spell:scrying"]
+            "scaling": {
+              "by_level": {
+                "1": ["spell:burning-hands", "spell:faerie-fire"],
+                "3": ["spell:flaming-sphere", "spell:scorching-ray"],
+                "5": ["spell:daylight", "spell:fireball"],
+                "7": ["spell:guardian-of-faith", "spell:wall-of-fire"],
+                "9": ["spell:flame-strike", "spell:scrying"]
+              }
             }
           }
         ]
@@ -553,9 +559,7 @@
         "mechanics": [
           {
             "type": "granted_spells",
-            "spells": {
-              "0": ["spell:light"]
-            }
+            "spells": ["spell:light"]
           }
         ]
       },
@@ -860,12 +864,14 @@
           {
             "type": "granted_spells",
             "always_prepared": true,
-            "spells": {
-              "1": ["spell:animal-friendship", "spell:speak-with-animals"],
-              "3": ["spell:barkskin", "spell:spike-growth"],
-              "5": ["spell:plant-growth", "spell:wind-wall"],
-              "7": ["spell:dominate-beast", "spell:grasping-vine"],
-              "9": ["spell:insect-plague", "spell:tree-stride"]
+            "scaling": {
+              "by_level": {
+                "1": ["spell:animal-friendship", "spell:speak-with-animals"],
+                "3": ["spell:barkskin", "spell:spike-growth"],
+                "5": ["spell:plant-growth", "spell:wind-wall"],
+                "7": ["spell:dominate-beast", "spell:grasping-vine"],
+                "9": ["spell:insect-plague", "spell:tree-stride"]
+              }
             }
           },
           {
@@ -1141,12 +1147,14 @@
           {
             "type": "granted_spells",
             "always_prepared": true,
-            "spells": {
-              "1": ["spell:fog-cloud", "spell:thunderwave"],
-              "3": ["spell:gust-of-wind", "spell:shatter"],
-              "5": ["spell:call-lightning", "spell:sleet-storm"],
-              "7": ["spell:control-water", "spell:ice-storm"],
-              "9": ["spell:destructive-wave", "spell:insect-plague"]
+            "scaling": {
+              "by_level": {
+                "1": ["spell:fog-cloud", "spell:thunderwave"],
+                "3": ["spell:gust-of-wind", "spell:shatter"],
+                "5": ["spell:call-lightning", "spell:sleet-storm"],
+                "7": ["spell:control-water", "spell:ice-storm"],
+                "9": ["spell:destructive-wave", "spell:insect-plague"]
+              }
             }
           }
         ]
@@ -1415,12 +1423,14 @@
           {
             "type": "granted_spells",
             "always_prepared": true,
-            "spells": {
-              "1": ["spell:charm-person", "spell:disguise-self"],
-              "3": ["spell:mirror-image", "spell:pass-without-trace"],
-              "5": ["spell:blink", "spell:dispel-magic"],
-              "7": ["spell:dimension-door", "spell:polymorph"],
-              "9": ["spell:dominate-person", "spell:modify-memory"]
+            "scaling": {
+              "by_level": {
+                "1": ["spell:charm-person", "spell:disguise-self"],
+                "3": ["spell:mirror-image", "spell:pass-without-trace"],
+                "5": ["spell:blink", "spell:dispel-magic"],
+                "7": ["spell:dimension-door", "spell:polymorph"],
+                "9": ["spell:dominate-person", "spell:modify-memory"]
+              }
             }
           }
         ]
@@ -1653,12 +1663,14 @@
           {
             "type": "granted_spells",
             "always_prepared": true,
-            "spells": {
-              "1": ["spell:divine-favor", "spell:shield-of-faith"],
-              "3": ["spell:magic-weapon", "spell:spiritual-weapon"],
-              "5": ["spell:crusaders-mantle", "spell:spirit-guardians"],
-              "7": ["spell:freedom-of-movement", "spell:stoneskin"],
-              "9": ["spell:flame-strike", "spell:hold-monster"]
+            "scaling": {
+              "by_level": {
+                "1": ["spell:divine-favor", "spell:shield-of-faith"],
+                "3": ["spell:magic-weapon", "spell:spiritual-weapon"],
+                "5": ["spell:crusaders-mantle", "spell:spirit-guardians"],
+                "7": ["spell:freedom-of-movement", "spell:stoneskin"],
+                "9": ["spell:flame-strike", "spell:hold-monster"]
+              }
             }
           }
         ]

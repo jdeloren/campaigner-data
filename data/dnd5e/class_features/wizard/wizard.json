@@ -1,0 +1,261 @@
+[
+  {
+    "id": "feat:arcane-recovery",
+    "class": "class:wizard",
+    "level": 1,
+    "name": "Arcane Recovery",
+    "description": "You have learned to regain some of your magical energy by studying your spellbook. Once per day when you finish a short rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher. For example, if you're a 4th-level wizard, you can recover up to two levels worth of spell slots. You can recover either a 2nd-level spell slot or two 1st-level spell slots.",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "effects": [
+          {
+            "recover": {
+              "target": "spell_slot",
+              "maximum": 5,
+              "budget": {
+                "calculation": "classes.Wizard.level",
+                "operation": "divide",
+                "divisor": 2,
+                "rounding": "up"
+              },
+              "cost": "slot_level"
+            }
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "long_rest"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:copy-spell",
+    "class": "class:wizard",
+    "level": 1,
+    "name": "Copy Spell",
+    "description": "When you find a wizard spell of 1st level or higher, you can add it to your spellbook if it is of a spell level you can prepare and if you can spare the time to decipher and copy it. For each level of the spell, the process takes 2 hours and costs 50 gp. The cost represents material components you expend as you experiment with the spell to master it, as well as the fine inks you need to record it.",
+    "mechanics": [
+      {
+        "type": "special",
+        "name": "copy_spell",
+        "cost": [
+          {
+            "currency": "GP",
+            "calculation": {
+              "operation": "multiply",
+              "operators": [
+                { "type": "integer", "value": 50 },
+                { "type": "spell_level_cast" }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:replace-spellbook",
+    "class": "class:wizard",
+    "level": 1,
+    "name": "Replace Spellbook",
+    "description": "If you lose your spellbook, you can use the same procedure to transcribe the spells that you have prepared into a new spellbook. Filling out the remainder of your spellbook requires you to find new spells to do so, as normal. For this reason, many wizards keep backup spellbooks in a safe place. You can copy a spell from your own spellbook into another book — for example, if you want to make a backup copy of your spellbook. The cost is 10 gp per spell level, as you need only spend half the time and use less expensive materials when copying from your own notes.",
+    "mechanics": [
+      {
+        "type": "special",
+        "name": "replace_spellbook",
+        "cost": [
+          {
+            "currency": "GP",
+            "calculation": {
+              "operation": "multiply",
+              "operators": [
+                { "type": "integer", "value": 10 },
+                { "type": "spell_level_cast" }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:arcane-tradition",
+    "class": "class:wizard",
+    "level": 2,
+    "name": "Arcane Tradition",
+    "description": "When you reach 2nd level, you choose an arcane tradition, shaping your practice of magic through one of the following schools. Your choice grants you features at 2nd level and again at 6th, 10th, and 14th level.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "subclass"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:cantrip-formulas",
+    "class": "class:wizard",
+    "level": 3,
+    "name": "Cantrip Formulas",
+    "description": "You have scribed a set of arcane formulas in your spellbook that you can use to formulate a cantrip in your mind. Whenever you finish a long rest and consult those formulas in your spellbook, you can replace one wizard cantrip you know with another cantrip from the wizard spell list.",
+    "triggered_by": "Ability Score Improvement",
+    "mechanics": [
+      {
+        "type": "retrain",
+        "name": "replace_cantrip",
+        "attribute": "cantrips",
+        "operation": "replace",
+        "optional": true,
+        "source": {
+          "list": "spells",
+          "filter": {
+            "class": "class:wizard",
+            "level": 0
+          }
+        }
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:ability-score-improvement",
+    "class": "class:wizard",
+    "level": [4, 8, 12, 16, 19],
+    "name": "Ability Score Improvement",
+    "description": "When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "options": [
+          {
+            "type": "nested",
+            "name": "Increase Ability Scores",
+            "choice": {
+              "choice_type": "ability_score",
+              "count": 2,
+              "value": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "type": "nested",
+            "name": "Gain a Feat",
+            "choice": {
+              "choice_type": "feat",
+              "count": 1
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:spell-mastery",
+    "class": "class:wizard",
+    "level": 18,
+    "name": "Spell Mastery",
+    "description": "At 18th level, you have achieved such mastery over certain spells that you can cast them at will. Choose a 1st-level wizard spell and a 2nd-level wizard spell that are in your spellbook. You can cast those spells at their lowest level without expending a spell slot when you have them prepared. If you want to cast either spell at a higher level, you must expend a spell slot as normal. By spending 8 hours in study, you can exchange one or both of the spells you chose for different spells of the same levels.",
+    "mechanics": [
+      {
+        "type": "granted_spells",
+        "choices": [
+          {
+            "count": 1,
+            "criteria": {
+              "class": "class:wizard",
+              "level": 1,
+              "known": true
+            }
+          }
+        ],
+        "uses": {
+          "infinite": true
+        }
+      },
+      {
+        "type": "granted_spells",
+        "choices": [
+          {
+            "count": 1,
+            "criteria": {
+              "class": "class:wizard",
+              "level": 2,
+              "known": true
+            }
+          }
+        ],
+        "uses": {
+          "infinite": true
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:signature-spells",
+    "class": "class:wizard",
+    "level": 20,
+    "name": "Signature Spells",
+    "description": "When you reach 20th level, you gain mastery over two powerful spells and can cast them with little effort. Choose two 3rd-level wizard spells in your spellbook as your signature spells. You always have these spells prepared, they don't count against the number of spells you have prepared, and you can cast each of them once at 3rd level without expending a spell slot. When you do so, you can't do so again until you finish a short or long rest. If you want to cast either spell at a higher level, you must expend a spell slot as normal.",
+    "mechanics": [
+      {
+        "type": "granted_spells",
+        "always_prepared": true,
+        "choices": [
+          {
+            "count": 1,
+            "criteria": {
+              "class": "class:wizard",
+              "level": 3,
+              "known": true
+            }
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "short_rest"
+      },
+      {
+        "type": "granted_spells",
+        "always_prepared": true,
+        "choices": [
+          {
+            "count": 1,
+            "criteria": {
+              "class": "class:wizard",
+              "level": 3,
+              "known": true
+            }
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "short_rest"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

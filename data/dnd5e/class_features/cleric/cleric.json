@@ -215,7 +215,7 @@
             "recover": {
               "target": "spell_slot",
               "count": 1,
-              "max_level": {
+              "maximum_formula": {
                 "calculation": "levels.calculate_proficiency_bonus",
                 "operation": "divide",
                 "divisor": 2,
