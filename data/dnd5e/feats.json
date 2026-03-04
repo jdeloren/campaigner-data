@@ -2255,7 +2255,7 @@
       {
         "type": "proficiency",
         "category": "tool",
-        "proficiencies": ["Poisoner's Kit"]
+        "proficiencies": ["tool:poisoners-kit"]
       },
       {
         "type": "action",

@@ -12,7 +12,7 @@
       "tools": [
         {
           "type": "fixed",
-          "items": ["Thieves' Tools"]
+          "items": ["tool:thieves-tools"]
         }
       ],
       "skills": {
@@ -129,7 +129,7 @@
       "tools": [
         {
           "type": "fixed",
-          "items": ["Thieves' Tools"]
+          "items": ["tool:thieves-tools"]
         }
       ],
       "skills": {
@@ -165,7 +165,7 @@
       "tools": [
         {
           "type": "fixed",
-          "items": ["Thieves' Tools"]
+          "items": ["tool:thieves-tools"]
         }
       ],
       "skills": {
@@ -201,7 +201,7 @@
       "tools": [
         {
           "type": "fixed",
-          "items": ["Thieves' Tools"]
+          "items": ["tool:thieves-tools"]
         }
       ],
       "skills": {

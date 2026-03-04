@@ -89,7 +89,7 @@
     "name": "Charlatan",
     "description": "You have always had a way with people. You know what makes them tick, you can tease out their hearts' desires after a few minutes of conversation, and with a few leading questions you can read them like they were children's books. It's a useful talent, and one that you're perfectly willing to use for your advantage.\n\nYou know what people want and you deliver, or rather, you promise to deliver. Common sense should steer people away from things that sound too good to be true, but common sense seems to be in short supply when you're around. The bottle of pink colored liquid will surely cure that unseemly rash, this ointment - nothing more than a bit of fat with a sprinkle of silver dust can restore youth and vigor, and there's a bridge in the city that just happens to be for sale. These marvels sound implausible, but you make them sound like the real deal.",
     "skill_proficiencies": ["Deception", "Sleight of Hand"],
-    "tool_proficiencies": ["Disguise Kit", "Forgery Kit"],
+    "tool_proficiencies": ["tool:disguise-kit", "tool:forgery-kit"],
     "languages": [],
     "equipment": [
       {
@@ -107,7 +107,7 @@
         "type": "fixed",
         "items": [
           {
-            "item": "Disguise Kit",
+            "item": "tool:disguise-kit",
             "quantity": 1
           }
         ]
@@ -157,7 +157,7 @@
     "name": "Criminal",
     "description": "You are an experienced criminal with a history of breaking the law. You have spent a lot of time among other criminals and still have contacts within the criminal underworld. You're far closer than most people to the world of murder, theft, and violence that pervades the underbelly of civilization, and you have survived up to this point by flouting the rules and regulations of society.",
     "skill_proficiencies": ["Deception", "Stealth"],
-    "tool_proficiencies": ["any gaming set", "Thieves' Tools"],
+    "tool_proficiencies": ["any gaming set", "tool:thieves-tools"],
     "languages": [],
     "equipment": [
       {
@@ -201,7 +201,7 @@
     "name": "Entertainer",
     "description": "You thrive in front of an audience. You know how to entrance them, entertain them, and even inspire them. Your poetics can stir the hearts of those who hear you, awakening grief or joy, laughter or anger. Your music raises their spirits or captures their sorrow. Your dance steps captivate, your humor cuts to the quick. Whatever techniques you use, your art is your life.",
     "skill_proficiencies": ["Acrobatics", "Performance"],
-    "tool_proficiencies": ["Disguise Kit", "any musical instrument"],
+    "tool_proficiencies": ["tool:disguise-kit", "any musical instrument"],
     "languages": [],
     "equipment": [
       {
@@ -384,7 +384,7 @@
     "name": "Hermit",
     "description": "You lived in seclusion - either in a sheltered community such as a monastery, or entirely alone - for a formative part of your life. In your time apart from the clamor of society, you found quiet, solitude, and perhaps some of the answers you were looking for.",
     "skill_proficiencies": ["Medicine", "Religion"],
-    "tool_proficiencies": ["Herbalism Kit"],
+    "tool_proficiencies": ["tool:herbalism-kit"],
     "languages": [
       {
         "choice_group": 1,
@@ -433,7 +433,7 @@
         "type": "fixed",
         "items": [
           {
-            "item": "Herbalism Kit",
+            "item": "tool:herbalism-kit",
             "quantity": 1
           }
         ]
@@ -671,7 +671,7 @@
     "name": "Sailor",
     "description": "You sailed on a seagoing vessel for years. In that time, you faced down mighty storms, monsters of the deep, and those who wanted to sink your craft to the bottomless depths. Your first love is the distant line of the horizon, but the time has come to try your hand at something new.\n\nDiscuss the nature of the ship you previously sailed with your DM. Was it a merchant ship, a naval vessel, a ship of discovery, or a pirate ship? How famous (or infamous) is it? Is it widely traveled? Is it still sailing, or is it missing and presumed lost with all hands?\n\nWhat were your duties on board - boatswain, captain, navigator, cook, or some other position? Who were the captain and first mate? Did you leave your ship on good terms with your fellows, or on the run?",
     "skill_proficiencies": ["Athletics", "Perception"],
-    "tool_proficiencies": ["Navigator's Tools", "Vehicles (water)"],
+    "tool_proficiencies": ["tool:navigators-tools", "Vehicles (water)"],
     "languages": [],
     "equipment": [
       {
@@ -807,7 +807,7 @@
     "name": "Urchin",
     "description": "You grew up on the streets alone, orphaned, and poor, You had no one to watch over you or to provide for you, so you learned to provide for yourself. You fought fiercely over food and kept a constant watch out for other desperate souls who might steal from you. You slept on rooftops and in alleyways, exposed to the elements, and endured sickness without the advantage of medicine or a place to recuperate. You've survived despite all odds, and did so through cunning, strength, speed, or some combination of each.\n\nYou begin your adventuring career with enough money to live modestly but securely for at least ten days. How did you come by that money? What allowed you to break free of your desperate circumstances and embark on a better life?",
     "skill_proficiencies": ["Sleight of Hand", "Stealth"],
-    "tool_proficiencies": ["Disguise Kit", "Thieves' Tools"],
+    "tool_proficiencies": ["tool:disguise-kit", "tool:thieves-tools"],
     "languages": [],
     "equipment": [
       {
@@ -1548,7 +1548,7 @@
             "quantity": 1
           },
           {
-            "item": "Thieves' Tools",
+            "item": "tool:thieves-tools",
             "quantity": 1
           }
         ]
