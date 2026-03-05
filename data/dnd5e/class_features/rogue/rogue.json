@@ -174,17 +174,10 @@
             }
           },
           {
-            "attribute": {
-              "target": "movement.remaining",
-              "calculation": {
-                "operation": "set",
-                "operators": [
-                  {
-                    "type": "integer",
-                    "value": 0
-                  }
-                ]
-              }
+            "buff": {
+              "category": "movement",
+              "property": "base",
+              "value": 0
             },
             "duration": {
               "value": 0,

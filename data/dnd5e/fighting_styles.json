@@ -87,7 +87,7 @@
         "effects": [
           {
             "attribute": {
-              "target": "armor_class.modifier",
+              "category": "armor_class",
               "calculation": {
                 "operation": "add",
                 "operators": [

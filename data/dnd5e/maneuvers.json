@@ -663,7 +663,7 @@
                   }
                 ]
               },
-              "barrier": true
+              "barrier": { "priority": 1 }
             }
           }
         ]

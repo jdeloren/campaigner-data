@@ -174,7 +174,8 @@
         "effects": [
           {
             "attribute": {
-              "target": "movement.stand",
+              "category": "movement",
+              "property": "stand",
               "calculation": {
                 "operation": "set",
                 "operators": [
@@ -194,7 +195,8 @@
         "effects": [
           {
             "attribute": {
-              "target": "movement.climb",
+              "category": "movement",
+              "property": "climb",
               "calculation": {
                 "operation": "set",
                 "operators": [
@@ -214,7 +216,8 @@
         "effects": [
           {
             "attribute": {
-              "target": "movement.jump.running.move",
+              "category": "movement",
+              "property": "jump_approach",
               "calculation": {
                 "operation": "set",
                 "operators": [
@@ -402,7 +405,7 @@
                   }
                 ]
               },
-              "barrier": true
+              "barrier": { "priority": 1 }
             },
             "duration": {
               "value": 8,
@@ -617,7 +620,7 @@
         "effects": [
           {
             "attribute": {
-              "target": "armor_class",
+              "category": "armor_class",
               "calculation": {
                 "operation": "add",
                 "operators": [
@@ -663,7 +666,7 @@
         "effects": [
           {
             "attribute": {
-              "target": "armor_class",
+              "category": "armor_class",
               "calculation": {
                 "operation": "add",
                 "operators": [
@@ -1503,7 +1506,7 @@
                   }
                 ]
               },
-              "barrier": true
+              "barrier": { "priority": 1 }
             }
           }
         ],
@@ -1967,7 +1970,8 @@
         "effects": [
           {
             "attribute": {
-              "target": "movement.base",
+              "category": "movement",
+              "property": "base",
               "calculation": {
                 "operation": "add",
                 "operators": [
@@ -2500,7 +2504,8 @@
               "type": "event_recipient"
             },
             "attribute": {
-              "target": "movement.base",
+              "category": "movement",
+              "property": "base",
               "calculation": {
                 "operation": "set",
                 "operators": [
@@ -3108,7 +3113,8 @@
               "type": "event_recipient"
             },
             "attribute": {
-              "target": "movement.base",
+              "category": "movement",
+              "property": "base",
               "calculation": {
                 "operation": "add",
                 "operators": [
@@ -3868,7 +3874,7 @@
         "effects": [
           {
             "attribute": {
-              "target": "armor_class",
+              "category": "armor_class",
               "calculation": {
                 "operation": "set",
                 "operators": [
@@ -4700,7 +4706,8 @@
         "effects": [
           {
             "attribute": {
-              "target": "movement.base",
+              "category": "movement",
+              "property": "base",
               "calculation": {
                 "operation": "add",
                 "operators": [

@@ -101,7 +101,7 @@
         "effects": [
           {
             "attribute": {
-              "target": "armor_class",
+              "category": "armor_class",
               "calculation": {
                 "operation": "set",
                 "operators": [
@@ -357,7 +357,8 @@
         "effects": [
           {
             "attribute": {
-              "target": "movement.base",
+              "category": "movement",
+              "property": "base",
               "calculation": {
                 "operation": "add",
                 "operators": [
@@ -444,7 +445,8 @@
         "effects": [
           {
             "attribute": {
-              "target": "movement.base",
+              "category": "movement",
+              "property": "base",
               "calculation": {
                 "operation": "add",
                 "operators": [

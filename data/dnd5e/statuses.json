@@ -154,7 +154,8 @@
     "inherits": ["Exhaustion 1"],
     "attributes": [
       {
-        "target": "movement.base",
+        "category": "movement",
+        "property": "base",
         "calculation": {
           "operation": "divide",
           "operators": [
@@ -223,7 +224,8 @@
     "inherits": ["Exhaustion 4"],
     "attributes": [
       {
-        "target": "movement.base",
+        "category": "movement",
+        "property": "base",
         "calculation": {
           "operation": "set",
           "operators": [
@@ -254,7 +256,8 @@
     "is_condition": true,
     "attributes": [
       {
-        "target": "movement.base",
+        "category": "movement",
+        "property": "base",
         "calculation": {
           "operation": "set",
           "operators": [
@@ -516,7 +519,8 @@
     },
     "attributes": [
       {
-        "target": "movement.base",
+        "category": "movement",
+        "property": "base",
         "calculation": {
           "operation": "set",
           "operators": [
@@ -577,7 +581,8 @@
     },
     "attributes": [
       {
-        "target": "movement.base",
+        "category": "movement",
+        "property": "base",
         "calculation": {
           "operation": "set",
           "operators": [
@@ -761,7 +766,8 @@
     ],
     "attributes": [
       {
-        "target": "movement.base",
+        "category": "movement",
+        "property": "base",
         "calculation": {
           "operation": "set",
           "operators": [
@@ -814,7 +820,8 @@
     ],
     "attributes": [
       {
-        "target": "movement.base",
+        "category": "movement",
+        "property": "base",
         "calculation": {
           "operation": "set",
           "operators": [
@@ -894,7 +901,8 @@
     },
     "attributes": [
       {
-        "target": "movement.base",
+        "category": "movement",
+        "property": "base",
         "calculation": {
           "operation": "set",
           "operators": [

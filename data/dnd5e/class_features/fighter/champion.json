@@ -72,7 +72,8 @@
         "effects": [
           {
             "attribute": {
-              "target": "movement.jump.running",
+              "category": "movement",
+              "property": "jump_running",
               "calculation": {
                 "operation": "add",
                 "operators": [

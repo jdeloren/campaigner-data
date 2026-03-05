@@ -140,7 +140,8 @@
             "effects": [
               {
                 "attribute": {
-                  "target": "movement.base",
+                  "category": "movement",
+                  "property": "base",
                   "calculation": {
                     "operation": "add",
                     "operators": [
@@ -175,7 +176,8 @@
             "effects": [
               {
                 "attribute": {
-                  "target": "movement.jump.long",
+                  "category": "movement",
+                  "property": "jump_long",
                   "calculation": {
                     "operation": "add",
                     "operators": [
@@ -189,7 +191,8 @@
               },
               {
                 "attribute": {
-                  "target": "movement.jump.high",
+                  "category": "movement",
+                  "property": "jump_high",
                   "calculation": {
                     "operation": "add",
                     "operators": [
@@ -363,7 +366,8 @@
             "effects": [
               {
                 "attribute": {
-                  "target": "movement.travel_pace",
+                  "category": "movement",
+                  "property": "travel_pace",
                   "calculation": {
                     "operation": "multiply",
                     "operators": [
@@ -387,7 +391,8 @@
                   },
                   "grants": {
                     "attribute": {
-                      "target": "movement.travel_pace",
+                      "category": "movement",
+                      "property": "travel_pace",
                       "calculation": {
                         "operation": "multiply",
                         "operators": [

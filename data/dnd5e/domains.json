@@ -1379,7 +1379,8 @@
             "effects": [
               {
                 "attribute": {
-                  "target": "movement.fly",
+                  "category": "movement",
+                  "property": "fly",
                   "calculation": {
                     "operation": "set",
                     "operators": [

@@ -196,7 +196,8 @@
             "effects": [
               {
                 "attribute": {
-                  "target": "movement.base",
+                  "category": "movement",
+                  "property": "base",
                   "calculation": {
                     "operation": "set",
                     "operators": [

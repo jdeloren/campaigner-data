@@ -1917,7 +1917,8 @@
                 "type": ["cold"]
               },
               "attribute": {
-                "target": "movement.base",
+                "category": "movement",
+                "property": "base",
                 "calculation": {
                   "operation": "subtract",
                   "operators": [
