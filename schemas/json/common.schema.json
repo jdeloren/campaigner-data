@@ -759,13 +759,51 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "AttributeCategory": {
+      "description": "Enumerated attribute categories for structured modifications.",
+      "enum": ["armor_class", "movement"],
+      "title": "AttributeCategory",
+      "type": "string"
+    },
     "AttributeModification": {
-      "description": "A typed modification to a character attribute.\n\nExample — numeric (set critical hit threshold):\n{\"target\": \"combat.critical_hit_threshold\", \"calculation\": {\"operation\": \"set\", ...}}\n\nExample — data-driven (grant all languages):\n{\"target\": \"languages\", \"query\": {\"endpoint\": \"languages\"}}",
+      "description": "A typed modification to a character attribute.\n\nPrefer category + property for armor_class and movement modifications.\nUse target (dot-notation string) for other attributes not yet migrated to categories.\n\nExample — category-based (AC bonus):\n{\"category\": \"armor_class\", \"calculation\": {\"operation\": \"add\", ...}}\n\nExample — category-based (movement speed):\n{\"category\": \"movement\", \"property\": \"base\", \"calculation\": {\"operation\": \"add\", ...}}\n\nExample — target-based (set critical hit threshold):\n{\"target\": \"combat.critical_hit_threshold\", \"calculation\": {\"operation\": \"set\", ...}}",
       "properties": {
+        "category": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AttributeCategory"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Attribute category (armor_class, movement). Use instead of target for structured modifications."
+        },
+        "property": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/MovementProperty"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Sub-property within the category (e.g., movement type). Required for movement category."
+        },
         "target": {
-          "description": "Dot-notation path to the attribute (e.g., 'combat.critical_hit_threshold', 'movement.base')",
-          "title": "Target",
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Dot-notation path for attributes not yet migrated to categories (e.g., 'combat.critical_hit_threshold')",
+          "title": "Target"
         },
         "calculation": {
           "anyOf": [
@@ -796,7 +834,6 @@
           "description": "Conditions that must be met for this modification to apply"
         }
       },
-      "required": ["target"],
       "title": "AttributeModification",
       "additionalProperties": false,
       "type": "object"
@@ -1392,6 +1429,33 @@
       "title": "BaseMechanic",
       "type": "object"
     },
+    "Barrier": {
+      "description": "Barrier (temporary HP) configuration.\n\nExample — Arcane Ward (absorbed first):\n{\"name\": \"arcane_ward\", \"priority\": 0}\n\nExample — standard temp HP spell:\n{\"priority\": 1}",
+      "properties": {
+        "name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Identifier for the barrier source (e.g., 'arcane_ward'). Used for display grouping and color mapping.",
+          "title": "Name"
+        },
+        "priority": {
+          "default": 1,
+          "description": "Absorption order — lower values absorb damage first. Arcane Ward uses 0, standard temp HP defaults to 1.",
+          "title": "Priority",
+          "type": "integer"
+        }
+      },
+      "title": "Barrier",
+      "additionalProperties": false,
+      "type": "object"
+    },
     "BlockedBy": {
       "description": "What blocks an effect or detection from reaching its target.\n\nExample — Radiance of the Dawn (blocked by total cover):\n{\"cover\": \"total\"}\n\nExample — Detect Magic (blocked by material barriers):\n{\"barriers\": [\"1 foot of stone\", \"1 inch of common metal\", \"a thin sheet of lead\"]}",
       "properties": {
@@ -1450,9 +1514,37 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "ArmorClassBuff": {
+      "description": "Temporary armor class modification. Use base for AC replacement (e.g., Mage Armor sets base to 13), bonus for additive modifier (e.g., Bladesong adds Intelligence modifier).",
+      "properties": {
+        "category": {
+          "const": "armor_class",
+          "default": "armor_class",
+          "title": "Category",
+          "type": "string"
+        },
+        "base": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Replacement base AC value (e.g., 13 for Mage Armor). Application applies DEX modifier as normal."
+        },
+        "bonus": {
+          "anyOf": [{ "$ref": "#/$defs/Calculation" }, { "type": "null" }],
+          "default": null,
+          "description": "Additive AC bonus calculation (e.g., Intelligence modifier for Bladesong)"
+        }
+      },
+      "required": ["category"],
+      "title": "ArmorClassBuff",
+      "additionalProperties": false,
+      "type": "object"
+    },
     "Buff": {
       "description": "Temporary non-attribute capability granted to a character. Pair with duration on Effect for time-limited buffs.",
       "oneOf": [
+        { "$ref": "#/$defs/ArmorClassBuff" },
+        { "$ref": "#/$defs/MovementBuff" },
+        { "$ref": "#/$defs/SavingThrowBuff" },
         { "$ref": "#/$defs/ProficiencyBuff" },
         { "$ref": "#/$defs/LanguageBuff" },
         { "$ref": "#/$defs/SpellBuff" },
@@ -1463,6 +1555,9 @@
       "discriminator": {
         "propertyName": "category",
         "mapping": {
+          "armor_class": "#/$defs/ArmorClassBuff",
+          "movement": "#/$defs/MovementBuff",
+          "saving_throw": "#/$defs/SavingThrowBuff",
           "proficiency": "#/$defs/ProficiencyBuff",
           "language": "#/$defs/LanguageBuff",
           "spell": "#/$defs/SpellBuff",
@@ -1661,6 +1756,7 @@
                 "boolean": "#/$defs/BooleanOperand",
                 "calculation": "#/$defs/Calculation",
                 "class_level": "#/$defs/ClassLevelOperand",
+                "cost": "#/$defs/CostOperand",
                 "dice": "#/$defs/DiceOperand",
                 "function": "#/$defs/FunctionOperand",
                 "integer": "#/$defs/IntegerOperand",
@@ -1705,6 +1801,9 @@
               },
               {
                 "$ref": "#/$defs/ClassLevelOperand"
+              },
+              {
+                "$ref": "#/$defs/CostOperand"
               },
               {
                 "$ref": "#/$defs/SpellLevelCastOperand"
@@ -2133,7 +2232,8 @@
         "ability_score",
         "tool",
         "trait",
-        "damage_type"
+        "damage_type",
+        "character_resource"
       ],
       "title": "ChoiceType",
       "type": "string"
@@ -2155,6 +2255,26 @@
       },
       "required": ["class"],
       "title": "ClassLevelOperand",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "CostOperand": {
+      "description": "References the value of a cost on this mechanic by resource name. For spell slots, resolves to the level of the slot spent.",
+      "properties": {
+        "type": {
+          "const": "cost",
+          "default": "cost",
+          "title": "Type",
+          "type": "string"
+        },
+        "resource": {
+          "description": "Resource name from the mechanic's cost array (e.g., 'spell_slot', 'GP')",
+          "title": "Resource",
+          "type": "string"
+        }
+      },
+      "required": ["resource"],
+      "title": "CostOperand",
       "additionalProperties": false,
       "type": "object"
     },
@@ -5066,10 +5186,17 @@
           "description": "Complex healing calculation (e.g., 5 × cleric level)"
         },
         "barrier": {
-          "default": false,
-          "description": "Grants temporary HP instead of actual healing",
-          "title": "Barrier",
-          "type": "boolean"
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Barrier"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Barrier (temporary HP) configuration. Null means actual healing, not a barrier.",
+          "title": "Barrier"
         },
         "distribution": {
           "anyOf": [
@@ -5533,6 +5660,41 @@
         }
       },
       "title": "Movement",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "MovementProperty": {
+      "description": "Sub-properties for movement attribute modifications.",
+      "enum": ["base", "climb", "falling", "fly", "jump_approach", "jump_high", "jump_long", "jump_running", "stand", "travel_pace"],
+      "title": "MovementProperty",
+      "type": "string"
+    },
+    "MovementBuff": {
+      "description": "Temporary movement modification. Use value for flat override (e.g., movement set to 0 for Cunning Action cost), bonus for additive modifier.",
+      "properties": {
+        "category": {
+          "const": "movement",
+          "default": "movement",
+          "title": "Category",
+          "type": "string"
+        },
+        "property": {
+          "$ref": "#/$defs/MovementProperty",
+          "description": "Which movement property to modify (e.g., base, climb, fly)"
+        },
+        "value": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Flat value override for the movement property"
+        },
+        "bonus": {
+          "anyOf": [{ "$ref": "#/$defs/Calculation" }, { "type": "null" }],
+          "default": null,
+          "description": "Additive movement bonus calculation"
+        }
+      },
+      "required": ["category", "property"],
+      "title": "MovementBuff",
       "additionalProperties": false,
       "type": "object"
     },
@@ -6008,6 +6170,12 @@
                   },
                   {
                     "type": "boolean"
+                  },
+                  {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
                   }
                 ]
               },
@@ -6202,6 +6370,18 @@
           "description": "Numeric cost",
           "title": "Amount",
           "type": "number"
+        },
+        "choice_type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ChoiceType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "When set, the player must choose which specific resource to spend (e.g., which spell slot level). The choice type determines which service provides the available options."
         },
         "resource": {
           "description": "Resource pool to spend from",
@@ -6830,6 +7010,30 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "SavingThrowBuff": {
+      "description": "Temporary saving throw bonus. Use saving_throw to specify which save (ability name or 'concentration').",
+      "properties": {
+        "category": {
+          "const": "saving_throw",
+          "default": "saving_throw",
+          "title": "Category",
+          "type": "string"
+        },
+        "saving_throw": {
+          "$ref": "#/$defs/Ability",
+          "description": "Which ability's saving throw to modify"
+        },
+        "bonus": {
+          "anyOf": [{ "$ref": "#/$defs/Calculation" }, { "type": "null" }],
+          "default": null,
+          "description": "Additive saving throw bonus calculation"
+        }
+      },
+      "required": ["category", "saving_throw"],
+      "title": "SavingThrowBuff",
+      "additionalProperties": false,
+      "type": "object"
+    },
     "Scaling": {
       "description": "How a mechanic scales with level.",
       "properties": {
@@ -6948,6 +7152,12 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "School": {
+      "description": "Schools of magic.",
+      "enum": ["Abjuration", "Conjuration", "Divination", "Enchantment", "Evocation", "Illusion", "Necromancy", "Transmutation"],
+      "title": "School",
+      "type": "string"
+    },
     "SizeRequirement": {
       "description": "Requirement based on creature size. Use 'value' for an explicit list of allowed sizes, or 'ref' for a relative size reference (e.g., 'one_larger'). Exactly one of 'value' or 'ref' must be provided.",
       "properties": {
@@ -7051,7 +7261,7 @@
         "schools": {
           "anyOf": [
             {
-              "items": { "type": "string" },
+              "items": { "$ref": "#/$defs/School" },
               "type": "array"
             },
             { "type": "null" }
@@ -8271,6 +8481,18 @@
           "default": null,
           "description": "Minimum spell level at casting (0 for cantrips). Triggers on spells cast at this level or higher.",
           "title": "Level"
+        },
+        "school": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/School"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "School of magic the spell belongs to (e.g., 'Abjuration', 'Evocation')"
         },
         "class": {
           "anyOf": [

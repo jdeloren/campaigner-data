@@ -1899,5 +1899,284 @@
     },
     "source": "phb",
     "ruleset": "dnd5e"
+  },
+  {
+    "id": "class:wizard",
+    "name": "Wizard",
+    "description": "Wizards are supreme magic-users, defined and united as a class by the spells they cast. Drawing on the subtle weave of magic that permeates the cosmos, wizards cast spells of explosive fire, arcing lightning, subtle deception, brute-force mind control, and much more.",
+    "subclass_label": "School",
+    "hit_die": 6,
+    "primary_ability": ["Intelligence"],
+    "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
+    "proficiencies": {
+      "armor": [],
+      "weapons": ["Dagger", "Dart", "Sling", "Quarterstaff", "Light Crossbow"],
+      "tools": [],
+      "skills": {
+        "choose": 2,
+        "from": ["Arcana", "History", "Insight", "Investigation", "Medicine", "Religion"]
+      }
+    },
+    "starting_equipment": [
+      {
+        "choice_group": 1,
+        "type": "choice",
+        "options": [
+          {
+            "item": "Quarterstaff",
+            "quantity": 1
+          },
+          {
+            "item": "Dagger",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "choice_group": 2,
+        "type": "choice",
+        "options": [
+          {
+            "item": "Component Pouch",
+            "quantity": 1
+          },
+          {
+            "item": "arcane focus",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "choice_group": 3,
+        "type": "choice",
+        "options": [
+          {
+            "item": "Scholar's Pack",
+            "quantity": 1
+          },
+          {
+            "item": "Explorer's Pack",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "choice_group": 4,
+        "type": "fixed",
+        "items": [
+          {
+            "item": "Spellbook",
+            "quantity": 1
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "multiclassing": [
+      {
+        "type": "attribute",
+        "attribute": "Intelligence",
+        "minimum": 13
+      }
+    ],
+    "spellcasting": {
+      "ability": "Intelligence",
+      "type": "prepared",
+      "ritual_casting": true,
+      "spellbook": true,
+      "cantrips_known": {
+        "1": {
+          "choices": [
+            {
+              "count": 3,
+              "criteria": {
+                "spell_list": "Wizard"
+              }
+            }
+          ]
+        },
+        "4": {
+          "choices": [
+            {
+              "count": 4,
+              "criteria": {
+                "spell_list": "Wizard"
+              }
+            }
+          ]
+        },
+        "10": {
+          "choices": [
+            {
+              "count": 5,
+              "criteria": {
+                "spell_list": "Wizard"
+              }
+            }
+          ]
+        },
+        "17": {
+          "choices": [
+            {
+              "count": 6,
+              "criteria": {
+                "spell_list": "Wizard"
+              }
+            }
+          ]
+        }
+      },
+      "spell_slots": {
+        "1": {
+          "1st": 2
+        },
+        "2": {
+          "1st": 3
+        },
+        "3": {
+          "1st": 4,
+          "2nd": 2
+        },
+        "4": {
+          "1st": 4,
+          "2nd": 3
+        },
+        "5": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 2
+        },
+        "6": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3
+        },
+        "7": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 1
+        },
+        "8": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 2
+        },
+        "9": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 1
+        },
+        "10": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2
+        },
+        "11": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1
+        },
+        "12": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1
+        },
+        "13": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1,
+          "7th": 1
+        },
+        "14": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1,
+          "7th": 1
+        },
+        "15": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1,
+          "7th": 1,
+          "8th": 1
+        },
+        "16": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1,
+          "7th": 1,
+          "8th": 1
+        },
+        "17": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1,
+          "7th": 1,
+          "8th": 1,
+          "9th": 1
+        },
+        "18": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 3,
+          "6th": 1,
+          "7th": 1,
+          "8th": 1,
+          "9th": 1
+        },
+        "19": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 3,
+          "6th": 2,
+          "7th": 1,
+          "8th": 1,
+          "9th": 1
+        },
+        "20": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 3,
+          "6th": 2,
+          "7th": 2,
+          "8th": 1,
+          "9th": 1
+        }
+      }
+    }
   }
 ]
