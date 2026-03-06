@@ -82,7 +82,8 @@
                     "type": "ability_modifier",
                     "ability": "Intelligence"
                   }
-                ]
+                ],
+                "minimum": 1
               }
             }
           },
@@ -117,7 +118,8 @@
                     "type": "ability_modifier",
                     "ability": "Intelligence"
                   }
-                ]
+                ],
+                "minimum": 1
               }
             },
             "trigger": {
@@ -148,12 +150,13 @@
               }
             }
           }
+        },
+        "grants": {
+          "name": "Cast Spell",
+          "action": "cast_spell",
+          "type": "cantrip",
+          "count": 1
         }
-      },
-      {
-        "type": "special",
-        "name": "cantrip_attack_substitution",
-        "description": "You can cast one of your cantrips in place of one of your attacks."
       }
     ],
     "source": "tce",
