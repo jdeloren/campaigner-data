@@ -6760,7 +6760,7 @@
       "type": "object"
     },
     "RollModifier": {
-      "description": "Modifies how dice rolls are resolved.\n\nUsed for effects like \"maximize healing dice\", \"reroll 1s\", or \"add/subtract dice from roll\".\nSpecify either `function`, `reroll`, or `operation`+`value`.",
+      "description": "Modifies how dice rolls are resolved.\n\nUsed for effects like \"maximize healing dice\", \"reroll 1s\", \"add/subtract dice from roll\",\nor forcing a roll outcome (auto_succeed/auto_fail).\nSpecify `function`, `reroll`, `operation`+`value`, or `result`.",
       "properties": {
         "type": {
           "anyOf": [
@@ -6840,6 +6840,20 @@
           "default": null,
           "description": "Floor value for the roll result (e.g., 10 for Reliable Talent)",
           "title": "Minimum"
+        },
+        "result": {
+          "anyOf": [
+            {
+              "enum": ["auto_succeed", "auto_fail"],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Force the roll outcome (e.g., auto_succeed for concentration immunity)",
+          "title": "Result"
         }
       },
       "additionalProperties": false,
@@ -8407,7 +8421,8 @@
         "equip",
         "unequip",
         "level_up",
-        "action"
+        "action",
+        "summon_creature"
       ],
       "title": "TriggerEvent",
       "type": "string"
