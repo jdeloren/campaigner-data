@@ -1555,7 +1555,6 @@
         { "$ref": "#/$defs/MovementBuff" },
         { "$ref": "#/$defs/SavingThrowBuff" },
         { "$ref": "#/$defs/ProficiencyBuff" },
-        { "$ref": "#/$defs/LanguageBuff" },
         { "$ref": "#/$defs/SpellBuff" },
         { "$ref": "#/$defs/SpellSlotBuff" },
         { "$ref": "#/$defs/ResourceBuff" },
@@ -1568,7 +1567,6 @@
           "movement": "#/$defs/MovementBuff",
           "saving_throw": "#/$defs/SavingThrowBuff",
           "proficiency": "#/$defs/ProficiencyBuff",
-          "language": "#/$defs/LanguageBuff",
           "spell": "#/$defs/SpellBuff",
           "spell_slot": "#/$defs/SpellSlotBuff",
           "resource": "#/$defs/ResourceBuff",
@@ -1577,13 +1575,21 @@
       }
     },
     "ProficiencyBuff": {
-      "description": "Temporary proficiency in a skill, tool, weapon, armor, or saving throw.",
+      "description": "Temporary proficiency in a skill, tool, weapon, armor, saving throw, or language.",
       "properties": {
         "category": {
           "const": "proficiency",
           "default": "proficiency",
           "title": "Category",
           "type": "string"
+        },
+        "subcategory": {
+          "anyOf": [
+            { "enum": ["skill", "tool", "weapon", "armor", "saving_throw", "language"], "type": "string" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Proficiency type. Null when value is 'choice' and engine infers at resolution."
         },
         "value": {
           "anyOf": [{ "items": { "type": "string" }, "type": "array" }, { "type": "null" }],
@@ -1604,27 +1610,6 @@
       },
       "required": ["category"],
       "title": "ProficiencyBuff",
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "LanguageBuff": {
-      "description": "Temporary knowledge of one or more languages.",
-      "properties": {
-        "category": {
-          "const": "language",
-          "default": "language",
-          "title": "Category",
-          "type": "string"
-        },
-        "value": {
-          "items": { "type": "string" },
-          "type": "array",
-          "description": "Language name(s)",
-          "title": "Value"
-        }
-      },
-      "required": ["category", "value"],
-      "title": "LanguageBuff",
       "additionalProperties": false,
       "type": "object"
     },

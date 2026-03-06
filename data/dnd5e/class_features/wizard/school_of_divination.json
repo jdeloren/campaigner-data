@@ -184,8 +184,8 @@
                   "effect": {
                     "buff": {
                       "category": "proficiency",
-                      "property": "language",
-                      "value": "all"
+                      "subcategory": "language",
+                      "value": ["all"]
                     }
                   }
                 },
