@@ -339,7 +339,7 @@
         "effects": [
           {
             "roll_modifier": {
-              "minimum": 10
+              "bounds": { "minimum": 10 }
             }
           }
         ]

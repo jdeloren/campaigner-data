@@ -45,7 +45,7 @@
         "name": "bladesong",
         "uses": {
           "calculation": "proficiency_bonus",
-          "minimum": 1
+          "bounds": { "minimum": 1 }
         },
         "recharge": "long_rest",
         "duration": {
@@ -83,7 +83,7 @@
                     "ability": "Intelligence"
                   }
                 ],
-                "minimum": 1
+                "bounds": { "minimum": 1 }
               }
             }
           },
@@ -119,7 +119,7 @@
                     "ability": "Intelligence"
                   }
                 ],
-                "minimum": 1
+                "bounds": { "minimum": 1 }
               }
             },
             "trigger": {

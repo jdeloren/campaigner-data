@@ -303,31 +303,13 @@
           "description": "Ability score (for ability_score requirements)",
           "title": "Ability"
         },
-        "minimum": {
+        "range": {
           "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
+            { "$ref": "common.schema.json#/$defs/IntegerRange" },
+            { "type": "null" }
           ],
           "default": null,
-          "description": "Minimum value required",
-          "title": "Minimum"
-        },
-        "target": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Target of the requirement",
-          "title": "Target"
+          "description": "Value range"
         },
         "description": {
           "anyOf": [

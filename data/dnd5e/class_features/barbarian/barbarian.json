@@ -523,7 +523,7 @@
           },
           {
             "type": "attribute",
-            "attribute": "hit_points.current",
+            "ref": "hit_points.current",
             "comparison": "equals",
             "value": 0
           },

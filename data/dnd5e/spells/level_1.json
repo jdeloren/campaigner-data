@@ -148,7 +148,7 @@
             {
               "type": "attribute",
               "attribute": "Intelligence",
-              "maximum": 3
+              "range": { "maximum": 3 }
             }
           ]
         },
@@ -629,8 +629,8 @@
           "requirements": [
             {
               "type": "attribute",
-              "attribute": "weight",
-              "maximum": 5
+              "ref": "weight",
+              "range": { "maximum": 5 }
             }
           ]
         },
@@ -4226,7 +4226,7 @@
             {
               "type": "attribute",
               "attribute": "Intelligence",
-              "maximum": 3
+              "range": { "maximum": 3 }
             }
           ]
         },

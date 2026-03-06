@@ -13,7 +13,7 @@
         "count": {
           "type": "ability_modifier",
           "ability": "Charisma",
-          "minimum": 1
+          "bounds": { "minimum": 1 }
         },
         "recharge": "long_rest"
       },

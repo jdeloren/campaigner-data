@@ -188,7 +188,7 @@
             "trigger": {
               "event": ["cast_spell"],
               "spell": {
-                "level": 0,
+                "level": { "minimum": 0, "maximum": 0 },
                 "class": "class:cleric"
               }
             },
@@ -294,7 +294,7 @@
             "requirements": [
               {
                 "type": "spell",
-                "minimum": 1
+                "level": { "minimum": 1 }
               }
             ],
             "effects": [
@@ -354,7 +354,7 @@
                     },
                     {
                       "type": "attribute",
-                      "attribute": "hit_points.current",
+                      "ref": "hit_points.current",
                       "comparison": "less_than",
                       "calculation": {
                         "operation": "divide",
@@ -423,7 +423,7 @@
             "requirements": [
               {
                 "type": "spell",
-                "minimum": 1
+                "level": { "minimum": 1 }
               }
             ],
             "effects": [
@@ -608,7 +608,7 @@
             ],
             "uses": {
               "calculation": "scores.wisdom.modifier",
-              "minimum": 1
+              "bounds": { "minimum": 1 }
             },
             "recharge": "long_rest"
           }
@@ -766,7 +766,7 @@
             "trigger": {
               "event": ["cast_spell"],
               "spell": {
-                "level": 0,
+                "level": { "minimum": 0, "maximum": 0 },
                 "class": "class:cleric"
               }
             },
@@ -1250,7 +1250,7 @@
             ],
             "uses": {
               "calculation": "scores.wisdom.modifier",
-              "minimum": 1
+              "bounds": { "minimum": 1 }
             },
             "recharge": "long_rest"
           }
@@ -1723,7 +1723,7 @@
             ],
             "uses": {
               "calculation": "scores.wisdom.modifier",
-              "minimum": 1
+              "bounds": { "minimum": 1 }
             },
             "recharge": "long_rest"
           }

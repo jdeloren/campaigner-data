@@ -597,7 +597,7 @@
       {
         "type": "attribute",
         "attribute": "Dexterity",
-        "minimum": 13
+        "range": { "minimum": 13 }
       }
     ],
     "mechanics": [
@@ -805,7 +805,7 @@
         "effects": [
           {
             "roll_modifier": {
-              "minimum": 2
+              "bounds": { "minimum": 2 }
             },
             "calculation": {
               "operation": "multiply",
@@ -834,8 +834,8 @@
     "requirements": [
       {
         "type": "attribute",
-        "attribute": "spell_slots",
-        "minimum": 1
+        "ref": "spell_slots",
+        "range": { "minimum": 1 }
       }
     ],
     "mechanics": [
@@ -863,8 +863,8 @@
     "requirements": [
       {
         "type": "attribute",
-        "attribute": "spell_slots",
-        "minimum": 1
+        "ref": "spell_slots",
+        "range": { "minimum": 1 }
       }
     ],
     "repeatable": true,
@@ -919,7 +919,7 @@
         "effects": [
           {
             "roll_modifier": {
-              "minimum": 2
+              "bounds": { "minimum": 2 }
             }
           }
         ]
@@ -1037,7 +1037,7 @@
       {
         "type": "attribute",
         "attribute": "Strength",
-        "minimum": 13
+        "range": { "minimum": 13 }
       }
     ],
     "bonuses": [
@@ -1134,7 +1134,7 @@
         "requirements": [
           {
             "type": "attribute",
-            "attribute": "hit_points.current",
+            "ref": "hit_points.current",
             "comparison": "at_least",
             "calculation": {
               "operation": "subtract",
@@ -1473,7 +1473,7 @@
       {
         "type": "attribute",
         "attribute": "Charisma",
-        "minimum": 13
+        "range": { "minimum": 13 }
       }
     ],
     "mechanics": [
@@ -1926,8 +1926,8 @@
     "requirements": [
       {
         "type": "attribute",
-        "attribute": "spell_slots",
-        "minimum": 1
+        "ref": "spell_slots",
+        "range": { "minimum": 1 }
       }
     ],
     "bonuses": [
@@ -2402,12 +2402,12 @@
           {
             "type": "attribute",
             "attribute": "Intelligence",
-            "minimum": 13
+            "range": { "minimum": 13 }
           },
           {
             "type": "attribute",
             "attribute": "Wisdom",
-            "minimum": 13
+            "range": { "minimum": 13 }
           }
         ]
       }
@@ -3033,7 +3033,7 @@
       {
         "type": "attribute",
         "attribute": "Dexterity",
-        "minimum": 13
+        "range": { "minimum": 13 }
       }
     ],
     "bonuses": [
@@ -3974,7 +3974,7 @@
                     "ability": "Constitution"
                   }
                 ],
-                "minimum": 0
+                "bounds": { "minimum": 0 }
               }
             }
           }

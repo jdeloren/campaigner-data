@@ -159,13 +159,13 @@
         "requirements": [
           {
             "type": "attribute",
-            "attribute": "hit_points.current",
+            "ref": "hit_points.current",
             "comparison": "greater_than",
             "value": 0
           },
           {
             "type": "attribute",
-            "attribute": "hit_points.current",
+            "ref": "hit_points.current",
             "comparison": "at_most",
             "calculation": {
               "operation": "divide",

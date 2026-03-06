@@ -1,0 +1,219 @@
+[
+  {
+    "id": "feat:evocation-savant",
+    "class": "subclass:school-of-evocation",
+    "level": 2,
+    "name": "Evocation Savant",
+    "description": "Beginning when you select this school at 2nd level, the gold and time you must spend to copy an evocation spell into your spellbook is halved.",
+    "mechanics": [
+      {
+        "type": "special",
+        "name": "evocation_savant",
+        "description": "The gold and time to copy evocation spells into your spellbook is halved."
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:sculpt-spells",
+    "class": "subclass:school-of-evocation",
+    "level": 2,
+    "name": "Sculpt Spells",
+    "description": "Beginning at 2nd level, you can create pockets of relative safety within the effects of your evocation spells. When you cast an evocation spell that affects other creatures that you can see, you can choose a number of them equal to 1 + the spell's level. The chosen creatures automatically succeed on their saving throws against the spell, and they take no damage if they would normally take half damage on a successful save.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "sculpt_spells",
+        "trigger": {
+          "event": ["cast_spell"],
+          "spell": {
+            "school": "Evocation"
+          }
+        },
+        "description": "Choose a number of creatures equal to 1 + the spell's level. They automatically succeed on saves and take no damage on success.",
+        "effects": [
+          {
+            "target": {
+              "type": "creature",
+              "disposition": "friendly",
+              "choice": true,
+              "requirements": [
+                {
+                  "type": "perception",
+                  "observer": "character",
+                  "subject": "target",
+                  "senses": ["sight"]
+                }
+              ]
+            },
+            "calculation": {
+              "operation": "add",
+              "operators": [
+                { "type": "spell_level_cast" },
+                { "type": "integer", "value": 1 }
+              ]
+            },
+            "roll_modifier": {
+              "type": "saving_throw",
+              "result": "auto_succeed"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:potent-cantrip",
+    "class": "subclass:school-of-evocation",
+    "level": 6,
+    "name": "Potent Cantrip",
+    "description": "Starting at 6th level, your damaging cantrips affect even creatures that avoid the brunt of the effect. When a creature succeeds on a saving throw against your cantrip, the creature takes half the cantrip's damage (if any) but suffers no additional effect from the cantrip.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "potent_cantrip",
+        "description": "Creatures that succeed on saving throws against your cantrips take half damage.",
+        "trigger": {
+          "event": ["cast_spell"],
+          "spell": {
+            "level": { "minimum": 0, "maximum": 0 }
+          }
+        },
+        "effects": [
+          {
+            "on_success": {
+              "damage": {
+                "calculation": {
+                  "operation": "divide",
+                  "operators": [
+                    {
+                      "type": "integer",
+                      "value": 2
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:empowered-evocation",
+    "class": "subclass:school-of-evocation",
+    "level": 10,
+    "name": "Empowered Evocation",
+    "description": "Beginning at 10th level, you can add your Intelligence modifier to one damage roll of any wizard evocation spell you cast.",
+    "mechanics": [
+      {
+        "type": "damage_bonus",
+        "trigger": {
+          "event": ["damage"],
+          "spell": {
+            "school": "Evocation"
+          }
+        },
+        "effects": [
+          {
+            "damage_bonus": {
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "ability_modifier",
+                    "ability": "Intelligence"
+                  }
+                ]
+              },
+              "inherit_type": true
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:overchannel",
+    "class": "subclass:school-of-evocation",
+    "level": 14,
+    "name": "Overchannel",
+    "description": "Starting at 14th level, you can increase the power of your simpler spells. When you cast a wizard spell of 1st through 5th level that deals damage, you can deal maximum damage with that spell.\n\nThe first time you do so, you suffer no adverse effect. If you use this feature again before you finish a long rest, you take 2d12 necrotic damage for each level of the spell, immediately after you cast it. Each time you use this feature again before finishing a long rest, the necrotic damage per spell level increases by 1d12.",
+    "mechanics": [
+      {
+        "type": "optional",
+        "name": "overchannel",
+        "trigger": {
+          "event": ["cast_spell"],
+          "spell": {
+            "level": { "minimum": 1, "maximum": 5 }
+          }
+        },
+        "uses": {
+          "value": 1
+        },
+        "recharge": "long_rest",
+        "effects": [
+          {
+            "roll_modifier": {
+              "function": "roller.max_roll"
+            }
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "name": "overchannel_backlash",
+        "description": "Using Overchannel beyond the first use before a long rest deals 2d12 necrotic damage per spell level, increasing by 1d12 per additional use.",
+        "trigger": {
+          "event": ["cast_spell"]
+        },
+        "target": {
+          "type": "self"
+        },
+        "scaling": {
+          "components": {
+            "backlash": {
+              "by_level": {
+                "2": "2d12",
+                "3": "3d12",
+                "4": "4d12",
+                "5": "5d12",
+                "6": "6d12",
+                "7": "7d12",
+                "8": "8d12",
+                "9": "9d12",
+                "10": "10d12"
+              }
+            }
+          }
+        },
+        "effects": [
+          {
+            "damage": {
+              "dice": "scaling.backlash",
+              "type": ["necrotic"],
+              "calculation": {
+                "operation": "multiply",
+                "operators": [
+                  {
+                    "type": "spell_level_cast"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

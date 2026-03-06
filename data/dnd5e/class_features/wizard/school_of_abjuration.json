@@ -30,7 +30,7 @@
           "event": ["cast_spell"],
           "spell": {
             "school": "Abjuration",
-            "level": 1
+            "level": { "minimum": 1 }
           }
         },
         "effects": [
@@ -73,7 +73,7 @@
           "event": ["cast_spell"],
           "spell": {
             "school": "Abjuration",
-            "level": 1
+            "level": { "minimum": 1 }
           }
         },
         "effects": [

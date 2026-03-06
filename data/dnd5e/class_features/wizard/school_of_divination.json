@@ -107,7 +107,7 @@
           "event": ["cast_spell"],
           "spell": {
             "school": "Divination",
-            "level": 2
+            "level": { "minimum": 2 }
           }
         },
         "effects": [
@@ -115,19 +115,12 @@
             "recover": {
               "target": "spell_slot",
               "count": 1,
-              "maximum": 5
-            },
-            "requirements": [
-              {
-                "type": "attribute",
-                "attribute": "slot_level",
+              "bounds": { "maximum": 5 },
+              "constraint": {
                 "comparison": "less_than",
-                "calculation": {
-                  "operation": "set",
-                  "operators": [{ "type": "spell_level_cast" }]
-                }
+                "ref": "spell_level_cast"
               }
-            ]
+            }
           }
         ]
       }

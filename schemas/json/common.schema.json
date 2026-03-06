@@ -868,21 +868,31 @@
           "type": "string"
         },
         "attribute": {
-          "description": "The attribute to check (e.g., 'Strength', 'hit_points.current', 'spell_slots')",
-          "title": "Attribute",
-          "type": "string"
-        },
-        "minimum": {
-          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "anyOf": [
+            { "$ref": "#/$defs/Ability" },
+            { "type": "string" },
+            { "type": "null" }
+          ],
           "default": null,
-          "description": "Minimum score required (shorthand for comparison: at_least)",
-          "title": "Minimum"
+          "description": "Ability score or attribute to check",
+          "title": "Attribute"
         },
-        "maximum": {
-          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+        "ref": {
+          "anyOf": [
+            { "type": "string" },
+            { "type": "null" }
+          ],
           "default": null,
-          "description": "Maximum score allowed (shorthand for comparison: at_most)",
-          "title": "Maximum"
+          "description": "Character state reference (e.g., 'spell_slots')",
+          "title": "Ref"
+        },
+        "range": {
+          "anyOf": [
+            { "$ref": "#/$defs/IntegerRange" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Numeric range constraint (minimum/maximum)"
         },
         "comparison": {
           "anyOf": [
@@ -908,7 +918,6 @@
           "description": "Calculated value to compare against"
         }
       },
-      "required": ["attribute"],
       "title": "AttributeRequirement",
       "additionalProperties": false,
       "type": "object"
@@ -1833,18 +1842,13 @@
           "description": "Rounding direction for divide",
           "title": "Rounding"
         },
-        "minimum": {
+        "bounds": {
           "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
+            { "$ref": "#/$defs/IntegerRange" },
+            { "type": "null" }
           ],
           "default": null,
-          "description": "Floor for the calculation result",
-          "title": "Minimum"
+          "description": "Floor/ceiling for the calculation result"
         }
       },
       "required": ["operation", "operators"],
@@ -2302,6 +2306,39 @@
       },
       "required": ["value"],
       "title": "CombatStateRequirement",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "CategoryRequirement": {
+      "description": "Requirement based on a categorized character property.",
+      "properties": {
+        "type": {
+          "const": "category",
+          "default": "category",
+          "title": "Type",
+          "type": "string"
+        },
+        "category": {
+          "description": "Property category (e.g., 'movement', 'armor_class')",
+          "title": "Category",
+          "type": "string"
+        },
+        "property": {
+          "description": "Property name within the category (e.g., 'speed', 'base')",
+          "title": "Property",
+          "type": "string"
+        },
+        "range": {
+          "anyOf": [
+            { "$ref": "#/$defs/IntegerRange" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Value range"
+        }
+      },
+      "required": ["category", "property"],
+      "title": "CategoryRequirement",
       "additionalProperties": false,
       "type": "object"
     },
@@ -5329,6 +5366,26 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "IntegerRange": {
+      "description": "Inclusive integer range with optional bounds.",
+      "properties": {
+        "minimum": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Minimum value (inclusive)",
+          "title": "Minimum"
+        },
+        "maximum": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Maximum value (inclusive)",
+          "title": "Maximum"
+        }
+      },
+      "title": "IntegerRange",
+      "additionalProperties": false,
+      "type": "object"
+    },
     "InventoryItemRequirement": {
       "description": "Requirement for having a specific item in inventory.",
       "properties": {
@@ -5381,31 +5438,13 @@
           "title": "Type",
           "type": "string"
         },
-        "minimum": {
+        "level": {
           "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
+            { "$ref": "#/$defs/IntegerRange" },
+            { "type": "null" }
           ],
           "default": null,
-          "description": "Minimum character level",
-          "title": "Minimum"
-        },
-        "maximum": {
-          "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Maximum character level",
-          "title": "Maximum"
+          "description": "Character level range constraint"
         }
       },
       "title": "LevelRequirement",
@@ -6013,6 +6052,7 @@
           "attack": "#/$defs/AttackRequirement",
           "attack_result": "#/$defs/AttackResultRequirement",
           "attribute": "#/$defs/AttributeRequirement",
+          "category": "#/$defs/CategoryRequirement",
           "combat_state": "#/$defs/CombatStateRequirement",
           "count": "#/$defs/CountRequirement",
           "creature_type": "#/$defs/CreatureTypeRequirement",
@@ -6041,6 +6081,7 @@
         { "$ref": "#/$defs/AbilityCheckRequirement" },
         { "$ref": "#/$defs/AreaRequirement" },
         { "$ref": "#/$defs/AttributeRequirement" },
+        { "$ref": "#/$defs/CategoryRequirement" },
         { "$ref": "#/$defs/AttackRequirement" },
         { "$ref": "#/$defs/AttackResultRequirement" },
         { "$ref": "#/$defs/CombatStateRequirement" },
@@ -6258,22 +6299,44 @@
           "description": "What determines the cost of each recovery choice (e.g., 'slot_level')",
           "title": "Cost"
         },
-        "maximum": {
+        "bounds": {
           "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
+            { "$ref": "#/$defs/IntegerRange" },
+            { "type": "null" }
           ],
           "default": null,
-          "description": "Hard cap on the level of recoverable resources",
-          "title": "Maximum"
+          "description": "Bounds on recoverable resource levels"
+        },
+        "constraint": {
+          "anyOf": [
+            { "$ref": "#/$defs/RecoverConstraint" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Relative constraint on the recovered resource"
         }
       },
       "required": ["target"],
       "title": "Recover",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "RecoverConstraint": {
+      "description": "Relative constraint on the recovered resource.",
+      "properties": {
+        "comparison": {
+          "description": "Comparison operator (e.g., 'less_than')",
+          "title": "Comparison",
+          "type": "string"
+        },
+        "ref": {
+          "description": "Context value to compare against (e.g., 'spell_level_cast')",
+          "title": "Ref",
+          "type": "string"
+        }
+      },
+      "required": ["comparison", "ref"],
+      "title": "RecoverConstraint",
       "additionalProperties": false,
       "type": "object"
     },
@@ -6461,18 +6524,13 @@
           "description": "Ability score for ability_modifier type (e.g., 'Charisma', 'Wisdom')",
           "title": "Ability"
         },
-        "minimum": {
+        "bounds": {
           "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
+            { "$ref": "#/$defs/IntegerRange" },
+            { "type": "null" }
           ],
           "default": null,
-          "description": "Floor value (e.g., 1 to ensure at least 1 use even with negative modifier)",
-          "title": "Minimum"
+          "description": "Floor/ceiling for the resource count"
         }
       },
       "required": ["type"],
@@ -6828,18 +6886,13 @@
           "description": "Value to add/subtract (e.g., 'superiority_die')",
           "title": "Value"
         },
-        "minimum": {
+        "bounds": {
           "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
+            { "$ref": "#/$defs/IntegerRange" },
+            { "type": "null" }
           ],
           "default": null,
-          "description": "Floor value for the roll result (e.g., 10 for Reliable Talent)",
-          "title": "Minimum"
+          "description": "Floor/ceiling for the roll result"
         },
         "result": {
           "anyOf": [
@@ -7349,31 +7402,13 @@
           "description": "Spell class or list (e.g., 'Bard', 'Wizard')",
           "title": "Class"
         },
-        "minimum": {
+        "level": {
           "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
+            { "$ref": "#/$defs/IntegerRange" },
+            { "type": "null" }
           ],
           "default": null,
-          "description": "Minimum spell level",
-          "title": "Minimum"
-        },
-        "maximum": {
-          "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Maximum spell level",
-          "title": "Maximum"
+          "description": "Spell level range constraint"
         }
       },
       "title": "SpellRequirement",
@@ -8486,16 +8521,11 @@
       "properties": {
         "level": {
           "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
+            { "$ref": "#/$defs/IntegerRange" },
+            { "type": "null" }
           ],
           "default": null,
-          "description": "Minimum spell level at casting (0 for cantrips). Triggers on spells cast at this level or higher.",
-          "title": "Level"
+          "description": "Spell level range filter"
         },
         "school": {
           "anyOf": [
@@ -8808,18 +8838,13 @@
           "description": "Attribute reference for dynamic uses (e.g., 'scores.wisdom.modifier')",
           "title": "Calculation"
         },
-        "minimum": {
+        "bounds": {
           "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
+            { "$ref": "#/$defs/IntegerRange" },
+            { "type": "null" }
           ],
           "default": null,
-          "description": "Floor value for calculated uses",
-          "title": "Minimum"
+          "description": "Floor/ceiling for calculated uses"
         },
         "infinite": {
           "anyOf": [

@@ -111,7 +111,7 @@
       {
         "type": "attribute",
         "attribute": "Dexterity",
-        "minimum": 13
+        "range": { "minimum": 13 }
       }
     ]
   },
@@ -594,12 +594,12 @@
           {
             "type": "attribute",
             "attribute": "Strength",
-            "minimum": 13
+            "range": { "minimum": 13 }
           },
           {
             "type": "attribute",
             "attribute": "Dexterity",
-            "minimum": 13
+            "range": { "minimum": 13 }
           }
         ]
       }
@@ -1027,7 +1027,7 @@
       {
         "type": "attribute",
         "attribute": "Wisdom",
-        "minimum": 13
+        "range": { "minimum": 13 }
       }
     ],
     "spellcasting": {
@@ -1301,7 +1301,7 @@
       {
         "type": "attribute",
         "attribute": "Strength",
-        "minimum": 13
+        "range": { "minimum": 13 }
       }
     ]
   },
@@ -1806,7 +1806,7 @@
       {
         "type": "attribute",
         "attribute": "Charisma",
-        "minimum": 13
+        "range": { "minimum": 13 }
       }
     ]
   },
@@ -1977,7 +1977,7 @@
       {
         "type": "attribute",
         "attribute": "Intelligence",
-        "minimum": 13
+        "range": { "minimum": 13 }
       }
     ],
     "spellcasting": {

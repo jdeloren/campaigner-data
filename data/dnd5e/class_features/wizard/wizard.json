@@ -12,7 +12,7 @@
           {
             "recover": {
               "target": "spell_slot",
-              "maximum": 5,
+              "bounds": { "maximum": 5 },
               "budget": {
                 "calculation": "classes.Wizard.level",
                 "operation": "divide",

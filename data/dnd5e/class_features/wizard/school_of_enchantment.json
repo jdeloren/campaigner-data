@@ -176,7 +176,7 @@
           "event": ["cast_spell"],
           "spell": {
             "school": "Enchantment",
-            "level": 1
+            "level": { "minimum": 1 }
           }
         },
         "effects": [
@@ -256,7 +256,7 @@
                   "value": 1
                 }
               ],
-              "minimum": 1
+              "bounds": { "minimum": 1 }
             }
           },
           "duration": {

@@ -813,8 +813,8 @@
                       "requirements": [
                         {
                           "type": "attribute",
-                          "attribute": "weight",
-                          "maximum": 5
+                          "ref": "weight",
+                          "range": { "maximum": 5 }
                         }
                       ]
                     },
@@ -1047,9 +1047,10 @@
                 "distance": 5,
                 "requirements": [
                   {
-                    "type": "attribute",
-                    "attribute": "movement.speed",
-                    "minimum": 5
+                    "type": "category",
+                    "category": "movement",
+                    "property": "speed",
+                    "range": { "minimum": 5 }
                   }
                 ]
               }
@@ -2264,7 +2265,7 @@
           "requirements": [
             {
               "type": "attribute",
-              "attribute": "hit_points.current",
+              "ref": "hit_points.current",
               "comparison": "equals",
               "value": 0
             },

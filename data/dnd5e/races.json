@@ -283,7 +283,7 @@
             "requirements": [
               {
                 "type": "level",
-                "minimum": 3
+                "level": { "minimum": 3 }
               }
             ]
           },
@@ -299,7 +299,7 @@
             "requirements": [
               {
                 "type": "level",
-                "minimum": 5
+                "level": { "minimum": 5 }
               }
             ]
           }
@@ -2139,7 +2139,7 @@
             "requirements": [
               {
                 "type": "attribute",
-                "attribute": "hit_points.current",
+                "ref": "hit_points.current",
                 "comparison": "at_least",
                 "calculation": {
                   "operation": "subtract",
@@ -2788,7 +2788,7 @@
             "requirements": [
               {
                 "type": "level",
-                "minimum": 3
+                "level": { "minimum": 3 }
               }
             ]
           },
@@ -2804,7 +2804,7 @@
             "requirements": [
               {
                 "type": "level",
-                "minimum": 5
+                "level": { "minimum": 5 }
               }
             ]
           }
