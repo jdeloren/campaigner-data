@@ -1034,7 +1034,7 @@
       "ability": "Wisdom",
       "type": "prepared",
       "ritual_casting": true,
-      "spellbook": true,
+      "spellbook": false,
       "cantrips_known": {
         "1": {
           "choices": [
