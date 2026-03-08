@@ -1,0 +1,388 @@
+[
+  {
+    "id": "feat:arcane-deflection",
+    "class": "subclass:war-magic",
+    "level": 2,
+    "name": "Arcane Deflection",
+    "description": "At 2nd level, you have learned to weave your magic to fortify yourself against harm. When you are hit by an attack or you fail a saving throw, you can use your reaction to gain a +2 bonus to your AC against that attack or a +4 bonus to that saving throw.\n\nWhen you use this feature, you can't cast spells other than cantrips until the end of your next turn.",
+    "mechanics": [
+      {
+        "type": "reaction",
+        "name": "arcane_deflection_ac",
+        "trigger": {
+          "event": ["attacked_by"],
+          "attack": {
+            "result": "success"
+          }
+        },
+        "target": {
+          "type": "self"
+        },
+        "effects": [
+          {
+            "buff": {
+              "category": "armor_class",
+              "bonus": {
+                "operation": "add",
+                "operators": [
+                  { "type": "integer", "value": 2 }
+                ]
+              }
+            }
+          },
+          {
+            "apply_status": {
+              "id": "status:spell-restricted",
+              "source": "character",
+              "duration": {
+                "value": 1,
+                "unit": "turns",
+                "timing": "end_turn"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "reaction",
+        "name": "arcane_deflection_save",
+        "trigger": {
+          "event": ["saving_throw"],
+          "save": {
+            "result": "failure"
+          }
+        },
+        "target": {
+          "type": "self"
+        },
+        "effects": [
+          {
+            "roll_modifier": {
+              "type": "saving_throw",
+              "operation": "add",
+              "value": "4"
+            }
+          },
+          {
+            "apply_status": {
+              "id": "status:spell-restricted",
+              "source": "character",
+              "duration": {
+                "value": 1,
+                "unit": "turns",
+                "timing": "end_turn"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:tactical-wit",
+    "class": "subclass:war-magic",
+    "level": 2,
+    "name": "Tactical Wit",
+    "description": "Starting at 2nd level, your keen ability to assess tactical situations allows you to act quickly in battle. You can add your Intelligence modifier to your initiative rolls.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "tactical_wit",
+        "effects": [
+          {
+            "attribute": {
+              "target": "initiative",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "ability_modifier",
+                    "ability": "Intelligence"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:power-surge",
+    "class": "subclass:war-magic",
+    "level": 6,
+    "name": "Power Surge",
+    "description": "Starting at 6th level, you can store magical energy within yourself to later empower your damaging spells. In its stored form, this energy is called a power surge.\n\nYou can store a maximum number of power surges equal to your Intelligence modifier (minimum of one). Whenever you finish a long rest, your number of power surges resets to one. Whenever you successfully end a spell with dispel magic or counterspell, you gain one power surge, as you steal magic from the spell you foiled. If you end a short rest with no power surges, you gain one power surge.\n\nOnce per turn when you deal damage to a creature or object with a wizard spell, you can spend one power surge to deal extra force damage to that target. The extra damage equals half your wizard level.",
+    "mechanics": [
+      {
+        "type": "resource",
+        "id": "power_surges",
+        "name": "Power Surges",
+        "count": {
+          "type": "ability_modifier",
+          "ability": "Intelligence",
+          "bounds": { "minimum": 1 }
+        },
+        "recharge": "long_rest"
+      },
+      {
+        "type": "passive",
+        "name": "power_surge_gain",
+        "description": "Gain one power surge when you successfully end a spell with dispel magic or counterspell.",
+        "trigger": [
+          {
+            "event": ["cast_spell"],
+            "source": {
+              "type": "spell",
+              "id": "spell:dispel-magic"
+            }
+          },
+          {
+            "event": ["cast_spell"],
+            "source": {
+              "type": "spell",
+              "id": "spell:counterspell"
+            }
+          }
+        ],
+        "effects": [
+          {
+            "recover": {
+              "target": "power_surges",
+              "count": 1
+            }
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "name": "power_surge_short_rest",
+        "description": "If you end a short rest with no power surges, you gain one.",
+        "trigger": {
+          "event": ["short_rest"]
+        },
+        "requirements": [
+          {
+            "type": "resource",
+            "resource": "power_surges",
+            "comparison": "equals",
+            "value": 0
+          }
+        ],
+        "effects": [
+          {
+            "recover": {
+              "target": "power_surges",
+              "count": 1
+            }
+          }
+        ]
+      },
+      {
+        "type": "damage_bonus",
+        "name": "power_surge_damage",
+        "trigger": {
+          "event": ["damage"],
+          "source": {
+            "type": "spell",
+            "class": "Wizard"
+          }
+        },
+        "cost": [
+          {
+            "resource": "power_surges",
+            "amount": 1
+          }
+        ],
+        "effects": [
+          {
+            "damage_bonus": {
+              "bonus": {
+                "operation": "divide",
+                "operators": [
+                  {
+                    "type": "class_level",
+                    "class": "class:wizard"
+                  },
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
+                ],
+                "rounding": "down"
+              },
+              "type": ["force"]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:durable-magic",
+    "class": "subclass:war-magic",
+    "level": 10,
+    "name": "Durable Magic",
+    "description": "Beginning at 10th level, the magic you channel helps ward off harm. While you maintain concentration on a spell, you have a +2 bonus to AC and all saving throws.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "durable_magic",
+        "requirements": [
+          {
+            "type": "concentration",
+            "active": true
+          }
+        ],
+        "effects": [
+          {
+            "buff": {
+              "category": "armor_class",
+              "bonus": {
+                "operation": "add",
+                "operators": [
+                  { "type": "integer", "value": 2 }
+                ]
+              }
+            }
+          },
+          {
+            "buff": {
+              "category": "saving_throw",
+              "saving_throw": "Strength",
+              "bonus": {
+                "operation": "add",
+                "operators": [
+                  { "type": "integer", "value": 2 }
+                ]
+              }
+            }
+          },
+          {
+            "buff": {
+              "category": "saving_throw",
+              "saving_throw": "Dexterity",
+              "bonus": {
+                "operation": "add",
+                "operators": [
+                  { "type": "integer", "value": 2 }
+                ]
+              }
+            }
+          },
+          {
+            "buff": {
+              "category": "saving_throw",
+              "saving_throw": "Constitution",
+              "bonus": {
+                "operation": "add",
+                "operators": [
+                  { "type": "integer", "value": 2 }
+                ]
+              }
+            }
+          },
+          {
+            "buff": {
+              "category": "saving_throw",
+              "saving_throw": "Intelligence",
+              "bonus": {
+                "operation": "add",
+                "operators": [
+                  { "type": "integer", "value": 2 }
+                ]
+              }
+            }
+          },
+          {
+            "buff": {
+              "category": "saving_throw",
+              "saving_throw": "Wisdom",
+              "bonus": {
+                "operation": "add",
+                "operators": [
+                  { "type": "integer", "value": 2 }
+                ]
+              }
+            }
+          },
+          {
+            "buff": {
+              "category": "saving_throw",
+              "saving_throw": "Charisma",
+              "bonus": {
+                "operation": "add",
+                "operators": [
+                  { "type": "integer", "value": 2 }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:deflecting-shroud",
+    "class": "subclass:war-magic",
+    "level": 14,
+    "name": "Deflecting Shroud",
+    "description": "At 14th level, your Arcane Deflection becomes infused with deadly magic. When you use your Arcane Deflection feature, you can cause magical energy to arc from you. Up to three creatures of your choice that you can see within 60 feet of you each take force damage equal to half your wizard level.",
+    "enhances": "feat:arcane-deflection",
+    "mechanics": [
+      {
+        "type": "optional",
+        "name": "deflecting_shroud",
+        "target": {
+          "type": "creature",
+          "count": 3,
+          "disposition": "hostile",
+          "choice": true,
+          "requirements": [
+            {
+              "type": "perception",
+              "observer": "character",
+              "subject": "target",
+              "senses": ["sight"]
+            }
+          ]
+        },
+        "range": {
+          "value": 60,
+          "unit": "feet"
+        },
+        "effects": [
+          {
+            "damage": {
+              "bonus": {
+                "operation": "divide",
+                "operators": [
+                  {
+                    "type": "class_level",
+                    "class": "class:wizard"
+                  },
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
+                ],
+                "rounding": "down"
+              },
+              "type": ["force"]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  }
+]
