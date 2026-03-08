@@ -253,7 +253,9 @@
         "effects": [
           {
             "immunity": {
-              "effect": "hp_maximum_reduction"
+              "category": "hit_points",
+              "property": "maximum",
+              "effect": "reduction"
             }
           }
         ]

@@ -4105,6 +4105,7 @@
                   "concentration": "#/$defs/ConcentrationImmunity",
                   "disadvantage": "#/$defs/DisadvantageImmunity",
                   "effect": "#/$defs/EffectImmunity",
+                  "hit_points": "#/$defs/HitPointsImmunity",
                   "spell": "#/$defs/SpellImmunity",
                   "status": "#/$defs/StatusImmunity",
                   "terrain": "#/$defs/TerrainImmunity",
@@ -4121,6 +4122,9 @@
                 },
                 {
                   "$ref": "#/$defs/EffectImmunity"
+                },
+                {
+                  "$ref": "#/$defs/HitPointsImmunity"
                 },
                 {
                   "$ref": "#/$defs/TerrainImmunity"
@@ -4260,6 +4264,32 @@
       },
       "additionalProperties": false,
       "title": "Effect",
+      "type": "object"
+    },
+    "HitPointsImmunity": {
+      "description": "Immunity to a hit points effect (e.g., hp max reduction).",
+      "properties": {
+        "category": {
+          "const": "hit_points",
+          "default": "hit_points",
+          "title": "Category",
+          "type": "string"
+        },
+        "property": {
+          "enum": ["maximum"],
+          "description": "Which hit points property the immunity applies to",
+          "title": "Property",
+          "type": "string"
+        },
+        "effect": {
+          "description": "Effect immune to (e.g., 'reduction')",
+          "title": "Effect",
+          "type": "string"
+        }
+      },
+      "required": ["category", "property", "effect"],
+      "title": "HitPointsImmunity",
+      "additionalProperties": false,
       "type": "object"
     },
     "EffectImmunity": {
@@ -4958,6 +4988,7 @@
                   "concentration": "#/$defs/ConcentrationImmunity",
                   "disadvantage": "#/$defs/DisadvantageImmunity",
                   "effect": "#/$defs/EffectImmunity",
+                  "hit_points": "#/$defs/HitPointsImmunity",
                   "spell": "#/$defs/SpellImmunity",
                   "status": "#/$defs/StatusImmunity",
                   "terrain": "#/$defs/TerrainImmunity",
@@ -4974,6 +5005,9 @@
                 },
                 {
                   "$ref": "#/$defs/EffectImmunity"
+                },
+                {
+                  "$ref": "#/$defs/HitPointsImmunity"
                 },
                 {
                   "$ref": "#/$defs/TerrainImmunity"
@@ -8440,13 +8474,13 @@
       "description": "Sub-object for damage event details.",
       "properties": {
         "type": {
-          "anyOf": [{ "items": { "type": "string" }, "type": "array" }, { "type": "null" }],
+          "anyOf": [{ "items": { "$ref": "#/$defs/DamageType" }, "type": "array" }, { "type": "null" }],
           "default": null,
           "description": "Physical damage types (e.g., ['bludgeoning', 'piercing', 'slashing'])",
           "title": "Type"
         },
         "element": {
-          "anyOf": [{ "items": { "type": "string" }, "type": "array" }, { "type": "null" }],
+          "anyOf": [{ "items": { "$ref": "#/$defs/DamageElement" }, "type": "array" }, { "type": "null" }],
           "default": null,
           "description": "Elemental damage types (e.g., ['fire', 'cold', 'lightning'])",
           "title": "Element"
