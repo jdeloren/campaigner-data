@@ -27,7 +27,9 @@
         "type": "damage_bonus",
         "trigger": {
           "event": ["attack"],
-          "advantage": "advantage"
+          "attack": {
+            "advantage": "advantage"
+          }
         },
         "effects": [
           {
@@ -245,16 +247,22 @@
       {
         "type": "reaction",
         "trigger": {
-          "event": ["hit_by"],
+          "event": ["attacked_by"],
           "source": {
-            "type": ["creature"],
-            "perception": {
-              "observer": "character",
-              "subject": "source",
-              "senses": ["sight"]
-            }
+            "type": "creature"
+          },
+          "attack": {
+            "result": "success"
           }
         },
+        "requirements": [
+          {
+            "type": "perception",
+            "observer": "character",
+            "subject": "source",
+            "senses": ["sight"]
+          }
+        ],
         "effects": [
           {
             "calculation": {
@@ -284,6 +292,9 @@
         "type": "passive",
         "trigger": {
           "event": ["saving_throw"],
+          "save": {
+            "ability": "Dexterity"
+          },
           "timing": "resolved"
         },
         "effects": [
@@ -431,7 +442,9 @@
         "type": "reaction",
         "trigger": {
           "event": ["ability_check"],
-          "result": "failure"
+          "check": {
+            "result": "failure"
+          }
         },
         "effects": [
           {
@@ -450,9 +463,9 @@
       {
         "type": "reaction",
         "trigger": {
-          "event": ["miss"],
-          "source": {
-            "type": ["melee", "ranged"]
+          "event": ["attack"],
+          "attack": {
+            "result": "failure"
           }
         },
         "effects": [

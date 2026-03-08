@@ -34,13 +34,29 @@
         "type": "optional",
         "name": "Portent (Self)",
         "description": "Replace your own attack roll, saving throw, or ability check with a portent die.",
-        "trigger": {
-          "event": ["attack", "ability_check", "saving_throw"],
-          "timing": "before",
-          "target": {
-            "type": "self"
+        "trigger": [
+          {
+            "event": ["attack"],
+            "timing": "before",
+            "target": {
+              "type": "self"
+            }
+          },
+          {
+            "event": ["ability_check"],
+            "timing": "before",
+            "target": {
+              "type": "self"
+            }
+          },
+          {
+            "event": ["saving_throw"],
+            "timing": "before",
+            "target": {
+              "type": "self"
+            }
           }
-        },
+        ],
         "cost": [
           {
             "resource": "portent_dice",
@@ -61,17 +77,28 @@
         "type": "optional",
         "name": "Portent (Other)",
         "description": "Replace an attack roll, saving throw, or ability check made by a creature you can see with a portent die.",
-        "trigger": {
-          "event": ["attacked_by", "saving_throw", "ability_check"],
-          "timing": "before",
-          "source": {
-            "perception": {
-              "observer": "character",
-              "subject": "source",
-              "senses": ["sight"]
-            }
+        "trigger": [
+          {
+            "event": ["attacked_by"],
+            "timing": "before"
+          },
+          {
+            "event": ["saving_throw"],
+            "timing": "before"
+          },
+          {
+            "event": ["ability_check"],
+            "timing": "before"
           }
-        },
+        ],
+        "requirements": [
+          {
+            "type": "perception",
+            "observer": "character",
+            "subject": "source",
+            "senses": ["sight"]
+          }
+        ],
         "cost": [
           {
             "resource": "portent_dice",
@@ -184,8 +211,8 @@
                   "effect": {
                     "buff": {
                       "category": "proficiency",
-                      "subcategory": "language",
-                      "value": ["all"]
+                      "property": "language",
+                      "value": "all"
                     }
                   }
                 },

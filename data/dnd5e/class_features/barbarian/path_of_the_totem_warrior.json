@@ -657,7 +657,8 @@
             "trigger": {
               "event": ["attack"],
               "source": {
-                "type": ["melee"]
+                "type": "weapon",
+                "mode": "melee"
               },
               "condition": {
                 "type": "movement",
@@ -696,9 +697,13 @@
               }
             ],
             "trigger": {
-              "event": ["hit"],
+              "event": ["attack"],
+              "attack": {
+                "result": "success"
+              },
               "source": {
-                "type": ["melee"]
+                "type": "weapon",
+                "mode": "melee"
               },
               "target": {
                 "type": "creature",

@@ -253,7 +253,9 @@
         "type": "passive",
         "trigger": {
           "event": ["saving_throw"],
-          "result": "failure",
+          "save": {
+            "result": "failure"
+          },
           "timing": "resolved"
         },
         "effects": [
@@ -322,7 +324,7 @@
         "trigger": {
           "event": ["damage"],
           "source": {
-            "type": ["weapon"]
+            "type": "weapon"
           }
         },
         "damage": {

@@ -281,14 +281,15 @@
           }
         },
         {
-          "event": ["move"],
+          "event": ["action"],
+          "action": "move",
           "condition": {
             "type": "distance",
             "to": "event_actor",
             "comparison": "greater_than",
-            "value": {
-              "operation": "set",
-              "operators": [{ "type": "attribute", "value": "combat.melee_reach" }]
+            "attribute": {
+              "category": "combat",
+              "property": "melee_reach"
             }
           }
         }

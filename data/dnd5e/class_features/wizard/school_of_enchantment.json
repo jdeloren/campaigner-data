@@ -110,20 +110,19 @@
         "name": "instinctive_charm",
         "trigger": {
           "event": ["attacked_by"],
-          "timing": "before",
-          "source": {
-            "perception": {
-              "observer": "character",
-              "subject": "source",
-              "senses": ["sight"]
-            },
-            "range": {
-              "value": 5,
-              "unit": "feet"
-            }
-          }
+          "timing": "before"
+        },
+        "range": {
+          "value": 5,
+          "unit": "feet"
         },
         "requirements": [
+          {
+            "type": "perception",
+            "observer": "character",
+            "subject": "source",
+            "senses": ["sight"]
+          },
           {
             "type": "immunity",
             "to": "charmed",

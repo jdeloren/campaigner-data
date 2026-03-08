@@ -79,7 +79,10 @@
           "requirements": [
             {
               "type": "size",
-              "value": ["Small", "Medium"]
+              "value": [
+                "Small",
+                "Medium"
+              ]
             }
           ]
         },
@@ -113,24 +116,14 @@
     "description": "Beginning at 10th level, while you are concentrating on a conjuration spell, your concentration can't be broken as a result of taking damage.",
     "mechanics": [
       {
-        "type": "immunity",
+        "type": "passive",
         "name": "focused_conjuration",
         "description": "Your concentration on conjuration spells can't be broken by taking damage.",
-        "trigger": {
-          "event": ["saving_throw"],
-          "context": ["concentration"],
-          "source": {
-            "type": ["damage"]
-          },
-          "spell": {
-            "school": "Conjuration"
-          }
-        },
         "effects": [
           {
-            "roll_modifier": {
-              "type": "saving_throw",
-              "result": "auto_succeed"
+            "immunity": {
+              "category": "concentration",
+              "school": "Conjuration"
             }
           }
         ]
@@ -151,7 +144,13 @@
         "name": "durable_summons",
         "description": "Any creature you summon or create with a conjuration spell has 30 temporary hit points.",
         "trigger": {
-          "event": ["summon_creature"]
+          "event": [
+            "cast_spell"
+          ],
+          "source": {
+            "type": "spell",
+            "school": "Conjuration"
+          }
         },
         "effects": [
           {

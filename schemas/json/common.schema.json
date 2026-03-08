@@ -761,7 +761,7 @@
     },
     "AttributeCategory": {
       "description": "Enumerated attribute categories for structured modifications.",
-      "enum": ["armor_class", "movement"],
+      "enum": ["armor_class", "combat", "movement"],
       "title": "AttributeCategory",
       "type": "string"
     },
@@ -783,6 +783,9 @@
         "property": {
           "anyOf": [
             {
+              "$ref": "#/$defs/CombatProperty"
+            },
+            {
               "$ref": "#/$defs/MovementProperty"
             },
             {
@@ -790,7 +793,7 @@
             }
           ],
           "default": null,
-          "description": "Sub-property within the category (e.g., movement type). Required for movement category."
+          "description": "Sub-property within the category (e.g., movement type, combat property)."
         },
         "target": {
           "anyOf": [
@@ -868,29 +871,19 @@
           "type": "string"
         },
         "attribute": {
-          "anyOf": [
-            { "$ref": "#/$defs/Ability" },
-            { "type": "string" },
-            { "type": "null" }
-          ],
+          "anyOf": [{ "$ref": "#/$defs/Ability" }, { "type": "string" }, { "type": "null" }],
           "default": null,
           "description": "Ability score or attribute to check",
           "title": "Attribute"
         },
         "ref": {
-          "anyOf": [
-            { "type": "string" },
-            { "type": "null" }
-          ],
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
           "default": null,
           "description": "Character state reference (e.g., 'spell_slots')",
           "title": "Ref"
         },
         "range": {
-          "anyOf": [
-            { "$ref": "#/$defs/IntegerRange" },
-            { "type": "null" }
-          ],
+          "anyOf": [{ "$ref": "#/$defs/IntegerRange" }, { "type": "null" }],
           "default": null,
           "description": "Numeric range constraint (minimum/maximum)"
         },
@@ -1253,11 +1246,21 @@
               "$ref": "#/$defs/Trigger"
             },
             {
+              "items": { "$ref": "#/$defs/Trigger" },
+              "type": "array"
+            },
+            {
               "type": "null"
             }
           ],
           "default": null,
-          "description": "Event that triggers this mechanic"
+          "description": "Event that triggers this mechanic. Array means fire on any matching trigger."
+        },
+        "note": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "UI display hint for features with contextual applicability that the engine cannot enforce (GM/player decision)",
+          "title": "Note"
         },
         "grants": {
           "anyOf": [
@@ -1552,6 +1555,7 @@
       "description": "Temporary non-attribute capability granted to a character. Pair with duration on Effect for time-limited buffs.",
       "oneOf": [
         { "$ref": "#/$defs/ArmorClassBuff" },
+        { "$ref": "#/$defs/HitPointsBuff" },
         { "$ref": "#/$defs/MovementBuff" },
         { "$ref": "#/$defs/SavingThrowBuff" },
         { "$ref": "#/$defs/ProficiencyBuff" },
@@ -1564,6 +1568,7 @@
         "propertyName": "category",
         "mapping": {
           "armor_class": "#/$defs/ArmorClassBuff",
+          "hit_points": "#/$defs/HitPointsBuff",
           "movement": "#/$defs/MovementBuff",
           "saving_throw": "#/$defs/SavingThrowBuff",
           "proficiency": "#/$defs/ProficiencyBuff",
@@ -1573,6 +1578,32 @@
           "feature": "#/$defs/FeatureBuff"
         }
       }
+    },
+    "HitPointsBuff": {
+      "description": "Temporary hit point maximum modification (e.g., Undead Thralls adds wizard level to HP max).",
+      "properties": {
+        "category": {
+          "const": "hit_points",
+          "default": "hit_points",
+          "title": "Category",
+          "type": "string"
+        },
+        "property": {
+          "enum": ["maximum"],
+          "description": "Which hit points property to modify",
+          "title": "Property",
+          "type": "string"
+        },
+        "bonus": {
+          "anyOf": [{ "$ref": "#/$defs/Calculation" }, { "type": "null" }],
+          "default": null,
+          "description": "Additive bonus calculation"
+        }
+      },
+      "required": ["category", "property"],
+      "title": "HitPointsBuff",
+      "additionalProperties": false,
+      "type": "object"
     },
     "ProficiencyBuff": {
       "description": "Temporary proficiency in a skill, tool, weapon, armor, saving throw, or language.",
@@ -1828,10 +1859,7 @@
           "title": "Rounding"
         },
         "bounds": {
-          "anyOf": [
-            { "$ref": "#/$defs/IntegerRange" },
-            { "type": "null" }
-          ],
+          "anyOf": [{ "$ref": "#/$defs/IntegerRange" }, { "type": "null" }],
           "default": null,
           "description": "Floor/ceiling for the calculation result"
         }
@@ -2267,6 +2295,12 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "CombatProperty": {
+      "description": "Sub-properties for combat attribute modifications.",
+      "enum": ["melee_reach", "critical_hit_threshold"],
+      "title": "CombatProperty",
+      "type": "string"
+    },
     "CombatStateRequirement": {
       "description": "Requirement based on combat state.",
       "properties": {
@@ -2294,6 +2328,45 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "ConcentrationImmunity": {
+      "description": "Immunity to concentration being broken (e.g., by taking damage).",
+      "properties": {
+        "category": {
+          "const": "concentration",
+          "default": "concentration",
+          "title": "Category",
+          "type": "string"
+        },
+        "school": {
+          "anyOf": [{ "$ref": "#/$defs/School" }, { "type": "null" }],
+          "default": null,
+          "description": "School of magic the concentrated spell belongs to"
+        }
+      },
+      "title": "ConcentrationImmunity",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "ConcentrationRequirement": {
+      "description": "Requirement that the character is (or is not) concentrating on a spell.",
+      "properties": {
+        "type": {
+          "const": "concentration",
+          "default": "concentration",
+          "title": "Type",
+          "type": "string"
+        },
+        "active": {
+          "description": "Whether concentration must be active (true) or inactive (false)",
+          "title": "Active",
+          "type": "boolean"
+        }
+      },
+      "required": ["active"],
+      "title": "ConcentrationRequirement",
+      "additionalProperties": false,
+      "type": "object"
+    },
     "CategoryRequirement": {
       "description": "Requirement based on a categorized character property.",
       "properties": {
@@ -2314,10 +2387,7 @@
           "type": "string"
         },
         "range": {
-          "anyOf": [
-            { "$ref": "#/$defs/IntegerRange" },
-            { "type": "null" }
-          ],
+          "anyOf": [{ "$ref": "#/$defs/IntegerRange" }, { "type": "null" }],
           "default": null,
           "description": "Value range"
         }
@@ -3598,11 +3668,15 @@
               "$ref": "#/$defs/Trigger"
             },
             {
+              "items": { "$ref": "#/$defs/Trigger" },
+              "type": "array"
+            },
+            {
               "type": "null"
             }
           ],
           "default": null,
-          "description": "Event that triggers this effect"
+          "description": "Event that triggers this effect. Array means fire on any matching trigger."
         },
         "duration": {
           "anyOf": [
@@ -4028,6 +4102,7 @@
               "discriminator": {
                 "mapping": {
                   "advantage": "#/$defs/AdvantageImmunity",
+                  "concentration": "#/$defs/ConcentrationImmunity",
                   "disadvantage": "#/$defs/DisadvantageImmunity",
                   "effect": "#/$defs/EffectImmunity",
                   "spell": "#/$defs/SpellImmunity",
@@ -4055,6 +4130,9 @@
                 },
                 {
                   "$ref": "#/$defs/AdvantageImmunity"
+                },
+                {
+                  "$ref": "#/$defs/ConcentrationImmunity"
                 },
                 {
                   "$ref": "#/$defs/DisadvantageImmunity"
@@ -4877,6 +4955,7 @@
               "discriminator": {
                 "mapping": {
                   "advantage": "#/$defs/AdvantageImmunity",
+                  "concentration": "#/$defs/ConcentrationImmunity",
                   "disadvantage": "#/$defs/DisadvantageImmunity",
                   "effect": "#/$defs/EffectImmunity",
                   "spell": "#/$defs/SpellImmunity",
@@ -5143,6 +5222,18 @@
           ],
           "default": null,
           "description": "Ability used for spellcasting (e.g., Charisma for racial spells)"
+        },
+        "substitute": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SpellGrantChoice"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Substitute choice if the granted spell is already known (e.g., pick a different cantrip from the class list)"
         }
       },
       "required": ["type"],
@@ -5424,10 +5515,7 @@
           "type": "string"
         },
         "level": {
-          "anyOf": [
-            { "$ref": "#/$defs/IntegerRange" },
-            { "type": "null" }
-          ],
+          "anyOf": [{ "$ref": "#/$defs/IntegerRange" }, { "type": "null" }],
           "default": null,
           "description": "Character level range constraint"
         }
@@ -5689,7 +5777,18 @@
     },
     "MovementProperty": {
       "description": "Sub-properties for movement attribute modifications.",
-      "enum": ["base", "climb", "falling", "fly", "jump_approach", "jump_high", "jump_long", "jump_running", "stand", "travel_pace"],
+      "enum": [
+        "base",
+        "climb",
+        "falling",
+        "fly",
+        "jump_approach",
+        "jump_high",
+        "jump_long",
+        "jump_running",
+        "stand",
+        "travel_pace"
+      ],
       "title": "MovementProperty",
       "type": "string"
     },
@@ -6039,6 +6138,7 @@
           "attribute": "#/$defs/AttributeRequirement",
           "category": "#/$defs/CategoryRequirement",
           "combat_state": "#/$defs/CombatStateRequirement",
+          "concentration": "#/$defs/ConcentrationRequirement",
           "count": "#/$defs/CountRequirement",
           "creature_type": "#/$defs/CreatureTypeRequirement",
           "distance": "#/$defs/DistanceRequirement",
@@ -6070,6 +6170,7 @@
         { "$ref": "#/$defs/AttackRequirement" },
         { "$ref": "#/$defs/AttackResultRequirement" },
         { "$ref": "#/$defs/CombatStateRequirement" },
+        { "$ref": "#/$defs/ConcentrationRequirement" },
         { "$ref": "#/$defs/CountRequirement" },
         { "$ref": "#/$defs/CreatureTypeRequirement" },
         { "$ref": "#/$defs/DistanceRequirement" },
@@ -6285,18 +6386,12 @@
           "title": "Cost"
         },
         "bounds": {
-          "anyOf": [
-            { "$ref": "#/$defs/IntegerRange" },
-            { "type": "null" }
-          ],
+          "anyOf": [{ "$ref": "#/$defs/IntegerRange" }, { "type": "null" }],
           "default": null,
           "description": "Bounds on recoverable resource levels"
         },
         "constraint": {
-          "anyOf": [
-            { "$ref": "#/$defs/RecoverConstraint" },
-            { "type": "null" }
-          ],
+          "anyOf": [{ "$ref": "#/$defs/RecoverConstraint" }, { "type": "null" }],
           "default": null,
           "description": "Relative constraint on the recovered resource"
         }
@@ -6510,10 +6605,7 @@
           "title": "Ability"
         },
         "bounds": {
-          "anyOf": [
-            { "$ref": "#/$defs/IntegerRange" },
-            { "type": "null" }
-          ],
+          "anyOf": [{ "$ref": "#/$defs/IntegerRange" }, { "type": "null" }],
           "default": null,
           "description": "Floor/ceiling for the resource count"
         }
@@ -6872,10 +6964,7 @@
           "title": "Value"
         },
         "bounds": {
-          "anyOf": [
-            { "$ref": "#/$defs/IntegerRange" },
-            { "type": "null" }
-          ],
+          "anyOf": [{ "$ref": "#/$defs/IntegerRange" }, { "type": "null" }],
           "default": null,
           "description": "Floor/ceiling for the roll result"
         },
@@ -6994,6 +7083,10 @@
           ],
           "default": null,
           "description": "Event that grants advantage on the save"
+        },
+        "requirements": {
+          "$ref": "#/$defs/RequirementSet",
+          "description": "Conditions for the advantage to apply"
         }
       },
       "title": "SaveAdvantage",
@@ -7206,7 +7299,16 @@
     },
     "School": {
       "description": "Schools of magic.",
-      "enum": ["Abjuration", "Conjuration", "Divination", "Enchantment", "Evocation", "Illusion", "Necromancy", "Transmutation"],
+      "enum": [
+        "Abjuration",
+        "Conjuration",
+        "Divination",
+        "Enchantment",
+        "Evocation",
+        "Illusion",
+        "Necromancy",
+        "Transmutation"
+      ],
       "title": "School",
       "type": "string"
     },
@@ -7388,12 +7490,19 @@
           "title": "Class"
         },
         "level": {
-          "anyOf": [
-            { "$ref": "#/$defs/IntegerRange" },
-            { "type": "null" }
-          ],
+          "anyOf": [{ "$ref": "#/$defs/IntegerRange" }, { "type": "null" }],
           "default": null,
           "description": "Spell level range constraint"
+        },
+        "school": {
+          "anyOf": [{ "$ref": "#/$defs/School" }, { "type": "null" }],
+          "default": null,
+          "description": "School of magic the spell belongs to"
+        },
+        "duration": {
+          "anyOf": [{ "$ref": "#/$defs/Duration" }, { "type": "null" }],
+          "default": null,
+          "description": "Required minimum spell duration"
         }
       },
       "title": "SpellRequirement",
@@ -7658,11 +7767,15 @@
               "$ref": "#/$defs/Trigger"
             },
             {
+              "items": { "$ref": "#/$defs/Trigger" },
+              "type": "array"
+            },
+            {
               "type": "null"
             }
           ],
           "default": null,
-          "description": "Event that triggers this effect"
+          "description": "Event that triggers this effect. Array means fire on any matching trigger."
         },
         "duration": {
           "anyOf": [
@@ -8150,6 +8263,217 @@
       "title": "Timing",
       "type": "string"
     },
+    "TriggerEquip": {
+      "description": "Sub-object for equip event details.",
+      "properties": {
+        "slot": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Equipment slot (e.g., armor, shield, weapon)",
+          "title": "Slot"
+        }
+      },
+      "additionalProperties": false,
+      "title": "TriggerEquip",
+      "type": "object"
+    },
+    "TriggerAttack": {
+      "description": "Sub-object for attack event details.",
+      "properties": {
+        "result": {
+          "anyOf": [{ "enum": ["success", "failure"], "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Whether the attack hit (success) or missed (failure)",
+          "title": "Result"
+        },
+        "critical": {
+          "anyOf": [{ "type": "boolean" }, { "type": "null" }],
+          "default": null,
+          "description": "Whether this is a critical hit",
+          "title": "Critical"
+        },
+        "advantage": {
+          "anyOf": [{ "enum": ["normal", "advantage", "disadvantage"], "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Advantage state of the attack roll"
+        },
+        "dice": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Dice expression (e.g., '1d20')",
+          "title": "Dice"
+        },
+        "rolls": {
+          "anyOf": [{ "items": { "type": "integer" }, "type": "array" }, { "type": "null" }],
+          "default": null,
+          "description": "Individual die results to match (e.g., [1] for natural 1)",
+          "title": "Rolls"
+        },
+        "bonus": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Flat modifier to the roll",
+          "title": "Bonus"
+        },
+        "opportunity": {
+          "anyOf": [{ "type": "boolean" }, { "type": "null" }],
+          "default": null,
+          "description": "Whether this is an opportunity attack",
+          "title": "Opportunity"
+        },
+        "ability": {
+          "anyOf": [
+            {
+              "items": { "$ref": "#/$defs/Ability" },
+              "type": "array"
+            },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Ability(s) used for the attack (e.g., ['Dexterity', 'Strength'])",
+          "title": "Ability"
+        }
+      },
+      "additionalProperties": false,
+      "title": "TriggerAttack",
+      "type": "object"
+    },
+    "TriggerSave": {
+      "description": "Sub-object for saving throw event details.",
+      "properties": {
+        "ability": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Ability used for the save (e.g., 'Dexterity', 'Wisdom')",
+          "title": "Ability"
+        },
+        "result": {
+          "anyOf": [{ "enum": ["success", "failure"], "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Whether the save succeeded or failed",
+          "title": "Result"
+        },
+        "advantage": {
+          "anyOf": [{ "enum": ["normal", "advantage", "disadvantage"], "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Advantage state of the saving throw"
+        },
+        "dice": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Dice expression (e.g., '1d20')",
+          "title": "Dice"
+        },
+        "rolls": {
+          "anyOf": [{ "items": { "type": "integer" }, "type": "array" }, { "type": "null" }],
+          "default": null,
+          "description": "Individual die results to match",
+          "title": "Rolls"
+        },
+        "bonus": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Flat modifier to the roll",
+          "title": "Bonus"
+        },
+        "status": {
+          "anyOf": [{ "items": { "type": "string" }, "type": "array" }, { "type": "null" }],
+          "default": null,
+          "description": "Filter saves by what status would be applied on failure (e.g., ['status:poisoned'])",
+          "title": "Status"
+        }
+      },
+      "additionalProperties": false,
+      "title": "TriggerSave",
+      "type": "object"
+    },
+    "TriggerCheck": {
+      "description": "Sub-object for ability check event details.",
+      "properties": {
+        "ability": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Ability used for the check (e.g., 'Intelligence')",
+          "title": "Ability"
+        },
+        "skill": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Skill used for the check (e.g., 'History', 'Perception')",
+          "title": "Skill"
+        },
+        "result": {
+          "anyOf": [{ "enum": ["success", "failure"], "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Whether the check succeeded or failed",
+          "title": "Result"
+        },
+        "advantage": {
+          "anyOf": [{ "enum": ["normal", "advantage", "disadvantage"], "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Advantage state of the ability check"
+        },
+        "dice": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Dice expression (e.g., '1d20')",
+          "title": "Dice"
+        },
+        "rolls": {
+          "anyOf": [{ "items": { "type": "integer" }, "type": "array" }, { "type": "null" }],
+          "default": null,
+          "description": "Individual die results to match",
+          "title": "Rolls"
+        },
+        "bonus": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Flat modifier to the roll",
+          "title": "Bonus"
+        }
+      },
+      "additionalProperties": false,
+      "title": "TriggerCheck",
+      "type": "object"
+    },
+    "TriggerDamage": {
+      "description": "Sub-object for damage event details.",
+      "properties": {
+        "type": {
+          "anyOf": [{ "items": { "type": "string" }, "type": "array" }, { "type": "null" }],
+          "default": null,
+          "description": "Physical damage types (e.g., ['bludgeoning', 'piercing', 'slashing'])",
+          "title": "Type"
+        },
+        "element": {
+          "anyOf": [{ "items": { "type": "string" }, "type": "array" }, { "type": "null" }],
+          "default": null,
+          "description": "Elemental damage types (e.g., ['fire', 'cold', 'lightning'])",
+          "title": "Element"
+        },
+        "dice": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Dice expression (e.g., '2d6')",
+          "title": "Dice"
+        },
+        "rolls": {
+          "anyOf": [{ "items": { "type": "integer" }, "type": "array" }, { "type": "null" }],
+          "default": null,
+          "description": "Individual die results",
+          "title": "Rolls"
+        },
+        "bonus": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Flat modifier to damage",
+          "title": "Bonus"
+        }
+      },
+      "additionalProperties": false,
+      "title": "TriggerDamage",
+      "type": "object"
+    },
     "Trigger": {
       "description": "Defines when a mechanic activates based on game events.",
       "properties": {
@@ -8180,67 +8504,21 @@
           "description": "When during the event this can activate: before, after, or resolved. Use list for multiple valid timings.",
           "title": "Timing"
         },
-        "action": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "The action that triggered this event (e.g., 'attack', 'dash', 'cast_spell')",
-          "title": "Action"
-        },
-        "result": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Result of the triggering event: 'success' or 'failure'. Context determines meaning (hit/miss for attacks, pass/fail for saves).",
-          "title": "Result"
-        },
-        "spell": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/TriggerSpell"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Spell-specific filters for cast_spell triggers (level, class, effect type)"
-        },
-        "status": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/TriggerStatus"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "For status_applied/status_removed events, specifies which status"
-        },
         "source": {
           "anyOf": [
             {
               "$ref": "#/$defs/TriggerSource"
             },
             {
+              "items": { "$ref": "#/$defs/TriggerSource" },
+              "type": "array"
+            },
+            {
               "type": "null"
             }
           ],
           "default": null,
-          "description": "What caused the triggering event"
+          "description": "What caused the triggering event. Array means match any."
         },
         "target": {
           "anyOf": [
@@ -8257,47 +8535,32 @@
         "condition": {
           "anyOf": [
             {
-              "$ref": "#/$defs/MechanicRequirement"
+              "$ref": "#/$defs/TriggerCondition"
             },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "description": "Additional condition that must be met"
+          "description": "Situational game-state condition (movement, distance, perception)"
         },
-        "damage_type": {
+        "status": {
           "anyOf": [
             {
-              "type": "string"
-            },
-            {
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
+              "$ref": "#/$defs/TriggerStatus"
             },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "description": "Filter by damage type(s)",
-          "title": "Damage Type"
+          "description": "For status_applied/status_removed events, specifies which status"
         },
-        "context": {
-          "anyOf": [
-            {
-              "items": { "type": "string" },
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
+        "action": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
           "default": null,
-          "description": "Context of the triggering event (e.g., ['secret_doors'] for ability checks)",
-          "title": "Context"
+          "description": "For action events, the specific action (e.g., 'move', 'Dash', 'Dodge', 'Hide')",
+          "title": "Action"
         },
         "activation": {
           "anyOf": [
@@ -8305,27 +8568,42 @@
               "enum": ["action", "bonus_action", "reaction", "free_action"],
               "type": "string"
             },
-            {
-              "type": "null"
-            }
+            { "type": "null" }
           ],
           "default": null,
-          "description": "Action economy slot used for the triggering event",
+          "description": "For cast_spell events, the action economy slot used",
           "title": "Activation"
         },
-        "advantage": {
-          "anyOf": [
-            {
-              "enum": ["normal", "advantage", "disadvantage"],
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
+        "spell": {
+          "anyOf": [{ "type": "object" }, { "type": "null" }],
           "default": null,
-          "description": "State of the triggering event: normal, advantage, or disadvantage",
-          "title": "Advantage"
+          "description": "For cast_spell events, filter by spell properties (school, level, class, effect)",
+          "title": "Spell"
+        },
+        "equip": {
+          "anyOf": [{ "$ref": "#/$defs/TriggerEquip" }, { "type": "null" }],
+          "default": null,
+          "description": "For equip events, details about the equipment"
+        },
+        "attack": {
+          "anyOf": [{ "$ref": "#/$defs/TriggerAttack" }, { "type": "null" }],
+          "default": null,
+          "description": "For attack/attacked_by events, details about the attack"
+        },
+        "save": {
+          "anyOf": [{ "$ref": "#/$defs/TriggerSave" }, { "type": "null" }],
+          "default": null,
+          "description": "For saving_throw events, details about the save"
+        },
+        "check": {
+          "anyOf": [{ "$ref": "#/$defs/TriggerCheck" }, { "type": "null" }],
+          "default": null,
+          "description": "For ability_check events, details about the check"
+        },
+        "damage": {
+          "anyOf": [{ "$ref": "#/$defs/TriggerDamage" }, { "type": "null" }],
+          "default": null,
+          "description": "For damage/damaged_by events, details about the damage"
         }
       },
       "required": ["event"],
@@ -8334,26 +8612,16 @@
       "type": "object"
     },
     "TriggerCondition": {
-      "description": "Condition for a trigger to fire.",
+      "description": "Situational game-state condition for a trigger to fire.",
       "properties": {
         "type": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Type of condition (perception, range, status)",
-          "title": "Type"
+          "description": "Type of condition",
+          "enum": ["movement", "distance", "perception", "disposition"],
+          "title": "Type",
+          "type": "string"
         },
         "value": {
           "anyOf": [
-            {
-              "type": "string"
-            },
             {
               "type": "integer"
             },
@@ -8362,8 +8630,32 @@
             }
           ],
           "default": null,
-          "description": "Condition value",
+          "description": "Static threshold value",
           "title": "Value"
+        },
+        "attribute": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "category": { "$ref": "#/$defs/AttributeCategory" },
+                "property": {
+                  "anyOf": [
+                    { "$ref": "#/$defs/CombatProperty" },
+                    { "$ref": "#/$defs/MovementProperty" },
+                    { "type": "string" }
+                  ]
+                }
+              },
+              "required": ["category", "property"],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Dynamic threshold from a categorized character attribute"
         },
         "unit": {
           "anyOf": [
@@ -8381,6 +8673,7 @@
         "comparison": {
           "anyOf": [
             {
+              "enum": ["equals", "not", "greater_than", "less_than", "at_most", "at_least"],
               "type": "string"
             },
             {
@@ -8388,7 +8681,7 @@
             }
           ],
           "default": null,
-          "description": "Comparison operator (greater_than, less_than, equal)",
+          "description": "Comparison operator",
           "title": "Comparison"
         },
         "to": {
@@ -8403,6 +8696,22 @@
           "default": null,
           "description": "Reference point (e.g., 'character')",
           "title": "To"
+        },
+        "senses": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Sensory modes for perception conditions (e.g., sight, hearing)",
+          "title": "Senses"
         }
       },
       "title": "TriggerCondition",
@@ -8412,37 +8721,31 @@
     "TriggerEvent": {
       "description": "Events that can trigger a mechanic.",
       "enum": [
-        "targeted_by",
         "damage",
         "damaged_by",
         "heal",
         "healed_by",
         "attack",
         "attacked_by",
-        "hit",
-        "hit_by",
-        "miss",
-        "missed_by",
         "cast_spell",
         "status_applied",
         "status_removed",
-        "start_turn",
-        "end_turn",
+        "turn_start",
+        "turn_end",
         "combat_start",
-        "move",
-        "move_end",
         "enter_area",
-        "leave_area",
+        "exit_area",
+        "move_end",
         "ability_check",
         "saving_throw",
         "short_rest",
         "long_rest",
         "initiative_roll",
         "equip",
-        "unequip",
         "level_up",
         "action",
-        "summon_creature"
+        "kill",
+        "feature_reuse"
       ],
       "title": "TriggerEvent",
       "type": "string"
@@ -8501,146 +8804,38 @@
       "additionalProperties": false,
       "type": "object"
     },
-    "TriggerSpell": {
-      "description": "Spell-specific filters for cast_spell triggers.",
+    "SpellSource": {
+      "description": "Source filter for spell-triggered events.",
       "properties": {
+        "type": {
+          "const": "spell",
+          "default": "spell",
+          "title": "Type",
+          "type": "string"
+        },
+        "id": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Specific spell ID (e.g., 'spell:minor-illusion')",
+          "title": "Id"
+        },
+        "school": {
+          "anyOf": [{ "$ref": "#/$defs/School" }, { "type": "null" }],
+          "default": null,
+          "description": "School of magic the spell belongs to"
+        },
         "level": {
-          "anyOf": [
-            { "$ref": "#/$defs/IntegerRange" },
-            { "type": "null" }
-          ],
+          "anyOf": [{ "$ref": "#/$defs/IntegerRange" }, { "type": "null" }],
           "default": null,
           "description": "Spell level range filter"
         },
-        "school": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/School"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "School of magic the spell belongs to (e.g., 'Abjuration', 'Evocation')"
-        },
         "class": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
           "default": null,
-          "description": "Class spell list the spell belongs to (e.g., 'Cleric' for cleric cantrips)",
+          "description": "Class spell list the spell belongs to (e.g., 'Cleric')",
           "title": "Class"
         },
         "effect": {
-          "anyOf": [
-            {
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Effect type(s) of the spell (e.g., ['healing'], ['healing', 'damage'])",
-          "title": "Effect"
-        }
-      },
-      "title": "TriggerSpell",
-      "additionalProperties": false,
-      "type": "object"
-    },
-    "TriggerSource": {
-      "description": "Describes the source of a triggering event.",
-      "properties": {
-        "type": {
-          "anyOf": [
-            {
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Type(s) of source (creature, spell, weapon, environment, melee, ranged)",
-          "title": "Type"
-        },
-        "origin": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/Origin"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Origin of the source: 'magical' or 'nonmagical'"
-        },
-        "range": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/Distance"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Range constraint on the source"
-        },
-        "perception": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/Perception"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Perception requirement (e.g., character must see source)"
-        },
-        "resource": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Resource pool that is the source (e.g., 'hit_dice')",
-          "title": "Resource"
-        },
-        "disposition": {
-          "anyOf": [
-            {
-              "enum": ["friendly", "hostile", "any"],
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Relationship of the source to the caster (e.g., 'friendly' for allied creatures)",
-          "title": "Disposition"
-        },
-        "ability": {
           "anyOf": [
             {
               "items": { "type": "string" },
@@ -8649,13 +8844,239 @@
             { "type": "null" }
           ],
           "default": null,
-          "description": "Ability(s) the triggering event uses (e.g., ['Dexterity'] for a Dex saving throw)",
-          "title": "Ability"
+          "description": "Effect type(s) of the spell (e.g., ['healing'], ['healing', 'damage'])",
+          "title": "Effect"
+        },
+        "negate": {
+          "default": false,
+          "description": "If true, the source filter is inverted (e.g., spell must NOT be this school)",
+          "title": "Negate",
+          "type": "boolean"
+        },
+        "range": {
+          "anyOf": [{ "$ref": "#/$defs/Distance" }, { "type": "null" }],
+          "default": null,
+          "description": "Range at which the spell was cast"
+        },
+        "mode": {
+          "anyOf": [
+            {
+              "enum": ["melee", "ranged"],
+              "type": "string"
+            },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Spell attack mode: melee or ranged",
+          "title": "Mode"
         }
       },
-      "title": "TriggerSource",
+      "required": ["type"],
+      "title": "SpellSource",
       "additionalProperties": false,
       "type": "object"
+    },
+    "WeaponSource": {
+      "description": "Source filter for weapon-triggered events.",
+      "properties": {
+        "type": {
+          "const": "weapon",
+          "default": "weapon",
+          "title": "Type",
+          "type": "string"
+        },
+        "id": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Specific weapon ID",
+          "title": "Id"
+        },
+        "properties": {
+          "anyOf": [
+            {
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Required weapon properties (e.g., ['finesse', 'light'])",
+          "title": "Properties"
+        },
+        "magical": {
+          "anyOf": [{ "type": "boolean" }, { "type": "null" }],
+          "default": null,
+          "description": "Whether the weapon is magical (true) or nonmagical (false)",
+          "title": "Magical"
+        },
+        "mode": {
+          "anyOf": [
+            {
+              "enum": ["melee", "ranged", "thrown"],
+              "type": "string"
+            },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Attack mode: melee, ranged, or thrown",
+          "title": "Mode"
+        }
+      },
+      "required": ["type"],
+      "title": "WeaponSource",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "CreatureSource": {
+      "description": "Source filter for creature-triggered events.",
+      "properties": {
+        "type": {
+          "const": "creature",
+          "default": "creature",
+          "title": "Type",
+          "type": "string"
+        },
+        "id": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Specific creature ID",
+          "title": "Id"
+        }
+      },
+      "required": ["type"],
+      "title": "CreatureSource",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "UnarmedSource": {
+      "description": "Source filter for unarmed or natural weapon attacks (e.g., fists, claws, bite).",
+      "properties": {
+        "type": {
+          "const": "unarmed",
+          "default": "unarmed",
+          "title": "Type",
+          "type": "string"
+        },
+        "id": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Specific natural weapon ID (e.g., 'claws', 'bite')",
+          "title": "Id"
+        }
+      },
+      "required": ["type"],
+      "title": "UnarmedSource",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "ImprovisedSource": {
+      "description": "Source filter for improvised weapon attacks (objects used as weapons).",
+      "properties": {
+        "type": {
+          "const": "improvised",
+          "default": "improvised",
+          "title": "Type",
+          "type": "string"
+        },
+        "id": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Specific object ID being used as a weapon",
+          "title": "Id"
+        }
+      },
+      "required": ["type"],
+      "title": "ImprovisedSource",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "ResourceSource": {
+      "description": "Source filter for resource-triggered events (e.g., spending hit dice).",
+      "properties": {
+        "type": {
+          "const": "resource",
+          "default": "resource",
+          "title": "Type",
+          "type": "string"
+        },
+        "resource": {
+          "description": "Resource pool ID (e.g., 'hit_dice')",
+          "title": "Resource",
+          "type": "string"
+        }
+      },
+      "required": ["type", "resource"],
+      "title": "ResourceSource",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "TrapSource": {
+      "description": "Source filter for trap-triggered events.",
+      "properties": {
+        "type": {
+          "const": "trap",
+          "default": "trap",
+          "title": "Type",
+          "type": "string"
+        },
+        "id": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Specific trap source ID",
+          "title": "Id"
+        }
+      },
+      "required": ["type"],
+      "title": "TrapSource",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "EnvironmentSource": {
+      "description": "Source filter for environment-triggered events (e.g., terrain, hazards).",
+      "properties": {
+        "type": {
+          "const": "environment",
+          "default": "environment",
+          "title": "Type",
+          "type": "string"
+        },
+        "id": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Specific environment source ID",
+          "title": "Id"
+        }
+      },
+      "required": ["type"],
+      "title": "EnvironmentSource",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "TriggerSource": {
+      "description": "Discriminated union for event source filters. The 'type' field determines which source schema applies.",
+      "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "spell": "#/$defs/SpellSource",
+          "weapon": "#/$defs/WeaponSource",
+          "unarmed": "#/$defs/UnarmedSource",
+          "improvised": "#/$defs/ImprovisedSource",
+          "creature": "#/$defs/CreatureSource",
+          "resource": "#/$defs/ResourceSource",
+          "environment": "#/$defs/EnvironmentSource",
+          "trap": "#/$defs/TrapSource"
+        }
+      },
+      "oneOf": [
+        { "$ref": "#/$defs/SpellSource" },
+        { "$ref": "#/$defs/WeaponSource" },
+        { "$ref": "#/$defs/UnarmedSource" },
+        { "$ref": "#/$defs/ImprovisedSource" },
+        { "$ref": "#/$defs/CreatureSource" },
+        { "$ref": "#/$defs/ResourceSource" },
+        { "$ref": "#/$defs/EnvironmentSource" },
+        { "$ref": "#/$defs/TrapSource" }
+      ]
     },
     "TriggerStatus": {
       "description": "Status reference for status-based triggers.",
@@ -8677,6 +9098,19 @@
           "default": null,
           "description": "Whether trigger fires on 'applied' or 'removed'",
           "title": "On"
+        },
+        "method": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "How the status change occurred (e.g., 'voluntary')",
+          "title": "Method"
         }
       },
       "required": ["name"],
@@ -8687,6 +9121,12 @@
     "TriggerTarget": {
       "description": "Who the triggering event applies to.",
       "properties": {
+        "count": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Number of targets",
+          "title": "Count"
+        },
         "type": {
           "anyOf": [
             {
@@ -8824,10 +9264,7 @@
           "title": "Calculation"
         },
         "bounds": {
-          "anyOf": [
-            { "$ref": "#/$defs/IntegerRange" },
-            { "type": "null" }
-          ],
+          "anyOf": [{ "$ref": "#/$defs/IntegerRange" }, { "type": "null" }],
           "default": null,
           "description": "Floor/ceiling for calculated uses"
         },

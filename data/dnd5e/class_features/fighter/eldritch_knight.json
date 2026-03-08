@@ -121,9 +121,12 @@
       {
         "type": "passive",
         "trigger": {
-          "event": ["hit"],
+          "event": ["attack"],
           "source": {
-            "type": ["weapon"]
+            "type": "weapon"
+          },
+          "attack": {
+            "result": "success"
           }
         },
         "effects": [

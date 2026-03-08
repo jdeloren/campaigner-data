@@ -46,7 +46,10 @@
       {
         "type": "critical_hit",
         "trigger": {
-          "event": ["hit"]
+          "event": ["attack"],
+          "attack": {
+            "result": "success"
+          }
         },
         "target": {
           "type": "creature",

@@ -120,6 +120,7 @@
         "trigger": {
           "event": ["healed_by"],
           "source": {
+            "type": "resource",
             "resource": "hit_dice"
           }
         },
@@ -173,7 +174,8 @@
         "name": "magical_inspiration",
         "trigger": {
           "event": ["cast_spell"],
-          "spell": {
+          "source": {
+            "type": "spell",
             "effect": ["healing", "damage"]
           }
         },
@@ -412,7 +414,10 @@
                 },
                 {
                   "event": ["status_removed"],
-                  "action": "voluntary"
+                  "status": {
+                    "name": "countercharm",
+                    "method": "voluntary"
+                  }
                 }
               ]
             }

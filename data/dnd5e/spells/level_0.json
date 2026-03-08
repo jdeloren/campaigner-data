@@ -172,7 +172,8 @@
                 "id": "status:booming_blade",
                 "effect": {
                   "trigger": {
-                    "event": ["move"],
+                    "event": ["action"],
+                    "action": "move",
                     "condition": {
                       "type": "movement",
                       "value": 5,
@@ -233,7 +234,7 @@
           {
             "attack": {
               "source": {
-                "type": ["spell"]
+                "type": "spell"
               }
             },
             "on_hit": {
@@ -490,9 +491,10 @@
             }
           },
           {
-            "trigger": {
-              "event": ["enter_area", "end_turn"]
-            },
+            "trigger": [
+              {"event": ["enter_area"]},
+              {"event": ["turn_end"]}
+            ],
             "saving_throw": {
               "ability": "Dexterity",
               "dc": {
@@ -1321,7 +1323,7 @@
           {
             "attack": {
               "source": {
-                "type": ["spell"]
+                "type": "spell"
               }
             },
             "on_hit": {
@@ -1742,7 +1744,7 @@
           {
             "attack": {
               "source": {
-                "type": ["spell"]
+                "type": "spell"
               }
             },
             "on_hit": {
@@ -1858,7 +1860,7 @@
           {
             "attack": {
               "source": {
-                "type": ["spell"]
+                "type": "spell"
               }
             },
             "on_hit": {
@@ -1909,7 +1911,7 @@
           {
             "attack": {
               "source": {
-                "type": ["spell"]
+                "type": "spell"
               }
             },
             "on_hit": {
@@ -2466,7 +2468,7 @@
           {
             "attack": {
               "source": {
-                "type": ["spell"]
+                "type": "spell"
               }
             },
             "on_hit": {

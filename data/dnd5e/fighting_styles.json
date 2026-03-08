@@ -12,7 +12,8 @@
         "trigger": {
           "event": ["attack"],
           "source": {
-            "type": ["ranged"]
+            "type": "weapon",
+            "mode": "ranged"
           }
         },
         "effects": [
@@ -123,7 +124,8 @@
         "trigger": {
           "event": ["damage"],
           "source": {
-            "type": ["melee", "weapon"]
+            "type": "weapon",
+            "mode": "melee"
           }
         },
         "effects": [
@@ -169,7 +171,8 @@
         "trigger": {
           "event": ["damage"],
           "source": {
-            "type": ["melee", "weapon"]
+            "type": "weapon",
+            "mode": "melee"
           }
         },
         "effects": [
@@ -212,10 +215,7 @@
             "type": ["ally"]
           },
           "source": {
-            "range": {
-              "value": 5,
-              "unit": "feet"
-            }
+            "type": "creature"
           }
         },
         "effects": [
@@ -239,6 +239,13 @@
             "observer": "character",
             "subject": "attacker",
             "senses": ["sight"]
+          },
+          {
+            "type": "distance",
+            "to": "attacker",
+            "value": 5,
+            "unit": "feet",
+            "comparison": "within"
           }
         ]
       }
@@ -257,7 +264,7 @@
         "trigger": {
           "event": ["damage"],
           "source": {
-            "type": ["weapon"]
+            "type": "weapon"
           }
         },
         "effects": [

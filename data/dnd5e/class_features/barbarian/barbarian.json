@@ -29,7 +29,10 @@
             },
             {
               "event": ["status_removed"],
-              "action": "voluntary"
+              "status": {
+                "name": "raging",
+                "method": "voluntary"
+              }
             }
           ]
         },
@@ -46,7 +49,10 @@
             "trigger": {
               "event": ["damage"],
               "source": {
-                "type": ["melee", "weapon"],
+                "type": "weapon",
+                "mode": "melee"
+              },
+              "attack": {
                 "ability": ["Strength"]
               }
             }
@@ -185,7 +191,10 @@
         "trigger": {
           "event": ["attack"],
           "source": {
-            "type": ["melee", "weapon"],
+            "type": "weapon",
+            "mode": "melee"
+          },
+          "attack": {
             "ability": ["Strength"]
           }
         },
@@ -206,7 +215,7 @@
                 "type": "attackers"
               },
               "duration": {
-                "until": ["start_turn"]
+                "until": ["turn_start"]
               }
             }
           }
@@ -396,13 +405,13 @@
       {
         "type": "immunity",
         "trigger": {
-          "event": ["combat_start"],
-          "condition": {
-            "type": "status",
-            "value": "surprised"
-          }
+          "event": ["combat_start"]
         },
         "requirements": [
+          {
+            "type": "status",
+            "value": "surprised"
+          },
           {
             "type": "status",
             "value": "incapacitated",
@@ -475,9 +484,14 @@
       {
         "type": "critical_hit",
         "trigger": {
-          "event": ["hit"],
+          "event": ["attack"],
+          "attack": {
+            "result": "success",
+            "critical": true
+          },
           "source": {
-            "type": ["melee"]
+            "type": "weapon",
+            "mode": "melee"
           }
         },
         "effects": [
@@ -586,7 +600,10 @@
             },
             {
               "event": ["status_removed"],
-              "action": "voluntary"
+              "status": {
+                "name": "raging",
+                "method": "voluntary"
+              }
             }
           ]
         }

@@ -535,7 +535,9 @@
             "type": "passive",
             "trigger": {
               "event": ["saving_throw"],
-              "context": ["poison"]
+              "save": {
+                "status": ["status:poisoned"]
+              }
             },
             "effects": [
               {
@@ -600,7 +602,34 @@
       {
         "name": "Stonecunning",
         "description": "Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.",
-        "mechanics": [],
+        "mechanics": [
+          {
+            "type": "passive",
+            "note": "When related to the origin of stonework",
+            "trigger": {
+              "event": ["ability_check"],
+              "check": {
+                "skill": "History"
+              }
+            },
+            "effects": [
+              {
+                "attribute": {
+                  "target": "proficiency_bonus",
+                  "calculation": {
+                    "operation": "multiply",
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 2
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ],
         "id": "trait:dwarf-stonecunning"
       }
     ],
@@ -2188,9 +2217,14 @@
           {
             "type": "critical_hit",
             "trigger": {
-              "event": ["hit"],
+              "event": ["attack"],
+              "attack": {
+                "result": "success",
+                "critical": true
+              },
               "source": {
-                "type": ["melee", "weapon"]
+                "type": "weapon",
+                "mode": "melee"
               }
             },
             "effects": [
@@ -2369,9 +2403,12 @@
         "mechanics": [
           {
             "type": "passive",
+            "note": "When related to magic items, alchemical objects, or technological devices",
             "trigger": {
               "event": ["ability_check"],
-              "context": ["magic_items", "alchemical_objects", "technological_devices"]
+              "check": {
+                "skill": "History"
+              }
             },
             "effects": [
               {
@@ -2519,12 +2556,49 @@
         "mechanics": [
           {
             "type": "passive",
+            "name": "lucky_attack",
             "trigger": {
-              "event": ["attack", "ability_check", "saving_throw"],
-              "condition": {
-                "type": "roll_result",
-                "value": 1,
-                "comparison": "equal"
+              "event": ["attack"],
+              "attack": {
+                "rolls": [1]
+              }
+            },
+            "effects": [
+              {
+                "roll_modifier": {
+                  "reroll": {
+                    "replace": true
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "passive",
+            "name": "lucky_ability_check",
+            "trigger": {
+              "event": ["ability_check"],
+              "check": {
+                "rolls": [1]
+              }
+            },
+            "effects": [
+              {
+                "roll_modifier": {
+                  "reroll": {
+                    "replace": true
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "passive",
+            "name": "lucky_saving_throw",
+            "trigger": {
+              "event": ["saving_throw"],
+              "save": {
+                "rolls": [1]
               }
             },
             "effects": [

@@ -123,9 +123,14 @@
               }
             },
             "trigger": {
-              "event": ["saving_throw"],
-              "context": ["concentration"]
-            }
+              "event": ["saving_throw"]
+            },
+            "requirements": [
+              {
+                "type": "concentration",
+                "active": true
+              }
+            ]
           }
         ]
       }
@@ -223,7 +228,8 @@
         "trigger": {
           "event": ["damage"],
           "source": {
-            "type": ["melee", "weapon"]
+            "type": "weapon",
+            "mode": "melee"
           }
         },
         "effects": [

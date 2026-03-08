@@ -461,7 +461,7 @@
             "trigger": {
               "event": ["damage"],
               "source": {
-                "type": ["weapon"]
+                "type": "weapon"
               }
             },
             "damage": {
@@ -1011,7 +1011,7 @@
                   "unit": "feet"
                 }
               },
-              "damage_type": ["acid", "cold", "fire", "lightning", "thunder"]
+              "damage": { "element": ["acid", "cold", "fire", "lightning", "thunder"] }
             },
             "target": {
               "type": "event_recipient"
@@ -1049,7 +1049,7 @@
             "trigger": {
               "event": ["damage"],
               "source": {
-                "type": ["weapon"]
+                "type": "weapon"
               }
             },
             "effects": [
@@ -1192,7 +1192,10 @@
           {
             "type": "reaction",
             "trigger": {
-              "event": ["hit_by"]
+              "event": ["attacked_by"],
+              "attack": {
+                "result": "success"
+              }
             },
             "effects": [
               {
@@ -1269,7 +1272,9 @@
             "type": "optional",
             "trigger": {
               "event": ["damage"],
-              "damage_type": ["thunder", "lightning"]
+              "damage": {
+                "element": ["thunder", "lightning"]
+              }
             },
             "cost": [
               {
@@ -1300,7 +1305,9 @@
             "type": "passive",
             "trigger": {
               "event": ["damage"],
-              "damage_type": "lightning"
+              "damage": {
+                "element": ["lightning"]
+              }
             },
             "effects": [
               {
@@ -1339,7 +1346,7 @@
             "trigger": {
               "event": ["damage"],
               "source": {
-                "type": ["weapon"]
+                "type": "weapon"
               }
             },
             "damage": {
@@ -1594,7 +1601,7 @@
             "trigger": {
               "event": ["damage"],
               "source": {
-                "type": ["weapon"]
+                "type": "weapon"
               }
             },
             "damage": {
@@ -1711,7 +1718,7 @@
             "trigger": {
               "event": ["attack"],
               "source": {
-                "type": ["weapon"]
+                "type": "weapon"
               }
             },
             "effects": [
@@ -1818,7 +1825,7 @@
             "trigger": {
               "event": ["damage"],
               "source": {
-                "type": ["weapon"]
+                "type": "weapon"
               }
             },
             "damage": {

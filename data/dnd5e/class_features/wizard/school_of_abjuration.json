@@ -172,7 +172,7 @@
         "trigger": {
           "event": ["saving_throw"],
           "source": {
-            "type": ["spell"]
+            "type": "spell"
           }
         },
         "effects": [

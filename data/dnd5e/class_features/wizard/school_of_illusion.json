@@ -1,0 +1,160 @@
+[
+  {
+    "id": "feat:illusion-savant",
+    "class": "subclass:school-of-illusion",
+    "level": 2,
+    "name": "Illusion Savant",
+    "description": "Beginning when you select this school at 2nd level, the gold and time you must spend to copy an illusion spell into your spellbook is halved.",
+    "mechanics": [
+      {
+        "type": "special",
+        "name": "illusion_savant",
+        "description": "The gold and time to copy illusion spells into your spellbook is halved."
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:improved-minor-illusion",
+    "class": "subclass:school-of-illusion",
+    "level": 2,
+    "name": "Improved Minor Illusion",
+    "description": "When you choose this school at 2nd level, you learn the minor illusion cantrip. If you already know this cantrip, you learn a different wizard cantrip of your choice. The cantrip doesn't count against your number of cantrips known.\n\nWhen you cast minor illusion, you can create both a sound and an image with a single casting of the spell.",
+    "mechanics": [
+      {
+        "type": "granted_spells",
+        "spells": [
+          "spell:minor-illusion"
+        ],
+        "always_prepared": true,
+        "substitute": {
+          "count": 1,
+          "criteria": {
+            "class": "class:wizard",
+            "level": 0
+          }
+        }
+      },
+      {
+        "type": "passive",
+        "name": "improved_minor_illusion",
+        "description": "When you cast minor illusion, you can create both a sound and an image with a single casting.",
+        "trigger": {
+          "event": [
+            "cast_spell"
+          ],
+          "source": {
+            "type": "spell",
+            "id": "spell:minor-illusion"
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:malleable-illusions",
+    "class": "subclass:school-of-illusion",
+    "level": 6,
+    "name": "Malleable Illusions",
+    "description": "Starting at 6th level, when you cast an illusion spell that has a duration of 1 minute or longer, you can use your action to change the nature of that illusion (using the spell's normal parameters for the illusion), provided that you can see the illusion.",
+    "mechanics": [
+      {
+        "type": "action",
+        "name": "malleable_illusions",
+        "description": "Change the nature of an active illusion spell with a duration of 1 minute or longer, using the spell's normal parameters.",
+        "requirements": [
+          {
+            "type": "spell",
+            "school": "Illusion",
+            "duration": {
+              "value": 1,
+              "unit": "minutes"
+            }
+          },
+          {
+            "type": "perception",
+            "observer": "character",
+            "subject": "target",
+            "senses": [
+              "sight"
+            ]
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:illusory-self",
+    "class": "subclass:school-of-illusion",
+    "level": 10,
+    "name": "Illusory Self",
+    "description": "Beginning at 10th level, you can create an illusory duplicate of yourself as an instant, almost instinctual reaction to danger. When a creature makes an attack roll against you, you can use your reaction to interpose the illusory duplicate between you and the attacker. The attack automatically misses you, then the illusion dissipates.\n\nOnce you use this feature, you can't use it again until you finish a short or long rest.",
+    "mechanics": [
+      {
+        "type": "reaction",
+        "name": "illusory_self",
+        "trigger": {
+          "event": [
+            "attacked_by"
+          ],
+          "timing": "before"
+        },
+        "effects": [
+          {
+            "roll_modifier": {
+              "type": "attack",
+              "result": "auto_fail"
+            }
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "short_rest"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:illusory-reality",
+    "class": "subclass:school-of-illusion",
+    "level": 14,
+    "name": "Illusory Reality",
+    "description": "By 14th level, you have learned the secret of weaving shadow magic into your illusions to give them a semi-reality. When you cast an illusion spell of 1st level or higher, you can choose one inanimate, nonmagical object that is part of the illusion and make that object real. You can do this on your turn as a bonus action while the spell is ongoing. The object remains real for 1 minute. For example, you can create an illusion of a bridge over a chasm and then make it real long enough for your allies to cross.\n\nThe object can't deal damage or otherwise directly harm anyone.",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "name": "illusory_reality",
+        "description": "Choose one inanimate, nonmagical object that is part of an active illusion spell of 1st level or higher and make it real for 1 minute. The object can't deal damage or directly harm anyone.",
+        "trigger": {
+          "event": [
+            "cast_spell"
+          ],
+          "source": {
+            "type": "spell",
+            "school": "Illusion",
+            "level": {
+              "minimum": 1
+            }
+          }
+        },
+        "effects": [
+          {
+            "duration": {
+              "value": 1,
+              "unit": "minutes"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

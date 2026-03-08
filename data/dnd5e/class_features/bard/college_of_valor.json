@@ -41,9 +41,7 @@
             "damage"
           ],
           "source": {
-            "type": [
-              "weapon"
-            ]
+            "type": "weapon"
           }
         },
         "cost": [
