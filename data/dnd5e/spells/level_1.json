@@ -33,7 +33,7 @@
         "trigger": {
           "event": ["damaged_by"],
           "damage": {
-            "type": ["acid", "cold", "fire", "lightning", "thunder"]
+            "element": ["acid", "cold", "fire", "lightning", "thunder"]
           }
         },
         "target": {
