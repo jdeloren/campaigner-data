@@ -1,15 +1,30 @@
 [
   {
     "id": "feat:divination-savant",
-    "class": "subclass:school-of-divination",
+    "class": "subclass:divination",
     "level": 2,
     "name": "Divination Savant",
     "description": "Beginning when you select this school at 2nd level, the gold and time you must spend to copy a divination spell into your spellbook is halved.",
+    "enhances": "feat:copy-spell",
     "mechanics": [
       {
-        "type": "special",
+        "type": "passive",
         "name": "divination_savant",
-        "description": "The gold and time to copy divination spells into your spellbook is halved."
+        "requirements": [
+          { "type": "spell", "school": "Divination" }
+        ],
+        "cost": [
+          {
+            "currency": "GP",
+            "calculation": {
+              "operation": "multiply",
+              "operators": [
+                { "type": "integer", "value": 25 },
+                { "type": "spell_level_cast" }
+              ]
+            }
+          }
+        ]
       }
     ],
     "source": "phb",
@@ -17,7 +32,7 @@
   },
   {
     "id": "feat:portent",
-    "class": "subclass:school-of-divination",
+    "class": "subclass:divination",
     "level": 2,
     "name": "Portent",
     "description": "Starting at 2nd level when you choose this school, glimpses of the future begin to press in on your awareness. When you finish a long rest, roll two d20s and record the numbers rolled. You can replace any attack roll, saving throw, or ability check made by you or a creature that you can see with one of these foretelling rolls. You must choose to do so before the roll, and you can replace a roll in this way only once per turn.\n\nEach foretelling roll can be used only once. When you finish a long rest, you lose any unused foretelling rolls.",
@@ -121,7 +136,7 @@
   },
   {
     "id": "feat:expert-divination",
-    "class": "subclass:school-of-divination",
+    "class": "subclass:divination",
     "level": 6,
     "name": "Expert Divination",
     "description": "Beginning at 6th level, casting divination spells comes so easily to you that it expends only a fraction of your spellcasting efforts. When you cast a divination spell of 2nd level or higher using a spell slot, you regain one expended spell slot. The slot you regain must be of a level lower than the spell you cast and can't be higher than 5th level.",
@@ -157,7 +172,7 @@
   },
   {
     "id": "feat:the-third-eye",
-    "class": "subclass:school-of-divination",
+    "class": "subclass:divination",
     "level": 10,
     "name": "The Third Eye",
     "description": "Starting at 10th level, you can use your action to increase your powers of perception. When you do so, choose one of the following benefits, which lasts until you are incapacitated or you take a short or long rest. You can't use the feature again until you finish a rest.\n\nDarkvision. You gain darkvision out to a range of 60 feet.\n\nEthereal Sight. You can see into the Ethereal Plane within 60 feet of you.\n\nGreater Comprehension. You can read any language.\n\nSee Invisibility. You can see invisible creatures and objects within 10 feet of you that are within line of sight.",
@@ -239,7 +254,7 @@
   },
   {
     "id": "feat:greater-portent",
-    "class": "subclass:school-of-divination",
+    "class": "subclass:divination",
     "level": 14,
     "name": "Greater Portent",
     "description": "Starting at 14th level, the visions in your dreams intensify and paint a more accurate picture in your mind of what is to come. You roll three d20s for your Portent feature, rather than two.",

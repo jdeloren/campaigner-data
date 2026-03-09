@@ -226,7 +226,7 @@
       "ability": "Intelligence",
       "type": "known",
       "ritual_casting": false,
-      "spellbook": false,
+      "spellbook": null,
       "cantrips_known": {
         "3": {
           "fixed": ["Mage Hand"],
@@ -675,7 +675,7 @@
       "ability": "Intelligence",
       "type": "known",
       "ritual_casting": false,
-      "spellbook": false,
+      "spellbook": null,
       "cantrips_known": {
         "3": {
           "choices": [
@@ -1034,7 +1034,7 @@
       "ability": "Wisdom",
       "type": "prepared",
       "ritual_casting": true,
-      "spellbook": false,
+      "spellbook": null,
       "cantrips_known": {
         "1": {
           "choices": [
@@ -1462,7 +1462,7 @@
       "ability": "Charisma",
       "type": "known",
       "ritual_casting": true,
-      "spellbook": false,
+      "spellbook": null,
       "cantrips_known": {
         "1": {
           "choices": [
@@ -1984,7 +1984,7 @@
       "ability": "Intelligence",
       "type": "prepared",
       "ritual_casting": true,
-      "spellbook": true,
+      "spellbook": "feat:copy-spell",
       "cantrips_known": {
         "1": {
           "choices": [
