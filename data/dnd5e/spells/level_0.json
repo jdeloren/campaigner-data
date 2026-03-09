@@ -719,7 +719,24 @@
         }
       }
     },
-    "mechanics": [],
+    "mechanics": [
+      {
+        "type": "action",
+        "effects": [
+          {
+            "attack": {
+              "source": { "type": "spell" }
+            },
+            "on_hit": {
+              "damage": {
+                "dice": "scaling.damage",
+                "type": ["fire"]
+              }
+            }
+          }
+        ]
+      }
+    ],
     "source": "phb",
     "ruleset": "dnd5e"
   },
@@ -2226,6 +2243,9 @@
             ]
           },
           {
+            "attack": {
+              "source": { "type": "spell" }
+            },
             "on_hit": {
               "damage": {
                 "dice": "scaling.damage",
