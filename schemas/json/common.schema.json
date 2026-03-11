@@ -1442,9 +1442,9 @@
       "type": "object"
     },
     "Barrier": {
-      "description": "Barrier (temporary HP) configuration.\n\nExample — Arcane Ward (absorbed first):\n{\"name\": \"arcane_ward\", \"priority\": 0}\n\nExample — standard temp HP spell:\n{\"priority\": 1}",
+      "description": "Barrier (temporary HP) configuration.\n\nExample — Arcane Ward (absorbed first):\n{\"id\": \"arcane_ward\", \"priority\": 0}\n\nExample — standard temp HP spell:\n{\"priority\": 1}",
       "properties": {
-        "name": {
+        "id": {
           "anyOf": [
             {
               "type": "string"
@@ -1454,8 +1454,8 @@
             }
           ],
           "default": null,
-          "description": "Identifier for the barrier source (e.g., 'arcane_ward'). Used for display grouping and color mapping.",
-          "title": "Name"
+          "description": "Barrier identifier used for display grouping and color mapping.",
+          "title": "Id"
         },
         "priority": {
           "default": 1,

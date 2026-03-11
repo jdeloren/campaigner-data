@@ -69,7 +69,7 @@
                 ]
               },
               "barrier": {
-                "name": "arcane_ward",
+                "id": "arcane_ward",
                 "priority": 0
               }
             }
@@ -99,7 +99,7 @@
                 "operators": [{ "type": "spell_level_cast" }, { "type": "integer", "value": 2 }]
               },
               "barrier": {
-                "name": "arcane_ward",
+                "id": "arcane_ward",
                 "priority": 0
               }
             }

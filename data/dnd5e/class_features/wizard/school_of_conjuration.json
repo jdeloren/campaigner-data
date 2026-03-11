@@ -172,7 +172,7 @@
             "healing": {
               "value": 30,
               "barrier": {
-                "name": "durable_summons",
+                "id": "durable_summons",
                 "priority": 0
               }
             }
