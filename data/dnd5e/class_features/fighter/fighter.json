@@ -192,8 +192,10 @@
       {
         "type": "passive",
         "trigger": {
-          "event": ["miss"],
-          "action": "saving_throw"
+          "event": ["saving_throw"],
+          "save": {
+            "result": "failure"
+          }
         },
         "effects": [
           {

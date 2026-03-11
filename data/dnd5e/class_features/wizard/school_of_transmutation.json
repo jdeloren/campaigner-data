@@ -1,0 +1,219 @@
+[
+  {
+    "id": "feat:transmutation-savant",
+    "class": "subclass:transmutation",
+    "level": 2,
+    "name": "Transmutation Savant",
+    "description": "Beginning when you select this school at 2nd level, the gold and time you must spend to copy a transmutation spell into your spellbook is halved.",
+    "enhances": "feat:copy-spell",
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "transmutation_savant",
+        "requirements": [
+          { "type": "spell", "school": "Transmutation" }
+        ],
+        "cost": [
+          {
+            "currency": "GP",
+            "calculation": {
+              "operation": "multiply",
+              "operators": [
+                { "type": "integer", "value": 25 },
+                { "type": "spell_level_cast" }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:minor-alchemy",
+    "class": "subclass:transmutation",
+    "level": 2,
+    "name": "Minor Alchemy",
+    "description": "Starting at 2nd level when you select this school, you can temporarily alter the physical properties of one nonmagical object, changing it from one substance into another. You perform a special alchemical procedure on one object composed entirely of wood, stone (but not a gemstone), iron, copper, or silver, transforming it into a different one of those materials. For each 10 minutes you spend performing the procedure, you can transform up to 1 cubic foot of material. After 1 hour, or until you lose your concentration (as if you were concentrating on a spell), the material reverts to its original substance.",
+    "mechanics": [
+      {
+        "type": "action",
+        "name": "minor_alchemy",
+        "description": "Transform one nonmagical object made of wood, stone, iron, copper, or silver into a different one of those materials. Rate: 1 cubic foot per 10 minutes.",
+        "concentration": true,
+        "duration": {
+          "value": 1,
+          "unit": "hours"
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:transmuters-stone",
+    "class": "subclass:transmutation",
+    "level": 6,
+    "name": "Transmuter's Stone",
+    "description": "Starting at 6th level, you can spend 8 hours creating a transmuter's stone that stores transmutation magic. You can benefit from the stone yourself or give it to another creature. A creature gains a benefit of your choice as long as the stone is in the creature's possession. When you create the stone, choose the benefit from the following options:\n\n- Darkvision out to a range of 60 feet, as described in chapter 8\n- An increase to speed of 10 feet while the creature is unencumbered\n- Proficiency in Constitution saving throws\n- Resistance to acid, cold, fire, lightning, or thunder damage (your choice each time you choose this benefit)\n\nEach time you cast a transmutation spell of 1st level or higher, you can change the effect of your stone if the stone is on your person.\n\nIf you create a new transmuter's stone, the previous one ceases to function.",
+    "mechanics": [
+      {
+        "type": "special",
+        "name": "transmuters_stone_create",
+        "description": "Spend 8 hours to create a transmuter's stone. You can change its effect each time you cast a transmutation spell of 1st level or higher. Creating a new stone destroys the previous one."
+      },
+      {
+        "type": "choice",
+        "name": "transmuters_stone_benefit",
+        "choice_type": "subfeature",
+        "count": 1,
+        "options_ref": "subfeatures"
+      }
+    ],
+    "subfeatures": [
+      {
+        "name": "Darkvision",
+        "description": "Darkvision out to a range of 60 feet.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "effects": [
+              {
+                "attribute": {
+                  "target": "senses.darkvision",
+                  "calculation": {
+                    "operation": "set",
+                    "operators": [{ "type": "integer", "value": 60 }]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Speed Increase",
+        "description": "An increase to speed of 10 feet while the creature is unencumbered.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "effects": [
+              {
+                "buff": {
+                  "category": "movement",
+                  "property": "base",
+                  "bonus": {
+                    "operation": "add",
+                    "operators": [{ "type": "integer", "value": 10 }]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Constitution Saving Throw Proficiency",
+        "description": "Proficiency in Constitution saving throws.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "effects": [
+              {
+                "buff": {
+                  "category": "proficiency",
+                  "subcategory": "saving_throw",
+                  "value": ["Constitution"]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Damage Resistance",
+        "description": "Resistance to acid, cold, fire, lightning, or thunder damage (your choice).",
+        "mechanics": [
+          {
+            "type": "choice",
+            "choice_type": "damage_type",
+            "count": 1,
+            "options": [
+              { "type": "simple", "name": "acid" },
+              { "type": "simple", "name": "cold" },
+              { "type": "simple", "name": "fire" },
+              { "type": "simple", "name": "lightning" },
+              { "type": "simple", "name": "thunder" }
+            ],
+            "effects": [
+              {
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["selected"]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:shapechanger",
+    "class": "subclass:transmutation",
+    "level": 10,
+    "name": "Shapechanger",
+    "description": "At 10th level, you add the polymorph spell to your spellbook, if it is not there already. You can cast polymorph without expending a spell slot. When you do so, you can target only yourself and transform into a beast whose challenge rating is 1 or lower.\n\nOnce you cast polymorph in this way, you can't do so again until you finish a short or long rest, though you can still cast it normally using an available spell slot.",
+    "mechanics": [
+      {
+        "type": "granted_spells",
+        "spells": ["spell:polymorph"],
+        "always_prepared": true
+      },
+      {
+        "type": "granted_spells",
+        "spells": ["spell:polymorph"],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "short_rest"
+      },
+      {
+        "type": "special",
+        "name": "shapechanger_restriction",
+        "description": "When casting polymorph via this feature, you can target only yourself and transform into a beast whose challenge rating is 1 or lower."
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:master-transmuter",
+    "class": "subclass:transmutation",
+    "level": 14,
+    "name": "Master Transmuter",
+    "description": "Starting at 14th level, you can use your action to consume the reserve of transmutation magic stored within your transmuter's stone in a single burst. When you do so, choose one of the following effects. Your transmuter's stone is destroyed and can't be remade until you finish a long rest.\n\n**Major Transformation.** You can transmute one nonmagical object — no larger than a 5-foot cube — into another nonmagical object of similar size and mass and of equal or lesser value. You must spend 10 minutes handling the object to transform it.\n\n**Panacea.** You remove all curses, diseases, and poisons affecting a creature that you touch with the transmuter's stone. The creature also regains all its hit points.\n\n**Restore Life.** You cast the raise dead spell on a creature you touch with the transmuter's stone, without expending a spell slot or needing to have the spell in your spellbook.\n\n**Restore Youth.** You touch the transmuter's stone to a willing creature, and that creature's apparent age is reduced by 3d10 years, to a minimum of 13 years. This effect doesn't extend the creature's lifespan.",
+    "mechanics": [
+      {
+        "type": "action",
+        "name": "master_transmuter",
+        "description": "Consume the transmuter's stone to produce one of the following effects. The stone is destroyed and can't be remade until you finish a long rest.\n\n**Major Transformation.** Transmute one nonmagical object (up to 5-foot cube) into another of similar size, mass, and equal or lesser value. Requires 10 minutes.\n\n**Panacea.** Remove all curses, diseases, and poisons from a creature you touch. The creature regains all hit points.\n\n**Restore Life.** Cast raise dead on a creature you touch, without expending a spell slot or needing it in your spellbook.\n\n**Restore Youth.** Reduce a willing creature's apparent age by 3d10 years (minimum 13). Does not extend lifespan.",
+        "uses": {
+          "value": 1
+        },
+        "recharge": "long_rest",
+        "requirements": [
+          {
+            "type": "inventory_item",
+            "name": "Transmuter's Stone"
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

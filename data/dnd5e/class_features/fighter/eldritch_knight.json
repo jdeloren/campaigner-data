@@ -94,7 +94,7 @@
         "trigger": {
           "event": ["cast_spell"],
           "spell": {
-            "level": 0
+            "level": { "minimum": 0, "maximum": 0 }
           }
         },
         "effects": [
@@ -121,9 +121,12 @@
       {
         "type": "passive",
         "trigger": {
-          "event": ["hit"],
+          "event": ["attack"],
           "source": {
-            "type": ["weapon"]
+            "type": "weapon"
+          },
+          "attack": {
+            "result": "success"
           }
         },
         "effects": [

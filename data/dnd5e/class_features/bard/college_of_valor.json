@@ -41,9 +41,7 @@
             "damage"
           ],
           "source": {
-            "type": [
-              "weapon"
-            ]
+            "type": "weapon"
           }
         },
         "cost": [
@@ -86,7 +84,7 @@
         "effects": [
           {
             "attribute": {
-              "target": "armor_class",
+              "category": "armor_class",
               "calculation": {
                 "operation": "add",
                 "operators": [

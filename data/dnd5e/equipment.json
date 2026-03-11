@@ -594,7 +594,7 @@
       {
         "type": "ability_score",
         "ability": "Strength",
-        "minimum": 13
+        "range": { "minimum": 13 }
       }
     ],
     "stealth_disadvantage": true,
@@ -622,7 +622,7 @@
       {
         "type": "ability_score",
         "ability": "Strength",
-        "minimum": 15
+        "range": { "minimum": 15 }
       }
     ],
     "stealth_disadvantage": true,
@@ -650,7 +650,7 @@
       {
         "type": "ability_score",
         "ability": "Strength",
-        "minimum": 15
+        "range": { "minimum": 15 }
       }
     ],
     "stealth_disadvantage": true,
@@ -2350,7 +2350,7 @@
               "requirements": [
                 {
                   "type": "attribute",
-                  "attribute": "hit_points.current",
+                  "ref": "hit_points.current",
                   "comparison": "equals",
                   "value": 0
                 }

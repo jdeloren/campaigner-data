@@ -66,17 +66,17 @@
         "type": "immunity",
         "name": "Can't Be Surprised",
         "trigger": {
-          "event": ["combat_start"],
-          "condition": {
-            "type": "status",
-            "value": "surprised"
-          }
+          "event": ["combat_start"]
         },
         "requirements": [
           {
             "type": "status",
             "value": "unconscious",
             "negate": true
+          },
+          {
+            "type": "status",
+            "value": "surprised"
           }
         ],
         "effects": [
@@ -109,16 +109,17 @@
         "type": "passive",
         "name": "Unseen Attackers",
         "trigger": {
-          "event": ["attacked_by"],
-          "source": {
-            "perception": {
-              "observer": "character",
-              "subject": "attacker",
-              "senses": ["sight"],
-              "negate": true
-            }
-          }
+          "event": ["attacked_by"]
         },
+        "requirements": [
+          {
+            "type": "perception",
+            "observer": "character",
+            "subject": "attacker",
+            "senses": ["sight"],
+            "negate": true
+          }
+        ],
         "effects": [
           {
             "immunity": {
@@ -174,7 +175,8 @@
         "effects": [
           {
             "attribute": {
-              "target": "movement.stand",
+              "category": "movement",
+              "property": "stand",
               "calculation": {
                 "operation": "set",
                 "operators": [
@@ -194,7 +196,8 @@
         "effects": [
           {
             "attribute": {
-              "target": "movement.climb",
+              "category": "movement",
+              "property": "climb",
               "calculation": {
                 "operation": "set",
                 "operators": [
@@ -214,7 +217,8 @@
         "effects": [
           {
             "attribute": {
-              "target": "movement.jump.running.move",
+              "category": "movement",
+              "property": "jump_approach",
               "calculation": {
                 "operation": "set",
                 "operators": [
@@ -255,7 +259,10 @@
               "bonus": 5
             },
             "trigger": {
-              "event": ["hit"],
+              "event": ["attack"],
+              "attack": {
+                "result": "success"
+              },
               "condition": {
                 "type": "movement",
                 "value": 10,
@@ -285,7 +292,10 @@
               "direction": "away"
             },
             "trigger": {
-              "event": ["hit"],
+              "event": ["attack"],
+              "attack": {
+                "result": "success"
+              },
               "condition": {
                 "type": "movement",
                 "value": 10,
@@ -402,7 +412,9 @@
                   }
                 ]
               },
-              "barrier": true
+              "barrier": {
+                "priority": 1
+              }
             },
             "duration": {
               "value": 8,
@@ -451,7 +463,8 @@
         "trigger": {
           "event": ["attack"],
           "source": {
-            "type": ["ranged"]
+            "type": "weapon",
+            "mode": "ranged"
           }
         },
         "requirements": [
@@ -531,7 +544,9 @@
         "name": "Crushing Push",
         "trigger": {
           "event": ["damage"],
-          "damage_type": "bludgeoning"
+          "damage": {
+            "type": ["bludgeoning"]
+          }
         },
         "target": {
           "type": "creature",
@@ -563,8 +578,14 @@
         "type": "critical_hit",
         "name": "Crushing Critical",
         "trigger": {
-          "event": ["hit"],
-          "damage_type": "bludgeoning"
+          "event": ["attack"],
+          "attack": {
+            "result": "success",
+            "critical": true
+          },
+          "damage": {
+            "type": ["bludgeoning"]
+          }
         },
         "effects": [
           {
@@ -577,7 +598,7 @@
             "duration": {
               "value": 1,
               "unit": "rounds",
-              "until": ["start_turn"]
+              "until": ["turn_start"]
             }
           }
         ]
@@ -594,7 +615,9 @@
       {
         "type": "attribute",
         "attribute": "Dexterity",
-        "minimum": 13
+        "range": {
+          "minimum": 13
+        }
       }
     ],
     "mechanics": [
@@ -602,9 +625,13 @@
         "type": "reaction",
         "name": "Defensive Duelist",
         "trigger": {
-          "event": ["hit_by"],
+          "event": ["attacked_by"],
+          "attack": {
+            "result": "success"
+          },
           "source": {
-            "type": ["melee"]
+            "type": "weapon",
+            "mode": "melee"
           }
         },
         "requirements": [
@@ -617,7 +644,7 @@
         "effects": [
           {
             "attribute": {
-              "target": "armor_class",
+              "category": "armor_class",
               "calculation": {
                 "operation": "add",
                 "operators": [
@@ -663,7 +690,7 @@
         "effects": [
           {
             "attribute": {
-              "target": "armor_class",
+              "category": "armor_class",
               "calculation": {
                 "operation": "add",
                 "operators": [
@@ -709,9 +736,9 @@
       {
         "type": "passive",
         "name": "Secret Door Detection",
+        "note": "Applies when detecting secret doors",
         "trigger": {
-          "event": ["ability_check"],
-          "context": ["secret_doors"]
+          "event": ["ability_check"]
         },
         "effects": [
           {
@@ -732,7 +759,7 @@
         "trigger": {
           "event": ["saving_throw"],
           "source": {
-            "type": ["trap"]
+            "type": "trap"
           }
         },
         "effects": [
@@ -796,13 +823,16 @@
         "trigger": {
           "event": ["healed_by"],
           "source": {
+            "type": "resource",
             "resource": "hit_dice"
           }
         },
         "effects": [
           {
             "roll_modifier": {
-              "minimum": 2
+              "bounds": {
+                "minimum": 2
+              }
             },
             "calculation": {
               "operation": "multiply",
@@ -831,8 +861,10 @@
     "requirements": [
       {
         "type": "attribute",
-        "attribute": "spell_slots",
-        "minimum": 1
+        "ref": "spell_slots",
+        "range": {
+          "minimum": 1
+        }
       }
     ],
     "mechanics": [
@@ -860,8 +892,10 @@
     "requirements": [
       {
         "type": "attribute",
-        "attribute": "spell_slots",
-        "minimum": 1
+        "ref": "spell_slots",
+        "range": {
+          "minimum": 1
+        }
       }
     ],
     "repeatable": true,
@@ -900,7 +934,7 @@
         "trigger": {
           "event": ["damage"],
           "source": {
-            "type": ["spell"]
+            "type": "spell"
           }
         }
       },
@@ -910,13 +944,15 @@
         "trigger": {
           "event": ["damage"],
           "source": {
-            "type": ["spell"]
+            "type": "spell"
           }
         },
         "effects": [
           {
             "roll_modifier": {
-              "minimum": 2
+              "bounds": {
+                "minimum": 2
+              }
             }
           }
         ]
@@ -1034,7 +1070,9 @@
       {
         "type": "attribute",
         "attribute": "Strength",
-        "minimum": 13
+        "range": {
+          "minimum": 13
+        }
       }
     ],
     "bonuses": [
@@ -1103,9 +1141,13 @@
         "type": "critical_hit",
         "name": "Cleave (Critical Hit)",
         "trigger": {
-          "event": ["hit"],
+          "event": ["attack"],
+          "attack": {
+            "result": "success"
+          },
           "source": {
-            "type": ["melee", "weapon"]
+            "type": "weapon",
+            "mode": "melee"
           }
         },
         "effects": [
@@ -1125,13 +1167,14 @@
         "trigger": {
           "event": ["damage"],
           "source": {
-            "type": ["melee", "weapon"]
+            "type": "weapon",
+            "mode": "melee"
           }
         },
         "requirements": [
           {
             "type": "attribute",
-            "attribute": "hit_points.current",
+            "ref": "hit_points.current",
             "comparison": "at_least",
             "calculation": {
               "operation": "subtract",
@@ -1165,7 +1208,8 @@
         "trigger": {
           "event": ["attack"],
           "source": {
-            "type": ["melee"]
+            "type": "weapon",
+            "mode": "melee"
           }
         },
         "requirements": [
@@ -1263,7 +1307,8 @@
         "trigger": {
           "event": ["attack"],
           "source": {
-            "type": ["ranged"]
+            "type": "weapon",
+            "mode": "ranged"
           }
         },
         "requirements": [
@@ -1295,6 +1340,7 @@
         "trigger": {
           "event": ["heal"],
           "source": {
+            "type": "resource",
             "resource": "healer_kit"
           }
         },
@@ -1318,6 +1364,7 @@
         "trigger": {
           "event": ["heal"],
           "source": {
+            "type": "resource",
             "resource": "healer_kit"
           }
         },
@@ -1470,7 +1517,9 @@
       {
         "type": "attribute",
         "attribute": "Charisma",
-        "minimum": 13
+        "range": {
+          "minimum": 13
+        }
       }
     ],
     "mechanics": [
@@ -1503,7 +1552,9 @@
                   }
                 ]
               },
-              "barrier": true
+              "barrier": {
+                "priority": 1
+              }
             }
           }
         ],
@@ -1654,12 +1705,26 @@
       {
         "type": "optional",
         "name": "Lucky (Self)",
-        "trigger": {
-          "event": ["attack", "ability_check", "saving_throw"],
-          "target": {
-            "type": "self"
+        "trigger": [
+          {
+            "event": ["attack"],
+            "target": {
+              "type": "self"
+            }
+          },
+          {
+            "event": ["ability_check"],
+            "target": {
+              "type": "self"
+            }
+          },
+          {
+            "event": ["saving_throw"],
+            "target": {
+              "type": "self"
+            }
           }
-        },
+        ],
         "cost": [
           {
             "resource": "luck_points",
@@ -1716,13 +1781,11 @@
         "type": "reaction",
         "name": "Mage Slayer Attack",
         "trigger": {
-          "event": ["cast_spell"],
-          "source": {
-            "range": {
-              "value": 5,
-              "unit": "feet"
-            }
-          }
+          "event": ["cast_spell"]
+        },
+        "range": {
+          "value": 5,
+          "unit": "feet"
         },
         "effects": [
           {
@@ -1739,12 +1802,12 @@
         "trigger": {
           "event": ["saving_throw"],
           "source": {
-            "type": ["spell"],
-            "range": {
-              "value": 5,
-              "unit": "feet"
-            }
+            "type": "spell"
           }
+        },
+        "range": {
+          "value": 5,
+          "unit": "feet"
         },
         "effects": [
           {
@@ -1923,8 +1986,10 @@
     "requirements": [
       {
         "type": "attribute",
-        "attribute": "spell_slots",
-        "minimum": 1
+        "ref": "spell_slots",
+        "range": {
+          "minimum": 1
+        }
       }
     ],
     "bonuses": [
@@ -1967,7 +2032,8 @@
         "effects": [
           {
             "attribute": {
-              "target": "movement.base",
+              "category": "movement",
+              "property": "base",
               "calculation": {
                 "operation": "add",
                 "operators": [
@@ -2003,7 +2069,8 @@
         "trigger": {
           "event": ["attack"],
           "source": {
-            "type": ["melee"]
+            "type": "weapon",
+            "mode": "melee"
           }
         },
         "effects": [
@@ -2189,7 +2256,9 @@
         "name": "Piercing Reroll",
         "trigger": {
           "event": ["damage"],
-          "damage_type": "piercing"
+          "damage": {
+            "type": ["piercing"]
+          }
         },
         "effects": [
           {
@@ -2209,8 +2278,14 @@
         "type": "critical_hit",
         "name": "Piercing Critical",
         "trigger": {
-          "event": ["hit"],
-          "damage_type": "piercing"
+          "event": ["attack"],
+          "attack": {
+            "result": "success",
+            "critical": true
+          },
+          "damage": {
+            "type": ["piercing"]
+          }
         },
         "effects": [
           {
@@ -2249,13 +2324,15 @@
         "name": "Bypass Poison Resistance",
         "trigger": {
           "event": ["damage"],
-          "damage_type": "poison"
+          "damage": {
+            "element": ["poison"]
+          }
         }
       },
       {
         "type": "proficiency",
         "category": "tool",
-        "proficiencies": ["Poisoner's Kit"]
+        "proficiencies": ["tool:poisoners-kit"]
       },
       {
         "type": "action",
@@ -2284,7 +2361,7 @@
             "duration": {
               "value": 1,
               "unit": "rounds",
-              "until": ["end_turn"]
+              "until": ["turn_end"]
             }
           }
         ]
@@ -2398,12 +2475,16 @@
           {
             "type": "attribute",
             "attribute": "Intelligence",
-            "minimum": 13
+            "range": {
+              "minimum": 13
+            }
           },
           {
             "type": "attribute",
             "attribute": "Wisdom",
-            "minimum": 13
+            "range": {
+              "minimum": 13
+            }
           }
         ]
       }
@@ -2454,7 +2535,8 @@
         "trigger": {
           "event": ["damage"],
           "source": {
-            "type": ["melee", "weapon"]
+            "type": "weapon",
+            "mode": "melee"
           }
         },
         "effects": [
@@ -2489,9 +2571,10 @@
         "type": "passive",
         "name": "Halt",
         "trigger": {
-          "event": ["hit"],
-          "source": {
-            "type": ["opportunity_attack"]
+          "event": ["attack"],
+          "attack": {
+            "result": "success",
+            "opportunity": true
           }
         },
         "effects": [
@@ -2500,7 +2583,8 @@
               "type": "event_recipient"
             },
             "attribute": {
-              "target": "movement.base",
+              "category": "movement",
+              "property": "base",
               "calculation": {
                 "operation": "set",
                 "operators": [
@@ -2514,7 +2598,7 @@
             "duration": {
               "value": 1,
               "unit": "rounds",
-              "until": ["end_turn"]
+              "until": ["turn_end"]
             }
           }
         ]
@@ -2523,7 +2607,8 @@
         "type": "passive",
         "name": "Ignore Disengage",
         "trigger": {
-          "event": ["move"]
+          "event": ["action"],
+          "action": "move"
         },
         "effects": [
           {
@@ -2541,16 +2626,14 @@
         "name": "Guardian Strike",
         "trigger": {
           "event": ["attack"],
-          "source": {
-            "range": {
-              "value": 5,
-              "unit": "feet"
-            }
-          },
           "target": {
             "exclude": "self",
             "lacks_features": ["feat:sentinel"]
           }
+        },
+        "range": {
+          "value": 5,
+          "unit": "feet"
         },
         "effects": [
           {
@@ -2641,7 +2724,8 @@
         "trigger": {
           "event": ["attack"],
           "source": {
-            "type": ["ranged", "weapon"]
+            "type": "weapon",
+            "mode": "ranged"
           }
         },
         "effects": [
@@ -2659,7 +2743,8 @@
         "trigger": {
           "event": ["attack"],
           "source": {
-            "type": ["ranged", "weapon"]
+            "type": "weapon",
+            "mode": "ranged"
           }
         },
         "effects": [
@@ -2683,7 +2768,8 @@
         "trigger": {
           "event": ["attack"],
           "source": {
-            "type": ["ranged"]
+            "type": "weapon",
+            "mode": "ranged"
           }
         },
         "requirements": [
@@ -2753,105 +2839,8 @@
         "name": "Shield Save Bonus",
         "trigger": {
           "event": ["saving_throw"],
-          "source": {
-            "type": ["spell"]
-          }
-        },
-        "requirements": [
-          {
-            "type": "equipment",
-            "slot": "off_hand",
-            "item": ["Shield"]
-          },
-          {
-            "type": "status",
-            "value": "incapacitated",
-            "negate": true
-          }
-        ],
-        "effects": [
-          {
-            "attribute": {
-              "target": "saving_throw.Dexterity",
-              "calculation": {
-                "operation": "add",
-                "operators": [
-                  {
-                    "type": "attribute",
-                    "value": "equipment.shield.ac_bonus"
-                  }
-                ]
-              }
-            }
-          }
-        ]
-      },
-      {
-        "type": "reaction",
-        "name": "Evasion",
-        "trigger": {
-          "event": ["saving_throw"],
-          "result": "success"
-        },
-        "requirements": [
-          {
-            "type": "equipment",
-            "slot": "off_hand",
-            "item": ["Shield"]
-          }
-        ],
-        "effects": [
-          {
-            "damage_response": {
-              "category": "immunity",
-              "source": {
-                "save": "Dexterity",
-                "half_damage": true
-              }
-            }
-          }
-        ]
-      }
-    ],
-    "source": "phb",
-    "ruleset": "dnd5e"
-  },
-  {
-    "id": "feat:shield-master",
-    "name": "Shield Master",
-    "description": "You use shields not just for protection but also for offense. You gain the following benefits while you are wielding a shield:",
-    "bonuses": [
-      "If you take the Attack action on your turn, you can use a bonus action to try to shove a creature within 5 feet of you with your shield.",
-      "If you aren't incapacitated, you can add your shield's AC bonus to any Dexterity saving throw you make against a spell or other harmful effect that targets only you.",
-      "If you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you can use your reaction to take no damage if you succeed on the saving throw, interposing your shield between yourself and the source of the effect."
-    ],
-    "mechanics": [
-      {
-        "type": "bonus_action",
-        "name": "Shield Bash",
-        "requirements": [
-          {
-            "type": "equipment",
-            "slot": "off_hand",
-            "item": ["Shield"]
-          }
-        ],
-        "grants": {
-          "name": "Shove",
-          "count": 1,
-          "activation": "bonus_action",
-          "interaction": {
-            "name": "Attack"
-          }
-        }
-      },
-      {
-        "type": "passive",
-        "name": "Shield Save Bonus",
-        "trigger": {
-          "event": ["saving_throw"],
-          "source": {
-            "ability": ["Dexterity"]
+          "save": {
+            "ability": "Dexterity"
           },
           "target": {
             "type": "self"
@@ -2888,8 +2877,8 @@
         "name": "Shield Evasion",
         "trigger": {
           "event": ["saving_throw"],
-          "source": {
-            "ability": ["Dexterity"]
+          "save": {
+            "ability": "Dexterity"
           },
           "timing": "resolved"
         },
@@ -3028,7 +3017,9 @@
       {
         "type": "attribute",
         "attribute": "Dexterity",
-        "minimum": 13
+        "range": {
+          "minimum": 13
+        }
       }
     ],
     "bonuses": [
@@ -3099,8 +3090,13 @@
         "type": "optional",
         "name": "Hamstring",
         "trigger": {
-          "event": ["hit"],
-          "damage_type": "slashing"
+          "event": ["attack"],
+          "attack": {
+            "result": "success"
+          },
+          "damage": {
+            "type": ["slashing"]
+          }
         },
         "effects": [
           {
@@ -3108,7 +3104,8 @@
               "type": "event_recipient"
             },
             "attribute": {
-              "target": "movement.base",
+              "category": "movement",
+              "property": "base",
               "calculation": {
                 "operation": "add",
                 "operators": [
@@ -3122,7 +3119,7 @@
             "duration": {
               "value": 1,
               "unit": "rounds",
-              "until": ["start_turn"]
+              "until": ["turn_start"]
             }
           }
         ],
@@ -3135,8 +3132,14 @@
         "type": "critical_hit",
         "name": "Grievous Wound",
         "trigger": {
-          "event": ["hit"],
-          "damage_type": "slashing"
+          "event": ["attack"],
+          "attack": {
+            "result": "success",
+            "critical": true
+          },
+          "damage": {
+            "type": ["slashing"]
+          }
         },
         "effects": [
           {
@@ -3149,7 +3152,7 @@
             "duration": {
               "value": 1,
               "unit": "rounds",
-              "until": ["start_turn"]
+              "until": ["turn_start"]
             }
           }
         ]
@@ -3180,7 +3183,7 @@
         "trigger": {
           "event": ["attack"],
           "source": {
-            "type": ["spell"]
+            "type": "spell"
           }
         },
         "effects": [
@@ -3206,7 +3209,8 @@
         "trigger": {
           "event": ["attack"],
           "source": {
-            "type": ["ranged", "spell"]
+            "type": "spell",
+            "mode": "ranged"
           }
         },
         "effects": [
@@ -3287,9 +3291,12 @@
         "type": "passive",
         "name": "Unarmed Fighting",
         "trigger": {
-          "event": ["hit"],
+          "event": ["attack"],
+          "attack": {
+            "result": "success"
+          },
           "source": {
-            "type": ["unarmed"]
+            "type": "unarmed"
           }
         },
         "effects": [
@@ -3305,10 +3312,18 @@
         "type": "bonus_action",
         "name": "Brawler's Grapple",
         "trigger": {
-          "event": ["hit"],
-          "source": {
-            "type": ["unarmed", "improvised"]
-          }
+          "event": ["attack"],
+          "attack": {
+            "result": "success"
+          },
+          "source": [
+            {
+              "type": "unarmed"
+            },
+            {
+              "type": "improvised"
+            }
+          ]
         },
         "grants": {
           "name": "Grapple",
@@ -3544,8 +3559,8 @@
         "name": "Concentration Advantage",
         "trigger": {
           "event": ["saving_throw"],
-          "source": {
-            "ability": ["Constitution"]
+          "save": {
+            "ability": "Constitution"
           }
         },
         "effects": [
@@ -3560,9 +3575,10 @@
         "type": "reaction",
         "name": "Spell Opportunity Attack",
         "trigger": {
-          "event": ["move"],
-          "source": {
-            "type": ["opportunity_attack"]
+          "event": ["action"],
+          "action": "move",
+          "attack": {
+            "opportunity": true
           }
         },
         "grants": {
@@ -3642,28 +3658,74 @@
       {
         "type": "reaction",
         "name": "Bountiful Luck",
-        "trigger": {
-          "event": ["attack", "ability_check", "saving_throw"],
-          "target": {
-            "type": "creature",
-            "disposition": "friendly",
-            "requirements": [
-              {
-                "type": "perception",
-                "observer": "character",
-                "subject": "target",
-                "senses": ["sight"]
-              },
-              {
-                "type": "distance",
-                "value": 30,
-                "unit": "feet",
-                "to": "character",
-                "comparison": "within"
-              }
-            ]
+        "trigger": [
+          {
+            "event": ["attack"],
+            "target": {
+              "type": "creature",
+              "disposition": "friendly",
+              "requirements": [
+                {
+                  "type": "perception",
+                  "observer": "character",
+                  "subject": "target",
+                  "senses": ["sight"]
+                },
+                {
+                  "type": "distance",
+                  "value": 30,
+                  "unit": "feet",
+                  "to": "character",
+                  "comparison": "within"
+                }
+              ]
+            }
+          },
+          {
+            "event": ["ability_check"],
+            "target": {
+              "type": "creature",
+              "disposition": "friendly",
+              "requirements": [
+                {
+                  "type": "perception",
+                  "observer": "character",
+                  "subject": "target",
+                  "senses": ["sight"]
+                },
+                {
+                  "type": "distance",
+                  "value": 30,
+                  "unit": "feet",
+                  "to": "character",
+                  "comparison": "within"
+                }
+              ]
+            }
+          },
+          {
+            "event": ["saving_throw"],
+            "target": {
+              "type": "creature",
+              "disposition": "friendly",
+              "requirements": [
+                {
+                  "type": "perception",
+                  "observer": "character",
+                  "subject": "target",
+                  "senses": ["sight"]
+                },
+                {
+                  "type": "distance",
+                  "value": 30,
+                  "unit": "feet",
+                  "to": "character",
+                  "comparison": "within"
+                }
+              ]
+            }
           }
-        },
+        ],
         "effects": [
           {
             "roll_modifier": {
@@ -3868,7 +3930,7 @@
         "effects": [
           {
             "attribute": {
-              "target": "armor_class",
+              "category": "armor_class",
               "calculation": {
                 "operation": "set",
                 "operators": [
@@ -3890,9 +3952,12 @@
         "type": "passive",
         "name": "Retractable Claws",
         "trigger": {
-          "event": ["hit"],
+          "event": ["attack"],
+          "attack": {
+            "result": "success"
+          },
           "source": {
-            "type": ["unarmed"]
+            "type": "unarmed"
           }
         },
         "effects": [
@@ -3968,7 +4033,9 @@
                     "ability": "Constitution"
                   }
                 ],
-                "minimum": 0
+                "bounds": {
+                  "minimum": 0
+                }
               }
             }
           }
@@ -4067,10 +4134,10 @@
         "name": "Elven Accuracy",
         "trigger": {
           "event": ["attack"],
-          "source": {
+          "attack": {
+            "advantage": "advantage",
             "ability": ["Dexterity", "Intelligence", "Wisdom", "Charisma"]
-          },
-          "advantage": "advantage"
+          }
         },
         "effects": [
           {
@@ -4281,9 +4348,11 @@
         "name": "Fire Damage Reroll",
         "trigger": {
           "event": ["damage"],
-          "damage_type": ["fire"],
+          "damage": {
+            "element": ["fire"]
+          },
           "source": {
-            "type": ["spell"]
+            "type": "spell"
           }
         },
         "effects": [
@@ -4302,7 +4371,9 @@
         "name": "Hellfire Aura",
         "trigger": {
           "event": ["cast_spell"],
-          "damage_type": ["fire"]
+          "damage": {
+            "element": ["fire"]
+          }
         },
         "effects": [
           {
@@ -4330,14 +4401,18 @@
               "type": ["fire"]
             },
             "trigger": {
-              "event": ["hit"],
+              "event": ["attack"],
+              "attack": {
+                "result": "success"
+              },
               "source": {
-                "type": ["melee"],
-                "range": {
-                  "value": 5,
-                  "unit": "feet"
-                }
+                "type": "weapon",
+                "mode": "melee"
               }
+            },
+            "range": {
+              "value": 5,
+              "unit": "feet"
             },
             "target": {
               "type": "attacker"
@@ -4472,9 +4547,12 @@
         "type": "damage_bonus",
         "name": "Orcish Fury",
         "trigger": {
-          "event": ["hit"],
+          "event": ["attack"],
+          "attack": {
+            "result": "success"
+          },
           "source": {
-            "type": ["weapon"]
+            "type": "weapon"
           }
         },
         "effects": [
@@ -4605,7 +4683,10 @@
         "type": "reaction",
         "name": "Second Chance",
         "trigger": {
-          "event": ["hit_by"]
+          "event": ["attacked_by"],
+          "attack": {
+            "result": "success"
+          }
         },
         "requirements": [
           {
@@ -4700,7 +4781,8 @@
         "effects": [
           {
             "attribute": {
-              "target": "movement.base",
+              "category": "movement",
+              "property": "base",
               "calculation": {
                 "operation": "add",
                 "operators": [

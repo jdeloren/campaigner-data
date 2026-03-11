@@ -31,13 +31,23 @@
             "amount": 1
           }
         ],
-        "trigger": {
-          "event": ["attack", "ability_check", "damage"],
-          "source": {
-            "type": ["creature"]
+        "trigger": [
+          {
+            "event": ["attack"],
+            "source": { "type": "creature" },
+            "timing": "after"
           },
-          "timing": "after"
-        },
+          {
+            "event": ["ability_check"],
+            "source": { "type": "creature" },
+            "timing": "after"
+          },
+          {
+            "event": ["damage"],
+            "source": { "type": "creature" },
+            "timing": "after"
+          }
+        ],
         "effects": [
           {
             "target": {
@@ -118,7 +128,8 @@
         "trigger": {
           "event": ["ability_check"],
           "source": {
-            "type": ["self"]
+            "type": "creature",
+            "id": "self"
           },
           "timing": "after"
         },

@@ -154,7 +154,8 @@
     "inherits": ["Exhaustion 1"],
     "attributes": [
       {
-        "target": "movement.base",
+        "category": "movement",
+        "property": "base",
         "calculation": {
           "operation": "divide",
           "operators": [
@@ -223,7 +224,8 @@
     "inherits": ["Exhaustion 4"],
     "attributes": [
       {
-        "target": "movement.base",
+        "category": "movement",
+        "property": "base",
         "calculation": {
           "operation": "set",
           "operators": [
@@ -254,7 +256,8 @@
     "is_condition": true,
     "attributes": [
       {
-        "target": "movement.base",
+        "category": "movement",
+        "property": "base",
         "calculation": {
           "operation": "set",
           "operators": [
@@ -278,14 +281,15 @@
           }
         },
         {
-          "event": ["move"],
+          "event": ["action"],
+          "action": "move",
           "condition": {
             "type": "distance",
             "to": "event_actor",
             "comparison": "greater_than",
-            "value": {
-              "operation": "set",
-              "operators": [{ "type": "attribute", "value": "combat.melee_reach" }]
+            "attribute": {
+              "category": "combat",
+              "property": "melee_reach"
             }
           }
         }
@@ -516,7 +520,8 @@
     },
     "attributes": [
       {
-        "target": "movement.base",
+        "category": "movement",
+        "property": "base",
         "calculation": {
           "operation": "set",
           "operators": [
@@ -577,7 +582,8 @@
     },
     "attributes": [
       {
-        "target": "movement.base",
+        "category": "movement",
+        "property": "base",
         "calculation": {
           "operation": "set",
           "operators": [
@@ -761,7 +767,8 @@
     ],
     "attributes": [
       {
-        "target": "movement.base",
+        "category": "movement",
+        "property": "base",
         "calculation": {
           "operation": "set",
           "operators": [
@@ -814,7 +821,8 @@
     ],
     "attributes": [
       {
-        "target": "movement.base",
+        "category": "movement",
+        "property": "base",
         "calculation": {
           "operation": "set",
           "operators": [
@@ -894,7 +902,8 @@
     },
     "attributes": [
       {
-        "target": "movement.base",
+        "category": "movement",
+        "property": "base",
         "calculation": {
           "operation": "set",
           "operators": [

@@ -43,7 +43,8 @@
         "effects": [
           {
             "attribute": {
-              "target": "movement.climb",
+              "category": "movement",
+              "property": "climb",
               "calculation": {
                 "operation": "set",
                 "operators": [
@@ -63,7 +64,8 @@
         "effects": [
           {
             "attribute": {
-              "target": "movement.jump.running",
+              "category": "movement",
+              "property": "jump_running",
               "calculation": {
                 "operation": "add",
                 "operators": [

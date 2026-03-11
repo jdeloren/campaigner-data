@@ -49,7 +49,10 @@
               "type": "event_recipient"
             },
             "trigger": {
-              "event": ["hit"]
+              "event": ["attack"],
+              "attack": {
+                "result": "success"
+              }
             },
             "damage_bonus": {
               "value": "superiority_die"
@@ -167,7 +170,8 @@
       {
         "type": "special",
         "trigger": {
-          "event": ["move"]
+          "event": ["action"],
+          "action": "move"
         },
         "cost": [
           {
@@ -325,7 +329,8 @@
         "trigger": {
           "event": ["attack"],
           "source": {
-            "type": ["melee"]
+            "type": "weapon",
+            "mode": "melee"
           }
         },
         "cost": [
@@ -496,9 +501,10 @@
         "type": "reaction",
         "trigger": {
           "event": ["damaged_by"],
-          "source": {
-            "type": ["melee"]
-          }
+          "source": [
+            { "type": "weapon", "mode": "melee" },
+            { "type": "unarmed" }
+          ]
         },
         "cost": [
           {
@@ -663,7 +669,7 @@
                   }
                 ]
               },
-              "barrier": true
+              "barrier": { "priority": 1 }
             }
           }
         ]
@@ -682,10 +688,14 @@
       {
         "type": "reaction",
         "trigger": {
-          "event": ["missed_by"],
-          "source": {
-            "type": ["melee"]
-          }
+          "event": ["attacked_by"],
+          "attack": {
+            "result": "failure"
+          },
+          "source": [
+            { "type": "weapon", "mode": "melee" },
+            { "type": "unarmed" }
+          ]
         },
         "cost": [
           {
@@ -730,7 +740,8 @@
         "trigger": {
           "event": ["damage"],
           "source": {
-            "type": ["melee"]
+            "type": "weapon",
+            "mode": "melee"
           }
         },
         "cost": [

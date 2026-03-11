@@ -12,7 +12,8 @@
         "effects": [
           {
             "attribute": {
-              "target": "combat.critical_hit_threshold",
+              "category": "combat",
+              "property": "critical_hit_threshold",
               "calculation": {
                 "operation": "set",
                 "operators": [
@@ -72,7 +73,8 @@
         "effects": [
           {
             "attribute": {
-              "target": "movement.jump.running",
+              "category": "movement",
+              "property": "jump_running",
               "calculation": {
                 "operation": "add",
                 "operators": [
@@ -124,7 +126,8 @@
         "effects": [
           {
             "attribute": {
-              "target": "combat.critical_hit_threshold",
+              "category": "combat",
+              "property": "critical_hit_threshold",
               "calculation": {
                 "operation": "set",
                 "operators": [
@@ -153,18 +156,18 @@
         "type": "passive",
         "name": "survivor_regeneration",
         "trigger": {
-          "event": ["start_turn"]
+          "event": ["turn_start"]
         },
         "requirements": [
           {
             "type": "attribute",
-            "attribute": "hit_points.current",
+            "ref": "hit_points.current",
             "comparison": "greater_than",
             "value": 0
           },
           {
             "type": "attribute",
-            "attribute": "hit_points.current",
+            "ref": "hit_points.current",
             "comparison": "at_most",
             "calculation": {
               "operation": "divide",

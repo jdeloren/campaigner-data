@@ -19,6 +19,7 @@ This guide explains how to define class features, racial traits, and other game 
   - [Advantage and Disadvantage](#advantage-and-disadvantage)
   - [Status Effects](#status-effects)
   - [Damage Response](#damage-response)
+  - [Immunity Effects](#immunity-effects)
   - [Attribute Modification](#attribute-modification)
   - [Grants](#grants)
   - [Roll Modifiers](#roll-modifiers)
@@ -35,7 +36,10 @@ This guide explains how to define class features, racial traits, and other game 
 - [Triggers](#triggers)
   - [Trigger Events](#trigger-events)
   - [Trigger Timing](#trigger-timing)
-  - [Source and Target Filters](#source-and-target-filters)
+  - [Trigger Sources (discriminated union)](#trigger-sources)
+  - [Trigger Conditions](#trigger-conditions)
+  - [Event Sub-objects](#event-sub-objects)
+  - [Trigger Target](#trigger-target)
   - [Complex Trigger Examples](#complex-trigger-examples)
 - [Targeting](#targeting)
 - [Scaling](#scaling)
@@ -912,6 +916,56 @@ Modifies how damage is received.
   "damage_response": {
     "response": "half",
     "to": "triggering_damage"
+  }
+}
+```
+
+### Immunity Effects
+
+Immunity effects use a discriminated union on `category`.
+
+#### Status Immunity
+
+```json
+{
+  "immunity": {
+    "category": "status",
+    "status": ["charmed", "frightened"]
+  }
+}
+```
+
+#### Concentration Immunity
+
+Immunity to concentration being broken, optionally scoped to a school:
+
+```json
+{
+  "immunity": {
+    "category": "concentration",
+    "school": "Conjuration"
+  }
+}
+```
+
+#### Trigger Immunity
+
+```json
+{
+  "immunity": {
+    "category": "trigger",
+    "to": "opportunity_attack"
+  }
+}
+```
+
+#### Terrain Immunity
+
+```json
+{
+  "immunity": {
+    "category": "terrain",
+    "type": "difficult"
   }
 }
 ```
@@ -1816,30 +1870,37 @@ A compound requirement can appear anywhere in a requirements array alongside reg
 
 ## Triggers
 
-Triggers define when reactive mechanics activate. They're used for reactions, passive "when X happens" abilities, and status effects.
+Triggers define when reactive mechanics activate. They're used for reactions, passive "when X happens" abilities, and duration endings.
 
 ### Trigger Events
 
-| Event            | Description                   |
-| ---------------- | ----------------------------- |
-| `attack`         | When an attack is made        |
-| `hit`            | When an attack hits           |
-| `miss`           | When an attack misses         |
-| `damage`         | When damage is received       |
-| `damaged_by`     | When damage is dealt          |
-| `cast_spell`     | When a spell is cast          |
-| `saving_throw`   | When a save is made           |
-| `ability_check`  | When an ability check is made |
-| `start_turn`     | At the start of a turn        |
-| `end_turn`       | At the end of a turn          |
-| `enter_area`     | When entering an area         |
-| `leave_area`     | When leaving an area          |
-| `move`           | When movement occurs          |
-| `status_applied` | When a status is applied      |
-| `status_removed` | When a status is removed      |
-| `roll`           | When any roll is made         |
-| `long_rest`      | At the end of a long rest     |
-| `short_rest`     | At the end of a short rest    |
+| Event             | Description                     |
+| ----------------- | ------------------------------- |
+| `attack`          | Character makes an attack       |
+| `attacked_by`     | Character is attacked           |
+| `damage`          | Character deals damage          |
+| `damaged_by`      | Character takes damage          |
+| `heal`            | Character heals another         |
+| `healed_by`       | Character is healed             |
+| `cast_spell`      | A spell is cast                 |
+| `saving_throw`    | A saving throw is made          |
+| `ability_check`   | An ability check is made        |
+| `turn_start`      | At the start of a turn          |
+| `turn_end`        | At the end of a turn            |
+| `combat_start`    | When combat begins              |
+| `enter_area`      | When entering an area           |
+| `exit_area`       | When leaving an area            |
+| `move_end`        | When movement ends              |
+| `status_applied`  | When a status is applied        |
+| `status_removed`  | When a status is removed        |
+| `initiative_roll` | When initiative is rolled       |
+| `equip`           | When equipment is put on        |
+| `kill`            | When a creature is killed       |
+| `action`          | When a specific action is taken |
+| `short_rest`      | At the end of a short rest      |
+| `long_rest`       | At the end of a long rest       |
+| `level_up`        | When the character levels up    |
+| `feature_reuse`   | When this feature is used again |
 
 ### Trigger Timing
 
@@ -1858,42 +1919,211 @@ Triggers define when reactive mechanics activate. They're used for reactions, pa
 }
 ```
 
-### Source and Target Filters
+### Trigger Sources
 
-#### Source Filter
+Sources use a discriminated union on `type`. Each source type has its own fields.
+
+| Source Type   | Description                     |
+| ------------- | ------------------------------- |
+| `spell`       | Spell-triggered events          |
+| `weapon`      | Weapon-triggered events         |
+| `unarmed`     | Unarmed/natural weapon attacks  |
+| `improvised`  | Improvised weapon attacks       |
+| `creature`    | Creature-triggered events       |
+| `resource`    | Resource usage (e.g., hit dice) |
+| `environment` | Terrain, hazards                |
+| `trap`        | Trap-triggered events           |
+
+#### SpellSource
+
+```json
+{
+  "trigger": {
+    "event": ["damage"],
+    "source": {
+      "type": "spell",
+      "school": "Necromancy"
+    }
+  }
+}
+```
+
+Fields: `id`, `school`, `level` (range), `class`, `effect`, `negate`, `range`, `mode`
+
+#### WeaponSource
+
+```json
+{
+  "trigger": {
+    "event": ["attack"],
+    "source": {
+      "type": "weapon",
+      "mode": "melee"
+    }
+  }
+}
+```
+
+Fields: `id`, `properties`, `magical`, `mode` (`melee`/`ranged`/`thrown`)
+
+#### TrapSource
 
 ```json
 {
   "trigger": {
     "event": ["damaged_by"],
-    "source": {
-      "type": ["melee", "weapon"],
-      "origin": "nonmagical"
-    }
+    "source": { "type": "trap" }
   }
 }
 ```
 
-Source fields:
+### Trigger Conditions
 
-- `type` — Source types: `creature`, `spell`, `weapon`, `environment`, `melee`, `ranged`
-- `origin` — `magical` or `nonmagical`
-- `range` — Distance constraint
-- `perception` — Perception requirements
-- `disposition` — `friendly`, `hostile`, `any`
+Conditions describe game-state checks using `type`, `comparison`, and `to`.
 
-#### Target Filter
+| Condition Type | Description                            |
+| -------------- | -------------------------------------- |
+| `distance`     | Distance check between entities        |
+| `movement`     | Movement-related condition             |
+| `perception`   | Sensory check (sight, hearing)         |
+| `disposition`  | Relationship check (friendly, hostile) |
+
+#### Distance Condition
 
 ```json
 {
   "trigger": {
-    "event": ["hit"],
-    "target": {
-      "type": "self"
+    "event": ["turn_end"],
+    "condition": {
+      "type": "distance",
+      "value": 30,
+      "unit": "feet",
+      "comparison": "greater_than",
+      "to": "spell_target"
     }
   }
 }
 ```
+
+#### Perception Condition
+
+```json
+{
+  "trigger": {
+    "event": ["turn_end"],
+    "condition": {
+      "type": "perception",
+      "senses": ["sight"],
+      "comparison": "not",
+      "to": "character"
+    }
+  }
+}
+```
+
+#### Disposition Condition
+
+```json
+{
+  "trigger": {
+    "event": ["damaged_by"],
+    "condition": {
+      "type": "disposition",
+      "comparison": "equals",
+      "to": "friendly"
+    }
+  }
+}
+```
+
+### Event Sub-objects
+
+Events carry context via peer fields on the Trigger. Each event type has its own sub-object.
+
+#### Attack Details
+
+For `attack`/`attacked_by` events:
+
+```json
+{
+  "trigger": {
+    "event": ["attack"],
+    "attack": {
+      "advantage": "advantage",
+      "ability": ["Dexterity", "Intelligence", "Wisdom", "Charisma"]
+    }
+  }
+}
+```
+
+Fields: `result` (`success`/`failure`), `critical`, `advantage`, `dice`, `rolls`, `bonus`, `opportunity`, `ability`
+
+#### Save Details
+
+For `saving_throw` events:
+
+```json
+{
+  "trigger": {
+    "event": ["saving_throw"],
+    "save": {
+      "ability": "Wisdom",
+      "result": "failure"
+    }
+  }
+}
+```
+
+#### Check Details
+
+For `ability_check` events:
+
+```json
+{
+  "trigger": {
+    "event": ["ability_check"],
+    "check": {
+      "skill": "Perception"
+    }
+  }
+}
+```
+
+Fields: `ability`, `skill`, `tool`, `result`
+
+#### Damage Details
+
+For `damage`/`damaged_by` events:
+
+```json
+{
+  "trigger": {
+    "event": ["damaged_by"],
+    "damage": {
+      "type": ["fire", "radiant"]
+    }
+  }
+}
+```
+
+Fields: `type`, `lethal`
+
+#### Equip Details
+
+For `equip` events:
+
+```json
+{
+  "trigger": {
+    "event": ["equip"],
+    "equip": {
+      "slot": "armor"
+    }
+  }
+}
+```
+
+### Trigger Target
 
 ```json
 {
@@ -1913,22 +2143,22 @@ Target fields:
 - `size` — Creature sizes
 - `range` — Distance from character
 - `exclude` — Exclude specific targets
+- `disposition` — `friendly`, `hostile`, `neutral`, `any`, `willing`
+- `requirements` — Conditions targets must meet
 
 ### Complex Trigger Examples
 
-#### Reaction to Being Hit (can see attacker)
+#### Reaction to Being Attacked (can see attacker)
 
 ```json
 {
   "trigger": {
-    "event": ["hit"],
+    "event": ["attacked_by"],
     "target": { "type": "self" },
-    "source": {
-      "perception": {
-        "observer": "character",
-        "subject": "attacker",
-        "senses": ["sight"]
-      }
+    "condition": {
+      "type": "perception",
+      "senses": ["sight"],
+      "to": "attacker"
     }
   }
 }
@@ -1950,13 +2180,12 @@ Target fields:
 
 #### On Critical Hit with Melee Weapon
 
-Use mechanic `"type": "critical_hit"` with a trigger scoped to melee weapon hits:
-
 ```json
 {
   "trigger": {
-    "event": ["hit"],
-    "source": { "type": ["melee", "weapon"] }
+    "event": ["attack"],
+    "source": { "type": "weapon", "mode": "melee" },
+    "attack": { "critical": true }
   }
 }
 ```
@@ -1968,13 +2197,10 @@ Use mechanic `"type": "critical_hit"` with a trigger scoped to melee weapon hits
   "trigger": {
     "event": ["cast_spell"],
     "timing": "before",
-    "source": {
-      "perception": {
-        "observer": "character",
-        "subject": "caster",
-        "senses": ["sight"]
-      },
-      "range": { "value": 60, "unit": "feet" }
+    "condition": {
+      "type": "perception",
+      "senses": ["sight"],
+      "to": "caster"
     }
   }
 }
@@ -1985,7 +2211,7 @@ Use mechanic `"type": "critical_hit"` with a trigger scoped to melee weapon hits
 ```json
 {
   "trigger": {
-    "event": ["start_turn"],
+    "event": ["turn_start"],
     "target": { "type": "affected_creature" }
   }
 }
@@ -1998,17 +2224,6 @@ Use mechanic `"type": "critical_hit"` with a trigger scoped to melee weapon hits
   "trigger": {
     "event": ["status_applied"],
     "status": { "name": "stunned" }
-  }
-}
-```
-
-#### Damage Type Filter
-
-```json
-{
-  "trigger": {
-    "event": ["damaged_by"],
-    "damage_type": ["fire", "radiant"]
   }
 }
 ```
@@ -2028,38 +2243,37 @@ Use mechanic `"type": "critical_hit"` with a trigger scoped to melee weapon hits
 {
   "trigger": {
     "event": ["cast_spell"],
-    "spell": { "level": 0, "class": "Cleric" }
-  }
-}
-```
-
-```json
-{
-  "trigger": {
-    "event": ["cast_spell"],
     "spell": { "effect": ["healing"] }
   }
 }
 ```
 
-#### Action Filter
+#### Duration Ending on Feature Reuse
 
 ```json
 {
-  "trigger": {
-    "event": ["hit"],
-    "action": "attack"
+  "duration": {
+    "until": ["feature_reuse"]
   }
 }
 ```
 
-#### Result Filter
+#### Saving Throw with Conditional Advantage
 
 ```json
 {
-  "trigger": {
-    "event": ["saving_throw"],
-    "result": "failure"
+  "saving_throw": {
+    "ability": "Charisma",
+    "dc": { "ref": "spell_save_dc" },
+    "advantage": {
+      "requirements": [
+        {
+          "type": "attribute",
+          "attribute": "Intelligence",
+          "range": { "minimum": 8 }
+        }
+      ]
+    }
   }
 }
 ```
@@ -2442,8 +2656,9 @@ Shared resource, multiple options:
     {
       "type": "critical_hit",
       "trigger": {
-        "event": ["hit"],
-        "source": { "type": ["melee", "weapon"] }
+        "event": ["attack"],
+        "source": { "type": "weapon", "mode": "melee" },
+        "attack": { "critical": true }
       },
       "effects": [
         {

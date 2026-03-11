@@ -172,7 +172,8 @@
                 "id": "status:booming_blade",
                 "effect": {
                   "trigger": {
-                    "event": ["move"],
+                    "event": ["action"],
+                    "action": "move",
                     "condition": {
                       "type": "movement",
                       "value": 5,
@@ -233,7 +234,7 @@
           {
             "attack": {
               "source": {
-                "type": ["spell"]
+                "type": "spell"
               }
             },
             "on_hit": {
@@ -490,9 +491,10 @@
             }
           },
           {
-            "trigger": {
-              "event": ["enter_area", "end_turn"]
-            },
+            "trigger": [
+              {"event": ["enter_area"]},
+              {"event": ["turn_end"]}
+            ],
             "saving_throw": {
               "ability": "Dexterity",
               "dc": {
@@ -717,7 +719,24 @@
         }
       }
     },
-    "mechanics": [],
+    "mechanics": [
+      {
+        "type": "action",
+        "effects": [
+          {
+            "attack": {
+              "source": { "type": "spell" }
+            },
+            "on_hit": {
+              "damage": {
+                "dice": "scaling.damage",
+                "type": ["fire"]
+              }
+            }
+          }
+        ]
+      }
+    ],
     "source": "phb",
     "ruleset": "dnd5e"
   },
@@ -813,8 +832,8 @@
                       "requirements": [
                         {
                           "type": "attribute",
-                          "attribute": "weight",
-                          "maximum": 5
+                          "ref": "weight",
+                          "range": { "maximum": 5 }
                         }
                       ]
                     },
@@ -1047,9 +1066,10 @@
                 "distance": 5,
                 "requirements": [
                   {
-                    "type": "attribute",
-                    "attribute": "movement.speed",
-                    "minimum": 5
+                    "type": "category",
+                    "category": "movement",
+                    "property": "speed",
+                    "range": { "minimum": 5 }
                   }
                 ]
               }
@@ -1320,7 +1340,7 @@
           {
             "attack": {
               "source": {
-                "type": ["spell"]
+                "type": "spell"
               }
             },
             "on_hit": {
@@ -1741,7 +1761,7 @@
           {
             "attack": {
               "source": {
-                "type": ["spell"]
+                "type": "spell"
               }
             },
             "on_hit": {
@@ -1857,7 +1877,7 @@
           {
             "attack": {
               "source": {
-                "type": ["spell"]
+                "type": "spell"
               }
             },
             "on_hit": {
@@ -1908,7 +1928,7 @@
           {
             "attack": {
               "source": {
-                "type": ["spell"]
+                "type": "spell"
               }
             },
             "on_hit": {
@@ -1917,7 +1937,8 @@
                 "type": ["cold"]
               },
               "attribute": {
-                "target": "movement.base",
+                "category": "movement",
+                "property": "base",
                 "calculation": {
                   "operation": "subtract",
                   "operators": [
@@ -2222,6 +2243,9 @@
             ]
           },
           {
+            "attack": {
+              "source": { "type": "spell" }
+            },
             "on_hit": {
               "damage": {
                 "dice": "scaling.damage",
@@ -2263,7 +2287,7 @@
           "requirements": [
             {
               "type": "attribute",
-              "attribute": "hit_points.current",
+              "ref": "hit_points.current",
               "comparison": "equals",
               "value": 0
             },
@@ -2464,7 +2488,7 @@
           {
             "attack": {
               "source": {
-                "type": ["spell"]
+                "type": "spell"
               }
             },
             "on_hit": {

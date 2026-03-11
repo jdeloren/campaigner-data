@@ -823,14 +823,14 @@
         "spellbook": {
           "anyOf": [
             {
-              "type": "boolean"
+              "type": "string"
             },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "description": "Whether the class uses a spellbook",
+          "description": "Feature ID that defines spellbook copy mechanics (or null).",
           "title": "Spellbook"
         },
         "spells_prepared_formula": {

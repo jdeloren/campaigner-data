@@ -215,7 +215,7 @@
             "recover": {
               "target": "spell_slot",
               "count": 1,
-              "max_level": {
+              "maximum_formula": {
                 "calculation": "levels.calculate_proficiency_bonus",
                 "operation": "divide",
                 "divisor": 2,
@@ -253,7 +253,9 @@
         "type": "passive",
         "trigger": {
           "event": ["saving_throw"],
-          "result": "failure",
+          "save": {
+            "result": "failure"
+          },
           "timing": "resolved"
         },
         "effects": [
@@ -305,7 +307,7 @@
         "trigger": {
           "event": ["cast_spell"],
           "spell": {
-            "level": 0
+            "level": { "minimum": 0, "maximum": 0 }
           }
         },
         "damage": {
@@ -322,7 +324,7 @@
         "trigger": {
           "event": ["damage"],
           "source": {
-            "type": ["weapon"]
+            "type": "weapon"
           }
         },
         "damage": {

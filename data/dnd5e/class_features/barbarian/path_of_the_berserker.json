@@ -32,7 +32,10 @@
                   },
                   {
                     "event": ["status_removed"],
-                    "action": "voluntary"
+                    "status": {
+                      "name": "frenzy",
+                      "method": "voluntary"
+                    }
                   }
                 ]
               },
@@ -130,17 +133,16 @@
                 "unit": "turns",
                 "until": [
                   {
-                    "event": ["end_turn"],
+                    "event": ["turn_end"],
                     "condition": {
                       "type": "perception",
-                      "observer": "target",
-                      "subject": "character",
                       "senses": ["sight"],
-                      "negate": true
+                      "comparison": "not",
+                      "to": "character"
                     }
                   },
                   {
-                    "event": ["end_turn"],
+                    "event": ["turn_end"],
                     "condition": {
                       "type": "distance",
                       "value": 60,
@@ -171,13 +173,18 @@
         "trigger": {
           "event": ["damaged_by"],
           "source": {
-            "type": ["creature"],
-            "range": {
-              "value": 5,
-              "unit": "feet"
-            }
+            "type": "creature"
           }
         },
+        "requirements": [
+          {
+            "type": "distance",
+            "to": "attacker",
+            "value": 5,
+            "unit": "feet",
+            "comparison": "within"
+          }
+        ],
         "grants": {
           "name": "Attack",
           "type": "melee"

@@ -1,0 +1,288 @@
+[
+  {
+    "id": "feat:divination-savant",
+    "class": "subclass:divination",
+    "level": 2,
+    "name": "Divination Savant",
+    "description": "Beginning when you select this school at 2nd level, the gold and time you must spend to copy a divination spell into your spellbook is halved.",
+    "enhances": "feat:copy-spell",
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "divination_savant",
+        "requirements": [
+          { "type": "spell", "school": "Divination" }
+        ],
+        "cost": [
+          {
+            "currency": "GP",
+            "calculation": {
+              "operation": "multiply",
+              "operators": [
+                { "type": "integer", "value": 25 },
+                { "type": "spell_level_cast" }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:portent",
+    "class": "subclass:divination",
+    "level": 2,
+    "name": "Portent",
+    "description": "Starting at 2nd level when you choose this school, glimpses of the future begin to press in on your awareness. When you finish a long rest, roll two d20s and record the numbers rolled. You can replace any attack roll, saving throw, or ability check made by you or a creature that you can see with one of these foretelling rolls. You must choose to do so before the roll, and you can replace a roll in this way only once per turn.\n\nEach foretelling roll can be used only once. When you finish a long rest, you lose any unused foretelling rolls.",
+    "mechanics": [
+      {
+        "type": "resource",
+        "id": "portent_dice",
+        "name": "Portent Dice",
+        "count": 2,
+        "dice_sides": 20,
+        "recharge": "long_rest"
+      },
+      {
+        "type": "optional",
+        "name": "Portent (Self)",
+        "description": "Replace your own attack roll, saving throw, or ability check with a portent die.",
+        "trigger": [
+          {
+            "event": ["attack"],
+            "timing": "before",
+            "target": {
+              "type": "self"
+            }
+          },
+          {
+            "event": ["ability_check"],
+            "timing": "before",
+            "target": {
+              "type": "self"
+            }
+          },
+          {
+            "event": ["saving_throw"],
+            "timing": "before",
+            "target": {
+              "type": "self"
+            }
+          }
+        ],
+        "cost": [
+          {
+            "resource": "portent_dice",
+            "amount": 1
+          }
+        ],
+        "effects": [
+          {
+            "roll_modifier": {
+              "reroll": {
+                "replace": true
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "optional",
+        "name": "Portent (Other)",
+        "description": "Replace an attack roll, saving throw, or ability check made by a creature you can see with a portent die.",
+        "trigger": [
+          {
+            "event": ["attacked_by"],
+            "timing": "before"
+          },
+          {
+            "event": ["saving_throw"],
+            "timing": "before"
+          },
+          {
+            "event": ["ability_check"],
+            "timing": "before"
+          }
+        ],
+        "requirements": [
+          {
+            "type": "perception",
+            "observer": "character",
+            "subject": "source",
+            "senses": ["sight"]
+          }
+        ],
+        "cost": [
+          {
+            "resource": "portent_dice",
+            "amount": 1
+          }
+        ],
+        "effects": [
+          {
+            "roll_modifier": {
+              "reroll": {
+                "replace": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:expert-divination",
+    "class": "subclass:divination",
+    "level": 6,
+    "name": "Expert Divination",
+    "description": "Beginning at 6th level, casting divination spells comes so easily to you that it expends only a fraction of your spellcasting efforts. When you cast a divination spell of 2nd level or higher using a spell slot, you regain one expended spell slot. The slot you regain must be of a level lower than the spell you cast and can't be higher than 5th level.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "expert_divination",
+        "description": "When you cast a divination spell of 2nd level or higher, you regain one spell slot of a lower level (max 5th).",
+        "trigger": {
+          "event": ["cast_spell"],
+          "spell": {
+            "school": "Divination",
+            "level": { "minimum": 2 }
+          }
+        },
+        "effects": [
+          {
+            "recover": {
+              "target": "spell_slot",
+              "count": 1,
+              "bounds": { "maximum": 5 },
+              "constraint": {
+                "comparison": "less_than",
+                "ref": "spell_level_cast"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:the-third-eye",
+    "class": "subclass:divination",
+    "level": 10,
+    "name": "The Third Eye",
+    "description": "Starting at 10th level, you can use your action to increase your powers of perception. When you do so, choose one of the following benefits, which lasts until you are incapacitated or you take a short or long rest. You can't use the feature again until you finish a rest.\n\nDarkvision. You gain darkvision out to a range of 60 feet.\n\nEthereal Sight. You can see into the Ethereal Plane within 60 feet of you.\n\nGreater Comprehension. You can read any language.\n\nSee Invisibility. You can see invisible creatures and objects within 10 feet of you that are within line of sight.",
+    "mechanics": [
+      {
+        "type": "action",
+        "name": "the_third_eye",
+        "uses": {
+          "value": 1
+        },
+        "recharge": "short_rest",
+        "duration": {
+          "until": ["short_rest", "long_rest"]
+        },
+        "effects": [
+          {
+            "choice": {
+              "count": 1,
+              "options": [
+                {
+                  "name": "Darkvision",
+                  "effect": {
+                    "attribute": {
+                      "target": "senses.darkvision",
+                      "calculation": {
+                        "operation": "set",
+                        "operators": [
+                          {
+                            "type": "integer",
+                            "value": 60
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "Ethereal Sight",
+                  "effect": {
+                    "detection": {
+                      "range": {
+                        "value": 60,
+                        "unit": "feet"
+                      },
+                      "detects": ["ethereal"]
+                    }
+                  }
+                },
+                {
+                  "name": "Greater Comprehension",
+                  "effect": {
+                    "buff": {
+                      "category": "proficiency",
+                      "subcategory": "language"
+                    }
+                  }
+                },
+                {
+                  "name": "See Invisibility",
+                  "effect": {
+                    "detection": {
+                      "range": {
+                        "value": 10,
+                        "unit": "feet"
+                      },
+                      "detects": ["creatures", "objects"],
+                      "ignores_status": ["invisible"]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:greater-portent",
+    "class": "subclass:divination",
+    "level": 14,
+    "name": "Greater Portent",
+    "description": "Starting at 14th level, the visions in your dreams intensify and paint a more accurate picture in your mind of what is to come. You roll three d20s for your Portent feature, rather than two.",
+    "enhances": "Portent",
+    "mechanics": [
+      {
+        "type": "passive",
+        "name": "greater_portent",
+        "description": "You roll three d20s for Portent instead of two.",
+        "effects": [
+          {
+            "attribute": {
+              "target": "resources.portent_dice.count",
+              "calculation": {
+                "operation": "set",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 3
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]
