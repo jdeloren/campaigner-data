@@ -3,18 +3,9 @@
   "datasets": [
     {
       "dataset": "dnd5e",
-      "bump": "minor"
-    }
-  ],
-  "schemas": [
-    {
-      "schema": "class",
       "bump": "patch"
-    },
-    {
-      "schema": "equipment",
-      "bump": "minor"
     }
   ],
-  "repo_bump": "minor"
+  "schemas": [],
+  "repo_bump": "patch"
 }
