@@ -70,7 +70,8 @@
               },
               "barrier": {
                 "id": "arcane_ward",
-                "priority": 0
+                "priority": 0,
+                "mode": "create"
               }
             }
           }
@@ -100,7 +101,8 @@
               },
               "barrier": {
                 "id": "arcane_ward",
-                "priority": 0
+                "priority": 0,
+                "mode": "recharge"
               }
             }
           }

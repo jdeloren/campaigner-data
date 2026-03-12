@@ -1462,6 +1462,13 @@
           "description": "Absorption order — lower values absorb damage first. Arcane Ward uses 0, standard temp HP defaults to 1.",
           "title": "Priority",
           "type": "integer"
+        },
+        "mode": {
+          "default": "create",
+          "description": "How to apply: 'create' initializes the barrier, 'recharge' adds HP to an existing one.",
+          "enum": ["create", "recharge"],
+          "title": "Mode",
+          "type": "string"
         }
       },
       "title": "Barrier",
