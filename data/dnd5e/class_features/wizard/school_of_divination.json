@@ -5,7 +5,7 @@
     "level": 2,
     "name": "Divination Savant",
     "description": "Beginning when you select this school at 2nd level, the gold and time you must spend to copy a divination spell into your spellbook is halved.",
-    "enhances": "feat:copy-spell",
+    "enhances": ["feat:copy-spell"],
     "mechanics": [
       {
         "type": "passive",
@@ -258,7 +258,7 @@
     "level": 14,
     "name": "Greater Portent",
     "description": "Starting at 14th level, the visions in your dreams intensify and paint a more accurate picture in your mind of what is to come. You roll three d20s for your Portent feature, rather than two.",
-    "enhances": "Portent",
+    "enhances": ["feat:portent"],
     "mechanics": [
       {
         "type": "passive",

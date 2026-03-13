@@ -4497,6 +4497,22 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "Enhances": {
+      "description": "Feature(s) this feature modifies in place. Only the base feature appears in the action list; the enhancement upgrades its behavior (e.g., Destroy Undead enhances Turn Undead, Persistent Rage enhances Rage).",
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Enhances"
+    },
     "Environment": {
       "description": "Environmental effect that modifies an area of the battlefield.\n\nDescribes static properties: area shape, terrain, visibility, lighting, surface.\nDynamic effects (damage on enter, saves) use Effect-level trigger/saving_throw/on_failure.\n\nExamples:\n- Create Bonfire: environment (area + lighting) + Effect (trigger + save + damage)\n- Fog Cloud: environment (area + visibility)\n- Grease: environment (area + surface) + Effect (trigger + save + prone)\n- Spike Growth: environment (area + terrain) + Effect (trigger + damage)\n- Darkness: environment (area + lighting + visibility)",
       "properties": {
@@ -6587,7 +6603,7 @@
       "properties": {
         "type": {
           "description": "How count is determined",
-          "enum": ["static", "class_level", "level_table", "formula", "ability_modifier"],
+          "enum": ["static", "class_level", "level_table", "ability_modifier", "proficiency_bonus"],
           "title": "Type",
           "type": "string"
         },
@@ -8216,11 +8232,14 @@
               "type": "integer"
             },
             {
+              "$ref": "#/$defs/ResourceCount"
+            },
+            {
               "type": "null"
             }
           ],
           "default": null,
-          "description": "Maximum number of targets (for 'creatures' type or limited selections)",
+          "description": "Maximum number of targets — static integer or calculated (e.g., proficiency bonus)",
           "title": "Count"
         },
         "disposition": {

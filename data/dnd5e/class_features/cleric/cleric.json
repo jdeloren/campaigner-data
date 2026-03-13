@@ -247,7 +247,7 @@
     "level": 5,
     "name": "Destroy Undead",
     "description": "When an undead fails its saving throw against your Turn Undead feature, the creature is instantly destroyed if its challenge rating is at or below a certain threshold.",
-    "enhances": "Turn Undead",
+    "enhances": ["feat:turn-undead"],
     "mechanics": [
       {
         "type": "passive",

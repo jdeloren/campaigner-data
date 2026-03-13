@@ -5,7 +5,7 @@
     "level": 2,
     "name": "Abjuration Savant",
     "description": "Beginning when you select this school at 2nd level, the gold and time you must spend to copy an abjuration spell into your spellbook is halved.",
-    "enhances": "feat:copy-spell",
+    "enhances": ["feat:copy-spell"],
     "mechanics": [
       {
         "type": "passive",
@@ -118,7 +118,7 @@
     "level": 6,
     "name": "Projected Ward",
     "description": "Starting at 6th level, when a creature that you can see within 30 feet of you takes damage, you can use your reaction to cause your Arcane Ward to absorb that damage. If this damage reduces the ward to 0 hit points, the warded creature takes any remaining damage.",
-    "enhances": "Arcane Ward",
+    "enhances": ["feat:arcane-ward"],
     "mechanics": [
       {
         "type": "reaction",

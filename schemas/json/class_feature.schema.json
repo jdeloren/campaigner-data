@@ -136,17 +136,7 @@
         "title": "Extends"
       },
       "enhances": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "default": null,
-        "description": "Name of feature this feature modifies in place. Only the base feature appears in the action list; the enhancement upgrades its behavior (e.g., Destroy Undead enhances Turn Undead, Persistent Rage enhances Rage).",
-        "title": "Enhances"
+        "$ref": "common.schema.json#/$defs/Enhances"
       },
       "subfeatures": {
         "anyOf": [

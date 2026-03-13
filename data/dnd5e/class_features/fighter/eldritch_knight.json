@@ -192,7 +192,7 @@
     "level": 18,
     "name": "Improved War Magic",
     "description": "When you use your action to cast a spell, you can make one weapon attack as a bonus action.",
-    "enhances": "War Magic",
+    "enhances": ["feat:war-magic"],
     "mechanics": [
       {
         "type": "bonus_action",

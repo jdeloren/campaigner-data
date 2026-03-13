@@ -173,7 +173,7 @@
     "level": 10,
     "name": "Song of Defense",
     "description": "Beginning at 10th level, you can direct your magic to absorb damage while your Bladesong is active. When you take damage, you can use your reaction to expend one spell slot and reduce that damage to you by an amount equal to five times the spell slot's level.",
-    "enhances": "Bladesong",
+    "enhances": ["feat:bladesong"],
     "mechanics": [
       {
         "type": "reaction",
@@ -221,7 +221,7 @@
     "level": 14,
     "name": "Song of Victory",
     "description": "Starting at 14th level, you can add your Intelligence modifier (minimum of +1) to the damage of your melee weapon attacks while your Bladesong is active.",
-    "enhances": "Bladesong",
+    "enhances": ["feat:bladesong"],
     "mechanics": [
       {
         "type": "damage_bonus",

@@ -1632,7 +1632,7 @@
         "source": "phb",
         "ruleset": "dnd5e",
         "class": "class:cleric",
-        "enhances": "Invoke Duplicity",
+        "enhances": ["feat:trickery-invoke-duplicity"],
         "mechanics": [
           {
             "type": "special",
@@ -2425,6 +2425,265 @@
               "value": 1
             },
             "recharge": "turn"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "domain:peace",
+    "name": "Peace",
+    "description": "The balm of peace thrives at the heart of healthy communities, between friendly nations, and in the souls of the kindhearted. The gods of peace inspire people of all sorts to resolve conflict and to stand up against those forces that try to prevent peace from flourishing. See the Peace Deities table for a list of some of the gods associated with this domain.",
+    "source": "tce",
+    "ruleset": "dnd5e",
+    "class": "class:cleric",
+    "features": [
+      {
+        "id": "feat:peace-domain-spells",
+        "level": 1,
+        "name": "Domain Spells",
+        "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day.",
+        "source": "tce",
+        "ruleset": "dnd5e",
+        "class": "class:cleric",
+        "mechanics": [
+          {
+            "type": "granted_spells",
+            "always_prepared": true,
+            "scaling": {
+              "by_level": {
+                "1": ["spell:heroism", "spell:sanctuary"],
+                "3": ["spell:aid", "spell:warding-bond"],
+                "5": ["spell:beacon-of-hope", "spell:sending"],
+                "7": ["spell:aura-of-purity", "spell:otilukes-resilient-sphere"],
+                "9": ["spell:greater-restoration", "spell:rary-s-telepathic-bond"]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "feat:peace-implement-of-peace",
+        "level": 1,
+        "name": "Implement of Peace",
+        "description": "When you choose this domain at 1st level, you gain proficiency in one of the following skills of your choice: Insight, Medicine, or Performance.",
+        "source": "tce",
+        "ruleset": "dnd5e",
+        "class": "class:cleric",
+        "mechanics": [
+          {
+            "type": "choice",
+            "choice_type": "skill",
+            "count": 1,
+            "options": [
+              { "type": "simple", "name": "Insight" },
+              { "type": "simple", "name": "Medicine" },
+              { "type": "simple", "name": "Performance" }
+            ],
+            "effects": [
+              {
+                "buff": {
+                  "category": "proficiency",
+                  "subcategory": "skill"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "feat:peace-emboldening-bond",
+        "level": 1,
+        "name": "Emboldening Bond",
+        "description": "Beginning at 1st level, you can forge an empowering bond among people who are at peace with one another. As an action, you choose a number of willing creatures within 30 feet of you (this can include yourself) equal to your proficiency bonus. You create a magical bond among them for 10 minutes or until you use this feature again. While any bonded creature is within 30 feet of another bonded creature, the creature can roll a d4 and add the number rolled to an attack roll, an ability check, or a saving throw it makes. Each creature can add the d4 no more than once per turn.\n\nYou can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+        "source": "tce",
+        "ruleset": "dnd5e",
+        "class": "class:cleric",
+        "mechanics": [
+          {
+            "type": "action",
+            "name": "emboldening_bond",
+            "target": {
+              "type": "creature",
+              "count": {
+                "type": "proficiency_bonus"
+              },
+              "disposition": "friendly",
+              "choice": true
+            },
+            "range": {
+              "value": 30,
+              "unit": "feet"
+            },
+            "effects": [
+              {
+                "apply_status": {
+                  "id": "status:emboldening-bond",
+                  "source": "character",
+                  "duration": {
+                    "value": 10,
+                    "unit": "minutes"
+                  },
+                  "effects": [
+                    {
+                      "roll_modifier": {
+                        "operation": "add",
+                        "value": "1d4"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "uses": {
+              "calculation": "proficiency_bonus"
+            },
+            "recharge": "long_rest"
+          }
+        ]
+      },
+      {
+        "id": "feat:peace-balm-of-peace",
+        "level": 2,
+        "name": "Balm of Peace",
+        "description": "Starting at 2nd level, you can use your Channel Divinity to make your very presence a soothing balm. As an action, you can move up to your speed, without provoking opportunity attacks, and when you move within 5 feet of any other creature during this action, you can restore a number of hit points to that creature equal to 2d6 + your Wisdom modifier (minimum of 1 hit point). A creature can receive this healing only once whenever you take this action.",
+        "source": "tce",
+        "ruleset": "dnd5e",
+        "class": "class:cleric",
+        "mechanics": [
+          {
+            "type": "action",
+            "name": "balm_of_peace",
+            "description": "Move up to your speed without provoking opportunity attacks. When you move within 5 feet of a creature, restore 2d6 + Wisdom modifier hit points. Each creature can be healed only once per use.",
+            "cost": [
+              {
+                "resource": "channel_divinity",
+                "amount": 1
+              }
+            ],
+            "effects": [
+              {
+                "healing": {
+                  "dice": "2d6",
+                  "bonus": {
+                    "operation": "add",
+                    "operators": [
+                      { "type": "ability_modifier", "ability": "Wisdom" }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "feat:peace-protective-bond",
+        "level": 6,
+        "name": "Protective Bond",
+        "description": "Beginning at 6th level, the bond you forge between people helps them protect each other. When a creature affected by your Emboldening Bond feature is about to take damage, a second bonded creature within 30 feet of the first can use its reaction to teleport to an unoccupied space within 5 feet of the first creature. The second creature then takes all the damage instead.",
+        "source": "tce",
+        "ruleset": "dnd5e",
+        "class": "class:cleric",
+        "enhances": ["feat:peace-emboldening-bond"],
+        "mechanics": [
+          {
+            "type": "reaction",
+            "name": "protective_bond",
+            "description": "When a bonded creature is about to take damage, another bonded creature within 30 feet can use its reaction to teleport within 5 feet of the first and take all the damage instead.",
+            "trigger": {
+              "event": ["damaged_by"]
+            },
+            "requirements": [
+              {
+                "type": "status",
+                "value": "emboldening-bond"
+              },
+              {
+                "type": "distance",
+                "value": 30,
+                "unit": "feet"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "feat:peace-potent-spellcasting",
+        "level": 8,
+        "name": "Potent Spellcasting",
+        "description": "Starting at 8th level, you add your Wisdom modifier to the damage you deal with any cleric cantrip.",
+        "source": "tce",
+        "ruleset": "dnd5e",
+        "class": "class:cleric",
+        "mechanics": [
+          {
+            "type": "damage_bonus",
+            "name": "potent_spellcasting",
+            "trigger": {
+              "event": ["damage"],
+              "source": {
+                "type": "spell",
+                "class": "Cleric",
+                "level": { "maximum": 0 }
+              }
+            },
+            "effects": [
+              {
+                "damage_bonus": {
+                  "bonus": {
+                    "operation": "add",
+                    "operators": [
+                      { "type": "ability_modifier", "ability": "Wisdom" }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "feat:peace-expansive-bond",
+        "level": 17,
+        "name": "Expansive Bond",
+        "description": "At 17th level, the benefits of your Emboldening Bond and Protective Bond features now work when the bonded creatures are within 60 feet of each other. Moreover, when a creature uses Protective Bond to take someone else's damage, the creature has resistance to that damage.",
+        "source": "tce",
+        "ruleset": "dnd5e",
+        "class": "class:cleric",
+        "enhances": ["feat:peace-emboldening-bond", "feat:peace-protective-bond"],
+        "mechanics": [
+          {
+            "type": "passive",
+            "name": "expansive_bond_range",
+            "effects": [
+              {
+                "attribute": {
+                  "target": "range",
+                  "calculation": {
+                    "operation": "set",
+                    "operators": [
+                      { "type": "integer", "value": 60 }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "passive",
+            "name": "expansive_bond_resistance",
+            "trigger": {
+              "event": ["damaged_by"]
+            },
+            "effects": [
+              {
+                "damage_response": {
+                  "category": "resistance",
+                  "to": ["all"]
+                }
+              }
+            ]
           }
         ]
       }

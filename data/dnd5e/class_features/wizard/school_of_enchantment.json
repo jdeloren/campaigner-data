@@ -5,7 +5,7 @@
     "level": 2,
     "name": "Enchantment Savant",
     "description": "Beginning when you select this school at 2nd level, the gold and time you must spend to copy an enchantment spell into your spellbook is halved.",
-    "enhances": "feat:copy-spell",
+    "enhances": ["feat:copy-spell"],
     "mechanics": [
       {
         "type": "passive",

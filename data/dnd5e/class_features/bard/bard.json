@@ -167,7 +167,7 @@
     "level": 2,
     "name": "Magical Inspiration",
     "description": "If a creature has a Bardic Inspiration die from you and casts a spell that restores hit points or deals damage, the creature can roll that die and choose a target affected by the spell. Add the number rolled as a bonus to the hit points regained or the damage dealt. The Bardic Inspiration die is then lost.",
-    "enhances": "Bardic Inspiration",
+    "enhances": ["feat:bardic-inspiration"],
     "mechanics": [
       {
         "type": "optional",
@@ -334,7 +334,7 @@
     "level": 5,
     "name": "Font of Inspiration",
     "description": "Beginning when you reach 5th level, you regain all of your expended uses of Bardic Inspiration when you finish a short or long rest.",
-    "enhances": "Bardic Inspiration",
+    "enhances": ["feat:bardic-inspiration"],
     "mechanics": [
       {
         "type": "passive",
