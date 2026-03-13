@@ -3601,6 +3601,20 @@
           "default": null,
           "description": "Contested ability check for this effect"
         },
+        "cover": {
+          "anyOf": [
+            {
+              "enum": ["none", "half", "three_quarters", "total"],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Grants cover to the target (e.g., 'half' for +2 AC and Dex saves, 'three_quarters' for +5)",
+          "title": "Cover"
+        },
         "advantage": {
           "anyOf": [
             {

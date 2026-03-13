@@ -2952,5 +2952,334 @@
         ]
       }
     ]
+  },
+  {
+    "id": "domain:twilight",
+    "name": "Twilight",
+    "description": "The twilit transition from light into darkness often brings calm and even joy, as the day's labors end and the hours of rest begin. The darkness can also bring terrors, but the gods of twilight guard against the horrors of the night. Clerics who serve these deities bring comfort to those who seek rest and protect them by venturing into the encroaching darkness to ensure that the dark is a comfort, not a terror.",
+    "source": "tce",
+    "ruleset": "dnd5e",
+    "class": "class:cleric",
+    "features": [
+      {
+        "id": "feat:twilight-domain-spells",
+        "level": 1,
+        "name": "Domain Spells",
+        "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day.",
+        "source": "tce",
+        "ruleset": "dnd5e",
+        "class": "class:cleric",
+        "mechanics": [
+          {
+            "type": "granted_spells",
+            "always_prepared": true,
+            "scaling": {
+              "by_level": {
+                "1": ["spell:faerie-fire", "spell:sleep"],
+                "3": ["spell:moonbeam", "spell:see-invisibility"],
+                "5": ["spell:aura-of-vitality", "spell:leomunds-tiny-hut"],
+                "7": ["spell:aura-of-life", "spell:greater-invisibility"],
+                "9": ["spell:circle-of-power", "spell:mislead"]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "feat:twilight-bonus-proficiencies",
+        "level": 1,
+        "name": "Bonus Proficiencies",
+        "description": "At 1st level, you gain proficiency with martial weapons and heavy armor.",
+        "source": "tce",
+        "ruleset": "dnd5e",
+        "class": "class:cleric",
+        "mechanics": [
+          {
+            "type": "proficiency",
+            "category": "weapon",
+            "proficiencies": ["Martial"]
+          },
+          {
+            "type": "proficiency",
+            "category": "armor",
+            "proficiencies": ["Heavy"]
+          }
+        ]
+      },
+      {
+        "id": "feat:twilight-eyes-of-night",
+        "level": 1,
+        "name": "Eyes of Night",
+        "description": "You can see through the deepest gloom. You have darkvision out to a range of 300 feet. In that radius, you can see in dim light as if it were bright light and in darkness as if it were dim light.\n\nAs an action, you can magically share the darkvision of this feature with willing creatures you can see within 10 feet of you, up to a number of creatures equal to your Wisdom modifier (minimum of one creature). The shared darkvision lasts for 1 hour. Once you share it, you can't do so again until you finish a long rest, unless you expend a spell slot of any level to share it again.",
+        "source": "tce",
+        "ruleset": "dnd5e",
+        "class": "class:cleric",
+        "mechanics": [
+          {
+            "type": "passive",
+            "name": "eyes_of_night_darkvision",
+            "effects": [
+              {
+                "attribute": {
+                  "target": "senses.darkvision",
+                  "calculation": {
+                    "operation": "set",
+                    "operators": [
+                      { "type": "integer", "value": 300 }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "action",
+            "name": "eyes_of_night_share",
+            "target": {
+              "type": "creature",
+              "count": {
+                "type": "ability_modifier",
+                "ability": "Wisdom",
+                "bounds": { "minimum": 1 }
+              },
+              "disposition": "willing",
+              "choice": true
+            },
+            "range": {
+              "value": 10,
+              "unit": "feet"
+            },
+            "effects": [
+              {
+                "attribute": {
+                  "target": "senses.darkvision",
+                  "calculation": {
+                    "operation": "set",
+                    "operators": [
+                      { "type": "integer", "value": 300 }
+                    ]
+                  }
+                }
+              }
+            ],
+            "duration": {
+              "value": 1,
+              "unit": "hours"
+            },
+            "uses": {
+              "value": 1
+            },
+            "recharge": "long_rest"
+          }
+        ]
+      },
+      {
+        "id": "feat:twilight-vigilant-blessing",
+        "level": 1,
+        "name": "Vigilant Blessing",
+        "description": "At 1st level, the night has taught you to be vigilant. As an action, you give one creature you touch (including possibly yourself) advantage on the next initiative roll the creature makes. This benefit ends immediately after the roll or if you use this feature again.",
+        "source": "tce",
+        "ruleset": "dnd5e",
+        "class": "class:cleric",
+        "mechanics": [
+          {
+            "type": "action",
+            "name": "vigilant_blessing",
+            "target": {
+              "type": "creature",
+              "count": 1
+            },
+            "range": {
+              "value": 0,
+              "unit": "feet"
+            },
+            "effects": [
+              {
+                "apply_status": {
+                  "id": "status:vigilant-blessing",
+                  "source": "character",
+                  "effects": [
+                    {
+                      "advantage": {
+                        "initiative": true
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "feat:twilight-twilight-sanctuary",
+        "level": 2,
+        "name": "Twilight Sanctuary",
+        "description": "At 2nd level, you can use your Channel Divinity to refresh your allies with soothing twilight.\n\nAs an action, you present your holy symbol, and a sphere of twilight emanates from you. The sphere is centered on you, has a 30-foot radius, and is filled with dim light. The sphere moves with you, and it lasts for 1 minute or until you are incapacitated or die. Whenever a creature (including you) ends its turn in the sphere, you can grant that creature one of these benefits:\n\n- You grant it temporary hit points equal to 1d6 plus your cleric level.\n- You end one effect on it causing it to be charmed or frightened.",
+        "source": "tce",
+        "ruleset": "dnd5e",
+        "class": "class:cleric",
+        "mechanics": [
+          {
+            "type": "action",
+            "name": "twilight_sanctuary",
+            "cost": [
+              {
+                "resource": "channel_divinity",
+                "amount": 1
+              }
+            ],
+            "area": {
+              "shape": "sphere",
+              "size": 30
+            },
+            "duration": {
+              "value": 1,
+              "unit": "minutes"
+            },
+            "effects": [
+              {
+                "choice": {
+                  "options": [
+                    {
+                      "name": "Temporary Hit Points",
+                      "effects": [
+                        {
+                          "healing": {
+                            "dice": "1d6",
+                            "bonus": {
+                              "operation": "add",
+                              "operators": [
+                                {
+                                  "type": "class_level",
+                                  "class": "class:cleric"
+                                }
+                              ]
+                            },
+                            "barrier": { "priority": 1 }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "End Charmed or Frightened",
+                      "effects": [
+                        {
+                          "type": "dispel",
+                          "statuses": ["charmed", "frightened"]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "feat:twilight-steps-of-night",
+        "level": 6,
+        "name": "Steps of Night",
+        "description": "Starting at 6th level, you can draw on the mystical power of night to rise into the air. As a bonus action when you are in dim light or darkness, you can magically give yourself a flying speed equal to your walking speed for 1 minute. You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+        "source": "tce",
+        "ruleset": "dnd5e",
+        "class": "class:cleric",
+        "mechanics": [
+          {
+            "type": "bonus_action",
+            "name": "steps_of_night",
+            "requirements": [
+              {
+                "type": "environment",
+                "lighting": "dim_light"
+              }
+            ],
+            "effects": [
+              {
+                "buff": {
+                  "category": "movement",
+                  "property": "fly",
+                  "bonus": {
+                    "operation": "set",
+                    "operators": [
+                      { "type": "attribute", "value": "speed.walk" }
+                    ]
+                  }
+                }
+              }
+            ],
+            "duration": {
+              "value": 1,
+              "unit": "minutes"
+            },
+            "uses": {
+              "calculation": "proficiency_bonus"
+            },
+            "recharge": "long_rest"
+          }
+        ]
+      },
+      {
+        "id": "feat:twilight-divine-strike",
+        "level": 8,
+        "name": "Divine Strike",
+        "description": "At 8th level, you gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 radiant damage to the target. When you reach 14th level, the extra damage increases to 2d8.",
+        "source": "tce",
+        "ruleset": "dnd5e",
+        "class": "class:cleric",
+        "mechanics": [
+          {
+            "type": "damage_bonus",
+            "name": "divine_strike",
+            "trigger": {
+              "event": ["damage"],
+              "source": {
+                "type": "weapon"
+              }
+            },
+            "effects": [
+              {
+                "damage_bonus": {
+                  "dice": "1d8",
+                  "type": ["radiant"]
+                }
+              }
+            ],
+            "scaling": {
+              "by_level": {
+                "14": "2d8"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "feat:twilight-twilight-shroud",
+        "level": 17,
+        "name": "Twilight Shroud",
+        "description": "At 17th level, the twilight that you summon offers a protective embrace: you and your allies have half cover while in the sphere created by your Twilight Sanctuary.",
+        "source": "tce",
+        "ruleset": "dnd5e",
+        "class": "class:cleric",
+        "enhances": ["feat:twilight-twilight-sanctuary"],
+        "mechanics": [
+          {
+            "type": "passive",
+            "name": "twilight_shroud",
+            "target": {
+              "type": "creatures",
+              "disposition": "friendly",
+              "include_self": true
+            },
+            "effects": [
+              {
+                "cover": "half"
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]
