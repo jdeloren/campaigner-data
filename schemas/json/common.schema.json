@@ -1792,6 +1792,7 @@
                 "dice": "#/$defs/DiceOperand",
                 "function": "#/$defs/FunctionOperand",
                 "integer": "#/$defs/IntegerOperand",
+                "resource": "#/$defs/ResourceOperand",
                 "resource_die": "#/$defs/ResourceDieOperand",
                 "roll_result": "#/$defs/RollResultOperand",
                 "scaling": "#/$defs/ScalingOperand",
@@ -1815,6 +1816,9 @@
               },
               {
                 "$ref": "#/$defs/AttributeOperand"
+              },
+              {
+                "$ref": "#/$defs/ResourceOperand"
               },
               {
                 "$ref": "#/$defs/ResourceDieOperand"
@@ -6653,6 +6657,33 @@
       },
       "required": ["type"],
       "title": "ResourceCount",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "ResourceOperand": {
+      "description": "A resource pool value (e.g., hit dice, ki points). Use 'property' to specify total or current count.",
+      "properties": {
+        "type": {
+          "const": "resource",
+          "default": "resource",
+          "title": "Type",
+          "type": "string"
+        },
+        "value": {
+          "description": "Resource pool ID (e.g., 'hit_dice', 'ki_points')",
+          "title": "Value",
+          "type": "string"
+        },
+        "property": {
+          "description": "Which value to reference: maximum pool size or current remaining",
+          "enum": ["maximum", "current"],
+          "default": "maximum",
+          "title": "Property",
+          "type": "string"
+        }
+      },
+      "required": ["value"],
+      "title": "ResourceOperand",
       "additionalProperties": false,
       "type": "object"
     },

@@ -1877,5 +1877,338 @@
         ]
       }
     ]
+  },
+  {
+    "id": "domain:grave",
+    "name": "Grave",
+    "description": "Gods of the grave watch over the line between life and death. To these deities, death and the afterlife are a foundational part of the multiverse's workings. To desecrate the peace of the dead is an abomination. Deities of the grave include Kelemvor, Wee Jas, the ancestral spirits of the Undying Court, Hades, Anubis, and Osiris. These deities teach their followers to respect the dead and pay them due homage. Followers of these deities seek to put wandering spirits to rest, destroy the undead wherever they find them, and ease the suffering of dying creatures. Their magic also allows them to stave off a creature's death, though they refuse to use such magic to extend a creature's lifespan beyond its mortal limits.",
+    "source": "xge",
+    "ruleset": "dnd5e",
+    "class": "class:cleric",
+    "features": [
+      {
+        "id": "feat:grave-domain-spells",
+        "level": 1,
+        "name": "Domain Spells",
+        "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you have a domain spell that doesn't appear on the cleric spell list, the spell is nonetheless a cleric spell for you.",
+        "source": "xge",
+        "ruleset": "dnd5e",
+        "class": "class:cleric",
+        "mechanics": [
+          {
+            "type": "granted_spells",
+            "always_prepared": true,
+            "scaling": {
+              "by_level": {
+                "1": ["spell:bane", "spell:false-life"],
+                "3": ["spell:gentle-repose", "spell:ray-of-enfeeblement"],
+                "5": ["spell:revivify", "spell:vampiric-touch"],
+                "7": ["spell:blight", "spell:death-ward"],
+                "9": ["spell:antilife-shell", "spell:raise-dead"]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "feat:grave-circle-of-mortality",
+        "level": 1,
+        "name": "Circle of Mortality",
+        "description": "At 1st level, you gain the ability to manipulate the line between life and death. When you would normally roll one or more dice to restore hit points with a spell to a creature at 0 hit points, you instead use the highest number possible for each die. In addition, you learn the Spare the Dying cantrip, which doesn't count against the number of cleric cantrips you know. For you, it has a range of 30 feet, and you can cast it as a bonus action.",
+        "source": "xge",
+        "ruleset": "dnd5e",
+        "class": "class:cleric",
+        "mechanics": [
+          {
+            "type": "passive",
+            "trigger": {
+              "event": ["cast_spell"],
+              "spell": {
+                "effect": ["healing"]
+              }
+            },
+            "requirements": [
+              {
+                "type": "attribute",
+                "ref": "hit_points.current",
+                "comparison": "equals",
+                "value": 0
+              }
+            ],
+            "effects": [
+              {
+                "roll_modifier": {
+                  "function": "roller.max_roll"
+                }
+              }
+            ]
+          },
+          {
+            "type": "granted_spells",
+            "always_prepared": true,
+            "scaling": {
+              "by_level": {
+                "1": ["spell:spare-the-dying"]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "feat:grave-eyes-of-the-grave",
+        "level": 1,
+        "name": "Eyes of the Grave",
+        "description": "At 1st level, you gain the ability to occasionally sense the presence of the undead, whose existence is an insult to the natural cycle of life. As an action, you can open your awareness to magically detect undead. Until the end of your next turn, you know the location of any undead within 60 feet of you that isn't behind total cover. This feature doesn't reveal anything about a creature's capabilities or identity. You can use this feature a number of times equal to your Wisdom modifier (minimum of once). You regain all expended uses when you finish a long rest.",
+        "source": "xge",
+        "ruleset": "dnd5e",
+        "class": "class:cleric",
+        "mechanics": [
+          {
+            "type": "action",
+            "effects": [
+              {
+                "detection": {
+                  "detects": ["Undead"],
+                  "range": {
+                    "value": 60,
+                    "unit": "feet"
+                  }
+                },
+                "duration": {
+                  "value": 1,
+                  "unit": "rounds"
+                }
+              }
+            ],
+            "uses": {
+              "calculation": "scores.wisdom.modifier",
+              "bounds": {
+                "minimum": 1
+              }
+            },
+            "recharge": "long_rest"
+          }
+        ]
+      },
+      {
+        "id": "feat:grave-path-to-the-grave",
+        "level": 2,
+        "name": "Path to the Grave",
+        "description": "Starting at 2nd level, you can use your Channel Divinity to mark another creature's life force for termination. As an action, you choose one creature you can see within 30 feet of you, cursing it until the end of your next turn. The next time you or an ally hits the cursed creature with an attack, the creature has vulnerability to all of that attack's damage, and then the curse ends.",
+        "source": "xge",
+        "ruleset": "dnd5e",
+        "class": "class:cleric",
+        "mechanics": [
+          {
+            "type": "action",
+            "cost": [
+              {
+                "resource": "channel_divinity",
+                "amount": 1
+              }
+            ],
+            "target": {
+              "type": "creature",
+              "disposition": "hostile",
+              "count": 1,
+              "choice": true,
+              "requirements": [
+                {
+                  "type": "perception",
+                  "observer": "character",
+                  "subject": "target",
+                  "senses": ["sight"]
+                }
+              ]
+            },
+            "range": {
+              "value": 30,
+              "unit": "feet"
+            },
+            "effects": [
+              {
+                "apply_status": {
+                  "id": "status:cursed",
+                  "source": "character",
+                  "action": "Path to the Grave",
+                  "duration": {
+                    "value": 1,
+                    "unit": "rounds",
+                    "until": [
+                      {
+                        "event": ["attacked_by"],
+                        "attack": { "result": "success" }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "damage_response": {
+                  "category": "vulnerability",
+                  "to": ["bludgeoning", "piercing", "slashing"]
+                },
+                "duration": {
+                  "until": [
+                    {
+                      "event": ["attacked_by"],
+                      "attack": { "result": "success" }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "feat:grave-sentinel-at-deaths-door",
+        "level": 6,
+        "name": "Sentinel at Death's Door",
+        "description": "At 6th level, you gain the ability to impede death's progress. As a reaction when you or a creature you can see within 30 feet of you suffers a critical hit, you can turn that hit into a normal hit. Any effects triggered by a critical hit are canceled. You can use this feature a number of times equal to your Wisdom modifier (minimum of once). You regain all expended uses when you finish a long rest.",
+        "source": "xge",
+        "ruleset": "dnd5e",
+        "class": "class:cleric",
+        "mechanics": [
+          {
+            "type": "reaction",
+            "trigger": {
+              "event": ["attacked_by"],
+              "attack": {
+                "result": "success",
+                "critical": true
+              }
+            },
+            "target": {
+              "type": "creature",
+              "count": 1,
+              "choice": true,
+              "disposition": "friendly",
+              "requirements": [
+                {
+                  "type": "perception",
+                  "observer": "character",
+                  "subject": "target",
+                  "senses": ["sight"]
+                }
+              ]
+            },
+            "range": {
+              "value": 30,
+              "unit": "feet"
+            },
+            "effects": [
+              {
+                "roll_modifier": {
+                  "type": "attack",
+                  "bounds": { "maximum": 19 }
+                }
+              }
+            ],
+            "uses": {
+              "calculation": "scores.wisdom.modifier",
+              "bounds": {
+                "minimum": 1
+              }
+            },
+            "recharge": "long_rest"
+          }
+        ]
+      },
+      {
+        "id": "feat:grave-potent-spellcasting",
+        "level": 8,
+        "name": "Potent Spellcasting",
+        "description": "Starting at 8th level, you add your Wisdom modifier to the damage you deal with any cleric cantrip.",
+        "source": "xge",
+        "ruleset": "dnd5e",
+        "class": "class:cleric",
+        "mechanics": [
+          {
+            "type": "damage_bonus",
+            "trigger": {
+              "event": ["damage"],
+              "source": {
+                "type": "spell",
+                "class": "Cleric",
+                "level": { "maximum": 0 }
+              }
+            },
+            "effects": [
+              {
+                "damage_bonus": {
+                  "bonus": {
+                    "operation": "add",
+                    "operators": [{ "type": "ability_modifier", "ability": "Wisdom" }]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "feat:grave-keeper-of-souls",
+        "level": 17,
+        "name": "Keeper of Souls",
+        "description": "Starting at 17th level, you can seize a trace of vitality from a parting soul and use it to heal the living. When an enemy you can see dies within 60 feet of you, you or one creature of your choice that is within 60 feet of you regains hit points equal to the enemy's number of Hit Dice. You can use this feature only if you aren't incapacitated. Once you use it, you can't do so again until the start of your next turn.",
+        "source": "xge",
+        "ruleset": "dnd5e",
+        "class": "class:cleric",
+        "mechanics": [
+          {
+            "type": "passive",
+            "trigger": {
+              "event": ["kill"],
+              "source": {
+                "type": "creature"
+              }
+            },
+            "requirements": [
+              {
+                "type": "status",
+                "value": "incapacitated",
+                "negate": true
+              },
+              {
+                "type": "perception",
+                "observer": "character",
+                "subject": "target",
+                "senses": ["sight"]
+              },
+              {
+                "type": "distance",
+                "value": 60,
+                "unit": "feet"
+              }
+            ],
+            "target": {
+              "type": "creature",
+              "count": 1,
+              "choice": true,
+              "disposition": "friendly"
+            },
+            "range": {
+              "value": 60,
+              "unit": "feet"
+            },
+            "effects": [
+              {
+                "healing": {
+                  "bonus": {
+                    "operation": "add",
+                    "operators": [{ "type": "resource", "value": "hit_dice", "property": "maximum" }]
+                  }
+                }
+              }
+            ],
+            "uses": {
+              "value": 1
+            },
+            "recharge": "turn"
+          }
+        ]
+      }
+    ]
   }
 ]
