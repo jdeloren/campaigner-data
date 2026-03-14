@@ -1974,7 +1974,7 @@
           "anyOf": [
             {
               "items": {
-                "type": "object"
+                "$ref": "#/$defs/ChoiceOption"
               },
               "type": "array"
             },
@@ -2010,6 +2010,44 @@
         }
       },
       "title": "Choice",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "ChoiceOption": {
+      "description": "A single option within a player choice.",
+      "properties": {
+        "name": {
+          "description": "Display name of the option",
+          "title": "Name",
+          "type": "string"
+        },
+        "effect": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Effect"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Effect that fires when this option is chosen"
+        },
+        "duration": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Duration"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Duration of the chosen option"
+        }
+      },
+      "required": ["name"],
+      "title": "ChoiceOption",
       "additionalProperties": false,
       "type": "object"
     },

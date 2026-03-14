@@ -639,7 +639,6 @@
             ],
             "effects": [
               {
-                "type": "dispel",
                 "area": {
                   "shape": "radius",
                   "size": 30,
@@ -3143,32 +3142,27 @@
                   "options": [
                     {
                       "name": "Temporary Hit Points",
-                      "effects": [
-                        {
-                          "healing": {
-                            "dice": "1d6",
-                            "bonus": {
-                              "operation": "add",
-                              "operators": [
-                                {
-                                  "type": "class_level",
-                                  "class": "class:cleric"
-                                }
-                              ]
-                            },
-                            "barrier": { "priority": 1 }
-                          }
+                      "effect": {
+                        "healing": {
+                          "dice": "1d6",
+                          "bonus": {
+                            "operation": "add",
+                            "operators": [
+                              {
+                                "type": "class_level",
+                                "class": "class:cleric"
+                              }
+                            ]
+                          },
+                          "barrier": { "priority": 1 }
                         }
-                      ]
+                      }
                     },
                     {
                       "name": "End Charmed or Frightened",
-                      "effects": [
-                        {
-                          "type": "dispel",
-                          "statuses": ["charmed", "frightened"]
-                        }
-                      ]
+                      "effect": {
+                        "negate": ["charmed", "frightened"]
+                      }
                     }
                   ]
                 }
