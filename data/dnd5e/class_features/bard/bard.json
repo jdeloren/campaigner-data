@@ -83,14 +83,11 @@
             "attribute": {
               "target": "ability_checks.bonus",
               "calculation": {
-                "operation": "add",
+                "operation": "divide",
+                "rounding": "down",
                 "operators": [
-                  {
-                    "type": "function",
-                    "function": "levels.calculate_proficiency_bonus",
-                    "context": "character",
-                    "transform": "half_rounded_down"
-                  }
+                  {"type": "attribute", "value": "proficiency_bonus"},
+                  {"type": "integer", "value": 2}
                 ]
               }
             },
