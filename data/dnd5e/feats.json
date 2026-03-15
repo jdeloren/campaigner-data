@@ -3759,7 +3759,7 @@
   {
     "id": "feat:dragon-fear",
     "name": "Dragon Fear",
-    "enhances": "Breath Weapon",
+    "enhances": ["Breath Weapon"],
     "description": "When you use your Breath Weapon, you can choose to roar instead, forcing each creature of your choice within 30 feet of you to make a Wisdom saving throw. A target automatically succeeds on the save if it can't hear or see you. On a failed save, a target becomes frightened of you for 1 minute. The frightened target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
     "bonuses": [
       "Increase your Strength, Constitution, or Charisma score by 1, to a maximum of 20.",

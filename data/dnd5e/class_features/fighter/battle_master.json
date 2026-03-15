@@ -92,7 +92,7 @@
     "level": 10,
     "name": "Improved Combat Superiority",
     "description": "Your superiority dice turn into d10s. At 18th level, they turn into d12s.",
-    "enhances": "Combat Superiority",
+    "enhances": ["feat:combat-superiority"],
     "mechanics": [],
     "source": "phb",
     "ruleset": "dnd5e"

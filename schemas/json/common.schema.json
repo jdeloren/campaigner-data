@@ -1792,6 +1792,7 @@
                 "dice": "#/$defs/DiceOperand",
                 "function": "#/$defs/FunctionOperand",
                 "integer": "#/$defs/IntegerOperand",
+                "resource": "#/$defs/ResourceOperand",
                 "resource_die": "#/$defs/ResourceDieOperand",
                 "roll_result": "#/$defs/RollResultOperand",
                 "scaling": "#/$defs/ScalingOperand",
@@ -1815,6 +1816,9 @@
               },
               {
                 "$ref": "#/$defs/AttributeOperand"
+              },
+              {
+                "$ref": "#/$defs/ResourceOperand"
               },
               {
                 "$ref": "#/$defs/ResourceDieOperand"
@@ -1970,7 +1974,7 @@
           "anyOf": [
             {
               "items": {
-                "type": "object"
+                "$ref": "#/$defs/ChoiceOption"
               },
               "type": "array"
             },
@@ -2006,6 +2010,44 @@
         }
       },
       "title": "Choice",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "ChoiceOption": {
+      "description": "A single option within a player choice.",
+      "properties": {
+        "name": {
+          "description": "Display name of the option",
+          "title": "Name",
+          "type": "string"
+        },
+        "effect": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Effect"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Effect that fires when this option is chosen"
+        },
+        "duration": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Duration"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Duration of the chosen option"
+        }
+      },
+      "required": ["name"],
+      "title": "ChoiceOption",
       "additionalProperties": false,
       "type": "object"
     },
@@ -3597,6 +3639,20 @@
           "default": null,
           "description": "Contested ability check for this effect"
         },
+        "cover": {
+          "anyOf": [
+            {
+              "enum": ["none", "half", "three_quarters", "total"],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Grants cover to the target (e.g., 'half' for +2 AC and Dex saves, 'three_quarters' for +5)",
+          "title": "Cover"
+        },
         "advantage": {
           "anyOf": [
             {
@@ -4492,6 +4548,22 @@
       "title": "Interaction",
       "additionalProperties": false,
       "type": "object"
+    },
+    "Enhances": {
+      "description": "Feature(s) this feature modifies in place. Only the base feature appears in the action list; the enhancement upgrades its behavior (e.g., Destroy Undead enhances Turn Undead, Persistent Rage enhances Rage).",
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Enhances"
     },
     "Environment": {
       "description": "Environmental effect that modifies an area of the battlefield.\n\nDescribes static properties: area shape, terrain, visibility, lighting, surface.\nDynamic effects (damage on enter, saves) use Effect-level trigger/saving_throw/on_failure.\n\nExamples:\n- Create Bonfire: environment (area + lighting) + Effect (trigger + save + damage)\n- Fog Cloud: environment (area + visibility)\n- Grease: environment (area + surface) + Effect (trigger + save + prone)\n- Spike Growth: environment (area + terrain) + Effect (trigger + damage)\n- Darkness: environment (area + lighting + visibility)",
@@ -6583,7 +6655,7 @@
       "properties": {
         "type": {
           "description": "How count is determined",
-          "enum": ["static", "class_level", "level_table", "formula", "ability_modifier"],
+          "enum": ["static", "class_level", "level_table", "ability_modifier", "proficiency_bonus"],
           "title": "Type",
           "type": "string"
         },
@@ -6653,6 +6725,33 @@
       },
       "required": ["type"],
       "title": "ResourceCount",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "ResourceOperand": {
+      "description": "A resource pool value (e.g., hit dice, ki points). Use 'property' to specify total or current count.",
+      "properties": {
+        "type": {
+          "const": "resource",
+          "default": "resource",
+          "title": "Type",
+          "type": "string"
+        },
+        "value": {
+          "description": "Resource pool ID (e.g., 'hit_dice', 'ki_points')",
+          "title": "Value",
+          "type": "string"
+        },
+        "property": {
+          "description": "Which value to reference: maximum pool size or current remaining",
+          "enum": ["maximum", "current"],
+          "default": "maximum",
+          "title": "Property",
+          "type": "string"
+        }
+      },
+      "required": ["value"],
+      "title": "ResourceOperand",
       "additionalProperties": false,
       "type": "object"
     },
@@ -8185,11 +8284,14 @@
               "type": "integer"
             },
             {
+              "$ref": "#/$defs/ResourceCount"
+            },
+            {
               "type": "null"
             }
           ],
           "default": null,
-          "description": "Maximum number of targets (for 'creatures' type or limited selections)",
+          "description": "Maximum number of targets — static integer or calculated (e.g., proficiency bonus)",
           "title": "Count"
         },
         "disposition": {

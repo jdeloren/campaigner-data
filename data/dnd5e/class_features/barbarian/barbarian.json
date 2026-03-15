@@ -584,7 +584,7 @@
     "name": "Persistent Rage",
     "level": 15,
     "description": "Your rage is so fierce that it ends early only if you fall unconscious or if you choose to end it.",
-    "enhances": "Rage",
+    "enhances": ["feat:rage"],
     "mechanics": [
       {
         "type": "passive",
