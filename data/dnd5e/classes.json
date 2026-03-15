@@ -1049,7 +1049,7 @@
         "4": {
           "choices": [
             {
-              "count": 4,
+              "count": 1,
               "criteria": {
                 "spell_list": "Cleric"
               }
@@ -1059,7 +1059,7 @@
         "11": {
           "choices": [
             {
-              "count": 5,
+              "count": 1,
               "criteria": {
                 "spell_list": "Cleric"
               }
@@ -1069,7 +1069,7 @@
         "17": {
           "choices": [
             {
-              "count": 6,
+              "count": 1,
               "criteria": {
                 "spell_list": "Cleric"
               }
@@ -1475,7 +1475,7 @@
         "4": {
           "choices": [
             {
-              "count": 3,
+              "count": 1,
               "criteria": "Bard"
             }
           ]
@@ -1483,7 +1483,7 @@
         "10": {
           "choices": [
             {
-              "count": 4,
+              "count": 1,
               "criteria": "Bard"
             }
           ]
@@ -1999,7 +1999,7 @@
         "4": {
           "choices": [
             {
-              "count": 4,
+              "count": 1,
               "criteria": {
                 "spell_list": "Wizard"
               }
@@ -2009,7 +2009,7 @@
         "10": {
           "choices": [
             {
-              "count": 5,
+              "count": 1,
               "criteria": {
                 "spell_list": "Wizard"
               }
@@ -2019,7 +2019,7 @@
         "17": {
           "choices": [
             {
-              "count": 6,
+              "count": 1,
               "criteria": {
                 "spell_list": "Wizard"
               }
