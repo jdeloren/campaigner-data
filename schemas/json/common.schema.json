@@ -7122,6 +7122,12 @@
           "default": null,
           "description": "Force the roll outcome (e.g., auto_succeed for concentration immunity)",
           "title": "Result"
+        },
+        "optional": {
+          "default": false,
+          "description": "Whether the roll modifier is a choice the target can make (e.g., choosing to fail a saving throw)",
+          "title": "Optional",
+          "type": "boolean"
         }
       },
       "additionalProperties": false,
