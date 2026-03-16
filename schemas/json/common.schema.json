@@ -5900,6 +5900,7 @@
         "jump_long",
         "jump_running",
         "stand",
+        "swim",
         "travel_pace"
       ],
       "title": "MovementProperty",
