@@ -1,0 +1,1561 @@
+[
+  {
+    "id": "spell:aganazzars-scorcher",
+    "name": "Aganazzar's Scorcher",
+    "description": "A line of roaring flame 30 feet long and 5 feet wide emanates from you in a direction you choose. Each creature in the line must make a Dexterity saving throw. A creature takes 3d8 fire damage on a failed save, or half as much damage on a successful one.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "materials": [
+      {
+        "name": "a red dragon's scale"
+      }
+    ],
+    "classes": ["Sorcerer", "Wizard"],
+    "school": "Evocation",
+    "range": "Self",
+    "duration": 0,
+    "concentration": false,
+    "damage": {
+      "dice": "3d8",
+      "type": ["fire"]
+    },
+    "scaling": {
+      "type": "spell",
+      "components": {
+        "damage": {
+          "by_level": {
+            "3": "4d8",
+            "4": "5d8",
+            "5": "6d8",
+            "6": "7d8",
+            "7": "8d8",
+            "8": "9d8",
+            "9": "10d8"
+          }
+        }
+      }
+    },
+    "mechanics": [
+      {
+        "type": "action",
+        "area": {
+          "shape": "line",
+          "size": 30,
+          "unit": "feet",
+          "origin": "self"
+        },
+        "target": {
+          "type": "creatures"
+        },
+        "effects": [
+          {
+            "saving_throw": {
+              "ability": "Dexterity",
+              "dc": {
+                "ref": "spell_save_dc"
+              }
+            },
+            "on_failure": {
+              "damage": {
+                "dice": "scaling.damage",
+                "type": ["fire"]
+              }
+            },
+            "on_success": {
+              "damage": {
+                "dice": "scaling.damage",
+                "type": ["fire"],
+                "calculation": {
+                  "operation": "divide",
+                  "operators": [
+                    {
+                      "type": "integer",
+                      "value": 2
+                    }
+                  ],
+                  "rounding": "down"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:aid",
+    "name": "Aid",
+    "description": "Your spell bolsters your allies with toughness and resolve. Choose up to three creatures within range. Each target's hit point maximum and current hit points increase by 5 for the duration.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "materials": [
+      {
+        "name": "a tiny strip of white cloth"
+      }
+    ],
+    "classes": ["Cleric", "Paladin"],
+    "school": "Abjuration",
+    "range": "Range",
+    "distance": 30,
+    "duration": 8,
+    "duration_units": "hours",
+    "concentration": false,
+    "scaling": {
+      "type": "spell",
+      "components": {
+        "hp_bonus": {
+          "by_level": {
+            "2": 5,
+            "3": 10,
+            "4": 15,
+            "5": 20,
+            "6": 25,
+            "7": 30,
+            "8": 35,
+            "9": 40
+          }
+        }
+      }
+    },
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "creatures",
+          "count": 3,
+          "disposition": "friendly",
+          "include_self": true
+        },
+        "effects": [
+          {
+            "attribute": {
+              "target": "hp.maximum",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "scaling",
+                    "value": "hp_bonus"
+                  }
+                ]
+              }
+            },
+            "duration": {
+              "value": 8,
+              "unit": "hours"
+            }
+          },
+          {
+            "healing": {
+              "calculation": {
+                "operation": "set",
+                "operators": [
+                  {
+                    "type": "scaling",
+                    "value": "hp_bonus"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:alter-self",
+    "name": "Alter Self",
+    "description": "You assume a different form. When you cast the spell, choose one of the following options, the effects of which last for the duration of the spell. While the spell lasts, you can end one option as an action to gain the benefits of a different one.\n\nAquatic Adaptation. You adapt your body to an aquatic environment, sprouting gills and growing webbing between your fingers. You can breathe underwater and gain a swimming speed equal to your walking speed.\n\nChange Appearance. You transform your appearance. You decide what you look like, including your height, weight, facial features, sound of your voice, hair length, coloration, and distinguishing characteristics, if any.\n\nNatural Weapons. You grow claws, fangs, spines, horns, or a different natural weapon of your choice. Your unarmed strikes deal 1d6 bludgeoning, piercing, or slashing damage, as appropriate to the natural weapon you chose, and you are proficient with your unarmed strikes. Finally, the natural weapon is magic and you have a +1 bonus to the attack and damage rolls you make using it.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic"],
+    "classes": ["Sorcerer", "Wizard"],
+    "school": "Transmutation",
+    "range": "Self",
+    "duration": 1,
+    "duration_units": "hours",
+    "concentration": true,
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "self"
+        },
+        "effects": [
+          {
+            "choice": {
+              "options": [
+                {
+                  "name": "Aquatic Adaptation",
+                  "effect": {
+                    "buff": {
+                      "category": "movement",
+                      "property": "swim",
+                      "bonus": {
+                        "operation": "set",
+                        "operators": [
+                          {
+                            "type": "attribute",
+                            "value": "movement.base"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "Change Appearance"
+                },
+                {
+                  "name": "Natural Weapons",
+                  "effect": {
+                    "damage": {
+                      "dice": "1d6",
+                      "type": ["bludgeoning", "piercing", "slashing"]
+                    },
+                    "roll_modifier": {
+                      "type": "attack",
+                      "operation": "add",
+                      "value": "1"
+                    },
+                    "damage_bonus": {
+                      "bonus": {
+                        "operation": "add",
+                        "operators": [
+                          {
+                            "type": "integer",
+                            "value": 1
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "duration": {
+              "value": 1,
+              "unit": "hours"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:animal-messenger",
+    "name": "Animal Messenger",
+    "description": "By means of this spell, you use an animal to deliver a message. Choose a Tiny beast you can see within range, such as a squirrel, a blue jay, or a bat. You specify a location, which you must have visited, and a recipient who matches a general description, such as \"a man or woman dressed in the uniform of the town guard\" or \"a red-haired dwarf wearing a pointed hat.\" You also speak a message of up to twenty-five words. The target beast travels for the duration of the spell toward the specified location, covering about 50 miles per 24 hours for a flying messenger, or 25 miles for other animals.\n\nWhen the messenger arrives, it delivers your message to the creature that you described, replicating the sound of your voice. The messenger speaks only to a creature matching the description you gave. If the messenger doesn't reach its destination before the spell ends, the message is lost, and the beast makes its way back to where you cast this spell.",
+    "level": 2,
+    "casting_time": "Action",
+    "ritual": true,
+    "components": ["Verbal", "Somatic", "Material"],
+    "materials": [
+      {
+        "name": "a morsel of food"
+      }
+    ],
+    "classes": ["Bard", "Druid", "Ranger"],
+    "school": "Enchantment",
+    "range": "Range",
+    "distance": 30,
+    "duration": 24,
+    "duration_units": "hours",
+    "concentration": false,
+    "scaling": {
+      "type": "spell",
+      "components": {
+        "duration": {
+          "by_level": {
+            "3": 48,
+            "4": 96,
+            "5": 192,
+            "6": 384,
+            "7": 768,
+            "8": 1536,
+            "9": 3072
+          }
+        }
+      }
+    },
+    "mechanics": [],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:arcane-lock",
+    "name": "Arcane Lock",
+    "description": "You touch a closed door, window, gate, chest, or other entryway, and it becomes locked for the duration. You and the creatures you designate when you cast this spell can open the object normally. You can also set a password that, when spoken within 5 feet of the object, suppresses this spell for 1 minute. Otherwise, it is impassable until it is broken or the spell is dispelled or suppressed. Casting knock on the object suppresses arcane lock for 10 minutes.\n\nWhile affected by this spell, the object is more difficult to break or force open; the DC to break it or pick any locks on it increases by 10.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "materials": [
+      {
+        "name": "gold dust worth at least 25 gp, which the spell consumes",
+        "cost": {
+          "amount": 25,
+          "currency": "GP"
+        }
+      }
+    ],
+    "classes": ["Wizard"],
+    "school": "Abjuration",
+    "range": "Touch",
+    "concentration": false,
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "object"
+        },
+        "effects": [
+          {
+            "attribute": {
+              "target": "lock_dc",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 10
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:augury",
+    "name": "Augury",
+    "description": "By casting gem-inlaid sticks, rolling dragon bones, laying out ornate cards, or employing some other divining tool, you receive an omen from an otherworldly entity about the results of a specific course of action that you plan to take within the next 30 minutes. The DM chooses from the following possible omens:\n\nWeal, for good results\nWoe, for bad results\nWeal and woe, for both good and bad results\nNothing, for results that aren't especially good or bad\n\nThe spell doesn't take into account any possible circumstances that might change the outcome, such as the casting of additional spells or the loss or gain of a companion.\n\nIf you cast the spell two or more times before completing your next long rest, there is a cumulative 25 percent chance for each casting after the first that you get a random reading. The DM makes this roll in secret.",
+    "level": 2,
+    "casting_time": "Minute",
+    "ritual": true,
+    "components": ["Verbal", "Somatic", "Material"],
+    "materials": [
+      {
+        "name": "specially marked sticks, bones, or similar tokens worth at least 25 gp",
+        "cost": {
+          "amount": 25,
+          "currency": "GP"
+        }
+      }
+    ],
+    "classes": ["Cleric"],
+    "school": "Divination",
+    "range": "Self",
+    "duration": 0,
+    "concentration": false,
+    "mechanics": [],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:barkskin",
+    "name": "Barkskin",
+    "description": "You touch a willing creature. Until the spell ends, the target's skin has a rough, bark-like appearance, and the target's AC can't be less than 16, regardless of what kind of armor it is wearing.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "materials": [
+      {
+        "name": "a handful of oak bark"
+      }
+    ],
+    "classes": ["Druid", "Ranger"],
+    "school": "Transmutation",
+    "range": "Touch",
+    "duration": 1,
+    "duration_units": "hours",
+    "concentration": true,
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "creature",
+          "count": 1,
+          "disposition": "friendly",
+          "include_self": true
+        },
+        "effects": [
+          {
+            "buff": {
+              "category": "armor_class",
+              "base": 16
+            },
+            "requirements": [
+              {
+                "type": "attribute",
+                "attribute": "armor_class",
+                "range": { "maximum": 15 }
+              }
+            ],
+            "duration": {
+              "value": 1,
+              "unit": "hours"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:beast-sense",
+    "name": "Beast Sense",
+    "description": "You touch a willing beast. For the duration of the spell, you can use your action to see through the beast's eyes and hear through its ears, and continue to do so until you use your action to return to your normal senses. While perceiving through the beast's senses, you gain the benefits of any special senses possessed by that creature, though you are blinded and deafened to your own surroundings.",
+    "level": 2,
+    "casting_time": "Action",
+    "ritual": true,
+    "components": ["Somatic"],
+    "classes": ["Druid", "Ranger"],
+    "school": "Divination",
+    "range": "Touch",
+    "duration": 1,
+    "duration_units": "hours",
+    "concentration": true,
+    "mechanics": [],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:blindness-deafness",
+    "name": "Blindness/Deafness",
+    "description": "You can blind or deafen a foe. Choose one creature that you can see within range to make a Constitution saving throw. If it fails, the target is either blinded or deafened (your choice) for the duration. At the end of each of its turns, the target can make a Constitution saving throw. On a success, the spell ends.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal"],
+    "classes": ["Bard", "Cleric", "Sorcerer", "Wizard"],
+    "school": "Necromancy",
+    "range": "Range",
+    "distance": 30,
+    "duration": 1,
+    "duration_units": "minutes",
+    "concentration": false,
+    "scaling": {
+      "type": "spell",
+      "components": {
+        "targets": {
+          "by_level": {
+            "3": 2,
+            "4": 3,
+            "5": 4,
+            "6": 5,
+            "7": 6,
+            "8": 7,
+            "9": 8
+          }
+        }
+      }
+    },
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "creature",
+          "count": 1,
+          "requirements": [
+            {
+              "type": "perception",
+              "observer": "character",
+              "subject": "target",
+              "senses": ["sight"]
+            }
+          ]
+        },
+        "effects": [
+          {
+            "saving_throw": {
+              "ability": "Constitution",
+              "dc": {
+                "ref": "spell_save_dc"
+              }
+            },
+            "on_failure": {
+              "choice": {
+                "options": [
+                  {
+                    "name": "Blinded",
+                    "effect": {
+                      "apply_status": {
+                        "id": "status:blinded",
+                        "duration": {
+                          "value": 1,
+                          "unit": "minutes"
+                        },
+                        "escape": {
+                          "ability": "Constitution",
+                          "dc": { "ref": "spell_save_dc" }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "name": "Deafened",
+                    "effect": {
+                      "apply_status": {
+                        "id": "status:deafened",
+                        "duration": {
+                          "value": 1,
+                          "unit": "minutes"
+                        },
+                        "escape": {
+                          "ability": "Constitution",
+                          "dc": { "ref": "spell_save_dc" }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:blur",
+    "name": "Blur",
+    "description": "Your body becomes blurred, shifting and wavering to all who can see you. For the duration, any creature has disadvantage on attack rolls against you. An attacker is immune to this effect if it doesn't rely on sight, as with blindsight, or can see through illusions, as with truesight.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal"],
+    "classes": ["Sorcerer", "Wizard"],
+    "school": "Illusion",
+    "range": "Self",
+    "duration": 1,
+    "duration_units": "minutes",
+    "concentration": true,
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "self"
+        },
+        "effects": [
+          {
+            "disadvantage": {
+              "attack": "all",
+              "target": { "type": "attackers" }
+            },
+            "duration": {
+              "value": 1,
+              "unit": "minutes"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:branding-smite",
+    "name": "Branding Smite",
+    "description": "The next time you hit a creature with a weapon attack before this spell ends, the weapon gleams with astral radiance as you strike. The attack deals an extra 2d6 radiant damage to the target, which becomes visible if it's invisible, and the target sheds dim light in a 5-foot radius and can't become invisible until the spell ends.",
+    "level": 2,
+    "casting_time": "Bonus Action",
+    "components": ["Verbal"],
+    "classes": ["Paladin"],
+    "school": "Evocation",
+    "range": "Self",
+    "duration": 1,
+    "duration_units": "minutes",
+    "concentration": true,
+    "damage": {
+      "dice": "2d6",
+      "type": ["radiant"]
+    },
+    "scaling": {
+      "type": "spell",
+      "components": {
+        "damage": {
+          "by_level": {
+            "3": "3d6",
+            "4": "4d6",
+            "5": "5d6",
+            "6": "6d6",
+            "7": "7d6",
+            "8": "8d6",
+            "9": "9d6"
+          }
+        }
+      }
+    },
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "target": {
+          "type": "self"
+        },
+        "effects": [
+          {
+            "trigger": {
+              "event": ["attack"],
+              "attack": { "result": "success" },
+              "source": {
+                "type": "weapon"
+              }
+            },
+            "damage_bonus": {
+              "dice": "scaling.damage",
+              "type": ["radiant"]
+            },
+            "count": 1,
+            "ends_spell": true
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:calm-emotions",
+    "name": "Calm Emotions",
+    "description": "You attempt to suppress strong emotions in a group of people. Each humanoid in a 20-foot-radius sphere centered on a point you choose within range must make a Charisma saving throw; a creature can choose to fail this saving throw if it wishes. If a creature fails its saving throw, choose one of the following two effects.\n\nYou can suppress any effect causing a target to be charmed or frightened. When this spell ends, any suppressed effect resumes, provided that its duration has not expired in the meantime.\n\nAlternatively, you can make a target indifferent about creatures of your choice that it is hostile toward. This indifference ends if the target is attacked or harmed by a spell or if it witnesses any of its friends being harmed. When the spell ends, the creature becomes hostile again, unless the DM rules otherwise.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic"],
+    "classes": ["Bard", "Cleric"],
+    "school": "Enchantment",
+    "range": "Range",
+    "distance": 60,
+    "duration": 1,
+    "duration_units": "minutes",
+    "concentration": true,
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "creatures",
+          "requirements": [
+            {
+              "type": "creature_type",
+              "value": "Humanoid"
+            }
+          ]
+        },
+        "area": {
+          "shape": "sphere",
+          "size": 20,
+          "unit": "feet",
+          "origin": "point"
+        },
+        "effects": [
+          {
+            "saving_throw": {
+              "ability": "Charisma",
+              "dc": { "ref": "spell_save_dc" }
+            },
+            "on_failure": {
+              "choice": {
+                "options": [
+                  {
+                    "name": "Suppress",
+                    "effect": {
+                      "negate": ["charmed", "frightened"]
+                    }
+                  },
+                  {
+                    "name": "Indifference"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:cloud-of-daggers",
+    "name": "Cloud of Daggers",
+    "description": "You fill the air with spinning daggers in a cube 5 feet on each side, centered on a point you choose within range. A creature takes 4d4 slashing damage when it enters the spell's area for the first time on a turn or starts its turn there.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "materials": [
+      {
+        "name": "a sliver of glass"
+      }
+    ],
+    "classes": ["Bard", "Sorcerer", "Warlock", "Wizard"],
+    "school": "Conjuration",
+    "range": "Range",
+    "distance": 60,
+    "duration": 1,
+    "duration_units": "minutes",
+    "concentration": true,
+    "damage": {
+      "dice": "4d4",
+      "type": ["slashing"]
+    },
+    "scaling": {
+      "type": "spell",
+      "components": {
+        "damage": {
+          "by_level": {
+            "3": "6d4",
+            "4": "8d4",
+            "5": "10d4",
+            "6": "12d4",
+            "7": "14d4",
+            "8": "16d4",
+            "9": "18d4"
+          }
+        }
+      }
+    },
+    "mechanics": [
+      {
+        "type": "action",
+        "area": {
+          "shape": "cube",
+          "size": 5,
+          "unit": "feet",
+          "origin": "point"
+        },
+        "target": {
+          "type": "creatures"
+        },
+        "effects": [
+          {
+            "trigger": {
+              "event": ["enter_area", "turn_start"]
+            },
+            "damage": {
+              "dice": "scaling.damage",
+              "type": ["slashing"]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:continual-flame",
+    "name": "Continual Flame",
+    "description": "A flame, equivalent in brightness to a torch, springs forth from an object that you touch. The effect looks like a regular flame, but it creates no heat and doesn't use oxygen. A continual flame can be covered or hidden but not smothered or quenched.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "materials": [
+      {
+        "name": "ruby dust worth 50 gp, which the spell consumes",
+        "cost": {
+          "amount": 50,
+          "currency": "GP"
+        }
+      }
+    ],
+    "classes": ["Cleric", "Wizard"],
+    "school": "Evocation",
+    "range": "Touch",
+    "concentration": false,
+    "mechanics": [],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:cordon-of-arrows",
+    "name": "Cordon of Arrows",
+    "description": "You plant four pieces of nonmagical ammunition — arrows or crossbow bolts — in the ground within range and lay magic upon them to protect an area. Until the spell ends, whenever a creature other than you comes within 30 feet of the ammunition for the first time on a turn or ends its turn there, one piece of ammunition flies at it. The creature must succeed on a Dexterity saving throw or take 1d6 piercing damage. The piece of ammunition is then destroyed. The spell ends when no ammunition remains.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "materials": [
+      {
+        "name": "four or more arrows or bolts"
+      }
+    ],
+    "classes": ["Ranger"],
+    "school": "Transmutation",
+    "range": "Range",
+    "distance": 5,
+    "duration": 8,
+    "duration_units": "hours",
+    "concentration": false,
+    "scaling": {
+      "type": "spell",
+      "components": {
+        "ammunition": {
+          "by_level": {
+            "3": 6,
+            "4": 8,
+            "5": 10,
+            "6": 12,
+            "7": 14,
+            "8": 16,
+            "9": 18
+          }
+        }
+      }
+    },
+    "mechanics": [
+      {
+        "type": "passive",
+        "target": {
+          "type": "creatures",
+          "disposition": "any",
+          "include_self": false
+        },
+        "area": {
+          "shape": "radius",
+          "size": 30,
+          "unit": "feet",
+          "origin": "point"
+        },
+        "effects": [
+          {
+            "trigger": {
+              "event": ["enter_area", "turn_end"]
+            },
+            "saving_throw": {
+              "ability": "Dexterity",
+              "dc": { "ref": "spell_save_dc" }
+            },
+            "on_failure": {
+              "damage": {
+                "dice": "1d6",
+                "type": ["piercing"]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:crown-of-madness",
+    "name": "Crown of Madness",
+    "description": "One humanoid of your choice that you can see within range must succeed on a Wisdom saving throw or become charmed by you for the duration. While the target is charmed in this way, a twisted crown of jagged iron appears on its head, and a madness glows in its eyes.\n\nThe charmed target must use its action before moving on each of its turns to make a melee attack against a creature other than itself that you mentally choose. The target can act normally on its turn if you choose no creature or if none are within its reach.\n\nOn your subsequent turns, you must use your action to maintain control over the target, or the spell ends. Also, the target can make a Wisdom saving throw at the end of each of its turns. On a success, the spell ends.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic"],
+    "classes": ["Bard", "Sorcerer", "Warlock", "Wizard"],
+    "school": "Enchantment",
+    "range": "Range",
+    "distance": 120,
+    "duration": 1,
+    "duration_units": "minutes",
+    "concentration": true,
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "creature",
+          "count": 1,
+          "requirements": [
+            {
+              "type": "perception",
+              "observer": "character",
+              "subject": "target",
+              "senses": ["sight"]
+            },
+            {
+              "type": "creature_type",
+              "value": "Humanoid"
+            }
+          ]
+        },
+        "effects": [
+          {
+            "saving_throw": {
+              "ability": "Wisdom",
+              "dc": { "ref": "spell_save_dc" }
+            },
+            "on_failure": {
+              "apply_status": {
+                "id": "status:charmed",
+                "source": "character",
+                "duration": {
+                  "value": 1,
+                  "unit": "minutes"
+                },
+                "escape": {
+                  "ability": "Wisdom",
+                  "dc": { "ref": "spell_save_dc" }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:darkness",
+    "name": "Darkness",
+    "description": "Magical darkness spreads from a point you choose within range to fill a 15-foot-radius sphere for the duration. The darkness spreads around corners. A creature with darkvision can't see through this darkness, and nonmagical light can't illuminate it.\n\nIf the point you choose is on an object you are holding or one that isn't being worn or carried, the darkness emanates from the object and moves with it. Completely covering the source of the darkness with an opaque object, such as a bowl or a helm, blocks the darkness.\n\nIf any of this spell's area overlaps with an area of light created by a spell of 2nd level or lower, the spell that created the light is dispelled.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Material"],
+    "materials": [
+      {
+        "name": "bat fur and a drop of pitch or piece of coal"
+      }
+    ],
+    "classes": ["Sorcerer", "Warlock", "Wizard"],
+    "school": "Evocation",
+    "range": "Range",
+    "distance": 60,
+    "duration": 10,
+    "duration_units": "minutes",
+    "concentration": true,
+    "mechanics": [
+      {
+        "type": "action",
+        "effects": [
+          {
+            "aura": {
+              "origin": "point",
+              "layers": [
+                {
+                  "type": "magical_darkness",
+                  "shape": "sphere",
+                  "size": 15
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:darkvision",
+    "name": "Darkvision",
+    "description": "You touch a willing creature to grant it the ability to see in the dark. For the duration, that creature has darkvision out to a range of 60 feet.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "materials": [
+      {
+        "name": "either a pinch of dried carrot or an agate"
+      }
+    ],
+    "classes": ["Druid", "Ranger", "Sorcerer", "Wizard"],
+    "school": "Transmutation",
+    "range": "Touch",
+    "duration": 8,
+    "duration_units": "hours",
+    "concentration": false,
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "creature",
+          "count": 1,
+          "disposition": "friendly",
+          "include_self": true
+        },
+        "effects": [
+          {
+            "attribute": {
+              "target": "senses.darkvision",
+              "calculation": {
+                "operation": "set",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 60
+                  }
+                ]
+              }
+            },
+            "duration": {
+              "value": 8,
+              "unit": "hours"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:detect-thoughts",
+    "name": "Detect Thoughts",
+    "description": "For the duration, you can read the thoughts of certain creatures. When you cast the spell and as your action on each turn until the spell ends, you can focus your mind on any one creature that you can see within 30 feet of you. If the creature you choose has an Intelligence of 3 or lower or doesn't speak any language, the creature is unaffected.\n\nYou initially learn the surface thoughts of the creature — what is most on its mind in that moment. As an action, you can either shift your attention to another creature's thoughts or attempt to probe deeper into the same creature's mind. If you probe deeper, the target must make a Wisdom saving throw. If it fails, you gain insight into its reasoning (if any), its emotional state, and something that looms large in its mind (such as something it worries over, loves, or hates). If it succeeds, the spell ends. Either way, the target knows that you are probing into its mind, and unless you shift your attention to another creature's thoughts, the creature can use its action on its turn to make an Intelligence check contested by your Intelligence check; if it succeeds, the spell ends.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "materials": [
+      {
+        "name": "a copper piece"
+      }
+    ],
+    "classes": ["Bard", "Sorcerer", "Wizard"],
+    "school": "Divination",
+    "range": "Self",
+    "duration": 1,
+    "duration_units": "minutes",
+    "concentration": true,
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "creature",
+          "count": 1,
+          "requirements": [
+            {
+              "type": "perception",
+              "observer": "character",
+              "subject": "target",
+              "senses": ["sight"]
+            },
+            {
+              "type": "attribute",
+              "attribute": "Intelligence",
+              "range": { "minimum": 4 }
+            }
+          ]
+        },
+        "effects": [
+          {
+            "detection": {
+              "detects": ["thoughts"]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:dragons-breath",
+    "name": "Dragon's Breath",
+    "description": "You touch one willing creature and imbue it with the power to spew magical energy from its mouth, provided it has one. Choose acid, cold, fire, lightning, or poison. Until the spell ends, the creature can use an action to exhale energy of the chosen type in a 15-foot cone. Each creature in that area must make a Dexterity saving throw, taking 3d6 damage of the chosen type on a failed save, or half as much damage on a successful one.",
+    "level": 2,
+    "casting_time": "Bonus Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "materials": [
+      {
+        "name": "a hot pepper"
+      }
+    ],
+    "classes": ["Sorcerer", "Wizard"],
+    "school": "Transmutation",
+    "range": "Touch",
+    "duration": 1,
+    "duration_units": "minutes",
+    "concentration": true,
+    "damage": {
+      "dice": "3d6",
+      "type": ["acid", "cold", "fire", "lightning", "poison"]
+    },
+    "scaling": {
+      "type": "spell",
+      "components": {
+        "damage": {
+          "by_level": {
+            "3": "4d6",
+            "4": "5d6",
+            "5": "6d6",
+            "6": "7d6",
+            "7": "8d6",
+            "8": "9d6",
+            "9": "10d6"
+          }
+        }
+      }
+    },
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "target": {
+          "type": "creature",
+          "count": 1,
+          "disposition": "friendly",
+          "include_self": true
+        },
+        "effects": [
+          {
+            "grants": {
+              "name": "Breath Weapon",
+              "activation": "action",
+              "count": 1
+            },
+            "choice": {
+              "type": "damage_type",
+              "options": [
+                { "name": "acid" },
+                { "name": "cold" },
+                { "name": "fire" },
+                { "name": "lightning" },
+                { "name": "poison" }
+              ]
+            },
+            "area": {
+              "shape": "cone",
+              "size": 15,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "saving_throw": {
+              "ability": "Dexterity",
+              "dc": { "ref": "spell_save_dc" }
+            },
+            "on_failure": {
+              "damage": {
+                "dice": "scaling.damage",
+                "type": ["chosen"]
+              }
+            },
+            "on_success": {
+              "damage": {
+                "dice": "scaling.damage",
+                "type": ["chosen"],
+                "calculation": {
+                  "operation": "divide",
+                  "operators": [{ "type": "integer", "value": 2 }],
+                  "rounding": "down"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:dust-devil",
+    "name": "Dust Devil",
+    "description": "Choose an unoccupied 5-foot cube of air that you can see within range. An elemental force that resembles a dust devil appears in the cube and lasts for the spell's duration.\n\nAny creature that ends its turn within 5 feet of the dust devil must make a Strength saving throw. On a failed save, the creature takes 1d8 bludgeoning damage and is pushed 10 feet away from the dust devil. On a successful save, the creature takes half as much damage and isn't pushed.\n\nAs a bonus action, you can move the dust devil up to 30 feet in any direction. If the dust devil moves over sand, dust, loose dirt, or light gravel, it sucks up the material and forms a 10-foot-radius cloud of debris around itself that lasts until the start of your next turn. The cloud heavily obscures its area.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "materials": [
+      {
+        "name": "a pinch of dust"
+      }
+    ],
+    "classes": ["Druid", "Sorcerer", "Wizard"],
+    "school": "Conjuration",
+    "range": "Range",
+    "distance": 60,
+    "duration": 1,
+    "duration_units": "minutes",
+    "concentration": true,
+    "damage": {
+      "dice": "1d8",
+      "type": ["bludgeoning"]
+    },
+    "scaling": {
+      "type": "spell",
+      "components": {
+        "damage": {
+          "by_level": {
+            "3": "2d8",
+            "4": "3d8",
+            "5": "4d8",
+            "6": "5d8",
+            "7": "6d8",
+            "8": "7d8",
+            "9": "8d8"
+          }
+        }
+      }
+    },
+    "mechanics": [
+      {
+        "type": "action",
+        "area": {
+          "shape": "cube",
+          "size": 5,
+          "unit": "feet",
+          "origin": "point"
+        },
+        "target": {
+          "type": "creatures"
+        },
+        "effects": [
+          {
+            "trigger": {
+              "event": ["turn_end"]
+            },
+            "saving_throw": {
+              "ability": "Strength",
+              "dc": { "ref": "spell_save_dc" }
+            },
+            "on_failure": {
+              "damage": {
+                "dice": "scaling.damage",
+                "type": ["bludgeoning"]
+              },
+              "forced_movement": {
+                "direction": "away",
+                "relative_to": "source",
+                "distance": 10
+              }
+            },
+            "on_success": {
+              "damage": {
+                "dice": "scaling.damage",
+                "type": ["bludgeoning"],
+                "calculation": {
+                  "operation": "divide",
+                  "operators": [{ "type": "integer", "value": 2 }],
+                  "rounding": "down"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:earthbind",
+    "name": "Earthbind",
+    "description": "Choose one creature you can see within range. Yellow strips of magical energy loop around the creature. The target must succeed on a Strength saving throw, or its flying speed (if any) is reduced to 0 feet for the spell's duration. An airborne creature affected by this spell safely descends at 60 feet per round until it reaches the ground or the spell ends.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal"],
+    "classes": ["Druid", "Sorcerer", "Warlock", "Wizard"],
+    "school": "Transmutation",
+    "range": "Range",
+    "distance": 300,
+    "duration": 1,
+    "duration_units": "minutes",
+    "concentration": true,
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "creature",
+          "count": 1,
+          "requirements": [
+            {
+              "type": "perception",
+              "observer": "character",
+              "subject": "target",
+              "senses": ["sight"]
+            }
+          ]
+        },
+        "effects": [
+          {
+            "saving_throw": {
+              "ability": "Strength",
+              "dc": { "ref": "spell_save_dc" }
+            },
+            "on_failure": {
+              "buff": {
+                "category": "movement",
+                "property": "fly",
+                "value": 0
+              },
+              "duration": {
+                "value": 1,
+                "unit": "minutes"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:enhance-ability",
+    "name": "Enhance Ability",
+    "description": "You touch a creature and bestow upon it a magical enhancement. Choose one of the following effects; the target gains that effect until the spell ends.\n\nBear's Endurance. The target has advantage on Constitution checks. It also gains 2d6 temporary hit points, which are lost when the spell ends.\n\nBull's Strength. The target has advantage on Strength checks, and his or her carrying capacity doubles.\n\nCat's Grace. The target has advantage on Dexterity checks. It also doesn't take damage from falling 20 feet or less if it isn't incapacitated.\n\nEagle's Splendor. The target has advantage on Charisma checks.\n\nFox's Cunning. The target has advantage on Intelligence checks.\n\nOwl's Wisdom. The target has advantage on Wisdom checks.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "materials": [
+      {
+        "name": "fur or a feather from a beast"
+      }
+    ],
+    "classes": ["Bard", "Cleric", "Druid", "Sorcerer"],
+    "school": "Transmutation",
+    "range": "Touch",
+    "duration": 1,
+    "duration_units": "hours",
+    "concentration": true,
+    "scaling": {
+      "type": "spell",
+      "components": {
+        "targets": {
+          "by_level": {
+            "3": 2,
+            "4": 3,
+            "5": 4,
+            "6": 5,
+            "7": 6,
+            "8": 7,
+            "9": 8
+          }
+        }
+      }
+    },
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "creature",
+          "count": 1,
+          "disposition": "friendly",
+          "include_self": true
+        },
+        "effects": [
+          {
+            "choice": {
+              "options": [
+                {
+                  "name": "Bear's Endurance",
+                  "effect": {
+                    "advantage": {
+                      "ability": "Constitution"
+                    },
+                    "healing": {
+                      "dice": "2d6",
+                      "barrier": { "priority": 1 }
+                    }
+                  }
+                },
+                {
+                  "name": "Bull's Strength",
+                  "effect": {
+                    "advantage": {
+                      "ability": "Strength"
+                    }
+                  }
+                },
+                {
+                  "name": "Cat's Grace",
+                  "effect": {
+                    "advantage": {
+                      "ability": "Dexterity"
+                    }
+                  }
+                },
+                {
+                  "name": "Eagle's Splendor",
+                  "effect": {
+                    "advantage": {
+                      "ability": "Charisma"
+                    }
+                  }
+                },
+                {
+                  "name": "Fox's Cunning",
+                  "effect": {
+                    "advantage": {
+                      "ability": "Intelligence"
+                    }
+                  }
+                },
+                {
+                  "name": "Owl's Wisdom",
+                  "effect": {
+                    "advantage": {
+                      "ability": "Wisdom"
+                    }
+                  }
+                }
+              ]
+            },
+            "duration": {
+              "value": 1,
+              "unit": "hours"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:enlarge-reduce",
+    "name": "Enlarge/Reduce",
+    "description": "You cause a creature or an object you can see within range to grow larger or smaller for the duration. Choose either a creature or an object that is neither worn nor carried. If the target is unwilling, it can make a Constitution saving throw. On a success, the spell has no effect.\n\nIf the target is a creature, everything it is wearing and carrying changes size with it. Any item dropped by an affected creature returns to normal size at once.\n\nEnlarge. The target's size doubles in all dimensions, and its weight is multiplied by eight. This growth increases its size by one category — from Medium to Large, for example. If there isn't enough room for the target to double its size, the creature or object attains the maximum possible size in the space available. Until the spell ends, the target also has advantage on Strength checks and Strength saving throws. The target's weapons also grow to match its new size. While these weapons are enlarged, the target's attacks with them deal 1d4 extra damage.\n\nReduce. The target's size is halved in all dimensions, and its weight is reduced to one-eighth of normal. This reduction decreases its size by one category — from Medium to Small, for example. Until the spell ends, the target also has disadvantage on Strength checks and Strength saving throws. The target's weapons also shrink to match its new size. While these weapons are reduced, the target's attacks with them deal 1d4 less damage (this can't reduce the damage below 1).",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "materials": [
+      {
+        "name": "a pinch of powdered iron"
+      }
+    ],
+    "classes": ["Sorcerer", "Wizard"],
+    "school": "Transmutation",
+    "range": "Range",
+    "distance": 30,
+    "duration": 1,
+    "duration_units": "minutes",
+    "concentration": true,
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "creature",
+          "count": 1,
+          "requirements": [
+            {
+              "type": "perception",
+              "observer": "character",
+              "subject": "target",
+              "senses": ["sight"]
+            }
+          ]
+        },
+        "effects": [
+          {
+            "saving_throw": {
+              "ability": "Constitution",
+              "dc": { "ref": "spell_save_dc" }
+            },
+            "roll_modifier": {
+              "type": "saving_throw",
+              "result": "auto_fail",
+              "optional": true
+            },
+            "on_failure": {
+              "choice": {
+                "options": [
+                  {
+                    "name": "Enlarge",
+                    "effect": {
+                      "attribute": {
+                        "target": "size",
+                        "calculation": {
+                          "operation": "add",
+                          "operators": [{ "type": "integer", "value": 1 }]
+                        }
+                      },
+                      "advantage": {
+                        "ability": "Strength"
+                      },
+                      "damage_bonus": {
+                        "dice": "1d4"
+                      }
+                    }
+                  },
+                  {
+                    "name": "Reduce",
+                    "effect": {
+                      "attribute": {
+                        "target": "size",
+                        "calculation": {
+                          "operation": "subtract",
+                          "operators": [{ "type": "integer", "value": 1 }]
+                        }
+                      },
+                      "disadvantage": {
+                        "ability": "Strength"
+                      },
+                      "damage_bonus": {
+                        "dice": "1d4",
+                        "bonus": {
+                          "operation": "subtract",
+                          "operators": [{ "type": "integer", "value": 0 }]
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:enthrall",
+    "name": "Enthrall",
+    "description": "You weave a distracting string of words, causing creatures of your choice that you can see within range and that can hear you to make a Wisdom saving throw. Any creature that can't be charmed succeeds on this saving throw automatically, and if you or your companions are fighting a creature, it has advantage on the save. On a failed save, the target has disadvantage on Wisdom (Perception) checks made to perceive any creature other than you until the spell ends or until the target can no longer hear you. The spell ends if you are incapacitated or can no longer speak.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic"],
+    "classes": ["Bard", "Warlock"],
+    "school": "Enchantment",
+    "range": "Range",
+    "distance": 60,
+    "duration": 1,
+    "duration_units": "minutes",
+    "concentration": false,
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "creatures",
+          "requirements": [
+            {
+              "type": "perception",
+              "observer": "character",
+              "subject": "target",
+              "senses": ["sight"]
+            },
+            {
+              "type": "perception",
+              "observer": "target",
+              "subject": "character",
+              "senses": ["hearing"]
+            }
+          ]
+        },
+        "effects": [
+          {
+            "saving_throw": {
+              "ability": "Wisdom",
+              "dc": { "ref": "spell_save_dc" }
+            },
+            "on_failure": {
+              "disadvantage": {
+                "skill": "Perception"
+              },
+              "duration": {
+                "value": 1,
+                "unit": "minutes"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]
