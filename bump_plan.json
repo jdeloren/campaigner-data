@@ -6,19 +6,6 @@
       "bump": "patch"
     }
   ],
-  "schemas": [
-    {
-      "schema": "class_feature",
-      "bump": "patch"
-    },
-    {
-      "schema": "feat",
-      "bump": "patch"
-    },
-    {
-      "schema": "class",
-      "bump": "patch"
-    }
-  ],
+  "schemas": [],
   "repo_bump": "patch"
 }
