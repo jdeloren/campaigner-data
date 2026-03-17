@@ -1565,6 +1565,7 @@
         { "$ref": "#/$defs/HitPointsBuff" },
         { "$ref": "#/$defs/MovementBuff" },
         { "$ref": "#/$defs/SavingThrowBuff" },
+        { "$ref": "#/$defs/SkillBuff" },
         { "$ref": "#/$defs/ProficiencyBuff" },
         { "$ref": "#/$defs/SpellBuff" },
         { "$ref": "#/$defs/SpellSlotBuff" },
@@ -1578,6 +1579,7 @@
           "hit_points": "#/$defs/HitPointsBuff",
           "movement": "#/$defs/MovementBuff",
           "saving_throw": "#/$defs/SavingThrowBuff",
+          "skill": "#/$defs/SkillBuff",
           "proficiency": "#/$defs/ProficiencyBuff",
           "spell": "#/$defs/SpellBuff",
           "spell_slot": "#/$defs/SpellSlotBuff",
@@ -7272,6 +7274,18 @@
           "default": null,
           "description": "Conditions granting advantage on this save"
         },
+        "disadvantage": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SaveAdvantage"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Conditions granting disadvantage on this save"
+        },
         "on_failure": {
           "anyOf": [
             {
@@ -7323,6 +7337,31 @@
       },
       "required": ["category", "saving_throw"],
       "title": "SavingThrowBuff",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "SkillBuff": {
+      "description": "Temporary skill check bonus (e.g., Pass without Trace +10 to Stealth).",
+      "properties": {
+        "category": {
+          "const": "skill",
+          "default": "skill",
+          "title": "Category",
+          "type": "string"
+        },
+        "skill": {
+          "description": "Skill name (e.g., 'Stealth', 'Perception')",
+          "title": "Skill",
+          "type": "string"
+        },
+        "bonus": {
+          "anyOf": [{ "$ref": "#/$defs/Calculation" }, { "type": "null" }],
+          "default": null,
+          "description": "Additive skill check bonus calculation"
+        }
+      },
+      "required": ["category", "skill"],
+      "title": "SkillBuff",
       "additionalProperties": false,
       "type": "object"
     },
