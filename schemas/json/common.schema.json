@@ -9525,6 +9525,12 @@
           "default": null,
           "description": "Whether the character must be proficient with the weapon",
           "title": "Proficient"
+        },
+        "negate": {
+          "default": false,
+          "description": "If true, weapon must NOT have the listed properties",
+          "title": "Negate",
+          "type": "boolean"
         }
       },
       "required": ["property"],
