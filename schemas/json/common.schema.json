@@ -79,9 +79,8 @@
           "type": "string"
         },
         "ability": {
-          "description": "Ability score (e.g., 'Strength', 'Charisma')",
-          "title": "Ability",
-          "type": "string"
+          "$ref": "#/$defs/Ability",
+          "description": "Ability score (e.g., 'Strength', 'Charisma')"
         }
       },
       "required": ["ability"],
@@ -911,7 +910,7 @@
           "type": "string"
         },
         "attribute": {
-          "anyOf": [{ "$ref": "#/$defs/Ability" }, { "type": "string" }, { "type": "null" }],
+          "anyOf": [{ "$ref": "#/$defs/Ability" }, { "type": "null" }],
           "default": null,
           "description": "Ability score or attribute to check",
           "title": "Attribute"

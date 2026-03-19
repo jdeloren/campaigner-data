@@ -398,8 +398,9 @@
             },
             "requirements": [
               {
-                "type": "attribute",
-                "attribute": "armor_class",
+                "type": "category",
+                "category": "armor_class",
+                "property": "base",
                 "range": { "maximum": 15 }
               }
             ],
@@ -3429,6 +3430,7 @@
               }
             },
             "advantage": {
+              "attack": "melee",
               "requirements": [
                 {
                   "type": "environment",
@@ -3742,8 +3744,8 @@
                   "operation": "add",
                   "operators": [
                     {
-                      "type": "ability_modifier",
-                      "ability": "spellcasting"
+                      "type": "action_modifier",
+                      "modifier": "spellcasting"
                     }
                   ]
                 }
@@ -3770,8 +3772,8 @@
                   "operation": "add",
                   "operators": [
                     {
-                      "type": "ability_modifier",
-                      "ability": "spellcasting"
+                      "type": "action_modifier",
+                      "modifier": "spellcasting"
                     }
                   ]
                 }
@@ -4004,14 +4006,18 @@
     "level": 2,
     "casting_time": "Action",
     "components": ["Verbal", "Somatic", "Material"],
-    "material": "A pair of platinum rings worth at least 50 gp each, which you and the target must wear for the duration",
+    "materials": [
+      {
+        "name": "A pair of platinum rings worth at least 50 gp each, which you and the target must wear for the duration",
+        "cost": { "amount": 50, "currency": "GP" }
+      }
+    ],
     "classes": ["Cleric", "Paladin"],
     "school": "Abjuration",
     "range": "Touch",
     "duration": 60,
-    "duration_unit": "minutes",
+    "duration_units": "minutes",
     "concentration": false,
-    "ritual": false,
     "mechanics": [
       {
         "type": "action",
@@ -4107,7 +4113,7 @@
     "school": "Evocation",
     "range": "Self",
     "duration": 10,
-    "duration_unit": "minutes",
+    "duration_units": "minutes",
     "concentration": true,
     "ritual": false,
     "mechanics": [
@@ -4166,13 +4172,13 @@
     "level": 2,
     "casting_time": "Action",
     "components": ["Verbal", "Somatic", "Material"],
-    "material": "A bit of spiderweb",
+    "materials": [{ "name": "A bit of spiderweb" }],
     "classes": ["Artificer", "Sorcerer", "Wizard"],
     "school": "Conjuration",
     "range": "Range",
     "distance": 60,
     "duration": 60,
-    "duration_unit": "minutes",
+    "duration_units": "minutes",
     "concentration": true,
     "ritual": false,
     "mechanics": [
@@ -4239,7 +4245,7 @@
     "level": 2,
     "casting_time": "Action",
     "components": ["Verbal", "Somatic", "Material"],
-    "material": "A withered vine twisted into a loop",
+    "materials": [{ "name": "A withered vine twisted into a loop" }],
     "classes": ["Druid", "Sorcerer", "Wizard"],
     "school": "Necromancy",
     "range": "Range",
@@ -4314,7 +4320,7 @@
               "dice": "1d0",
               "bonus": {
                 "operation": "add",
-                "operators": [{ "type": "ability_modifier", "ability": "spellcasting" }]
+                "operators": [{ "type": "action_modifier", "modifier": "spellcasting" }]
               },
               "distribution": "hit_die"
             }
@@ -4337,7 +4343,7 @@
     "range": "Range",
     "distance": 60,
     "duration": 10,
-    "duration_unit": "minutes",
+    "duration_units": "minutes",
     "concentration": false,
     "ritual": false,
     "mechanics": [
