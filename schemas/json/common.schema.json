@@ -109,55 +109,95 @@
       "additionalProperties": false,
       "type": "object"
     },
-    "ActionConstraint": {
-      "description": "Action restriction applied on the target's turn.\n\nUse blocked_actions to deny specific action types.\nUse allowed_actions to restrict to ONLY the listed actions.\n\nExample — Turn Undead:\n{\"blocked_actions\": [\"reaction\"], \"allowed_actions\": [\"Dash\", \"Dodge\"]}",
+    "EconomyConstraint": {
+      "description": "Restricts action economy slots (action, bonus_action, reaction, move).",
       "properties": {
-        "blocked_actions": {
-          "anyOf": [
-            {
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Action types or specific actions the target cannot use (e.g., 'reaction', 'cast_spell')",
-          "title": "Blocked Actions"
+        "scope": {
+          "const": "economy",
+          "default": "economy",
+          "title": "Scope",
+          "type": "string"
         },
-        "allowed_actions": {
+        "blocked": {
           "anyOf": [
             {
-              "items": {
-                "type": "string"
-              },
+              "items": { "type": "string" },
               "type": "array"
             },
-            {
-              "type": "null"
-            }
+            { "type": "null" }
           ],
           "default": null,
-          "description": "If set, the ONLY actions the target can take",
-          "title": "Allowed Actions"
+          "description": "Economy slots the target cannot use"
+        },
+        "allowed": {
+          "anyOf": [
+            {
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "If set, the ONLY economy slots the target gets"
+        },
+        "choose": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Number of allowed slots the target may choose to keep"
+        }
+      },
+      "required": ["scope"],
+      "title": "EconomyConstraint",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "ActionConstraint": {
+      "description": "Restricts specific actions (Dash, Dodge, attack, cast_spell).",
+      "properties": {
+        "scope": {
+          "const": "action",
+          "default": "action",
+          "title": "Scope",
+          "type": "string"
+        },
+        "blocked": {
+          "anyOf": [
+            {
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Specific actions the target cannot use"
+        },
+        "allowed": {
+          "anyOf": [
+            {
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "If set, the ONLY actions the target can take"
         },
         "against": {
           "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
+            { "type": "string" },
+            { "type": "null" }
           ],
           "default": null,
-          "description": "Entity the blocked/allowed actions apply toward (e.g., 'source')",
-          "title": "Against"
+          "description": "Entity the constraint applies toward (e.g., 'source')"
         }
       },
+      "required": ["scope"],
       "title": "ActionConstraint",
       "additionalProperties": false,
       "type": "object"
@@ -2728,6 +2768,18 @@
           ],
           "default": null,
           "description": "Complex damage calculation (e.g., multiply by 2)"
+        },
+        "link": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Mirror this damage event to the linked entity (e.g., 'caster')"
         }
       },
       "title": "Damage",
@@ -4390,138 +4442,317 @@
       "type": "object"
     },
     "Entity": {
-      "description": "A discrete thing created or summoned by a spell or ability.\n\nCovers lights (Dancing Lights), illusions (Minor Illusion, Silent Image),\nobjects (Goodberry, bonded weapons), and conjurations (Mage Hand, Invoke Duplicity).",
+      "description": "A discrete thing created or summoned by a spell or ability. Discriminated on category.",
+      "discriminator": {
+        "mapping": {
+          "light": "#/$defs/LightEntity",
+          "conjuration": "#/$defs/ConjurationEntity",
+          "illusion": "#/$defs/IllusionEntity",
+          "consumable": "#/$defs/ConsumableEntity",
+          "object": "#/$defs/ObjectEntity",
+          "weapon": "#/$defs/WeaponEntity"
+        },
+        "propertyName": "category"
+      },
+      "oneOf": [
+        { "$ref": "#/$defs/LightEntity" },
+        { "$ref": "#/$defs/ConjurationEntity" },
+        { "$ref": "#/$defs/IllusionEntity" },
+        { "$ref": "#/$defs/ConsumableEntity" },
+        { "$ref": "#/$defs/ObjectEntity" },
+        { "$ref": "#/$defs/WeaponEntity" }
+      ]
+    },
+    "LightEntity": {
+      "description": "Light source entity (e.g., Dancing Lights, Produce Flame).",
       "properties": {
         "category": {
-          "description": "What kind of entity (e.g., 'light', 'illusion', 'object', 'conjuration')",
+          "const": "light",
+          "default": "light",
           "title": "Category",
           "type": "string"
         },
         "type": {
-          "description": "Specific entity type (e.g., 'flame', 'spectral_hand', 'duplicate')",
+          "description": "Specific light type (e.g., 'lights', 'flame')",
           "title": "Type",
           "type": "string"
         },
-        "name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Display name for inventory or tracking (e.g., 'goodberry')",
-          "title": "Name"
-        },
         "count": {
           "default": 1,
-          "description": "Number of entities created",
+          "description": "Number of lights created",
           "title": "Count",
           "type": "integer"
         },
         "placement": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/Placement"
-            },
-            {
-              "type": "null"
-            }
-          ],
+          "anyOf": [{ "$ref": "#/$defs/Placement" }, { "type": "null" }],
           "default": null,
-          "description": "Where the entity appears when created or summoned"
+          "description": "Where the lights appear"
+        }
+      },
+      "required": ["type"],
+      "title": "LightEntity",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "ConjurationEntity": {
+      "description": "Conjured entity (e.g., Mage Hand, Spiritual Weapon).",
+      "properties": {
+        "category": {
+          "const": "conjuration",
+          "default": "conjuration",
+          "title": "Category",
+          "type": "string"
+        },
+        "type": {
+          "description": "Specific entity type (e.g., 'spectral_hand', 'spiritual_weapon')",
+          "title": "Type",
+          "type": "string"
+        },
+        "name": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Display name for tracking",
+          "title": "Name"
+        },
+        "placement": {
+          "anyOf": [{ "$ref": "#/$defs/Placement" }, { "type": "null" }],
+          "default": null,
+          "description": "Where the entity appears"
         },
         "speed": {
-          "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
           "default": null,
           "description": "Movement speed in feet per action",
           "title": "Speed"
         },
         "carrying_capacity": {
-          "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
           "default": null,
-          "description": "Maximum weight in pounds the entity can carry",
+          "description": "Maximum weight in pounds",
           "title": "Carrying Capacity"
         },
         "allowed_actions": {
           "anyOf": [
             {
-              "items": {
-                "type": "string"
-              },
+              "items": { "type": "string" },
               "type": "array"
             },
-            {
-              "type": "null"
-            }
+            { "type": "null" }
           ],
           "default": null,
-          "description": "Whitelist of actions the entity can perform (e.g., 'manipulate', 'object_interaction')",
+          "description": "Actions the entity can perform (e.g., 'manipulate', 'object_interaction')",
           "title": "Allowed Actions"
+        }
+      },
+      "required": ["type"],
+      "title": "ConjurationEntity",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "IllusionEntity": {
+      "description": "Illusory entity (e.g., Minor Illusion, Mirror Image, Invoke Duplicity).",
+      "properties": {
+        "category": {
+          "const": "illusion",
+          "default": "illusion",
+          "title": "Category",
+          "type": "string"
         },
-        "interactions": {
-          "anyOf": [
-            {
-              "items": {
-                "$ref": "#/$defs/EntityInteraction"
-              },
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
+        "type": {
+          "description": "Specific illusion type (e.g., 'image', 'duplicate', 'phantasm')",
+          "title": "Type",
+          "type": "string"
+        },
+        "count": {
+          "default": 1,
+          "description": "Number of illusions created",
+          "title": "Count",
+          "type": "integer"
+        },
+        "placement": {
+          "anyOf": [{ "$ref": "#/$defs/Placement" }, { "type": "null" }],
           "default": null,
-          "description": "How others can interact with or counter this entity",
-          "title": "Interactions"
+          "description": "Where the illusion appears"
+        },
+        "tether": {
+          "anyOf": [{ "$ref": "#/$defs/Distance" }, { "type": "null" }],
+          "default": null,
+          "description": "Maximum distance from caster"
         },
         "capabilities": {
           "anyOf": [
             {
-              "items": {
-                "type": "string"
-              },
+              "items": { "type": "string" },
               "type": "array"
             },
-            {
-              "type": "null"
-            }
+            { "type": "null" }
           ],
           "default": null,
-          "description": "Capabilities granted to or by the entity (e.g., 'spell_origin_point')",
+          "description": "Capabilities granted (e.g., 'spell_origin_point')",
           "title": "Capabilities"
         },
-        "tether": {
+        "interactions": {
           "anyOf": [
             {
-              "$ref": "#/$defs/Distance"
+              "items": { "$ref": "#/$defs/EntityInteraction" },
+              "type": "array"
             },
-            {
-              "type": "null"
-            }
+            { "type": "null" }
           ],
           "default": null,
-          "description": "Maximum distance from caster before entity is dismissed"
+          "description": "How others can interact with the illusion",
+          "title": "Interactions"
         }
       },
-      "required": ["category", "type"],
-      "title": "Entity",
+      "required": ["type"],
+      "title": "IllusionEntity",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "ConsumableEntity": {
+      "description": "Consumable item entity (e.g., Goodberry, Chef's Treat).",
+      "properties": {
+        "category": {
+          "const": "consumable",
+          "default": "consumable",
+          "title": "Category",
+          "type": "string"
+        },
+        "type": {
+          "description": "Specific consumable type (e.g., 'item')",
+          "title": "Type",
+          "type": "string"
+        },
+        "name": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Display name",
+          "title": "Name"
+        },
+        "count": {
+          "default": 1,
+          "description": "Number of items created",
+          "title": "Count",
+          "type": "integer"
+        }
+      },
+      "required": ["type"],
+      "title": "ConsumableEntity",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "ObjectEntity": {
+      "description": "Physical object entity (e.g., Clockwork Toy, Music Box).",
+      "properties": {
+        "category": {
+          "const": "object",
+          "default": "object",
+          "title": "Category",
+          "type": "string"
+        },
+        "type": {
+          "description": "Specific object type (e.g., 'clockwork_toy', 'music_box')",
+          "title": "Type",
+          "type": "string"
+        },
+        "name": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Display name",
+          "title": "Name"
+        },
+        "speed": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Movement speed in feet",
+          "title": "Speed"
+        }
+      },
+      "required": ["type"],
+      "title": "ObjectEntity",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "WeaponEntity": {
+      "description": "Conjured weapon entity (e.g., Shadow Blade).",
+      "properties": {
+        "category": {
+          "const": "weapon",
+          "default": "weapon",
+          "title": "Category",
+          "type": "string"
+        },
+        "type": {
+          "description": "Specific weapon type (e.g., 'blade')",
+          "title": "Type",
+          "type": "string"
+        },
+        "name": {
+          "description": "Weapon name",
+          "title": "Name",
+          "type": "string"
+        },
+        "weapon_type": {
+          "description": "Weapon classification",
+          "enum": ["simple", "martial"],
+          "title": "Weapon Type",
+          "type": "string"
+        },
+        "damage": {
+          "$ref": "#/$defs/Damage",
+          "description": "Weapon damage"
+        },
+        "properties": {
+          "anyOf": [
+            {
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Weapon properties (e.g., 'Finesse', 'Light', 'Thrown')",
+          "title": "Properties"
+        },
+        "range": {
+          "anyOf": [{ "$ref": "#/$defs/WeaponRange" }, { "type": "null" }],
+          "default": null,
+          "description": "Thrown/ranged weapon range"
+        },
+        "proficient": {
+          "default": true,
+          "description": "Whether the caster is proficient",
+          "title": "Proficient",
+          "type": "boolean"
+        },
+        "recall": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "How the weapon returns if dropped or thrown (e.g., 'bonus_action')",
+          "title": "Recall"
+        }
+      },
+      "required": ["type", "name", "weapon_type", "damage"],
+      "title": "WeaponEntity",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "WeaponRange": {
+      "description": "Normal and long range for thrown or ranged weapons.",
+      "properties": {
+        "normal": {
+          "description": "Normal range in feet",
+          "title": "Normal",
+          "type": "integer"
+        },
+        "long": {
+          "description": "Long range in feet",
+          "title": "Long",
+          "type": "integer"
+        }
+      },
+      "required": ["normal", "long"],
+      "title": "WeaponRange",
       "additionalProperties": false,
       "type": "object"
     },
@@ -4621,6 +4852,19 @@
           ],
           "default": null,
           "description": "Surface type"
+        },
+        "sound": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Whether sound exists in the area. False suppresses sound.",
+          "title": "Sound"
         }
       },
       "required": ["area"],
@@ -7785,7 +8029,7 @@
       "type": "object"
     },
     "StatusConstraint": {
-      "description": "Ongoing behavioral constraints imposed by a status condition.\n\nApplied on the target's turns while the status is active.\n\nExample — Turn Undead:\n{\n    \"movement\": {\"direction\": \"away\", \"relative_to\": \"character\"},\n    \"actions\": {\"blocked_actions\": [\"reaction\"], \"allowed_actions\": [\"Dash\", \"Dodge\"]}\n}\n\nExample — Frightened:\n{\n    \"movement\": {\"direction\": \"away\", \"relative_to\": \"source\"}\n}",
+      "description": "Ongoing behavioral constraints imposed by a status condition.\n\nApplied on the target's turns while the status is active.\n\nExample — Turn Undead:\n{\n    \"movement\": {\"direction\": \"away\", \"relative_to\": \"character\"},\n    \"actions\": {\"blocked\": [\"reaction\"], \"allowed\": [\"Dash\", \"Dodge\"]}\n}\n\nExample — Frightened:\n{\n    \"movement\": {\"direction\": \"away\", \"relative_to\": \"source\"}\n}",
       "properties": {
         "movement": {
           "anyOf": [
@@ -7802,7 +8046,13 @@
         "actions": {
           "anyOf": [
             {
-              "$ref": "#/$defs/ActionConstraint"
+              "items": {
+                "anyOf": [
+                  { "$ref": "#/$defs/EconomyConstraint" },
+                  { "$ref": "#/$defs/ActionConstraint" }
+                ]
+              },
+              "type": "array"
             },
             {
               "type": "null"

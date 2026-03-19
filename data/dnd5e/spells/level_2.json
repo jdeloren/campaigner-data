@@ -2873,5 +2873,1509 @@
     "mechanics": [],
     "source": "phb",
     "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:pass-without-trace",
+    "name": "Pass without Trace",
+    "description": "A veil of shadows and silence radiates from you, masking you and your companions from detection. For the duration, each creature you choose within 30 feet of you (including you) has a +10 bonus to Dexterity (Stealth) checks and can't be tracked except by magical means. A creature that receives this bonus leaves behind no tracks or other traces of its passage.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "materials": [
+      {
+        "name": "ashes from a burned leaf of mistletoe and a sprig of spruce"
+      }
+    ],
+    "classes": ["Druid", "Ranger"],
+    "school": "Abjuration",
+    "range": "Self",
+    "duration": 1,
+    "duration_units": "hours",
+    "concentration": true,
+    "mechanics": [
+      {
+        "type": "action",
+        "area": {
+          "shape": "radius",
+          "size": 30,
+          "unit": "feet",
+          "origin": "self"
+        },
+        "target": {
+          "type": "creatures",
+          "disposition": "friendly",
+          "include_self": true
+        },
+        "effects": [
+          {
+            "buff": {
+              "category": "skill",
+              "skill": "Stealth",
+              "bonus": {
+                "operation": "add",
+                "operators": [{ "type": "integer", "value": 10 }]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:phantasmal-force",
+    "name": "Phantasmal Force",
+    "description": "You craft an illusion that takes root in the mind of a creature that you can see within range. The target must make an Intelligence saving throw. On a failed save, you create a phantasmal object, creature, or other visible phenomenon of your choice that is no larger than a 10-foot cube and that is perceivable only to the target for the duration. The phantasm includes sound, temperature, and other stimuli, also evident only to the target.\n\nThe target can use its action to examine the phantasm with an Intelligence (Investigation) check against your spell save DC. If the check succeeds, the target realizes that the phantasm is an illusion, and the spell ends.\n\nWhile a target is affected by the spell, the target treats the phantasm as if it were real. The target rationalizes any illogical outcomes from interacting with the phantasm.\n\nAn affected creature is so convinced of the phantasm's reality that it can even take damage from the illusion. A phantasm created to appear as a creature can attack the target. Similarly, a phantasm created to appear as fire, a pool of acid, or lava can burn the target. Each round on your turn, the phantasm can deal 1d6 psychic damage to the target if it is in the phantasm's area or within 5 feet of the phantasm, provided that the illusion is of a creature or hazard that could logically deal damage, such as by attacking. The target perceives the damage as a type appropriate to the illusion.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "materials": [
+      {
+        "name": "a bit of fleece"
+      }
+    ],
+    "classes": ["Bard", "Sorcerer", "Wizard"],
+    "school": "Illusion",
+    "range": "Range",
+    "distance": 60,
+    "duration": 1,
+    "duration_units": "minutes",
+    "concentration": true,
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "creature",
+          "count": 1,
+          "requirements": [
+            {
+              "type": "perception",
+              "observer": "character",
+              "subject": "target",
+              "senses": ["sight"]
+            }
+          ]
+        },
+        "effects": [
+          {
+            "saving_throw": {
+              "ability": "Intelligence",
+              "dc": { "ref": "spell_save_dc" }
+            },
+            "on_failure": {
+              "entity": {
+                "category": "illusion",
+                "type": "phantasm",
+                "interactions": [
+                  {
+                    "action": "examine",
+                    "check": {
+                      "skill": "Investigation",
+                      "dc": { "ref": "spell_save_dc" }
+                    }
+                  }
+                ]
+              },
+              "effects": [
+                {
+                  "trigger": {
+                    "event": ["turn_start"]
+                  },
+                  "damage": {
+                    "dice": "1d6",
+                    "type": ["psychic"]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:prayer-of-healing",
+    "name": "Prayer of Healing",
+    "description": "Up to six creatures of your choice that you can see within range each regain hit points equal to 2d8 + your spellcasting ability modifier. This spell has no effect on undead or constructs.",
+    "level": 2,
+    "casting_time": "Minute",
+    "components": ["Verbal"],
+    "classes": ["Cleric"],
+    "school": "Evocation",
+    "range": "Range",
+    "distance": 30,
+    "duration": 0,
+    "concentration": false,
+    "scaling": {
+      "type": "spell",
+      "components": {
+        "healing": {
+          "by_level": {
+            "3": "3d8",
+            "4": "4d8",
+            "5": "5d8",
+            "6": "6d8",
+            "7": "7d8",
+            "8": "8d8",
+            "9": "9d8"
+          }
+        }
+      }
+    },
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "creatures",
+          "count": 6,
+          "requirements": [
+            {
+              "type": "perception",
+              "observer": "character",
+              "subject": "target",
+              "senses": ["sight"]
+            },
+            {
+              "type": "creature_type",
+              "value": ["Undead", "Construct"],
+              "negate": true
+            }
+          ]
+        },
+        "effects": [
+          {
+            "healing": {
+              "dice": "scaling.healing",
+              "bonus": {
+                "operation": "add",
+                "operators": [{ "type": "attribute", "value": "spellcasting_modifier" }]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:protection-from-poison",
+    "name": "Protection from Poison",
+    "description": "You touch a creature. If it is poisoned, you neutralize the poison. If more than one poison afflicts the target, you neutralize one poison that you know is present, or you neutralize one at random.\n\nFor the duration, the target has advantage on saving throws against being poisoned, and it has resistance to poison damage.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic"],
+    "classes": ["Cleric", "Druid", "Paladin", "Ranger"],
+    "school": "Abjuration",
+    "range": "Touch",
+    "duration": 1,
+    "duration_units": "hours",
+    "concentration": false,
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "creature",
+          "count": 1
+        },
+        "effects": [
+          {
+            "negate": ["poisoned"]
+          },
+          {
+            "advantage": {
+              "saving_throw": ["Constitution"],
+              "against": {
+                "status": ["status:poisoned"]
+              }
+            },
+            "damage_response": {
+              "category": "resistance",
+              "to": ["poison"]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:pyrotechnics",
+    "name": "Pyrotechnics",
+    "description": "Choose an area of nonmagical flame that you can see and that fits within a 5-foot cube within range. You can extinguish the fire in that area, and you create either fireworks or smoke.\n\nFireworks. The target explodes with a dazzling display of colors. Each creature within 10 feet of the target must succeed on a Constitution saving throw or become blinded until the end of your next turn.\n\nSmoke. Thick black smoke spreads out from the target in a 20-foot radius, moving around corners. The area of the smoke is heavily obscured. The smoke persists for 1 minute or until a strong wind disperses it.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic"],
+    "classes": ["Bard", "Sorcerer", "Wizard"],
+    "school": "Transmutation",
+    "range": "Range",
+    "distance": 60,
+    "duration": 0,
+    "concentration": false,
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "point",
+          "requirements": [
+            {
+              "type": "perception",
+              "observer": "character",
+              "subject": "target",
+              "senses": ["sight"]
+            },
+            {
+              "type": "property",
+              "value": "nonmagical_flame"
+            }
+          ]
+        },
+        "effects": [
+          {
+            "choice": {
+              "options": [
+                {
+                  "name": "Fireworks",
+                  "effect": {
+                    "area": {
+                      "shape": "radius",
+                      "size": 10,
+                      "unit": "feet",
+                      "origin": "point"
+                    },
+                    "saving_throw": {
+                      "ability": "Constitution",
+                      "dc": { "ref": "spell_save_dc" }
+                    },
+                    "on_failure": {
+                      "apply_status": {
+                        "id": "status:blinded",
+                        "duration": {
+                          "value": 1,
+                          "unit": "turns",
+                          "timing": "end_turn"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "Smoke",
+                  "effect": {
+                    "environment": {
+                      "area": {
+                        "shape": "radius",
+                        "size": 20,
+                        "unit": "feet",
+                        "origin": "point"
+                      },
+                      "visibility": {
+                        "level": "heavily_obscured"
+                      }
+                    },
+                    "duration": {
+                      "value": 1,
+                      "unit": "minutes"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:ray-of-enfeeblement",
+    "name": "Ray of Enfeeblement",
+    "description": "A black beam of enervating energy springs from your finger toward a creature within range. Make a ranged spell attack against the target. On a hit, the target deals only half damage with weapon attacks that use Strength until the spell ends.\n\nAt the end of each of the target's turns, it can make a Constitution saving throw against the spell. On a success, the spell ends.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic"],
+    "classes": ["Warlock", "Wizard"],
+    "school": "Necromancy",
+    "range": "Range",
+    "distance": 60,
+    "duration": 1,
+    "duration_units": "minutes",
+    "concentration": true,
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "creature",
+          "count": 1
+        },
+        "effects": [
+          {
+            "attack": {
+              "source": {
+                "type": "spell"
+              }
+            },
+            "on_hit": {
+              "apply_status": {
+                "id": "status:enfeeblement",
+                "effect": {
+                  "trigger": {
+                    "event": ["damage"],
+                    "source": {
+                      "type": "weapon",
+                      "mode": "melee"
+                    }
+                  },
+                  "damage_bonus": {
+                    "bonus": {
+                      "operation": "divide",
+                      "operators": [{ "type": "integer", "value": 2 }],
+                      "rounding": "down"
+                    }
+                  }
+                },
+                "escape": {
+                  "ability": "Constitution",
+                  "dc": { "ref": "spell_save_dc" }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:rope-trick",
+    "name": "Rope Trick",
+    "description": "You touch a length of rope that is up to 60 feet long. One end of the rope then rises into the air until the whole rope hangs perpendicular to the ground. At the upper end of the rope, an invisible entrance opens to an extradimensional space that lasts until the spell ends.\n\nThe extradimensional space can be reached by climbing to the top of the rope. The space can hold as many as eight Medium or smaller creatures. The rope can be pulled into the space, making the rope disappear from view outside the space.\n\nAttacks and spells can't cross through the entrance into or out of the extradimensional space, but those inside can see out of it as if through a 3-foot-by-5-foot window centered on the rope.\n\nAnything inside the extradimensional space drops out when the spell ends.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "materials": [
+      {
+        "name": "powdered corn extract and a twisted loop of parchment"
+      }
+    ],
+    "classes": ["Wizard"],
+    "school": "Transmutation",
+    "range": "Touch",
+    "duration": 1,
+    "duration_units": "hours",
+    "concentration": false,
+    "mechanics": [],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:scorching-ray",
+    "name": "Scorching Ray",
+    "description": "You create three rays of fire and hurl them at targets within range. You can hurl them at one target or several.\n\nMake a ranged spell attack for each ray. On a hit, the target takes 2d6 fire damage.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic"],
+    "classes": ["Sorcerer", "Wizard"],
+    "school": "Evocation",
+    "range": "Range",
+    "distance": 120,
+    "duration": 0,
+    "concentration": false,
+    "damage": {
+      "dice": "2d6",
+      "type": ["fire"]
+    },
+    "scaling": {
+      "type": "spell",
+      "components": {
+        "projectiles": {
+          "by_level": {
+            "3": 4,
+            "4": 5,
+            "5": 6,
+            "6": 7,
+            "7": 8,
+            "8": 9,
+            "9": 10
+          }
+        }
+      }
+    },
+    "mechanics": [
+      {
+        "type": "action",
+        "effects": [
+          {
+            "projectile": {
+              "count": 3,
+              "damage": {
+                "dice": "scaling.damage",
+                "type": ["fire"]
+              }
+            },
+            "attack": {
+              "source": {
+                "type": "spell"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:see-invisibility",
+    "name": "See Invisibility",
+    "description": "For the duration, you see invisible creatures and objects as if they were visible, and you can see into the Ethereal Plane. Ethereal creatures and objects appear ghostly and translucent.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "materials": [
+      {
+        "name": "a pinch of talc and a small sprinkling of powdered silver"
+      }
+    ],
+    "classes": ["Bard", "Sorcerer", "Wizard"],
+    "school": "Divination",
+    "range": "Self",
+    "duration": 1,
+    "duration_units": "hours",
+    "concentration": false,
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "self"
+        },
+        "effects": [
+          {
+            "detection": {
+              "detects": ["invisible", "ethereal"]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:shadow-blade",
+    "name": "Shadow Blade",
+    "description": "You weave together threads of shadow to create a sword of solidified gloom in your hand. This magic sword lasts until the spell ends. It counts as a simple melee weapon with which you are proficient. It deals 2d8 psychic damage on a hit and has the finesse, light, and thrown properties (range 20/60). In addition, when you use the sword to attack a target that is in dim light or darkness, you make the attack roll with advantage.\n\nIf you drop the weapon or throw it, it dissipates at the end of the turn. Thereafter, while the spell persists, you can use a bonus action to cause the sword to reappear in your hand.",
+    "level": 2,
+    "casting_time": "Bonus Action",
+    "components": ["Verbal", "Somatic"],
+    "classes": ["Sorcerer", "Warlock", "Wizard"],
+    "school": "Illusion",
+    "range": "Self",
+    "duration": 1,
+    "duration_units": "minutes",
+    "concentration": true,
+    "damage": {
+      "dice": "2d8",
+      "type": ["psychic"]
+    },
+    "scaling": {
+      "type": "spell",
+      "components": {
+        "damage": {
+          "by_level": {
+            "3": "3d8",
+            "5": "4d8",
+            "7": "5d8"
+          }
+        }
+      }
+    },
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "target": {
+          "type": "self"
+        },
+        "effects": [
+          {
+            "entity": {
+              "category": "weapon",
+              "type": "blade",
+              "name": "Shadow Blade",
+              "weapon_type": "simple",
+              "damage": {
+                "dice": "scaling.damage",
+                "type": ["psychic"]
+              },
+              "properties": ["Finesse", "Light", "Thrown"],
+              "range": {
+                "normal": 20,
+                "long": 60
+              },
+              "recall": "bonus_action"
+            }
+          },
+          {
+            "trigger": {
+              "event": ["attack"],
+              "source": {
+                "type": "weapon"
+              }
+            },
+            "advantage": {
+              "requirements": [
+                {
+                  "type": "environment",
+                  "lighting": "dim_light"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:shatter",
+    "name": "Shatter",
+    "description": "A sudden loud ringing noise, painfully intense, erupts from a point of your choice within range. Each creature in a 10-foot-radius sphere centered on that point must make a Constitution saving throw. A creature takes 3d8 thunder damage on a failed save, or half as much damage on a successful one. A creature made of inorganic material such as stone, crystal, or metal has disadvantage on this saving throw.\n\nA nonmagical object that isn't being worn or carried also takes the damage if it's in the spell's area.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "materials": [
+      {
+        "name": "a chip of mica"
+      }
+    ],
+    "classes": ["Bard", "Sorcerer", "Warlock", "Wizard"],
+    "school": "Evocation",
+    "range": "Range",
+    "distance": 60,
+    "duration": 0,
+    "concentration": false,
+    "damage": {
+      "dice": "3d8",
+      "type": ["thunder"]
+    },
+    "scaling": {
+      "type": "spell",
+      "components": {
+        "damage": {
+          "by_level": {
+            "3": "4d8",
+            "4": "5d8",
+            "5": "6d8",
+            "6": "7d8",
+            "7": "8d8",
+            "8": "9d8",
+            "9": "10d8"
+          }
+        }
+      }
+    },
+    "mechanics": [
+      {
+        "type": "action",
+        "area": {
+          "shape": "sphere",
+          "size": 10,
+          "unit": "feet"
+        },
+        "effects": [
+          {
+            "saving_throw": {
+              "ability": "Constitution",
+              "disadvantage": {
+                "requirements": [
+                  {
+                    "type": "property",
+                    "value": "inorganic"
+                  }
+                ]
+              }
+            },
+            "on_failure": {
+              "damage": {
+                "dice": "scaling.damage",
+                "type": ["thunder"]
+              }
+            },
+            "on_success": {
+              "damage": {
+                "dice": "scaling.damage",
+                "type": ["thunder"],
+                "calculation": {
+                  "operation": "divide",
+                  "operators": [{ "type": "integer", "value": 2 }],
+                  "rounding": "down"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:silence",
+    "name": "Silence",
+    "description": "For the duration, no sound can be created within or pass through a 20-foot-radius sphere centered on a point you choose within range. Any creature or object entirely inside the sphere is immune to thunder damage, and creatures are deafened while entirely inside it. Casting a spell that includes a verbal component is impossible there.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic"],
+    "classes": ["Bard", "Cleric", "Ranger"],
+    "school": "Illusion",
+    "range": "Range",
+    "distance": 120,
+    "duration": 10,
+    "duration_units": "minutes",
+    "concentration": true,
+    "mechanics": [
+      {
+        "type": "action",
+        "area": {
+          "shape": "sphere",
+          "size": 20,
+          "unit": "feet"
+        },
+        "effects": [
+          {
+            "environment": {
+              "area": {
+                "shape": "sphere",
+                "size": 20,
+                "unit": "feet"
+              },
+              "sound": false
+            }
+          },
+          {
+            "apply_status": {
+              "id": "status:deafened"
+            }
+          },
+          {
+            "damage_response": {
+              "category": "immunity",
+              "to": ["thunder"]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:spider-climb",
+    "name": "Spider Climb",
+    "description": "Until the spell ends, one willing creature you touch gains the ability to move up, down, and across vertical surfaces and upside down along ceilings, while leaving its hands free. The target also gains a climbing speed equal to its walking speed.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "materials": [
+      {
+        "name": "a drop of bitumen and a spider"
+      }
+    ],
+    "classes": ["Sorcerer", "Warlock", "Wizard"],
+    "school": "Transmutation",
+    "range": "Touch",
+    "duration": 1,
+    "duration_units": "hours",
+    "concentration": true,
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "creature",
+          "count": 1,
+          "disposition": "willing"
+        },
+        "effects": [
+          {
+            "buff": {
+              "category": "movement",
+              "property": "climb",
+              "bonus": {
+                "operation": "set",
+                "operators": [
+                  {
+                    "type": "attribute",
+                    "value": "movement.base"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:spike-growth",
+    "name": "Spike Growth",
+    "description": "The ground in a 20-foot radius centered on a point within range twists and sprouts hard spikes and thorns. The area becomes difficult terrain for the duration. When a creature moves into or within the area, it takes 2d4 piercing damage for every 5 feet it travels.\n\nThe transformation of the ground is camouflaged to look natural. Any creature that can't see the area at the time the spell is cast must make a Wisdom (Perception) check against your spell save DC to recognize the terrain as hazardous before entering it.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "materials": [
+      {
+        "name": "seven sharp thorns or seven small twigs, each sharpened to a point"
+      }
+    ],
+    "classes": ["Druid", "Ranger"],
+    "school": "Transmutation",
+    "range": "Range",
+    "distance": 150,
+    "duration": 10,
+    "duration_units": "minutes",
+    "concentration": true,
+    "mechanics": [
+      {
+        "type": "action",
+        "area": {
+          "shape": "radius",
+          "size": 20,
+          "unit": "feet"
+        },
+        "effects": [
+          {
+            "environment": {
+              "area": {
+                "shape": "radius",
+                "size": 20,
+                "unit": "feet"
+              },
+              "terrain": {
+                "type": "difficult"
+              }
+            }
+          },
+          {
+            "trigger": {
+              "event": ["enter_area"],
+              "condition": {
+                "type": "movement",
+                "value": 5
+              }
+            },
+            "damage": {
+              "dice": "2d4",
+              "type": ["piercing"]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:spiritual-weapon",
+    "name": "Spiritual Weapon",
+    "description": "You create a floating, spectral weapon within range that lasts for the duration or until you cast this spell again. When you cast the spell, you can make a melee spell attack against a creature within 5 feet of the weapon. On a hit, the target takes force damage equal to 1d8 + your spellcasting ability modifier.\n\nAs a bonus action on your turn, you can move the weapon up to 20 feet and repeat the attack against a creature within 5 feet of it.",
+    "level": 2,
+    "casting_time": "Bonus Action",
+    "components": ["Verbal", "Somatic"],
+    "classes": ["Cleric"],
+    "school": "Evocation",
+    "range": "Range",
+    "distance": 60,
+    "duration": 1,
+    "duration_units": "minutes",
+    "concentration": false,
+    "damage": {
+      "dice": "1d8",
+      "type": ["force"]
+    },
+    "scaling": {
+      "type": "spell",
+      "components": {
+        "damage": {
+          "by_level": {
+            "4": "2d8",
+            "6": "3d8",
+            "8": "4d8"
+          }
+        }
+      }
+    },
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "target": {
+          "type": "creature",
+          "count": 1
+        },
+        "effects": [
+          {
+            "entity": {
+              "category": "conjuration",
+              "type": "spiritual_weapon",
+              "speed": 20
+            }
+          },
+          {
+            "attack": {
+              "source": {
+                "type": "spell"
+              }
+            },
+            "on_hit": {
+              "damage": {
+                "dice": "scaling.damage",
+                "type": ["force"],
+                "bonus": {
+                  "operation": "add",
+                  "operators": [
+                    {
+                      "type": "ability_modifier",
+                      "ability": "spellcasting"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "bonus_action",
+        "name": "Move and Attack",
+        "effects": [
+          {
+            "attack": {
+              "source": {
+                "type": "spell"
+              }
+            },
+            "on_hit": {
+              "damage": {
+                "dice": "scaling.damage",
+                "type": ["force"],
+                "bonus": {
+                  "operation": "add",
+                  "operators": [
+                    {
+                      "type": "ability_modifier",
+                      "ability": "spellcasting"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:suggestion",
+    "name": "Suggestion",
+    "description": "You suggest a course of activity (limited to a sentence or two) and magically influence a creature you can see within range that can hear and understand you. Creatures that can't be charmed are immune to this effect. The suggestion must be worded in such a manner as to make the course of action sound reasonable. Asking the creature to stab itself, throw itself onto a spear, immolate itself, or do some other obviously harmful act ends the spell.\n\nThe target must make a Wisdom saving throw. On a failed save, it pursues the course of action you described to the best of its ability. The suggested course of action can continue for the entire duration. If the suggested activity can be completed in a shorter time, the spell ends when the subject finishes what it was asked to do.\n\nYou can also specify conditions that will trigger a special activity during the duration. For example, you might suggest that a knight give her warhorse to the first beggar she meets. If the condition isn't met before the spell expires, the activity isn't performed.\n\nIf you or any of your companions damage the target, the spell ends.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Material"],
+    "materials": [
+      {
+        "name": "a snake's tongue and either a bit of honeycomb or a drop of sweet oil"
+      }
+    ],
+    "classes": ["Bard", "Sorcerer", "Warlock", "Wizard"],
+    "school": "Enchantment",
+    "range": "Range",
+    "distance": 30,
+    "duration": 8,
+    "duration_units": "hours",
+    "concentration": true,
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "creature",
+          "count": 1,
+          "requirements": [
+            {
+              "type": "immunity",
+              "to": "charmed",
+              "negate": true
+            }
+          ]
+        },
+        "effects": [
+          {
+            "saving_throw": {
+              "ability": "Wisdom"
+            },
+            "on_failure": {
+              "apply_status": {
+                "id": "status:suggested",
+                "duration": {
+                  "value": 8,
+                  "unit": "hours",
+                  "until": ["damaged_by"]
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:summon-beast",
+    "name": "Summon Beast",
+    "description": "You call forth a bestial spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Bestial Spirit stat block. When you cast the spell, choose an environment: Air, Land, or Water. The creature resembles an animal of your choice that is native to the chosen environment, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends.\n\nThe creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its move to avoid danger.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "materials": [
+      {
+        "name": "a feather, tuft of fur, and fish tail inside a gilded acorn",
+        "cost": {
+          "amount": 200,
+          "currency": "GP"
+        }
+      }
+    ],
+    "classes": ["Druid", "Ranger"],
+    "school": "Conjuration",
+    "range": "Range",
+    "distance": 90,
+    "duration": 1,
+    "duration_units": "hours",
+    "concentration": true,
+    "scaling": {
+      "type": "spell",
+      "components": {
+        "hit_points": {
+          "by_level": {
+            "3": 5,
+            "4": 10,
+            "5": 15,
+            "6": 20,
+            "7": 25,
+            "8": 30,
+            "9": 35
+          }
+        },
+        "armor_class": {
+          "by_level": {
+            "3": 12,
+            "4": 13,
+            "5": 14,
+            "6": 15,
+            "7": 16,
+            "8": 17,
+            "9": 18
+          }
+        }
+      }
+    },
+    "mechanics": [
+      {
+        "type": "action",
+        "effects": [
+          {
+            "entity": {
+              "category": "conjuration",
+              "type": "creature",
+              "name": "creature:bestial-spirit"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:tashas-mind-whip",
+    "name": "Tasha's Mind Whip",
+    "description": "You psychically lash out at one creature you can see within range. The target must make an Intelligence saving throw. On a failed save, the target takes 3d6 psychic damage, and it can't take a reaction until the end of its next turn. Moreover, on its next turn, it must choose whether it gets a move, an action, or a bonus action; it gets only one of the three. On a successful save, the target takes half as much damage and suffers no other effects.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal"],
+    "classes": ["Sorcerer", "Wizard"],
+    "school": "Enchantment",
+    "range": "Range",
+    "distance": 90,
+    "duration": 0,
+    "concentration": false,
+    "damage": {
+      "dice": "3d6",
+      "type": ["psychic"]
+    },
+    "scaling": {
+      "type": "spell",
+      "components": {
+        "targets": {
+          "by_level": {
+            "3": 2,
+            "4": 3,
+            "5": 4,
+            "6": 5,
+            "7": 6,
+            "8": 7,
+            "9": 8
+          }
+        }
+      }
+    },
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "creature",
+          "count": 1,
+          "proximity": 30
+        },
+        "effects": [
+          {
+            "saving_throw": {
+              "ability": "Intelligence"
+            },
+            "on_failure": {
+              "damage": {
+                "dice": "3d6",
+                "type": ["psychic"]
+              },
+              "apply_status": {
+                "id": "status:mind_whip",
+                "constraints": {
+                  "actions": [
+                    {
+                      "scope": "economy",
+                      "blocked": ["reaction"]
+                    },
+                    {
+                      "scope": "economy",
+                      "allowed": ["move", "action", "bonus_action"],
+                      "choose": 1
+                    }
+                  ]
+                },
+                "duration": {
+                  "value": 1,
+                  "unit": "turns",
+                  "timing": "end_turn"
+                }
+              }
+            },
+            "on_success": {
+              "damage": {
+                "dice": "3d6",
+                "type": ["psychic"],
+                "calculation": {
+                  "operation": "divide",
+                  "operators": [{ "type": "integer", "value": 2 }],
+                  "rounding": "down"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:warding-bond",
+    "name": "Warding Bond",
+    "description": "This spell wards a willing creature you touch and creates a mystic connection between you and the target until the spell ends. While the target is within 60 feet of you, it gains a +1 bonus to AC and saving throws, and it has resistance to all damage. Also, each time it takes damage, you take the same amount of damage.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "material": "A pair of platinum rings worth at least 50 gp each, which you and the target must wear for the duration",
+    "classes": ["Cleric", "Paladin"],
+    "school": "Abjuration",
+    "range": "Touch",
+    "duration": 60,
+    "duration_unit": "minutes",
+    "concentration": false,
+    "ritual": false,
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "creature",
+          "count": 1,
+          "disposition": "willing"
+        },
+        "effects": [
+          {
+            "buff": {
+              "category": "armor_class",
+              "bonus": {
+                "operation": "add",
+                "operators": [{ "type": "integer", "value": 1 }]
+              }
+            },
+            "duration": { "value": 1, "unit": "hours" }
+          },
+          {
+            "buff": {
+              "category": "saving_throw",
+              "saving_throw": "Strength",
+              "bonus": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] }
+            },
+            "duration": { "value": 1, "unit": "hours" }
+          },
+          {
+            "buff": {
+              "category": "saving_throw",
+              "saving_throw": "Dexterity",
+              "bonus": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] }
+            },
+            "duration": { "value": 1, "unit": "hours" }
+          },
+          {
+            "buff": {
+              "category": "saving_throw",
+              "saving_throw": "Constitution",
+              "bonus": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] }
+            },
+            "duration": { "value": 1, "unit": "hours" }
+          },
+          {
+            "buff": {
+              "category": "saving_throw",
+              "saving_throw": "Intelligence",
+              "bonus": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] }
+            },
+            "duration": { "value": 1, "unit": "hours" }
+          },
+          {
+            "buff": {
+              "category": "saving_throw",
+              "saving_throw": "Wisdom",
+              "bonus": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] }
+            },
+            "duration": { "value": 1, "unit": "hours" }
+          },
+          {
+            "buff": {
+              "category": "saving_throw",
+              "saving_throw": "Charisma",
+              "bonus": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] }
+            },
+            "duration": { "value": 1, "unit": "hours" }
+          },
+          {
+            "damage_response": {
+              "category": "resistance"
+            },
+            "duration": { "value": 1, "unit": "hours" }
+          },
+          {
+            "trigger": { "event": ["damage"] },
+            "damage": { "link": "caster" },
+            "duration": { "value": 1, "unit": "hours" }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:warding-wind",
+    "name": "Warding Wind",
+    "description": "A strong wind (20 miles per hour) blows around you in a 10-foot radius and moves with you, remaining centered on you. The wind lasts for the spell's duration. The wind has the following effects: It deafens you and other creatures in its area. It extinguishes unprotected flames in its area that are torch-sized or smaller. It hedges out vapor, gas, and fog that can be dispersed by strong wind. The area is difficult terrain for creatures other than you. The attack rolls of ranged weapon attacks have disadvantage if the attacks pass in or out of the wind.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal"],
+    "classes": ["Bard", "Druid", "Sorcerer", "Wizard"],
+    "school": "Evocation",
+    "range": "Self",
+    "duration": 10,
+    "duration_unit": "minutes",
+    "concentration": true,
+    "ritual": false,
+    "mechanics": [
+      {
+        "type": "action",
+        "effects": [
+          {
+            "environment": {
+              "area": {
+                "shape": "radius",
+                "size": 10,
+                "unit": "feet",
+                "origin": "self"
+              },
+              "terrain": {
+                "type": "difficult"
+              }
+            },
+            "duration": {
+              "value": 10,
+              "unit": "minutes"
+            }
+          },
+          {
+            "target": {
+              "type": "creatures",
+              "include_self": true
+            },
+            "apply_status": {
+              "id": "status:deafened"
+            },
+            "duration": {
+              "value": 10,
+              "unit": "minutes"
+            }
+          },
+          {
+            "disadvantage": {
+              "attack": "ranged"
+            },
+            "duration": {
+              "value": 10,
+              "unit": "minutes"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:web",
+    "name": "Web",
+    "description": "You conjure a mass of thick, sticky webbing at a point of your choice within range. The webs fill a 20-foot cube from that point for the duration. The webs are difficult terrain and lightly obscure their area. Each creature that starts its turn in the webs or that enters them during its turn must make a Dexterity saving throw. On a failed save, the creature is restrained as long as it remains in the webs or until it breaks free. A creature restrained by the webs can use its action to make a Strength check against your spell save DC. If it succeeds, it is no longer restrained. The webs are flammable.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "material": "A bit of spiderweb",
+    "classes": ["Artificer", "Sorcerer", "Wizard"],
+    "school": "Conjuration",
+    "range": "Range",
+    "distance": 60,
+    "duration": 60,
+    "duration_unit": "minutes",
+    "concentration": true,
+    "ritual": false,
+    "mechanics": [
+      {
+        "type": "action",
+        "area": {
+          "shape": "cube",
+          "size": 20,
+          "unit": "feet",
+          "origin": "point"
+        },
+        "effects": [
+          {
+            "environment": {
+              "area": {
+                "shape": "cube",
+                "size": 20,
+                "unit": "feet",
+                "origin": "point"
+              },
+              "terrain": {
+                "type": "difficult"
+              },
+              "visibility": {
+                "level": "lightly_obscured"
+              },
+              "surface": {
+                "type": "webbed"
+              }
+            },
+            "duration": {
+              "value": 1,
+              "unit": "hours"
+            }
+          },
+          {
+            "trigger": {
+              "event": ["enter_area", "turn_start"]
+            },
+            "saving_throw": {
+              "ability": "Dexterity",
+              "dc": { "ref": "spell_save_dc" }
+            },
+            "on_failure": {
+              "apply_status": {
+                "id": "status:restrained",
+                "escape": {
+                  "ability": "Strength",
+                  "dc": { "ref": "spell_save_dc" }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:wither-and-bloom",
+    "name": "Wither and Bloom",
+    "description": "You invoke both death and life upon a 10-foot-radius sphere centered on a point within range. Each creature of your choice in that area must make a Constitution saving throw, taking 2d6 necrotic damage on a failed save, or half as much damage on a successful one. Nonmagical vegetation in that area withers. In addition, one creature of your choice in that area can spend and roll one of its unspent Hit Dice and regain a number of hit points equal to the roll plus your spellcasting ability modifier.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic", "Material"],
+    "material": "A withered vine twisted into a loop",
+    "classes": ["Druid", "Sorcerer", "Wizard"],
+    "school": "Necromancy",
+    "range": "Range",
+    "distance": 60,
+    "duration": 0,
+    "concentration": false,
+    "ritual": false,
+    "damage": {
+      "dice": "2d6",
+      "type": ["necrotic"]
+    },
+    "scaling": {
+      "type": "spell",
+      "components": {
+        "damage": {
+          "by_level": {
+            "3": "3d6",
+            "4": "4d6",
+            "5": "5d6",
+            "6": "6d6",
+            "7": "7d6",
+            "8": "8d6",
+            "9": "9d6"
+          }
+        }
+      }
+    },
+    "mechanics": [
+      {
+        "type": "action",
+        "area": {
+          "shape": "sphere",
+          "size": 10,
+          "unit": "feet",
+          "origin": "point"
+        },
+        "target": {
+          "type": "creatures",
+          "choice": true
+        },
+        "effects": [
+          {
+            "saving_throw": {
+              "ability": "Constitution",
+              "dc": { "ref": "spell_save_dc" }
+            },
+            "on_failure": {
+              "damage": {
+                "dice": "scaling.damage",
+                "type": ["necrotic"]
+              }
+            },
+            "on_success": {
+              "damage": {
+                "dice": "scaling.damage",
+                "type": ["necrotic"],
+                "calculation": {
+                  "operation": "divide",
+                  "operators": [{ "type": "integer", "value": 2 }],
+                  "rounding": "down"
+                }
+              }
+            }
+          },
+          {
+            "target": {
+              "type": "creature",
+              "count": 1,
+              "choice": true
+            },
+            "healing": {
+              "dice": "1d0",
+              "bonus": {
+                "operation": "add",
+                "operators": [{ "type": "ability_modifier", "ability": "spellcasting" }]
+              },
+              "distribution": "hit_die"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "spell:zone-of-truth",
+    "name": "Zone of Truth",
+    "description": "You create a magical zone that guards against deception in a 15-foot-radius sphere centered on a point of your choice within range. Until the spell ends, a creature that enters the spell's area for the first time on a turn or starts its turn there must make a Charisma saving throw. On a failed save, a creature can't speak a deliberate lie while in the radius. You know whether each creature succeeds or fails on its saving throw. An affected creature is aware of the spell and can thus avoid answering questions to which it would normally respond with a lie.",
+    "level": 2,
+    "casting_time": "Action",
+    "components": ["Verbal", "Somatic"],
+    "classes": ["Bard", "Cleric", "Paladin"],
+    "school": "Enchantment",
+    "range": "Range",
+    "distance": 60,
+    "duration": 10,
+    "duration_unit": "minutes",
+    "concentration": false,
+    "ritual": false,
+    "mechanics": [
+      {
+        "type": "action",
+        "area": {
+          "shape": "sphere",
+          "size": 15,
+          "unit": "feet",
+          "origin": "point"
+        },
+        "effects": [
+          {
+            "trigger": {
+              "event": ["enter_area", "turn_start"]
+            },
+            "saving_throw": {
+              "ability": "Charisma",
+              "dc": { "ref": "spell_save_dc" }
+            },
+            "on_failure": {
+              "apply_status": {
+                "id": "status:zone_of_truth",
+                "constraints": {
+                  "actions": [
+                    {
+                      "scope": "action",
+                      "blocked": ["deliberate_lie"]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
   }
 ]

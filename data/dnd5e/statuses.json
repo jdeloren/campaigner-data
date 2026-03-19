@@ -76,10 +76,13 @@
       }
     ],
     "constraints": {
-      "actions": {
-        "blocked_actions": ["attack", "harmful_spell"],
-        "against": "source"
-      }
+      "actions": [
+        {
+          "scope": "action",
+          "blocked": ["attack", "harmful_spell"],
+          "against": "source"
+        }
+      ]
     },
     "source": "phb",
     "ruleset": "dnd5e"
@@ -411,9 +414,12 @@
     "description": "An incapacitated creature can't take actions or reactions.",
     "is_condition": true,
     "constraints": {
-      "actions": {
-        "blocked_actions": ["action", "bonus_action", "reaction"]
-      }
+      "actions": [
+        {
+          "scope": "economy",
+          "blocked": ["action", "bonus_action", "reaction"]
+        }
+      ]
     },
     "source": "phb",
     "ruleset": "dnd5e"
@@ -727,9 +733,12 @@
       }
     ],
     "constraints": {
-      "actions": {
-        "blocked_actions": ["cast_spell"]
-      }
+      "actions": [
+        {
+          "scope": "action",
+          "blocked": ["cast_spell"]
+        }
+      ]
     },
     "damage_response": [
       {

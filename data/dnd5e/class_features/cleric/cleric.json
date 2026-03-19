@@ -174,10 +174,16 @@
                       "relative_to": "character",
                       "keep_distance": 30
                     },
-                    "actions": {
-                      "blocked_actions": ["reaction"],
-                      "allowed_actions": ["Dash", "Dodge"]
-                    }
+                    "actions": [
+                      {
+                        "scope": "economy",
+                        "blocked": ["reaction"]
+                      },
+                      {
+                        "scope": "action",
+                        "allowed": ["Dash", "Dodge"]
+                      }
+                    ]
                   }
                 }
               }

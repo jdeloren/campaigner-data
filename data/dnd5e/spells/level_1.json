@@ -339,9 +339,12 @@
               "apply_status": {
                 "id": "status:no_reactions",
                 "constraints": {
-                  "actions": {
-                    "blocked_actions": ["reaction"]
-                  }
+                  "actions": [
+                    {
+                      "scope": "economy",
+                      "blocked": ["reaction"]
+                    }
+                  ]
                 },
                 "duration": {
                   "value": 1,
