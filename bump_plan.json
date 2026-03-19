@@ -6,6 +6,11 @@
       "bump": "patch"
     }
   ],
-  "schemas": [],
+  "schemas": [
+    {
+      "schema": "spell",
+      "bump": "patch"
+    }
+  ],
   "repo_bump": "patch"
 }
