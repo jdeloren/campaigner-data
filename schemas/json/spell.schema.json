@@ -226,6 +226,12 @@
         "title": "Duration",
         "type": "integer"
       },
+      "ritual": {
+        "default": false,
+        "description": "Whether the spell can be cast as a ritual",
+        "title": "Ritual",
+        "type": "boolean"
+      },
       "source": {
         "$ref": "common.schema.json#/$defs/Source",
         "description": "Source book"
@@ -249,6 +255,7 @@
       "ruleset"
     ],
     "title": "Spell",
+    "additionalProperties": false,
     "type": "object"
   },
   "$defs": {

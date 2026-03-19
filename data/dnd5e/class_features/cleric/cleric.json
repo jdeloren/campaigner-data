@@ -175,8 +175,12 @@
                       "keep_distance": 30
                     },
                     "actions": {
-                      "blocked_actions": ["reaction"],
-                      "allowed_actions": ["Dash", "Dodge"]
+                      "blocked": {
+                        "economy": ["reaction"]
+                      },
+                      "allowed": {
+                        "actions": ["Dash", "Dodge"]
+                      }
                     }
                   }
                 }
@@ -307,7 +311,10 @@
         "trigger": {
           "event": ["cast_spell"],
           "spell": {
-            "level": { "minimum": 0, "maximum": 0 }
+            "level": {
+              "minimum": 0,
+              "maximum": 0
+            }
           }
         },
         "damage": {

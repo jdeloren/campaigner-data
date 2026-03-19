@@ -77,7 +77,9 @@
     ],
     "constraints": {
       "actions": {
-        "blocked_actions": ["attack", "harmful_spell"],
+        "blocked": {
+          "triggers": ["attack", "harmful_spell"]
+        },
         "against": "source"
       }
     },
@@ -412,7 +414,9 @@
     "is_condition": true,
     "constraints": {
       "actions": {
-        "blocked_actions": ["action", "bonus_action", "reaction"]
+        "blocked": {
+          "economy": ["action", "bonus_action", "reaction"]
+        }
       }
     },
     "source": "phb",
@@ -728,7 +732,9 @@
     ],
     "constraints": {
       "actions": {
-        "blocked_actions": ["cast_spell"]
+        "blocked": {
+          "triggers": ["cast_spell"]
+        }
       }
     },
     "damage_response": [

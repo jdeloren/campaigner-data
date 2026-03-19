@@ -3197,7 +3197,7 @@
                   "bonus": {
                     "operation": "set",
                     "operators": [
-                      { "type": "attribute", "value": "speed.walk" }
+                      { "type": "attribute", "value": "movement.base" }
                     ]
                   }
                 }
