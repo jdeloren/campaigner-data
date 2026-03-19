@@ -174,16 +174,14 @@
                       "relative_to": "character",
                       "keep_distance": 30
                     },
-                    "actions": [
-                      {
-                        "scope": "economy",
-                        "blocked": ["reaction"]
+                    "actions": {
+                      "blocked": {
+                        "economy": ["reaction"]
                       },
-                      {
-                        "scope": "action",
-                        "allowed": ["Dash", "Dodge"]
+                      "allowed": {
+                        "actions": ["Dash", "Dodge"]
                       }
-                    ]
+                    }
                   }
                 }
               }
@@ -313,7 +311,10 @@
         "trigger": {
           "event": ["cast_spell"],
           "spell": {
-            "level": { "minimum": 0, "maximum": 0 }
+            "level": {
+              "minimum": 0,
+              "maximum": 0
+            }
           }
         },
         "damage": {

@@ -54,7 +54,9 @@
           {
             "trigger": {
               "event": ["attack"],
-              "attack": { "result": "success" },
+              "attack": {
+                "result": "success"
+              },
               "source": {
                 "type": "weapon",
                 "mode": "melee"
@@ -152,7 +154,9 @@
             {
               "type": "attribute",
               "attribute": "Intelligence",
-              "range": { "maximum": 3 }
+              "range": {
+                "maximum": 3
+              }
             }
           ]
         },
@@ -251,13 +255,17 @@
                   }
                 ]
               },
-              "barrier": { "priority": 1 }
+              "barrier": {
+                "priority": 1
+              }
             }
           },
           {
             "trigger": {
               "event": ["attack"],
-              "attack": { "result": "success" },
+              "attack": {
+                "result": "success"
+              },
               "source": {
                 "type": "weapon",
                 "mode": "melee"
@@ -339,12 +347,11 @@
               "apply_status": {
                 "id": "status:no_reactions",
                 "constraints": {
-                  "actions": [
-                    {
-                      "scope": "economy",
-                      "blocked": ["reaction"]
+                  "actions": {
+                    "blocked": {
+                      "economy": ["reaction"]
                     }
-                  ]
+                  }
                 },
                 "duration": {
                   "value": 1,
@@ -651,7 +658,9 @@
             {
               "type": "attribute",
               "ref": "weight",
-              "range": { "maximum": 5 }
+              "range": {
+                "maximum": 5
+              }
             }
           ]
         },
@@ -1639,7 +1648,9 @@
           {
             "trigger": {
               "event": ["attack"],
-              "attack": { "result": "success" },
+              "attack": {
+                "result": "success"
+              },
               "source": {
                 "type": "weapon"
               }
@@ -1795,7 +1806,9 @@
           {
             "trigger": {
               "event": ["attack"],
-              "attack": { "result": "success" },
+              "attack": {
+                "result": "success"
+              },
               "source": {
                 "type": "weapon"
               }
@@ -2043,7 +2056,9 @@
             "healing": {
               "dice": "1d4",
               "bonus": 4,
-              "barrier": { "priority": 1 }
+              "barrier": {
+                "priority": 1
+              }
             }
           }
         ]
@@ -2250,7 +2265,14 @@
             }
           },
           {
-            "trigger": [{ "event": ["enter_area"] }, { "event": ["turn_end"] }],
+            "trigger": [
+              {
+                "event": ["enter_area"]
+              },
+              {
+                "event": ["turn_end"]
+              }
+            ],
             "saving_throw": {
               "ability": "Dexterity",
               "dc": {
@@ -2435,7 +2457,9 @@
           {
             "trigger": {
               "event": ["attack"],
-              "attack": { "result": "success" },
+              "attack": {
+                "result": "success"
+              },
               "source": {
                 "type": "weapon",
                 "mode": "ranged"
@@ -2695,7 +2719,9 @@
                   }
                 ]
               },
-              "barrier": { "priority": 1 }
+              "barrier": {
+                "priority": 1
+              }
             }
           }
         ]
@@ -2756,7 +2782,9 @@
               "effect": {
                 "trigger": {
                   "event": ["attack"],
-                  "attack": { "result": "success" }
+                  "attack": {
+                    "result": "success"
+                  }
                 },
                 "damage_bonus": {
                   "dice": "1d6",
@@ -2857,7 +2885,9 @@
               "effect": {
                 "trigger": {
                   "event": ["attack"],
-                  "attack": { "result": "success" },
+                  "attack": {
+                    "result": "success"
+                  },
                   "source": {
                     "type": "weapon"
                   }
@@ -3636,7 +3666,9 @@
           {
             "trigger": {
               "event": ["attack"],
-              "attack": { "result": "success" },
+              "attack": {
+                "result": "success"
+              },
               "source": {
                 "type": "weapon",
                 "mode": "melee"
@@ -3692,7 +3724,9 @@
         "type": "reaction",
         "trigger": {
           "event": ["attacked_by"],
-          "attack": { "result": "success" }
+          "attack": {
+            "result": "success"
+          }
         },
         "target": {
           "type": "self"
@@ -4029,7 +4063,9 @@
           {
             "trigger": {
               "event": ["attack"],
-              "attack": { "result": "success" },
+              "attack": {
+                "result": "success"
+              },
               "source": {
                 "type": "weapon",
                 "mode": "melee"
@@ -4266,7 +4302,9 @@
             {
               "type": "attribute",
               "attribute": "Intelligence",
-              "range": { "maximum": 3 }
+              "range": {
+                "maximum": 3
+              }
             }
           ]
         },
@@ -4479,7 +4517,9 @@
           {
             "trigger": {
               "event": ["attack"],
-              "attack": { "result": "success" },
+              "attack": {
+                "result": "success"
+              },
               "source": {
                 "type": "weapon",
                 "mode": "melee"

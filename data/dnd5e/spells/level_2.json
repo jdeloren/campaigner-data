@@ -401,7 +401,9 @@
                 "type": "category",
                 "category": "armor_class",
                 "property": "base",
-                "range": { "maximum": 15 }
+                "range": {
+                  "maximum": 15
+                }
               }
             ],
             "duration": {
@@ -500,7 +502,9 @@
                         },
                         "escape": {
                           "ability": "Constitution",
-                          "dc": { "ref": "spell_save_dc" }
+                          "dc": {
+                            "ref": "spell_save_dc"
+                          }
                         }
                       }
                     }
@@ -516,7 +520,9 @@
                         },
                         "escape": {
                           "ability": "Constitution",
-                          "dc": { "ref": "spell_save_dc" }
+                          "dc": {
+                            "ref": "spell_save_dc"
+                          }
                         }
                       }
                     }
@@ -554,7 +560,9 @@
           {
             "disadvantage": {
               "attack": "all",
-              "target": { "type": "attackers" }
+              "target": {
+                "type": "attackers"
+              }
             },
             "duration": {
               "value": 1,
@@ -610,7 +618,9 @@
           {
             "trigger": {
               "event": ["attack"],
-              "attack": { "result": "success" },
+              "attack": {
+                "result": "success"
+              },
               "source": {
                 "type": "weapon"
               }
@@ -664,7 +674,9 @@
           {
             "saving_throw": {
               "ability": "Charisma",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "choice": {
@@ -782,7 +794,7 @@
   {
     "id": "spell:cordon-of-arrows",
     "name": "Cordon of Arrows",
-    "description": "You plant four pieces of nonmagical ammunition — arrows or crossbow bolts — in the ground within range and lay magic upon them to protect an area. Until the spell ends, whenever a creature other than you comes within 30 feet of the ammunition for the first time on a turn or ends its turn there, one piece of ammunition flies at it. The creature must succeed on a Dexterity saving throw or take 1d6 piercing damage. The piece of ammunition is then destroyed. The spell ends when no ammunition remains.",
+    "description": "You plant four pieces of nonmagical ammunition \u2014 arrows or crossbow bolts \u2014 in the ground within range and lay magic upon them to protect an area. Until the spell ends, whenever a creature other than you comes within 30 feet of the ammunition for the first time on a turn or ends its turn there, one piece of ammunition flies at it. The creature must succeed on a Dexterity saving throw or take 1d6 piercing damage. The piece of ammunition is then destroyed. The spell ends when no ammunition remains.",
     "level": 2,
     "casting_time": "Action",
     "components": ["Verbal", "Somatic", "Material"],
@@ -835,7 +847,9 @@
             },
             "saving_throw": {
               "ability": "Dexterity",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "damage": {
@@ -887,7 +901,9 @@
           {
             "saving_throw": {
               "ability": "Wisdom",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "apply_status": {
@@ -899,7 +915,9 @@
                 },
                 "escape": {
                   "ability": "Wisdom",
-                  "dc": { "ref": "spell_save_dc" }
+                  "dc": {
+                    "ref": "spell_save_dc"
+                  }
                 }
               }
             }
@@ -1006,7 +1024,7 @@
   {
     "id": "spell:detect-thoughts",
     "name": "Detect Thoughts",
-    "description": "For the duration, you can read the thoughts of certain creatures. When you cast the spell and as your action on each turn until the spell ends, you can focus your mind on any one creature that you can see within 30 feet of you. If the creature you choose has an Intelligence of 3 or lower or doesn't speak any language, the creature is unaffected.\n\nYou initially learn the surface thoughts of the creature — what is most on its mind in that moment. As an action, you can either shift your attention to another creature's thoughts or attempt to probe deeper into the same creature's mind. If you probe deeper, the target must make a Wisdom saving throw. If it fails, you gain insight into its reasoning (if any), its emotional state, and something that looms large in its mind (such as something it worries over, loves, or hates). If it succeeds, the spell ends. Either way, the target knows that you are probing into its mind, and unless you shift your attention to another creature's thoughts, the creature can use its action on its turn to make an Intelligence check contested by your Intelligence check; if it succeeds, the spell ends.",
+    "description": "For the duration, you can read the thoughts of certain creatures. When you cast the spell and as your action on each turn until the spell ends, you can focus your mind on any one creature that you can see within 30 feet of you. If the creature you choose has an Intelligence of 3 or lower or doesn't speak any language, the creature is unaffected.\n\nYou initially learn the surface thoughts of the creature \u2014 what is most on its mind in that moment. As an action, you can either shift your attention to another creature's thoughts or attempt to probe deeper into the same creature's mind. If you probe deeper, the target must make a Wisdom saving throw. If it fails, you gain insight into its reasoning (if any), its emotional state, and something that looms large in its mind (such as something it worries over, loves, or hates). If it succeeds, the spell ends. Either way, the target knows that you are probing into its mind, and unless you shift your attention to another creature's thoughts, the creature can use its action on its turn to make an Intelligence check contested by your Intelligence check; if it succeeds, the spell ends.",
     "level": 2,
     "casting_time": "Action",
     "components": ["Verbal", "Somatic", "Material"],
@@ -1037,7 +1055,9 @@
             {
               "type": "attribute",
               "attribute": "Intelligence",
-              "range": { "minimum": 4 }
+              "range": {
+                "minimum": 4
+              }
             }
           ]
         },
@@ -1110,11 +1130,21 @@
             "choice": {
               "type": "damage_type",
               "options": [
-                { "name": "acid" },
-                { "name": "cold" },
-                { "name": "fire" },
-                { "name": "lightning" },
-                { "name": "poison" }
+                {
+                  "name": "acid"
+                },
+                {
+                  "name": "cold"
+                },
+                {
+                  "name": "fire"
+                },
+                {
+                  "name": "lightning"
+                },
+                {
+                  "name": "poison"
+                }
               ]
             },
             "area": {
@@ -1125,7 +1155,9 @@
             },
             "saving_throw": {
               "ability": "Dexterity",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "damage": {
@@ -1139,7 +1171,12 @@
                 "type": ["chosen"],
                 "calculation": {
                   "operation": "divide",
-                  "operators": [{ "type": "integer", "value": 2 }],
+                  "operators": [
+                    {
+                      "type": "integer",
+                      "value": 2
+                    }
+                  ],
                   "rounding": "down"
                 }
               }
@@ -1209,7 +1246,9 @@
             },
             "saving_throw": {
               "ability": "Strength",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "damage": {
@@ -1228,7 +1267,12 @@
                 "type": ["bludgeoning"],
                 "calculation": {
                   "operation": "divide",
-                  "operators": [{ "type": "integer", "value": 2 }],
+                  "operators": [
+                    {
+                      "type": "integer",
+                      "value": 2
+                    }
+                  ],
                   "rounding": "down"
                 }
               }
@@ -1273,7 +1317,9 @@
           {
             "saving_throw": {
               "ability": "Strength",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "buff": {
@@ -1348,7 +1394,9 @@
                     },
                     "healing": {
                       "dice": "2d6",
-                      "barrier": { "priority": 1 }
+                      "barrier": {
+                        "priority": 1
+                      }
                     }
                   }
                 },
@@ -1408,7 +1456,7 @@
   {
     "id": "spell:enlarge-reduce",
     "name": "Enlarge/Reduce",
-    "description": "You cause a creature or an object you can see within range to grow larger or smaller for the duration. Choose either a creature or an object that is neither worn nor carried. If the target is unwilling, it can make a Constitution saving throw. On a success, the spell has no effect.\n\nIf the target is a creature, everything it is wearing and carrying changes size with it. Any item dropped by an affected creature returns to normal size at once.\n\nEnlarge. The target's size doubles in all dimensions, and its weight is multiplied by eight. This growth increases its size by one category — from Medium to Large, for example. If there isn't enough room for the target to double its size, the creature or object attains the maximum possible size in the space available. Until the spell ends, the target also has advantage on Strength checks and Strength saving throws. The target's weapons also grow to match its new size. While these weapons are enlarged, the target's attacks with them deal 1d4 extra damage.\n\nReduce. The target's size is halved in all dimensions, and its weight is reduced to one-eighth of normal. This reduction decreases its size by one category — from Medium to Small, for example. Until the spell ends, the target also has disadvantage on Strength checks and Strength saving throws. The target's weapons also shrink to match its new size. While these weapons are reduced, the target's attacks with them deal 1d4 less damage (this can't reduce the damage below 1).",
+    "description": "You cause a creature or an object you can see within range to grow larger or smaller for the duration. Choose either a creature or an object that is neither worn nor carried. If the target is unwilling, it can make a Constitution saving throw. On a success, the spell has no effect.\n\nIf the target is a creature, everything it is wearing and carrying changes size with it. Any item dropped by an affected creature returns to normal size at once.\n\nEnlarge. The target's size doubles in all dimensions, and its weight is multiplied by eight. This growth increases its size by one category \u2014 from Medium to Large, for example. If there isn't enough room for the target to double its size, the creature or object attains the maximum possible size in the space available. Until the spell ends, the target also has advantage on Strength checks and Strength saving throws. The target's weapons also grow to match its new size. While these weapons are enlarged, the target's attacks with them deal 1d4 extra damage.\n\nReduce. The target's size is halved in all dimensions, and its weight is reduced to one-eighth of normal. This reduction decreases its size by one category \u2014 from Medium to Small, for example. Until the spell ends, the target also has disadvantage on Strength checks and Strength saving throws. The target's weapons also shrink to match its new size. While these weapons are reduced, the target's attacks with them deal 1d4 less damage (this can't reduce the damage below 1).",
     "level": 2,
     "casting_time": "Action",
     "components": ["Verbal", "Somatic", "Material"],
@@ -1443,7 +1491,9 @@
           {
             "saving_throw": {
               "ability": "Constitution",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "roll_modifier": {
               "type": "saving_throw",
@@ -1460,7 +1510,12 @@
                         "target": "size",
                         "calculation": {
                           "operation": "add",
-                          "operators": [{ "type": "integer", "value": 1 }]
+                          "operators": [
+                            {
+                              "type": "integer",
+                              "value": 1
+                            }
+                          ]
                         }
                       },
                       "advantage": {
@@ -1478,7 +1533,12 @@
                         "target": "size",
                         "calculation": {
                           "operation": "subtract",
-                          "operators": [{ "type": "integer", "value": 1 }]
+                          "operators": [
+                            {
+                              "type": "integer",
+                              "value": 1
+                            }
+                          ]
                         }
                       },
                       "disadvantage": {
@@ -1488,7 +1548,12 @@
                         "dice": "1d4",
                         "bonus": {
                           "operation": "subtract",
-                          "operators": [{ "type": "integer", "value": 0 }]
+                          "operators": [
+                            {
+                              "type": "integer",
+                              "value": 0
+                            }
+                          ]
                         }
                       }
                     }
@@ -1541,7 +1606,9 @@
           {
             "saving_throw": {
               "ability": "Wisdom",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "disadvantage": {
@@ -1670,7 +1737,9 @@
           {
             "trigger": {
               "event": ["attack"],
-              "attack": { "result": "success" },
+              "attack": {
+                "result": "success"
+              },
               "source": {
                 "type": "spell"
               }
@@ -1744,7 +1813,9 @@
             },
             "saving_throw": {
               "ability": "Dexterity",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "damage": {
@@ -1758,7 +1829,12 @@
                 "type": ["fire"],
                 "calculation": {
                   "operation": "divide",
-                  "operators": [{ "type": "integer", "value": 2 }],
+                  "operators": [
+                    {
+                      "type": "integer",
+                      "value": 2
+                    }
+                  ],
                   "rounding": "down"
                 }
               }
@@ -1830,7 +1906,9 @@
             },
             "saving_throw": {
               "ability": "Strength",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "forced_movement": {
@@ -1978,7 +2056,9 @@
           {
             "saving_throw": {
               "ability": "Constitution",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "disadvantage": {
@@ -2055,7 +2135,9 @@
           {
             "saving_throw": {
               "ability": "Wisdom",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "apply_status": {
@@ -2066,7 +2148,9 @@
                 },
                 "escape": {
                   "ability": "Wisdom",
-                  "dc": { "ref": "spell_save_dc" }
+                  "dc": {
+                    "ref": "spell_save_dc"
+                  }
                 }
               }
             }
@@ -2264,7 +2348,9 @@
           {
             "saving_throw": {
               "ability": "Constitution",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "forced_movement": {
@@ -2328,7 +2414,7 @@
   {
     "id": "spell:locate-object",
     "name": "Locate Object",
-    "description": "Describe or name an object that is familiar to you. You sense the direction to the object's location, as long as that object is within 1,000 feet of you. If the object is in motion, you know the direction of its movement.\n\nThe spell can locate a specific object known to you, as long as you have seen it up close — within 30 feet — at least once. Alternatively, the spell can locate the nearest object of a particular kind, such as a certain kind of apparel, jewelry, furniture, tool, or weapon.\n\nThis spell can't locate an object if any thickness of lead, even a thin sheet, blocks a direct path between you and the object.",
+    "description": "Describe or name an object that is familiar to you. You sense the direction to the object's location, as long as that object is within 1,000 feet of you. If the object is in motion, you know the direction of its movement.\n\nThe spell can locate a specific object known to you, as long as you have seen it up close \u2014 within 30 feet \u2014 at least once. Alternatively, the spell can locate the nearest object of a particular kind, such as a certain kind of apparel, jewelry, furniture, tool, or weapon.\n\nThis spell can't locate an object if any thickness of lead, even a thin sheet, blocks a direct path between you and the object.",
     "level": 2,
     "casting_time": "Action",
     "components": ["Verbal", "Somatic", "Material"],
@@ -2444,7 +2530,12 @@
             "damage_bonus": {
               "bonus": {
                 "operation": "add",
-                "operators": [{ "type": "scaling", "value": "bonus" }]
+                "operators": [
+                  {
+                    "type": "scaling",
+                    "value": "bonus"
+                  }
+                ]
               }
             }
           }
@@ -2496,7 +2587,9 @@
           {
             "saving_throw": {
               "ability": "Strength",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "damage": {
@@ -2507,7 +2600,9 @@
                 "id": "status:restrained",
                 "escape": {
                   "ability": "Strength",
-                  "dc": { "ref": "spell_save_dc" }
+                  "dc": {
+                    "ref": "spell_save_dc"
+                  }
                 }
               }
             }
@@ -2603,7 +2698,12 @@
               "type": ["acid"],
               "calculation": {
                 "operation": "divide",
-                "operators": [{ "type": "integer", "value": 2 }],
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
+                ],
                 "rounding": "down"
               }
             }
@@ -2667,7 +2767,9 @@
           {
             "saving_throw": {
               "ability": "Wisdom",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "damage": {
@@ -2685,7 +2787,12 @@
                 "type": ["psychic"],
                 "calculation": {
                   "operation": "divide",
-                  "operators": [{ "type": "integer", "value": 2 }],
+                  "operators": [
+                    {
+                      "type": "integer",
+                      "value": 2
+                    }
+                  ],
                   "rounding": "down"
                 }
               }
@@ -2819,7 +2926,9 @@
             },
             "saving_throw": {
               "ability": "Constitution",
-              "dc": { "ref": "spell_save_dc" },
+              "dc": {
+                "ref": "spell_save_dc"
+              },
               "disadvantage": {
                 "requirements": [
                   {
@@ -2841,7 +2950,12 @@
                 "type": ["radiant"],
                 "calculation": {
                   "operation": "divide",
-                  "operators": [{ "type": "integer", "value": 2 }],
+                  "operators": [
+                    {
+                      "type": "integer",
+                      "value": 2
+                    }
+                  ],
                   "rounding": "down"
                 }
               }
@@ -2914,7 +3028,12 @@
               "skill": "Stealth",
               "bonus": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 10 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 10
+                  }
+                ]
               }
             }
           }
@@ -2962,7 +3081,9 @@
           {
             "saving_throw": {
               "ability": "Intelligence",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "entity": {
@@ -2973,7 +3094,9 @@
                     "action": "examine",
                     "check": {
                       "skill": "Investigation",
-                      "dc": { "ref": "spell_save_dc" }
+                      "dc": {
+                        "ref": "spell_save_dc"
+                      }
                     }
                   }
                 ]
@@ -3052,7 +3175,12 @@
               "dice": "scaling.healing",
               "bonus": {
                 "operation": "add",
-                "operators": [{ "type": "attribute", "value": "spellcasting_modifier" }]
+                "operators": [
+                  {
+                    "type": "attribute",
+                    "value": "spellcasting_modifier"
+                  }
+                ]
               }
             }
           }
@@ -3150,7 +3278,9 @@
                     },
                     "saving_throw": {
                       "ability": "Constitution",
-                      "dc": { "ref": "spell_save_dc" }
+                      "dc": {
+                        "ref": "spell_save_dc"
+                      }
                     },
                     "on_failure": {
                       "apply_status": {
@@ -3235,14 +3365,21 @@
                   "damage_bonus": {
                     "bonus": {
                       "operation": "divide",
-                      "operators": [{ "type": "integer", "value": 2 }],
+                      "operators": [
+                        {
+                          "type": "integer",
+                          "value": 2
+                        }
+                      ],
                       "rounding": "down"
                     }
                   }
                 },
                 "escape": {
                   "ability": "Constitution",
-                  "dc": { "ref": "spell_save_dc" }
+                  "dc": {
+                    "ref": "spell_save_dc"
+                  }
                 }
               }
             }
@@ -3516,7 +3653,12 @@
                 "type": ["thunder"],
                 "calculation": {
                   "operation": "divide",
-                  "operators": [{ "type": "integer", "value": 2 }],
+                  "operators": [
+                    {
+                      "type": "integer",
+                      "value": 2
+                    }
+                  ],
                   "rounding": "down"
                 }
               }
@@ -3962,17 +4104,15 @@
               "apply_status": {
                 "id": "status:mind_whip",
                 "constraints": {
-                  "actions": [
-                    {
-                      "scope": "economy",
-                      "blocked": ["reaction"]
+                  "actions": {
+                    "blocked": {
+                      "economy": ["reaction"]
                     },
-                    {
-                      "scope": "economy",
-                      "allowed": ["move", "action", "bonus_action"],
-                      "choose": 1
-                    }
-                  ]
+                    "allowed": {
+                      "economy": ["move", "action", "bonus_action"]
+                    },
+                    "choose": 1
+                  }
                 },
                 "duration": {
                   "value": 1,
@@ -3987,7 +4127,12 @@
                 "type": ["psychic"],
                 "calculation": {
                   "operation": "divide",
-                  "operators": [{ "type": "integer", "value": 2 }],
+                  "operators": [
+                    {
+                      "type": "integer",
+                      "value": 2
+                    }
+                  ],
                   "rounding": "down"
                 }
               }
@@ -4009,7 +4154,10 @@
     "materials": [
       {
         "name": "A pair of platinum rings worth at least 50 gp each, which you and the target must wear for the duration",
-        "cost": { "amount": 50, "currency": "GP" }
+        "cost": {
+          "amount": 50,
+          "currency": "GP"
+        }
       }
     ],
     "classes": ["Cleric", "Paladin"],
@@ -4032,69 +4180,153 @@
               "category": "armor_class",
               "bonus": {
                 "operation": "add",
-                "operators": [{ "type": "integer", "value": 1 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
               }
             },
-            "duration": { "value": 1, "unit": "hours" }
+            "duration": {
+              "value": 1,
+              "unit": "hours"
+            }
           },
           {
             "buff": {
               "category": "saving_throw",
               "saving_throw": "Strength",
-              "bonus": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] }
+              "bonus": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
+              }
             },
-            "duration": { "value": 1, "unit": "hours" }
+            "duration": {
+              "value": 1,
+              "unit": "hours"
+            }
           },
           {
             "buff": {
               "category": "saving_throw",
               "saving_throw": "Dexterity",
-              "bonus": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] }
+              "bonus": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
+              }
             },
-            "duration": { "value": 1, "unit": "hours" }
+            "duration": {
+              "value": 1,
+              "unit": "hours"
+            }
           },
           {
             "buff": {
               "category": "saving_throw",
               "saving_throw": "Constitution",
-              "bonus": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] }
+              "bonus": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
+              }
             },
-            "duration": { "value": 1, "unit": "hours" }
+            "duration": {
+              "value": 1,
+              "unit": "hours"
+            }
           },
           {
             "buff": {
               "category": "saving_throw",
               "saving_throw": "Intelligence",
-              "bonus": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] }
+              "bonus": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
+              }
             },
-            "duration": { "value": 1, "unit": "hours" }
+            "duration": {
+              "value": 1,
+              "unit": "hours"
+            }
           },
           {
             "buff": {
               "category": "saving_throw",
               "saving_throw": "Wisdom",
-              "bonus": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] }
+              "bonus": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
+              }
             },
-            "duration": { "value": 1, "unit": "hours" }
+            "duration": {
+              "value": 1,
+              "unit": "hours"
+            }
           },
           {
             "buff": {
               "category": "saving_throw",
               "saving_throw": "Charisma",
-              "bonus": { "operation": "add", "operators": [{ "type": "integer", "value": 1 }] }
+              "bonus": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
+              }
             },
-            "duration": { "value": 1, "unit": "hours" }
+            "duration": {
+              "value": 1,
+              "unit": "hours"
+            }
           },
           {
             "damage_response": {
               "category": "resistance"
             },
-            "duration": { "value": 1, "unit": "hours" }
+            "duration": {
+              "value": 1,
+              "unit": "hours"
+            }
           },
           {
-            "trigger": { "event": ["damage"] },
-            "damage": { "link": "caster" },
-            "duration": { "value": 1, "unit": "hours" }
+            "trigger": {
+              "event": ["damage"]
+            },
+            "damage": {
+              "link": "caster"
+            },
+            "duration": {
+              "value": 1,
+              "unit": "hours"
+            }
           }
         ]
       }
@@ -4172,7 +4404,11 @@
     "level": 2,
     "casting_time": "Action",
     "components": ["Verbal", "Somatic", "Material"],
-    "materials": [{ "name": "A bit of spiderweb" }],
+    "materials": [
+      {
+        "name": "A bit of spiderweb"
+      }
+    ],
     "classes": ["Artificer", "Sorcerer", "Wizard"],
     "school": "Conjuration",
     "range": "Range",
@@ -4220,14 +4456,18 @@
             },
             "saving_throw": {
               "ability": "Dexterity",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "apply_status": {
                 "id": "status:restrained",
                 "escape": {
                   "ability": "Strength",
-                  "dc": { "ref": "spell_save_dc" }
+                  "dc": {
+                    "ref": "spell_save_dc"
+                  }
                 }
               }
             }
@@ -4245,7 +4485,11 @@
     "level": 2,
     "casting_time": "Action",
     "components": ["Verbal", "Somatic", "Material"],
-    "materials": [{ "name": "A withered vine twisted into a loop" }],
+    "materials": [
+      {
+        "name": "A withered vine twisted into a loop"
+      }
+    ],
     "classes": ["Druid", "Sorcerer", "Wizard"],
     "school": "Necromancy",
     "range": "Range",
@@ -4290,7 +4534,9 @@
           {
             "saving_throw": {
               "ability": "Constitution",
-              "dc": { "ref": "spell_save_dc" }
+              "dc": {
+                "ref": "spell_save_dc"
+              }
             },
             "on_failure": {
               "damage": {
@@ -4304,7 +4550,12 @@
                 "type": ["necrotic"],
                 "calculation": {
                   "operation": "divide",
-                  "operators": [{ "type": "integer", "value": 2 }],
+                  "operators": [
+                    {
+                      "type": "integer",
+                      "value": 2
+                    }
+                  ],
                   "rounding": "down"
                 }
               }
@@ -4320,7 +4571,12 @@
               "dice": "1d0",
               "bonus": {
                 "operation": "add",
-                "operators": [{ "type": "action_modifier", "modifier": "spellcasting" }]
+                "operators": [
+                  {
+                    "type": "action_modifier",
+                    "modifier": "spellcasting"
+                  }
+                ]
               },
               "distribution": "hit_die"
             }
@@ -4346,41 +4602,7 @@
     "duration_units": "minutes",
     "concentration": false,
     "ritual": false,
-    "mechanics": [
-      {
-        "type": "action",
-        "area": {
-          "shape": "sphere",
-          "size": 15,
-          "unit": "feet",
-          "origin": "point"
-        },
-        "effects": [
-          {
-            "trigger": {
-              "event": ["enter_area", "turn_start"]
-            },
-            "saving_throw": {
-              "ability": "Charisma",
-              "dc": { "ref": "spell_save_dc" }
-            },
-            "on_failure": {
-              "apply_status": {
-                "id": "status:zone_of_truth",
-                "constraints": {
-                  "actions": [
-                    {
-                      "scope": "action",
-                      "blocked": ["deliberate_lie"]
-                    }
-                  ]
-                }
-              }
-            }
-          }
-        ]
-      }
-    ],
+    "mechanics": [],
     "source": "phb",
     "ruleset": "dnd5e"
   }
