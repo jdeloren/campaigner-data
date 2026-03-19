@@ -853,8 +853,13 @@ Escape saves use `duration` with `timing` to define when the save occurs (e.g., 
     "id": "status:charmed",
     "source": "character",
     "constraints": {
-      "cannot_attack": "character",
-      "cannot_target_with_harmful": "character"
+      "actions": [
+        {
+          "scope": "action",
+          "blocked": ["attack", "harmful_spell"],
+          "against": "source"
+        }
+      ]
     }
   }
 }
