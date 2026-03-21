@@ -133,7 +133,7 @@
         "effects": [
           {
             "attribute": {
-              "target": "hp.maximum",
+              "target": "hit_points.maximum",
               "calculation": {
                 "operation": "add",
                 "operators": [
