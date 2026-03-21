@@ -1720,8 +1720,8 @@ The `attribute` requirement handles all attribute-based checks including ability
 #### Distance Requirement
 
 ```json
-{ "type": "distance", "value": 5, "unit": "feet", "to": "target", "comparison": "within" }
-{ "type": "distance", "unit": "feet", "comparison": "within" }
+{ "type": "distance", "value": 5, "unit": "feet", "to": "target", "comparison": "at_most" }
+{ "type": "distance", "unit": "feet", "comparison": "at_most" }
 ```
 
 The `value` field is optional — omit it when the distance is contextual (e.g., weapon reach during an attack).
@@ -1817,7 +1817,7 @@ For complex checks that need code:
 #### Area Requirement
 
 ```json
-{ "type": "area", "area": { "shape": "cube", "size": 5, "unit": "feet" }, "comparison": "less_than_or_equal" }
+{ "type": "area", "area": { "shape": "cube", "size": 5, "unit": "feet" }, "comparison": "at_most" }
 ```
 
 #### Property Requirement
@@ -2019,7 +2019,7 @@ Conditions describe game-state checks using `type`, `comparison`, and `to`.
     "condition": {
       "type": "perception",
       "senses": ["sight"],
-      "comparison": "not",
+      "comparison": "not_equals",
       "to": "character"
     }
   }

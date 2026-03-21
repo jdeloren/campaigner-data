@@ -361,7 +361,7 @@
             "roll": {
               "type": "percentile",
               "success": {
-                "comparison": "less_than_or_equal",
+                "comparison": "at_most",
                 "value": {
                   "attribute": "classes.Cleric.level"
                 }

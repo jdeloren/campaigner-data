@@ -582,6 +582,18 @@
           ],
           "default": null,
           "description": "Effect applied when this status expires"
+        },
+        "transform": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Transform"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Transformation into another creature form (e.g., Wild Shape)"
         }
       },
       "required": ["id"],
@@ -707,7 +719,7 @@
     },
     "AttributeCategory": {
       "description": "Enumerated attribute categories for structured modifications.",
-      "enum": ["armor_class", "combat", "movement"],
+      "enum": ["armor_class", "combat", "movement", "spellcasting"],
       "title": "AttributeCategory",
       "type": "string"
     },
@@ -735,11 +747,14 @@
               "$ref": "#/$defs/MovementProperty"
             },
             {
+              "$ref": "#/$defs/SpellComponent"
+            },
+            {
               "type": "null"
             }
           ],
           "default": null,
-          "description": "Sub-property within the category (e.g., movement type, combat property)."
+          "description": "Sub-property within the category (e.g., movement type, combat property, spell component)."
         },
         "target": {
           "anyOf": [
@@ -921,7 +936,7 @@
             }
           ],
           "default": null,
-          "description": "How the area is compared (e.g., 'less_than_or_equal')",
+          "description": "How the area is compared (e.g., 'at_most')",
           "title": "Comparison"
         }
       },
@@ -2601,6 +2616,39 @@
       "title": "Contest",
       "type": "object"
     },
+    "CRRequirement": {
+      "description": "Requirement based on creature challenge rating.",
+      "properties": {
+        "type": {
+          "const": "cr",
+          "default": "cr",
+          "title": "Type",
+          "type": "string"
+        },
+        "comparison": {
+          "description": "How to compare the creature's CR against the value",
+          "enum": ["equals", "less_than", "at_most", "greater_than", "at_least"],
+          "title": "Comparison",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "description": "CR threshold — a number or a scaling reference (e.g., 'scaling.cr')",
+          "title": "Value"
+        }
+      },
+      "required": ["comparison", "value"],
+      "title": "CRRequirement",
+      "additionalProperties": false,
+      "type": "object"
+    },
     "CountRequirement": {
       "description": "Requirement based on the count of active instances (e.g., max bonded weapons).",
       "properties": {
@@ -3470,7 +3518,7 @@
         "comparison": {
           "anyOf": [
             {
-              "enum": ["at_most", "at_least", "exactly"],
+              "enum": ["at_most", "at_least", "equals"],
               "type": "string"
             },
             {
@@ -3534,7 +3582,7 @@
         "comparison": {
           "anyOf": [
             {
-              "enum": ["within", "greater_than", "less_than"],
+              "enum": ["equals", "not_equals", "greater_than", "less_than", "at_most", "at_least"],
               "type": "string"
             },
             {
@@ -3623,7 +3671,7 @@
         },
         "comparison": {
           "description": "Comparison operator",
-          "enum": ["equal", "greater_than", "less_than", "greater_than_or_equal", "less_than_or_equal"],
+          "enum": ["equals", "greater_than", "less_than", "at_least", "at_most"],
           "title": "Comparison",
           "type": "string"
         }
@@ -3667,6 +3715,18 @@
           "default": null,
           "description": "Duration value",
           "title": "Value"
+        },
+        "calculation": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Calculation"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Calculated duration value"
         },
         "unit": {
           "anyOf": [
@@ -5581,60 +5641,61 @@
       "type": "object"
     },
     "GrantInteraction": {
-      "description": "Describes activating a spell or feature with modifications or side effects.\n\nCovers cross-ability interactions: one ability granting a modified\nactivation of another spell or feature.\n\nExample - Read Thoughts \u2192 Suggestion (spell, no slot, auto-fail save):\n{\"name\": \"Suggestion\", \"activation\": \"action\", \"cost\": \"none\",\n \"save\": \"auto_fail\", \"ends\": [\"read_surface_thoughts\"]}\n\nExample - Feral Instinct \u2192 Rage (feature, must be first action):\n{\"name\": \"Rage\", \"activation\": \"bonus_action\", \"order\": \"first\"}\n\nExample - Use Magic Device (bypass item requirements):\n{\"ignore_requirements\": [\"class\", \"race\", \"level\"]}",
+      "description": "Interaction with a spell, feature, action, or item. Discriminated by type.",
+      "discriminator": {
+        "mapping": {
+          "spell": "#/$defs/SpellInteraction",
+          "feature": "#/$defs/FeatureInteraction",
+          "action": "#/$defs/ActionInteraction",
+          "item": "#/$defs/ItemInteraction"
+        },
+        "propertyName": "type"
+      },
+      "oneOf": [
+        { "$ref": "#/$defs/SpellInteraction" },
+        { "$ref": "#/$defs/FeatureInteraction" },
+        { "$ref": "#/$defs/ActionInteraction" },
+        { "$ref": "#/$defs/ItemInteraction" }
+      ]
+    },
+    "SpellOverrides": {
+      "description": "Overrides to spell parameters when cast through a feature interaction.",
       "properties": {
-        "name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
+        "creature_type": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
           "default": null,
-          "description": "Name of the spell or feature to activate",
-          "title": "Name"
+          "description": "Override the creature type (e.g., 'Fey' instead of 'Beast')",
+          "title": "Creature Type"
         },
-        "activation": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
+        "duration": {
+          "anyOf": [{ "$ref": "#/$defs/Duration" }, { "type": "null" }],
           "default": null,
-          "description": "Action cost (e.g., 'action', 'bonus_action')",
-          "title": "Activation"
+          "description": "Override the spell's duration"
+        }
+      },
+      "title": "SpellOverrides",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "SpellInteraction": {
+      "description": "Interaction that grants a modified casting of a spell.",
+      "properties": {
+        "type": {
+          "const": "spell",
+          "default": "spell",
+          "title": "Type",
+          "type": "string"
         },
-        "order": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Sequencing constraint (e.g., 'first' - must be first action on turn)",
-          "title": "Order"
+        "spell": {
+          "description": "Spell id reference (e.g., 'spell:find-familiar')",
+          "title": "Spell",
+          "type": "string"
         },
-        "cost": {
-          "anyOf": [
-            {
-              "const": "none",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
+        "slot": {
+          "anyOf": [{ "type": "boolean" }, { "type": "null" }],
           "default": null,
-          "description": "Override the normal resource cost",
-          "title": "Cost"
+          "description": "Whether a spell slot is consumed. Set to false to waive the slot cost.",
+          "title": "Slot"
         },
         "save": {
           "anyOf": [
@@ -5642,48 +5703,117 @@
               "enum": ["auto_fail", "auto_succeed"],
               "type": "string"
             },
-            {
-              "type": "null"
-            }
+            { "type": "null" }
           ],
           "default": null,
           "description": "Override the saving throw behavior",
           "title": "Save"
         },
+        "ignore_requirements": {
+          "anyOf": [
+            {
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Spell requirements bypassed (e.g., ['material'])",
+          "title": "Ignore Requirements"
+        },
+        "overrides": {
+          "anyOf": [{ "$ref": "#/$defs/SpellOverrides" }, { "type": "null" }],
+          "default": null,
+          "description": "Spell parameter overrides"
+        },
         "ends": {
           "anyOf": [
             {
-              "items": {
-                "type": "string"
-              },
+              "items": { "type": "string" },
               "type": "array"
             },
-            {
-              "type": "null"
-            }
+            { "type": "null" }
           ],
           "default": null,
           "description": "Effect identifiers terminated when this interaction fires",
           "title": "Ends"
+        }
+      },
+      "required": ["spell"],
+      "title": "SpellInteraction",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "FeatureInteraction": {
+      "description": "Interaction with a class feature.",
+      "properties": {
+        "type": {
+          "const": "feature",
+          "default": "feature",
+          "title": "Type",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the feature to interact with",
+          "title": "Name",
+          "type": "string"
+        },
+        "activation": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Action cost (e.g., 'action', 'bonus_action')",
+          "title": "Activation"
+        },
+        "order": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Sequencing constraint (e.g., 'first' — must be first action on turn)",
+          "title": "Order"
+        }
+      },
+      "required": ["name"],
+      "title": "FeatureInteraction",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "ActionInteraction": {
+      "description": "Interaction with a game action (Dash, Attack, etc.).",
+      "properties": {
+        "type": {
+          "const": "action",
+          "default": "action",
+          "title": "Type",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the game action (e.g., 'Dash', 'Attack')",
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": ["name"],
+      "title": "ActionInteraction",
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "ItemInteraction": {
+      "description": "Interaction with items, bypassing requirements.",
+      "properties": {
+        "type": {
+          "const": "item",
+          "default": "item",
+          "title": "Type",
+          "type": "string"
         },
         "ignore_requirements": {
-          "anyOf": [
-            {
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
+          "items": { "type": "string" },
+          "type": "array",
           "description": "Requirement categories bypassed (e.g., ['class', 'race', 'level'])",
           "title": "Ignore Requirements"
         }
       },
-      "title": "Interaction",
+      "required": ["ignore_requirements"],
+      "title": "ItemInteraction",
       "additionalProperties": false,
       "type": "object"
     },
@@ -6751,6 +6881,7 @@
           "combat_state": "#/$defs/CombatStateRequirement",
           "concentration": "#/$defs/ConcentrationRequirement",
           "count": "#/$defs/CountRequirement",
+          "cr": "#/$defs/CRRequirement",
           "creature_type": "#/$defs/CreatureTypeRequirement",
           "distance": "#/$defs/DistanceRequirement",
           "environment": "#/$defs/EnvironmentRequirement",
@@ -6767,6 +6898,7 @@
           "roll_result": "#/$defs/RollResultRequirement",
           "resource": "#/$defs/ResourceRequirement",
           "size": "#/$defs/SizeRequirement",
+          "speed": "#/$defs/SpeedRequirement",
           "spell": "#/$defs/SpellRequirement",
           "status": "#/$defs/StatusRequirement",
           "weapon_property": "#/$defs/WeaponPropertyRequirement"
@@ -6800,6 +6932,9 @@
         },
         {
           "$ref": "#/$defs/CountRequirement"
+        },
+        {
+          "$ref": "#/$defs/CRRequirement"
         },
         {
           "$ref": "#/$defs/CreatureTypeRequirement"
@@ -6848,6 +6983,9 @@
         },
         {
           "$ref": "#/$defs/SizeRequirement"
+        },
+        {
+          "$ref": "#/$defs/SpeedRequirement"
         },
         {
           "$ref": "#/$defs/SpellRequirement"
@@ -7593,7 +7731,7 @@
       "type": "object"
     },
     "Roll": {
-      "description": "A dice roll with an optional success condition.\n\nExample - Divine Intervention percentile roll:\n{\n    \"type\": \"percentile\",\n    \"success\": {\n        \"comparison\": \"less_than_or_equal\",\n        \"value\": {\"attribute\": \"classes.Cleric.level\"}\n    }\n}",
+      "description": "A dice roll with an optional success condition.\n\nExample - Divine Intervention percentile roll:\n{\n    \"type\": \"percentile\",\n    \"success\": {\n        \"comparison\": \"at_most\",\n        \"value\": {\"attribute\": \"classes.Cleric.level\"}\n    }\n}",
       "properties": {
         "type": {
           "description": "Roll type (e.g., 'percentile')",
@@ -8135,6 +8273,47 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "SpeedRequirement": {
+      "description": "Requirement based on creature movement speed by category (e.g., flying, swimming).",
+      "properties": {
+        "type": {
+          "const": "speed",
+          "default": "speed",
+          "title": "Type",
+          "type": "string"
+        },
+        "category": {
+          "description": "Movement category to check (e.g., 'flying', 'swimming', 'walking', 'climbing', 'burrowing')",
+          "title": "Category",
+          "type": "string"
+        },
+        "comparison": {
+          "description": "How to compare the creature's speed against the value",
+          "enum": ["equals", "less_than", "at_most", "greater_than", "at_least"],
+          "title": "Comparison",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Speed value — a number, a scaling reference (e.g., 'scaling.flying_speed'), or null (requirement removed by scaling)",
+          "title": "Value"
+        }
+      },
+      "required": ["category", "comparison", "value"],
+      "title": "SpeedRequirement",
+      "additionalProperties": false,
+      "type": "object"
+    },
     "SkillCheck": {
       "description": "A skill check against a difficulty class.\n\nExample - Snare (Investigation to spot the trap):\n{\"skill\": \"Investigation\", \"dc\": {\"ref\": \"spell_save_dc\"}}",
       "properties": {
@@ -8515,18 +8694,45 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "SpellComponent": {
+      "enum": ["Verbal", "Somatic", "Material"],
+      "title": "SpellComponent",
+      "type": "string"
+    },
     "ComponentConstraint": {
-      "description": "Spell component restrictions imposed by a status.\n\nBlocks specific spell components (verbal, somatic, material), preventing casting of spells that require those components unless bypassed (e.g., Subtle Spell metamagic).\n\nExample - Petrified (can't move or speak):\n{\"blocked\": [\"verbal\", \"somatic\"]}",
+      "description": "Spell component constraints.\n\n'blocked' = creature cannot provide these components (e.g., Petrified blocks Verbal, Somatic).\n'ignored' = creature does not need these components (e.g., Archdruid ignores Verbal, Somatic, Material).",
       "properties": {
         "blocked": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Spell components the creature cannot provide (e.g., 'verbal', 'somatic', 'material')"
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/SpellComponent"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Spell components the creature cannot provide"
+        },
+        "ignored": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/SpellComponent"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Spell components the creature does not need to provide"
         }
       },
-      "required": ["blocked"],
       "title": "ComponentConstraint",
       "additionalProperties": false,
       "type": "object"
@@ -8894,7 +9100,7 @@
       "properties": {
         "comparison": {
           "description": "How the roll result is compared to the threshold",
-          "enum": ["equals", "not_equals", "greater_than", "less_than", "greater_than_or_equal", "less_than_or_equal"],
+          "enum": ["equals", "not_equals", "greater_than", "less_than", "at_least", "at_most"],
           "title": "Comparison",
           "type": "string"
         },
@@ -9462,6 +9668,96 @@
       "title": "TriggerCheck",
       "type": "object"
     },
+    "Transform": {
+      "description": "Transformation into another creature form. Defines what attributes are retained from the original form, what constraints apply while transformed, and what happens when the form is lost.",
+      "properties": {
+        "type": {
+          "description": "Creature type of the new form (e.g., 'beast', 'elemental')",
+          "title": "Type",
+          "type": "string"
+        },
+        "retain": {
+          "description": "What the character keeps from their original form",
+          "properties": {
+            "ability_scores": {
+              "description": "Ability scores retained from the original form (e.g., ['Intelligence', 'Wisdom', 'Charisma'])",
+              "items": {
+                "type": "string"
+              },
+              "title": "Ability Scores",
+              "type": "array"
+            },
+            "proficiencies": {
+              "description": "Proficiency categories retained (e.g., ['skills', 'saving_throws']). Use whichever is higher between original and new form.",
+              "items": {
+                "type": "string"
+              },
+              "title": "Proficiencies",
+              "type": "array"
+            },
+            "features": {
+              "description": "Whether class features are retained (subject to the new form being able to use them)",
+              "title": "Features",
+              "type": "boolean"
+            }
+          },
+          "required": ["ability_scores", "proficiencies", "features"],
+          "additionalProperties": false,
+          "title": "Retain",
+          "type": "object"
+        },
+        "trigger": {
+          "description": "What happens when a specific event occurs while transformed (e.g., lethal damage causes revert)",
+          "properties": {
+            "event": {
+              "description": "The event(s) that fire this trigger",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "damage": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/TriggerDamage"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Damage event details"
+            },
+            "result": {
+              "description": "What happens when the trigger fires",
+              "enum": ["revert", "death"],
+              "title": "Result",
+              "type": "string"
+            }
+          },
+          "required": ["event", "result"],
+          "additionalProperties": false,
+          "title": "Transform Trigger",
+          "type": "object"
+        },
+        "constraints": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/StatusConstraint"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Behavioral restrictions while transformed (e.g., no spellcasting)"
+        }
+      },
+      "required": ["type", "retain", "trigger"],
+      "title": "Transform",
+      "additionalProperties": false,
+      "type": "object"
+    },
     "TriggerDamage": {
       "description": "Sub-object for damage event details.",
       "properties": {
@@ -9538,6 +9834,12 @@
           "default": null,
           "description": "Flat modifier to damage",
           "title": "Bonus"
+        },
+        "lethal": {
+          "default": false,
+          "description": "Shorthand for 'damage received >= current hit points'",
+          "title": "Lethal",
+          "type": "boolean"
         }
       },
       "additionalProperties": false,
@@ -9804,7 +10106,7 @@
         "comparison": {
           "anyOf": [
             {
-              "enum": ["equals", "not", "greater_than", "less_than", "at_most", "at_least"],
+              "enum": ["equals", "not_equals", "greater_than", "less_than", "at_most", "at_least"],
               "type": "string"
             },
             {

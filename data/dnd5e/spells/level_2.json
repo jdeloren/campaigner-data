@@ -2251,7 +2251,8 @@
             "grants": {
               "name": "Knock",
               "interaction": {
-                "name": "spell:arcane-lock",
+                "type": "spell",
+                "spell": "spell:arcane-lock",
                 "save": "auto_fail"
               }
             },

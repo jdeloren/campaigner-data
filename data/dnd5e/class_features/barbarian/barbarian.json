@@ -424,6 +424,7 @@
             "grants": {
               "name": "Rage",
               "interaction": {
+                "type": "feature",
                 "name": "Rage",
                 "activation": "bonus_action",
                 "order": "first"

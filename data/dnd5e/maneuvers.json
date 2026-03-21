@@ -224,7 +224,7 @@
                   "type": "distance",
                   "value": 5,
                   "unit": "feet",
-                  "comparison": "within"
+                  "comparison": "at_most"
                 }
               ]
             },
@@ -762,14 +762,14 @@
                 "requirements": [
                   {
                     "type": "distance",
-                    "comparison": "within",
+                    "comparison": "at_most",
                     "value": 5,
                     "unit": "feet",
                     "to": "event_recipient"
                   },
                   {
                     "type": "distance",
-                    "comparison": "within",
+                    "comparison": "at_most",
                     "to": "character"
                   }
                 ]

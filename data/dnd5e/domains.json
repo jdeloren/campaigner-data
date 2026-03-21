@@ -160,9 +160,9 @@
                     "grants": {
                       "name": "Suggestion",
                       "interaction": {
-                        "name": "Suggestion",
-                        "activation": "action",
-                        "cost": "none",
+                        "type": "spell",
+                        "spell": "spell:suggestion",
+                        "slot": false,
                         "save": "auto_fail",
                         "ends": ["read_surface_thoughts"]
                       }
@@ -594,7 +594,7 @@
                   {
                     "type": "distance",
                     "value": 30,
-                    "comparison": "within",
+                    "comparison": "at_most",
                     "unit": "feet"
                   },
                   {
@@ -736,7 +736,7 @@
                   {
                     "type": "distance",
                     "value": 30,
-                    "comparison": "within",
+                    "comparison": "at_most",
                     "unit": "feet"
                   },
                   {
@@ -1239,7 +1239,7 @@
                     "type": "distance",
                     "value": 5,
                     "unit": "feet",
-                    "comparison": "within"
+                    "comparison": "at_most"
                   },
                   {
                     "type": "perception",
@@ -1520,7 +1520,7 @@
                     {
                       "type": "distance",
                       "value": 5,
-                      "comparison": "within",
+                      "comparison": "at_most",
                       "to": "target",
                       "entities": ["self", "illusion"]
                     },
@@ -1804,7 +1804,7 @@
               {
                 "type": "distance",
                 "value": 30,
-                "comparison": "within",
+                "comparison": "at_most",
                 "unit": "feet",
                 "to": "creature"
               }
