@@ -586,14 +586,14 @@
         "transform": {
           "anyOf": [
             {
-              "$ref": "#/$defs/Transform"
+              "$ref": "#/$defs/CreatureForm"
             },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "description": "Transformation into another creature form (e.g., Wild Shape)"
+          "description": "Creature form for transformations or summons (e.g., Wild Shape)"
         }
       },
       "required": ["id"],
@@ -2404,7 +2404,8 @@
         "tool",
         "trait",
         "damage_type",
-        "character_resource"
+        "character_resource",
+        "resource"
       ],
       "title": "ChoiceType",
       "type": "string"
@@ -2451,7 +2452,7 @@
     },
     "CombatProperty": {
       "description": "Sub-properties for combat attribute modifications.",
-      "enum": ["melee_reach", "critical_hit_threshold"],
+      "enum": ["melee_reach", "critical_hit_threshold", "magical"],
       "title": "CombatProperty",
       "type": "string"
     },
@@ -4604,6 +4605,7 @@
           "illusion": "#/$defs/IllusionEntity",
           "consumable": "#/$defs/ConsumableEntity",
           "object": "#/$defs/ObjectEntity",
+          "creature": "#/$defs/CreatureForm",
           "weapon": "#/$defs/WeaponEntity"
         },
         "propertyName": "category"
@@ -4614,6 +4616,9 @@
         },
         {
           "$ref": "#/$defs/ConjurationEntity"
+        },
+        {
+          "$ref": "#/$defs/CreatureForm"
         },
         {
           "$ref": "#/$defs/IllusionEntity"
@@ -7335,12 +7340,16 @@
       "type": "object"
     },
     "ResourceCost": {
-      "description": "Cost in resource expenditure.\n\nExample: {\"amount\": 1, \"resource\": \"superiority_dice\"}",
+      "description": "Cost in resource expenditure.\n\nExample (fixed): {\"amount\": 1, \"resource\": \"superiority_dice\"}\nExample (variable): {\"resource\": \"fey_energy\", \"choice_type\": \"resource\", \"minimum\": 1, \"limit\": {\"scaling\": \"max_dice\"}}",
       "properties": {
         "amount": {
-          "description": "Numeric cost",
-          "title": "Amount",
-          "type": "number"
+          "anyOf": [
+            { "type": "number" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Fixed numeric cost. Omit when using choice_type for variable spending.",
+          "title": "Amount"
         },
         "choice_type": {
           "anyOf": [
@@ -7352,7 +7361,24 @@
             }
           ],
           "default": null,
-          "description": "When set, the player must choose which specific resource to spend (e.g., which spell slot level). The choice type determines which service provides the available options."
+          "description": "Player chooses the resource. 'character_resource' = which resource (e.g., spell slot level). 'resource' = how many from this pool."
+        },
+        "minimum": {
+          "anyOf": [
+            { "type": "integer" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Minimum amount to spend (for variable costs)",
+          "title": "Minimum"
+        },
+        "limit": {
+          "anyOf": [
+            { "$ref": "#/$defs/ScalingReference" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Maximum amount to spend, referenced from scaling"
         },
         "resource": {
           "description": "Resource pool to spend from",
@@ -7360,7 +7386,7 @@
           "type": "string"
         }
       },
-      "required": ["amount", "resource"],
+      "required": ["resource"],
       "title": "ResourceCost",
       "additionalProperties": false,
       "type": "object"
@@ -7390,7 +7416,7 @@
           "description": "Static value or formula string (e.g., 'class_level.Monk', 'proficiency_bonus')",
           "title": "Value"
         },
-        "class_name": {
+        "class": {
           "anyOf": [
             {
               "type": "string"
@@ -7400,8 +7426,8 @@
             }
           ],
           "default": null,
-          "description": "Class name for level-based scaling (e.g., 'Fighter', 'Monk')",
-          "title": "Class Name"
+          "description": "Class reference for level-based scaling (e.g., 'class:druid', 'class:monk')",
+          "title": "Class"
         },
         "values": {
           "anyOf": [
@@ -9668,93 +9694,122 @@
       "title": "TriggerCheck",
       "type": "object"
     },
-    "Transform": {
-      "description": "Transformation into another creature form. Defines what attributes are retained from the original form, what constraints apply while transformed, and what happens when the form is lost.",
+    "CreatureForm": {
+      "description": "Unified creature form for transformations and summons.\n\nUsed by apply_status.transform (target: self) and entity.category: creature (target: event_recipient or null).\n\nExample — Wild Shape (transform):\n{\"type\": \"beast\", \"target\": \"self\", \"retain\": {...}, \"trigger\": {...}, \"constraints\": {...}}\n\nExample — Fungal Infestation (animate):\n{\"type\": \"zombie\", \"target\": \"event_recipient\", \"hit_points\": 1, \"duration\": {...}, \"constraints\": {...}}",
       "properties": {
+        "category": {
+          "const": "creature",
+          "default": "creature",
+          "title": "Category",
+          "type": "string"
+        },
         "type": {
-          "description": "Creature type of the new form (e.g., 'beast', 'elemental')",
+          "description": "Creature type or stat block reference (e.g., 'beast', 'elemental', 'zombie')",
           "title": "Type",
           "type": "string"
         },
+        "target": {
+          "anyOf": [
+            {
+              "enum": ["self", "target", "event_actor", "event_recipient"],
+              "type": "string"
+            },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Who becomes or is replaced by this creature. 'self' = transform, 'target' = polymorph another, 'event_recipient' = animate target, null = new summon."
+        },
+        "hit_points": {
+          "anyOf": [
+            { "type": "integer" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Override the creature's hit points"
+        },
         "retain": {
-          "description": "What the character keeps from their original form",
-          "properties": {
-            "ability_scores": {
-              "description": "Ability scores retained from the original form (e.g., ['Intelligence', 'Wisdom', 'Charisma'])",
-              "items": {
-                "type": "string"
+          "anyOf": [
+            {
+              "properties": {
+                "ability_scores": {
+                  "description": "Ability scores retained from the original form",
+                  "items": { "type": "string" },
+                  "title": "Ability Scores",
+                  "type": "array"
+                },
+                "proficiencies": {
+                  "description": "Proficiency categories retained. Use whichever is higher between original and new form.",
+                  "items": { "type": "string" },
+                  "title": "Proficiencies",
+                  "type": "array"
+                },
+                "features": {
+                  "description": "Whether class features are retained",
+                  "title": "Features",
+                  "type": "boolean"
+                }
               },
-              "title": "Ability Scores",
-              "type": "array"
+              "required": ["ability_scores", "proficiencies", "features"],
+              "additionalProperties": false,
+              "type": "object"
             },
-            "proficiencies": {
-              "description": "Proficiency categories retained (e.g., ['skills', 'saving_throws']). Use whichever is higher between original and new form.",
-              "items": {
-                "type": "string"
-              },
-              "title": "Proficiencies",
-              "type": "array"
-            },
-            "features": {
-              "description": "Whether class features are retained (subject to the new form being able to use them)",
-              "title": "Features",
-              "type": "boolean"
-            }
-          },
-          "required": ["ability_scores", "proficiencies", "features"],
-          "additionalProperties": false,
-          "title": "Retain",
-          "type": "object"
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "What the character keeps from their original form (transforms only)"
         },
         "trigger": {
-          "description": "What happens when a specific event occurs while transformed (e.g., lethal damage causes revert)",
-          "properties": {
-            "event": {
-              "description": "The event(s) that fire this trigger",
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            },
-            "damage": {
-              "anyOf": [
-                {
-                  "$ref": "#/$defs/TriggerDamage"
+          "anyOf": [
+            {
+              "properties": {
+                "event": {
+                  "description": "The event(s) that fire this trigger",
+                  "items": { "type": "string" },
+                  "type": "array"
                 },
-                {
-                  "type": "null"
+                "damage": {
+                  "anyOf": [
+                    { "$ref": "#/$defs/TriggerDamage" },
+                    { "type": "null" }
+                  ],
+                  "default": null,
+                  "description": "Damage event details"
+                },
+                "result": {
+                  "description": "What happens when the trigger fires",
+                  "enum": ["revert", "death"],
+                  "title": "Result",
+                  "type": "string"
                 }
-              ],
-              "default": null,
-              "description": "Damage event details"
+              },
+              "required": ["event", "result"],
+              "additionalProperties": false,
+              "type": "object"
             },
-            "result": {
-              "description": "What happens when the trigger fires",
-              "enum": ["revert", "death"],
-              "title": "Result",
-              "type": "string"
-            }
-          },
-          "required": ["event", "result"],
-          "additionalProperties": false,
-          "title": "Transform Trigger",
-          "type": "object"
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "What happens when a specific event occurs (e.g., lethal damage causes revert)"
         },
         "constraints": {
           "anyOf": [
-            {
-              "$ref": "#/$defs/StatusConstraint"
-            },
-            {
-              "type": "null"
-            }
+            { "$ref": "#/$defs/StatusConstraint" },
+            { "type": "null" }
           ],
           "default": null,
-          "description": "Behavioral restrictions while transformed (e.g., no spellcasting)"
+          "description": "Behavioral restrictions on the creature"
+        },
+        "duration": {
+          "anyOf": [
+            { "$ref": "#/$defs/Duration" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "How long the creature persists (summons/animations)"
         }
       },
-      "required": ["type", "retain", "trigger"],
-      "title": "Transform",
+      "required": ["type"],
+      "title": "CreatureForm",
       "additionalProperties": false,
       "type": "object"
     },

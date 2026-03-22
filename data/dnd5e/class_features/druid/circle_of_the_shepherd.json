@@ -1,0 +1,372 @@
+[
+  {
+    "id": "feat:speech-of-the-woods",
+    "class": "subclass:circle-of-the-shepherd",
+    "level": 2,
+    "name": "Speech of the Woods",
+    "description": "You gain the ability to converse with beasts and many fey. You learn to speak, read, and write Sylvan. In addition, beasts can understand your speech, and you gain the ability to decipher their noises and motions. Most beasts lack the intelligence to convey or understand sophisticated concepts, but a friendly beast could relay what it has seen or heard in the recent past.",
+    "mechanics": [
+      {
+        "type": "proficiency",
+        "category": "language",
+        "proficiencies": ["Sylvan"]
+      },
+      {
+        "type": "special",
+        "name": "beast_communication",
+        "description": "Beasts can understand your speech, and you can decipher their noises and motions."
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:spirit-totem",
+    "class": "subclass:circle-of-the-shepherd",
+    "level": 2,
+    "name": "Spirit Totem",
+    "description": "You can call forth nature spirits to influence the world around you. As a bonus action, you can magically summon an incorporeal spirit to a point you can see within 60 feet of you. The spirit creates an aura in a 30-foot radius around that point. It counts as neither a creature nor an object, though it has the spectral appearance of the creature it represents. As a bonus action, you can move the spirit up to 60 feet to a point you can see. The spirit persists for 1 minute or until you're incapacitated. Once you use this feature, you can't use it again until you finish a short or long rest.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "subfeature",
+        "count": 1,
+        "options_ref": "subfeatures"
+      }
+    ],
+    "subfeatures": [
+      {
+        "name": "Bear Spirit",
+        "description": "The bear spirit grants you and your allies its might and endurance. Each creature of your choice in the aura when the spirit appears gains temporary hit points equal to 5 + your druid level. In addition, you and your allies gain advantage on Strength checks and Strength saving throws while in the aura.",
+        "mechanics": [
+          {
+            "type": "bonus_action",
+            "cost": [
+              {
+                "resource": "wild_shape",
+                "amount": 1
+              }
+            ],
+            "uses": { "value": 1 },
+            "recharge": "short_rest",
+            "effects": [
+              {
+                "aura": {
+                  "origin": "point",
+                  "radius": 30,
+                  "unit": "feet",
+                  "target": {
+                    "type": "creatures",
+                    "disposition": "friendly",
+                    "include_self": true
+                  },
+                  "grants": {
+                    "advantage": {
+                      "ability": "Strength"
+                    }
+                  }
+                },
+                "duration": {
+                  "value": 1,
+                  "unit": "minutes"
+                }
+              },
+              {
+                "healing": {
+                  "barrier": {
+                    "id": "bear_spirit_temp_hp",
+                    "priority": 1
+                  },
+                  "calculation": {
+                    "operation": "add",
+                    "operators": [
+                      { "type": "integer", "value": 5 },
+                      { "type": "class_level", "class": "Druid" }
+                    ]
+                  }
+                },
+                "target": {
+                  "type": "creatures",
+                  "disposition": "friendly",
+                  "include_self": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Hawk Spirit",
+        "description": "The hawk spirit is a consummate hunter, aiding you and your allies with its keen sight. When a creature makes an attack roll against a target in the spirit's aura, you can use your reaction to grant advantage on that attack roll. In addition, you and your allies have advantage on Wisdom (Perception) checks while in the aura.",
+        "mechanics": [
+          {
+            "type": "bonus_action",
+            "cost": [
+              {
+                "resource": "wild_shape",
+                "amount": 1
+              }
+            ],
+            "uses": { "value": 1 },
+            "recharge": "short_rest",
+            "effects": [
+              {
+                "aura": {
+                  "origin": "point",
+                  "radius": 30,
+                  "unit": "feet",
+                  "target": {
+                    "type": "creatures",
+                    "disposition": "friendly",
+                    "include_self": true
+                  },
+                  "grants": {
+                    "advantage": {
+                      "skill": "Perception"
+                    }
+                  }
+                },
+                "duration": {
+                  "value": 1,
+                  "unit": "minutes"
+                }
+              }
+            ]
+          },
+          {
+            "type": "reaction",
+            "trigger": {
+              "event": ["attack"],
+              "target": {
+                "type": "creature"
+              }
+            },
+            "effects": [
+              {
+                "advantage": {
+                  "attack": "all"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Unicorn Spirit",
+        "description": "The unicorn spirit lends its protection to those nearby. You and your allies gain advantage on all ability checks made to detect creatures in the spirit's aura. In addition, if you cast a spell using a spell slot that restores hit points to any creature inside or outside the aura, each creature of your choice in the aura also regains hit points equal to your druid level.",
+        "mechanics": [
+          {
+            "type": "bonus_action",
+            "cost": [
+              {
+                "resource": "wild_shape",
+                "amount": 1
+              }
+            ],
+            "uses": { "value": 1 },
+            "recharge": "short_rest",
+            "effects": [
+              {
+                "aura": {
+                  "origin": "point",
+                  "radius": 30,
+                  "unit": "feet",
+                  "target": {
+                    "type": "creatures",
+                    "disposition": "friendly",
+                    "include_self": true
+                  },
+                  "grants": {
+                    "advantage": {
+                      "ability": "Wisdom"
+                    }
+                  }
+                },
+                "duration": {
+                  "value": 1,
+                  "unit": "minutes"
+                }
+              }
+            ]
+          },
+          {
+            "type": "passive",
+            "trigger": {
+              "event": ["cast_spell"],
+              "source": {
+                "type": "spell",
+                "effect": ["healing"]
+              }
+            },
+            "effects": [
+              {
+                "healing": {
+                  "calculation": {
+                    "operation": "set",
+                    "operators": [
+                      { "type": "class_level", "class": "Druid" }
+                    ]
+                  }
+                },
+                "target": {
+                  "type": "creatures",
+                  "disposition": "friendly",
+                  "include_self": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:mighty-summoner",
+    "class": "subclass:circle-of-the-shepherd",
+    "level": 6,
+    "name": "Mighty Summoner",
+    "description": "Beasts and fey that you conjure are more resilient than normal. Any beast or fey summoned or created by a spell that you cast gains the following benefits: the creature appears with more hit points than normal: 2 extra hit points per Hit Die it has. The natural weapons of the creature are considered magical for the purpose of overcoming immunity and resistance to nonmagical attacks and damage.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "requirements": [
+          {
+            "operator": "or",
+            "conditions": [
+              { "type": "creature_type", "value": ["Beast"] },
+              { "type": "creature_type", "value": ["Fey"] }
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "attribute": {
+              "category": "combat",
+              "property": "magical",
+              "calculation": {
+                "operation": "set",
+                "operators": [{ "type": "boolean", "value": true }]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "requirements": [
+          {
+            "operator": "or",
+            "conditions": [
+              { "type": "creature_type", "value": ["Beast"] },
+              { "type": "creature_type", "value": ["Fey"] }
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "attribute": {
+              "target": "hit_points.maximum",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  { "type": "attribute", "value": "hit_points.maximum" },
+                  {
+                    "type": "calculation",
+                    "operation": "multiply",
+                    "operators": [
+                      { "type": "attribute", "value": "hit_dice.count" },
+                      { "type": "integer", "value": 2 }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:guardian-spirit",
+    "class": "subclass:circle-of-the-shepherd",
+    "level": 10,
+    "name": "Guardian Spirit",
+    "description": "Your Spirit Totem safeguards the beasts and fey that you call forth with your magic. When a beast or fey that you summoned or created with a spell ends its turn in your Spirit Totem aura, that creature regains a number of hit points equal to half your druid level.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "trigger": {
+          "event": ["turn_end"],
+          "target": {
+            "type": "creature",
+            "requirements": [
+              {
+                "operator": "or",
+                "conditions": [
+                  { "type": "creature_type", "value": ["Beast"] },
+                  { "type": "creature_type", "value": ["Fey"] }
+                ]
+              }
+            ]
+          }
+        },
+        "effects": [
+          {
+            "healing": {
+              "calculation": {
+                "operation": "divide",
+                "operators": [
+                  { "type": "class_level", "class": "Druid" },
+                  { "type": "integer", "value": 2 }
+                ],
+                "rounding": "down"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:faithful-summons",
+    "class": "subclass:circle-of-the-shepherd",
+    "level": 14,
+    "name": "Faithful Summons",
+    "description": "The nature spirits you commune with protect you when you are the most defenseless. If you are reduced to 0 hit points or are incapacitated against your will, you can immediately gain the effect of conjure animals as if it were cast using a 9th-level spell slot. It summons four beasts of your choice that are challenge rating 2 or lower. The conjured beasts appear within 20 feet of you. If they receive no commands from you, they protect you from harm and attack your foes. The spell lasts for 1 hour, requiring no concentration, and you can't use it again until you finish a long rest.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "trigger": {
+          "event": ["damaged_by"],
+          "damage": {
+            "lethal": true
+          }
+        },
+        "uses": { "value": 1 },
+        "recharge": "long_rest",
+        "grants": {
+          "name": "Faithful Summons",
+          "interaction": {
+            "type": "spell",
+            "spell": "spell:conjure-animals",
+            "slot": false,
+            "overrides": {
+              "duration": {
+                "value": 1,
+                "unit": "hours"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  }
+]

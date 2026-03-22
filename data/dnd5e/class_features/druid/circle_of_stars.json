@@ -1,0 +1,358 @@
+[
+  {
+    "id": "feat:star-map",
+    "class": "subclass:circle-of-stars",
+    "level": 2,
+    "name": "Star Map",
+    "description": "You've created a star chart as part of your heavenly studies. The star map is a Tiny object and can serve as a spellcasting focus for your druid spells. While holding this map, you have the following benefits: you know the guidance cantrip. You have the guiding bolt spell prepared. It counts as a druid spell for you, and it doesn't count against the number of spells you can have prepared. You can cast guiding bolt without expending a spell slot. You can do so a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+    "mechanics": [
+      {
+        "type": "granted_spells",
+        "always_prepared": true,
+        "spells": ["spell:guidance", "spell:guiding-bolt"]
+      },
+      {
+        "type": "bonus_action",
+        "grants": {
+          "name": "Star Map",
+          "interaction": {
+            "type": "spell",
+            "spell": "spell:guiding-bolt",
+            "slot": false
+          }
+        },
+        "uses": {
+          "calculation": "proficiency_bonus"
+        },
+        "recharge": "long_rest"
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:starry-form",
+    "class": "subclass:circle-of-stars",
+    "level": 2,
+    "name": "Starry Form",
+    "description": "As a bonus action, you can expend a use of your Wild Shape feature to take on a starry form, rather than transforming into a beast. While in your starry form, you retain your game statistics, but your body becomes luminous; your joints glimmer like stars, and glowing lines connect them as on a star chart. This form sheds bright light in a 10-foot radius and dim light for an additional 10 feet. The form lasts for 10 minutes. It ends early if you dismiss it (no action required), are incapacitated, die, or use this feature again.",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "cost": [
+          {
+            "resource": "wild_shape",
+            "amount": 1
+          }
+        ],
+        "effects": [
+          {
+            "apply_status": {
+              "id": "status:starry-form",
+              "duration": {
+                "value": 10,
+                "unit": "minutes",
+                "until": [
+                  {
+                    "event": ["status_removed"],
+                    "status": {
+                      "name": "starry-form",
+                      "method": "voluntary"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "aura": {
+              "origin": "self",
+              "layers": [
+                { "type": "bright_light", "shape": "radius", "size": 10, "unit": "feet" },
+                { "type": "dim_light", "shape": "radius", "size": 10, "unit": "feet" }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:starry-form-constellation",
+    "class": "subclass:circle-of-stars",
+    "level": 2,
+    "name": "Constellation",
+    "description": "You choose which constellation glimmers on your body when you enter your Starry Form.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "subfeature",
+        "count": 1,
+        "options_ref": "subfeatures"
+      }
+    ],
+    "subfeatures": [
+      {
+        "name": "Archer",
+        "description": "A constellation of an archer appears on you. When you activate this form, and as a bonus action on your subsequent turns while it lasts, you can make a ranged spell attack, hurling a luminous arrow that targets one creature within 60 feet of you. On a hit, the attack deals radiant damage equal to 1d8 + your Wisdom modifier.",
+        "mechanics": [
+          {
+            "type": "bonus_action",
+            "name": "Luminous Arrow",
+            "requirements": [
+              {
+                "type": "status",
+                "value": "starry-form"
+              }
+            ],
+            "damage": {
+              "dice": "1d8",
+              "type": ["radiant"],
+              "bonus": {
+                "operation": "add",
+                "operators": [{ "type": "ability_modifier", "ability": "Wisdom" }]
+              }
+            },
+            "target": {
+              "type": "creature",
+              "count": 1,
+              "disposition": "hostile"
+            },
+            "range": {
+              "value": 60,
+              "unit": "feet"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Chalice",
+        "description": "A constellation of a life-giving goblet appears on you. Whenever you cast a spell using a spell slot that restores hit points to a creature, you or another creature within 30 feet of you can regain hit points equal to 1d8 + your Wisdom modifier.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "requirements": [
+              {
+                "type": "status",
+                "value": "starry-form"
+              }
+            ],
+            "trigger": {
+              "event": ["cast_spell"],
+              "source": {
+                "type": "spell",
+                "effect": ["healing"]
+              }
+            },
+            "effects": [
+              {
+                "healing": {
+                  "dice": "1d8",
+                  "bonus": {
+                    "operation": "add",
+                    "operators": [{ "type": "ability_modifier", "ability": "Wisdom" }]
+                  }
+                },
+                "target": {
+                  "type": "creature",
+                  "count": 1,
+                  "disposition": "friendly",
+                  "include_self": true
+                },
+                "range": {
+                  "value": 30,
+                  "unit": "feet"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Dragon",
+        "description": "A constellation of a wise dragon appears on you. When you make an Intelligence or Wisdom check or a Constitution saving throw to maintain concentration on a spell, you can treat a roll of 9 or lower on the d20 as a 10.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "requirements": [
+              {
+                "type": "status",
+                "value": "starry-form"
+              }
+            ],
+            "effects": [
+              {
+                "roll_modifier": {
+                  "type": "ability_check",
+                  "bounds": { "minimum": 10 }
+                }
+              },
+              {
+                "roll_modifier": {
+                  "type": "saving_throw",
+                  "bounds": { "minimum": 10 }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:cosmic-omen",
+    "class": "subclass:circle-of-stars",
+    "level": 6,
+    "name": "Cosmic Omen",
+    "description": "You learn to use your star map to divine the will of the cosmos. Whenever you finish a long rest, you can consult your Star Map for omens. When you do so, roll a die. Until you finish your next long rest, you gain access to a special reaction based on whether you rolled an even or an odd number on the die. Weal (even): Whenever a creature you can see within 30 feet of you is about to make an attack roll, a saving throw, or an ability check, you can use your reaction to roll a d6 and add the number rolled to the total. Woe (odd): Whenever a creature you can see within 30 feet of you is about to make an attack roll, a saving throw, or an ability check, you can use your reaction to roll a d6 and subtract the number rolled from the total. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+    "mechanics": [
+      {
+        "type": "resource",
+        "id": "cosmic_omen",
+        "name": "Cosmic Omen",
+        "count": {
+          "type": "proficiency_bonus"
+        },
+        "recharge": "long_rest"
+      },
+      {
+        "type": "reaction",
+        "name": "Weal",
+        "cost": [
+          {
+            "resource": "cosmic_omen",
+            "amount": 1
+          }
+        ],
+        "trigger": {
+          "event": ["attack", "saving_throw", "ability_check"],
+          "timing": "before",
+          "condition": {
+            "type": "distance",
+            "value": 30,
+            "unit": "feet",
+            "comparison": "at_most",
+            "to": "character"
+          }
+        },
+        "effects": [
+          {
+            "roll_modifier": {
+              "operation": "add",
+              "value": "1d6"
+            }
+          }
+        ]
+      },
+      {
+        "type": "reaction",
+        "name": "Woe",
+        "cost": [
+          {
+            "resource": "cosmic_omen",
+            "amount": 1
+          }
+        ],
+        "trigger": {
+          "event": ["attack", "saving_throw", "ability_check"],
+          "timing": "before",
+          "condition": {
+            "type": "distance",
+            "value": 30,
+            "unit": "feet",
+            "comparison": "at_most",
+            "to": "character"
+          }
+        },
+        "effects": [
+          {
+            "roll_modifier": {
+              "operation": "subtract",
+              "value": "1d6"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:twinkling-constellations",
+    "class": "subclass:circle-of-stars",
+    "level": 10,
+    "name": "Twinkling Constellations",
+    "description": "The constellations of your Starry Form improve. The 1d8 of the Archer and the Chalice becomes 2d8, and while the Dragon is active, you have a flying speed of 20 feet and can hover. Moreover, at the start of each of your turns while in your Starry Form, you can change which constellation glimmers on your body.",
+    "enhances": ["feat:starry-form"],
+    "mechanics": [
+      {
+        "type": "passive",
+        "description": "Archer and Chalice damage dice increase to 2d8.",
+        "requirements": [
+          {
+            "type": "status",
+            "value": "starry-form"
+          }
+        ],
+        "effects": [
+          {
+            "damage": {
+              "dice": "2d8",
+              "type": ["radiant"]
+            }
+          },
+          {
+            "healing": {
+              "dice": "2d8"
+            }
+          },
+          {
+            "attribute": {
+              "category": "movement",
+              "property": "fly",
+              "calculation": {
+                "operation": "set",
+                "operators": [{ "type": "integer", "value": 20 }]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:full-of-stars",
+    "class": "subclass:circle-of-stars",
+    "level": 14,
+    "name": "Full of Stars",
+    "description": "While in your Starry Form, you become partially incorporeal, giving you resistance to bludgeoning, piercing, and slashing damage.",
+    "enhances": ["feat:starry-form"],
+    "mechanics": [
+      {
+        "type": "passive",
+        "requirements": [
+          {
+            "type": "status",
+            "value": "starry-form"
+          }
+        ],
+        "effects": [
+          {
+            "damage_response": {
+              "category": "resistance",
+              "to": ["bludgeoning", "piercing", "slashing"]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  }
+]

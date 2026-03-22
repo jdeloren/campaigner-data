@@ -103,7 +103,9 @@
                 ]
               },
               "transform": {
+                "category": "creature",
                 "type": "beast",
+                "target": "self",
                 "retain": {
                   "ability_scores": ["Intelligence", "Wisdom", "Charisma"],
                   "proficiencies": ["skills", "saving_throws"],
