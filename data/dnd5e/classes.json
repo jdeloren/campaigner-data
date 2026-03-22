@@ -12,7 +12,7 @@
       "tools": [
         {
           "type": "fixed",
-          "items": ["tool:thieves-tools"]
+          "items": ["Thieves' Tools"]
         }
       ],
       "skills": {
@@ -129,7 +129,7 @@
       "tools": [
         {
           "type": "fixed",
-          "items": ["tool:thieves-tools"]
+          "items": ["Thieves' Tools"]
         }
       ],
       "skills": {
@@ -165,7 +165,7 @@
       "tools": [
         {
           "type": "fixed",
-          "items": ["tool:thieves-tools"]
+          "items": ["Thieves' Tools"]
         }
       ],
       "skills": {
@@ -201,7 +201,7 @@
       "tools": [
         {
           "type": "fixed",
-          "items": ["tool:thieves-tools"]
+          "items": ["Thieves' Tools"]
         }
       ],
       "skills": {
@@ -2392,7 +2392,7 @@
       "tools": [
         {
           "type": "fixed",
-          "items": ["tool:herbalism-kit"]
+          "items": ["Herbalism Kit"]
         }
       ],
       "skills": {
@@ -2654,7 +2654,7 @@
       "tools": [
         {
           "type": "fixed",
-          "items": ["tool:herbalism-kit"]
+          "items": ["Herbalism Kit"]
         }
       ],
       "skills": {
@@ -2679,7 +2679,7 @@
       "tools": [
         {
           "type": "fixed",
-          "items": ["tool:herbalism-kit"]
+          "items": ["Herbalism Kit"]
         }
       ],
       "skills": {
@@ -2704,7 +2704,7 @@
       "tools": [
         {
           "type": "fixed",
-          "items": ["tool:herbalism-kit"]
+          "items": ["Herbalism Kit"]
         }
       ],
       "skills": {
@@ -2729,7 +2729,7 @@
       "tools": [
         {
           "type": "fixed",
-          "items": ["tool:herbalism-kit"]
+          "items": ["Herbalism Kit"]
         }
       ],
       "skills": {
@@ -2754,7 +2754,7 @@
       "tools": [
         {
           "type": "fixed",
-          "items": ["tool:herbalism-kit"]
+          "items": ["Herbalism Kit"]
         }
       ],
       "skills": {
@@ -2779,7 +2779,7 @@
       "tools": [
         {
           "type": "fixed",
-          "items": ["tool:herbalism-kit"]
+          "items": ["Herbalism Kit"]
         }
       ],
       "skills": {
@@ -2804,7 +2804,7 @@
       "tools": [
         {
           "type": "fixed",
-          "items": ["tool:herbalism-kit"]
+          "items": ["Herbalism Kit"]
         }
       ],
       "skills": {
@@ -2829,7 +2829,7 @@
       "tools": [
         {
           "type": "fixed",
-          "items": ["tool:herbalism-kit"]
+          "items": ["Herbalism Kit"]
         }
       ],
       "skills": {
