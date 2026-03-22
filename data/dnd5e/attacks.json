@@ -1,0 +1,140 @@
+[
+  {
+    "id": "attack:bite",
+    "name": "Bite",
+    "type": "weapon_attack",
+    "reach": 5,
+    "damage_type": "piercing",
+    "source": "mm",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "attack:claw",
+    "name": "Claw",
+    "type": "weapon_attack",
+    "reach": 5,
+    "damage_type": "slashing",
+    "source": "mm",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "attack:gore",
+    "name": "Gore",
+    "type": "weapon_attack",
+    "reach": 5,
+    "damage_type": "piercing",
+    "source": "mm",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "attack:hooves",
+    "name": "Hooves",
+    "type": "weapon_attack",
+    "reach": 5,
+    "damage_type": "bludgeoning",
+    "source": "mm",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "attack:talons",
+    "name": "Talons",
+    "type": "weapon_attack",
+    "reach": 5,
+    "damage_type": "slashing",
+    "source": "mm",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "attack:slam",
+    "name": "Slam",
+    "type": "weapon_attack",
+    "reach": 5,
+    "damage_type": "bludgeoning",
+    "source": "mm",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "attack:sting",
+    "name": "Sting",
+    "type": "weapon_attack",
+    "reach": 5,
+    "damage_type": "piercing",
+    "source": "mm",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "attack:ram",
+    "name": "Ram",
+    "type": "weapon_attack",
+    "reach": 5,
+    "damage_type": "bludgeoning",
+    "source": "mm",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "attack:constrict",
+    "name": "Constrict",
+    "type": "weapon_attack",
+    "reach": 5,
+    "damage_type": "bludgeoning",
+    "source": "mm",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "attack:tentacle",
+    "name": "Tentacle",
+    "type": "weapon_attack",
+    "reach": 10,
+    "damage_type": "bludgeoning",
+    "source": "mm",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "attack:tusk",
+    "name": "Tusk",
+    "type": "weapon_attack",
+    "reach": 5,
+    "damage_type": "slashing",
+    "source": "mm",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "attack:shortsword",
+    "name": "Shortsword",
+    "type": "weapon_attack",
+    "reach": 5,
+    "damage_type": "piercing",
+    "properties": ["Finesse", "Light"],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "attack:scimitar",
+    "name": "Scimitar",
+    "type": "weapon_attack",
+    "reach": 5,
+    "damage_type": "slashing",
+    "properties": ["Finesse", "Light"],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "attack:shortbow",
+    "name": "Shortbow",
+    "type": "weapon_attack",
+    "range": { "normal": 80, "long": 320 },
+    "damage_type": "piercing",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "attack:longbow",
+    "name": "Longbow",
+    "type": "weapon_attack",
+    "range": { "normal": 150, "long": 600 },
+    "damage_type": "piercing",
+    "properties": ["Heavy"],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

@@ -1718,7 +1718,7 @@
             "grants": {
               "name": "Flame Blade Attack",
               "activation": "action",
-              "action": "melee_spell_attack"
+              "action": "spell_attack"
             },
             "aura": {
               "origin": "self",

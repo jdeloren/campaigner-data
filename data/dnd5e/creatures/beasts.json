@@ -1,0 +1,206 @@
+[
+  {
+    "id": "creature:cat",
+    "name": "Cat",
+    "size": "Tiny",
+    "type": "Beast",
+    "alignment": "unaligned",
+    "armor_class": { "value": 12 },
+    "hit_points": { "average": 2, "formula": "1d4" },
+    "speed": { "walk": 40, "climb": 30 },
+    "ability_scores": {
+      "Strength": 3, "Dexterity": 15, "Constitution": 10,
+      "Intelligence": 3, "Wisdom": 12, "Charisma": 7
+    },
+    "skills": { "Perception": 3, "Stealth": 4 },
+    "senses": { "passive_perception": 13 },
+    "challenge_rating": 0,
+    "traits": [
+      { "name": "Keen Smell", "description": "The cat has advantage on Wisdom (Perception) checks that rely on smell." }
+    ],
+    "actions": [
+      {
+        "name": "Claws",
+        "ref": "attack:claw",
+        "bonus": 0,
+        "damage": "1 slashing"
+      }
+    ],
+    "source": "mm",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "creature:wolf",
+    "name": "Wolf",
+    "size": "Medium",
+    "type": "Beast",
+    "alignment": "unaligned",
+    "armor_class": { "value": 13, "type": "natural armor" },
+    "hit_points": { "average": 11, "formula": "2d8+2" },
+    "speed": { "walk": 40 },
+    "ability_scores": {
+      "Strength": 12, "Dexterity": 15, "Constitution": 12,
+      "Intelligence": 3, "Wisdom": 12, "Charisma": 6
+    },
+    "skills": { "Perception": 3, "Stealth": 4 },
+    "senses": { "passive_perception": 13 },
+    "challenge_rating": 0.25,
+    "traits": [
+      { "name": "Keen Hearing and Smell", "description": "The wolf has advantage on Wisdom (Perception) checks that rely on hearing or smell." },
+      { "name": "Pack Tactics", "description": "The wolf has advantage on an attack roll against a creature if at least one of the wolf's allies is within 5 feet of the creature and the ally isn't incapacitated." }
+    ],
+    "actions": [
+      {
+        "name": "Bite",
+        "ref": "attack:bite",
+        "bonus": 4,
+        "damage": "2d4+2"
+      }
+    ],
+    "source": "mm",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "creature:brown-bear",
+    "name": "Brown Bear",
+    "size": "Large",
+    "type": "Beast",
+    "alignment": "unaligned",
+    "armor_class": { "value": 11, "type": "natural armor" },
+    "hit_points": { "average": 34, "formula": "4d10+12" },
+    "speed": { "walk": 40, "climb": 30 },
+    "ability_scores": {
+      "Strength": 19, "Dexterity": 10, "Constitution": 16,
+      "Intelligence": 2, "Wisdom": 13, "Charisma": 7
+    },
+    "skills": { "Perception": 3 },
+    "senses": { "passive_perception": 13 },
+    "challenge_rating": 1,
+    "traits": [
+      { "name": "Keen Smell", "description": "The bear has advantage on Wisdom (Perception) checks that rely on smell." }
+    ],
+    "actions": [
+      { "name": "Multiattack", "description": "The bear makes two attacks: one with its bite and one with its claws." },
+      {
+        "name": "Bite",
+        "ref": "attack:bite",
+        "bonus": 5,
+        "damage": "1d8+4"
+      },
+      {
+        "name": "Claws",
+        "ref": "attack:claw",
+        "bonus": 5,
+        "damage": "2d6+4"
+      }
+    ],
+    "source": "mm",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "creature:giant-eagle",
+    "name": "Giant Eagle",
+    "size": "Large",
+    "type": "Beast",
+    "alignment": "neutral good",
+    "armor_class": { "value": 13 },
+    "hit_points": { "average": 26, "formula": "4d10+4" },
+    "speed": { "walk": 10, "fly": 80 },
+    "ability_scores": {
+      "Strength": 16, "Dexterity": 17, "Constitution": 13,
+      "Intelligence": 8, "Wisdom": 14, "Charisma": 10
+    },
+    "skills": { "Perception": 4 },
+    "senses": { "passive_perception": 14 },
+    "languages": ["Giant Eagle", "Common"],
+    "challenge_rating": 1,
+    "traits": [
+      { "name": "Keen Sight", "description": "The eagle has advantage on Wisdom (Perception) checks that rely on sight." }
+    ],
+    "actions": [
+      { "name": "Multiattack", "description": "The eagle makes two attacks: one with its beak and one with its talons." },
+      {
+        "name": "Beak",
+        "ref": "attack:bite",
+        "bonus": 5,
+        "damage": "1d6+3"
+      },
+      {
+        "name": "Talons",
+        "ref": "attack:talons",
+        "bonus": 5,
+        "damage": "2d6+3"
+      }
+    ],
+    "source": "mm",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "creature:giant-spider",
+    "name": "Giant Spider",
+    "size": "Large",
+    "type": "Beast",
+    "alignment": "unaligned",
+    "armor_class": { "value": 14, "type": "natural armor" },
+    "hit_points": { "average": 26, "formula": "4d10+4" },
+    "speed": { "walk": 30, "climb": 30 },
+    "ability_scores": {
+      "Strength": 14, "Dexterity": 16, "Constitution": 12,
+      "Intelligence": 2, "Wisdom": 11, "Charisma": 4
+    },
+    "skills": { "Stealth": 7 },
+    "senses": { "blindsight": 10, "darkvision": 60, "passive_perception": 10 },
+    "challenge_rating": 1,
+    "traits": [
+      { "name": "Spider Climb", "description": "The spider can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check." },
+      { "name": "Web Sense", "description": "While in contact with a web, the spider knows the exact location of any other creature in contact with the same web." },
+      { "name": "Web Walker", "description": "The spider ignores movement restrictions caused by webbing." }
+    ],
+    "actions": [
+      {
+        "name": "Bite",
+        "ref": "attack:bite",
+        "bonus": 5,
+        "damage": "1d8+3",
+        "additional_damage": {
+          "dice": "2d8",
+          "type": "poison",
+          "save": { "ability": "Constitution", "dc": 11, "half_on_save": true }
+        }
+      }
+    ],
+    "source": "mm",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "creature:reef-shark",
+    "name": "Reef Shark",
+    "size": "Medium",
+    "type": "Beast",
+    "alignment": "unaligned",
+    "armor_class": { "value": 12, "type": "natural armor" },
+    "hit_points": { "average": 22, "formula": "4d8+4" },
+    "speed": { "swim": 40 },
+    "ability_scores": {
+      "Strength": 14, "Dexterity": 13, "Constitution": 13,
+      "Intelligence": 1, "Wisdom": 10, "Charisma": 4
+    },
+    "skills": { "Perception": 2 },
+    "senses": { "blindsight": 30, "passive_perception": 12 },
+    "challenge_rating": 0.5,
+    "traits": [
+      { "name": "Pack Tactics", "description": "The shark has advantage on an attack roll against a creature if at least one of the shark's allies is within 5 feet of the creature and the ally isn't incapacitated." },
+      { "name": "Water Breathing", "description": "The shark can breathe only underwater." }
+    ],
+    "actions": [
+      {
+        "name": "Bite",
+        "ref": "attack:bite",
+        "bonus": 4,
+        "damage": "1d8+2"
+      }
+    ],
+    "source": "mm",
+    "ruleset": "dnd5e"
+  }
+]

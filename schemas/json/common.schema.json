@@ -2680,6 +2680,21 @@
       "title": "CreatureSize",
       "type": "string"
     },
+    "CreatureType": {
+      "enum": ["Aberration", "Beast", "Celestial", "Construct", "Dragon", "Elemental", "Fey", "Fiend", "Giant", "Humanoid", "Monstrosity", "Ooze", "Plant", "Undead"],
+      "title": "CreatureType",
+      "type": "string"
+    },
+    "AttackType": {
+      "enum": ["weapon_attack", "spell_attack"],
+      "title": "AttackType",
+      "type": "string"
+    },
+    "Skill": {
+      "enum": ["Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Performance", "Persuasion", "Religion", "Sleight of Hand", "Stealth", "Survival"],
+      "title": "Skill",
+      "type": "string"
+    },
     "CreatureTypeRequirement": {
       "description": "Creature type requirement - filter targets by creature type.",
       "properties": {

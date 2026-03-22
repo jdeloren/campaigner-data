@@ -1,0 +1,391 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "creature.schema.json",
+  "title": "Creatures",
+  "description": "Array of creature/monster stat block definitions.",
+  "type": "array",
+  "items": {
+    "$ref": "#/$defs/Creature"
+  },
+  "$defs": {
+    "Creature": {
+      "description": "A creature stat block defining all mechanical properties of a monster, beast, NPC, or other entity.",
+      "type": "object",
+      "required": ["id", "name", "size", "type", "armor_class", "hit_points", "speed", "ability_scores", "challenge_rating", "source", "ruleset"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique prefixed slug ID (e.g., 'creature:wolf', 'creature:zombie')"
+        },
+        "name": {
+          "type": "string",
+          "description": "Display name"
+        },
+        "description": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Flavor text or lore description"
+        },
+        "size": {
+          "$ref": "common.schema.json#/$defs/CreatureSize",
+          "description": "Creature size category"
+        },
+        "type": {
+          "anyOf": [
+            { "$ref": "common.schema.json#/$defs/CreatureType" },
+            { "items": { "$ref": "common.schema.json#/$defs/CreatureType" }, "type": "array" }
+          ],
+          "description": "Creature type(s) (e.g., 'Beast', ['Humanoid', 'Fey'])"
+        },
+        "subtype": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Creature subtype (e.g., 'shapechanger', 'goblinoid')"
+        },
+        "alignment": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Typical alignment (e.g., 'unaligned', 'chaotic evil')"
+        },
+        "armor_class": {
+          "$ref": "#/$defs/ArmorClass",
+          "description": "Armor class and source"
+        },
+        "hit_points": {
+          "$ref": "#/$defs/HitPoints",
+          "description": "Hit points with hit dice formula"
+        },
+        "speed": {
+          "$ref": "#/$defs/Speed",
+          "description": "Movement speeds by category"
+        },
+        "ability_scores": {
+          "$ref": "#/$defs/AbilityScores",
+          "description": "The six ability scores"
+        },
+        "saving_throws": {
+          "anyOf": [
+            {
+              "type": "object",
+              "propertyNames": { "$ref": "common.schema.json#/$defs/Ability" },
+              "additionalProperties": { "type": "integer" },
+              "description": "Saving throw bonuses by ability (e.g., {\"Dexterity\": 4})"
+            },
+            { "type": "null" }
+          ],
+          "default": null
+        },
+        "skills": {
+          "anyOf": [
+            {
+              "type": "object",
+              "propertyNames": { "$ref": "common.schema.json#/$defs/Skill" },
+              "additionalProperties": { "type": "integer" },
+              "description": "Skill bonuses by name (e.g., {\"Perception\": 3, \"Stealth\": 4})"
+            },
+            { "type": "null" }
+          ],
+          "default": null
+        },
+        "damage_resistances": {
+          "anyOf": [
+            { "items": { "anyOf": [{ "$ref": "common.schema.json#/$defs/DamageType" }, { "$ref": "common.schema.json#/$defs/DamageElement" }] }, "type": "array" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Damage types the creature has resistance to"
+        },
+        "damage_immunities": {
+          "anyOf": [
+            { "items": { "anyOf": [{ "$ref": "common.schema.json#/$defs/DamageType" }, { "$ref": "common.schema.json#/$defs/DamageElement" }] }, "type": "array" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Damage types the creature is immune to"
+        },
+        "damage_vulnerabilities": {
+          "anyOf": [
+            { "items": { "anyOf": [{ "$ref": "common.schema.json#/$defs/DamageType" }, { "$ref": "common.schema.json#/$defs/DamageElement" }] }, "type": "array" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Damage types the creature is vulnerable to"
+        },
+        "condition_immunities": {
+          "anyOf": [
+            { "items": { "type": "string" }, "type": "array" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Conditions the creature is immune to"
+        },
+        "senses": {
+          "anyOf": [
+            { "$ref": "#/$defs/Senses" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Special senses and passive perception"
+        },
+        "languages": {
+          "anyOf": [
+            { "items": { "type": "string" }, "type": "array" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Languages the creature speaks or understands"
+        },
+        "challenge_rating": {
+          "type": "number",
+          "description": "Challenge rating (e.g., 0.25 for CR 1/4, 1, 5)"
+        },
+        "proficiency_bonus": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Proficiency bonus (derived from CR if omitted)"
+        },
+        "traits": {
+          "anyOf": [
+            { "items": { "$ref": "#/$defs/Trait" }, "type": "array" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Special traits and abilities"
+        },
+        "actions": {
+          "anyOf": [
+            { "items": { "$ref": "#/$defs/Action" }, "type": "array" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Actions the creature can take"
+        },
+        "source": {
+          "type": "string",
+          "description": "Source book (e.g., 'mm', 'phb')"
+        },
+        "ruleset": {
+          "type": "string",
+          "description": "Ruleset identifier"
+        }
+      }
+    },
+    "ArmorClass": {
+      "type": "object",
+      "required": ["value"],
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "integer",
+          "description": "AC value"
+        },
+        "type": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Source of AC (e.g., 'natural armor', 'leather armor')"
+        }
+      }
+    },
+    "HitPoints": {
+      "type": "object",
+      "required": ["average", "formula"],
+      "additionalProperties": false,
+      "properties": {
+        "average": {
+          "type": "integer",
+          "description": "Average hit points"
+        },
+        "formula": {
+          "type": "string",
+          "description": "Hit dice formula (e.g., '2d8+2', '3d6')"
+        }
+      }
+    },
+    "Speed": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "walk": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Walking speed in feet"
+        },
+        "fly": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Flying speed in feet"
+        },
+        "swim": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Swimming speed in feet"
+        },
+        "climb": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Climbing speed in feet"
+        },
+        "burrow": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Burrowing speed in feet"
+        }
+      }
+    },
+    "AbilityScores": {
+      "type": "object",
+      "required": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
+      "additionalProperties": false,
+      "properties": {
+        "Strength": { "type": "integer" },
+        "Dexterity": { "type": "integer" },
+        "Constitution": { "type": "integer" },
+        "Intelligence": { "type": "integer" },
+        "Wisdom": { "type": "integer" },
+        "Charisma": { "type": "integer" }
+      }
+    },
+    "Senses": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "darkvision": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Darkvision range in feet"
+        },
+        "blindsight": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Blindsight range in feet"
+        },
+        "tremorsense": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Tremorsense range in feet"
+        },
+        "truesight": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Truesight range in feet"
+        },
+        "passive_perception": {
+          "type": "integer",
+          "description": "Passive Perception score"
+        }
+      },
+      "required": ["passive_perception"]
+    },
+    "Trait": {
+      "type": "object",
+      "required": ["name", "description"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Trait name"
+        },
+        "description": {
+          "type": "string",
+          "description": "Trait description"
+        }
+      }
+    },
+    "Action": {
+      "description": "A creature action. Non-attack actions use name + description. Attack actions reference an attack definition and provide creature-specific values.",
+      "type": "object",
+      "required": ["name"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Action name (can match the attack def name or be custom)"
+        },
+        "description": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Action description (required for non-attack actions)"
+        },
+        "ref": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Reference to an attack definition (e.g., 'attack:bite')"
+        },
+        "bonus": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Attack bonus for this creature"
+        },
+        "damage": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Damage dice + modifier (e.g., '1d6+2')"
+        },
+        "reach": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Override the attack definition's reach (in feet)"
+        },
+        "range": {
+          "anyOf": [{ "$ref": "attack.schema.json#/$defs/WeaponRange" }, { "type": "null" }],
+          "default": null,
+          "description": "Override the attack definition's range"
+        },
+        "additional_damage": {
+          "anyOf": [{ "$ref": "#/$defs/AdditionalDamage" }, { "type": "null" }],
+          "default": null,
+          "description": "Extra damage beyond the base (e.g., poison on a bite)"
+        },
+        "targets": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Override target description"
+        }
+      }
+    },
+    "AdditionalDamage": {
+      "type": "object",
+      "required": ["dice", "type"],
+      "additionalProperties": false,
+      "properties": {
+        "dice": {
+          "type": "string",
+          "description": "Damage dice (e.g., '1d6', '2d8')"
+        },
+        "type": {
+          "anyOf": [
+            { "$ref": "common.schema.json#/$defs/DamageType" },
+            { "$ref": "common.schema.json#/$defs/DamageElement" }
+          ],
+          "description": "Damage type (e.g., 'poison', 'necrotic', 'fire')"
+        },
+        "save": {
+          "anyOf": [{ "$ref": "#/$defs/DamageSave" }, { "type": "null" }],
+          "default": null,
+          "description": "Saving throw to avoid or reduce the additional damage"
+        }
+      }
+    },
+    "DamageSave": {
+      "type": "object",
+      "required": ["ability", "dc"],
+      "additionalProperties": false,
+      "properties": {
+        "ability": {
+          "$ref": "common.schema.json#/$defs/Ability",
+          "description": "Saving throw ability"
+        },
+        "dc": {
+          "type": "integer",
+          "description": "Save DC"
+        },
+        "half_on_save": {
+          "type": "boolean",
+          "default": false,
+          "description": "If true, target takes half damage on a successful save"
+        }
+      }
+    }
+  }
+}

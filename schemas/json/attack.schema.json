@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "attack.schema.json",
+  "title": "AttackDefinitions",
+  "description": "Array of reusable attack definitions. Creatures reference these by ID and provide creature-specific bonuses and damage.",
+  "type": "array",
+  "items": {
+    "$ref": "#/$defs/AttackDefinition"
+  },
+  "$defs": {
+    "AttackDefinition": {
+      "description": "A reusable attack template. Defines the attack's identity, type, default reach/range, default damage type, and default target. Creatures override bonus, damage dice, and can add additional damage types.",
+      "type": "object",
+      "required": ["id", "name", "type", "damage_type", "source", "ruleset"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique prefixed slug ID (e.g., 'attack:bite', 'attack:claw')"
+        },
+        "name": {
+          "type": "string",
+          "description": "Display name (e.g., 'Bite', 'Claw')"
+        },
+        "description": {
+          "anyOf": [{ "type": "string" }, { "type": "null" }],
+          "default": null,
+          "description": "Flavor text for this attack type"
+        },
+        "type": {
+          "$ref": "common.schema.json#/$defs/AttackType",
+          "description": "Attack category"
+        },
+        "reach": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Default melee reach in feet (e.g., 5, 10)"
+        },
+        "range": {
+          "anyOf": [{ "$ref": "#/$defs/WeaponRange" }, { "type": "null" }],
+          "default": null,
+          "description": "Default ranged attack range"
+        },
+        "targets": {
+          "type": "string",
+          "default": "one target",
+          "description": "Default target description"
+        },
+        "damage_type": {
+          "anyOf": [
+            { "$ref": "common.schema.json#/$defs/DamageType" },
+            { "$ref": "common.schema.json#/$defs/DamageElement" }
+          ],
+          "description": "Default damage type (e.g., 'piercing', 'slashing', 'fire')"
+        },
+        "properties": {
+          "anyOf": [
+            { "items": { "type": "string" }, "type": "array" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "description": "Weapon properties if applicable (e.g., 'Finesse', 'Light', 'Thrown')"
+        },
+        "source": {
+          "type": "string",
+          "description": "Source book"
+        },
+        "ruleset": {
+          "type": "string",
+          "description": "Ruleset identifier"
+        }
+      }
+    },
+    "WeaponRange": {
+      "type": "object",
+      "required": ["normal"],
+      "additionalProperties": false,
+      "properties": {
+        "normal": {
+          "type": "integer",
+          "description": "Normal range in feet"
+        },
+        "long": {
+          "anyOf": [{ "type": "integer" }, { "type": "null" }],
+          "default": null,
+          "description": "Long range in feet"
+        }
+      }
+    }
+  }
+}

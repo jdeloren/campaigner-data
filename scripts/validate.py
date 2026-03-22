@@ -49,6 +49,8 @@ SCHEMA_MAP = {
     "statuses": "status.schema.json",
     "commands": "command.schema.json",
     "feats": "feat.schema.json",
+    "attacks": "attack.schema.json",
+    "creatures": "creature.schema.json",
 }
 
 
