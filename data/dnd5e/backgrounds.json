@@ -318,6 +318,83 @@
     "ruleset": "dnd5e"
   },
   {
+    "id": "bg:gladiator",
+    "name": "Gladiator",
+    "description": "A gladiator is as much an entertainer as any minstrel or circus performer trained to make the arts of combat into a spectacle the crowd can enjoy. This kind of flashy combat is your entertainer routine, though you might also have some skills as a tumbler or actor. Using your By Popular Demand feature, you can find a place to perform in any place that features combat for entertainment-perhaps a gladiatorial arena or secret pit fighting club.",
+    "skill_proficiencies": ["Acrobatics", "Performance"],
+    "tool_proficiencies": ["tool:disguise-kit"],
+    "languages": [],
+    "equipment": [
+      {
+        "choice_group": 1,
+        "type": "choice",
+        "options": [
+          {
+            "item": "Cestus",
+            "quantity": 1
+          },
+          {
+            "item": "Halberd",
+            "quantity": 1
+          },
+          {
+            "item": "Trident",
+            "quantity": 1
+          },
+          {
+            "item": "Shortsword",
+            "quantity": 1
+          },
+          {
+            "item": "Whip",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "choice_group": 2,
+        "type": "choice",
+        "options": [
+          {
+            "item": "Love Letter",
+            "quantity": 1,
+            "flavor": true
+          },
+          {
+            "item": "Lock of Hair",
+            "quantity": 1,
+            "flavor": true
+          },
+          {
+            "item": "Trinket",
+            "quantity": 1,
+            "flavor": true
+          }
+        ]
+      },
+      {
+        "choice_group": 3,
+        "type": "fixed",
+        "items": [
+          {
+            "item": "Clothes, Costume",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "choice_group": 4,
+        "type": "fixed",
+        "currency": {
+          "amount": 15,
+          "currency": "GP"
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
     "id": "bg:guild-artisan",
     "name": "Guild Artisan",
     "description": "You are a member of an artisan's guild, skilled in a particular field and closely associated with other artisans. You are a well-established part of the mercantile world, freed by talent and wealth from the constraints of a feudal social order. You learned your skills as an apprentice to a master artisan, under the sponsorship of your guild, until you became a master in your own right.",
