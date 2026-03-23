@@ -8324,7 +8324,7 @@
           "type": "string"
         },
         "category": {
-          "description": "Movement category to check (e.g., 'flying', 'swimming', 'walking', 'climbing', 'burrowing')",
+          "description": "Movement category to check (e.g., 'flying', 'swimming', 'walking', 'climbing')",
           "title": "Category",
           "type": "string"
         },

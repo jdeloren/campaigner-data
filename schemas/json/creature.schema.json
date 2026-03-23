@@ -206,10 +206,10 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "walk": {
+        "base": {
           "anyOf": [{ "type": "integer" }, { "type": "null" }],
           "default": null,
-          "description": "Walking speed in feet"
+          "description": "Base walking speed in feet"
         },
         "fly": {
           "anyOf": [{ "type": "integer" }, { "type": "null" }],
@@ -225,11 +225,6 @@
           "anyOf": [{ "type": "integer" }, { "type": "null" }],
           "default": null,
           "description": "Climbing speed in feet"
-        },
-        "burrow": {
-          "anyOf": [{ "type": "integer" }, { "type": "null" }],
-          "default": null,
-          "description": "Burrowing speed in feet"
         }
       }
     },

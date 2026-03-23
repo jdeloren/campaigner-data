@@ -7,7 +7,7 @@
     "alignment": "neutral evil",
     "armor_class": { "value": 8 },
     "hit_points": { "average": 22, "formula": "3d8+9" },
-    "speed": { "walk": 20 },
+    "speed": { "base": 20 },
     "ability_scores": {
       "Strength": 13, "Dexterity": 6, "Constitution": 16,
       "Intelligence": 3, "Wisdom": 6, "Charisma": 5
@@ -40,7 +40,7 @@
     "alignment": "lawful evil",
     "armor_class": { "value": 13, "type": "armor scraps" },
     "hit_points": { "average": 13, "formula": "2d8+4" },
-    "speed": { "walk": 30 },
+    "speed": { "base": 30 },
     "ability_scores": {
       "Strength": 10, "Dexterity": 14, "Constitution": 15,
       "Intelligence": 6, "Wisdom": 8, "Charisma": 5

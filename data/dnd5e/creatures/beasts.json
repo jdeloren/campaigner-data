@@ -7,7 +7,7 @@
     "alignment": "unaligned",
     "armor_class": { "value": 12 },
     "hit_points": { "average": 2, "formula": "1d4" },
-    "speed": { "walk": 40, "climb": 30 },
+    "speed": { "base": 40, "climb": 30 },
     "ability_scores": {
       "Strength": 3, "Dexterity": 15, "Constitution": 10,
       "Intelligence": 3, "Wisdom": 12, "Charisma": 7
@@ -37,7 +37,7 @@
     "alignment": "unaligned",
     "armor_class": { "value": 13, "type": "natural armor" },
     "hit_points": { "average": 11, "formula": "2d8+2" },
-    "speed": { "walk": 40 },
+    "speed": { "base": 40 },
     "ability_scores": {
       "Strength": 12, "Dexterity": 15, "Constitution": 12,
       "Intelligence": 3, "Wisdom": 12, "Charisma": 6
@@ -68,7 +68,7 @@
     "alignment": "unaligned",
     "armor_class": { "value": 11, "type": "natural armor" },
     "hit_points": { "average": 34, "formula": "4d10+12" },
-    "speed": { "walk": 40, "climb": 30 },
+    "speed": { "base": 40, "climb": 30 },
     "ability_scores": {
       "Strength": 19, "Dexterity": 10, "Constitution": 16,
       "Intelligence": 2, "Wisdom": 13, "Charisma": 7
@@ -105,7 +105,7 @@
     "alignment": "neutral good",
     "armor_class": { "value": 13 },
     "hit_points": { "average": 26, "formula": "4d10+4" },
-    "speed": { "walk": 10, "fly": 80 },
+    "speed": { "base": 10, "fly": 80 },
     "ability_scores": {
       "Strength": 16, "Dexterity": 17, "Constitution": 13,
       "Intelligence": 8, "Wisdom": 14, "Charisma": 10
@@ -143,7 +143,7 @@
     "alignment": "unaligned",
     "armor_class": { "value": 14, "type": "natural armor" },
     "hit_points": { "average": 26, "formula": "4d10+4" },
-    "speed": { "walk": 30, "climb": 30 },
+    "speed": { "base": 30, "climb": 30 },
     "ability_scores": {
       "Strength": 14, "Dexterity": 16, "Constitution": 12,
       "Intelligence": 2, "Wisdom": 11, "Charisma": 4

@@ -7,7 +7,7 @@
     "alignment": "any non-lawful",
     "armor_class": { "value": 12, "type": "leather armor" },
     "hit_points": { "average": 11, "formula": "2d8+2" },
-    "speed": { "walk": 30 },
+    "speed": { "base": 30 },
     "ability_scores": {
       "Strength": 11, "Dexterity": 12, "Constitution": 12,
       "Intelligence": 10, "Wisdom": 10, "Charisma": 10
@@ -41,7 +41,7 @@
     "alignment": "any alignment",
     "armor_class": { "value": 16, "type": "chain shirt, shield" },
     "hit_points": { "average": 11, "formula": "2d8+2" },
-    "speed": { "walk": 30 },
+    "speed": { "base": 30 },
     "ability_scores": {
       "Strength": 13, "Dexterity": 12, "Constitution": 12,
       "Intelligence": 10, "Wisdom": 11, "Charisma": 10

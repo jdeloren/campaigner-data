@@ -7,7 +7,7 @@
     "alignment": "neutral good",
     "armor_class": { "value": 15, "type": "leather armor" },
     "hit_points": { "average": 2, "formula": "1d4" },
-    "speed": { "walk": 10, "fly": 40 },
+    "speed": { "base": 10, "fly": 40 },
     "ability_scores": {
       "Strength": 3, "Dexterity": 18, "Constitution": 10,
       "Intelligence": 14, "Wisdom": 13, "Charisma": 11
@@ -55,7 +55,7 @@
     "alignment": "neutral",
     "armor_class": { "value": 11, "type": "16 with barkskin" },
     "hit_points": { "average": 22, "formula": "5d8" },
-    "speed": { "walk": 30 },
+    "speed": { "base": 30 },
     "ability_scores": {
       "Strength": 10, "Dexterity": 12, "Constitution": 11,
       "Intelligence": 14, "Wisdom": 15, "Charisma": 18
