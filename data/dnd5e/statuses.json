@@ -935,5 +935,20 @@
     ],
     "source": "phb",
     "ruleset": "dnd5e"
+  },
+  {
+    "id": "status:wild-shape",
+    "name": "Wild Shape",
+    "description": "You have transformed into a beast using Wild Shape. Your physical statistics are replaced by the beast's, but you retain your Intelligence, Wisdom, Charisma, skill proficiencies, saving throw proficiencies, and class features. You can't cast spells while transformed.",
+    "is_condition": false,
+    "constraints": {
+      "actions": {
+        "blocked": {
+          "triggers": ["cast_spell"]
+        }
+      }
+    },
+    "source": "phb",
+    "ruleset": "dnd5e"
   }
 ]

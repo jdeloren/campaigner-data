@@ -67,7 +67,7 @@
           },
           {
             "type": "speed",
-            "category": "flying",
+            "category": "fly",
             "comparison": "equals",
             "value": "scaling.flying_speed"
           },
@@ -117,13 +117,6 @@
                     "lethal": true
                   },
                   "result": "revert"
-                },
-                "constraints": {
-                  "actions": {
-                    "blocked": {
-                      "triggers": ["cast_spell"]
-                    }
-                  }
                 }
               }
             }
