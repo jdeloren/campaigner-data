@@ -8,7 +8,11 @@
   ],
   "schemas": [
     {
-      "schema": "spell",
+      "schema": "creature",
+      "bump": "patch"
+    },
+    {
+      "schema": "attack",
       "bump": "patch"
     }
   ],
