@@ -2451,8 +2451,8 @@
     "source": "phb",
     "ruleset": "dnd5e",
     "spellcasting": {
-      "ability": "Charisma",
-      "type": "known",
+      "ability": "Wisdom",
+      "type": "prepared",
       "ritual_casting": true,
       "spellbook": null,
       "cantrips_known": {
@@ -2460,7 +2460,7 @@
           "choices": [
             {
               "count": 2,
-              "criteria": "Bard"
+              "criteria": "Druid"
             }
           ]
         },
@@ -2468,7 +2468,7 @@
           "choices": [
             {
               "count": 1,
-              "criteria": "Bard"
+              "criteria": "Druid"
             }
           ]
         },
@@ -2476,7 +2476,7 @@
           "choices": [
             {
               "count": 1,
-              "criteria": "Bard"
+              "criteria": "Druid"
             }
           ]
         }
