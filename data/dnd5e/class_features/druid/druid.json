@@ -63,19 +63,19 @@
           {
             "type": "cr",
             "comparison": "at_most",
-            "value": "scaling.cr"
+            "value": "scaling.creature.challenge_rating"
           },
           {
             "type": "speed",
             "category": "fly",
             "comparison": "equals",
-            "value": "scaling.flying_speed"
+            "value": "scaling.movement.fly"
           },
           {
             "type": "speed",
-            "category": "swimming",
+            "category": "swim",
             "comparison": "equals",
-            "value": "scaling.swimming_speed"
+            "value": "scaling.movement.swim"
           }
         ],
         "effects": [
@@ -124,20 +124,20 @@
         ],
         "scaling": {
           "components": {
-            "cr": {
+            "creature.challenge_rating": {
               "by_level": {
                 "2": 0.25,
                 "4": 0.5,
                 "8": 1
               }
             },
-            "flying_speed": {
+            "movement.fly": {
               "by_level": {
                 "2": 0,
                 "8": null
               }
             },
-            "swimming_speed": {
+            "movement.swim": {
               "by_level": {
                 "2": 0,
                 "4": null
