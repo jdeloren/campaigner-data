@@ -2347,7 +2347,7 @@
           }
         ],
         "saving_throw": {
-          "ability": "Constitution",
+          "ability": ["Constitution"],
           "dc": {
             "base": 14
           }
@@ -3406,7 +3406,7 @@
           ]
         },
         "saving_throw": {
-          "ability": "Strength",
+          "ability": ["Strength"],
           "dc": {
             "ref": "spell_save_dc"
           }
@@ -3838,7 +3838,7 @@
               }
             ],
             "saving_throw": {
-              "ability": "Wisdom",
+              "ability": ["Wisdom"],
               "dc": {
                 "base": 8,
                 "add": "proficiency_bonus",
@@ -3854,7 +3854,7 @@
                   "unit": "minutes"
                 },
                 "escape": {
-                  "ability": "Wisdom",
+                  "ability": ["Wisdom"],
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",

@@ -100,7 +100,7 @@
           "disposition": "hostile"
         },
         "saving_throw": {
-          "ability": "Constitution",
+          "ability": ["Constitution"],
           "dc": {
             "base": 8,
             "add": "proficiency_bonus",

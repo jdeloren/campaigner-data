@@ -93,7 +93,7 @@
               "type": "creature"
             },
             "saving_throw": {
-              "ability": "Strength",
+              "ability": ["Strength"],
               "dc": {
                 "ref": "maneuver_save_dc"
               },
@@ -289,7 +289,7 @@
               "type": "creature"
             },
             "saving_throw": {
-              "ability": "Wisdom",
+              "ability": ["Wisdom"],
               "dc": {
                 "ref": "maneuver_save_dc"
               },
@@ -468,7 +468,7 @@
               "type": "creature"
             },
             "saving_throw": {
-              "ability": "Wisdom",
+              "ability": ["Wisdom"],
               "dc": {
                 "ref": "maneuver_save_dc"
               },
@@ -502,8 +502,13 @@
         "trigger": {
           "event": ["damaged_by"],
           "source": [
-            { "type": "weapon", "mode": "melee" },
-            { "type": "unarmed" }
+            {
+              "type": "weapon",
+              "mode": "melee"
+            },
+            {
+              "type": "unarmed"
+            }
           ]
         },
         "cost": [
@@ -601,7 +606,7 @@
               ]
             },
             "saving_throw": {
-              "ability": "Strength",
+              "ability": ["Strength"],
               "dc": {
                 "ref": "maneuver_save_dc"
               },
@@ -669,7 +674,9 @@
                   }
                 ]
               },
-              "barrier": { "priority": 1 }
+              "barrier": {
+                "priority": 1
+              }
             }
           }
         ]
@@ -693,8 +700,13 @@
             "result": "failure"
           },
           "source": [
-            { "type": "weapon", "mode": "melee" },
-            { "type": "unarmed" }
+            {
+              "type": "weapon",
+              "mode": "melee"
+            },
+            {
+              "type": "unarmed"
+            }
           ]
         },
         "cost": [
@@ -822,7 +834,7 @@
               ]
             },
             "saving_throw": {
-              "ability": "Strength",
+              "ability": ["Strength"],
               "dc": {
                 "ref": "maneuver_save_dc"
               },

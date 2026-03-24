@@ -1,0 +1,567 @@
+[
+  {
+    "id": "feat:divine-sense",
+    "class": "class:paladin",
+    "level": 1,
+    "name": "Divine Sense",
+    "description": "The presence of strong evil registers on your senses like a noxious odor, and powerful good rings like heavenly music in your ears. As an action, you can open your awareness to detect such forces. Until the end of your next turn, you know the location of any celestial, fiend, or undead within 60 feet of you that is not behind total cover. You know the type (celestial, fiend, or undead) of any being whose presence you sense, but not its identity. Within the same radius, you also detect the presence of any place or object that has been consecrated or desecrated, as with the hallow spell.\n\nYou can use this feature a number of times equal to 1 + your Charisma modifier. When you finish a long rest, you regain all expended uses.",
+    "mechanics": [
+      {
+        "type": "action",
+        "effects": [
+          {
+            "detection": {
+              "range": {
+                "value": 60,
+                "unit": "feet"
+              },
+              "detects": ["Celestial", "Fiend", "Undead"],
+              "details": ["creature_type"],
+              "blocked_by": {
+                "cover": "total"
+              }
+            }
+          },
+          {
+            "detection": {
+              "range": {
+                "value": 60,
+                "unit": "feet"
+              },
+              "detects": ["consecrated", "desecrated"]
+            }
+          }
+        ],
+        "duration": {
+          "value": 1,
+          "unit": "turns"
+        },
+        "uses": {
+          "value": 1,
+          "calculation": "scores.charisma.modifier",
+          "bounds": { "minimum": 1 }
+        },
+        "recharge": "long_rest"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:lay-on-hands",
+    "class": "class:paladin",
+    "level": 1,
+    "name": "Lay on Hands",
+    "description": "Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your paladin level x 5.\n\nAs an action, you can touch a creature and draw power from the pool to restore a number of hit points to that creature, up to the maximum amount remaining in your pool.\n\nAlternatively, you can expend 5 hit points from your pool of healing to cure the target of one disease or neutralize one poison affecting it. You can cure multiple diseases and neutralize multiple poisons with a single use of Lay on Hands, expending hit points separately for each one.\n\nThis feature has no effect on undead and constructs.",
+    "mechanics": [
+      {
+        "type": "resource",
+        "id": "lay_on_hands",
+        "name": "Lay on Hands",
+        "count": {
+          "type": "level_table",
+          "values": {
+            "1": 5,
+            "2": 10,
+            "3": 15,
+            "4": 20,
+            "5": 25,
+            "6": 30,
+            "7": 35,
+            "8": 40,
+            "9": 45,
+            "10": 50,
+            "11": 55,
+            "12": 60,
+            "13": 65,
+            "14": 70,
+            "15": 75,
+            "16": 80,
+            "17": 85,
+            "18": 90,
+            "19": 95,
+            "20": 100
+          }
+        },
+        "recharge": "long_rest"
+      },
+      {
+        "type": "action",
+        "name": "Heal",
+        "cost": [
+          {
+            "resource": "lay_on_hands",
+            "choice_type": "resource",
+            "minimum": 1
+          }
+        ],
+        "target": {
+          "type": "creature"
+        },
+        "range": {
+          "type": "touch"
+        },
+        "requirements": [
+          {
+            "type": "creature_type",
+            "value": ["Undead", "Construct"],
+            "negate": true
+          }
+        ],
+        "effects": [
+          {
+            "healing": {
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "cost",
+                    "resource": "lay_on_hands"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "action",
+        "name": "Cure Disease or Neutralize Poison",
+        "cost": [
+          {
+            "resource": "lay_on_hands",
+            "amount": 5
+          }
+        ],
+        "target": {
+          "type": "creature"
+        },
+        "range": {
+          "type": "touch"
+        },
+        "requirements": [
+          {
+            "type": "creature_type",
+            "value": ["Undead", "Construct"],
+            "negate": true
+          }
+        ],
+        "effects": [
+          {
+            "negate": ["disease", "poison"],
+            "count": 1
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:fighting-style",
+    "class": "class:paladin",
+    "level": 2,
+    "name": "Fighting Style",
+    "description": "At 2nd level, you adopt a style of fighting as your specialty. Choose one of the following options. You can't take a Fighting Style option more than once, even if you later get to choose again.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "query",
+        "query": {
+          "source": "fighting_styles",
+          "params": {
+            "class": "class:paladin"
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:divine-smite",
+    "class": "class:paladin",
+    "level": 2,
+    "name": "Divine Smite",
+    "description": "Starting at 2nd level, when you hit a creature with a melee weapon attack, you can expend one spell slot to deal radiant damage to the target, in addition to the weapon's damage. The extra damage is 2d8 for a 1st-level spell slot, plus 1d8 for each spell level higher than 1st, to a maximum of 5d8. The damage increases by 1d8 if the target is an undead or a fiend, to a maximum of 6d8.",
+    "mechanics": [
+      {
+        "type": "damage_bonus",
+        "trigger": {
+          "event": ["attack"],
+          "source": {
+            "type": "weapon",
+            "mode": "melee"
+          },
+          "attack": {
+            "result": "success"
+          }
+        },
+        "cost": [
+          {
+            "resource": "spell_slot",
+            "choice_type": "character_resource",
+            "minimum": 1
+          }
+        ],
+        "effects": [
+          {
+            "damage_bonus": {
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "dice",
+                    "dice": "1d8"
+                  },
+                  {
+                    "type": "spell_level_cast"
+                  }
+                ],
+                "bounds": { "maximum": 5 }
+              },
+              "type": ["radiant"]
+            }
+          },
+          {
+            "damage_bonus": {
+              "dice": "1d8",
+              "type": ["radiant"]
+            },
+            "requirements": [
+              {
+                "type": "creature_type",
+                "value": ["Undead", "Fiend"]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:divine-health",
+    "class": "class:paladin",
+    "level": 3,
+    "name": "Divine Health",
+    "description": "By 3rd level, the divine magic flowing through you makes you immune to disease.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "immunity": {
+              "category": "status",
+              "status": ["diseased"]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:sacred-oath",
+    "class": "class:paladin",
+    "level": 3,
+    "name": "Sacred Oath",
+    "description": "When you reach 3rd level, you swear the oath that binds you as a paladin forever. Up to this time you have been in a preparatory stage, committed to the path but not yet sworn to it. Your choice grants you features at 3rd level and again at 7th, 15th, and 20th level. Those features include oath spells and the Channel Divinity feature.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "subclass"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:channel-divinity",
+    "class": "class:paladin",
+    "level": 3,
+    "name": "Channel Divinity",
+    "description": "Your oath allows you to channel divine energy to fuel magical effects. Each Channel Divinity option provided by your oath explains how to use it. When you use your Channel Divinity, you choose which option to use. You must then finish a short or long rest to use your Channel Divinity again.",
+    "mechanics": [
+      {
+        "type": "resource",
+        "id": "channel_divinity",
+        "name": "Channel Divinity",
+        "count": {
+          "type": "static",
+          "value": 1
+        },
+        "recharge": "short_rest"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:ability-score-improvement",
+    "class": "class:paladin",
+    "level": [4, 8, 12, 16, 19],
+    "name": "Ability Score Improvement",
+    "description": "Increase one ability score by 2 or two ability scores by 1 or one feat",
+    "mechanics": [
+      {
+        "type": "choice",
+        "options": [
+          {
+            "type": "nested",
+            "name": "Increase Ability Scores",
+            "choice": {
+              "choice_type": "ability_score",
+              "count": 2,
+              "value": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "type": "nested",
+            "name": "Gain a Feat",
+            "choice": {
+              "choice_type": "feat",
+              "count": 1
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:martial-versatility",
+    "class": "class:paladin",
+    "level": 4,
+    "name": "Martial Versatility",
+    "description": "Whenever you reach a level in this class that grants the Ability Score Improvement feature, you can replace a fighting style you know with another fighting style available to paladins.",
+    "triggered_by": "Ability Score Improvement",
+    "mechanics": [
+      {
+        "type": "retrain",
+        "name": "replace_fighting_style",
+        "attribute": "fighting_styles",
+        "operation": "replace",
+        "optional": true,
+        "source": {
+          "list": "fighting_styles",
+          "filter": {
+            "classes": "Paladin"
+          },
+          "exclude": "character.fighting_styles"
+        }
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:extra-attack",
+    "class": "class:paladin",
+    "level": 5,
+    "name": "Extra Attack",
+    "description": "Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.",
+    "mechanics": [
+      {
+        "type": "extra_attack",
+        "scaling": {
+          "components": {
+            "attacks": {
+              "by_level": {
+                "5": 2
+              }
+            }
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:aura-of-protection",
+    "class": "class:paladin",
+    "level": 6,
+    "name": "Aura of Protection",
+    "description": "Starting at 6th level, whenever you or a friendly creature within 10 feet of you must make a saving throw, the creature gains a bonus to the saving throw equal to your Charisma modifier (with a minimum bonus of +1). You must be conscious to grant this bonus.\n\nAt 18th level, the range of this aura increases to 30 feet.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "requirements": [
+          {
+            "type": "status",
+            "value": "unconscious",
+            "negate": true
+          }
+        ],
+        "effects": [
+          {
+            "aura": {
+              "radius": 10,
+              "unit": "feet",
+              "target": {
+                "type": "creatures",
+                "disposition": "friendly",
+                "include_self": true
+              },
+              "grants": {
+                "attribute": {
+                  "target": "saving_throw.modifier",
+                  "calculation": {
+                    "operation": "add",
+                    "operators": [
+                      {
+                        "type": "ability_modifier",
+                        "ability": "Charisma"
+                      }
+                    ],
+                    "bounds": { "minimum": 1 }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "scaling": {
+          "components": {
+            "aura.radius": {
+              "by_level": {
+                "6": 10,
+                "18": 30
+              }
+            }
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:aura-of-courage",
+    "class": "class:paladin",
+    "level": 10,
+    "name": "Aura of Courage",
+    "description": "Starting at 10th level, you and friendly creatures within 10 feet of you can't be frightened while you are conscious.\n\nAt 18th level, the range of this aura increases to 30 feet.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "requirements": [
+          {
+            "type": "status",
+            "value": "unconscious",
+            "negate": true
+          }
+        ],
+        "effects": [
+          {
+            "aura": {
+              "radius": 10,
+              "unit": "feet",
+              "target": {
+                "type": "creatures",
+                "disposition": "friendly",
+                "include_self": true
+              },
+              "grants": {
+                "immunity": {
+                  "category": "status",
+                  "status": ["frightened"]
+                }
+              }
+            }
+          }
+        ],
+        "scaling": {
+          "components": {
+            "aura.radius": {
+              "by_level": {
+                "10": 10,
+                "18": 30
+              }
+            }
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:improved-divine-smite",
+    "class": "class:paladin",
+    "level": 11,
+    "name": "Improved Divine Smite",
+    "description": "By 11th level, you are so suffused with righteous might that all your melee weapon strikes carry divine power with them. Whenever you hit a creature with a melee weapon, the creature takes an extra 1d8 radiant damage.",
+    "enhances": ["feat:divine-smite"],
+    "mechanics": [
+      {
+        "type": "damage_bonus",
+        "trigger": {
+          "event": ["attack"],
+          "source": {
+            "type": "weapon",
+            "mode": "melee"
+          },
+          "attack": {
+            "result": "success"
+          }
+        },
+        "effects": [
+          {
+            "damage_bonus": {
+              "dice": "1d8",
+              "type": ["radiant"]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:cleansing-touch",
+    "class": "class:paladin",
+    "level": 14,
+    "name": "Cleansing Touch",
+    "description": "Beginning at 14th level, you can use your action to end one spell on yourself or on one willing creature that you touch.\n\nYou can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain expended uses when you finish a long rest.",
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "creature",
+          "disposition": "willing",
+          "include_self": true
+        },
+        "range": {
+          "type": "touch"
+        },
+        "effects": [
+          {
+            "negate": ["spell"],
+            "count": 1
+          }
+        ],
+        "uses": {
+          "calculation": "scores.charisma.modifier",
+          "bounds": { "minimum": 1 }
+        },
+        "recharge": "long_rest"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

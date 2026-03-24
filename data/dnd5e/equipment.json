@@ -478,7 +478,9 @@
       {
         "type": "ability_score",
         "ability": "Strength",
-        "range": { "minimum": 13 }
+        "range": {
+          "minimum": 13
+        }
       }
     ],
     "stealth_disadvantage": true,
@@ -504,7 +506,9 @@
       {
         "type": "ability_score",
         "ability": "Strength",
-        "range": { "minimum": 15 }
+        "range": {
+          "minimum": 15
+        }
       }
     ],
     "stealth_disadvantage": true,
@@ -530,7 +534,9 @@
       {
         "type": "ability_score",
         "ability": "Strength",
-        "range": { "minimum": 15 }
+        "range": {
+          "minimum": 15
+        }
       }
     ],
     "stealth_disadvantage": true,
@@ -1303,7 +1309,7 @@
             "apply_status": {
               "id": "status:restrained",
               "escape": {
-                "ability": "Strength",
+                "ability": ["Strength"],
                 "dc": {
                   "base": 17
                 }
@@ -1656,7 +1662,7 @@
             "apply_status": {
               "id": "status:restrained",
               "escape": {
-                "ability": "Strength",
+                "ability": ["Strength"],
                 "dc": {
                   "base": 17
                 }
@@ -1689,7 +1695,7 @@
             "apply_status": {
               "id": "status:restrained",
               "escape": {
-                "ability": "Strength",
+                "ability": ["Strength"],
                 "dc": {
                   "base": 17
                 }
@@ -2026,7 +2032,7 @@
               "apply_status": {
                 "id": "status:burning",
                 "escape": {
-                  "ability": "Dexterity",
+                  "ability": ["Dexterity"],
                   "dc": {
                     "base": 10
                   }
@@ -2093,7 +2099,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Dexterity",
+              "ability": ["Dexterity"],
               "dc": {
                 "base": 10
               }
@@ -2134,7 +2140,7 @@
               "event": ["enter_area"]
             },
             "saving_throw": {
-              "ability": "Dexterity",
+              "ability": ["Dexterity"],
               "dc": {
                 "base": 15
               }
@@ -2301,7 +2307,7 @@
               "event": ["enter_area"]
             },
             "saving_throw": {
-              "ability": "Dexterity",
+              "ability": ["Dexterity"],
               "dc": {
                 "base": 13
               }
@@ -2314,7 +2320,7 @@
               "apply_status": {
                 "id": "status:restrained",
                 "escape": {
-                  "ability": "Strength",
+                  "ability": ["Strength"],
                   "dc": {
                     "base": 13
                   }
@@ -2530,7 +2536,7 @@
               "event": ["hit"]
             },
             "saving_throw": {
-              "ability": "Constitution",
+              "ability": ["Constitution"],
               "dc": {
                 "base": 10
               }
@@ -3524,7 +3530,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Dexterity",
+              "ability": ["Dexterity"],
               "dc": {
                 "base": 8,
                 "add": "proficiency_bonus",
@@ -3535,7 +3541,7 @@
               "apply_status": {
                 "id": "status:restrained",
                 "escape": {
-                  "ability": "Strength",
+                  "ability": ["Strength"],
                   "skill": "Athletics",
                   "dc": {
                     "base": 10

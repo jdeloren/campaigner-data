@@ -51,7 +51,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Dexterity",
+              "ability": ["Dexterity"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -483,7 +483,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Constitution",
+              "ability": ["Constitution"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -501,7 +501,7 @@
                           "unit": "minutes"
                         },
                         "escape": {
-                          "ability": "Constitution",
+                          "ability": ["Constitution"],
                           "dc": {
                             "ref": "spell_save_dc"
                           }
@@ -519,7 +519,7 @@
                           "unit": "minutes"
                         },
                         "escape": {
-                          "ability": "Constitution",
+                          "ability": ["Constitution"],
                           "dc": {
                             "ref": "spell_save_dc"
                           }
@@ -673,7 +673,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Charisma",
+              "ability": ["Charisma"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -846,7 +846,7 @@
               "event": ["enter_area", "turn_end"]
             },
             "saving_throw": {
-              "ability": "Dexterity",
+              "ability": ["Dexterity"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -900,7 +900,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Wisdom",
+              "ability": ["Wisdom"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -914,7 +914,7 @@
                   "unit": "minutes"
                 },
                 "escape": {
-                  "ability": "Wisdom",
+                  "ability": ["Wisdom"],
                   "dc": {
                     "ref": "spell_save_dc"
                   }
@@ -1154,7 +1154,7 @@
               "origin": "self"
             },
             "saving_throw": {
-              "ability": "Dexterity",
+              "ability": ["Dexterity"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -1245,7 +1245,7 @@
               "event": ["turn_end"]
             },
             "saving_throw": {
-              "ability": "Strength",
+              "ability": ["Strength"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -1316,7 +1316,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Strength",
+              "ability": ["Strength"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -1490,7 +1490,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Constitution",
+              "ability": ["Constitution"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -1605,7 +1605,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Wisdom",
+              "ability": ["Wisdom"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -1812,7 +1812,7 @@
               "event": ["turn_end"]
             },
             "saving_throw": {
-              "ability": "Dexterity",
+              "ability": ["Dexterity"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -1905,7 +1905,7 @@
               "event": ["turn_start"]
             },
             "saving_throw": {
-              "ability": "Strength",
+              "ability": ["Strength"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -2055,7 +2055,7 @@
           },
           {
             "saving_throw": {
-              "ability": "Constitution",
+              "ability": ["Constitution"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -2134,7 +2134,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Wisdom",
+              "ability": ["Wisdom"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -2147,7 +2147,7 @@
                   "unit": "minutes"
                 },
                 "escape": {
-                  "ability": "Wisdom",
+                  "ability": ["Wisdom"],
                   "dc": {
                     "ref": "spell_save_dc"
                   }
@@ -2348,7 +2348,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Constitution",
+              "ability": ["Constitution"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -2587,7 +2587,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Strength",
+              "ability": ["Strength"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -2600,7 +2600,7 @@
               "apply_status": {
                 "id": "status:restrained",
                 "escape": {
-                  "ability": "Strength",
+                  "ability": ["Strength"],
                   "dc": {
                     "ref": "spell_save_dc"
                   }
@@ -2767,7 +2767,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Wisdom",
+              "ability": ["Wisdom"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -2926,7 +2926,7 @@
               "event": ["enter_area", "turn_start"]
             },
             "saving_throw": {
-              "ability": "Constitution",
+              "ability": ["Constitution"],
               "dc": {
                 "ref": "spell_save_dc"
               },
@@ -3081,7 +3081,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Intelligence",
+              "ability": ["Intelligence"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -3278,7 +3278,7 @@
                       "origin": "point"
                     },
                     "saving_throw": {
-                      "ability": "Constitution",
+                      "ability": ["Constitution"],
                       "dc": {
                         "ref": "spell_save_dc"
                       }
@@ -3377,7 +3377,7 @@
                   }
                 },
                 "escape": {
-                  "ability": "Constitution",
+                  "ability": ["Constitution"],
                   "dc": {
                     "ref": "spell_save_dc"
                   }
@@ -3632,7 +3632,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Constitution",
+              "ability": ["Constitution"],
               "disadvantage": {
                 "requirements": [
                   {
@@ -3965,7 +3965,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Wisdom"
+              "ability": ["Wisdom"]
             },
             "on_failure": {
               "apply_status": {
@@ -4095,7 +4095,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Intelligence"
+              "ability": ["Intelligence"]
             },
             "on_failure": {
               "damage": {
@@ -4456,7 +4456,7 @@
               "event": ["enter_area", "turn_start"]
             },
             "saving_throw": {
-              "ability": "Dexterity",
+              "ability": ["Dexterity"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -4465,7 +4465,7 @@
               "apply_status": {
                 "id": "status:restrained",
                 "escape": {
-                  "ability": "Strength",
+                  "ability": ["Strength"],
                   "dc": {
                     "ref": "spell_save_dc"
                   }
@@ -4534,7 +4534,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Constitution",
+              "ability": ["Constitution"],
               "dc": {
                 "ref": "spell_save_dc"
               }

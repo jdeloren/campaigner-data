@@ -1712,7 +1712,6 @@ Checks what a character has equipped. Fields can be combined to create specific 
 { "type": "attribute", "attribute": "hit_points.current", "comparison": "at_least", "calculation": { ... } }
 { "type": "attribute", "attribute": "Intelligence", "maximum": 3 }
 { "type": "attribute", "attribute": "weight", "maximum": 5 }
-{ "type": "attribute", "attribute": "movement.speed", "minimum": 5 }
 ```
 
 The `attribute` requirement handles all attribute-based checks including ability scores, hit points, weight, and movement. Use `minimum`/`maximum` for simple bounds or `comparison`/`value`/`calculation` for more complex checks.

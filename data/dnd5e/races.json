@@ -283,7 +283,9 @@
             "requirements": [
               {
                 "type": "level",
-                "level": { "minimum": 3 }
+                "level": {
+                  "minimum": 3
+                }
               }
             ]
           },
@@ -299,7 +301,9 @@
             "requirements": [
               {
                 "type": "level",
-                "level": { "minimum": 5 }
+                "level": {
+                  "minimum": 5
+                }
               }
             ]
           }
@@ -845,7 +849,7 @@
             "effects": [
               {
                 "saving_throw": {
-                  "ability": "Dexterity",
+                  "ability": ["Dexterity"],
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
@@ -963,7 +967,7 @@
             "effects": [
               {
                 "saving_throw": {
-                  "ability": "Dexterity",
+                  "ability": ["Dexterity"],
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
@@ -1081,7 +1085,7 @@
             "effects": [
               {
                 "saving_throw": {
-                  "ability": "Dexterity",
+                  "ability": ["Dexterity"],
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
@@ -1199,7 +1203,7 @@
             "effects": [
               {
                 "saving_throw": {
-                  "ability": "Dexterity",
+                  "ability": ["Dexterity"],
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
@@ -1317,7 +1321,7 @@
             "effects": [
               {
                 "saving_throw": {
-                  "ability": "Dexterity",
+                  "ability": ["Dexterity"],
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
@@ -1435,7 +1439,7 @@
             "effects": [
               {
                 "saving_throw": {
-                  "ability": "Dexterity",
+                  "ability": ["Dexterity"],
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
@@ -1553,7 +1557,7 @@
             "effects": [
               {
                 "saving_throw": {
-                  "ability": "Constitution",
+                  "ability": ["Constitution"],
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
@@ -1671,7 +1675,7 @@
             "effects": [
               {
                 "saving_throw": {
-                  "ability": "Dexterity",
+                  "ability": ["Dexterity"],
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
@@ -1789,7 +1793,7 @@
             "effects": [
               {
                 "saving_throw": {
-                  "ability": "Constitution",
+                  "ability": ["Constitution"],
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
@@ -1907,7 +1911,7 @@
             "effects": [
               {
                 "saving_throw": {
-                  "ability": "Constitution",
+                  "ability": ["Constitution"],
                   "dc": {
                     "base": 8,
                     "add": "proficiency_bonus",
@@ -2862,7 +2866,9 @@
             "requirements": [
               {
                 "type": "level",
-                "level": { "minimum": 3 }
+                "level": {
+                  "minimum": 3
+                }
               }
             ]
           },
@@ -2878,7 +2884,9 @@
             "requirements": [
               {
                 "type": "level",
-                "level": { "minimum": 5 }
+                "level": {
+                  "minimum": 5
+                }
               }
             ]
           }

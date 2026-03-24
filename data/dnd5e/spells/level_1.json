@@ -163,7 +163,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Wisdom",
+              "ability": ["Wisdom"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -334,7 +334,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Strength",
+              "ability": ["Strength"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -434,7 +434,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Charisma",
+              "ability": ["Charisma"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -570,7 +570,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Dexterity",
+              "ability": ["Dexterity"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -674,7 +674,7 @@
               "type": "creature"
             },
             "saving_throw": {
-              "ability": "Dexterity",
+              "ability": ["Dexterity"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -745,7 +745,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Wisdom",
+              "ability": ["Wisdom"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -759,7 +759,7 @@
                   "unit": "minutes"
                 },
                 "escape": {
-                  "ability": "Wisdom",
+                  "ability": ["Wisdom"],
                   "dc": {
                     "ref": "spell_save_dc"
                   }
@@ -918,7 +918,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Wisdom",
+              "ability": ["Wisdom"],
               "dc": {
                 "ref": "spell_save_dc"
               },
@@ -1169,7 +1169,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Wisdom",
+              "ability": ["Wisdom"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -1222,7 +1222,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Wisdom",
+              "ability": ["Wisdom"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -1585,7 +1585,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Wisdom",
+              "ability": ["Wisdom"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -1715,7 +1715,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Dexterity",
+              "ability": ["Dexterity"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -1814,7 +1814,7 @@
               }
             },
             "saving_throw": {
-              "ability": "Strength",
+              "ability": ["Strength"],
               "dc": {
                 "ref": "spell_save_dc"
               },
@@ -1883,7 +1883,7 @@
           },
           {
             "saving_throw": {
-              "ability": "Strength",
+              "ability": ["Strength"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -1892,7 +1892,7 @@
               "apply_status": {
                 "id": "status:restrained",
                 "escape": {
-                  "ability": "Strength",
+                  "ability": ["Strength"],
                   "dc": {
                     "ref": "spell_save_dc"
                   }
@@ -1966,7 +1966,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Dexterity",
+              "ability": ["Dexterity"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -2274,7 +2274,7 @@
               }
             ],
             "saving_throw": {
-              "ability": "Dexterity",
+              "ability": ["Dexterity"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -2475,7 +2475,7 @@
               "type": "creatures"
             },
             "saving_throw": {
-              "ability": "Dexterity",
+              "ability": ["Dexterity"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -2627,7 +2627,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Dexterity",
+              "ability": ["Dexterity"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -3003,7 +3003,7 @@
               "type": "creatures"
             },
             "saving_throw": {
-              "ability": "Dexterity",
+              "ability": ["Dexterity"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -3517,7 +3517,7 @@
                 "type": ["poison"]
               },
               "saving_throw": {
-                "ability": "Constitution",
+                "ability": ["Constitution"],
                 "dc": {
                   "ref": "spell_save_dc"
                 }
@@ -3591,7 +3591,7 @@
                     "timing": "before"
                   },
                   "saving_throw": {
-                    "ability": "Wisdom",
+                    "ability": ["Wisdom"],
                     "dc": {
                       "ref": "spell_save_dc"
                     }
@@ -3608,7 +3608,7 @@
                     "timing": "before"
                   },
                   "saving_throw": {
-                    "ability": "Wisdom",
+                    "ability": ["Wisdom"],
                     "dc": {
                       "ref": "spell_save_dc"
                     }
@@ -3691,7 +3691,7 @@
                   }
                 },
                 "escape": {
-                  "ability": "Constitution",
+                  "ability": ["Constitution"],
                   "dc": {
                     "ref": "spell_save_dc"
                   }
@@ -3997,7 +3997,7 @@
               }
             },
             "saving_throw": {
-              "ability": "Dexterity",
+              "ability": ["Dexterity"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -4076,7 +4076,7 @@
               "type": ["thunder"]
             },
             "saving_throw": {
-              "ability": "Strength",
+              "ability": ["Strength"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -4148,7 +4148,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Constitution",
+              "ability": ["Constitution"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -4233,7 +4233,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Dexterity",
+              "ability": ["Dexterity"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -4311,7 +4311,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Wisdom",
+              "ability": ["Wisdom"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -4327,7 +4327,7 @@
                   "apply_status": {
                     "id": "status:incapacitated",
                     "escape": {
-                      "ability": "Wisdom",
+                      "ability": ["Wisdom"],
                       "dc": {
                         "ref": "spell_save_dc"
                       },
@@ -4530,7 +4530,7 @@
               "type": ["psychic"]
             },
             "saving_throw": {
-              "ability": "Wisdom",
+              "ability": ["Wisdom"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -4539,7 +4539,7 @@
               "apply_status": {
                 "id": "status:frightened",
                 "escape": {
-                  "ability": "Wisdom",
+                  "ability": ["Wisdom"],
                   "dc": {
                     "ref": "spell_save_dc"
                   }

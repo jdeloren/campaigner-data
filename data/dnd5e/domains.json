@@ -139,7 +139,7 @@
                   ]
                 },
                 "saving_throw": {
-                  "ability": "Wisdom",
+                  "ability": ["Wisdom"],
                   "dc": {
                     "ref": "spell_save_dc"
                   },
@@ -188,7 +188,10 @@
             "trigger": {
               "event": ["cast_spell"],
               "spell": {
-                "level": { "minimum": 0, "maximum": 0 },
+                "level": {
+                  "minimum": 0,
+                  "maximum": 0
+                },
                 "class": "class:cleric"
               }
             },
@@ -294,7 +297,9 @@
             "requirements": [
               {
                 "type": "spell",
-                "level": { "minimum": 1 }
+                "level": {
+                  "minimum": 1
+                }
               }
             ],
             "effects": [
@@ -423,7 +428,9 @@
             "requirements": [
               {
                 "type": "spell",
-                "level": { "minimum": 1 }
+                "level": {
+                  "minimum": 1
+                }
               }
             ],
             "effects": [
@@ -608,7 +615,9 @@
             ],
             "uses": {
               "calculation": "scores.wisdom.modifier",
-              "bounds": { "minimum": 1 }
+              "bounds": {
+                "minimum": 1
+              }
             },
             "recharge": "long_rest"
           }
@@ -662,7 +671,7 @@
                   "cover": "total"
                 },
                 "saving_throw": {
-                  "ability": "Constitution",
+                  "ability": ["Constitution"],
                   "dc": {
                     "ref": "spell_save_dc"
                   },
@@ -765,7 +774,10 @@
             "trigger": {
               "event": ["cast_spell"],
               "spell": {
-                "level": { "minimum": 0, "maximum": 0 },
+                "level": {
+                  "minimum": 0,
+                  "maximum": 0
+                },
                 "class": "class:cleric"
               }
             },
@@ -968,7 +980,7 @@
                   "origin": "self"
                 },
                 "saving_throw": {
-                  "ability": "Wisdom",
+                  "ability": ["Wisdom"],
                   "dc": {
                     "ref": "spell_save_dc"
                   },
@@ -1010,7 +1022,9 @@
                   "unit": "feet"
                 }
               },
-              "damage": { "element": ["acid", "cold", "fire", "lightning", "thunder"] }
+              "damage": {
+                "element": ["acid", "cold", "fire", "lightning", "thunder"]
+              }
             },
             "target": {
               "type": "event_recipient"
@@ -1199,7 +1213,7 @@
             "effects": [
               {
                 "saving_throw": {
-                  "ability": "Dexterity",
+                  "ability": ["Dexterity"],
                   "dc": {
                     "ref": "spell_save_dc"
                   },
@@ -1252,7 +1266,9 @@
             ],
             "uses": {
               "calculation": "scores.wisdom.modifier",
-              "bounds": { "minimum": 1 }
+              "bounds": {
+                "minimum": 1
+              }
             },
             "recharge": "long_rest"
           }
@@ -1729,7 +1745,9 @@
             ],
             "uses": {
               "calculation": "scores.wisdom.modifier",
-              "bounds": { "minimum": 1 }
+              "bounds": {
+                "minimum": 1
+              }
             },
             "recharge": "long_rest"
           }
@@ -1943,7 +1961,9 @@
             "type": "action",
             "name": "blessing_of_the_forge",
             "description": "Touch one nonmagical armor or weapon. It becomes a +1 magic item until your next long rest or until you die.",
-            "uses": { "value": 1 },
+            "uses": {
+              "value": 1
+            },
             "recharge": "long_rest"
           }
         ]
@@ -2007,7 +2027,12 @@
                   "category": "armor_class",
                   "bonus": {
                     "operation": "add",
-                    "operators": [{ "type": "integer", "value": 1 }]
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 1
+                      }
+                    ]
                   }
                 }
               }
@@ -2255,7 +2280,9 @@
                     "until": [
                       {
                         "event": ["attacked_by"],
-                        "attack": { "result": "success" }
+                        "attack": {
+                          "result": "success"
+                        }
                       }
                     ]
                   }
@@ -2270,7 +2297,9 @@
                   "until": [
                     {
                       "event": ["attacked_by"],
-                      "attack": { "result": "success" }
+                      "attack": {
+                        "result": "success"
+                      }
                     }
                   ]
                 }
@@ -2319,7 +2348,9 @@
               {
                 "roll_modifier": {
                   "type": "attack",
-                  "bounds": { "maximum": 19 }
+                  "bounds": {
+                    "maximum": 19
+                  }
                 }
               }
             ],
@@ -2349,7 +2380,9 @@
               "source": {
                 "type": "spell",
                 "class": "Cleric",
-                "level": { "maximum": 0 }
+                "level": {
+                  "maximum": 0
+                }
               }
             },
             "effects": [
@@ -2357,7 +2390,12 @@
                 "damage_bonus": {
                   "bonus": {
                     "operation": "add",
-                    "operators": [{ "type": "ability_modifier", "ability": "Wisdom" }]
+                    "operators": [
+                      {
+                        "type": "ability_modifier",
+                        "ability": "Wisdom"
+                      }
+                    ]
                   }
                 }
               }
@@ -2415,7 +2453,13 @@
                 "healing": {
                   "bonus": {
                     "operation": "add",
-                    "operators": [{ "type": "resource", "value": "hit_dice", "property": "maximum" }]
+                    "operators": [
+                      {
+                        "type": "resource",
+                        "value": "hit_dice",
+                        "property": "maximum"
+                      }
+                    ]
                   }
                 }
               }
@@ -2480,8 +2524,14 @@
             "choice_type": "skill",
             "count": 1,
             "options": [
-              { "type": "simple", "name": "Intimidation" },
-              { "type": "simple", "name": "Persuasion" }
+              {
+                "type": "simple",
+                "name": "Intimidation"
+              },
+              {
+                "type": "simple",
+                "name": "Persuasion"
+              }
             ],
             "effects": [
               {
@@ -2510,7 +2560,9 @@
               "event": ["cast_spell"],
               "source": {
                 "type": "spell",
-                "level": { "minimum": 1 }
+                "level": {
+                  "minimum": 1
+                }
               }
             },
             "target": {
@@ -2560,7 +2612,7 @@
               "unit": "feet"
             },
             "saving_throw": {
-              "ability": "Wisdom",
+              "ability": ["Wisdom"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -2604,14 +2656,21 @@
                   "target": "casting_time",
                   "calculation": {
                     "operation": "set",
-                    "operators": [{ "type": "string", "value": "bonus_action" }]
+                    "operators": [
+                      {
+                        "type": "string",
+                        "value": "bonus_action"
+                      }
+                    ]
                   }
                 }
               }
             ],
             "uses": {
               "calculation": "scores.wisdom.modifier",
-              "bounds": { "minimum": 1 }
+              "bounds": {
+                "minimum": 1
+              }
             },
             "recharge": "long_rest"
           }
@@ -2685,7 +2744,12 @@
                       "damage": {
                         "bonus": {
                           "operation": "add",
-                          "operators": [{ "type": "dice", "dice": "2d8" }]
+                          "operators": [
+                            {
+                              "type": "dice",
+                              "dice": "2d8"
+                            }
+                          ]
                         },
                         "type": ["psychic"]
                       }
@@ -2745,9 +2809,18 @@
             "choice_type": "skill",
             "count": 1,
             "options": [
-              { "type": "simple", "name": "Insight" },
-              { "type": "simple", "name": "Medicine" },
-              { "type": "simple", "name": "Performance" }
+              {
+                "type": "simple",
+                "name": "Insight"
+              },
+              {
+                "type": "simple",
+                "name": "Medicine"
+              },
+              {
+                "type": "simple",
+                "name": "Performance"
+              }
             ],
             "effects": [
               {
@@ -2836,7 +2909,12 @@
                   "dice": "2d6",
                   "bonus": {
                     "operation": "add",
-                    "operators": [{ "type": "ability_modifier", "ability": "Wisdom" }]
+                    "operators": [
+                      {
+                        "type": "ability_modifier",
+                        "ability": "Wisdom"
+                      }
+                    ]
                   }
                 }
               }
@@ -2892,7 +2970,9 @@
               "source": {
                 "type": "spell",
                 "class": "Cleric",
-                "level": { "maximum": 0 }
+                "level": {
+                  "maximum": 0
+                }
               }
             },
             "effects": [
@@ -2900,7 +2980,12 @@
                 "damage_bonus": {
                   "bonus": {
                     "operation": "add",
-                    "operators": [{ "type": "ability_modifier", "ability": "Wisdom" }]
+                    "operators": [
+                      {
+                        "type": "ability_modifier",
+                        "ability": "Wisdom"
+                      }
+                    ]
                   }
                 }
               }
@@ -2927,7 +3012,12 @@
                   "target": "range",
                   "calculation": {
                     "operation": "set",
-                    "operators": [{ "type": "integer", "value": 60 }]
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 60
+                      }
+                    ]
                   }
                 }
               }
@@ -3024,7 +3114,10 @@
                   "calculation": {
                     "operation": "set",
                     "operators": [
-                      { "type": "integer", "value": 300 }
+                      {
+                        "type": "integer",
+                        "value": 300
+                      }
                     ]
                   }
                 }
@@ -3039,7 +3132,9 @@
               "count": {
                 "type": "ability_modifier",
                 "ability": "Wisdom",
-                "bounds": { "minimum": 1 }
+                "bounds": {
+                  "minimum": 1
+                }
               },
               "disposition": "willing",
               "choice": true
@@ -3055,7 +3150,10 @@
                   "calculation": {
                     "operation": "set",
                     "operators": [
-                      { "type": "integer", "value": 300 }
+                      {
+                        "type": "integer",
+                        "value": 300
+                      }
                     ]
                   }
                 }
@@ -3154,7 +3252,9 @@
                               }
                             ]
                           },
-                          "barrier": { "priority": 1 }
+                          "barrier": {
+                            "priority": 1
+                          }
                         }
                       }
                     },
@@ -3197,7 +3297,10 @@
                   "bonus": {
                     "operation": "set",
                     "operators": [
-                      { "type": "attribute", "value": "movement.base" }
+                      {
+                        "type": "attribute",
+                        "value": "movement.base"
+                      }
                     ]
                   }
                 }

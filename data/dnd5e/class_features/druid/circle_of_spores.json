@@ -21,7 +21,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Constitution",
+              "ability": ["Constitution"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -76,12 +76,20 @@
               "calculation": {
                 "operation": "multiply",
                 "operators": [
-                  { "type": "class_level", "class": "Druid" },
-                  { "type": "integer", "value": 4 }
+                  {
+                    "type": "class_level",
+                    "class": "Druid"
+                  },
+                  {
+                    "type": "integer",
+                    "value": 4
+                  }
                 ]
               }
             },
-            "target": { "type": "self" }
+            "target": {
+              "type": "self"
+            }
           },
           {
             "apply_status": {
@@ -136,7 +144,9 @@
         "count": {
           "type": "ability_modifier",
           "ability": "Wisdom",
-          "bounds": { "minimum": 1 }
+          "bounds": {
+            "minimum": 1
+          }
         },
         "recharge": "long_rest"
       },
@@ -162,8 +172,14 @@
           {
             "operator": "or",
             "conditions": [
-              { "type": "creature_type", "value": ["Beast"] },
-              { "type": "creature_type", "value": ["Humanoid"] }
+              {
+                "type": "creature_type",
+                "value": ["Beast"]
+              },
+              {
+                "type": "creature_type",
+                "value": ["Humanoid"]
+              }
             ]
           },
           {
@@ -267,7 +283,12 @@
               "property": "critical_hit_threshold",
               "calculation": {
                 "operation": "set",
-                "operators": [{ "type": "integer", "value": 21 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 21
+                  }
+                ]
               }
             }
           }
