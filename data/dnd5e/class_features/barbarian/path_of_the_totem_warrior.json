@@ -554,13 +554,14 @@
             "effects": [
               {
                 "attribute": {
-                  "target": "flying_speed",
+                  "category": "movement",
+                  "property": "fly",
                   "calculation": {
                     "operation": "set",
                     "operators": [
                       {
                         "type": "attribute",
-                        "value": "walking_speed"
+                        "value": "movement.base"
                       }
                     ]
                   }

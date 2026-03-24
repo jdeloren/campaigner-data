@@ -1,0 +1,200 @@
+[
+  {
+    "id": "feat:combat-wild-shape",
+    "class": "subclass:circle-of-the-moon",
+    "level": 2,
+    "name": "Combat Wild Shape",
+    "description": "You gain the ability to use Wild Shape on your turn as a bonus action, rather than as an action. Additionally, while you are transformed by Wild Shape, you can use a bonus action to expend one spell slot to regain 1d8 hit points per level of the spell slot expended.",
+    "enhances": ["feat:wild-shape"],
+    "mechanics": [
+      {
+        "type": "bonus_action"
+      },
+      {
+        "type": "bonus_action",
+        "requirements": [
+          {
+            "type": "status",
+            "value": "wild-shape"
+          }
+        ],
+        "cost": [
+          {
+            "resource": "spell_slot",
+            "amount": 1
+          }
+        ],
+        "effects": [
+          {
+            "healing": {
+              "calculation": {
+                "operation": "multiply",
+                "operators": [
+                  { "type": "dice", "dice": "1d8" },
+                  { "type": "spell_level_cast" }
+                ]
+              }
+            },
+            "target": { "type": "self" }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:circle-forms",
+    "class": "subclass:circle-of-the-moon",
+    "level": 2,
+    "name": "Circle Forms",
+    "description": "The rites of your circle grant you the ability to transform into more dangerous animal forms. Starting at 2nd level, you can use your Wild Shape to transform into a beast with a challenge rating as high as 1. Starting at 6th level, you can transform into a beast with a challenge rating as high as your druid level divided by 3, rounded down.",
+    "enhances": ["feat:wild-shape"],
+    "mechanics": [
+      {
+        "type": "passive",
+        "scaling": {
+          "components": {
+            "cr": {
+              "by_level": {
+                "2": 1,
+                "6": 2,
+                "9": 3,
+                "12": 4,
+                "15": 5,
+                "18": 6
+              }
+            }
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:primal-strike",
+    "class": "subclass:circle-of-the-moon",
+    "level": 6,
+    "name": "Primal Strike",
+    "description": "Your attacks in beast form count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "requirements": [
+          {
+            "type": "status",
+            "value": "wild-shape"
+          }
+        ],
+        "effects": [
+          {
+            "attribute": {
+              "category": "combat",
+              "property": "magical",
+              "calculation": {
+                "operation": "set",
+                "operators": [{ "type": "boolean", "value": true }]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:elemental-wild-shape",
+    "class": "subclass:circle-of-the-moon",
+    "level": 10,
+    "name": "Elemental Wild Shape",
+    "description": "You can expend two uses of Wild Shape at the same time to transform into an air elemental, an earth elemental, a fire elemental, or a water elemental.",
+    "enhances": ["feat:wild-shape"],
+    "mechanics": [
+      {
+        "type": "action",
+        "cost": [
+          {
+            "resource": "wild_shape",
+            "amount": 2
+          }
+        ],
+        "requirements": [
+          {
+            "type": "creature_type",
+            "value": ["Elemental"]
+          }
+        ],
+        "effects": [
+          {
+            "apply_status": {
+              "id": "status:wild-shape",
+              "duration": {
+                "calculation": {
+                  "operation": "divide",
+                  "operators": [
+                    { "type": "class_level", "class": "Druid" },
+                    { "type": "integer", "value": 2 }
+                  ],
+                  "rounding": "down"
+                },
+                "unit": "hours",
+                "until": [
+                  {
+                    "event": ["status_removed"],
+                    "status": {
+                      "name": "wild-shape",
+                      "method": "voluntary"
+                    }
+                  }
+                ]
+              },
+              "transform": {
+                "category": "creature",
+                "type": "elemental",
+                "target": "self",
+                "retain": {
+                  "ability_scores": ["Intelligence", "Wisdom", "Charisma"],
+                  "proficiencies": ["skills", "saving_throws"],
+                  "features": true
+                },
+                "trigger": {
+                  "event": ["damaged_by"],
+                  "damage": {
+                    "lethal": true
+                  },
+                  "result": "revert"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:thousand-forms",
+    "class": "subclass:circle-of-the-moon",
+    "level": 14,
+    "name": "Thousand Forms",
+    "description": "You have learned to use magic to alter your physical form in more subtle ways. You can cast the alter self spell at will.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "grants": {
+          "name": "Thousand Forms",
+          "interaction": {
+            "type": "spell",
+            "spell": "spell:alter-self",
+            "slot": false
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

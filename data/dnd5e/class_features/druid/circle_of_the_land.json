@@ -1,0 +1,372 @@
+[
+  {
+    "id": "feat:bonus-cantrip",
+    "class": "subclass:circle-of-the-land",
+    "level": 2,
+    "name": "Bonus Cantrip",
+    "description": "You learn one additional druid cantrip of your choice.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "spell",
+        "count": 1,
+        "requirements": [
+          {
+            "type": "spell",
+            "class": "Druid",
+            "level": { "maximum": 0 }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:natural-recovery",
+    "class": "subclass:circle-of-the-land",
+    "level": 2,
+    "name": "Natural Recovery",
+    "description": "You can regain some of your magical energy by sitting in meditation and communing with nature. During a short rest, you choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your druid level (rounded up), and none of the slots can be 6th level or higher. You can't use this feature again until you finish a long rest.",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "effects": [
+          {
+            "recover": {
+              "target": "spell_slot",
+              "bounds": { "maximum": 5 },
+              "budget": {
+                "calculation": "classes.Druid.level",
+                "operation": "divide",
+                "divisor": 2,
+                "rounding": "up"
+              },
+              "cost": "slot_level"
+            }
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "long_rest"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:circle-spells",
+    "class": "subclass:circle-of-the-land",
+    "level": 2,
+    "name": "Circle Spells",
+    "description": "Your mystical connection to the land infuses you with the ability to cast certain spells. At 3rd, 5th, 7th, and 9th level you gain access to circle spells connected to the land where you became a druid. Choose that land — Arctic, Coast, Desert, Forest, Grassland, Mountain, Swamp, or Underdark — and consult the associated list of spells. Once you gain access to a circle spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "subfeature",
+        "count": 1,
+        "options_ref": "subfeatures"
+      }
+    ],
+    "subfeatures": [
+      {
+        "name": "Arctic",
+        "description": "Circle spells for druids who became druids in arctic lands.",
+        "mechanics": [
+          {
+            "type": "granted_spells",
+            "always_prepared": true,
+            "scaling": {
+              "by_level": {
+                "3": ["spell:hold-person", "spell:spike-growth"],
+                "5": ["spell:sleet-storm", "spell:slow"],
+                "7": ["spell:freedom-of-movement", "spell:ice-storm"],
+                "9": ["spell:commune-with-nature", "spell:cone-of-cold"]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Coast",
+        "description": "Circle spells for druids who became druids in coastal lands.",
+        "mechanics": [
+          {
+            "type": "granted_spells",
+            "always_prepared": true,
+            "scaling": {
+              "by_level": {
+                "3": ["spell:mirror-image", "spell:misty-step"],
+                "5": ["spell:water-breathing", "spell:water-walk"],
+                "7": ["spell:control-water", "spell:freedom-of-movement"],
+                "9": ["spell:conjure-elemental", "spell:scrying"]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Desert",
+        "description": "Circle spells for druids who became druids in desert lands.",
+        "mechanics": [
+          {
+            "type": "granted_spells",
+            "always_prepared": true,
+            "scaling": {
+              "by_level": {
+                "3": ["spell:blur", "spell:silence"],
+                "5": ["spell:create-food-and-water", "spell:protection-from-energy"],
+                "7": ["spell:blight", "spell:hallucinatory-terrain"],
+                "9": ["spell:insect-plague", "spell:wall-of-stone"]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Forest",
+        "description": "Circle spells for druids who became druids in forest lands.",
+        "mechanics": [
+          {
+            "type": "granted_spells",
+            "always_prepared": true,
+            "scaling": {
+              "by_level": {
+                "3": ["spell:barkskin", "spell:spider-climb"],
+                "5": ["spell:call-lightning", "spell:plant-growth"],
+                "7": ["spell:divination", "spell:freedom-of-movement"],
+                "9": ["spell:commune-with-nature", "spell:tree-stride"]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Grassland",
+        "description": "Circle spells for druids who became druids in grasslands.",
+        "mechanics": [
+          {
+            "type": "granted_spells",
+            "always_prepared": true,
+            "scaling": {
+              "by_level": {
+                "3": ["spell:invisibility", "spell:pass-without-trace"],
+                "5": ["spell:daylight", "spell:haste"],
+                "7": ["spell:divination", "spell:freedom-of-movement"],
+                "9": ["spell:dream", "spell:insect-plague"]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Mountain",
+        "description": "Circle spells for druids who became druids in mountain lands.",
+        "mechanics": [
+          {
+            "type": "granted_spells",
+            "always_prepared": true,
+            "scaling": {
+              "by_level": {
+                "3": ["spell:spider-climb", "spell:spike-growth"],
+                "5": ["spell:lightning-bolt", "spell:meld-into-stone"],
+                "7": ["spell:stone-shape", "spell:stoneskin"],
+                "9": ["spell:passwall", "spell:wall-of-stone"]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Swamp",
+        "description": "Circle spells for druids who became druids in swamp lands.",
+        "mechanics": [
+          {
+            "type": "granted_spells",
+            "always_prepared": true,
+            "scaling": {
+              "by_level": {
+                "3": ["spell:darkness", "spell:melfs-acid-arrow"],
+                "5": ["spell:water-walk", "spell:stinking-cloud"],
+                "7": ["spell:freedom-of-movement", "spell:locate-creature"],
+                "9": ["spell:insect-plague", "spell:scrying"]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Underdark",
+        "description": "Circle spells for druids who became druids in the Underdark.",
+        "mechanics": [
+          {
+            "type": "granted_spells",
+            "always_prepared": true,
+            "scaling": {
+              "by_level": {
+                "3": ["spell:spider-climb", "spell:web"],
+                "5": ["spell:gaseous-form", "spell:stinking-cloud"],
+                "7": ["spell:greater-invisibility", "spell:stone-shape"],
+                "9": ["spell:cloudkill", "spell:insect-plague"]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:lands-stride",
+    "class": "subclass:circle-of-the-land",
+    "level": 6,
+    "name": "Land's Stride",
+    "description": "Moving through nonmagical difficult terrain costs you no extra movement. You can also pass through nonmagical plants without being slowed by them and without taking damage from them if they have thorns, spines, or a similar hazard. In addition, you have advantage on saving throws against plants that are magically created or manipulated to impede movement, such as those created by the entangle spell.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "immunity": {
+              "category": "terrain",
+              "type": "difficult"
+            },
+            "requirements": [
+              {
+                "type": "property",
+                "value": "nonmagical"
+              }
+            ]
+          },
+          {
+            "advantage": {
+              "saving_throw": ["all"],
+              "against": {
+                "source": "magical"
+              }
+            },
+            "requirements": [
+              {
+                "type": "property",
+                "value": "plant"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "special",
+        "name": "plant_passage",
+        "description": "You can pass through nonmagical plants without being slowed by them and without taking damage from them if they have thorns, spines, or a similar hazard."
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:natures-ward",
+    "class": "subclass:circle-of-the-land",
+    "level": 10,
+    "name": "Nature's Ward",
+    "description": "You can't be charmed or frightened by elementals or fey, and you are immune to poison and disease.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "immunity": {
+              "category": "status",
+              "status": ["charmed", "frightened"]
+            },
+            "requirements": [
+              {
+                "type": "creature_type",
+                "value": ["Elemental", "Fey"]
+              }
+            ]
+          },
+          {
+            "immunity": {
+              "category": "status",
+              "status": ["poisoned"]
+            }
+          },
+          {
+            "damage_response": {
+              "category": "immunity",
+              "to": ["poison"]
+            }
+          },
+          {
+            "immunity": {
+              "category": "status",
+              "status": ["diseased"]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:natures-sanctuary",
+    "class": "subclass:circle-of-the-land",
+    "level": 14,
+    "name": "Nature's Sanctuary",
+    "description": "Creatures of the natural world sense your connection to nature and become hesitant to attack you. When a beast or plant creature attacks you, that creature must make a Wisdom saving throw against your druid spell save DC. On a failed save, the creature must choose a different target, or the attack automatically misses. On a successful save, the creature is immune to this effect for 24 hours. The creature is aware of this effect before it makes its attack against you.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "trigger": {
+          "event": ["attacked_by"],
+          "timing": "before",
+          "target": { "type": "self" }
+        },
+        "requirements": [
+          {
+            "operator": "or",
+            "conditions": [
+              {
+                "type": "creature_type",
+                "value": ["Beast"]
+              },
+              {
+                "type": "creature_type",
+                "value": ["Plant"]
+              }
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "saving_throw": {
+              "ability": "Wisdom",
+              "dc": {
+                "ref": "spell_save_dc"
+              }
+            },
+            "on_failure": {
+              "grants": {
+                "name": "Change Target"
+              }
+            },
+            "on_success": {
+              "apply_status": {
+                "id": "status:natures-sanctuary-immune",
+                "duration": {
+                  "value": 24,
+                  "unit": "hours"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

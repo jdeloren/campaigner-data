@@ -1,0 +1,362 @@
+[
+  {
+    "id": "feat:druidic",
+    "class": "class:druid",
+    "level": 1,
+    "name": "Druidic",
+    "description": "You know Druidic, the secret language of druids. You can speak the language and use it to leave hidden messages. You and others who know this language automatically spot such a message. Others spot the message's presence with a successful DC 15 Wisdom (Perception) check but can't decipher it without magic.",
+    "mechanics": [
+      {
+        "type": "proficiency",
+        "category": "language",
+        "proficiencies": ["Druidic"]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:druid-circle",
+    "class": "class:druid",
+    "level": 2,
+    "name": "Druid Circle",
+    "description": "At 2nd level, you choose to identify with a circle of druids. Your choice grants you features at 2nd level and again at 6th, 10th, and 14th level.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "subclass"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:wild-shape",
+    "class": "class:druid",
+    "level": 2,
+    "name": "Wild Shape",
+    "description": "Starting at 2nd level, you can use your action to magically assume the shape of a beast that you have seen before. You can use this feature twice. You regain expended uses when you finish a short or long rest.\n\nYour druid level determines the beasts you can transform into. At 2nd level, for example, you can transform into any beast that has a challenge rating of 1/4 or lower that doesn't have a flying or swimming speed.\n\nYou can stay in a beast shape for a number of hours equal to half your druid level (rounded down). You then revert to your normal form unless you expend another use of this feature. You can revert to your normal form earlier by using a bonus action on your turn. You automatically revert if you fall unconscious, drop to 0 hit points, or die.",
+    "mechanics": [
+      {
+        "type": "resource",
+        "id": "wild_shape",
+        "name": "Wild Shape",
+        "count": {
+          "type": "static",
+          "value": 2
+        },
+        "recharge": "short_rest"
+      },
+      {
+        "type": "action",
+        "cost": [
+          {
+            "resource": "wild_shape",
+            "amount": 1
+          }
+        ],
+        "requirements": [
+          {
+            "type": "creature_type",
+            "value": ["Beast"]
+          },
+          {
+            "type": "cr",
+            "comparison": "at_most",
+            "value": "scaling.creature.challenge_rating"
+          },
+          {
+            "type": "speed",
+            "category": "fly",
+            "comparison": "equals",
+            "value": "scaling.movement.fly"
+          },
+          {
+            "type": "speed",
+            "category": "swim",
+            "comparison": "equals",
+            "value": "scaling.movement.swim"
+          }
+        ],
+        "effects": [
+          {
+            "apply_status": {
+              "id": "status:wild-shape",
+              "duration": {
+                "calculation": {
+                  "operation": "divide",
+                  "operators": [
+                    { "type": "class_level", "class": "Druid" },
+                    { "type": "integer", "value": 2 }
+                  ],
+                  "rounding": "down"
+                },
+                "unit": "hours",
+                "until": [
+                  {
+                    "event": ["status_removed"],
+                    "status": {
+                      "name": "wild-shape",
+                      "method": "voluntary"
+                    }
+                  }
+                ]
+              },
+              "transform": {
+                "category": "creature",
+                "type": "beast",
+                "target": "self",
+                "retain": {
+                  "ability_scores": ["Intelligence", "Wisdom", "Charisma"],
+                  "proficiencies": ["skills", "saving_throws"],
+                  "features": true
+                },
+                "trigger": {
+                  "event": ["damaged_by"],
+                  "damage": {
+                    "lethal": true
+                  },
+                  "result": "revert"
+                }
+              }
+            }
+          }
+        ],
+        "scaling": {
+          "components": {
+            "creature.challenge_rating": {
+              "by_level": {
+                "2": 0.25,
+                "4": 0.5,
+                "8": 1
+              }
+            },
+            "movement.fly": {
+              "by_level": {
+                "2": 0,
+                "8": null
+              }
+            },
+            "movement.swim": {
+              "by_level": {
+                "2": 0,
+                "4": null
+              }
+            }
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:wild-companion",
+    "class": "class:druid",
+    "level": 2,
+    "name": "Wild Companion",
+    "description": "You gain the ability to summon a spirit that assumes an animal form: as an action, you can expend a use of your Wild Shape feature to cast the find familiar spell, without material components. When you cast the spell in this way, the familiar is a fey instead of a beast, and the familiar disappears after a number of hours equal to half your druid level (rounded down).",
+    "mechanics": [
+      {
+        "type": "action",
+        "cost": [
+          {
+            "resource": "wild_shape",
+            "amount": 1
+          }
+        ],
+        "grants": {
+          "name": "Wild Companion",
+          "interaction": {
+            "type": "spell",
+            "spell": "spell:find-familiar",
+            "ignore_requirements": ["material"],
+            "overrides": {
+              "creature_type": "Fey",
+              "duration": {
+                "calculation": {
+                  "operation": "divide",
+                  "operators": [
+                    { "type": "class_level", "class": "Druid" },
+                    { "type": "integer", "value": 2 }
+                  ],
+                  "rounding": "down"
+                },
+                "unit": "hours"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:ability-score-improvement",
+    "class": "class:druid",
+    "level": [4, 8, 12, 16, 19],
+    "name": "Ability Score Improvement",
+    "description": "Increase one ability score by 2 or two ability scores by 1 or one feat",
+    "mechanics": [
+      {
+        "type": "choice",
+        "options": [
+          {
+            "type": "nested",
+            "name": "Increase Ability Scores",
+            "choice": {
+              "choice_type": "ability_score",
+              "count": 2,
+              "value": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "type": "nested",
+            "name": "Gain a Feat",
+            "choice": {
+              "choice_type": "feat",
+              "count": 1
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:cantrip-versatility",
+    "class": "class:druid",
+    "level": 4,
+    "name": "Cantrip Versatility",
+    "description": "Whenever you reach a level in this class that grants the Ability Score Improvement feature, you can replace one cantrip you learned from this class's Spellcasting feature with another cantrip from the druid spell list.",
+    "triggered_by": "Ability Score Improvement",
+    "mechanics": [
+      {
+        "type": "retrain",
+        "name": "replace_cantrip",
+        "attribute": "cantrips",
+        "operation": "replace",
+        "optional": true,
+        "source": {
+          "list": "spells",
+          "filter": {
+            "class": "class:druid",
+            "level": 0
+          }
+        }
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:timeless-body",
+    "class": "class:druid",
+    "level": 18,
+    "name": "Timeless Body",
+    "description": "The primal magic that you wield causes you to age more slowly. For every 10 years that pass, your body ages only 1 year.",
+    "mechanics": [
+      {
+        "type": "special",
+        "name": "slow_aging",
+        "description": "For every 10 years that pass, your body ages only 1 year."
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:beast-spells",
+    "class": "class:druid",
+    "level": 18,
+    "name": "Beast Spells",
+    "description": "You can cast many of your druid spells in any shape you assume using Wild Shape. You can perform the somatic and verbal components of a druid spell while in a beast shape, but you aren't able to provide material components.",
+    "enhances": ["feat:wild-shape"],
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "apply_status": {
+              "id": "status:wild-shape",
+              "constraints": {
+                "components": {
+                  "blocked": ["Material"]
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:archdruid",
+    "class": "class:druid",
+    "level": 20,
+    "name": "Archdruid",
+    "description": "At 20th level, you can use your Wild Shape an unlimited number of times. Additionally, you can ignore the verbal and somatic components of your druid spells, as well as any material components that lack a cost and aren't consumed by a spell. You gain this benefit in both your normal shape and your beast shape from Wild Shape.",
+    "enhances": ["feat:wild-shape"],
+    "mechanics": [
+      {
+        "type": "resource",
+        "id": "wild_shape",
+        "name": "Wild Shape",
+        "count": {
+          "type": "static",
+          "value": -1
+        },
+        "recharge": "short_rest"
+      },
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "attribute": {
+              "category": "spellcasting",
+              "property": "Verbal",
+              "calculation": {
+                "operation": "set",
+                "operators": [{ "type": "boolean", "value": false }]
+              }
+            }
+          },
+          {
+            "attribute": {
+              "category": "spellcasting",
+              "property": "Somatic",
+              "calculation": {
+                "operation": "set",
+                "operators": [{ "type": "boolean", "value": false }]
+              }
+            }
+          },
+          {
+            "attribute": {
+              "category": "spellcasting",
+              "property": "Material",
+              "calculation": {
+                "operation": "set",
+                "operators": [{ "type": "boolean", "value": false }]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

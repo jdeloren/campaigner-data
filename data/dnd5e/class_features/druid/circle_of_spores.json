@@ -1,0 +1,280 @@
+[
+  {
+    "id": "feat:halo-of-spores",
+    "class": "subclass:circle-of-spores",
+    "level": 2,
+    "name": "Halo of Spores",
+    "description": "Starting at 2nd level, you are surrounded by invisible, necrotic spores that are harmless until you unleash them on a creature nearby. When a creature you can see moves into a space within 10 feet of you or starts its turn there, you can use your reaction to deal 1d4 necrotic damage to that creature unless it succeeds on a Constitution saving throw against your spell save DC. The necrotic damage increases when you reach certain levels in this class.",
+    "mechanics": [
+      {
+        "type": "reaction",
+        "trigger": {
+          "event": ["move_end"],
+          "condition": {
+            "type": "distance",
+            "value": 10,
+            "unit": "feet",
+            "comparison": "at_most",
+            "to": "character"
+          }
+        },
+        "effects": [
+          {
+            "saving_throw": {
+              "ability": "Constitution",
+              "dc": {
+                "ref": "spell_save_dc"
+              }
+            },
+            "on_failure": {
+              "damage": {
+                "dice": "scaling.damage",
+                "type": ["necrotic"]
+              }
+            }
+          }
+        ],
+        "scaling": {
+          "components": {
+            "damage": {
+              "by_level": {
+                "2": "1d4",
+                "6": "1d6",
+                "10": "1d8",
+                "14": "1d10"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:symbiotic-entity",
+    "class": "subclass:circle-of-spores",
+    "level": 2,
+    "name": "Symbiotic Entity",
+    "description": "At 2nd level, you gain the ability to channel magic into your spores. As an action, you can expend a use of your Wild Shape feature to awaken those spores, rather than transforming into a beast form, and you gain 4 temporary hit points for each level you have in this class. While this feature is active, you gain the following benefits: when you deal your Halo of Spores damage, roll the damage die a second time and add it to the total. Your melee weapon attacks deal an extra 1d6 necrotic damage to any target they hit. These benefits last for 10 minutes, until you lose all these temporary hit points, or until you use your Wild Shape again.",
+    "mechanics": [
+      {
+        "type": "action",
+        "cost": [
+          {
+            "resource": "wild_shape",
+            "amount": 1
+          }
+        ],
+        "effects": [
+          {
+            "healing": {
+              "barrier": {
+                "id": "symbiotic_entity",
+                "priority": 1
+              },
+              "calculation": {
+                "operation": "multiply",
+                "operators": [
+                  { "type": "class_level", "class": "Druid" },
+                  { "type": "integer", "value": 4 }
+                ]
+              }
+            },
+            "target": { "type": "self" }
+          },
+          {
+            "apply_status": {
+              "id": "status:symbiotic-entity",
+              "duration": {
+                "value": 10,
+                "unit": "minutes",
+                "until": [
+                  {
+                    "event": ["status_removed"],
+                    "status": {
+                      "name": "symbiotic_entity",
+                      "method": "voluntary"
+                    }
+                  }
+                ]
+              },
+              "effects": [
+                {
+                  "trigger": {
+                    "event": ["damage"],
+                    "source": {
+                      "type": "weapon",
+                      "mode": "melee"
+                    }
+                  },
+                  "damage_bonus": {
+                    "dice": "1d6",
+                    "type": ["necrotic"]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:fungal-infestation",
+    "class": "subclass:circle-of-spores",
+    "level": 6,
+    "name": "Fungal Infestation",
+    "description": "Your spores gain the ability to infest a corpse and animate it. If a beast or a humanoid that is Small or Medium dies within 10 feet of you, you can use your reaction to animate it, causing it to stand up immediately with 1 hit point. The creature uses the zombie stat block. It remains animate for 1 hour, after which time it collapses and dies. In combat, the zombie's turn comes immediately after yours. It obeys your mental commands, and the only action it can take is the Attack action, making one melee attack. You can use this feature a number of times equal to your Wisdom modifier (minimum of once), and you regain all expended uses of it when you finish a long rest.",
+    "mechanics": [
+      {
+        "type": "resource",
+        "id": "fungal_infestation",
+        "name": "Fungal Infestation",
+        "count": {
+          "type": "ability_modifier",
+          "ability": "Wisdom",
+          "bounds": { "minimum": 1 }
+        },
+        "recharge": "long_rest"
+      },
+      {
+        "type": "reaction",
+        "cost": [
+          {
+            "resource": "fungal_infestation",
+            "amount": 1
+          }
+        ],
+        "trigger": {
+          "event": ["kill"],
+          "condition": {
+            "type": "distance",
+            "value": 10,
+            "unit": "feet",
+            "comparison": "at_most",
+            "to": "character"
+          }
+        },
+        "requirements": [
+          {
+            "operator": "or",
+            "conditions": [
+              { "type": "creature_type", "value": ["Beast"] },
+              { "type": "creature_type", "value": ["Humanoid"] }
+            ]
+          },
+          {
+            "type": "size",
+            "value": ["Small", "Medium"]
+          }
+        ],
+        "effects": [
+          {
+            "entity": {
+              "category": "creature",
+              "type": "zombie",
+              "target": "event_recipient",
+              "hit_points": 1,
+              "duration": {
+                "value": 1,
+                "unit": "hours"
+              },
+              "constraints": {
+                "actions": {
+                  "allowed": {
+                    "triggers": ["attack"]
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:spreading-spores",
+    "class": "subclass:circle-of-spores",
+    "level": 10,
+    "name": "Spreading Spores",
+    "description": "At 10th level, you gain the ability to seed an area with deadly spores. As a bonus action while your Symbiotic Entity feature is active, you can hurl spores up to 30 feet away, where they swirl in a 10-foot cube for 1 minute. The spores disappear early if you use this feature again, if you dismiss them as a bonus action, or if your Symbiotic Entity feature is no longer active. Whenever a creature moves into the cube or starts its turn there, that creature takes your Halo of Spores damage, unless the creature succeeds on a Constitution saving throw against your spell save DC. A creature can take this damage no more than once per turn. While the cube of spores persists, you can't use your Halo of Spores reaction.",
+    "enhances": ["feat:halo-of-spores"],
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "requirements": [
+          {
+            "type": "status",
+            "value": "symbiotic-entity"
+          }
+        ],
+        "effects": [
+          {
+            "environment": {
+              "area": {
+                "shape": "cube",
+                "size": 10,
+                "unit": "feet",
+                "origin": "point"
+              }
+            },
+            "duration": {
+              "value": 1,
+              "unit": "minutes"
+            }
+          }
+        ],
+        "range": {
+          "value": 30,
+          "unit": "feet"
+        }
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:fungal-body",
+    "class": "subclass:circle-of-spores",
+    "level": 14,
+    "name": "Fungal Body",
+    "description": "The fungal spores in your body alter you: you can't be blinded, deafened, frightened, or poisoned, and any critical hit against you counts as a normal hit instead, unless you're incapacitated.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "requirements": [
+          {
+            "type": "status",
+            "value": "incapacitated",
+            "negate": true
+          }
+        ],
+        "effects": [
+          {
+            "immunity": {
+              "category": "status",
+              "status": ["blinded", "deafened", "frightened", "poisoned"]
+            }
+          },
+          {
+            "attribute": {
+              "category": "combat",
+              "property": "critical_hit_threshold",
+              "calculation": {
+                "operation": "set",
+                "operators": [{ "type": "integer", "value": 21 }]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  }
+]

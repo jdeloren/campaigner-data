@@ -170,6 +170,7 @@
         "grants": {
           "name": "Arcane Charge",
           "interaction": {
+            "type": "feature",
             "name": "Action Surge"
           }
         },

@@ -103,7 +103,7 @@
                   "context": "character",
                   "params": {
                     "resource": "movement",
-                    "comparison": "greater_than_or_equal",
+                    "comparison": "at_least",
                     "percent": 50
                   }
                 }
@@ -133,6 +133,7 @@
             "grants": {
               "name": "Use Magic Device",
               "interaction": {
+                "type": "item",
                 "ignore_requirements": ["class", "race", "level"]
               }
             }

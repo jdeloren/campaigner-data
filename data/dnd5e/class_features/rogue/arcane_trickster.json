@@ -92,7 +92,7 @@
                 {
                   "type": "distance",
                   "value": 5,
-                  "comparison": "within",
+                  "comparison": "at_most",
                   "to": "target",
                   "entities": ["mage_hand"]
                 }

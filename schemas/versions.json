@@ -1,7 +1,9 @@
 {
+  "attack": "0.1.0",
   "background": "1.0.3",
   "class": "1.0.6",
   "class_feature": "1.0.3",
+  "creature": "0.1.0",
   "deity": "1.0.2",
   "domain": "1.0.2",
   "equipment": "1.1.0",

@@ -245,7 +245,7 @@
             "to": "attacker",
             "value": 5,
             "unit": "feet",
-            "comparison": "within"
+            "comparison": "at_most"
           }
         ]
       }

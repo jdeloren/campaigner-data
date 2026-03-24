@@ -319,7 +319,7 @@
                 "size": 5,
                 "unit": "feet"
               },
-              "comparison": "less_than_or_equal"
+              "comparison": "at_most"
             }
           ]
         },
@@ -930,7 +930,7 @@
                     "type": "distance",
                     "value": 5,
                     "unit": "feet",
-                    "comparison": "within",
+                    "comparison": "at_most",
                     "to": "event_recipient"
                   }
                 ]
@@ -2117,7 +2117,7 @@
                 "size": 5,
                 "unit": "feet"
               },
-              "comparison": "less_than_or_equal"
+              "comparison": "at_most"
             }
           ]
         },

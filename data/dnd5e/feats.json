@@ -250,6 +250,7 @@
           "count": 1,
           "activation": "bonus_action",
           "interaction": {
+            "type": "action",
             "name": "Dash"
           }
         },
@@ -281,6 +282,7 @@
           "count": 1,
           "activation": "bonus_action",
           "interaction": {
+            "type": "action",
             "name": "Dash"
           }
         },
@@ -471,7 +473,7 @@
           {
             "type": "distance",
             "value": 5,
-            "comparison": "within",
+            "comparison": "at_most",
             "to": "self",
             "entities": ["hostile"]
           }
@@ -496,6 +498,7 @@
           "count": 1,
           "activation": "bonus_action",
           "interaction": {
+            "type": "action",
             "name": "Attack"
           }
         }
@@ -1315,7 +1318,7 @@
           {
             "type": "distance",
             "value": 5,
-            "comparison": "within",
+            "comparison": "at_most",
             "to": "self",
             "entities": ["hostile"]
           }
@@ -2332,7 +2335,7 @@
       {
         "type": "proficiency",
         "category": "tool",
-        "proficiencies": ["tool:poisoners-kit"]
+        "proficiencies": ["Poisoner's Kit"]
       },
       {
         "type": "action",
@@ -2393,6 +2396,7 @@
           "count": 1,
           "activation": "bonus_action",
           "interaction": {
+            "type": "action",
             "name": "Attack"
           }
         },
@@ -2830,6 +2834,7 @@
           "count": 1,
           "activation": "bonus_action",
           "interaction": {
+            "type": "action",
             "name": "Attack"
           }
         }
@@ -3396,7 +3401,7 @@
               "value": 30,
               "unit": "feet",
               "to": "character",
-              "comparison": "within"
+              "comparison": "at_most"
             }
           ]
         },
@@ -3676,7 +3681,7 @@
                   "value": 30,
                   "unit": "feet",
                   "to": "character",
-                  "comparison": "within"
+                  "comparison": "at_most"
                 }
               ]
             }
@@ -3698,7 +3703,7 @@
                   "value": 30,
                   "unit": "feet",
                   "to": "character",
-                  "comparison": "within"
+                  "comparison": "at_most"
                 }
               ]
             }
@@ -3720,7 +3725,7 @@
                   "value": 30,
                   "unit": "feet",
                   "to": "character",
-                  "comparison": "within"
+                  "comparison": "at_most"
                 }
               ]
             }
@@ -4576,6 +4581,7 @@
           "type": "weapon",
           "count": 1,
           "interaction": {
+            "type": "feature",
             "name": "Relentless Endurance",
             "activation": "reaction"
           }

@@ -21,16 +21,10 @@
     },
     "damage": {
       "dice": "1d4",
-      "type": [
-        "bludgeoning"
-      ]
+      "type": ["bludgeoning"]
     },
     "weight": 2.0,
-    "properties": [
-      "Simple",
-      "Melee",
-      "Light"
-    ],
+    "properties": ["Simple", "Melee", "Light"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -57,18 +51,10 @@
     },
     "damage": {
       "dice": "1d4",
-      "type": [
-        "piercing"
-      ]
+      "type": ["piercing"]
     },
     "weight": 1.0,
-    "properties": [
-      "Simple",
-      "Melee",
-      "Finesse",
-      "Light",
-      "Thrown (20/60)"
-    ],
+    "properties": ["Simple", "Melee", "Finesse", "Light", "Thrown (20/60)"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -82,16 +68,10 @@
     },
     "damage": {
       "dice": "1d8",
-      "type": [
-        "bludgeoning"
-      ]
+      "type": ["bludgeoning"]
     },
     "weight": 10.0,
-    "properties": [
-      "Simple",
-      "Melee",
-      "Two-handed"
-    ],
+    "properties": ["Simple", "Melee", "Two-handed"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -105,17 +85,10 @@
     },
     "damage": {
       "dice": "1d6",
-      "type": [
-        "slashing"
-      ]
+      "type": ["slashing"]
     },
     "weight": 2.0,
-    "properties": [
-      "Simple",
-      "Melee",
-      "Light",
-      "Thrown (20/60)"
-    ],
+    "properties": ["Simple", "Melee", "Light", "Thrown (20/60)"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -129,16 +102,10 @@
     },
     "damage": {
       "dice": "1d6",
-      "type": [
-        "piercing"
-      ]
+      "type": ["piercing"]
     },
     "weight": 2.0,
-    "properties": [
-      "Simple",
-      "Melee",
-      "Thrown (30/120)"
-    ],
+    "properties": ["Simple", "Melee", "Thrown (30/120)"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -152,17 +119,10 @@
     },
     "damage": {
       "dice": "1d4",
-      "type": [
-        "bludgeoning"
-      ]
+      "type": ["bludgeoning"]
     },
     "weight": 2.0,
-    "properties": [
-      "Simple",
-      "Melee",
-      "Light",
-      "Thrown (20/60)"
-    ],
+    "properties": ["Simple", "Melee", "Light", "Thrown (20/60)"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -176,15 +136,10 @@
     },
     "damage": {
       "dice": "1d6",
-      "type": [
-        "bludgeoning"
-      ]
+      "type": ["bludgeoning"]
     },
     "weight": 4.0,
-    "properties": [
-      "Simple",
-      "Melee"
-    ],
+    "properties": ["Simple", "Melee"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -198,16 +153,10 @@
     },
     "damage": {
       "dice": "1d6",
-      "type": [
-        "bludgeoning"
-      ]
+      "type": ["bludgeoning"]
     },
     "weight": 4.0,
-    "properties": [
-      "Simple",
-      "Melee",
-      "Versatile (1d8)"
-    ],
+    "properties": ["Simple", "Melee", "Versatile (1d8)"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -221,16 +170,10 @@
     },
     "damage": {
       "dice": "1d4",
-      "type": [
-        "slashing"
-      ]
+      "type": ["slashing"]
     },
     "weight": 2.0,
-    "properties": [
-      "Simple",
-      "Melee",
-      "Light"
-    ],
+    "properties": ["Simple", "Melee", "Light"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -257,17 +200,10 @@
     },
     "damage": {
       "dice": "1d6",
-      "type": [
-        "piercing"
-      ]
+      "type": ["piercing"]
     },
     "weight": 3.0,
-    "properties": [
-      "Simple",
-      "Melee",
-      "Thrown (20/60)",
-      "Versatile (1d8)"
-    ],
+    "properties": ["Simple", "Melee", "Thrown (20/60)", "Versatile (1d8)"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -281,20 +217,10 @@
     },
     "damage": {
       "dice": "1d8",
-      "type": [
-        "piercing"
-      ]
+      "type": ["piercing"]
     },
     "weight": 5.0,
-    "properties": [
-      "Simple",
-      "Ranged",
-      "Ammunition",
-      "Crossbow",
-      "Range (80/320)",
-      "Loading",
-      "Two-handed"
-    ],
+    "properties": ["Simple", "Ranged", "Ammunition", "Crossbow", "Range (80/320)", "Loading", "Two-handed"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -308,17 +234,10 @@
     },
     "damage": {
       "dice": "1d4",
-      "type": [
-        "piercing"
-      ]
+      "type": ["piercing"]
     },
     "weight": 0.25,
-    "properties": [
-      "Simple",
-      "Ranged",
-      "Finesse",
-      "Thrown (20/60)"
-    ],
+    "properties": ["Simple", "Ranged", "Finesse", "Thrown (20/60)"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -332,18 +251,10 @@
     },
     "damage": {
       "dice": "1d6",
-      "type": [
-        "piercing"
-      ]
+      "type": ["piercing"]
     },
     "weight": 2.0,
-    "properties": [
-      "Simple",
-      "Ranged",
-      "Ammunition",
-      "Range (80/320)",
-      "Two-handed"
-    ],
+    "properties": ["Simple", "Ranged", "Ammunition", "Range (80/320)", "Two-handed"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -357,17 +268,10 @@
     },
     "damage": {
       "dice": "1d4",
-      "type": [
-        "bludgeoning"
-      ]
+      "type": ["bludgeoning"]
     },
     "weight": 0.0,
-    "properties": [
-      "Simple",
-      "Ranged",
-      "Ammunition",
-      "Range (30/120)"
-    ],
+    "properties": ["Simple", "Ranged", "Ammunition", "Range (30/120)"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -389,9 +293,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": [
-      "Light"
-    ]
+    "properties": ["Light"]
   },
   {
     "id": "equip:leather-armor",
@@ -410,9 +312,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": [
-      "Light"
-    ]
+    "properties": ["Light"]
   },
   {
     "id": "equip:studded-leather",
@@ -431,9 +331,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": [
-      "Light"
-    ]
+    "properties": ["Light"]
   },
   {
     "id": "equip:hide-armor",
@@ -452,9 +350,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": [
-      "Medium"
-    ]
+    "properties": ["Medium"]
   },
   {
     "id": "equip:chain-shirt",
@@ -473,9 +369,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": [
-      "Medium"
-    ]
+    "properties": ["Medium"]
   },
   {
     "id": "equip:scale-mail",
@@ -494,9 +388,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": [
-      "Medium"
-    ]
+    "properties": ["Medium"]
   },
   {
     "id": "equip:spiked-armor",
@@ -515,9 +407,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": [
-      "Medium"
-    ]
+    "properties": ["Medium"]
   },
   {
     "id": "equip:breastplate",
@@ -536,9 +426,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": [
-      "Medium"
-    ]
+    "properties": ["Medium"]
   },
   {
     "id": "equip:halfplate",
@@ -557,9 +445,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": [
-      "Medium"
-    ]
+    "properties": ["Medium"]
   },
   {
     "id": "equip:ring-mail",
@@ -578,9 +464,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": [
-      "Heavy"
-    ]
+    "properties": ["Heavy"]
   },
   {
     "id": "equip:chain-mail",
@@ -606,9 +490,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": [
-      "Heavy"
-    ]
+    "properties": ["Heavy"]
   },
   {
     "id": "equip:splint-mail",
@@ -634,9 +516,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": [
-      "Heavy"
-    ]
+    "properties": ["Heavy"]
   },
   {
     "id": "equip:plate-mail",
@@ -662,9 +542,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": [
-      "Heavy"
-    ]
+    "properties": ["Heavy"]
   },
   {
     "id": "equip:shield",
@@ -683,9 +561,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": [
-      "Shield"
-    ]
+    "properties": ["Shield"]
   },
   {
     "id": "equip:burglars-pack",
@@ -1125,9 +1001,7 @@
     "weight": 1.0,
     "description": "A sturdy wooden pin used to secure ropes on sailing vessels. Can be used as an improvised club.",
     "category": "adventuring_gear",
-    "properties": [
-      "Improvised"
-    ],
+    "properties": ["Improvised"],
     "source": "phb",
     "ruleset": "dnd5e"
   },
@@ -1263,6 +1137,23 @@
       }
     ],
     "category": "adventuring_gear",
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "equip:cestus",
+    "name": "Cestus",
+    "cost": {
+      "amount": 5.0,
+      "currency": "SP"
+    },
+    "damage": {
+      "dice": "1d4",
+      "type": ["bludgeoning"]
+    },
+    "weight": 0.5,
+    "properties": ["Simple", "Melee", "Finesse"],
+    "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
   },
@@ -2076,9 +1967,7 @@
     },
     "weight": 1.0,
     "description": "As an action, you can splash the contents of this vial onto a creature within 5 feet of you or throw the vial up to 20 feet, shattering it on impact. In either case, make a ranged attack against a creature or object, treating the acid as an improvised weapon. On a hit, the target takes 2d6 acid damage.",
-    "properties": [
-      "Improvised"
-    ],
+    "properties": ["Improvised"],
     "mechanics": [
       {
         "type": "action",
@@ -2095,9 +1984,7 @@
             "on_hit": {
               "damage": {
                 "dice": "2d6",
-                "type": [
-                  "acid"
-                ]
+                "type": ["acid"]
               }
             }
           }
@@ -2117,9 +2004,7 @@
     },
     "weight": 1.0,
     "description": "This sticky, adhesive fluid ignites when exposed to air. As an action, you can throw this flask up to 20 feet, shattering it on impact. Make a ranged attack against a creature or object, treating the alchemist's fire as an improvised weapon. On a hit, the target takes 1d4 fire damage at the start of each of its turns. A creature can end this damage by using its action to make a DC 10 Dexterity check to extinguish the flames.",
-    "properties": [
-      "Improvised"
-    ],
+    "properties": ["Improvised"],
     "mechanics": [
       {
         "type": "action",
@@ -2136,9 +2021,7 @@
             "on_hit": {
               "damage": {
                 "dice": "1d4",
-                "type": [
-                  "fire"
-                ]
+                "type": ["fire"]
               },
               "apply_status": {
                 "id": "status:burning",
@@ -2173,13 +2056,9 @@
         "effects": [
           {
             "advantage": {
-              "saving_throw": [
-                "Constitution"
-              ],
+              "saving_throw": ["Constitution"],
               "against": {
-                "status": [
-                  "status:poisoned"
-                ]
+                "status": ["status:poisoned"]
               }
             },
             "duration": {
@@ -2252,9 +2131,7 @@
         "effects": [
           {
             "trigger": {
-              "event": [
-                "enter_area"
-              ]
+              "event": ["enter_area"]
             },
             "saving_throw": {
               "ability": "Dexterity",
@@ -2265,9 +2142,7 @@
             "on_failure": {
               "damage": {
                 "dice": "1",
-                "type": [
-                  "piercing"
-                ]
+                "type": ["piercing"]
               },
               "apply_status": {
                 "id": "status:speed_reduced",
@@ -2373,9 +2248,7 @@
     },
     "weight": 1.0,
     "description": "As an action, you can splash the contents of this flask onto a creature within 5 feet of you or throw it up to 20 feet, shattering it on impact. In either case, make a ranged attack against a target creature, treating the holy water as an improvised weapon. If the target is a fiend or undead, it takes 2d6 radiant damage.",
-    "properties": [
-      "Improvised"
-    ],
+    "properties": ["Improvised"],
     "mechanics": [
       {
         "type": "action",
@@ -2392,18 +2265,13 @@
             "on_hit": {
               "damage": {
                 "dice": "2d6",
-                "type": [
-                  "radiant"
-                ]
+                "type": ["radiant"]
               }
             },
             "requirements": [
               {
                 "type": "creature_type",
-                "value": [
-                  "Fiend",
-                  "Undead"
-                ]
+                "value": ["Fiend", "Undead"]
               }
             ]
           }
@@ -2430,9 +2298,7 @@
         "effects": [
           {
             "trigger": {
-              "event": [
-                "enter_area"
-              ]
+              "event": ["enter_area"]
             },
             "saving_throw": {
               "ability": "Dexterity",
@@ -2443,9 +2309,7 @@
             "on_failure": {
               "damage": {
                 "dice": "1d4",
-                "type": [
-                  "piercing"
-                ]
+                "type": ["piercing"]
               },
               "apply_status": {
                 "id": "status:restrained",
@@ -2592,9 +2456,7 @@
     },
     "weight": 1.0,
     "description": "Oil usually comes in a clay flask that holds 1 pint. As an action, you can splash the oil in this flask onto a creature within 5 feet of you or throw it up to 20 feet, shattering it on impact. Make a ranged attack against a target creature or object, treating the oil as an improvised weapon. On a hit, the target is covered in oil. If the target takes any fire damage before the oil dries (after 1 minute), the target takes an additional 5 fire damage from the burning oil. You can also pour a flask of oil on the ground to cover a 5-foot-square area, provided that the surface is level. If lit, the oil burns for 2 rounds and deals 5 fire damage to any creature that enters the area or ends its turn in the area. A creature can take this damage only once per turn.",
-    "properties": [
-      "Improvised"
-    ],
+    "properties": ["Improvised"],
     "mechanics": [
       {
         "type": "action",
@@ -2606,16 +2468,12 @@
         "effects": [
           {
             "trigger": {
-              "event": [
-                "damaged_by"
-              ],
+              "event": ["damaged_by"],
               "damage_type": "fire"
             },
             "damage": {
               "dice": "5",
-              "type": [
-                "fire"
-              ]
+              "type": ["fire"]
             },
             "duration": {
               "value": 1,
@@ -2635,16 +2493,11 @@
         "effects": [
           {
             "trigger": {
-              "event": [
-                "enter_area",
-                "end_turn"
-              ]
+              "event": ["enter_area", "end_turn"]
             },
             "damage": {
               "dice": "5",
-              "type": [
-                "fire"
-              ]
+              "type": ["fire"]
             },
             "duration": {
               "value": 2,
@@ -2674,9 +2527,7 @@
         "effects": [
           {
             "trigger": {
-              "event": [
-                "hit"
-              ]
+              "event": ["hit"]
             },
             "saving_throw": {
               "ability": "Constitution",
@@ -2687,9 +2538,7 @@
             "on_failure": {
               "damage": {
                 "dice": "1d4",
-                "type": [
-                  "poison"
-                ]
+                "type": ["poison"]
               }
             },
             "duration": {
@@ -2744,9 +2593,7 @@
     },
     "weight": 1.0,
     "description": "A torch burns for 1 hour, providing bright light in a 20-foot radius and dim light for an additional 20 feet. If you make a melee attack with a burning torch and hit, it deals 1 fire damage.",
-    "properties": [
-      "Improvised"
-    ],
+    "properties": ["Improvised"],
     "mechanics": [
       {
         "type": "passive",
@@ -2782,9 +2629,7 @@
             "on_hit": {
               "damage": {
                 "dice": "1",
-                "type": [
-                  "fire"
-                ]
+                "type": ["fire"]
               }
             }
           }
@@ -3273,16 +3118,10 @@
     },
     "damage": {
       "dice": "1d8",
-      "type": [
-        "slashing"
-      ]
+      "type": ["slashing"]
     },
     "weight": 4.0,
-    "properties": [
-      "Martial",
-      "Melee",
-      "Versatile (1d10)"
-    ],
+    "properties": ["Martial", "Melee", "Versatile (1d10)"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -3296,15 +3135,10 @@
     },
     "damage": {
       "dice": "1d8",
-      "type": [
-        "bludgeoning"
-      ]
+      "type": ["bludgeoning"]
     },
     "weight": 2.0,
-    "properties": [
-      "Martial",
-      "Melee"
-    ],
+    "properties": ["Martial", "Melee"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -3318,18 +3152,10 @@
     },
     "damage": {
       "dice": "1d10",
-      "type": [
-        "slashing"
-      ]
+      "type": ["slashing"]
     },
     "weight": 6.0,
-    "properties": [
-      "Martial",
-      "Melee",
-      "Heavy",
-      "Reach",
-      "Two-handed"
-    ],
+    "properties": ["Martial", "Melee", "Heavy", "Reach", "Two-handed"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -3343,17 +3169,10 @@
     },
     "damage": {
       "dice": "1d12",
-      "type": [
-        "slashing"
-      ]
+      "type": ["slashing"]
     },
     "weight": 7.0,
-    "properties": [
-      "Martial",
-      "Melee",
-      "Heavy",
-      "Two-handed"
-    ],
+    "properties": ["Martial", "Melee", "Heavy", "Two-handed"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -3367,17 +3186,10 @@
     },
     "damage": {
       "dice": "2d6",
-      "type": [
-        "slashing"
-      ]
+      "type": ["slashing"]
     },
     "weight": 6.0,
-    "properties": [
-      "Martial",
-      "Melee",
-      "Heavy",
-      "Two-handed"
-    ],
+    "properties": ["Martial", "Melee", "Heavy", "Two-handed"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -3391,18 +3203,10 @@
     },
     "damage": {
       "dice": "1d10",
-      "type": [
-        "slashing"
-      ]
+      "type": ["slashing"]
     },
     "weight": 6.0,
-    "properties": [
-      "Martial",
-      "Melee",
-      "Heavy",
-      "Reach",
-      "Two-handed"
-    ],
+    "properties": ["Martial", "Melee", "Heavy", "Reach", "Two-handed"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -3416,17 +3220,10 @@
     },
     "damage": {
       "dice": "1d12",
-      "type": [
-        "piercing"
-      ]
+      "type": ["piercing"]
     },
     "weight": 6.0,
-    "properties": [
-      "Martial",
-      "Melee",
-      "Reach",
-      "Special"
-    ],
+    "properties": ["Martial", "Melee", "Reach", "Special"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -3440,16 +3237,10 @@
     },
     "damage": {
       "dice": "1d8",
-      "type": [
-        "slashing"
-      ]
+      "type": ["slashing"]
     },
     "weight": 3.0,
-    "properties": [
-      "Martial",
-      "Melee",
-      "Versatile (1d10)"
-    ],
+    "properties": ["Martial", "Melee", "Versatile (1d10)"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -3463,17 +3254,10 @@
     },
     "damage": {
       "dice": "2d6",
-      "type": [
-        "bludgeoning"
-      ]
+      "type": ["bludgeoning"]
     },
     "weight": 10.0,
-    "properties": [
-      "Martial",
-      "Melee",
-      "Heavy",
-      "Two-handed"
-    ],
+    "properties": ["Martial", "Melee", "Heavy", "Two-handed"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -3487,15 +3271,10 @@
     },
     "damage": {
       "dice": "1d8",
-      "type": [
-        "piercing"
-      ]
+      "type": ["piercing"]
     },
     "weight": 4.0,
-    "properties": [
-      "Martial",
-      "Melee"
-    ],
+    "properties": ["Martial", "Melee"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -3509,18 +3288,10 @@
     },
     "damage": {
       "dice": "1d10",
-      "type": [
-        "piercing"
-      ]
+      "type": ["piercing"]
     },
     "weight": 18.0,
-    "properties": [
-      "Martial",
-      "Melee",
-      "Heavy",
-      "Reach",
-      "Two-handed"
-    ],
+    "properties": ["Martial", "Melee", "Heavy", "Reach", "Two-handed"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -3534,16 +3305,10 @@
     },
     "damage": {
       "dice": "1d8",
-      "type": [
-        "piercing"
-      ]
+      "type": ["piercing"]
     },
     "weight": 2.0,
-    "properties": [
-      "Martial",
-      "Melee",
-      "Finesse"
-    ],
+    "properties": ["Martial", "Melee", "Finesse"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -3557,17 +3322,10 @@
     },
     "damage": {
       "dice": "1d6",
-      "type": [
-        "slashing"
-      ]
+      "type": ["slashing"]
     },
     "weight": 3.0,
-    "properties": [
-      "Martial",
-      "Melee",
-      "Finesse",
-      "Light"
-    ],
+    "properties": ["Martial", "Melee", "Finesse", "Light"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -3581,17 +3339,10 @@
     },
     "damage": {
       "dice": "1d6",
-      "type": [
-        "piercing"
-      ]
+      "type": ["piercing"]
     },
     "weight": 2.0,
-    "properties": [
-      "Martial",
-      "Melee",
-      "Finesse",
-      "Light"
-    ],
+    "properties": ["Martial", "Melee", "Finesse", "Light"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -3605,17 +3356,10 @@
     },
     "damage": {
       "dice": "1d6",
-      "type": [
-        "piercing"
-      ]
+      "type": ["piercing"]
     },
     "weight": 4.0,
-    "properties": [
-      "Martial",
-      "Melee",
-      "Thrown (20/60)",
-      "Versatile (1d8)"
-    ],
+    "properties": ["Martial", "Melee", "Thrown (20/60)", "Versatile (1d8)"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -3629,15 +3373,10 @@
     },
     "damage": {
       "dice": "1d8",
-      "type": [
-        "piercing"
-      ]
+      "type": ["piercing"]
     },
     "weight": 2.0,
-    "properties": [
-      "Martial",
-      "Melee"
-    ],
+    "properties": ["Martial", "Melee"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -3651,16 +3390,10 @@
     },
     "damage": {
       "dice": "1d8",
-      "type": [
-        "bludgeoning"
-      ]
+      "type": ["bludgeoning"]
     },
     "weight": 2.0,
-    "properties": [
-      "Martial",
-      "Melee",
-      "Versatile (1d10)"
-    ],
+    "properties": ["Martial", "Melee", "Versatile (1d10)"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -3674,17 +3407,10 @@
     },
     "damage": {
       "dice": "1d4",
-      "type": [
-        "slashing"
-      ]
+      "type": ["slashing"]
     },
     "weight": 3.0,
-    "properties": [
-      "Martial",
-      "Melee",
-      "Finesse",
-      "Reach"
-    ],
+    "properties": ["Martial", "Melee", "Finesse", "Reach"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -3698,18 +3424,10 @@
     },
     "damage": {
       "dice": "1",
-      "type": [
-        "piercing"
-      ]
+      "type": ["piercing"]
     },
     "weight": 1.0,
-    "properties": [
-      "Martial",
-      "Ranged",
-      "Ammunition",
-      "Range (25/100)",
-      "Loading"
-    ],
+    "properties": ["Martial", "Ranged", "Ammunition", "Range (25/100)", "Loading"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -3723,20 +3441,10 @@
     },
     "damage": {
       "dice": "1d6",
-      "type": [
-        "piercing"
-      ]
+      "type": ["piercing"]
     },
     "weight": 3.0,
-    "properties": [
-      "Martial",
-      "Ranged",
-      "Ammunition",
-      "Crossbow",
-      "Range (30/120)",
-      "Light",
-      "Loading"
-    ],
+    "properties": ["Martial", "Ranged", "Ammunition", "Crossbow", "Range (30/120)", "Light", "Loading"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -3750,21 +3458,10 @@
     },
     "damage": {
       "dice": "1d10",
-      "type": [
-        "piercing"
-      ]
+      "type": ["piercing"]
     },
     "weight": 18.0,
-    "properties": [
-      "Martial",
-      "Ranged",
-      "Ammunition",
-      "Crossbow",
-      "Range (100/400)",
-      "Heavy",
-      "Loading",
-      "Two-handed"
-    ],
+    "properties": ["Martial", "Ranged", "Ammunition", "Crossbow", "Range (100/400)", "Heavy", "Loading", "Two-handed"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -3778,19 +3475,10 @@
     },
     "damage": {
       "dice": "1d8",
-      "type": [
-        "piercing"
-      ]
+      "type": ["piercing"]
     },
     "weight": 2.0,
-    "properties": [
-      "Martial",
-      "Ranged",
-      "Ammunition",
-      "Range (150/600)",
-      "Heavy",
-      "Two-handed"
-    ],
+    "properties": ["Martial", "Ranged", "Ammunition", "Range (150/600)", "Heavy", "Two-handed"],
     "category": "weapon",
     "source": "phb",
     "ruleset": "dnd5e"
@@ -3825,18 +3513,11 @@
               "type": "perception",
               "observer": "character",
               "subject": "target",
-              "senses": [
-                "sight"
-              ]
+              "senses": ["sight"]
             },
             {
               "type": "size",
-              "value": [
-                "Tiny",
-                "Small",
-                "Medium",
-                "Large"
-              ]
+              "value": ["Tiny", "Small", "Medium", "Large"]
             }
           ]
         },
@@ -3847,9 +3528,7 @@
               "dc": {
                 "base": 8,
                 "add": "proficiency_bonus",
-                "ability": [
-                  "Dexterity"
-                ]
+                "ability": ["Dexterity"]
               }
             },
             "on_failure": {

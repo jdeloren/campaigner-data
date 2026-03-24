@@ -133,7 +133,7 @@
         "effects": [
           {
             "attribute": {
-              "target": "hp.maximum",
+              "target": "hit_points.maximum",
               "calculation": {
                 "operation": "add",
                 "operators": [
@@ -1718,7 +1718,7 @@
             "grants": {
               "name": "Flame Blade Attack",
               "activation": "action",
-              "action": "melee_spell_attack"
+              "action": "spell_attack"
             },
             "aura": {
               "origin": "self",
@@ -2251,7 +2251,8 @@
             "grants": {
               "name": "Knock",
               "interaction": {
-                "name": "spell:arcane-lock",
+                "type": "spell",
+                "spell": "spell:arcane-lock",
                 "save": "auto_fail"
               }
             },

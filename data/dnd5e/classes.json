@@ -12,7 +12,7 @@
       "tools": [
         {
           "type": "fixed",
-          "items": ["tool:thieves-tools"]
+          "items": ["Thieves' Tools"]
         }
       ],
       "skills": {
@@ -129,7 +129,7 @@
       "tools": [
         {
           "type": "fixed",
-          "items": ["tool:thieves-tools"]
+          "items": ["Thieves' Tools"]
         }
       ],
       "skills": {
@@ -165,7 +165,7 @@
       "tools": [
         {
           "type": "fixed",
-          "items": ["tool:thieves-tools"]
+          "items": ["Thieves' Tools"]
         }
       ],
       "skills": {
@@ -201,7 +201,7 @@
       "tools": [
         {
           "type": "fixed",
-          "items": ["tool:thieves-tools"]
+          "items": ["Thieves' Tools"]
         }
       ],
       "skills": {
@@ -2377,6 +2377,442 @@
       }
     },
     "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "class:druid",
+    "name": "Druid",
+    "description": "Whether calling on the elemental forces of nature or emulating the creatures of the animal world, druids are an embodiment of nature's resilience, cunning, and fury. They claim no mastery over nature, but see themselves as extensions of nature's indomitable will.",
+    "hit_die": 8,
+    "primary_ability": ["Wisdom"],
+    "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
+    "proficiencies": {
+      "armor": ["Light", "Medium", "Shields"],
+      "weapons": ["Club", "Dagger", "Dart", "Javelin", "Mace", "Quarterstaff", "Scimitar", "Sickle", "Sling", "Spear"],
+      "tools": [
+        {
+          "type": "fixed",
+          "items": ["Herbalism Kit"]
+        }
+      ],
+      "skills": {
+        "choose": 2,
+        "from": ["Arcana", "Animal Handling", "Insight", "Medicine", "Nature", "Perception", "Religion", "Survival"]
+      }
+    },
+    "starting_equipment": [
+      {
+        "choice_group": 1,
+        "type": "choice",
+        "options": [
+          {
+            "item": "Shield",
+            "quantity": 1
+          },
+          {
+            "item": "any simple weapon",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "choice_group": 2,
+        "type": "choice",
+        "options": [
+          {
+            "item": "Scimitar",
+            "quantity": 1
+          },
+          {
+            "item": "any simple melee weapon",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "choice_group": 3,
+        "type": "fixed",
+        "items": [
+          {
+            "item": "Leather Armor",
+            "quantity": 1
+          },
+          {
+            "item": "Explorer's Pack",
+            "quantity": 1
+          },
+          {
+            "item": "Druidic Focus",
+            "quantity": 1
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "spellcasting": {
+      "ability": "Wisdom",
+      "type": "prepared",
+      "ritual_casting": true,
+      "spellbook": null,
+      "cantrips_known": {
+        "1": {
+          "choices": [
+            {
+              "count": 2,
+              "criteria": "Druid"
+            }
+          ]
+        },
+        "4": {
+          "choices": [
+            {
+              "count": 1,
+              "criteria": "Druid"
+            }
+          ]
+        },
+        "10": {
+          "choices": [
+            {
+              "count": 1,
+              "criteria": "Druid"
+            }
+          ]
+        }
+      },
+      "spell_slots": {
+        "1": {
+          "1st": 2
+        },
+        "2": {
+          "1st": 3
+        },
+        "3": {
+          "1st": 4,
+          "2nd": 2
+        },
+        "4": {
+          "1st": 4,
+          "2nd": 3
+        },
+        "5": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 2
+        },
+        "6": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3
+        },
+        "7": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 1
+        },
+        "8": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 2
+        },
+        "9": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 1
+        },
+        "10": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2
+        },
+        "11": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1
+        },
+        "12": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1
+        },
+        "13": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1,
+          "7th": 1
+        },
+        "14": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1,
+          "7th": 1
+        },
+        "15": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1,
+          "7th": 1,
+          "8th": 1
+        },
+        "16": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1,
+          "7th": 1,
+          "8th": 1
+        },
+        "17": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 2,
+          "6th": 1,
+          "7th": 1,
+          "8th": 1,
+          "9th": 1
+        },
+        "18": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 3,
+          "6th": 1,
+          "7th": 1,
+          "8th": 1,
+          "9th": 1
+        },
+        "19": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 3,
+          "6th": 2,
+          "7th": 1,
+          "8th": 1,
+          "9th": 1
+        },
+        "20": {
+          "1st": 4,
+          "2nd": 3,
+          "3rd": 3,
+          "4th": 3,
+          "5th": 3,
+          "6th": 2,
+          "7th": 2,
+          "8th": 1,
+          "9th": 1
+        }
+      }
+    },
+    "multiclassing": [
+      {
+        "type": "attribute",
+        "attribute": "Wisdom",
+        "range": { "minimum": 13 }
+      }
+    ]
+  },
+  {
+    "id": "subclass:circle-of-the-land",
+    "name": "Circle of the Land",
+    "description": "The Circle of the Land is made up of mystics and sages who safeguard ancient knowledge and rites through a vast oral tradition. These druids meet within sacred circles of trees or standing stones to whisper primal secrets in Druidic. The circle's wisest members preside as the chief priests of communities that hold to the Old Faith and serve as advisors to the rulers of those folk. As a member of this circle, your magic is influenced by the land where you were initiated into the circle's mysterious rites.",
+    "base_class": "class:druid",
+    "hit_die": 8,
+    "primary_ability": ["Wisdom"],
+    "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
+    "proficiencies": {
+      "armor": ["Light", "Medium", "Shields"],
+      "weapons": ["Club", "Dagger", "Dart", "Javelin", "Mace", "Quarterstaff", "Scimitar", "Sickle", "Sling", "Spear"],
+      "tools": [
+        {
+          "type": "fixed",
+          "items": ["Herbalism Kit"]
+        }
+      ],
+      "skills": {
+        "choose": 2,
+        "from": ["Arcana", "Animal Handling", "Insight", "Medicine", "Nature", "Perception", "Religion", "Survival"]
+      }
+    },
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "subclass:circle-of-the-moon",
+    "name": "Circle of the Moon",
+    "description": "Druids of the Circle of the Moon are fierce guardians of the wilds. Their order gathers under the full moon to share news and trade warnings. They haunt the deepest parts of the wilderness, where they might go for weeks on end before crossing paths with another humanoid creature, let alone another druid.\n\nChangeable as the moon, a druid of this circle might prowl as a great cat one night, soar over the treetops as an eagle the next day, and crash through the undergrowth in bear form to drive off a trespassing monster. The wild is in the druid's blood.",
+    "base_class": "class:druid",
+    "hit_die": 8,
+    "primary_ability": ["Wisdom"],
+    "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
+    "proficiencies": {
+      "armor": ["Light", "Medium", "Shields"],
+      "weapons": ["Club", "Dagger", "Dart", "Javelin", "Mace", "Quarterstaff", "Scimitar", "Sickle", "Sling", "Spear"],
+      "tools": [
+        {
+          "type": "fixed",
+          "items": ["Herbalism Kit"]
+        }
+      ],
+      "skills": {
+        "choose": 2,
+        "from": ["Arcana", "Animal Handling", "Insight", "Medicine", "Nature", "Perception", "Religion", "Survival"]
+      }
+    },
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "subclass:circle-of-dreams",
+    "name": "Circle of Dreams",
+    "description": "Druids who are members of the Circle of Dreams hail from regions that have strong ties to the Feywild and its dreamlike realms. The druids’ guardianship of the natural world makes for a natural alliance between them and good-aligned fey. These druids seek to fill the world with dreamy wonder. Their magic mends wounds and brings joy to downcast hearts, and the realms they protect are gleaming, fruitful places, where dream and reality blur together and where the weary can find rest.",
+    "base_class": "class:druid",
+    "hit_die": 8,
+    "primary_ability": ["Wisdom"],
+    "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
+    "proficiencies": {
+      "armor": ["Light", "Medium", "Shields"],
+      "weapons": ["Club", "Dagger", "Dart", "Javelin", "Mace", "Quarterstaff", "Scimitar", "Sickle", "Sling", "Spear"],
+      "tools": [
+        {
+          "type": "fixed",
+          "items": ["Herbalism Kit"]
+        }
+      ],
+      "skills": {
+        "choose": 2,
+        "from": ["Arcana", "Animal Handling", "Insight", "Medicine", "Nature", "Perception", "Religion", "Survival"]
+      }
+    },
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "subclass:circle-of-the-shepherd",
+    "name": "Circle of the Shepherd",
+    "description": "Druids of the Circle of the Shepherd commune with the spirits of nature, especially the spirits of beasts and the fey, and call to those spirits for aid. These druids recognize that all living things play a role in the natural world, yet they focus on protecting animals and fey creatures that have difficulty defending themselves. Shepherds, as they are known, see such creatures as their charges. They ward off monsters that threaten them, rebuke hunters who kill more prey than necessary, and prevent civilization from encroaching on rare animal habitats and on sites sacred to the fey.\n\nMany of these druids are happiest far from cities and towns, content to spend their days in the company of animals and the fey creatures of the wilds. Members of this circle become adventurers to oppose forces that threaten their charges or to seek knowledge and power that will help them safeguard their charges better. Wherever these druids go, the spirits of the wilderness are with them.",
+    "base_class": "class:druid",
+    "hit_die": 8,
+    "primary_ability": ["Wisdom"],
+    "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
+    "proficiencies": {
+      "armor": ["Light", "Medium", "Shields"],
+      "weapons": ["Club", "Dagger", "Dart", "Javelin", "Mace", "Quarterstaff", "Scimitar", "Sickle", "Sling", "Spear"],
+      "tools": [
+        {
+          "type": "fixed",
+          "items": ["Herbalism Kit"]
+        }
+      ],
+      "skills": {
+        "choose": 2,
+        "from": ["Arcana", "Animal Handling", "Insight", "Medicine", "Nature", "Perception", "Religion", "Survival"]
+      }
+    },
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "subclass:circle-of-spores",
+    "name": "Circle of the Spores",
+    "description": "Druids of the Circle of Spores find beauty in decay. They see within mold and other fungi the ability to transform lifeless material into abundant, albeit somewhat strange, life. These druids believe that life and death are parts of a grand cycle, with one leading to the other and then back again. Death isn't the end of life, but instead a change of state that sees life shift into a new form.\n\nDruids of this circle have a complex relationship with the undead. They see nothing inherently wrong with undeath, which they consider to be a companion to life and death. But these druids believe that the natural cycle is healthiest when each segment of it is vibrant and changing. Undead that seek to replace all life with undeath, or that try to avoid passing to a final rest, violate the cycle and must be thwarted.",
+    "base_class": "class:druid",
+    "hit_die": 8,
+    "primary_ability": ["Wisdom"],
+    "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
+    "proficiencies": {
+      "armor": ["Light", "Medium", "Shields"],
+      "weapons": ["Club", "Dagger", "Dart", "Javelin", "Mace", "Quarterstaff", "Scimitar", "Sickle", "Sling", "Spear"],
+      "tools": [
+        {
+          "type": "fixed",
+          "items": ["Herbalism Kit"]
+        }
+      ],
+      "skills": {
+        "choose": 2,
+        "from": ["Arcana", "Animal Handling", "Insight", "Medicine", "Nature", "Perception", "Religion", "Survival"]
+      }
+    },
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "subclass:circle-of-stars",
+    "name": "Circle of Stars",
+    "description": "The Circle of Stars allows druids to draw on the power of starlight. These druids have tracked heavenly patterns since time immemorial, discovering secrets hidden amid the constellations. By revealing and understanding these secrets, the Circle of the Stars seeks to harness the powers of the cosmos.\n\nMany druids of this circle keep records of the constellations and the stars' effects on the world. Some groups document these observations at megalithic sites, which serve as enigmatic libraries of lore. These repositories might take the form of stone circles, pyramids, petroglyphs, and underground temples; any construction durable enough to protect the circle's sacred knowledge even against a great cataclysm.",
+    "base_class": "class:druid",
+    "hit_die": 8,
+    "primary_ability": ["Wisdom"],
+    "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
+    "proficiencies": {
+      "armor": ["Light", "Medium", "Shields"],
+      "weapons": ["Club", "Dagger", "Dart", "Javelin", "Mace", "Quarterstaff", "Scimitar", "Sickle", "Sling", "Spear"],
+      "tools": [
+        {
+          "type": "fixed",
+          "items": ["Herbalism Kit"]
+        }
+      ],
+      "skills": {
+        "choose": 2,
+        "from": ["Arcana", "Animal Handling", "Insight", "Medicine", "Nature", "Perception", "Religion", "Survival"]
+      }
+    },
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "subclass:circle-of-wildfire",
+    "name": "Circle of Wildfire",
+    "description": "Druids within the Circle of Wildfire understand that destruction is sometimes the precursor of creation, such as when a forest fire promotes later growth. These druids bond with a primal spirit that harbors both destructive and creative power, allowing the druids to create controlled flames that burn away one thing but give life to another.",
+    "base_class": "class:druid",
+    "hit_die": 8,
+    "primary_ability": ["Wisdom"],
+    "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
+    "proficiencies": {
+      "armor": ["Light", "Medium", "Shields"],
+      "weapons": ["Club", "Dagger", "Dart", "Javelin", "Mace", "Quarterstaff", "Scimitar", "Sickle", "Sling", "Spear"],
+      "tools": [
+        {
+          "type": "fixed",
+          "items": ["Herbalism Kit"]
+        }
+      ],
+      "skills": {
+        "choose": 2,
+        "from": ["Arcana", "Animal Handling", "Insight", "Medicine", "Nature", "Perception", "Religion", "Survival"]
+      }
+    },
+    "source": "tce",
     "ruleset": "dnd5e"
   }
 ]

@@ -1,0 +1,64 @@
+[
+  {
+    "id": "creature:bandit",
+    "name": "Bandit",
+    "size": "Medium",
+    "type": "Humanoid",
+    "alignment": "any non-lawful",
+    "armor_class": { "value": 12, "type": "leather armor" },
+    "hit_points": { "average": 11, "formula": "2d8+2" },
+    "speed": { "base": 30 },
+    "ability_scores": {
+      "Strength": 11, "Dexterity": 12, "Constitution": 12,
+      "Intelligence": 10, "Wisdom": 10, "Charisma": 10
+    },
+    "senses": { "passive_perception": 10 },
+    "languages": ["Common"],
+    "challenge_rating": 0.125,
+    "actions": [
+      {
+        "name": "Scimitar",
+        "ref": "attack:scimitar",
+        "bonus": 3,
+        "damage": "1d6+1"
+      },
+      {
+        "name": "Light Crossbow",
+        "ref": "attack:shortbow",
+        "bonus": 3,
+        "damage": "1d8+1",
+        "range": { "normal": 80, "long": 320 }
+      }
+    ],
+    "source": "mm",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "creature:guard",
+    "name": "Guard",
+    "size": "Medium",
+    "type": "Humanoid",
+    "alignment": "any alignment",
+    "armor_class": { "value": 16, "type": "chain shirt, shield" },
+    "hit_points": { "average": 11, "formula": "2d8+2" },
+    "speed": { "base": 30 },
+    "ability_scores": {
+      "Strength": 13, "Dexterity": 12, "Constitution": 12,
+      "Intelligence": 10, "Wisdom": 11, "Charisma": 10
+    },
+    "skills": { "Perception": 2 },
+    "senses": { "passive_perception": 12 },
+    "languages": ["Common"],
+    "challenge_rating": 0.125,
+    "actions": [
+      {
+        "name": "Spear",
+        "ref": "attack:gore",
+        "bonus": 3,
+        "damage": "1d6+1"
+      }
+    ],
+    "source": "mm",
+    "ruleset": "dnd5e"
+  }
+]
