@@ -3022,7 +3022,7 @@
   },
   {
     "id": "subclass:oath-of-the-ancients",
-    "name": "Paladin",
+    "name": "Oath of the Ancients",
     "description": "The Oath of the Ancients is as old as the race of elves and the rituals of the druids. Sometimes called fey knights, green knights, or horned knights, paladins who swear this oath cast their lot with the side of the light in the cosmic struggle against darkness because they love the beautiful and life-giving things of the world, not necessarily because they believe in principles of honor, courage, and justice. They adorn their armor and clothing with images of growing things-leaves, antlers, or flowers-to reflect their commitment to preserving life and light in the world.",
     "base_class": "class:paladin",
     "hit_die": 8,
@@ -3042,7 +3042,7 @@
   },
   {
     "id": "subclass:oath-of-devotion",
-    "name": "Paladin",
+    "name": "Oath of Devotion",
     "description": "The Oath of Devotion binds a paladin to the loftiest ideals of justice, virtue, and order. Sometimes called cavaliers, white knights, or holy warriors, these paladins meet the ideal of the knight in shining armor, acting with honor in pursuit of justice and the greater good. They hold themselves to the highest standards of conduct, and some, for better or worse, hold the rest of the world to the same standards. Many who swear this oath are devoted to gods of law and good and use their gods' tenets as the measure of their devotion. They hold angels - the perfect servants of good - as their ideals, and incorporate images of angelic wings into their helmets or coats of arms.",
     "base_class": "class:paladin",
     "hit_die": 8,
@@ -3062,7 +3062,7 @@
   },
   {
     "id": "subclass:oath-of-vengeance",
-    "name": "Paladin",
+    "name": "Oath of Vengeance",
     "description": "The Oath of Vengeance is a solemn commitment to punish those who have committed a grievous sin. When evil forces slaughter helpless villagers, when an entire people turns against the will of the gods, when a thieves' guild grows too violent and powerful, when a dragon rampages through the countryside – at times like these, paladins arise and swear an Oath of Vengeance to set right that which has gone wrong. To these paladins - sometimes called avengers or dark knights - their own purity is not as important as delivering justice.",
     "base_class": "class:paladin",
     "hit_die": 8,
@@ -3082,7 +3082,7 @@
   },
   {
     "id": "subclass:oathbreaker",
-    "name": "Paladin",
+    "name": "Oathbreaker",
     "description": "An oathbreaker is a paladin who breaks their sacred oaths to pursue some dark ambition or serve an evil power. Whatever light burned in the paladin's heart been extinguished. Only darkness remains.",
     "base_class": "class:paladin",
     "hit_die": 8,
