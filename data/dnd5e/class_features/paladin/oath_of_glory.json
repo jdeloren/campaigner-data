@@ -1,0 +1,416 @@
+[
+  {
+    "id": "feat:oath-of-glory-oath-spells",
+    "class": "subclass:oath-of-glory",
+    "level": 3,
+    "name": "Oath Spells",
+    "description": "You gain oath spells at the paladin levels listed. Once you gain an oath spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you have an oath spell that doesn't appear on the paladin spell list, the spell is nonetheless a paladin spell for you.",
+    "mechanics": [
+      {
+        "type": "granted_spells",
+        "always_prepared": true,
+        "scaling": {
+          "by_level": {
+            "3": ["spell:guiding-bolt", "spell:heroism"],
+            "5": ["spell:enhance-ability", "spell:magic-weapon"],
+            "9": ["spell:haste", "spell:protection-from-energy"],
+            "13": ["spell:compulsion", "spell:freedom-of-movement"],
+            "17": ["spell:commune", "spell:flame-strike"]
+          }
+        }
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-glory-peerless-athlete",
+    "class": "subclass:oath-of-glory",
+    "level": 3,
+    "name": "Channel Divinity: Peerless Athlete",
+    "description": "As a bonus action, you can use your Channel Divinity to augment your athleticism. For the next 10 minutes, you have advantage on Strength (Athletics) and Dexterity (Acrobatics) checks; you can carry, push, drag, and lift twice as much weight as normal; and the distance for your long and high jumps increases by 10 feet (this extra distance costs movement as normal).",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "cost": [
+          {
+            "resource": "channel_divinity",
+            "amount": 1
+          }
+        ],
+        "duration": {
+          "value": 10,
+          "unit": "minutes"
+        },
+        "effects": [
+          {
+            "advantage": {
+              "skill": "Athletics"
+            }
+          },
+          {
+            "advantage": {
+              "skill": "Acrobatics"
+            }
+          },
+          {
+            "attribute": {
+              "target": "carry_capacity.modifier",
+              "calculation": {
+                "operation": "multiply",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "attribute": {
+              "category": "movement",
+              "property": "jump_long",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 10
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "attribute": {
+              "category": "movement",
+              "property": "jump_high",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 10
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-glory-inspiring-smite",
+    "class": "subclass:oath-of-glory",
+    "level": 3,
+    "name": "Channel Divinity: Inspiring Smite",
+    "description": "Immediately after you deal damage to a creature with your Divine Smite feature, you can use your Channel Divinity as a bonus action and distribute temporary hit points to creatures of your choice within 30 feet of you, which can include you. The total number of temporary hit points equals 2d8 + your paladin level, divided among the chosen creatures however you like.",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "cost": [
+          {
+            "resource": "channel_divinity",
+            "amount": 1
+          }
+        ],
+        "trigger": {
+          "event": ["damage"],
+          "source": {
+            "type": "weapon"
+          }
+        },
+        "requirements": [
+          {
+            "type": "function",
+            "function": "feature.was_used_this_turn",
+            "context": "character",
+            "params": {
+              "feature": "feat:divine-smite"
+            }
+          }
+        ],
+        "effects": [
+          {
+            "target": {
+              "type": "creatures",
+              "disposition": "friendly",
+              "include_self": true
+            },
+            "area": {
+              "shape": "radius",
+              "size": 30,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "healing": {
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "dice",
+                    "dice": "2d8"
+                  },
+                  {
+                    "type": "class_level",
+                    "class": "class:paladin"
+                  }
+                ]
+              },
+              "barrier": {},
+              "distribution": "player_allocation"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-glory-aura-of-alacrity",
+    "class": "subclass:oath-of-glory",
+    "level": 7,
+    "name": "Aura of Alacrity",
+    "description": "At 7th level, you emanate an aura that fills you with supernatural speed, allowing you to lead the charge. Your walking speed increases by 10 feet. In addition, if you aren't incapacitated, the walking speed of any ally who starts their turn within 5 feet of you increases by 10 feet until the end of that turn.\n\nAt 18th level, the range of this aura increases to 10 feet.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "attribute": {
+              "category": "movement",
+              "property": "base",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 10
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "aura": {
+              "radius": 5,
+              "unit": "feet",
+              "target": {
+                "type": "creatures",
+                "disposition": "friendly"
+              },
+              "grants": {
+                "attribute": {
+                  "category": "movement",
+                  "property": "base",
+                  "calculation": {
+                    "operation": "add",
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 10
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "scaling": {
+          "components": {
+            "aura.radius": {
+              "by_level": {
+                "7": 5,
+                "18": 10
+              }
+            }
+          }
+        }
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-glory-glorious-defense",
+    "class": "subclass:oath-of-glory",
+    "level": 15,
+    "name": "Glorious Defense",
+    "description": "Starting at 15th level, you can turn defense into a sudden strike. When you or another creature you can see within 10 feet of you is hit by an attack roll, you can use your reaction to add your Charisma modifier to the target's AC against that attack, potentially causing the attack to miss. If the attack misses, you can make one weapon attack against the attacker as part of this reaction, provided the attacker is within your weapon's range.",
+    "mechanics": [
+      {
+        "type": "reaction",
+        "trigger": {
+          "event": ["attacked_by"],
+          "attack": {
+            "result": "success"
+          }
+        },
+        "requirements": [
+          {
+            "type": "perception",
+            "observer": "character",
+            "subject": "attacker",
+            "senses": ["sight"]
+          },
+          {
+            "type": "distance",
+            "to": "target",
+            "value": 10,
+            "unit": "feet",
+            "comparison": "at_most"
+          }
+        ],
+        "effects": [
+          {
+            "attribute": {
+              "category": "armor_class",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "ability_modifier",
+                    "ability": "Charisma"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "uses": {
+          "calculation": "scores.charisma.modifier",
+          "bounds": { "minimum": 1 }
+        },
+        "recharge": "long_rest"
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-glory-living-legend",
+    "class": "subclass:oath-of-glory",
+    "level": 20,
+    "name": "Living Legend",
+    "description": "At 20th level, you can empower yourself with the legends — whether true or exaggerated — of your great deeds. As a bonus action, you gain the following benefits for 1 minute:\n\n- You are blessed with an otherworldly presence, gaining advantage on all Charisma checks.\n- Once on each of your turns when you make a weapon attack and miss, you can cause that attack to hit instead.\n- If you fail a saving throw, you can use your reaction to reroll it. You must use this new roll.",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "effects": [
+          {
+            "apply_status": {
+              "id": "status:living-legend",
+              "duration": {
+                "value": 1,
+                "unit": "minutes"
+              }
+            }
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "long_rest"
+      }
+    ],
+    "subfeatures": [
+      {
+        "name": "Otherworldly Presence",
+        "description": "You have advantage on all Charisma checks.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "requirements": [
+              {
+                "type": "status",
+                "value": "living-legend"
+              }
+            ],
+            "effects": [
+              {
+                "advantage": {
+                  "ability": "Charisma"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Legendary Strike",
+        "description": "Once on each of your turns when you make a weapon attack and miss, you can cause that attack to hit instead.",
+        "mechanics": [
+          {
+            "type": "optional",
+            "trigger": {
+              "event": ["attack"],
+              "source": {
+                "type": "weapon"
+              },
+              "attack": {
+                "result": "failure"
+              }
+            },
+            "requirements": [
+              {
+                "type": "status",
+                "value": "living-legend"
+              }
+            ],
+            "effects": [
+              {
+                "roll_modifier": {
+                  "reroll": {
+                    "result": true
+                  }
+                }
+              }
+            ],
+            "uses": {
+              "value": 1
+            },
+            "recharge": "turn"
+          }
+        ]
+      },
+      {
+        "name": "Legendary Resilience",
+        "description": "If you fail a saving throw, you can use your reaction to reroll it. You must use this new roll.",
+        "mechanics": [
+          {
+            "type": "reaction",
+            "trigger": {
+              "event": ["saving_throw"],
+              "save": {
+                "result": "failure"
+              }
+            },
+            "requirements": [
+              {
+                "type": "status",
+                "value": "living-legend"
+              }
+            ],
+            "effects": [
+              {
+                "roll_modifier": {
+                  "reroll": {
+                    "replace": true
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  }
+]
