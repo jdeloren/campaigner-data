@@ -11,26 +11,11 @@
         "always_prepared": true,
         "scaling": {
           "by_level": {
-            "3": [
-              "spell:ensnaring-strike",
-              "spell:speak-with-animals"
-            ],
-            "5": [
-              "spell:moonbeam",
-              "spell:misty-step"
-            ],
-            "9": [
-              "spell:plant-growth",
-              "spell:protection-from-energy"
-            ],
-            "13": [
-              "spell:ice-storm",
-              "spell:stoneskin"
-            ],
-            "17": [
-              "spell:commune-with-nature",
-              "spell:tree-stride"
-            ]
+            "3": ["spell:ensnaring-strike", "spell:speak-with-animals"],
+            "5": ["spell:moonbeam", "spell:misty-step"],
+            "9": ["spell:plant-growth", "spell:protection-from-energy"],
+            "13": ["spell:ice-storm", "spell:stoneskin"],
+            "17": ["spell:commune-with-nature", "spell:tree-stride"]
           }
         }
       }
@@ -42,7 +27,7 @@
     "id": "feat:oath-of-the-ancients-natures-wrath",
     "class": "subclass:oath-of-the-ancients",
     "level": 3,
-    "name": "Channel Divinity: Nature's Wrath",
+    "name": "Nature's Wrath",
     "description": "You can use your Channel Divinity to invoke primeval forces to ensnare a foe. As an action, you can cause spectral vines to spring up and reach for a creature within 10 feet of you that you can see. The creature must succeed on a Strength or Dexterity saving throw (its choice) or be restrained. While restrained by the vines, the creature repeats the saving throw at the end of each of its turns. On a success, it frees itself and the vines vanish.",
     "mechanics": [
       {
@@ -65,18 +50,13 @@
             "type": "perception",
             "observer": "character",
             "subject": "target",
-            "senses": [
-              "sight"
-            ]
+            "senses": ["sight"]
           }
         ],
         "effects": [
           {
             "saving_throw": {
-              "ability": [
-                "Strength",
-                "Dexterity"
-              ],
+              "ability": ["Strength", "Dexterity"],
               "dc": {
                 "ref": "spell_save_dc"
               },
@@ -84,10 +64,7 @@
                 "apply_status": {
                   "id": "status:restrained",
                   "escape": {
-                    "ability": [
-                      "Strength",
-                      "Dexterity"
-                    ],
+                    "ability": ["Strength", "Dexterity"],
                     "dc": {
                       "ref": "spell_save_dc"
                     }
@@ -106,7 +83,7 @@
     "id": "feat:oath-of-the-ancients-turn-the-faithless",
     "class": "subclass:oath-of-the-ancients",
     "level": 3,
-    "name": "Channel Divinity: Turn the Faithless",
+    "name": "Turn the Faithless",
     "description": "You can use your Channel Divinity to utter ancient words that are painful for fey and fiends to hear. As an action, you present your holy symbol, and each fey or fiend within 30 feet of you that can hear you must make a Wisdom saving throw. On a failed save, the creature is turned for 1 minute or until it takes damage.\n\nA turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the Dodge action.\n\nIf the creature's true form is concealed by an illusion, shapeshifting, or other effect, that form is revealed while the creature is turned.",
     "mechanics": [
       {
@@ -120,9 +97,7 @@
         "requirements": [
           {
             "type": "equipment",
-            "item": [
-              "holy symbol"
-            ]
+            "item": ["holy symbol"]
           }
         ],
         "effects": [
@@ -133,18 +108,13 @@
               "requirements": [
                 {
                   "type": "creature_type",
-                  "value": [
-                    "Fey",
-                    "Fiend"
-                  ]
+                  "value": ["Fey", "Fiend"]
                 },
                 {
                   "type": "perception",
                   "observer": "target",
                   "subject": "character",
-                  "senses": [
-                    "hearing"
-                  ]
+                  "senses": ["hearing"]
                 }
               ]
             },
@@ -155,9 +125,7 @@
               "origin": "self"
             },
             "saving_throw": {
-              "ability": [
-                "Wisdom"
-              ],
+              "ability": ["Wisdom"],
               "dc": {
                 "ref": "spell_save_dc"
               },
@@ -167,9 +135,7 @@
                   "duration": {
                     "value": 1,
                     "unit": "minutes",
-                    "until": [
-                      "damaged_by"
-                    ]
+                    "until": ["damaged_by"]
                   },
                   "constraints": {
                     "movement": {
@@ -179,25 +145,17 @@
                     },
                     "actions": {
                       "blocked": {
-                        "economy": [
-                          "reaction"
-                        ]
+                        "economy": ["reaction"]
                       },
                       "allowed": {
-                        "actions": [
-                          "Dash",
-                          "Dodge"
-                        ]
+                        "actions": ["Dash", "Dodge"]
                       }
                     }
                   }
                 }
               }
             },
-            "negate": [
-              "illusion",
-              "shapeshift"
-            ]
+            "negate": ["illusion", "shapeshift"]
           }
         ]
       }
@@ -228,9 +186,7 @@
                 "damage_response": {
                   "category": "resistance",
                   "source": {
-                    "type": [
-                      "spell"
-                    ]
+                    "type": ["spell"]
                   }
                 }
               }
@@ -262,9 +218,7 @@
       {
         "type": "passive",
         "trigger": {
-          "event": [
-            "damaged_by"
-          ],
+          "event": ["damaged_by"],
           "damage": {
             "lethal": true
           }
@@ -333,9 +287,7 @@
           {
             "type": "passive",
             "trigger": {
-              "event": [
-                "turn_start"
-              ]
+              "event": ["turn_start"]
             },
             "requirements": [
               {
@@ -410,14 +362,7 @@
                   },
                   "grants": {
                     "disadvantage": {
-                      "saving_throw": [
-                        "Strength",
-                        "Dexterity",
-                        "Constitution",
-                        "Intelligence",
-                        "Wisdom",
-                        "Charisma"
-                      ]
+                      "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
                     }
                   }
                 }

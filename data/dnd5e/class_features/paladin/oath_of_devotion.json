@@ -27,7 +27,7 @@
     "id": "feat:oath-of-devotion-sacred-weapon",
     "class": "subclass:oath-of-devotion",
     "level": 3,
-    "name": "Channel Divinity: Sacred Weapon",
+    "name": "Sacred Weapon",
     "description": "As an action, you can imbue one weapon that you are holding with positive energy, using your Channel Divinity. For 1 minute, you add your Charisma modifier to attack rolls made with that weapon (with a minimum bonus of +1). The weapon also emits bright light in a 20-foot radius and dim light 20 feet beyond that. If the weapon is not already magical, it becomes magical for the duration.\n\nYou can end this effect on your turn as part of any other action. If you are no longer holding or carrying this weapon, or if you fall unconscious, this effect ends.",
     "mechanics": [
       {
@@ -108,7 +108,7 @@
     "id": "feat:oath-of-devotion-turn-the-unholy",
     "class": "subclass:oath-of-devotion",
     "level": 3,
-    "name": "Channel Divinity: Turn the Unholy",
+    "name": "Turn the Unholy",
     "description": "As an action, you present your holy symbol and speak a prayer censuring fiends and undead, using your Channel Divinity. Each fiend or undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes damage.",
     "mechanics": [
       {
@@ -339,14 +339,7 @@
         "effects": [
           {
             "advantage": {
-              "saving_throw": [
-                "Strength",
-                "Dexterity",
-                "Constitution",
-                "Intelligence",
-                "Wisdom",
-                "Charisma"
-              ]
+              "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
             }
           }
         ]

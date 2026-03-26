@@ -27,7 +27,7 @@
     "id": "feat:oath-of-the-watchers-watchers-will",
     "class": "subclass:oath-of-the-watchers",
     "level": 3,
-    "name": "Channel Divinity: Watcher's Will",
+    "name": "Watcher's Will",
     "description": "You can use your Channel Divinity to invest your presence with the warding power of your faith. As an action, you can choose a number of creatures you can see within 30 feet of you, up to a number equal to your Charisma modifier (minimum of one creature). For 1 minute, the chosen creatures have advantage on Intelligence, Wisdom, and Charisma saving throws.",
     "mechanics": [
       {
@@ -75,7 +75,7 @@
     "id": "feat:oath-of-the-watchers-abjure-the-extraplanar",
     "class": "subclass:oath-of-the-watchers",
     "level": 3,
-    "name": "Channel Divinity: Abjure the Extraplanar",
+    "name": "Abjure the Extraplanar",
     "description": "You can use your Channel Divinity to castigate unworldly creatures. As an action, you present your holy symbol and each aberration, celestial, elemental, fey, or fiend within 30 feet of you that can hear you must make a Wisdom saving throw. On a failed save, the creature is turned for 1 minute or until it takes damage.",
     "mechanics": [
       {
