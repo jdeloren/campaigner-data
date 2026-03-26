@@ -754,6 +754,20 @@
           "$ref": "#/$defs/SpellcastingType",
           "description": "How the class learns/prepares spells"
         },
+        "caster_multiplier": {
+          "anyOf": [
+            {
+              "enum": ["full", "half", "third"],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Multiclass caster level contribution: full (1x), half (1/2x), or third (1/3x). Null for pact magic.",
+          "title": "Caster Multiplier"
+        },
         "cantrips_known": {
           "anyOf": [
             {

@@ -225,6 +225,7 @@
     "spellcasting": {
       "ability": "Intelligence",
       "type": "known",
+      "caster_multiplier": "third",
       "ritual_casting": false,
       "spellbook": null,
       "cantrips_known": {
@@ -674,6 +675,7 @@
     "spellcasting": {
       "ability": "Intelligence",
       "type": "known",
+      "caster_multiplier": "third",
       "ritual_casting": false,
       "spellbook": null,
       "cantrips_known": {
@@ -1033,6 +1035,7 @@
     "spellcasting": {
       "ability": "Wisdom",
       "type": "prepared",
+      "caster_multiplier": "full",
       "ritual_casting": true,
       "spellbook": null,
       "cantrips_known": {
@@ -1461,6 +1464,7 @@
     "spellcasting": {
       "ability": "Charisma",
       "type": "known",
+      "caster_multiplier": "full",
       "ritual_casting": true,
       "spellbook": null,
       "cantrips_known": {
@@ -1983,6 +1987,7 @@
     "spellcasting": {
       "ability": "Intelligence",
       "type": "prepared",
+      "caster_multiplier": "full",
       "ritual_casting": true,
       "spellbook": "feat:copy-spell",
       "cantrips_known": {
@@ -2453,6 +2458,7 @@
     "spellcasting": {
       "ability": "Wisdom",
       "type": "prepared",
+      "caster_multiplier": "full",
       "ritual_casting": true,
       "spellbook": null,
       "cantrips_known": {
@@ -2910,6 +2916,7 @@
     "spellcasting": {
       "ability": "Charisma",
       "type": "prepared",
+      "caster_multiplier": "half",
       "ritual_casting": false,
       "spellbook": null,
       "spell_slots": {
