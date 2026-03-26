@@ -9,17 +9,12 @@
       {
         "type": "proficiency",
         "category": "armor",
-        "proficiencies": [
-          "Medium",
-          "Shields"
-        ]
+        "proficiencies": ["Medium", "Shields"]
       },
       {
         "type": "proficiency",
         "category": "weapon",
-        "proficiencies": [
-          "Martial"
-        ]
+        "proficiencies": ["Martial"]
       }
     ],
     "source": "phb",
@@ -35,11 +30,9 @@
     "mechanics": [
       {
         "type": "optional",
-        "name": "combat_inspiration_damage",
+        "name": "Combat Inspiration Damage",
         "trigger": {
-          "event": [
-            "damage"
-          ],
+          "event": ["damage"],
           "source": {
             "type": "weapon"
           }
@@ -68,11 +61,9 @@
       },
       {
         "type": "reaction",
-        "name": "combat_inspiration_ac",
+        "name": "Combat Inspiration AC",
         "trigger": {
-          "event": [
-            "attacked_by"
-          ],
+          "event": ["attacked_by"],
           "timing": "after"
         },
         "cost": [
@@ -135,9 +126,7 @@
       {
         "type": "passive",
         "trigger": {
-          "event": [
-            "cast_spell"
-          ],
+          "event": ["cast_spell"],
           "activation": "action"
         },
         "requirements": [

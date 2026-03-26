@@ -24,7 +24,7 @@
     "mechanics": [
       {
         "type": "reaction",
-        "name": "cutting_words",
+        "name": "Cutting Words",
         "cost": [
           {
             "resource": "bardic_inspiration",
@@ -99,7 +99,7 @@
       {
         "type": "choice",
         "choice_type": "query",
-        "name": "additional_magical_secrets",
+        "name": "Additional Magical Secrets",
         "count": 2,
         "query": {
           "source": "spells"
@@ -118,7 +118,7 @@
     "mechanics": [
       {
         "type": "special",
-        "name": "peerless_skill",
+        "name": "Peerless Skill",
         "cost": [
           {
             "resource": "bardic_inspiration",
