@@ -1167,6 +1167,7 @@
       {
         "type": "bonus_action",
         "name": "Cleave (Reduce to Zero)",
+        "description": "On your turn, when you score a critical hit with a melee weapon or reduce a creature to 0 hit points with one, you can make one melee weapon attack as a bonus action.",
         "trigger": {
           "event": ["damage"],
           "source": {
@@ -3316,6 +3317,7 @@
       {
         "type": "bonus_action",
         "name": "Brawler's Grapple",
+        "description": "When you hit a creature with an unarmed strike or an improvised weapon on your turn, you can use a bonus action to attempt to grapple the target.",
         "trigger": {
           "event": ["attack"],
           "attack": {
