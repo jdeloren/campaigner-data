@@ -1,0 +1,265 @@
+[
+  {
+    "id": "feat:trickery-domain-spell-knowledge",
+    "level": 1,
+    "name": "Domain Spell Knowledge",
+    "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you have a domain spell that doesn't appear on the cleric spell list, the spell is nonetheless a cleric spell for you.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:trickery",
+    "mechanics": [
+      {
+        "type": "granted_spells",
+        "always_prepared": true,
+        "scaling": {
+          "by_level": {
+            "1": [
+              "spell:charm-person",
+              "spell:disguise-self"
+            ],
+            "3": [
+              "spell:mirror-image",
+              "spell:pass-without-trace"
+            ],
+            "5": [
+              "spell:blink",
+              "spell:dispel-magic"
+            ],
+            "7": [
+              "spell:dimension-door",
+              "spell:polymorph"
+            ],
+            "9": [
+              "spell:dominate-person",
+              "spell:modify-memory"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "feat:trickery-blessing-of-the-trickster",
+    "level": 1,
+    "name": "Blessing of the Trickster",
+    "description": "You can use your action to touch a willing creature other than yourself to give it advantage on Dexterity (Stealth) checks. This blessing lasts for 1 hour or until you use this feature again.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:trickery",
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "creature",
+          "disposition": "willing"
+        },
+        "range": {
+          "type": "touch"
+        },
+        "effects": [
+          {
+            "advantage": {
+              "skill": "Stealth",
+              "target": {
+                "type": "creature"
+              }
+            }
+          }
+        ],
+        "duration": {
+          "value": 1,
+          "unit": "hours"
+        }
+      }
+    ]
+  },
+  {
+    "id": "feat:trickery-invoke-duplicity",
+    "level": 2,
+    "name": "Invoke Duplicity",
+    "description": "You can use your action to create a perfect illusion of yourself that lasts for 1 minute, or until you lose your concentration (as if you were concentrating on a spell). The illusion appears in an unoccupied space that you can see within 30 feet of you. As a bonus action on your turn, you can move the illusion up to 30 feet to a space you can see, but it must remain within 120 feet of you. For the duration, you can cast spells as though you were in the illusion's space, but you must use your own senses. Additionally, when both you and your illusion are within 5 feet of a creature that can see the illusion, you have advantage on attack rolls against that creature, given how distracting the illusion is to the target.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:trickery",
+    "mechanics": [
+      {
+        "type": "action",
+        "concentration": true,
+        "duration": {
+          "value": 1,
+          "unit": "minutes"
+        },
+        "effects": [
+          {
+            "entity": {
+              "category": "illusion",
+              "type": "duplicate",
+              "count": 1,
+              "placement": {
+                "range": 30,
+                "space": "unoccupied",
+                "visibility": {
+                  "requires": "line_of_sight"
+                }
+              },
+              "tether": {
+                "value": 120,
+                "unit": "feet"
+              },
+              "capabilities": [
+                "spell_origin_point"
+              ]
+            }
+          },
+          {
+            "advantage": {
+              "attack": "all",
+              "requirements": [
+                {
+                  "type": "distance",
+                  "value": 5,
+                  "comparison": "at_most",
+                  "to": "target",
+                  "entities": [
+                    "self",
+                    "illusion"
+                  ]
+                },
+                {
+                  "type": "perception",
+                  "observer": "target",
+                  "subject": "illusion",
+                  "senses": [
+                    "sight"
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "short_rest"
+      },
+      {
+        "type": "bonus_action",
+        "name": "move_illusion",
+        "effects": [
+          {
+            "movement": {
+              "target": {
+                "type": "entity",
+                "value": [
+                  "duplicate"
+                ]
+              },
+              "distance": 30,
+              "visibility": {
+                "requires": "line_of_sight"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "feat:trickery-cloak-of-shadows",
+    "level": 6,
+    "name": "Cloak of Shadows",
+    "description": "You can use your Channel Divinity to vanish.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:trickery",
+    "mechanics": [
+      {
+        "type": "action",
+        "target": {
+          "type": "self"
+        },
+        "effects": [
+          {
+            "apply_status": {
+              "id": "status:invisible",
+              "duration": {
+                "until": [
+                  "attack",
+                  "cast_spell"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "feat:trickery-divine-strike",
+    "level": 8,
+    "name": "Divine Strike",
+    "description": "You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 poison damage to the target. When you reach 14th level, the extra damage increases to 2d8.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:trickery",
+    "mechanics": [
+      {
+        "type": "damage_bonus",
+        "trigger": {
+          "event": [
+            "damage"
+          ],
+          "source": {
+            "type": "weapon"
+          }
+        },
+        "damage": {
+          "dice": "1d8",
+          "type": [
+            "poison"
+          ]
+        },
+        "scaling": {
+          "components": {
+            "damage": {
+              "by_level": {
+                "14": "2d8"
+              }
+            }
+          }
+        },
+        "uses": {
+          "value": 1
+        },
+        "recharge": "turn"
+      }
+    ]
+  },
+  {
+    "id": "feat:trickery-improved-duplicity",
+    "level": 17,
+    "name": "Improved Duplicity",
+    "description": "You can create up to four duplicates of yourself, instead of one, when you use Invoke Duplicity. As a bonus action on your turn, you can move any number of them up to 30 feet, to a maximum range of 120 feet.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:trickery",
+    "enhances": [
+      "feat:trickery-invoke-duplicity"
+    ],
+    "mechanics": [
+      {
+        "type": "special",
+        "name": "Improved Duplicity",
+        "effects": [
+          {
+            "entity": {
+              "category": "illusion",
+              "type": "duplicate",
+              "count": 4
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,321 @@
+[
+  {
+    "id": "feat:tempest-domain-spell-knowledge",
+    "level": 1,
+    "name": "Domain Spell Knowledge",
+    "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you have a domain spell that doesn't appear on the cleric spell list, the spell is nonetheless a cleric spell for you.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:tempest",
+    "mechanics": [
+      {
+        "type": "granted_spells",
+        "always_prepared": true,
+        "scaling": {
+          "by_level": {
+            "1": [
+              "spell:fog-cloud",
+              "spell:thunderwave"
+            ],
+            "3": [
+              "spell:gust-of-wind",
+              "spell:shatter"
+            ],
+            "5": [
+              "spell:call-lightning",
+              "spell:sleet-storm"
+            ],
+            "7": [
+              "spell:control-water",
+              "spell:ice-storm"
+            ],
+            "9": [
+              "spell:destructive-wave",
+              "spell:insect-plague"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "feat:tempest-bonus-proficiencies",
+    "level": 1,
+    "name": "Bonus Proficiencies",
+    "description": "At 1st level, you gain proficiency with martial weapons and heavy armor.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:tempest",
+    "mechanics": [
+      {
+        "type": "proficiency",
+        "category": "armor",
+        "proficiencies": [
+          "Heavy"
+        ]
+      },
+      {
+        "type": "proficiency",
+        "category": "weapon",
+        "proficiencies": [
+          "Martial"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "feat:tempest-wrath-of-the-storm",
+    "name": "Wrath of the Storm",
+    "level": 1,
+    "description": "You can thunderously rebuke attackers.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:tempest",
+    "mechanics": [
+      {
+        "type": "reaction",
+        "trigger": {
+          "event": [
+            "attacked_by"
+          ],
+          "attack": {
+            "result": "success"
+          }
+        },
+        "effects": [
+          {
+            "saving_throw": {
+              "ability": [
+                "Dexterity"
+              ],
+              "dc": {
+                "ref": "spell_save_dc"
+              },
+              "on_failure": {
+                "damage": {
+                  "dice": "2d8"
+                }
+              },
+              "on_success": {
+                "damage": {
+                  "calculation": {
+                    "operation": "divide",
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 2
+                      }
+                    ],
+                    "rounding": "down"
+                  }
+                }
+              }
+            },
+            "choice": {
+              "type": "damage_type",
+              "options": [
+                {
+                  "name": "thunder"
+                },
+                {
+                  "name": "lightning"
+                }
+              ]
+            },
+            "requirements": [
+              {
+                "type": "distance",
+                "value": 5,
+                "unit": "feet",
+                "comparison": "at_most"
+              },
+              {
+                "type": "perception",
+                "observer": "character",
+                "subject": "attacker",
+                "senses": [
+                  "sight"
+                ]
+              }
+            ]
+          }
+        ],
+        "uses": {
+          "calculation": "scores.wisdom.modifier",
+          "bounds": {
+            "minimum": 1
+          }
+        },
+        "recharge": "long_rest"
+      }
+    ]
+  },
+  {
+    "id": "feat:tempest-destructive-wrath",
+    "name": "Destructive Wrath",
+    "level": 2,
+    "description": "When you roll lightning or thunder damage, you can use your Channel Divinity to deal maximum damage instead of rolling.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:tempest",
+    "mechanics": [
+      {
+        "type": "optional",
+        "trigger": {
+          "event": [
+            "damage"
+          ],
+          "damage": {
+            "element": [
+              "thunder",
+              "lightning"
+            ]
+          }
+        },
+        "cost": [
+          {
+            "resource": "channel_divinity",
+            "amount": 1
+          }
+        ],
+        "effects": [
+          {
+            "roll_modifier": {
+              "function": "roller.max_roll"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "feat:tempest-thunderbolt-strike",
+    "name": "Thunderbolt Strike",
+    "level": 6,
+    "description": "When you deal lightning damage to a Large or smaller creature, you can also push it up to 10 feet away from you.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:tempest",
+    "mechanics": [
+      {
+        "type": "passive",
+        "trigger": {
+          "event": [
+            "damage"
+          ],
+          "damage": {
+            "element": [
+              "lightning"
+            ]
+          }
+        },
+        "effects": [
+          {
+            "target": {
+              "type": "creature",
+              "requirements": [
+                {
+                  "type": "size",
+                  "value": [
+                    "Tiny",
+                    "Small",
+                    "Medium",
+                    "Large"
+                  ]
+                }
+              ]
+            },
+            "forced_movement": {
+              "type": "push",
+              "direction": "away",
+              "relative_to": "character",
+              "distance": {
+                "value": 10,
+                "unit": "feet",
+                "comparison": "at_most"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "feat:tempest-divine-strike",
+    "level": 8,
+    "name": "Divine Strike",
+    "description": "You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 radiant damage to the target. When you reach 14th level, the extra damage increases to 2d8.",
+    "mechanics": [
+      {
+        "type": "damage_bonus",
+        "trigger": {
+          "event": [
+            "damage"
+          ],
+          "source": {
+            "type": "weapon"
+          }
+        },
+        "damage": {
+          "dice": "1d8",
+          "type": [
+            "thunder"
+          ]
+        },
+        "scaling": {
+          "components": {
+            "damage": {
+              "by_level": {
+                "14": "2d8"
+              }
+            }
+          }
+        },
+        "uses": {
+          "value": 1
+        },
+        "recharge": "turn"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:tempest"
+  },
+  {
+    "id": "feat:tempest-stormborn",
+    "level": 17,
+    "name": "Stormborn",
+    "description": "You have a flying speed equal to your current walking speed whenever you are not underground or indoors.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:tempest",
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "attribute": {
+              "category": "movement",
+              "property": "fly",
+              "calculation": {
+                "operation": "set",
+                "operators": [
+                  {
+                    "type": "attribute",
+                    "value": "movement.base"
+                  }
+                ]
+              }
+            },
+            "requirements": [
+              {
+                "type": "function",
+                "function": "environment.is_outdoors"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
