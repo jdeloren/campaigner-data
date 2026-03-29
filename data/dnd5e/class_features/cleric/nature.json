@@ -1,0 +1,316 @@
+[
+  {
+    "id": "feat:nature-domain-spell-knowledge",
+    "level": 1,
+    "name": "Domain Spell Knowledge",
+    "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you have a domain spell that doesn't appear on the cleric spell list, the spell is nonetheless a cleric spell for you.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:nature",
+    "mechanics": [
+      {
+        "type": "granted_spells",
+        "always_prepared": true,
+        "scaling": {
+          "by_level": {
+            "1": [
+              "spell:animal-friendship",
+              "spell:speak-with-animals"
+            ],
+            "3": [
+              "spell:barkskin",
+              "spell:spike-growth"
+            ],
+            "5": [
+              "spell:plant-growth",
+              "spell:wind-wall"
+            ],
+            "7": [
+              "spell:dominate-beast",
+              "spell:grasping-vine"
+            ],
+            "9": [
+              "spell:insect-plague",
+              "spell:tree-stride"
+            ]
+          }
+        }
+      },
+      {
+        "type": "choice",
+        "choice_type": "expertise",
+        "options": [
+          {
+            "type": "simple",
+            "name": "Animal Handling"
+          },
+          {
+            "type": "simple",
+            "name": "Nature"
+          },
+          {
+            "type": "simple",
+            "name": "Survival"
+          }
+        ],
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "feat:nature-acolyte-of-nature",
+    "name": "Acolyte of Nature",
+    "level": 1,
+    "description": "You learn one cantrip of your choice from the druid spell list.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:nature",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "spell",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "feat:nature-bonus-proficiency",
+    "level": 1,
+    "name": "Bonus Proficiency",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:nature",
+    "mechanics": [
+      {
+        "type": "proficiency",
+        "category": "armor",
+        "proficiencies": [
+          "Heavy"
+        ]
+      }
+    ],
+    "description": "You gain proficiency with heavy armor."
+  },
+  {
+    "id": "feat:nature-charm-animals-and-plants",
+    "name": "Charm Animals and Plants",
+    "level": 2,
+    "description": "You can use your Channel Divinity to charm animals and plants.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:nature",
+    "mechanics": [
+      {
+        "type": "action",
+        "cost": [
+          {
+            "resource": "channel_divinity",
+            "amount": 1
+          }
+        ],
+        "requirements": [
+          {
+            "type": "equipment",
+            "item": [
+              "holy symbol"
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "target": {
+              "type": "creatures",
+              "disposition": "any",
+              "requirements": [
+                {
+                  "type": "creature_type",
+                  "value": [
+                    "Beast",
+                    "Plant"
+                  ]
+                }
+              ]
+            },
+            "area": {
+              "shape": "radius",
+              "size": 30,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "saving_throw": {
+              "ability": [
+                "Wisdom"
+              ],
+              "dc": {
+                "ref": "spell_save_dc"
+              },
+              "on_failure": {
+                "apply_status": {
+                  "id": "status:charmed",
+                  "source": "character",
+                  "action": "Charm Animals and Plants",
+                  "duration": {
+                    "value": 1,
+                    "unit": "minutes",
+                    "until": [
+                      "damaged_by"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "feat:nature-dampen-elements",
+    "name": "Dampen Elements",
+    "level": 6,
+    "description": "When you or a creature within 30 feet of you takes acid, cold, fire, lightning, or thunder damage, you can use your reaction to grant resistance to the creature against that instance of the damage.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:nature",
+    "mechanics": [
+      {
+        "type": "reaction",
+        "trigger": {
+          "event": [
+            "damaged_by"
+          ],
+          "target": {
+            "type": [
+              "self",
+              "ally"
+            ],
+            "range": {
+              "value": 30,
+              "unit": "feet"
+            }
+          },
+          "damage": {
+            "element": [
+              "acid",
+              "cold",
+              "fire",
+              "lightning",
+              "thunder"
+            ]
+          }
+        },
+        "target": {
+          "type": "event_recipient"
+        },
+        "effects": [
+          {
+            "damage": {
+              "calculation": {
+                "operation": "divide",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
+                ],
+                "rounding": "down"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "feat:nature-divine-strike",
+    "level": 8,
+    "name": "Divine Strike",
+    "description": "You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 cold, fire, or lightning damage (your choice) to the target. When you reach 14th level, the extra damage increases to 2d8.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:nature",
+    "mechanics": [
+      {
+        "type": "damage_bonus",
+        "trigger": {
+          "event": [
+            "damage"
+          ],
+          "source": {
+            "type": "weapon"
+          }
+        },
+        "effects": [
+          {
+            "damage": {
+              "dice": "1d8"
+            },
+            "choice": {
+              "type": "damage_type",
+              "options": [
+                {
+                  "name": "cold"
+                },
+                {
+                  "name": "fire"
+                },
+                {
+                  "name": "lightning"
+                }
+              ]
+            }
+          }
+        ],
+        "scaling": {
+          "components": {
+            "damage": {
+              "by_level": {
+                "14": "2d8"
+              }
+            }
+          }
+        },
+        "uses": {
+          "value": 1
+        },
+        "recharge": "turn"
+      }
+    ]
+  },
+  {
+    "id": "feat:nature-master-of-nature",
+    "name": "Master of Nature",
+    "level": 17,
+    "description": "You gain the ability to command animals and plant creatures. While creatures are charmed by your Charm Animals and Plants feature, you can take a bonus action on your turn to verbally command what each of those creatures will do on its next turn.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:nature",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "target": {
+          "type": "creatures",
+          "requirements": [
+            {
+              "type": "status",
+              "value": "charmed",
+              "action": "Charm Animals and Plants",
+              "source": "character"
+            }
+          ]
+        },
+        "effects": [
+          {
+            "grants": {
+              "name": "Command"
+            },
+            "duration": {
+              "value": 1,
+              "unit": "turns"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

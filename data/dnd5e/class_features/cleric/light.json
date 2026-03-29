@@ -1,0 +1,371 @@
+[
+  {
+    "id": "feat:light-domain-spells",
+    "level": 1,
+    "name": "Domain Spells",
+    "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:light",
+    "mechanics": [
+      {
+        "type": "granted_spells",
+        "always_prepared": true,
+        "scaling": {
+          "by_level": {
+            "1": [
+              "spell:burning-hands",
+              "spell:faerie-fire"
+            ],
+            "3": [
+              "spell:flaming-sphere",
+              "spell:scorching-ray"
+            ],
+            "5": [
+              "spell:daylight",
+              "spell:fireball"
+            ],
+            "7": [
+              "spell:guardian-of-faith",
+              "spell:wall-of-fire"
+            ],
+            "9": [
+              "spell:flame-strike",
+              "spell:scrying"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "feat:light-bonus-cantrip",
+    "level": 1,
+    "name": "Bonus Cantrip",
+    "description": "You gain the Light cantrip if you don't already know it. This cantrip doesn't count against the number of cleric cantrips you know.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:light",
+    "mechanics": [
+      {
+        "type": "granted_spells",
+        "spells": [
+          "spell:light"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "feat:light-warding-flare",
+    "level": 1,
+    "name": "Warding Flare",
+    "description": "You can interpose divine light between yourself and an attacking enemy.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:light",
+    "mechanics": [
+      {
+        "type": "reaction",
+        "trigger": {
+          "event": [
+            "attacked_by"
+          ]
+        },
+        "effects": [
+          {
+            "target": {
+              "type": "attacker"
+            },
+            "disadvantage": {
+              "attack": "all"
+            },
+            "requirements": [
+              {
+                "type": "immunity",
+                "to": "blinded",
+                "negate": true
+              },
+              {
+                "type": "distance",
+                "value": 30,
+                "comparison": "at_most",
+                "unit": "feet"
+              },
+              {
+                "type": "perception",
+                "observer": "character",
+                "subject": "attacker",
+                "senses": [
+                  "sight"
+                ]
+              }
+            ]
+          }
+        ],
+        "uses": {
+          "calculation": "scores.wisdom.modifier",
+          "bounds": {
+            "minimum": 1
+          }
+        },
+        "recharge": "long_rest"
+      }
+    ]
+  },
+  {
+    "id": "feat:light-radiance-of-the-dawn",
+    "name": "Radiance of the Dawn",
+    "level": 2,
+    "description": "You can use your Channel Divinity to harness sunlight, banishing darkness and dealing radiant damage to your foes. As an action, you present your holy symbol, and any magical darkness within 30 feet of you is dispelled. Additionally, each hostile creature within 30 feet of you must make a Constitution saving throw. A creature takes radiant damage equal to 2d10 + your cleric level on a failed saving throw, and half as much damage on a successful one. A creature that has total cover from you is not affected.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:light",
+    "mechanics": [
+      {
+        "type": "action",
+        "cost": [
+          {
+            "resource": "channel_divinity",
+            "amount": 1
+          }
+        ],
+        "requirements": [
+          {
+            "type": "equipment",
+            "item": [
+              "holy symbol"
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "area": {
+              "shape": "radius",
+              "size": 30,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "negate": [
+              "magical_darkness"
+            ]
+          },
+          {
+            "target": {
+              "type": "creatures",
+              "disposition": "hostile"
+            },
+            "area": {
+              "shape": "radius",
+              "size": 30,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "blocked_by": {
+              "cover": "total"
+            },
+            "saving_throw": {
+              "ability": [
+                "Constitution"
+              ],
+              "dc": {
+                "ref": "spell_save_dc"
+              },
+              "on_success": {
+                "damage": {
+                  "calculation": {
+                    "operation": "divide",
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 2
+                      }
+                    ],
+                    "rounding": "down"
+                  }
+                }
+              },
+              "on_failure": {
+                "damage": {
+                  "dice": "2d10",
+                  "bonus": {
+                    "operation": "add",
+                    "operators": [
+                      {
+                        "type": "class_level",
+                        "class": "class:cleric"
+                      }
+                    ]
+                  },
+                  "type": [
+                    "radiant"
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "feat:light-improved-flare",
+    "name": "Improved Flare",
+    "level": 6,
+    "description": "You can also use your Warding Flare feature when a creature that you can see within 30 feet of you attacks a creature other than you.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:light",
+    "extends": [
+      "Warding Flare"
+    ],
+    "mechanics": [
+      {
+        "type": "reaction",
+        "trigger": {
+          "event": [
+            "attack"
+          ]
+        },
+        "target": {
+          "type": "creature"
+        },
+        "effects": [
+          {
+            "target": {
+              "type": "attacker"
+            },
+            "disadvantage": {
+              "attack": "all"
+            },
+            "requirements": [
+              {
+                "type": "immunity",
+                "to": "blinded",
+                "negate": true
+              },
+              {
+                "type": "distance",
+                "value": 30,
+                "comparison": "at_most",
+                "unit": "feet"
+              },
+              {
+                "type": "perception",
+                "observer": "character",
+                "subject": "attacker",
+                "senses": [
+                  "sight"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "feat:light-potent-spellcasting",
+    "name": "Potent Spellcasting",
+    "level": 8,
+    "description": "You add your Wisdom modifier to the damage you deal with any cleric cantrip.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:light",
+    "mechanics": [
+      {
+        "type": "damage_bonus",
+        "trigger": {
+          "event": [
+            "cast_spell"
+          ],
+          "spell": {
+            "level": {
+              "minimum": 0,
+              "maximum": 0
+            },
+            "class": "class:cleric"
+          }
+        },
+        "damage": {
+          "bonus": {
+            "operation": "add",
+            "operators": [
+              {
+                "type": "ability_modifier",
+                "ability": "Wisdom"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "feat:light-corona-of-light",
+    "name": "Corona of Light",
+    "level": 17,
+    "description": "You can use your action to activate an aura of sunlight that lasts for 1 minute or until you dismiss it using another action. You emit bright light in a 60-foot radius and dim light 30 feet beyond that. Your enemies in the bright light have disadvantage on saving throws against any spell that deals fire or radiant damage.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:light",
+    "mechanics": [
+      {
+        "type": "action",
+        "duration": {
+          "value": 1,
+          "unit": "minutes"
+        },
+        "effects": [
+          {
+            "aura": {
+              "origin": "self",
+              "layers": [
+                {
+                  "type": "bright_light",
+                  "shape": "radius",
+                  "size": 60,
+                  "unit": "feet"
+                },
+                {
+                  "type": "dim_light",
+                  "shape": "radius",
+                  "size": 90,
+                  "unit": "feet"
+                }
+              ]
+            }
+          },
+          {
+            "target": {
+              "type": "creatures",
+              "disposition": "hostile"
+            },
+            "area": {
+              "shape": "radius",
+              "size": 60,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "disadvantage": {
+              "saving_throw": [
+                "Strength",
+                "Dexterity",
+                "Constitution",
+                "Intelligence",
+                "Wisdom",
+                "Charisma"
+              ],
+              "against": {
+                "effect_type": "spell",
+                "damage_type": [
+                  "fire",
+                  "radiant"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

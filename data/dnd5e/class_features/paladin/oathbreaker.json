@@ -1,0 +1,348 @@
+[
+  {
+    "id": "feat:oathbreaker-oath-spells",
+    "class": "subclass:oathbreaker",
+    "level": 3,
+    "name": "Oathbreaker Spells",
+    "description": "An oathbreaker loses previously gained oath spells and instead gains the following oathbreaker spells at the paladin levels listed.",
+    "mechanics": [
+      {
+        "type": "granted_spells",
+        "always_prepared": true,
+        "scaling": {
+          "by_level": {
+            "3": ["spell:hellish-rebuke", "spell:inflict-wounds"],
+            "5": ["spell:crown-of-madness", "spell:darkness"],
+            "9": ["spell:animate-dead", "spell:bestow-curse"],
+            "13": ["spell:blight", "spell:confusion"],
+            "17": ["spell:contagion", "spell:dominate-person"]
+          }
+        }
+      }
+    ],
+    "source": "dmg",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oathbreaker-control-undead",
+    "class": "subclass:oathbreaker",
+    "level": 3,
+    "name": "Control Undead",
+    "description": "As an action, you target one undead creature you can see within 30 feet of you. The target must make a Wisdom saving throw. On a failed save, the target must obey your commands for the next 24 hours, or until you use this Channel Divinity option again. An undead whose challenge rating is equal to or greater than your paladin level is immune to this effect.",
+    "mechanics": [
+      {
+        "type": "action",
+        "cost": [
+          {
+            "resource": "channel_divinity",
+            "amount": 1
+          }
+        ],
+        "target": {
+          "type": "creature"
+        },
+        "range": {
+          "value": 30,
+          "unit": "feet"
+        },
+        "requirements": [
+          {
+            "type": "perception",
+            "observer": "character",
+            "subject": "target",
+            "senses": ["sight"]
+          },
+          {
+            "type": "creature_type",
+            "value": ["Undead"]
+          },
+          {
+            "type": "cr",
+            "comparison": "less_than",
+            "value": "classes.Paladin.level"
+          }
+        ],
+        "effects": [
+          {
+            "saving_throw": {
+              "ability": ["Wisdom"],
+              "dc": {
+                "ref": "spell_save_dc"
+              },
+              "on_failure": {
+                "apply_status": {
+                  "id": "status:controlled",
+                  "source": "character",
+                  "duration": {
+                    "value": 24,
+                    "unit": "hours"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "dmg",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oathbreaker-dreadful-aspect",
+    "class": "subclass:oathbreaker",
+    "level": 3,
+    "name": "Dreadful Aspect",
+    "description": "As an action, you channel the darkest emotions and focus them into a burst of magical menace. Each creature of your choice within 30 feet of you must make a Wisdom saving throw if it can see you. On a failed save, the target is frightened of you for 1 minute. If a creature frightened by this effect ends its turn more than 30 feet away from you, it can attempt another Wisdom saving throw to end the effect on it.",
+    "mechanics": [
+      {
+        "type": "action",
+        "cost": [
+          {
+            "resource": "channel_divinity",
+            "amount": 1
+          }
+        ],
+        "effects": [
+          {
+            "target": {
+              "type": "creatures",
+              "disposition": "any",
+              "requirements": [
+                {
+                  "type": "perception",
+                  "observer": "target",
+                  "subject": "character",
+                  "senses": ["sight"]
+                }
+              ]
+            },
+            "area": {
+              "shape": "radius",
+              "size": 30,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "saving_throw": {
+              "ability": ["Wisdom"],
+              "dc": {
+                "ref": "spell_save_dc"
+              },
+              "on_failure": {
+                "apply_status": {
+                  "id": "status:frightened",
+                  "source": "character",
+                  "duration": {
+                    "value": 1,
+                    "unit": "minutes"
+                  },
+                  "escape": {
+                    "ability": ["Wisdom"],
+                    "dc": {
+                      "ref": "spell_save_dc"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "dmg",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oathbreaker-aura-of-hate",
+    "class": "subclass:oathbreaker",
+    "level": 7,
+    "name": "Aura of Hate",
+    "description": "Starting at 7th level, the paladin, as well as any fiends and undead within 10 feet of the paladin, gains a bonus to melee weapon damage rolls equal to the paladin's Charisma modifier (minimum of +1). A creature can benefit from this feature from only one paladin at a time.\n\nAt 18th level, the range of this aura increases to 30 feet.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "aura": {
+              "radius": 10,
+              "unit": "feet",
+              "target": {
+                "type": "creatures",
+                "disposition": "any",
+                "include_self": true
+              },
+              "grants": {
+                "attribute": {
+                  "target": "damage.melee_weapon.modifier",
+                  "calculation": {
+                    "operation": "add",
+                    "operators": [
+                      {
+                        "type": "ability_modifier",
+                        "ability": "Charisma"
+                      }
+                    ],
+                    "bounds": { "minimum": 1 }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "scaling": {
+          "components": {
+            "aura.radius": {
+              "by_level": {
+                "7": 10,
+                "18": 30
+              }
+            }
+          }
+        }
+      }
+    ],
+    "source": "dmg",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oathbreaker-supernatural-resistance",
+    "class": "subclass:oathbreaker",
+    "level": 15,
+    "name": "Supernatural Resistance",
+    "description": "At 15th level, you gain resistance to bludgeoning, piercing, and slashing damage from nonmagical weapons.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "damage_response": {
+              "category": "resistance",
+              "to": ["bludgeoning", "piercing", "slashing"],
+              "source": {
+                "type": ["weapon"],
+                "magical": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "dmg",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oathbreaker-dread-lord",
+    "class": "subclass:oathbreaker",
+    "level": 20,
+    "name": "Dread Lord",
+    "description": "At 20th level, you can, as an action, surround yourself with an aura of gloom that lasts for 1 minute. The aura reduces any bright light in a 30-foot radius around you to dim light. Whenever an enemy that is frightened by you starts its turn in the aura, it takes 4d10 psychic damage. Additionally, you and any creatures of your choosing in the aura are draped in deeper shadow. Creatures that rely on sight have disadvantage on attack rolls against creatures draped in this shadow.\n\nWhile the aura lasts, you can use a bonus action on your turn to cause the shadows in the aura to attack one creature. Make a melee spell attack against the target. If the attack hits, the target takes necrotic damage equal to 3d10 + your Charisma modifier.",
+    "mechanics": [
+      {
+        "type": "action",
+        "duration": {
+          "value": 1,
+          "unit": "minutes"
+        },
+        "effects": [
+          {
+            "aura": {
+              "radius": 30,
+              "unit": "feet",
+              "target": {
+                "type": "creatures",
+                "disposition": "hostile",
+                "requirements": [
+                  {
+                    "type": "status",
+                    "value": "frightened",
+                    "source": "character"
+                  }
+                ]
+              },
+              "grants": {
+                "attribute": {
+                  "target": "hit_points.current",
+                  "calculation": {
+                    "operation": "subtract",
+                    "operators": [
+                      {
+                        "type": "dice",
+                        "dice": "4d10"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "aura": {
+              "origin": "self",
+              "radius": 30,
+              "unit": "feet",
+              "target": {
+                "type": "creatures",
+                "disposition": "friendly",
+                "include_self": true
+              },
+              "grants": {
+                "disadvantage": {
+                  "attack": "all"
+                }
+              }
+            }
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "long_rest"
+      },
+      {
+        "type": "bonus_action",
+        "requirements": [
+          {
+            "type": "status",
+            "value": "dread-lord"
+          }
+        ],
+        "target": {
+          "type": "creature"
+        },
+        "range": {
+          "value": 30,
+          "unit": "feet"
+        },
+        "effects": [
+          {
+            "attack": {
+              "source": {
+                "type": "spell",
+                "mode": "melee"
+              }
+            },
+            "on_hit": {
+              "damage": {
+                "calculation": {
+                  "operation": "add",
+                  "operators": [
+                    {
+                      "type": "dice",
+                      "dice": "3d10"
+                    },
+                    {
+                      "type": "ability_modifier",
+                      "ability": "Charisma"
+                    }
+                  ]
+                },
+                "type": ["necrotic"]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "dmg",
+    "ruleset": "dnd5e"
+  }
+]

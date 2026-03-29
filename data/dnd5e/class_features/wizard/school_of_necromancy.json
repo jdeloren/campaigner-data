@@ -11,7 +11,10 @@
         "type": "passive",
         "name": "necromancy_savant",
         "requirements": [
-          { "type": "spell", "school": "Necromancy" }
+          {
+            "type": "spell",
+            "school": "Necromancy"
+          }
         ],
         "cost": [
           {
@@ -19,8 +22,13 @@
             "calculation": {
               "operation": "multiply",
               "operators": [
-                { "type": "integer", "value": 25 },
-                { "type": "spell_level_cast" }
+                {
+                  "type": "integer",
+                  "value": 25
+                },
+                {
+                  "type": "spell_level_cast"
+                }
               ]
             }
           }
@@ -41,9 +49,7 @@
         "type": "passive",
         "name": "grim_harvest",
         "trigger": {
-          "event": [
-            "kill"
-          ],
+          "event": ["kill"],
           "source": {
             "type": "spell",
             "level": {
@@ -56,10 +62,7 @@
         "requirements": [
           {
             "type": "creature_type",
-            "value": [
-              "construct",
-              "undead"
-            ],
+            "value": ["construct", "undead"],
             "negate": true
           }
         ],
@@ -87,9 +90,7 @@
         "name": "grim_harvest_necromancy",
         "description": "Healing increases to three times the spell's level for necromancy spells.",
         "trigger": {
-          "event": [
-            "kill"
-          ],
+          "event": ["kill"],
           "source": {
             "type": "spell",
             "level": {
@@ -101,10 +102,7 @@
         "requirements": [
           {
             "type": "creature_type",
-            "value": [
-              "construct",
-              "undead"
-            ],
+            "value": ["construct", "undead"],
             "negate": true
           }
         ],
@@ -140,9 +138,7 @@
     "mechanics": [
       {
         "type": "granted_spells",
-        "spells": [
-          "spell:animate-dead"
-        ],
+        "spells": ["spell:animate-dead"],
         "always_prepared": true
       },
       {
@@ -150,9 +146,7 @@
         "name": "undead_thralls_extra_target",
         "description": "When you cast animate dead, you can target one additional corpse or pile of bones.",
         "trigger": {
-          "event": [
-            "cast_spell"
-          ],
+          "event": ["cast_spell"],
           "source": {
             "type": "spell",
             "id": "spell:animate-dead"
@@ -180,9 +174,7 @@
         "name": "undead_thralls_hp",
         "description": "Undead you create with necromancy spells gain hit points equal to your wizard level.",
         "trigger": {
-          "event": [
-            "cast_spell"
-          ],
+          "event": ["cast_spell"],
           "source": {
             "type": "spell",
             "school": "Necromancy"
@@ -211,9 +203,7 @@
         "name": "undead_thralls_damage",
         "description": "Undead you create with necromancy spells add your proficiency bonus to weapon damage rolls.",
         "trigger": {
-          "event": [
-            "cast_spell"
-          ],
+          "event": ["cast_spell"],
           "source": {
             "type": "spell",
             "school": "Necromancy"
@@ -255,9 +245,7 @@
           {
             "damage_response": {
               "category": "resistance",
-              "to": [
-                "necrotic"
-              ]
+              "to": ["necrotic"]
             }
           }
         ]
@@ -295,17 +283,13 @@
           "requirements": [
             {
               "type": "creature_type",
-              "value": [
-                "undead"
-              ]
+              "value": ["undead"]
             },
             {
               "type": "perception",
               "observer": "character",
               "subject": "target",
-              "senses": [
-                "sight"
-              ]
+              "senses": ["sight"]
             }
           ]
         },
@@ -314,7 +298,7 @@
           "unit": "feet"
         },
         "saving_throw": {
-          "ability": "Charisma",
+          "ability": ["Charisma"],
           "dc": {
             "ref": "spell_save_dc"
           },
@@ -323,7 +307,9 @@
               {
                 "type": "attribute",
                 "attribute": "Intelligence",
-                "range": { "minimum": 8 }
+                "range": {
+                  "minimum": 8
+                }
               }
             ]
           }
@@ -333,9 +319,7 @@
             "id": "status:charmed",
             "source": "character",
             "duration": {
-              "until": [
-                "feature_reuse"
-              ]
+              "until": ["feature_reuse"]
             }
           }
         },

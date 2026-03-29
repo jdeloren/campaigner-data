@@ -1,0 +1,248 @@
+[
+  {
+    "id": "feat:knowledge-domain-spell-knowledge",
+    "level": 1,
+    "name": "Domain Spell Knowledge",
+    "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you have a domain spell that doesn't appear on the cleric spell list, the spell is nonetheless a cleric spell for you.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:knowledge",
+    "mechanics": [
+      {
+        "type": "granted_spells",
+        "always_prepared": true,
+        "scaling": {
+          "by_level": {
+            "1": [
+              "spell:command",
+              "spell:identify"
+            ],
+            "3": [
+              "spell:augury",
+              "spell:suggestion"
+            ],
+            "5": [
+              "spell:nondetection",
+              "spell:speak-with-dead"
+            ],
+            "7": [
+              "spell:arcane-eye",
+              "spell:confusion"
+            ],
+            "9": [
+              "spell:legend-lore",
+              "spell:scrying"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "feat:knowledge-blessings-of-knowledge",
+    "level": 1,
+    "name": "Blessings of Knowledge",
+    "description": "At 1st level, you learn two languages of your choice. You also become proficient in your choice of two of the following skills: Arcana, History, Nature, or Religion. Your proficiency bonus is doubled for any ability check you make that uses either of those skills.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:knowledge",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "language",
+        "count": 2
+      },
+      {
+        "type": "choice",
+        "choice_type": "expertise",
+        "options": [
+          {
+            "type": "simple",
+            "name": "Arcana"
+          },
+          {
+            "type": "simple",
+            "name": "History"
+          },
+          {
+            "type": "simple",
+            "name": "Nature"
+          },
+          {
+            "type": "simple",
+            "name": "Religion"
+          }
+        ],
+        "count": 2
+      }
+    ]
+  },
+  {
+    "id": "feat:knowledge-knowledge-of-the-ages",
+    "level": 2,
+    "name": "Knowledge of the Ages",
+    "description": "Starting at 2nd level, you can use your Channel Divinity to tap into a divine well of knowledge. As an action, you choose one skill or tool. For 10 minutes, you have proficiency with the chosen skill or tool.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:knowledge",
+    "mechanics": [
+      {
+        "type": "action",
+        "cost": [
+          {
+            "resource": "channel_divinity",
+            "amount": 1
+          }
+        ],
+        "effects": [
+          {
+            "buff": {
+              "category": "proficiency",
+              "choice_type": [
+                "skill",
+                "tool"
+              ],
+              "count": 1
+            },
+            "duration": {
+              "value": 10,
+              "unit": "minutes"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "feat:knowledge-read-thoughts",
+    "level": 6,
+    "name": "Read Thoughts",
+    "description": "At 6th level, you can use your Channel Divinity to read a creature's thoughts. You can then use your access to the creature's mind to command it. As an action, choose one creature that you can see within 60 feet of you. That creature must make a Wisdom saving throw. If the creature succeeds on the saving throw, you can't use this feature on it again until you finish a long rest. If the creature fails its save, you can read its surface thoughts (those foremost in its mind, reflecting its current emotions and what it is actively thinking about) when it is within 60 feet of you. This effect lasts for 1 minute. During that time, you can use your action to end this effect and cast the suggestion spell on the creature without expending a spell slot. The target automatically fails its saving throw against the spell.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:knowledge",
+    "mechanics": [
+      {
+        "type": "action",
+        "cost": [
+          {
+            "resource": "channel_divinity",
+            "amount": 1
+          }
+        ],
+        "effects": [
+          {
+            "target": {
+              "type": "creature",
+              "requirements": [
+                {
+                  "type": "perception",
+                  "observer": "character",
+                  "subject": "target",
+                  "senses": [
+                    "sight"
+                  ]
+                },
+                {
+                  "type": "distance",
+                  "value": 60,
+                  "unit": "feet"
+                }
+              ]
+            },
+            "saving_throw": {
+              "ability": [
+                "Wisdom"
+              ],
+              "dc": {
+                "ref": "spell_save_dc"
+              },
+              "on_success": {
+                "type": "immune_until_rest",
+                "recharge": "long_rest"
+              },
+              "on_failure": {
+                "type": "read_surface_thoughts",
+                "range": {
+                  "value": 60,
+                  "unit": "feet"
+                },
+                "duration": {
+                  "value": 1,
+                  "unit": "minutes"
+                },
+                "grants": {
+                  "name": "Suggestion",
+                  "interaction": {
+                    "type": "spell",
+                    "spell": "spell:suggestion",
+                    "slot": false,
+                    "save": "auto_fail",
+                    "ends": [
+                      "read_surface_thoughts"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "feat:knowledge-potent-spellcasting",
+    "level": 8,
+    "name": "Potent Spellcasting",
+    "description": "Starting at 8th level, you add your Wisdom modifier to the damage you deal with any cleric cantrip.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:knowledge",
+    "mechanics": [
+      {
+        "type": "damage_bonus",
+        "trigger": {
+          "event": [
+            "cast_spell"
+          ],
+          "spell": {
+            "level": {
+              "minimum": 0,
+              "maximum": 0
+            },
+            "class": "class:cleric"
+          }
+        },
+        "damage": {
+          "bonus": {
+            "operation": "add",
+            "operators": [
+              {
+                "type": "ability_modifier",
+                "ability": "Wisdom"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "feat:knowledge-visions-of-the-past",
+    "level": 17,
+    "name": "Visions of the Past",
+    "description": "Starting at 17th level, you can call up visions of the past that relate to an object you hold or your immediate surroundings. You spend at least 1 minute in meditation and prayer, then receive dreamlike, shadowy glimpses of recent events. You can meditate in this way for a number of minutes equal to your Wisdom score and must maintain concentration during that time, as if you were casting a spell. Once you use this feature, you can't use it again until you finish a short or long rest.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:knowledge",
+    "mechanics": [
+      {
+        "type": "special",
+        "uses": {
+          "value": 1
+        },
+        "recharge": "short_rest"
+      }
+    ]
+  }
+]

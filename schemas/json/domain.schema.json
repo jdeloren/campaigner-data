@@ -34,17 +34,9 @@
         "description": "Class that can choose this domain (e.g., 'Cleric')",
         "title": "Class",
         "type": "string"
-      },
-      "features": {
-        "description": "Features granted by this domain at various levels",
-        "items": {
-          "$ref": "class_feature.schema.json#/items"
-        },
-        "title": "Features",
-        "type": "array"
       }
     },
-    "required": ["id", "name", "description", "source", "ruleset", "class", "features"],
+    "required": ["id", "name", "description", "source", "ruleset", "class"],
     "additionalProperties": false,
     "title": "Domain",
     "type": "object"

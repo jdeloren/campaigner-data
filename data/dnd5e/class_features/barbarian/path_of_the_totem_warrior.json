@@ -609,7 +609,7 @@
               },
               {
                 "saving_throw": {
-                  "ability": "Strength",
+                  "ability": ["Strength"],
                   "on_failure": {
                     "apply_status": {
                       "id": "status:prone"

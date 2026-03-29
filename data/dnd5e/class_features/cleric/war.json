@@ -1,0 +1,252 @@
+[
+  {
+    "id": "feat:war-domain-spell-knowledge",
+    "level": 1,
+    "name": "Domain Spell Knowledge",
+    "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you have a domain spell that doesn't appear on the cleric spell list, the spell is nonetheless a cleric spell for you.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:war",
+    "mechanics": [
+      {
+        "type": "granted_spells",
+        "always_prepared": true,
+        "scaling": {
+          "by_level": {
+            "1": [
+              "spell:divine-favor",
+              "spell:shield-of-faith"
+            ],
+            "3": [
+              "spell:magic-weapon",
+              "spell:spiritual-weapon"
+            ],
+            "5": [
+              "spell:crusaders-mantle",
+              "spell:spirit-guardians"
+            ],
+            "7": [
+              "spell:freedom-of-movement",
+              "spell:stoneskin"
+            ],
+            "9": [
+              "spell:flame-strike",
+              "spell:hold-monster"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "feat:war-bonus-proficiencies",
+    "level": 1,
+    "name": "Bonus Proficiencies",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:war",
+    "mechanics": [
+      {
+        "type": "proficiency",
+        "category": "armor",
+        "proficiencies": [
+          "Heavy"
+        ]
+      },
+      {
+        "type": "proficiency",
+        "category": "weapon",
+        "proficiencies": [
+          "Martial"
+        ]
+      }
+    ],
+    "description": "You gain proficiency with heavy armor and martial weapons."
+  },
+  {
+    "id": "feat:war-war-priest",
+    "level": 1,
+    "name": "War Priest",
+    "description": "Your god delivers bolts of inspiration to you while you are engaged in battle.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:war",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "trigger": {
+          "event": [
+            "attack"
+          ],
+          "source": {
+            "type": "weapon"
+          }
+        },
+        "effects": [
+          {
+            "grants": {
+              "name": "Attack"
+            }
+          }
+        ],
+        "uses": {
+          "calculation": "scores.wisdom.modifier",
+          "bounds": {
+            "minimum": 1
+          }
+        },
+        "recharge": "long_rest"
+      }
+    ]
+  },
+  {
+    "id": "feat:war-guided-strike",
+    "level": 2,
+    "name": "Guided Strike",
+    "description": "You can use your Channel Divinity to strike with supernatural accuracy.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:war",
+    "mechanics": [
+      {
+        "type": "optional",
+        "trigger": {
+          "event": [
+            "attack"
+          ]
+        },
+        "effects": [
+          {
+            "calculation": {
+              "operation": "add",
+              "operators": [
+                {
+                  "type": "integer",
+                  "value": 10
+                }
+              ]
+            }
+          }
+        ],
+        "cost": [
+          {
+            "resource": "channel_divinity",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "feat:war-war-god-s-blessing",
+    "level": 6,
+    "name": "War God's Blessing",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:war",
+    "mechanics": [
+      {
+        "type": "reaction",
+        "trigger": {
+          "event": [
+            "attack"
+          ]
+        },
+        "target": {
+          "type": "creature"
+        },
+        "effects": [
+          {
+            "calculation": {
+              "operation": "add",
+              "operators": [
+                {
+                  "type": "integer",
+                  "value": 10
+                }
+              ]
+            }
+          }
+        ],
+        "requirements": [
+          {
+            "type": "distance",
+            "value": 30,
+            "comparison": "at_most",
+            "unit": "feet",
+            "to": "creature"
+          }
+        ]
+      }
+    ],
+    "description": "When a creature within 30 feet of you makes an attack roll, you can use your reaction to grant that creature a +10 bonus to the roll, using your Channel Divinity. You make this choice after you see the roll, but before the DM says whether the attack hits or misses."
+  },
+  {
+    "id": "feat:war-divine-strike",
+    "level": 8,
+    "name": "Divine Strike",
+    "description": "You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 damage of the same type. When you reach 14th level, the extra damage increases to 2d8.",
+    "mechanics": [
+      {
+        "type": "damage_bonus",
+        "trigger": {
+          "event": [
+            "damage"
+          ],
+          "source": {
+            "type": "weapon"
+          }
+        },
+        "damage": {
+          "dice": "1d8",
+          "inherit_type": true
+        },
+        "scaling": {
+          "components": {
+            "damage": {
+              "by_level": {
+                "14": "2d8"
+              }
+            }
+          }
+        },
+        "uses": {
+          "value": 1
+        },
+        "recharge": "turn"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:war"
+  },
+  {
+    "id": "feat:war-avatar-of-battle",
+    "level": 17,
+    "name": "Avatar of Battle",
+    "description": "You gain resistance to bludgeoning, piercing, and slashing damage from nonmagical attacks.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:war",
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "damage_response": {
+              "category": "resistance",
+              "to": [
+                "bludgeoning",
+                "piercing",
+                "slashing"
+              ],
+              "source": {
+                "magical": false
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

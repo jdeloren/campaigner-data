@@ -1,0 +1,351 @@
+[
+  {
+    "id": "feat:oath-of-devotion-oath-spells",
+    "class": "subclass:oath-of-devotion",
+    "level": 3,
+    "name": "Oath Spells",
+    "description": "You gain oath spells at the paladin levels listed. Once you gain an oath spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you have an oath spell that doesn't appear on the paladin spell list, the spell is nonetheless a paladin spell for you.",
+    "mechanics": [
+      {
+        "type": "granted_spells",
+        "always_prepared": true,
+        "scaling": {
+          "by_level": {
+            "3": ["spell:protection-from-evil-and-good", "spell:sanctuary"],
+            "5": ["spell:lesser-restoration", "spell:zone-of-truth"],
+            "9": ["spell:beacon-of-hope", "spell:dispel-magic"],
+            "13": ["spell:freedom-of-movement", "spell:guardian-of-faith"],
+            "17": ["spell:commune", "spell:flame-strike"]
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-devotion-sacred-weapon",
+    "class": "subclass:oath-of-devotion",
+    "level": 3,
+    "name": "Sacred Weapon",
+    "description": "As an action, you can imbue one weapon that you are holding with positive energy, using your Channel Divinity. For 1 minute, you add your Charisma modifier to attack rolls made with that weapon (with a minimum bonus of +1). The weapon also emits bright light in a 20-foot radius and dim light 20 feet beyond that. If the weapon is not already magical, it becomes magical for the duration.\n\nYou can end this effect on your turn as part of any other action. If you are no longer holding or carrying this weapon, or if you fall unconscious, this effect ends.",
+    "mechanics": [
+      {
+        "type": "action",
+        "cost": [
+          {
+            "resource": "channel_divinity",
+            "amount": 1
+          }
+        ],
+        "duration": {
+          "value": 1,
+          "unit": "minutes"
+        },
+        "effects": [
+          {
+            "target": {
+              "type": "weapon"
+            },
+            "attribute": {
+              "target": "attack_roll.modifier",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "ability_modifier",
+                    "ability": "Charisma"
+                  }
+                ],
+                "bounds": { "minimum": 1 }
+              }
+            }
+          },
+          {
+            "target": {
+              "type": "weapon"
+            },
+            "attribute": {
+              "category": "combat",
+              "property": "magical",
+              "calculation": {
+                "operation": "set",
+                "operators": [
+                  {
+                    "type": "boolean",
+                    "value": true
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "aura": {
+              "origin": "weapon",
+              "layers": [
+                {
+                  "type": "bright_light",
+                  "shape": "radius",
+                  "size": 20,
+                  "unit": "feet"
+                },
+                {
+                  "type": "dim_light",
+                  "shape": "radius",
+                  "size": 20,
+                  "unit": "feet"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-devotion-turn-the-unholy",
+    "class": "subclass:oath-of-devotion",
+    "level": 3,
+    "name": "Turn the Unholy",
+    "description": "As an action, you present your holy symbol and speak a prayer censuring fiends and undead, using your Channel Divinity. Each fiend or undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes damage.",
+    "mechanics": [
+      {
+        "type": "action",
+        "cost": [
+          {
+            "resource": "channel_divinity",
+            "amount": 1
+          }
+        ],
+        "requirements": [
+          {
+            "type": "equipment",
+            "item": ["holy symbol"]
+          }
+        ],
+        "effects": [
+          {
+            "target": {
+              "type": "creatures",
+              "disposition": "any",
+              "requirements": [
+                {
+                  "type": "creature_type",
+                  "value": ["Fiend", "Undead"]
+                },
+                {
+                  "type": "perception",
+                  "observer": "target",
+                  "subject": "character",
+                  "senses": ["sight", "hearing"],
+                  "match": "any"
+                }
+              ]
+            },
+            "area": {
+              "shape": "radius",
+              "size": 30,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "saving_throw": {
+              "ability": ["Wisdom"],
+              "dc": {
+                "ref": "spell_save_dc"
+              },
+              "on_failure": {
+                "apply_status": {
+                  "id": "status:turned",
+                  "duration": {
+                    "value": 1,
+                    "unit": "minutes",
+                    "until": ["damaged_by"]
+                  },
+                  "constraints": {
+                    "movement": {
+                      "direction": "away",
+                      "relative_to": "character",
+                      "keep_distance": 30
+                    },
+                    "actions": {
+                      "blocked": {
+                        "economy": ["reaction"]
+                      },
+                      "allowed": {
+                        "actions": ["Dash", "Dodge"]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-devotion-aura-of-devotion",
+    "class": "subclass:oath-of-devotion",
+    "level": 7,
+    "name": "Aura of Devotion",
+    "description": "Starting at 7th level, you and friendly creatures within 10 feet of you can't be charmed while you are conscious.\n\nAt 18th level, the range of this aura increases to 30 feet.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "requirements": [
+          {
+            "type": "status",
+            "value": "unconscious",
+            "negate": true
+          }
+        ],
+        "effects": [
+          {
+            "aura": {
+              "radius": 10,
+              "unit": "feet",
+              "target": {
+                "type": "creatures",
+                "disposition": "friendly",
+                "include_self": true
+              },
+              "grants": {
+                "immunity": {
+                  "category": "status",
+                  "status": ["charmed"]
+                }
+              }
+            }
+          }
+        ],
+        "scaling": {
+          "components": {
+            "aura.radius": {
+              "by_level": {
+                "7": 10,
+                "18": 30
+              }
+            }
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-devotion-purity-of-spirit",
+    "class": "subclass:oath-of-devotion",
+    "level": 15,
+    "name": "Purity of Spirit",
+    "description": "Beginning at 15th level, you are always under the effects of a protection from evil and good spell.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "apply_status": {
+              "id": "status:protection-from-evil-and-good"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-devotion-holy-nimbus",
+    "class": "subclass:oath-of-devotion",
+    "level": 20,
+    "name": "Holy Nimbus",
+    "description": "At 20th level, as an action, you can emanate an aura of sunlight. For 1 minute, bright light shines from you in a 30-foot radius, and dim light shines 30 feet beyond that.\n\nWhenever an enemy creature starts its turn in the bright light, the creature takes 10 radiant damage.\n\nIn addition, for the duration, you have advantage on saving throws against spells cast by fiends or undead.",
+    "mechanics": [
+      {
+        "type": "action",
+        "duration": {
+          "value": 1,
+          "unit": "minutes"
+        },
+        "effects": [
+          {
+            "aura": {
+              "origin": "self",
+              "layers": [
+                {
+                  "type": "bright_light",
+                  "shape": "radius",
+                  "size": 30,
+                  "unit": "feet"
+                },
+                {
+                  "type": "dim_light",
+                  "shape": "radius",
+                  "size": 30,
+                  "unit": "feet"
+                }
+              ]
+            }
+          },
+          {
+            "aura": {
+              "radius": 30,
+              "unit": "feet",
+              "target": {
+                "type": "creatures",
+                "disposition": "hostile"
+              },
+              "grants": {
+                "attribute": {
+                  "target": "hit_points.current",
+                  "calculation": {
+                    "operation": "subtract",
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 10
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "long_rest"
+      },
+      {
+        "type": "passive",
+        "trigger": {
+          "event": ["saving_throw"],
+          "source": {
+            "type": "creature"
+          }
+        },
+        "requirements": [
+          {
+            "type": "creature_type",
+            "value": ["Fiend", "Undead"]
+          }
+        ],
+        "effects": [
+          {
+            "advantage": {
+              "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]

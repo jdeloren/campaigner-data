@@ -11,7 +11,10 @@
         "type": "passive",
         "name": "enchantment_savant",
         "requirements": [
-          { "type": "spell", "school": "Enchantment" }
+          {
+            "type": "spell",
+            "school": "Enchantment"
+          }
         ],
         "cost": [
           {
@@ -19,8 +22,13 @@
             "calculation": {
               "operation": "multiply",
               "operators": [
-                { "type": "integer", "value": 25 },
-                { "type": "spell_level_cast" }
+                {
+                  "type": "integer",
+                  "value": 25
+                },
+                {
+                  "type": "spell_level_cast"
+                }
               ]
             }
           }
@@ -57,7 +65,7 @@
           "unit": "feet"
         },
         "saving_throw": {
-          "ability": "Wisdom",
+          "ability": ["Wisdom"],
           "dc": {
             "ref": "spell_save_dc"
           }
@@ -145,7 +153,7 @@
           }
         ],
         "saving_throw": {
-          "ability": "Wisdom",
+          "ability": ["Wisdom"],
           "dc": {
             "ref": "spell_save_dc"
           }
@@ -190,7 +198,9 @@
           "event": ["cast_spell"],
           "spell": {
             "school": "Enchantment",
-            "level": { "minimum": 1 }
+            "level": {
+              "minimum": 1
+            }
           }
         },
         "effects": [
@@ -250,7 +260,7 @@
           ]
         },
         "saving_throw": {
-          "ability": "Intelligence",
+          "ability": ["Intelligence"],
           "dc": {
             "ref": "spell_save_dc"
           }
@@ -270,7 +280,9 @@
                   "value": 1
                 }
               ],
-              "bounds": { "minimum": 1 }
+              "bounds": {
+                "minimum": 1
+              }
             }
           },
           "duration": {

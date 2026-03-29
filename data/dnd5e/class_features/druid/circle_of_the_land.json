@@ -14,7 +14,9 @@
           {
             "type": "spell",
             "class": "Druid",
-            "level": { "maximum": 0 }
+            "level": {
+              "maximum": 0
+            }
           }
         ]
       }
@@ -35,7 +37,9 @@
           {
             "recover": {
               "target": "spell_slot",
-              "bounds": { "maximum": 5 },
+              "bounds": {
+                "maximum": 5
+              },
               "budget": {
                 "calculation": "classes.Druid.level",
                 "operation": "divide",
@@ -60,7 +64,7 @@
     "class": "subclass:circle-of-the-land",
     "level": 2,
     "name": "Circle Spells",
-    "description": "Your mystical connection to the land infuses you with the ability to cast certain spells. At 3rd, 5th, 7th, and 9th level you gain access to circle spells connected to the land where you became a druid. Choose that land — Arctic, Coast, Desert, Forest, Grassland, Mountain, Swamp, or Underdark — and consult the associated list of spells. Once you gain access to a circle spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day.",
+    "description": "Your mystical connection to the land infuses you with the ability to cast certain spells. At 3rd, 5th, 7th, and 9th level you gain access to circle spells connected to the land where you became a druid. Choose that land \u2014 Arctic, Coast, Desert, Forest, Grassland, Mountain, Swamp, or Underdark \u2014 and consult the associated list of spells. Once you gain access to a circle spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day.",
     "mechanics": [
       {
         "type": "choice",
@@ -323,7 +327,9 @@
         "trigger": {
           "event": ["attacked_by"],
           "timing": "before",
-          "target": { "type": "self" }
+          "target": {
+            "type": "self"
+          }
         },
         "requirements": [
           {
@@ -343,7 +349,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Wisdom",
+              "ability": ["Wisdom"],
               "dc": {
                 "ref": "spell_save_dc"
               }

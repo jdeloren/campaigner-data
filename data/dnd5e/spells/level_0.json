@@ -39,7 +39,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Dexterity",
+              "ability": ["Dexterity"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -290,7 +290,7 @@
   {
     "id": "spell:control-flames",
     "name": "Control Flames",
-    "description": "You choose nonmagical flame that you can see within range and that fits within a 5-foot cube. You affect it in one of the following ways: You instantaneously expand the flame 5 feet in one direction, provided that wood or other fuel is present in the new location. You instantaneously extinguish the flames within the cube. You double or halve the area of bright light and dim light cast by the flame, change its color, or both. The change lasts for 1 hour. You cause simple shapes—such as the vague form of a creature, an inanimate object, or a location—to appear within the flames and animate as you like. The shapes last for 1 hour.",
+    "description": "You choose nonmagical flame that you can see within range and that fits within a 5-foot cube. You affect it in one of the following ways: You instantaneously expand the flame 5 feet in one direction, provided that wood or other fuel is present in the new location. You instantaneously extinguish the flames within the cube. You double or halve the area of bright light and dim light cast by the flame, change its color, or both. The change lasts for 1 hour. You cause simple shapes\u2014such as the vague form of a creature, an inanimate object, or a location\u2014to appear within the flames and animate as you like. The shapes last for 1 hour.",
     "level": 0,
     "casting_time": "Action",
     "components": ["Somatic"],
@@ -492,11 +492,15 @@
           },
           {
             "trigger": [
-              {"event": ["enter_area"]},
-              {"event": ["turn_end"]}
+              {
+                "event": ["enter_area"]
+              },
+              {
+                "event": ["turn_end"]
+              }
             ],
             "saving_throw": {
-              "ability": "Dexterity",
+              "ability": ["Dexterity"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -725,7 +729,9 @@
         "effects": [
           {
             "attack": {
-              "source": { "type": "spell" }
+              "source": {
+                "type": "spell"
+              }
             },
             "on_hit": {
               "damage": {
@@ -810,7 +816,7 @@
                       ]
                     },
                     "saving_throw": {
-                      "ability": "Strength",
+                      "ability": ["Strength"],
                       "dc": {
                         "ref": "spell_save_dc"
                       }
@@ -833,7 +839,9 @@
                         {
                           "type": "attribute",
                           "ref": "weight",
-                          "range": { "maximum": 5 }
+                          "range": {
+                            "maximum": 5
+                          }
                         }
                       ]
                     },
@@ -1051,7 +1059,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Constitution",
+              "ability": ["Constitution"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -1069,7 +1077,9 @@
                     "type": "category",
                     "category": "movement",
                     "property": "speed",
-                    "range": { "minimum": 5 }
+                    "range": {
+                      "minimum": 5
+                    }
                   }
                 ]
               }
@@ -1182,7 +1192,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Strength",
+              "ability": ["Strength"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -1390,7 +1400,7 @@
   {
     "id": "spell:minor-illusion",
     "name": "Minor Illusion",
-    "description": "You create a sound or an image of an object within range that lasts for the duration. The illusion also ends if you dismiss it as an action or cast this spell again. If you create a sound, its volume can range from a whisper to a scream. It can be your voice, someone else's voice, a lion's roar, a beating of drums, or any other sound you choose. The sound continues unabated throughout the duration, or you can make discrete sounds at different times before the spell ends. If you create an image of an object—such as a chair, muddy footprints, or a small chest—it must be no larger than a 5-foot cube. The image can't create sound, light, smell, or any other sensory effect. Physical interaction with the image reveals it to be an illusion, because things can pass through it. If a creature uses its action to examine the sound or image, the creature can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the illusion becomes faint to the creature.",
+    "description": "You create a sound or an image of an object within range that lasts for the duration. The illusion also ends if you dismiss it as an action or cast this spell again. If you create a sound, its volume can range from a whisper to a scream. It can be your voice, someone else's voice, a lion's roar, a beating of drums, or any other sound you choose. The sound continues unabated throughout the duration, or you can make discrete sounds at different times before the spell ends. If you create an image of an object\u2014such as a chair, muddy footprints, or a small chest\u2014it must be no larger than a 5-foot cube. The image can't create sound, light, smell, or any other sensory effect. Physical interaction with the image reveals it to be an illusion, because things can pass through it. If a creature uses its action to examine the sound or image, the creature can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the illusion becomes faint to the creature.",
     "level": 0,
     "casting_time": "Action",
     "components": ["Somatic", "Material"],
@@ -1500,7 +1510,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Intelligence",
+              "ability": ["Intelligence"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -1633,7 +1643,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Constitution",
+              "ability": ["Constitution"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -1824,8 +1834,16 @@
               {
                 "operator": "or",
                 "conditions": [
-                  { "type": "equipment", "slot": "main_hand", "occupied": false },
-                  { "type": "equipment", "slot": "off_hand", "occupied": false }
+                  {
+                    "type": "equipment",
+                    "slot": "main_hand",
+                    "occupied": false
+                  },
+                  {
+                    "type": "equipment",
+                    "slot": "off_hand",
+                    "occupied": false
+                  }
                 ]
               }
             ],
@@ -2058,12 +2076,16 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Dexterity",
+              "ability": ["Dexterity"],
               "dc": {
                 "ref": "spell_save_dc"
               }
             },
-            "ignore_requirements": [{ "type": "cover" }],
+            "ignore_requirements": [
+              {
+                "type": "cover"
+              }
+            ],
             "on_failure": {
               "damage": {
                 "dice": "scaling.damage",
@@ -2244,7 +2266,9 @@
           },
           {
             "attack": {
-              "source": { "type": "spell" }
+              "source": {
+                "type": "spell"
+              }
             },
             "on_hit": {
               "damage": {
@@ -2365,7 +2389,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Constitution",
+              "ability": ["Constitution"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -2569,7 +2593,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Wisdom",
+              "ability": ["Wisdom"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -2606,7 +2630,7 @@
               ]
             },
             "saving_throw": {
-              "ability": "Wisdom",
+              "ability": ["Wisdom"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -2729,7 +2753,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Wisdom",
+              "ability": ["Wisdom"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -2832,7 +2856,7 @@
         "effects": [
           {
             "saving_throw": {
-              "ability": "Constitution",
+              "ability": ["Constitution"],
               "dc": {
                 "ref": "spell_save_dc"
               }

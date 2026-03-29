@@ -1058,6 +1058,54 @@
           ],
           "default": null,
           "description": "Modifies an attribute on affected creatures"
+        },
+        "immunity": {
+          "anyOf": [
+            {
+              "discriminator": {
+                "mapping": {
+                  "advantage": "#/$defs/AdvantageImmunity",
+                  "concentration": "#/$defs/ConcentrationImmunity",
+                  "disadvantage": "#/$defs/DisadvantageImmunity",
+                  "effect": "#/$defs/EffectImmunity",
+                  "hit_points": "#/$defs/HitPointsImmunity",
+                  "spell": "#/$defs/SpellImmunity",
+                  "status": "#/$defs/StatusImmunity",
+                  "terrain": "#/$defs/TerrainImmunity",
+                  "trigger": "#/$defs/TriggerImmunity"
+                },
+                "propertyName": "category"
+              },
+              "oneOf": [
+                { "$ref": "#/$defs/StatusImmunity" },
+                { "$ref": "#/$defs/SpellImmunity" },
+                { "$ref": "#/$defs/EffectImmunity" },
+                { "$ref": "#/$defs/HitPointsImmunity" },
+                { "$ref": "#/$defs/TerrainImmunity" },
+                { "$ref": "#/$defs/TriggerImmunity" },
+                { "$ref": "#/$defs/AdvantageImmunity" },
+                { "$ref": "#/$defs/ConcentrationImmunity" },
+                { "$ref": "#/$defs/DisadvantageImmunity" }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Grants immunity to affected creatures"
+        },
+        "damage_response": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/DamageResponse"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Grants damage resistance, immunity, or vulnerability to affected creatures"
         }
       },
       "title": "AuraGrant",
@@ -8013,9 +8061,10 @@
       "description": "Defines a saving throw required by an effect or mechanic.",
       "properties": {
         "ability": {
-          "description": "Ability used for the save (e.g., 'Dexterity', 'Wisdom')",
+          "description": "Ability/abilities for the save. Array with multiple means the roller chooses (e.g., ['Strength', 'Dexterity']).",
+          "items": { "type": "string" },
           "title": "Ability",
-          "type": "string"
+          "type": "array"
         },
         "dc": {
           "anyOf": [

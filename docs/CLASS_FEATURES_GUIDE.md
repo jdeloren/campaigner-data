@@ -1712,7 +1712,6 @@ Checks what a character has equipped. Fields can be combined to create specific 
 { "type": "attribute", "attribute": "hit_points.current", "comparison": "at_least", "calculation": { ... } }
 { "type": "attribute", "attribute": "Intelligence", "maximum": 3 }
 { "type": "attribute", "attribute": "weight", "maximum": 5 }
-{ "type": "attribute", "attribute": "movement.speed", "minimum": 5 }
 ```
 
 The `attribute` requirement handles all attribute-based checks including ability scores, hit points, weight, and movement. Use `minimum`/`maximum` for simple bounds or `comparison`/`value`/`calculation` for more complex checks.
@@ -2268,7 +2267,7 @@ Target fields:
 ```json
 {
   "saving_throw": {
-    "ability": "Charisma",
+    "ability": ["Charisma"],
     "dc": { "ref": "spell_save_dc" },
     "advantage": {
       "requirements": [
@@ -2394,51 +2393,82 @@ For spells like Acid Splash where targets must be close to each other:
 
 ## Scaling
 
-Scaling defines how values change with level.
+Scaling defines how values change with level. All scaling uses the `components` wrapper with `by_level` tables.
 
 ### Basic Scaling
 
-On a mechanic:
+On a mechanic — the component key names the value being scaled, and `by_level` maps class levels to values:
 
 ```json
 {
   "type": "passive",
   "scaling": {
-    "damage": {
-      "1": "1d6",
-      "5": "2d6",
-      "11": "3d6",
-      "17": "4d6"
+    "components": {
+      "damage": {
+        "by_level": {
+          "1": "1d6",
+          "5": "2d6",
+          "11": "3d6",
+          "17": "4d6"
+        }
+      }
     }
   },
   "effects": [
     {
-      "damage": { "type": ["radiant"] },
-      "scaling_key": "damage"
+      "damage": { "dice": "scaling.damage", "type": ["radiant"] }
     }
   ]
 }
 ```
 
-### Multiple Scaling Properties
+### Multiple Scaling Components
 
 ```json
 {
   "scaling": {
-    "damage": { "1": "1d6", "5": "2d6" },
-    "radius": { "1": 10, "18": 30 },
-    "uses": { "1": 1, "6": 2, "14": 3 }
+    "components": {
+      "damage": {
+        "by_level": { "1": "1d6", "5": "2d6" }
+      },
+      "uses": {
+        "by_level": { "1": 1, "6": 2, "14": 3 }
+      }
+    }
+  }
+}
+```
+
+### Dot-Notation Component Keys
+
+When scaling a nested property (e.g., an aura's radius), use dot-notation in the component key:
+
+```json
+{
+  "scaling": {
+    "components": {
+      "aura.radius": {
+        "by_level": {
+          "6": 10,
+          "18": 30
+        }
+      }
+    }
   }
 }
 ```
 
 ### Scaling Reference
 
-Reference scaling defined elsewhere:
+Reference scaling values in effects and requirements using `"scaling.<component_key>"`:
 
 ```json
 {
-  "limit": { "ref": "uses" }
+  "effects": [
+    {
+      "damage": { "dice": "scaling.damage", "type": ["fire"] }
+    }
+  ]
 }
 ```
 
@@ -2467,7 +2497,7 @@ Resource cost + triggered effect:
     },
     {
       "saving_throw": {
-        "ability": "Strength",
+        "ability": ["Strength"],
         "dc": {
           "base": 8,
           "add": ["proficiency_bonus", { "type": "ability_modifier", "ability": "Strength" }]
@@ -2494,7 +2524,7 @@ Shared resource, multiple options:
     "name": "Channel Divinity",
     "count": 1,
     "recharge": "short_rest",
-    "scaling": { "count": { "6": 2, "18": 3 } }
+    "scaling": { "components": { "count": { "by_level": { "6": 2, "18": 3 } } } }
   },
   {
     "type": "action",
@@ -2523,8 +2553,8 @@ Shared resource, multiple options:
           "origin": "self"
         },
         "saving_throw": {
-          "ability": "Wisdom",
-          "dc": { "type": "spell_save_dc" }
+          "ability": ["Wisdom"],
+          "dc": { "ref": "spell_save_dc" }
         },
         "on_failure": {
           "apply_status": {
@@ -2544,7 +2574,7 @@ Shared resource, multiple options:
 ```json
 {
   "type": "passive",
-  "name": "Aura of Protection",
+  "requirements": [{ "type": "status", "value": "unconscious", "negate": true }],
   "effects": [
     {
       "aura": {
@@ -2557,19 +2587,26 @@ Shared resource, multiple options:
         },
         "grants": {
           "attribute": {
-            "target": "saving_throw.all",
+            "target": "saving_throw.modifier",
             "calculation": {
               "operation": "add",
-              "operators": [{ "type": "ability_modifier", "ability": "Charisma" }]
+              "operators": [{ "type": "ability_modifier", "ability": "Charisma" }],
+              "bounds": { "minimum": 1 }
             }
           }
         }
       }
     }
   ],
-  "requirements": [{ "type": "status", "value": "incapacitated", "negate": true }],
   "scaling": {
-    "radius": { "18": 30 }
+    "components": {
+      "aura.radius": {
+        "by_level": {
+          "6": 10,
+          "18": 30
+        }
+      }
+    }
   }
 }
 ```
@@ -2617,7 +2654,11 @@ Shared resource, multiple options:
     }
   ],
   "scaling": {
-    "rage_damage": { "1": 2, "9": 3, "16": 4 }
+    "components": {
+      "rage_damage": {
+        "by_level": { "1": 2, "9": 3, "16": 4 }
+      }
+    }
   }
 }
 ```
@@ -2629,8 +2670,8 @@ Shared resource, multiple options:
   "effects": [
     {
       "saving_throw": {
-        "ability": "Constitution",
-        "dc": { "type": "spell_save_dc" }
+        "ability": ["Constitution"],
+        "dc": { "ref": "spell_save_dc" }
       },
       "on_failure": {
         "apply_status": {

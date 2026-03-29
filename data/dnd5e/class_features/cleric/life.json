@@ -1,0 +1,324 @@
+[
+  {
+    "id": "feat:life-domain-spells",
+    "level": 1,
+    "name": "Domain Spells",
+    "description": "You gain domain spells at the cleric levels listed. Once you gain a domain spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:life",
+    "mechanics": [
+      {
+        "type": "granted_spells",
+        "always_prepared": true,
+        "scaling": {
+          "by_level": {
+            "1": [
+              "spell:bless",
+              "spell:cure-wounds"
+            ],
+            "3": [
+              "spell:lesser-restoration",
+              "spell:spiritual-weapon"
+            ],
+            "5": [
+              "spell:beacon-of-hope",
+              "spell:revivify"
+            ],
+            "7": [
+              "spell:death-ward",
+              "spell:guardian-of-faith"
+            ],
+            "9": [
+              "spell:mass-cure-wounds",
+              "spell:raise-dead"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "feat:life-bonus-proficiency",
+    "level": 1,
+    "name": "Bonus Proficiency",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:life",
+    "mechanics": [
+      {
+        "type": "proficiency",
+        "category": "armor",
+        "proficiencies": [
+          "Heavy"
+        ]
+      }
+    ],
+    "description": "You gain proficiency with heavy armor."
+  },
+  {
+    "id": "feat:life-disciple-of-life",
+    "level": 1,
+    "name": "Disciple of Life",
+    "description": "Your healing spells are more effective. Whenever you use a spell of 1st level or higher to restore hit points to a creature, the creature regains additional hit points equal to 2 + the spell's level.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:life",
+    "mechanics": [
+      {
+        "type": "passive",
+        "trigger": {
+          "event": [
+            "cast_spell"
+          ],
+          "spell": {
+            "effect": [
+              "healing"
+            ]
+          }
+        },
+        "requirements": [
+          {
+            "type": "spell",
+            "level": {
+              "minimum": 1
+            }
+          }
+        ],
+        "effects": [
+          {
+            "healing": {
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 2
+                  },
+                  {
+                    "type": "spell_level_cast"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "feat:life-preserve-life",
+    "level": 2,
+    "name": "Preserve Life",
+    "description": "You can use your Channel Divinity to heal the badly injured. As an action, you present your holy symbol and evoke healing energy that can restore a number of hit points equal to five times your cleric level. Choose any creatures within 30 feet of you, and divide those hit points among them. This feature can restore a creature to no more than half of its hit point maximum. You can't use this feature on an undead or a construct.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:life",
+    "mechanics": [
+      {
+        "type": "action",
+        "cost": [
+          {
+            "resource": "channel_divinity",
+            "amount": 1
+          }
+        ],
+        "requirements": [
+          {
+            "type": "equipment",
+            "item": [
+              "holy symbol"
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "target": {
+              "type": "creatures",
+              "disposition": "any",
+              "requirements": [
+                {
+                  "type": "creature_type",
+                  "value": [
+                    "Undead",
+                    "Construct"
+                  ],
+                  "negate": true
+                },
+                {
+                  "type": "attribute",
+                  "ref": "hit_points.current",
+                  "comparison": "less_than",
+                  "calculation": {
+                    "operation": "divide",
+                    "operators": [
+                      {
+                        "type": "attribute",
+                        "value": "max_hit_points"
+                      },
+                      {
+                        "type": "integer",
+                        "value": 2
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "area": {
+              "shape": "radius",
+              "size": 30,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "player_choice": true,
+            "healing": {
+              "calculation": {
+                "operation": "multiply",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 5
+                  },
+                  {
+                    "type": "class_level",
+                    "class": "class:cleric"
+                  }
+                ]
+              },
+              "distribution": "player_allocation"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "feat:life-blessed-healer",
+    "name": "Blessed Healer",
+    "level": 6,
+    "description": "The healing spells you cast on others heal you as well. Beginning at 6th level, when you cast a spell of 1st level or higher that restores hit points to a creature other than you, you regain hit points equal to 2 + the spell's level.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:life",
+    "mechanics": [
+      {
+        "type": "passive",
+        "trigger": {
+          "event": [
+            "cast_spell"
+          ],
+          "spell": {
+            "effect": [
+              "healing"
+            ]
+          },
+          "target": {
+            "exclude": "self"
+          }
+        },
+        "requirements": [
+          {
+            "type": "spell",
+            "level": {
+              "minimum": 1
+            }
+          }
+        ],
+        "effects": [
+          {
+            "target": {
+              "type": "self"
+            },
+            "healing": {
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 2
+                  },
+                  {
+                    "type": "spell_level_cast"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "feat:life-divine-strike",
+    "level": 8,
+    "name": "Divine Strike",
+    "description": "You gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 radiant damage to the target. When you reach 14th level, the extra damage increases to 2d8.",
+    "mechanics": [
+      {
+        "type": "damage_bonus",
+        "trigger": {
+          "event": [
+            "damage"
+          ],
+          "source": {
+            "type": "weapon"
+          }
+        },
+        "damage": {
+          "dice": "1d8",
+          "type": [
+            "radiant"
+          ]
+        },
+        "scaling": {
+          "components": {
+            "damage": {
+              "by_level": {
+                "14": "2d8"
+              }
+            }
+          }
+        },
+        "uses": {
+          "value": 1
+        },
+        "recharge": "turn"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:life"
+  },
+  {
+    "id": "feat:life-supreme-healing",
+    "level": 17,
+    "name": "Supreme Healing",
+    "description": "When you would normally roll one or more dice to restore hit points with a spell, you instead use the highest number possible for each die.",
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "class": "domain:life",
+    "mechanics": [
+      {
+        "type": "passive",
+        "trigger": {
+          "event": [
+            "cast_spell"
+          ],
+          "spell": {
+            "effect": [
+              "healing"
+            ]
+          }
+        },
+        "effects": [
+          {
+            "roll_modifier": {
+              "function": "roller.max_roll"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

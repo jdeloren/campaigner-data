@@ -1,0 +1,315 @@
+[
+  {
+    "id": "feat:oath-of-redemption-oath-spells",
+    "class": "subclass:oath-of-redemption",
+    "level": 3,
+    "name": "Oath Spells",
+    "description": "You gain oath spells at the paladin levels listed. Once you gain an oath spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you have an oath spell that doesn't appear on the paladin spell list, the spell is nonetheless a paladin spell for you.",
+    "mechanics": [
+      {
+        "type": "granted_spells",
+        "always_prepared": true,
+        "scaling": {
+          "by_level": {
+            "3": ["spell:sanctuary", "spell:sleep"],
+            "5": ["spell:calm-emotions", "spell:hold-person"],
+            "9": ["spell:counterspell", "spell:hypnotic-pattern"],
+            "13": ["spell:otilukes-resilient-sphere", "spell:stoneskin"],
+            "17": ["spell:hold-monster", "spell:wall-of-force"]
+          }
+        }
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-redemption-emissary-of-peace",
+    "class": "subclass:oath-of-redemption",
+    "level": 3,
+    "name": "Emissary of Peace",
+    "description": "You can use your Channel Divinity to augment your presence with divine power. As a bonus action, you grant yourself a +5 bonus to Charisma (Persuasion) checks for the next 10 minutes.",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "cost": [
+          {
+            "resource": "channel_divinity",
+            "amount": 1
+          }
+        ],
+        "duration": {
+          "value": 10,
+          "unit": "minutes"
+        },
+        "effects": [
+          {
+            "attribute": {
+              "target": "skills.Persuasion.modifier",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 5
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-redemption-rebuke-the-violent",
+    "class": "subclass:oath-of-redemption",
+    "level": 3,
+    "name": "Rebuke the Violent",
+    "description": "You can use your Channel Divinity to rebuke those who use violence. Immediately after an attacker within 30 feet of you deals damage with an attack against a creature other than you, you can use your reaction to force the attacker to make a Wisdom saving throw. On a failed save, the attacker takes radiant damage equal to the damage it just dealt. On a successful save, it takes half as much damage.",
+    "mechanics": [
+      {
+        "type": "reaction",
+        "cost": [
+          {
+            "resource": "channel_divinity",
+            "amount": 1
+          }
+        ],
+        "trigger": {
+          "event": ["damage"],
+          "source": {
+            "type": "creature"
+          },
+          "target": {
+            "type": ["ally"]
+          }
+        },
+        "requirements": [
+          {
+            "type": "distance",
+            "to": "source",
+            "value": 30,
+            "unit": "feet",
+            "comparison": "at_most"
+          }
+        ],
+        "effects": [
+          {
+            "target": {
+              "type": "event_actor"
+            },
+            "saving_throw": {
+              "ability": ["Wisdom"],
+              "dc": {
+                "ref": "spell_save_dc"
+              },
+              "on_failure": {
+                "damage": {
+                  "calculation": {
+                    "operation": "add",
+                    "operators": [
+                      {
+                        "type": "roll_result"
+                      }
+                    ]
+                  },
+                  "type": ["radiant"]
+                }
+              },
+              "on_success": {
+                "damage": {
+                  "calculation": {
+                    "operation": "divide",
+                    "operators": [
+                      {
+                        "type": "roll_result"
+                      },
+                      {
+                        "type": "integer",
+                        "value": 2
+                      }
+                    ],
+                    "rounding": "down"
+                  },
+                  "type": ["radiant"]
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-redemption-aura-of-the-guardian",
+    "class": "subclass:oath-of-redemption",
+    "level": 7,
+    "name": "Aura of the Guardian",
+    "description": "Starting at 7th level, you can shield others from harm at the cost of your own health. When a creature within 10 feet of you takes damage, you can use your reaction to magically take that damage, instead of that creature taking it. This feature doesn't transfer any other effects that might accompany the damage, and this damage can't be reduced in any way.\n\nAt 18th level, the range of this aura increases to 30 feet.",
+    "mechanics": [
+      {
+        "type": "reaction",
+        "trigger": {
+          "event": ["damaged_by"],
+          "target": {
+            "type": ["ally"]
+          }
+        },
+        "requirements": [
+          {
+            "type": "distance",
+            "to": "target",
+            "value": 10,
+            "unit": "feet",
+            "comparison": "at_most"
+          }
+        ],
+        "effects": [
+          {
+            "damage": {
+              "link": "target"
+            }
+          }
+        ],
+        "scaling": {
+          "components": {
+            "range": {
+              "by_level": {
+                "7": 10,
+                "18": 30
+              }
+            }
+          }
+        }
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-redemption-protective-spirit",
+    "class": "subclass:oath-of-redemption",
+    "level": 15,
+    "name": "Protective Spirit",
+    "description": "Starting at 15th level, a holy presence mends your wounds in battle. You regain hit points equal to 1d6 + half your paladin level if you end your turn in combat with fewer than half of your hit points remaining and you aren't incapacitated.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "trigger": {
+          "event": ["turn_end"]
+        },
+        "requirements": [
+          {
+            "type": "function",
+            "function": "resources.check_pool_remaining",
+            "context": "character",
+            "params": {
+              "resource": "hit_points",
+              "comparison": "less_than",
+              "percent": 50
+            }
+          },
+          {
+            "type": "status",
+            "value": "incapacitated",
+            "negate": true
+          }
+        ],
+        "effects": [
+          {
+            "healing": {
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "dice",
+                    "dice": "1d6"
+                  },
+                  {
+                    "type": "calculation",
+                    "operation": "divide",
+                    "operators": [
+                      {
+                        "type": "class_level",
+                        "class": "class:paladin"
+                      },
+                      {
+                        "type": "integer",
+                        "value": 2
+                      }
+                    ],
+                    "rounding": "down"
+                  }
+                ]
+              }
+            },
+            "target": { "type": "self" }
+          }
+        ]
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-redemption-emissary-of-redemption",
+    "class": "subclass:oath-of-redemption",
+    "level": 20,
+    "name": "Emissary of Redemption",
+    "description": "At 20th level, you become an avatar of peace, which gives you two benefits:\n\n- You have resistance to all damage dealt by other creatures (their attacks, spells, and other effects).\n- Whenever a creature hits you with an attack, it takes radiant damage equal to half the damage you take from the attack.\n\nIf you attack a creature, cast a spell on it, or deal damage to it by any means but this feature, neither benefit works against that creature until you finish a long rest.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "damage_response": {
+              "category": "resistance",
+              "source": {
+                "type": ["creature"]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "trigger": {
+          "event": ["attacked_by"],
+          "attack": {
+            "result": "success"
+          }
+        },
+        "effects": [
+          {
+            "target": {
+              "type": "attacker"
+            },
+            "damage": {
+              "calculation": {
+                "operation": "divide",
+                "operators": [
+                  {
+                    "type": "roll_result"
+                  },
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
+                ],
+                "rounding": "down"
+              },
+              "type": ["radiant"]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "xge",
+    "ruleset": "dnd5e"
+  }
+]

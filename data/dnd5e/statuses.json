@@ -78,7 +78,10 @@
     "constraints": {
       "actions": {
         "blocked": {
-          "triggers": ["attack", "harmful_spell"]
+          "triggers": [
+            "attack",
+            "harmful_spell"
+          ]
         },
         "against": "source"
       }
@@ -153,7 +156,9 @@
     "name": "Exhaustion 2",
     "description": "Speed halved.",
     "is_condition": true,
-    "inherits": ["Exhaustion 1"],
+    "inherits": [
+      "Exhaustion 1"
+    ],
     "attributes": [
       {
         "category": "movement",
@@ -178,7 +183,9 @@
     "name": "Exhaustion 3",
     "description": "Disadvantage on attack rolls and saving throws.",
     "is_condition": true,
-    "inherits": ["Exhaustion 2"],
+    "inherits": [
+      "Exhaustion 2"
+    ],
     "effects": [
       {
         "disadvantage": {
@@ -187,7 +194,14 @@
       },
       {
         "disadvantage": {
-          "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
+          "saving_throw": [
+            "Strength",
+            "Dexterity",
+            "Constitution",
+            "Intelligence",
+            "Wisdom",
+            "Charisma"
+          ]
         }
       }
     ],
@@ -199,7 +213,9 @@
     "name": "Exhaustion 4",
     "description": "Hit point maximum halved.",
     "is_condition": true,
-    "inherits": ["Exhaustion 3"],
+    "inherits": [
+      "Exhaustion 3"
+    ],
     "attributes": [
       {
         "target": "hit_points.max",
@@ -223,7 +239,9 @@
     "name": "Exhaustion 5",
     "description": "Speed reduced to 0.",
     "is_condition": true,
-    "inherits": ["Exhaustion 4"],
+    "inherits": [
+      "Exhaustion 4"
+    ],
     "attributes": [
       {
         "category": "movement",
@@ -247,7 +265,10 @@
     "name": "Exhaustion 6",
     "description": "Death.",
     "is_condition": true,
-    "inherits": ["Exhaustion 5", "Dead"],
+    "inherits": [
+      "Exhaustion 5",
+      "Dead"
+    ],
     "source": "phb",
     "ruleset": "dnd5e"
   },
@@ -274,7 +295,9 @@
     "duration": {
       "until": [
         {
-          "event": ["status_applied"],
+          "event": [
+            "status_applied"
+          ],
           "target": {
             "type": "event_actor"
           },
@@ -283,7 +306,9 @@
           }
         },
         {
-          "event": ["action"],
+          "event": [
+            "action"
+          ],
           "action": "move",
           "condition": {
             "type": "distance",
@@ -314,7 +339,9 @@
               "type": "perception",
               "observer": "target",
               "subject": "source",
-              "senses": ["sight"]
+              "senses": [
+                "sight"
+              ]
             }
           ]
         }
@@ -327,7 +354,9 @@
               "type": "perception",
               "observer": "target",
               "subject": "source",
-              "senses": ["sight"]
+              "senses": [
+                "sight"
+              ]
             }
           ]
         }
@@ -340,7 +369,9 @@
               "type": "perception",
               "observer": "target",
               "subject": "source",
-              "senses": ["sight"]
+              "senses": [
+                "sight"
+              ]
             }
           ]
         }
@@ -353,7 +384,9 @@
               "type": "perception",
               "observer": "target",
               "subject": "source",
-              "senses": ["sight"]
+              "senses": [
+                "sight"
+              ]
             }
           ]
         }
@@ -366,7 +399,9 @@
               "type": "perception",
               "observer": "target",
               "subject": "source",
-              "senses": ["sight"]
+              "senses": [
+                "sight"
+              ]
             }
           ]
         }
@@ -379,7 +414,9 @@
               "type": "perception",
               "observer": "target",
               "subject": "source",
-              "senses": ["sight"]
+              "senses": [
+                "sight"
+              ]
             }
           ]
         }
@@ -392,7 +429,9 @@
               "type": "perception",
               "observer": "target",
               "subject": "source",
-              "senses": ["sight"]
+              "senses": [
+                "sight"
+              ]
             }
           ]
         }
@@ -415,7 +454,11 @@
     "constraints": {
       "actions": {
         "blocked": {
-          "economy": ["action", "bonus_action", "reaction"]
+          "economy": [
+            "action",
+            "bonus_action",
+            "reaction"
+          ]
         }
       }
     },
@@ -464,7 +507,9 @@
     "name": "Paralyzed",
     "description": "A paralyzed creature is incapacitated, and can't move or speak. The creature automatically fails Strength and Dexterity saving throws. Attack rolls against the creature have advantage. Any attack that hits the creature is a critical hit if the attacker is within 5 feet of the creature.",
     "is_condition": true,
-    "inherits": ["Incapacitated"],
+    "inherits": [
+      "Incapacitated"
+    ],
     "effects": [
       {
         "advantage": {
@@ -476,7 +521,9 @@
       },
       {
         "saving_throw": {
-          "ability": "Strength"
+          "ability": [
+            "Strength"
+          ]
         },
         "roll_modifier": {
           "reroll": {
@@ -486,7 +533,9 @@
       },
       {
         "saving_throw": {
-          "ability": "Dexterity"
+          "ability": [
+            "Dexterity"
+          ]
         },
         "roll_modifier": {
           "reroll": {
@@ -501,7 +550,9 @@
           }
         },
         "saving_throw": {
-          "ability": "attack"
+          "ability": [
+            "attack"
+          ]
         },
         "requirements": [
           {
@@ -519,7 +570,10 @@
     ],
     "constraints": {
       "components": {
-        "blocked": ["Verbal", "Somatic"]
+        "blocked": [
+          "Verbal",
+          "Somatic"
+        ]
       }
     },
     "attributes": [
@@ -545,7 +599,9 @@
     "name": "Petrified",
     "description": "A petrified creature is transformed, along with any nonmagical object it is wearing or carrying, into a solid inanimate substance (usually stone). Its weight increases by a factor of ten, and it ceases aging. The creature is incapacitated, can't move or speak, and is unaware of its surroundings. Attack rolls against the creature have advantage. The creature automatically fails Strength and Dexterity saving throws. The creature has resistance to all damage. The creature is immune to poison and disease, although a poison or disease already in its system is suspended, not neutralized.",
     "is_condition": true,
-    "inherits": ["Incapacitated"],
+    "inherits": [
+      "Incapacitated"
+    ],
     "effects": [
       {
         "advantage": {
@@ -557,7 +613,9 @@
       },
       {
         "saving_throw": {
-          "ability": "Strength"
+          "ability": [
+            "Strength"
+          ]
         },
         "roll_modifier": {
           "reroll": {
@@ -567,7 +625,9 @@
       },
       {
         "saving_throw": {
-          "ability": "Dexterity"
+          "ability": [
+            "Dexterity"
+          ]
         },
         "roll_modifier": {
           "reroll": {
@@ -576,12 +636,18 @@
         }
       },
       {
-        "negate": ["poisoned", "diseased"]
+        "negate": [
+          "poisoned",
+          "diseased"
+        ]
       }
     ],
     "constraints": {
       "components": {
-        "blocked": ["Verbal", "Somatic"]
+        "blocked": [
+          "Verbal",
+          "Somatic"
+        ]
       }
     },
     "attributes": [
@@ -614,7 +680,9 @@
     "damage_response": [
       {
         "category": "resistance",
-        "to": ["all"]
+        "to": [
+          "all"
+        ]
       }
     ],
     "source": "phb",
@@ -726,21 +794,29 @@
       },
       {
         "advantage": {
-          "saving_throw": ["Strength"]
+          "saving_throw": [
+            "Strength"
+          ]
         }
       }
     ],
     "constraints": {
       "actions": {
         "blocked": {
-          "triggers": ["cast_spell"]
+          "triggers": [
+            "cast_spell"
+          ]
         }
       }
     },
     "damage_response": [
       {
         "category": "resistance",
-        "to": ["bludgeoning", "piercing", "slashing"]
+        "to": [
+          "bludgeoning",
+          "piercing",
+          "slashing"
+        ]
       }
     ],
     "source": "phb",
@@ -767,7 +843,9 @@
       },
       {
         "disadvantage": {
-          "saving_throw": ["Dexterity"]
+          "saving_throw": [
+            "Dexterity"
+          ]
         }
       }
     ],
@@ -794,7 +872,9 @@
     "name": "Stunned",
     "description": "A stunned creature is incapacitated, can't move, and can speak only falteringly. The creature automatically fails Strength and Dexterity saving throws. Attack rolls against the creature have advantage.",
     "is_condition": true,
-    "inherits": ["Incapacitated"],
+    "inherits": [
+      "Incapacitated"
+    ],
     "effects": [
       {
         "advantage": {
@@ -806,7 +886,9 @@
       },
       {
         "saving_throw": {
-          "ability": "Strength"
+          "ability": [
+            "Strength"
+          ]
         },
         "roll_modifier": {
           "reroll": {
@@ -816,7 +898,9 @@
       },
       {
         "saving_throw": {
-          "ability": "Dexterity"
+          "ability": [
+            "Dexterity"
+          ]
         },
         "roll_modifier": {
           "reroll": {
@@ -848,7 +932,10 @@
     "name": "Unconscious",
     "description": "An unconscious creature is incapacitated, can't move or speak, and is unaware of its surroundings. The creature drops whatever it's holding and falls prone. The creature automatically fails Strength and Dexterity saving throws. Attack rolls against the creature have advantage. Any attack that hits the creature is a critical hit if the attacker is within 5 feet of the creature.",
     "is_condition": true,
-    "inherits": ["Incapacitated", "Prone"],
+    "inherits": [
+      "Incapacitated",
+      "Prone"
+    ],
     "effects": [
       {
         "advantage": {
@@ -860,7 +947,9 @@
       },
       {
         "saving_throw": {
-          "ability": "Strength"
+          "ability": [
+            "Strength"
+          ]
         },
         "roll_modifier": {
           "reroll": {
@@ -870,7 +959,9 @@
       },
       {
         "saving_throw": {
-          "ability": "Dexterity"
+          "ability": [
+            "Dexterity"
+          ]
         },
         "roll_modifier": {
           "reroll": {
@@ -885,7 +976,9 @@
           }
         },
         "saving_throw": {
-          "ability": "attack"
+          "ability": [
+            "attack"
+          ]
         },
         "requirements": [
           {
@@ -903,7 +996,10 @@
     ],
     "constraints": {
       "components": {
-        "blocked": ["Verbal", "Somatic"]
+        "blocked": [
+          "Verbal",
+          "Somatic"
+        ]
       }
     },
     "attributes": [
@@ -944,7 +1040,9 @@
     "constraints": {
       "actions": {
         "blocked": {
-          "triggers": ["cast_spell"]
+          "triggers": [
+            "cast_spell"
+          ]
         }
       }
     },

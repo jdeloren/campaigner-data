@@ -1,0 +1,277 @@
+[
+  {
+    "id": "feat:oath-of-the-crown-oath-spells",
+    "class": "subclass:oath-of-the-crown",
+    "level": 3,
+    "name": "Oath Spells",
+    "description": "You gain oath spells at the paladin levels listed. Once you gain an oath spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you have an oath spell that doesn't appear on the paladin spell list, the spell is nonetheless a paladin spell for you.",
+    "mechanics": [
+      {
+        "type": "granted_spells",
+        "always_prepared": true,
+        "scaling": {
+          "by_level": {
+            "3": ["spell:command", "spell:compelled-duel"],
+            "5": ["spell:warding-bond", "spell:zone-of-truth"],
+            "9": ["spell:aura-of-vitality", "spell:spirit-guardians"],
+            "13": ["spell:banishment", "spell:guardian-of-faith"],
+            "17": ["spell:circle-of-power", "spell:geas"]
+          }
+        }
+      }
+    ],
+    "source": "scag",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-the-crown-champion-challenge",
+    "class": "subclass:oath-of-the-crown",
+    "level": 3,
+    "name": "Champion Challenge",
+    "description": "As a bonus action, you issue a challenge that compels other creatures to do battle with you. Each creature of your choice that you can see within 30 feet of you must make a Wisdom saving throw. On a failed save, a creature can't willingly move more than 30 feet away from you. This effect ends on the creature if you are incapacitated or die, or if the creature is more than 30 feet away from you.",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "cost": [
+          {
+            "resource": "channel_divinity",
+            "amount": 1
+          }
+        ],
+        "effects": [
+          {
+            "target": {
+              "type": "creatures",
+              "disposition": "any",
+              "requirements": [
+                {
+                  "type": "perception",
+                  "observer": "character",
+                  "subject": "target",
+                  "senses": ["sight"]
+                }
+              ]
+            },
+            "area": {
+              "shape": "radius",
+              "size": 30,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "saving_throw": {
+              "ability": ["Wisdom"],
+              "dc": {
+                "ref": "spell_save_dc"
+              },
+              "on_failure": {
+                "apply_status": {
+                  "id": "status:champion-challenge",
+                  "source": "character",
+                  "constraints": {
+                    "movement": {
+                      "keep_distance": 30,
+                      "relative_to": "character"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "scag",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-the-crown-turn-the-tide",
+    "class": "subclass:oath-of-the-crown",
+    "level": 3,
+    "name": "Turn the Tide",
+    "description": "As a bonus action, you can bolster injured creatures with your Channel Divinity. Each creature of your choice that can hear you within 30 feet of you regains hit points equal to 1d6 + your Charisma modifier (minimum of 1) if it has no more than half of its hit points.",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "cost": [
+          {
+            "resource": "channel_divinity",
+            "amount": 1
+          }
+        ],
+        "effects": [
+          {
+            "target": {
+              "type": "creatures",
+              "disposition": "friendly",
+              "include_self": true,
+              "requirements": [
+                {
+                  "type": "perception",
+                  "observer": "target",
+                  "subject": "character",
+                  "senses": ["hearing"]
+                },
+                {
+                  "type": "function",
+                  "function": "resources.check_pool_remaining",
+                  "context": "target",
+                  "params": {
+                    "resource": "hit_points",
+                    "comparison": "at_most",
+                    "percent": 50
+                  }
+                }
+              ]
+            },
+            "area": {
+              "shape": "radius",
+              "size": 30,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "healing": {
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "dice",
+                    "dice": "1d6"
+                  },
+                  {
+                    "type": "ability_modifier",
+                    "ability": "Charisma"
+                  }
+                ],
+                "bounds": { "minimum": 1 }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "scag",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-the-crown-divine-allegiance",
+    "class": "subclass:oath-of-the-crown",
+    "level": 7,
+    "name": "Divine Allegiance",
+    "description": "Starting at 7th level, when a creature within 5 feet of you takes damage, you can use your reaction to magically substitute your own health for that of the target creature, causing that creature not to take the damage. Instead, you take the damage. This damage to you can't be reduced or prevented in any way.",
+    "mechanics": [
+      {
+        "type": "reaction",
+        "trigger": {
+          "event": ["damaged_by"],
+          "target": {
+            "type": ["ally"]
+          }
+        },
+        "requirements": [
+          {
+            "type": "distance",
+            "to": "target",
+            "value": 5,
+            "unit": "feet",
+            "comparison": "at_most"
+          }
+        ],
+        "effects": [
+          {
+            "damage": {
+              "link": "target"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "scag",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-the-crown-unyielding-spirit",
+    "class": "subclass:oath-of-the-crown",
+    "level": 15,
+    "name": "Unyielding Spirit",
+    "description": "Starting at 15th level, you have advantage on saving throws to avoid becoming paralyzed or stunned.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "advantage": {
+              "saving_throw": ["Constitution", "Wisdom"]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "scag",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-the-crown-exalted-champion",
+    "class": "subclass:oath-of-the-crown",
+    "level": 20,
+    "name": "Exalted Champion",
+    "description": "At 20th level, your presence on the field of battle is an inspiration to those dedicated to your cause. You can use your action to gain the following benefits for 1 hour:\n\n- You have resistance to bludgeoning, piercing, and slashing damage from nonmagical weapons.\n- Your allies have advantage on death saving throws while within 30 feet of you.\n- You have advantage on Wisdom saving throws, as do your allies within 30 feet of you.",
+    "mechanics": [
+      {
+        "type": "action",
+        "duration": {
+          "value": 1,
+          "unit": "hours"
+        },
+        "effects": [
+          {
+            "damage_response": {
+              "category": "resistance",
+              "to": ["bludgeoning", "piercing", "slashing"],
+              "source": {
+                "type": ["weapon"],
+                "magical": false
+              }
+            }
+          },
+          {
+            "aura": {
+              "radius": 30,
+              "unit": "feet",
+              "target": {
+                "type": "creatures",
+                "disposition": "friendly"
+              },
+              "grants": {
+                "advantage": {
+                  "saving_throw": ["death"]
+                }
+              }
+            }
+          },
+          {
+            "aura": {
+              "radius": 30,
+              "unit": "feet",
+              "target": {
+                "type": "creatures",
+                "disposition": "friendly",
+                "include_self": true
+              },
+              "grants": {
+                "advantage": {
+                  "saving_throw": ["Wisdom"]
+                }
+              }
+            }
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "long_rest"
+      }
+    ],
+    "source": "scag",
+    "ruleset": "dnd5e"
+  }
+]

@@ -1,0 +1,398 @@
+[
+  {
+    "id": "feat:oath-of-the-watchers-oath-spells",
+    "class": "subclass:oath-of-the-watchers",
+    "level": 3,
+    "name": "Oath Spells",
+    "description": "You gain oath spells at the paladin levels listed. Once you gain an oath spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you have an oath spell that doesn't appear on the paladin spell list, the spell is nonetheless a paladin spell for you.",
+    "mechanics": [
+      {
+        "type": "granted_spells",
+        "always_prepared": true,
+        "scaling": {
+          "by_level": {
+            "3": ["spell:alarm", "spell:detect-magic"],
+            "5": ["spell:moonbeam", "spell:see-invisibility"],
+            "9": ["spell:counterspell", "spell:nondetection"],
+            "13": ["spell:aura-of-purity", "spell:banishment"],
+            "17": ["spell:hold-monster", "spell:scrying"]
+          }
+        }
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-the-watchers-watchers-will",
+    "class": "subclass:oath-of-the-watchers",
+    "level": 3,
+    "name": "Watcher's Will",
+    "description": "You can use your Channel Divinity to invest your presence with the warding power of your faith. As an action, you can choose a number of creatures you can see within 30 feet of you, up to a number equal to your Charisma modifier (minimum of one creature). For 1 minute, the chosen creatures have advantage on Intelligence, Wisdom, and Charisma saving throws.",
+    "mechanics": [
+      {
+        "type": "action",
+        "cost": [
+          {
+            "resource": "channel_divinity",
+            "amount": 1
+          }
+        ],
+        "target": {
+          "type": "creatures",
+          "disposition": "friendly",
+          "include_self": true,
+          "requirements": [
+            {
+              "type": "perception",
+              "observer": "character",
+              "subject": "target",
+              "senses": ["sight"]
+            }
+          ]
+        },
+        "range": {
+          "value": 30,
+          "unit": "feet"
+        },
+        "duration": {
+          "value": 1,
+          "unit": "minutes"
+        },
+        "effects": [
+          {
+            "advantage": {
+              "saving_throw": ["Intelligence", "Wisdom", "Charisma"]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-the-watchers-abjure-the-extraplanar",
+    "class": "subclass:oath-of-the-watchers",
+    "level": 3,
+    "name": "Abjure the Extraplanar",
+    "description": "You can use your Channel Divinity to castigate unworldly creatures. As an action, you present your holy symbol and each aberration, celestial, elemental, fey, or fiend within 30 feet of you that can hear you must make a Wisdom saving throw. On a failed save, the creature is turned for 1 minute or until it takes damage.",
+    "mechanics": [
+      {
+        "type": "action",
+        "cost": [
+          {
+            "resource": "channel_divinity",
+            "amount": 1
+          }
+        ],
+        "requirements": [
+          {
+            "type": "equipment",
+            "item": ["holy symbol"]
+          }
+        ],
+        "effects": [
+          {
+            "target": {
+              "type": "creatures",
+              "disposition": "any",
+              "requirements": [
+                {
+                  "type": "creature_type",
+                  "value": ["Aberration", "Celestial", "Elemental", "Fey", "Fiend"]
+                },
+                {
+                  "type": "perception",
+                  "observer": "target",
+                  "subject": "character",
+                  "senses": ["hearing"]
+                }
+              ]
+            },
+            "area": {
+              "shape": "radius",
+              "size": 30,
+              "unit": "feet",
+              "origin": "self"
+            },
+            "saving_throw": {
+              "ability": ["Wisdom"],
+              "dc": {
+                "ref": "spell_save_dc"
+              },
+              "on_failure": {
+                "apply_status": {
+                  "id": "status:turned",
+                  "duration": {
+                    "value": 1,
+                    "unit": "minutes",
+                    "until": ["damaged_by"]
+                  },
+                  "constraints": {
+                    "movement": {
+                      "direction": "away",
+                      "relative_to": "character",
+                      "keep_distance": 30
+                    },
+                    "actions": {
+                      "blocked": {
+                        "economy": ["reaction"]
+                      },
+                      "allowed": {
+                        "actions": ["Dash", "Dodge"]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-the-watchers-aura-of-the-sentinel",
+    "class": "subclass:oath-of-the-watchers",
+    "level": 7,
+    "name": "Aura of the Sentinel",
+    "description": "At 7th level, you emit an aura of alertness while you aren't incapacitated. When you and any creatures of your choice within 10 feet of you roll initiative, you each gain a bonus to initiative equal to your proficiency bonus.\n\nAt 18th level, the range of this aura increases to 30 feet.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "requirements": [
+          {
+            "type": "status",
+            "value": "incapacitated",
+            "negate": true
+          }
+        ],
+        "effects": [
+          {
+            "aura": {
+              "radius": 10,
+              "unit": "feet",
+              "target": {
+                "type": "creatures",
+                "disposition": "friendly",
+                "include_self": true
+              },
+              "grants": {
+                "attribute": {
+                  "target": "initiative.modifier",
+                  "calculation": {
+                    "operation": "add",
+                    "operators": [
+                      {
+                        "type": "attribute",
+                        "value": "proficiency_bonus"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "scaling": {
+          "components": {
+            "aura.radius": {
+              "by_level": {
+                "7": 10,
+                "18": 30
+              }
+            }
+          }
+        }
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-the-watchers-vigilant-rebuke",
+    "class": "subclass:oath-of-the-watchers",
+    "level": 15,
+    "name": "Vigilant Rebuke",
+    "description": "Starting at 15th level, you've learned how to chastise anyone who dares wield beguilements against you and your wards. Whenever you or a creature you can see within 30 feet of you succeeds on an Intelligence, Wisdom, or Charisma saving throw, you can use your reaction to deal 2d8 + your Charisma modifier force damage to the creature that forced the saving throw.",
+    "mechanics": [
+      {
+        "type": "reaction",
+        "trigger": {
+          "event": ["saving_throw"],
+          "save": {
+            "ability": "Intelligence",
+            "result": "success"
+          }
+        },
+        "requirements": [
+          {
+            "type": "distance",
+            "to": "target",
+            "value": 30,
+            "unit": "feet",
+            "comparison": "at_most"
+          },
+          {
+            "type": "perception",
+            "observer": "character",
+            "subject": "target",
+            "senses": ["sight"]
+          }
+        ],
+        "effects": [
+          {
+            "target": {
+              "type": "event_actor"
+            },
+            "damage": {
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "dice",
+                    "dice": "2d8"
+                  },
+                  {
+                    "type": "ability_modifier",
+                    "ability": "Charisma"
+                  }
+                ]
+              },
+              "type": ["force"]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-the-watchers-mortal-bulwark",
+    "class": "subclass:oath-of-the-watchers",
+    "level": 20,
+    "name": "Mortal Bulwark",
+    "description": "At 20th level, you manifest a spark of divine power in defense of the mortal realms. As a bonus action, you gain the following benefits for 1 minute:\n\n- You gain truesight with a range of 120 feet.\n- You have advantage on attack rolls against aberrations, celestials, elementals, fey, and fiends.\n- When you hit a creature with an attack roll and deal damage to it, you can also force it to make a Charisma saving throw against your spell save DC. On a failed save, the creature is magically banished to its native plane of existence if it's currently not there. On a successful save, the creature can't be banished by this feature for 24 hours.",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "effects": [
+          {
+            "apply_status": {
+              "id": "status:mortal-bulwark",
+              "duration": {
+                "value": 1,
+                "unit": "minutes"
+              }
+            }
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "long_rest"
+      }
+    ],
+    "subfeatures": [
+      {
+        "name": "Truesight",
+        "description": "You gain truesight with a range of 120 feet.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "requirements": [
+              {
+                "type": "status",
+                "value": "mortal-bulwark"
+              }
+            ],
+            "effects": [
+              {
+                "attribute": {
+                  "target": "senses.truesight",
+                  "calculation": {
+                    "operation": "set",
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 120
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Extraplanar Bane",
+        "description": "You have advantage on attack rolls against aberrations, celestials, elementals, fey, and fiends.",
+        "mechanics": [
+          {
+            "type": "passive",
+            "requirements": [
+              {
+                "type": "status",
+                "value": "mortal-bulwark"
+              },
+              {
+                "type": "creature_type",
+                "value": ["Aberration", "Celestial", "Elemental", "Fey", "Fiend"]
+              }
+            ],
+            "effects": [
+              {
+                "advantage": {
+                  "attack": "all"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Banishing Strike",
+        "description": "When you hit a creature with an attack and deal damage, you can force it to make a Charisma saving throw. On a failed save, the creature is banished to its native plane.",
+        "mechanics": [
+          {
+            "type": "optional",
+            "trigger": {
+              "event": ["attack"],
+              "attack": {
+                "result": "success"
+              }
+            },
+            "requirements": [
+              {
+                "type": "status",
+                "value": "mortal-bulwark"
+              }
+            ],
+            "effects": [
+              {
+                "saving_throw": {
+                  "ability": ["Charisma"],
+                  "dc": {
+                    "ref": "spell_save_dc"
+                  },
+                  "on_failure": {
+                    "apply_status": {
+                      "id": "status:banished"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  }
+]

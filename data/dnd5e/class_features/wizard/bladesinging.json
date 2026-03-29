@@ -42,7 +42,7 @@
     "mechanics": [
       {
         "type": "bonus_action",
-        "name": "bladesong",
+        "name": "Bladesong",
         "uses": {
           "calculation": "proficiency_bonus",
           "bounds": { "minimum": 1 }

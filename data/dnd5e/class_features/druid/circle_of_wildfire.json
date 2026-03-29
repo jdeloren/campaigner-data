@@ -48,7 +48,7 @@
           },
           {
             "saving_throw": {
-              "ability": "Dexterity",
+              "ability": ["Dexterity"],
               "dc": {
                 "ref": "spell_save_dc"
               }
@@ -165,7 +165,12 @@
               "dice": "2d10",
               "bonus": {
                 "operation": "add",
-                "operators": [{ "type": "ability_modifier", "ability": "Wisdom" }]
+                "operators": [
+                  {
+                    "type": "ability_modifier",
+                    "ability": "Wisdom"
+                  }
+                ]
               }
             }
           },
@@ -175,7 +180,12 @@
               "type": ["fire"],
               "bonus": {
                 "operation": "add",
-                "operators": [{ "type": "ability_modifier", "ability": "Wisdom" }]
+                "operators": [
+                  {
+                    "type": "ability_modifier",
+                    "ability": "Wisdom"
+                  }
+                ]
               }
             }
           }
@@ -210,13 +220,21 @@
               "calculation": {
                 "operation": "divide",
                 "operators": [
-                  { "type": "attribute", "value": "hit_points.maximum" },
-                  { "type": "integer", "value": 2 }
+                  {
+                    "type": "attribute",
+                    "value": "hit_points.maximum"
+                  },
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
                 ],
                 "rounding": "down"
               }
             },
-            "target": { "type": "self" }
+            "target": {
+              "type": "self"
+            }
           }
         ]
       }

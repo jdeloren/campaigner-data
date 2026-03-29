@@ -25,7 +25,7 @@
     "class": "class:fighter",
     "level": 1,
     "name": "Second Wind",
-    "description": "You have a limited well of stamina that you can draw on to protect yourself from harm.",
+    "description": "You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level.",
     "mechanics": [
       {
         "type": "bonus_action",

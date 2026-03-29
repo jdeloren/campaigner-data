@@ -12,11 +12,11 @@ Examples:
   1.2.3
 ```
 
-| Component | When to increment |
-|-----------|-------------------|
-| **MAJOR** | Breaking schema changes that require consumer updates |
+| Component | When to increment                                                |
+| --------- | ---------------------------------------------------------------- |
+| **MAJOR** | Breaking schema changes that require consumer updates            |
 | **MINOR** | New content (races, classes, spells, etc.), backwards compatible |
-| **PATCH** | Bug fixes, data corrections, typos |
+| **PATCH** | Bug fixes, data corrections, typos                               |
 
 ## Commit Message Conventions
 
@@ -32,17 +32,17 @@ Commit messages drive automatic version bumps. The format follows [Conventional 
 
 ### Commit Types
 
-| Type | Description | Version Bump |
-|------|-------------|--------------|
-| `fix:` | Bug fix, data correction | PATCH |
-| `feat:` | New content (races, classes, spells) | MINOR |
-| `breaking:` | Schema changes, data restructuring | MAJOR |
-| `docs:` | Documentation only | No release |
-| `chore:` | Maintenance, dependencies | No release |
-| `refactor:` | Schema/code restructuring (no data change) | No release |
-| `test:` | Adding/updating tests | No release |
-| `ci:` | CI/CD changes | No release |
-| `style:` | Formatting, whitespace | No release |
+| Type        | Description                                | Version Bump |
+| ----------- | ------------------------------------------ | ------------ |
+| `fix:`      | Bug fix, data correction                   | PATCH        |
+| `feat:`     | New content (races, classes, spells)       | MINOR        |
+| `breaking:` | Schema changes, data restructuring         | MAJOR        |
+| `docs:`     | Documentation only                         | No release   |
+| `chore:`    | Maintenance, dependencies                  | No release   |
+| `refactor:` | Schema/code restructuring (no data change) | No release   |
+| `test:`     | Adding/updating tests                      | No release   |
+| `ci:`       | CI/CD changes                              | No release   |
+| `style:`    | Formatting, whitespace                     | No release   |
 
 ## Examples
 
@@ -96,19 +96,20 @@ On every push to `main`:
 
 ### Version Bump Rules
 
-| Change Type | Dataset Version | Schema Version | Repo Version |
-|-------------|-----------------|----------------|--------------|
-| Data files in `data/dnd5e/` | dnd5e bumped | — | Repo bumped |
-| Schema files in `schemas/json/` | — | Changed schemas bumped | Repo bumped |
-| `common.schema.json` | — | — | Repo bumped |
-| Scripts in `scripts/` | — | — | Repo bumped |
-| Multiple datasets changed | Each dataset bumped | — | Repo bumped (max of all) |
+| Change Type                     | Dataset Version     | Schema Version         | Repo Version             |
+| ------------------------------- | ------------------- | ---------------------- | ------------------------ |
+| Data files in `data/dnd5e/`     | dnd5e bumped        | —                      | Repo bumped              |
+| Schema files in `schemas/json/` | —                   | Changed schemas bumped | Repo bumped              |
+| `common.schema.json`            | —                   | —                      | Repo bumped              |
+| Scripts in `scripts/`           | —                   | —                      | Repo bumped              |
+| Multiple datasets changed       | Each dataset bumped | —                      | Repo bumped (max of all) |
 
 The repo version always uses the **highest** bump type from all changes (dataset + repo-level).
 
 ### No Release Triggered
 
 These commit types alone will **not** trigger a release:
+
 - `docs:`, `chore:`, `refactor:`, `test:`, `ci:`, `style:`
 
 You can accumulate these commits and they'll be included in the changelog of the next release.

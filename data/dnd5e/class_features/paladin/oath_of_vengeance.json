@@ -1,0 +1,338 @@
+[
+  {
+    "id": "feat:oath-of-vengeance-oath-spells",
+    "class": "subclass:oath-of-vengeance",
+    "level": 3,
+    "name": "Oath Spells",
+    "description": "You gain oath spells at the paladin levels listed. Once you gain an oath spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you have an oath spell that doesn't appear on the paladin spell list, the spell is nonetheless a paladin spell for you.",
+    "mechanics": [
+      {
+        "type": "granted_spells",
+        "always_prepared": true,
+        "scaling": {
+          "by_level": {
+            "3": ["spell:bane", "spell:hunters-mark"],
+            "5": ["spell:hold-person", "spell:misty-step"],
+            "9": ["spell:haste", "spell:protection-from-energy"],
+            "13": ["spell:banishment", "spell:dimension-door"],
+            "17": ["spell:hold-monster", "spell:scrying"]
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-vengeance-abjure-enemy",
+    "class": "subclass:oath-of-vengeance",
+    "level": 3,
+    "name": "Abjure Enemy",
+    "description": "As an action, you present your holy symbol and speak a prayer of denunciation, using your Channel Divinity. Choose one creature within 60 feet of you that you can see. That creature must make a Wisdom saving throw, unless it is immune to being frightened. Fiends and undead have disadvantage on this saving throw.\n\nOn a failed save, the creature is frightened for 1 minute or until it takes any damage. While frightened, the creature's speed is 0, and it can't benefit from any bonus to its speed.\n\nOn a successful save, the creature's speed is halved for 1 minute or until it takes any damage.",
+    "mechanics": [
+      {
+        "type": "action",
+        "cost": [
+          {
+            "resource": "channel_divinity",
+            "amount": 1
+          }
+        ],
+        "target": {
+          "type": "creature"
+        },
+        "range": {
+          "value": 60,
+          "unit": "feet"
+        },
+        "requirements": [
+          {
+            "type": "perception",
+            "observer": "character",
+            "subject": "target",
+            "senses": ["sight"]
+          }
+        ],
+        "effects": [
+          {
+            "saving_throw": {
+              "ability": ["Wisdom"],
+              "dc": {
+                "ref": "spell_save_dc"
+              },
+              "disadvantage": {
+                "requirements": [
+                  {
+                    "type": "creature_type",
+                    "value": ["Fiend", "Undead"]
+                  }
+                ]
+              },
+              "on_failure": {
+                "apply_status": {
+                  "id": "status:frightened",
+                  "source": "character",
+                  "duration": {
+                    "value": 1,
+                    "unit": "minutes",
+                    "until": ["damaged_by"]
+                  }
+                },
+                "attribute": {
+                  "category": "movement",
+                  "property": "base",
+                  "calculation": {
+                    "operation": "set",
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 0
+                      }
+                    ]
+                  }
+                }
+              },
+              "on_success": {
+                "attribute": {
+                  "category": "movement",
+                  "property": "base",
+                  "calculation": {
+                    "operation": "divide",
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 2
+                      }
+                    ],
+                    "rounding": "down"
+                  }
+                },
+                "duration": {
+                  "value": 1,
+                  "unit": "minutes",
+                  "until": ["damaged_by"]
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-vengeance-vow-of-enmity",
+    "class": "subclass:oath-of-vengeance",
+    "level": 3,
+    "name": "Vow of Enmity",
+    "description": "As a bonus action, you can utter a vow of enmity against a creature you can see within 10 feet of you, using your Channel Divinity. You gain advantage on attack rolls against the creature for 1 minute or until it drops to 0 hit points or falls unconscious.",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "cost": [
+          {
+            "resource": "channel_divinity",
+            "amount": 1
+          }
+        ],
+        "target": {
+          "type": "creature"
+        },
+        "range": {
+          "value": 10,
+          "unit": "feet"
+        },
+        "requirements": [
+          {
+            "type": "perception",
+            "observer": "character",
+            "subject": "target",
+            "senses": ["sight"]
+          }
+        ],
+        "effects": [
+          {
+            "apply_status": {
+              "id": "status:vow-of-enmity",
+              "target": ["target"],
+              "duration": {
+                "value": 1,
+                "unit": "minutes",
+                "until": ["kill"]
+              }
+            },
+            "advantage": {
+              "attack": "all"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-vengeance-relentless-avenger",
+    "class": "subclass:oath-of-vengeance",
+    "level": 7,
+    "name": "Relentless Avenger",
+    "description": "By 7th level, your supernatural focus helps you close off a foe's retreat. When you hit a creature with an opportunity attack, you can move up to half your speed immediately after the attack and as part of the same reaction. This movement doesn't provoke opportunity attacks.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "trigger": {
+          "event": ["attack"],
+          "source": {
+            "type": "weapon"
+          },
+          "attack": {
+            "result": "success",
+            "opportunity": true
+          }
+        },
+        "effects": [
+          {
+            "grants": {
+              "name": "Move",
+              "activation": "reaction",
+              "distance": {
+                "calculation": {
+                  "operation": "divide",
+                  "operators": [
+                    {
+                      "type": "attribute",
+                      "value": "movement.base"
+                    },
+                    {
+                      "type": "integer",
+                      "value": 2
+                    }
+                  ],
+                  "rounding": "down"
+                },
+                "unit": "feet"
+              },
+              "immunity": {
+                "category": "trigger",
+                "to": "opportunity_attack"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-vengeance-soul-of-vengeance",
+    "class": "subclass:oath-of-vengeance",
+    "level": 15,
+    "name": "Soul of Vengeance",
+    "description": "Starting at 15th level, the authority with which you speak your Vow of Enmity gives you greater power over your foe. When a creature under the effect of your Vow of Enmity makes an attack, you can use your reaction to make a melee weapon attack against that creature.",
+    "enhances": ["feat:oath-of-vengeance-vow-of-enmity"],
+    "mechanics": [
+      {
+        "type": "reaction",
+        "trigger": {
+          "event": ["attack"],
+          "source": {
+            "type": "creature"
+          }
+        },
+        "requirements": [
+          {
+            "type": "status",
+            "value": "vow-of-enmity",
+            "source": "character"
+          }
+        ],
+        "effects": [
+          {
+            "grants": {
+              "name": "Melee Weapon Attack",
+              "activation": "reaction",
+              "action": "weapon_attack"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:oath-of-vengeance-avenging-angel",
+    "class": "subclass:oath-of-vengeance",
+    "level": 20,
+    "name": "Avenging Angel",
+    "description": "At 20th level, you can assume the form of an angelic avenger. Using your action, you undergo a transformation. For 1 hour, you gain the following benefits:\n\n- Wings sprout from your back and grant you a flying speed of 60 feet.\n- You emanate an aura of menace in a 30-foot radius. The first time any enemy creature enters the aura or starts its turn there, the creature must succeed on a Wisdom saving throw or become frightened of you for 1 minute or until it takes any damage. Attack rolls against the frightened creature have advantage.",
+    "mechanics": [
+      {
+        "type": "action",
+        "duration": {
+          "value": 1,
+          "unit": "hours"
+        },
+        "effects": [
+          {
+            "attribute": {
+              "category": "movement",
+              "property": "fly",
+              "calculation": {
+                "operation": "set",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 60
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "aura": {
+              "radius": 30,
+              "unit": "feet",
+              "target": {
+                "type": "creatures",
+                "disposition": "hostile"
+              },
+              "grants": {
+                "disadvantage": {
+                  "saving_throw": ["Wisdom"]
+                }
+              }
+            }
+          },
+          {
+            "saving_throw": {
+              "ability": ["Wisdom"],
+              "dc": {
+                "ref": "spell_save_dc"
+              },
+              "on_failure": {
+                "apply_status": {
+                  "id": "status:frightened",
+                  "source": "character",
+                  "duration": {
+                    "value": 1,
+                    "unit": "minutes",
+                    "until": ["damaged_by"]
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "long_rest"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  }
+]
