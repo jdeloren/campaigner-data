@@ -8,11 +8,11 @@
   ],
   "schemas": [
     {
-      "schema": "creature",
+      "schema": "domain",
       "bump": "patch"
     },
     {
-      "schema": "attack",
+      "schema": "class",
       "bump": "patch"
     }
   ],
