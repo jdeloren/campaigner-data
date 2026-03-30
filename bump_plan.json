@@ -6,15 +6,6 @@
       "bump": "patch"
     }
   ],
-  "schemas": [
-    {
-      "schema": "domain",
-      "bump": "patch"
-    },
-    {
-      "schema": "class",
-      "bump": "patch"
-    }
-  ],
+  "schemas": [],
   "repo_bump": "patch"
 }
