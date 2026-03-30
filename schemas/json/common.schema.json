@@ -7846,7 +7846,7 @@
       "type": "object"
     },
     "RollModifier": {
-      "description": "Modifies how dice rolls are resolved.\n\nUsed for effects like \"maximize healing dice\", \"reroll 1s\", \"add/subtract dice from roll\",\nor forcing a roll outcome (auto_succeed/auto_fail).\nSpecify `function`, `reroll`, `operation`+`value`, or `result`.",
+      "description": "Modifies how dice rolls are resolved.\n\nUsed for effects like \"maximize healing dice\", \"reroll 1s\", \"add/subtract dice from roll\",\nor forcing a roll outcome (auto_succeed/auto_fail).\nSpecify `maximize`, `reroll`, `operation`+`value`, or `result`.",
       "properties": {
         "type": {
           "anyOf": [
@@ -7861,19 +7861,6 @@
           "default": null,
           "description": "Scope which roll types this modifier applies to (e.g., 'saving_throw'). If null, applies to the triggering roll.",
           "title": "Type"
-        },
-        "function": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "description": "Function to apply to the roll (e.g., 'roller.max_roll', 'roller.reroll_ones')",
-          "title": "Function"
         },
         "reroll": {
           "anyOf": [
@@ -7944,6 +7931,12 @@
           "default": false,
           "description": "Whether the roll modifier is a choice the target can make (e.g., choosing to fail a saving throw)",
           "title": "Optional",
+          "type": "boolean"
+        },
+        "maximize": {
+          "default": false,
+          "description": "Replace all dice with their maximum value (e.g., Destructive Wrath, Supreme Healing)",
+          "title": "Maximize",
           "type": "boolean"
         }
       },
