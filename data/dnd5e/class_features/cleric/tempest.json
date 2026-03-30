@@ -181,7 +181,7 @@
         "effects": [
           {
             "roll_modifier": {
-              "function": "roller.max_roll"
+              "maximize": true
             }
           }
         ]

@@ -1126,7 +1126,6 @@ Modifies how dice rolls are resolved. Specify either `function`, `reroll`, or `o
 **Available fields:**
 
 - `type` — `"saving_throw"`, `"attack"`, or `"ability_check"` (scope which rolls this applies to; null applies to triggering roll)
-- `function` — Function reference (e.g., `"roller.max_roll"`, `"roller.reroll_ones"`)
 - `reroll` — Reroll dice showing specific values (see Reroll schema)
 - `operation` — `"add"` or `"subtract"`
 - `value` — Value to add/subtract (e.g., `"superiority_die"`)
@@ -1141,16 +1140,6 @@ Modifies how dice rolls are resolved. Specify either `function`, `reroll`, or `o
     "reroll": {
       "result": false
     }
-  }
-}
-```
-
-#### Maximize Healing Dice
-
-```json
-{
-  "roll_modifier": {
-    "function": "roller.max_roll"
   }
 }
 ```
