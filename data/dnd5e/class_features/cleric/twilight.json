@@ -13,26 +13,11 @@
         "always_prepared": true,
         "scaling": {
           "by_level": {
-            "1": [
-              "spell:faerie-fire",
-              "spell:sleep"
-            ],
-            "3": [
-              "spell:moonbeam",
-              "spell:see-invisibility"
-            ],
-            "5": [
-              "spell:aura-of-vitality",
-              "spell:leomunds-tiny-hut"
-            ],
-            "7": [
-              "spell:aura-of-life",
-              "spell:greater-invisibility"
-            ],
-            "9": [
-              "spell:circle-of-power",
-              "spell:mislead"
-            ]
+            "1": ["spell:faerie-fire", "spell:sleep"],
+            "3": ["spell:moonbeam", "spell:see-invisibility"],
+            "5": ["spell:aura-of-vitality", "spell:leomunds-tiny-hut"],
+            "7": ["spell:aura-of-life", "spell:greater-invisibility"],
+            "9": ["spell:circle-of-power", "spell:mislead"]
           }
         }
       }
@@ -50,16 +35,12 @@
       {
         "type": "proficiency",
         "category": "weapon",
-        "proficiencies": [
-          "Martial"
-        ]
+        "proficiencies": ["Martial"]
       },
       {
         "type": "proficiency",
         "category": "armor",
-        "proficiencies": [
-          "Heavy"
-        ]
+        "proficiencies": ["Heavy"]
       }
     ]
   },
@@ -187,7 +168,7 @@
     "mechanics": [
       {
         "type": "action",
-        "name": "twilight_sanctuary",
+        "name": "Twilight Sanctuary",
         "cost": [
           {
             "resource": "channel_divinity",
@@ -229,10 +210,7 @@
                 {
                   "name": "End Charmed or Frightened",
                   "effect": {
-                    "negate": [
-                      "charmed",
-                      "frightened"
-                    ]
+                    "negate": ["charmed", "frightened"]
                   }
                 }
               ]
@@ -301,9 +279,7 @@
         "type": "damage_bonus",
         "name": "divine_strike",
         "trigger": {
-          "event": [
-            "damage"
-          ],
+          "event": ["damage"],
           "source": {
             "type": "weapon"
           }
@@ -312,9 +288,7 @@
           {
             "damage_bonus": {
               "dice": "1d8",
-              "type": [
-                "radiant"
-              ]
+              "type": ["radiant"]
             }
           }
         ],
@@ -334,9 +308,7 @@
     "source": "tce",
     "ruleset": "dnd5e",
     "class": "domain:twilight",
-    "enhances": [
-      "feat:twilight-twilight-sanctuary"
-    ],
+    "enhances": ["feat:twilight-twilight-sanctuary"],
     "mechanics": [
       {
         "type": "passive",

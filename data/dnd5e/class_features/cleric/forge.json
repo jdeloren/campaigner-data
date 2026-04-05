@@ -13,26 +13,11 @@
         "always_prepared": true,
         "scaling": {
           "by_level": {
-            "1": [
-              "spell:identify",
-              "spell:searing-smite"
-            ],
-            "3": [
-              "spell:heat-metal",
-              "spell:magic-weapon"
-            ],
-            "5": [
-              "spell:elemental-weapon",
-              "spell:protection-from-energy"
-            ],
-            "7": [
-              "spell:fabricate",
-              "spell:wall-of-fire"
-            ],
-            "9": [
-              "spell:animate-objects",
-              "spell:creation"
-            ]
+            "1": ["spell:identify", "spell:searing-smite"],
+            "3": ["spell:heat-metal", "spell:magic-weapon"],
+            "5": ["spell:elemental-weapon", "spell:protection-from-energy"],
+            "7": ["spell:fabricate", "spell:wall-of-fire"],
+            "9": ["spell:animate-objects", "spell:creation"]
           }
         }
       }
@@ -50,16 +35,12 @@
       {
         "type": "proficiency",
         "category": "armor",
-        "proficiencies": [
-          "Heavy"
-        ]
+        "proficiencies": ["Heavy"]
       },
       {
         "type": "proficiency",
         "category": "tool",
-        "proficiencies": [
-          "Smith's Tools"
-        ]
+        "proficiencies": ["Smith's Tools"]
       }
     ]
   },
@@ -74,7 +55,7 @@
     "mechanics": [
       {
         "type": "action",
-        "name": "blessing_of_the_forge",
+        "name": "Blessing of the Forge",
         "description": "Touch one nonmagical armor or weapon. It becomes a +1 magic item until your next long rest or until you die.",
         "uses": {
           "value": 1
@@ -94,7 +75,7 @@
     "mechanics": [
       {
         "type": "special",
-        "name": "artisans_blessing",
+        "name": "Artisan's Blessing",
         "description": "Conduct an hour-long ritual to craft a nonmagical metal item worth no more than 100 gp. You must provide metal of equal value, which is consumed. Uses Channel Divinity.",
         "cost": [
           {
@@ -121,9 +102,7 @@
           {
             "damage_response": {
               "category": "resistance",
-              "to": [
-                "fire"
-              ]
+              "to": ["fire"]
             }
           }
         ]
@@ -135,9 +114,7 @@
           {
             "type": "equipment",
             "slot": "armor",
-            "property": [
-              "Heavy"
-            ]
+            "property": ["Heavy"]
           }
         ],
         "effects": [
@@ -172,9 +149,7 @@
         "type": "damage_bonus",
         "name": "divine_strike",
         "trigger": {
-          "event": [
-            "damage"
-          ],
+          "event": ["damage"],
           "source": {
             "type": "weapon"
           }
@@ -183,9 +158,7 @@
           {
             "damage_bonus": {
               "dice": "1d8",
-              "type": [
-                "fire"
-              ]
+              "type": ["fire"]
             }
           }
         ],
@@ -213,9 +186,7 @@
           {
             "damage_response": {
               "category": "immunity",
-              "to": [
-                "fire"
-              ]
+              "to": ["fire"]
             }
           }
         ]
@@ -227,20 +198,14 @@
           {
             "type": "equipment",
             "slot": "armor",
-            "property": [
-              "Heavy"
-            ]
+            "property": ["Heavy"]
           }
         ],
         "effects": [
           {
             "damage_response": {
               "category": "resistance",
-              "to": [
-                "bludgeoning",
-                "piercing",
-                "slashing"
-              ],
+              "to": ["bludgeoning", "piercing", "slashing"],
               "source": {
                 "magical": false
               }

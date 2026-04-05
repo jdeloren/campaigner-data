@@ -13,26 +13,11 @@
         "always_prepared": true,
         "scaling": {
           "by_level": {
-            "1": [
-              "spell:heroism",
-              "spell:sanctuary"
-            ],
-            "3": [
-              "spell:aid",
-              "spell:warding-bond"
-            ],
-            "5": [
-              "spell:beacon-of-hope",
-              "spell:sending"
-            ],
-            "7": [
-              "spell:aura-of-purity",
-              "spell:otilukes-resilient-sphere"
-            ],
-            "9": [
-              "spell:greater-restoration",
-              "spell:rary-s-telepathic-bond"
-            ]
+            "1": ["spell:heroism", "spell:sanctuary"],
+            "3": ["spell:aid", "spell:warding-bond"],
+            "5": ["spell:beacon-of-hope", "spell:sending"],
+            "7": ["spell:aura-of-purity", "spell:otilukes-resilient-sphere"],
+            "9": ["spell:greater-restoration", "spell:rary-s-telepathic-bond"]
           }
         }
       }
@@ -87,7 +72,7 @@
     "mechanics": [
       {
         "type": "action",
-        "name": "emboldening_bond",
+        "name": "Emboldening Bond",
         "target": {
           "type": "creature",
           "count": {
@@ -138,7 +123,7 @@
     "mechanics": [
       {
         "type": "action",
-        "name": "balm_of_peace",
+        "name": "Balm of Peace",
         "description": "Move up to your speed without provoking opportunity attacks. When you move within 5 feet of a creature, restore 2d6 + Wisdom modifier hit points. Each creature can be healed only once per use.",
         "cost": [
           {
@@ -173,18 +158,14 @@
     "source": "tce",
     "ruleset": "dnd5e",
     "class": "domain:peace",
-    "enhances": [
-      "feat:peace-emboldening-bond"
-    ],
+    "enhances": ["feat:peace-emboldening-bond"],
     "mechanics": [
       {
         "type": "reaction",
-        "name": "protective_bond",
+        "name": "Protective Bond",
         "description": "When a bonded creature is about to take damage, another bonded creature within 30 feet can use its reaction to teleport within 5 feet of the first and take all the damage instead.",
         "trigger": {
-          "event": [
-            "damaged_by"
-          ]
+          "event": ["damaged_by"]
         },
         "requirements": [
           {
@@ -211,11 +192,9 @@
     "mechanics": [
       {
         "type": "damage_bonus",
-        "name": "potent_spellcasting",
+        "name": "Potent Spellcasting",
         "trigger": {
-          "event": [
-            "damage"
-          ],
+          "event": ["damage"],
           "source": {
             "type": "spell",
             "class": "Cleric",
@@ -250,10 +229,7 @@
     "source": "tce",
     "ruleset": "dnd5e",
     "class": "domain:peace",
-    "enhances": [
-      "feat:peace-emboldening-bond",
-      "feat:peace-protective-bond"
-    ],
+    "enhances": ["feat:peace-emboldening-bond", "feat:peace-protective-bond"],
     "mechanics": [
       {
         "type": "passive",
@@ -279,17 +255,13 @@
         "type": "passive",
         "name": "expansive_bond_resistance",
         "trigger": {
-          "event": [
-            "damaged_by"
-          ]
+          "event": ["damaged_by"]
         },
         "effects": [
           {
             "damage_response": {
               "category": "resistance",
-              "to": [
-                "all"
-              ]
+              "to": ["all"]
             }
           }
         ]

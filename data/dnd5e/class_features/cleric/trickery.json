@@ -13,26 +13,11 @@
         "always_prepared": true,
         "scaling": {
           "by_level": {
-            "1": [
-              "spell:charm-person",
-              "spell:disguise-self"
-            ],
-            "3": [
-              "spell:mirror-image",
-              "spell:pass-without-trace"
-            ],
-            "5": [
-              "spell:blink",
-              "spell:dispel-magic"
-            ],
-            "7": [
-              "spell:dimension-door",
-              "spell:polymorph"
-            ],
-            "9": [
-              "spell:dominate-person",
-              "spell:modify-memory"
-            ]
+            "1": ["spell:charm-person", "spell:disguise-self"],
+            "3": ["spell:mirror-image", "spell:pass-without-trace"],
+            "5": ["spell:blink", "spell:dispel-magic"],
+            "7": ["spell:dimension-door", "spell:polymorph"],
+            "9": ["spell:dominate-person", "spell:modify-memory"]
           }
         }
       }
@@ -106,9 +91,7 @@
                 "value": 120,
                 "unit": "feet"
               },
-              "capabilities": [
-                "spell_origin_point"
-              ]
+              "capabilities": ["spell_origin_point"]
             }
           },
           {
@@ -120,18 +103,13 @@
                   "value": 5,
                   "comparison": "at_most",
                   "to": "target",
-                  "entities": [
-                    "self",
-                    "illusion"
-                  ]
+                  "entities": ["self", "illusion"]
                 },
                 {
                   "type": "perception",
                   "observer": "target",
                   "subject": "illusion",
-                  "senses": [
-                    "sight"
-                  ]
+                  "senses": ["sight"]
                 }
               ]
             }
@@ -144,15 +122,13 @@
       },
       {
         "type": "bonus_action",
-        "name": "move_illusion",
+        "name": "Move Illusion",
         "effects": [
           {
             "movement": {
               "target": {
                 "type": "entity",
-                "value": [
-                  "duplicate"
-                ]
+                "value": ["duplicate"]
               },
               "distance": 30,
               "visibility": {
@@ -183,10 +159,7 @@
             "apply_status": {
               "id": "status:invisible",
               "duration": {
-                "until": [
-                  "attack",
-                  "cast_spell"
-                ]
+                "until": ["attack", "cast_spell"]
               }
             }
           }
@@ -206,18 +179,14 @@
       {
         "type": "damage_bonus",
         "trigger": {
-          "event": [
-            "damage"
-          ],
+          "event": ["damage"],
           "source": {
             "type": "weapon"
           }
         },
         "damage": {
           "dice": "1d8",
-          "type": [
-            "poison"
-          ]
+          "type": ["poison"]
         },
         "scaling": {
           "components": {
@@ -243,9 +212,7 @@
     "source": "phb",
     "ruleset": "dnd5e",
     "class": "domain:trickery",
-    "enhances": [
-      "feat:trickery-invoke-duplicity"
-    ],
+    "enhances": ["feat:trickery-invoke-duplicity"],
     "mechanics": [
       {
         "type": "special",

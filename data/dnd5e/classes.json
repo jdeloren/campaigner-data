@@ -2032,6 +2032,18 @@
           ]
         }
       },
+      "spells_known": {
+        "1": {
+          "choices": [
+            {
+              "count": 6,
+              "criteria": {
+                "spell_list": "Wizard"
+              }
+            }
+          ]
+        }
+      },
       "spell_slots": {
         "1": {
           "1st": 2
