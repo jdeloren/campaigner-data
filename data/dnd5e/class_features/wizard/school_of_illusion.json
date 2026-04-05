@@ -10,18 +10,13 @@
       {
         "type": "passive",
         "name": "illusion_savant",
-        "requirements": [
-          { "type": "spell", "school": "Illusion" }
-        ],
+        "requirements": [{ "type": "spell", "school": "Illusion" }],
         "cost": [
           {
             "currency": "GP",
             "calculation": {
               "operation": "multiply",
-              "operators": [
-                { "type": "integer", "value": 25 },
-                { "type": "spell_level_cast" }
-              ]
+              "operators": [{ "type": "integer", "value": 25 }, { "type": "spell_level_cast" }]
             }
           }
         ]
@@ -39,9 +34,7 @@
     "mechanics": [
       {
         "type": "granted_spells",
-        "spells": [
-          "spell:minor-illusion"
-        ],
+        "spells": ["spell:minor-illusion"],
         "always_prepared": true,
         "substitute": {
           "count": 1,
@@ -56,9 +49,7 @@
         "name": "improved_minor_illusion",
         "description": "When you cast minor illusion, you can create both a sound and an image with a single casting.",
         "trigger": {
-          "event": [
-            "cast_spell"
-          ],
+          "event": ["cast_spell"],
           "source": {
             "type": "spell",
             "id": "spell:minor-illusion"
@@ -78,7 +69,7 @@
     "mechanics": [
       {
         "type": "action",
-        "name": "malleable_illusions",
+        "name": "Malleable Illusions",
         "description": "Change the nature of an active illusion spell with a duration of 1 minute or longer, using the spell's normal parameters.",
         "requirements": [
           {
@@ -93,9 +84,7 @@
             "type": "perception",
             "observer": "character",
             "subject": "target",
-            "senses": [
-              "sight"
-            ]
+            "senses": ["sight"]
           }
         ]
       }
@@ -114,9 +103,7 @@
         "type": "reaction",
         "name": "illusory_self",
         "trigger": {
-          "event": [
-            "attacked_by"
-          ],
+          "event": ["attacked_by"],
           "timing": "before"
         },
         "effects": [
@@ -145,12 +132,10 @@
     "mechanics": [
       {
         "type": "bonus_action",
-        "name": "illusory_reality",
+        "name": "Illusory Reality",
         "description": "Choose one inanimate, nonmagical object that is part of an active illusion spell of 1st level or higher and make it real for 1 minute. The object can't deal damage or directly harm anyone.",
         "trigger": {
-          "event": [
-            "cast_spell"
-          ],
+          "event": ["cast_spell"],
           "source": {
             "type": "spell",
             "school": "Illusion",

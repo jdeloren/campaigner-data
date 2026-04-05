@@ -86,8 +86,8 @@
                 "operation": "divide",
                 "rounding": "down",
                 "operators": [
-                  {"type": "attribute", "value": "proficiency_bonus"},
-                  {"type": "integer", "value": 2}
+                  { "type": "attribute", "value": "proficiency_bonus" },
+                  { "type": "integer", "value": 2 }
                 ]
               }
             },
@@ -365,7 +365,7 @@
     "mechanics": [
       {
         "type": "action",
-        "name": "countercharm",
+        "name": "Countercharm",
         "effects": [
           {
             "target": {
