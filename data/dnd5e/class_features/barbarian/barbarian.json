@@ -458,14 +458,18 @@
               "category": "movement",
               "property": "base",
               "calculation": {
-                "operation": "add",
+                "operation": "divide",
                 "operators": [
                   {
-                    "type": "function",
-                    "function": "movement.calculate_half_speed",
-                    "context": "character"
+                    "type": "attribute",
+                    "value": "movement.base"
+                  },
+                  {
+                    "type": "integer",
+                    "value": 2
                   }
-                ]
+                ],
+                "rounding": "down"
               }
             }
           }
