@@ -2135,7 +2135,7 @@
       {
         "type": "proficiency",
         "category": "armor",
-        "proficiencies": ["Medium", "Shield"]
+        "proficiencies": ["Medium", "Shields"]
       }
     ],
     "source": "phb",
