@@ -2823,6 +2823,7 @@
       {
         "type": "bonus_action",
         "name": "Shield Bash",
+        "description": "If you take the Attack action on your turn, you can use a bonus action to try to shove a creature within 5 feet of you with your shield.",
         "requirements": [
           {
             "type": "equipment",
@@ -2881,6 +2882,7 @@
       {
         "type": "reaction",
         "name": "Shield Evasion",
+        "description": "If you aren't incapacitated, you can add your shield's AC bonus to any Dexterity saving throw you make against a spell or other harmful effect that targets only you.",
         "trigger": {
           "event": ["saving_throw"],
           "save": {
