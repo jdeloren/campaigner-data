@@ -1,0 +1,309 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "D&D 5e Build Templates",
+  "description": "Template-driven character build definitions for quick character generation.",
+  "type": "array",
+  "items": {
+    "description": "A build template specifying class progression, choice preferences, and stat allocation.",
+    "properties": {
+      "id": {
+        "description": "Unique template identifier (e.g., 'build:champion-fighter')",
+        "type": "string",
+        "pattern": "^build:[a-z0-9-]+$"
+      },
+      "name": {
+        "description": "Display name",
+        "type": "string"
+      },
+      "description": {
+        "description": "Human-readable build description",
+        "type": "string"
+      },
+      "ruleset": {
+        "$ref": "common.schema.json#/$defs/Ruleset",
+        "description": "Ruleset"
+      },
+      "class_id": {
+        "description": "Primary class ID (e.g., 'class:fighter')",
+        "type": "string"
+      },
+      "subclass_id": {
+        "description": "Subclass ID (e.g., 'subclass:champion', 'domain:life') or null for random",
+        "type": ["string", "null"]
+      },
+      "roles": {
+        "description": "Build roles",
+        "items": {
+          "enum": ["tank", "healer", "striker", "controller", "gish", "skill_monkey", "support"],
+          "type": "string"
+        },
+        "type": "array",
+        "minItems": 1
+      },
+      "race_prefs": {
+        "$ref": "#/$defs/RacePreference",
+        "description": "Race selection guidance"
+      },
+      "background_pref": {
+        "description": "Preferred background ID or null for random",
+        "type": ["string", "null"]
+      },
+      "skill_affinity": {
+        "description": "Preferred skill focus or null",
+        "type": ["string", "null"]
+      },
+      "stat_priority": {
+        "description": "Ability scores in priority order (e.g., ['STR', 'CON', 'DEX', 'WIS', 'CHA', 'INT'])",
+        "items": {
+          "enum": ["STR", "DEX", "CON", "INT", "WIS", "CHA"],
+          "type": "string"
+        },
+        "type": "array",
+        "minItems": 6,
+        "maxItems": 6
+      },
+      "asi_priorities": {
+        "description": "ASI-level goals in priority order",
+        "items": {
+          "$ref": "#/$defs/AsiGoal"
+        },
+        "type": "array"
+      },
+      "level_guides": {
+        "description": "Per-level choice guidance",
+        "items": {
+          "$ref": "#/$defs/LevelGuide"
+        },
+        "type": "array",
+        "minItems": 1
+      },
+      "spell_prefs": {
+        "description": "Spell selection guidance or null for non-casters",
+        "oneOf": [
+          {"$ref": "#/$defs/SpellPreferences"},
+          {"type": "null"}
+        ]
+      },
+      "equipment_pref": {
+        "description": "Starting equipment choice guidance or null",
+        "oneOf": [
+          {"$ref": "#/$defs/EquipmentPreferences"},
+          {"type": "null"}
+        ]
+      },
+      "flavor": {
+        "description": "RP flavor suggestions or null",
+        "oneOf": [
+          {"$ref": "#/$defs/FlavorSuggestions"},
+          {"type": "null"}
+        ]
+      },
+      "max_level": {
+        "description": "Maximum level this template covers",
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 20
+      },
+      "is_multiclass": {
+        "description": "Whether this template uses multiple classes",
+        "type": "boolean"
+      },
+      "sources": {
+        "description": "Source books required",
+        "items": {
+          "$ref": "common.schema.json#/$defs/Source"
+        },
+        "type": "array",
+        "minItems": 1
+      },
+      "tier_ratings": {
+        "description": "Effectiveness ratings by level range",
+        "items": {
+          "$ref": "#/$defs/TierRating"
+        },
+        "type": "array"
+      }
+    },
+    "required": ["id", "name", "description", "ruleset", "class_id", "roles", "race_prefs", "stat_priority", "level_guides"],
+    "type": "object"
+  },
+  "$defs": {
+    "ChoicePriority": {
+      "enum": ["required", "preferred", "any", "any_not", "not_relevant"],
+      "type": "string"
+    },
+    "ChoicePreference": {
+      "description": "Template author's preference for a choice slot.",
+      "properties": {
+        "priority": {
+          "$ref": "#/$defs/ChoicePriority"
+        },
+        "values": {
+          "items": {"type": "string"},
+          "type": "array"
+        }
+      },
+      "required": ["priority"],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "RacePreference": {
+      "description": "Race selection guidance.",
+      "properties": {
+        "priority": {
+          "$ref": "#/$defs/ChoicePriority"
+        },
+        "values": {
+          "items": {"type": "string"},
+          "type": "array"
+        },
+        "subrace_values": {
+          "items": {"type": "string"},
+          "type": "array"
+        }
+      },
+      "required": ["priority"],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "AsiGoal": {
+      "description": "A single ASI-level goal: take a feat or boost a stat toward a target.",
+      "properties": {
+        "feat_id": {
+          "description": "Feat ID to take (e.g., 'feat:great-weapon-master')",
+          "type": ["string", "null"]
+        },
+        "ability_id": {
+          "description": "Ability name to boost (e.g., 'Strength')",
+          "type": ["string", "null"]
+        },
+        "target": {
+          "description": "Target ability score",
+          "type": ["integer", "null"],
+          "minimum": 1,
+          "maximum": 20
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
+    "LevelGuide": {
+      "description": "Template guidance for a single character level.",
+      "properties": {
+        "level": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20
+        },
+        "class_id": {
+          "description": "Which class to take at this level",
+          "type": "string"
+        },
+        "choices": {
+          "description": "Choice ID to preference mapping",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/ChoicePreference"
+          }
+        }
+      },
+      "required": ["level", "class_id"],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "SpellPreferences": {
+      "description": "Guidance for spell selection.",
+      "properties": {
+        "cantrips": {
+          "$ref": "#/$defs/ChoicePreference"
+        },
+        "spells_by_level": {
+          "description": "Spell level (1-9) to preference mapping",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/ChoicePreference"
+          }
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
+    "EquipmentProperty": {
+      "description": "Valid equipment property or grip style value.",
+      "enum": [
+        "Simple", "Martial", "Melee", "Ranged",
+        "Light", "Medium", "Heavy", "Shield",
+        "Finesse", "Loading", "Reach", "Special", "Ammunition", "Crossbow",
+        "one-handed", "two-handed",
+        "focus"
+      ],
+      "type": "string"
+    },
+    "EquipmentPreferences": {
+      "description": "Starting equipment choice guidance based on weapon/armor properties.",
+      "properties": {
+        "prefer": {
+          "description": "Equipment properties to prefer",
+          "items": {"$ref": "#/$defs/EquipmentProperty"},
+          "type": "array"
+        },
+        "avoid": {
+          "description": "Equipment properties to avoid",
+          "items": {"$ref": "#/$defs/EquipmentProperty"},
+          "type": "array"
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
+    "FlavorSuggestions": {
+      "description": "Optional RP flavor for the build.",
+      "properties": {
+        "alignment": {
+          "type": ["string", "null"]
+        },
+        "personality_traits": {
+          "items": {"type": "string"},
+          "type": "array"
+        },
+        "ideals": {
+          "type": "string"
+        },
+        "bonds": {
+          "type": "string"
+        },
+        "flaws": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    },
+    "TierRating": {
+      "description": "Effectiveness rating for a level range.",
+      "properties": {
+        "level_min": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20
+        },
+        "level_max": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20
+        },
+        "rating": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "note": {
+          "type": ["string", "null"]
+        }
+      },
+      "required": ["level_min", "level_max", "rating"],
+      "type": "object",
+      "additionalProperties": false
+    }
+  }
+}

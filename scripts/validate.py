@@ -51,6 +51,7 @@ SCHEMA_MAP = {
     "feats": "feat.schema.json",
     "attacks": "attack.schema.json",
     "creatures": "creature.schema.json",
+    "build_templates": "build_template.schema.json",
 }
 
 

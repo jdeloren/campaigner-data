@@ -1,0 +1,2220 @@
+[
+  {
+    "name": "Champion Fighter",
+    "description": "A straightforward melee combatant who excels in direct combat with heavy weapons and heavy armor. Improved criticals and remarkable athleticism make this fighter a reliable damage dealer.",
+    "ruleset": "dnd5e",
+    "class_id": "class:fighter",
+    "subclass_id": "subclass:champion",
+    "roles": [
+      "tank",
+      "striker"
+    ],
+    "race_prefs": {
+      "priority": "preferred",
+      "values": [
+        "race:variant-human",
+        "race:mountain-dwarf",
+        "race:half-orc"
+      ]
+    },
+    "background_pref": "bg:soldier",
+    "stat_priority": [
+      "STR",
+      "CON",
+      "DEX",
+      "WIS",
+      "CHA",
+      "INT"
+    ],
+    "asi_priorities": [
+      {
+        "feat_id": "feat:great-weapon-master"
+      },
+      {
+        "ability_id": "Strength",
+        "target": 20
+      },
+      {
+        "ability_id": "Constitution",
+        "target": 18
+      }
+    ],
+    "level_guides": [
+      {
+        "level": 1,
+        "class_id": "class:fighter",
+        "choices": {
+          "class:fighter-query-fighting_style": {
+            "priority": "required",
+            "values": [
+              "style:great-weapon-fighting"
+            ]
+          }
+        }
+      }
+    ],
+    "spell_prefs": null,
+    "equipment_pref": {
+      "prefer": [
+        "two-handed"
+      ],
+      "avoid": [
+        "Shield"
+      ]
+    },
+    "flavor": null,
+    "max_level": 20,
+    "is_multiclass": false,
+    "sources": [
+      "phb"
+    ],
+    "tier_ratings": [
+      {
+        "level_min": 1,
+        "level_max": 4,
+        "rating": 3,
+        "note": "Solid but simple early game"
+      },
+      {
+        "level_min": 5,
+        "level_max": 10,
+        "rating": 4,
+        "note": "Extra Attack and GWM online"
+      },
+      {
+        "level_min": 11,
+        "level_max": 16,
+        "rating": 4,
+        "note": "Third attack at 11"
+      },
+      {
+        "level_min": 17,
+        "level_max": 20,
+        "rating": 3,
+        "note": "Other classes scale harder at high levels"
+      }
+    ],
+    "id": "build:champion-fighter"
+  },
+  {
+    "name": "Thief Rogue",
+    "description": "A nimble skirmisher with unmatched skill expertise. Fast Hands and Second-Story Work add tactical versatility beyond raw damage output.",
+    "ruleset": "dnd5e",
+    "class_id": "class:rogue",
+    "subclass_id": "subclass:thief",
+    "roles": [
+      "striker",
+      "skill_monkey"
+    ],
+    "race_prefs": {
+      "priority": "preferred",
+      "values": [
+        "race:lightfoot-halfling",
+        "race:variant-human",
+        "race:half-elf"
+      ]
+    },
+    "background_pref": "bg:criminal",
+    "stat_priority": [
+      "DEX",
+      "CON",
+      "WIS",
+      "CHA",
+      "INT",
+      "STR"
+    ],
+    "asi_priorities": [
+      {
+        "ability_id": "Dexterity",
+        "target": 20
+      },
+      {
+        "feat_id": "feat:lucky"
+      },
+      {
+        "ability_id": "Constitution",
+        "target": 16
+      }
+    ],
+    "level_guides": [
+      {
+        "level": 1,
+        "class_id": "class:rogue",
+        "choices": {}
+      }
+    ],
+    "spell_prefs": null,
+    "equipment_pref": {
+      "prefer": [
+        "Finesse"
+      ],
+      "avoid": []
+    },
+    "flavor": null,
+    "max_level": 20,
+    "is_multiclass": false,
+    "sources": [
+      "phb"
+    ],
+    "tier_ratings": [
+      {
+        "level_min": 1,
+        "level_max": 4,
+        "rating": 4,
+        "note": "Expertise and Sneak Attack scale well early"
+      },
+      {
+        "level_min": 5,
+        "level_max": 10,
+        "rating": 4,
+        "note": "Uncanny Dodge and Evasion add durability"
+      },
+      {
+        "level_min": 11,
+        "level_max": 16,
+        "rating": 3,
+        "note": "Reliable Talent is great but damage plateaus"
+      },
+      {
+        "level_min": 17,
+        "level_max": 20,
+        "rating": 3,
+        "note": "Consistent but not flashy at high levels"
+      }
+    ],
+    "id": "build:thief-rogue"
+  },
+  {
+    "name": "Totem Barbarian",
+    "description": "An indomitable frontline warrior who channels primal spirits for damage resistance. Bear Totem makes this barbarian incredibly hard to bring down.",
+    "ruleset": "dnd5e",
+    "class_id": "class:barbarian",
+    "subclass_id": "subclass:path-of-the-totem-warrior",
+    "roles": [
+      "tank"
+    ],
+    "race_prefs": {
+      "priority": "preferred",
+      "values": [
+        "race:variant-human",
+        "race:half-orc",
+        "race:mountain-dwarf"
+      ]
+    },
+    "background_pref": "bg:outlander",
+    "stat_priority": [
+      "STR",
+      "CON",
+      "DEX",
+      "WIS",
+      "CHA",
+      "INT"
+    ],
+    "asi_priorities": [
+      {
+        "feat_id": "feat:great-weapon-master"
+      },
+      {
+        "ability_id": "Strength",
+        "target": 20
+      },
+      {
+        "ability_id": "Constitution",
+        "target": 18
+      }
+    ],
+    "level_guides": [
+      {
+        "level": 1,
+        "class_id": "class:barbarian",
+        "choices": {}
+      }
+    ],
+    "spell_prefs": null,
+    "equipment_pref": {
+      "prefer": [
+        "two-handed"
+      ],
+      "avoid": [
+        "Shield"
+      ]
+    },
+    "flavor": null,
+    "max_level": 20,
+    "is_multiclass": false,
+    "sources": [
+      "phb"
+    ],
+    "tier_ratings": [
+      {
+        "level_min": 1,
+        "level_max": 4,
+        "rating": 4,
+        "note": "Rage and Reckless Attack are strong from level 1"
+      },
+      {
+        "level_min": 5,
+        "level_max": 10,
+        "rating": 5,
+        "note": "Bear Totem resistance plus Extra Attack"
+      },
+      {
+        "level_min": 11,
+        "level_max": 16,
+        "rating": 4,
+        "note": "Relentless Rage keeps you standing"
+      },
+      {
+        "level_min": 17,
+        "level_max": 20,
+        "rating": 3,
+        "note": "Rage damage falls off relative to casters"
+      }
+    ],
+    "id": "build:totem-barbarian"
+  },
+  {
+    "name": "Life Cleric",
+    "description": "A dedicated healer who channels divine power to restore allies and endure the front lines. Heavy armor proficiency and enhanced healing make this cleric hard to ignore.",
+    "ruleset": "dnd5e",
+    "class_id": "class:cleric",
+    "subclass_id": "domain:life",
+    "roles": [
+      "healer",
+      "support"
+    ],
+    "race_prefs": {
+      "priority": "preferred",
+      "values": [
+        "race:hill-dwarf",
+        "race:variant-human",
+        "race:wood-elf"
+      ]
+    },
+    "background_pref": "bg:acolyte",
+    "stat_priority": [
+      "WIS",
+      "CON",
+      "STR",
+      "DEX",
+      "CHA",
+      "INT"
+    ],
+    "asi_priorities": [
+      {
+        "ability_id": "Wisdom",
+        "target": 20
+      },
+      {
+        "feat_id": "feat:war-caster"
+      },
+      {
+        "ability_id": "Constitution",
+        "target": 16
+      }
+    ],
+    "level_guides": [
+      {
+        "level": 1,
+        "class_id": "class:cleric",
+        "choices": {}
+      }
+    ],
+    "spell_prefs": {
+      "cantrips": {
+        "priority": "preferred",
+        "values": [
+          "Sacred Flame",
+          "Toll the Dead",
+          "Guidance"
+        ]
+      },
+      "spells_by_level": {
+        "1": {
+          "priority": "preferred",
+          "values": [
+            "Healing Word",
+            "Shield of Faith",
+            "Guiding Bolt"
+          ]
+        },
+        "2": {
+          "priority": "preferred",
+          "values": [
+            "Spiritual Weapon",
+            "Prayer of Healing"
+          ]
+        },
+        "3": {
+          "priority": "preferred",
+          "values": [
+            "Spirit Guardians",
+            "Revivify"
+          ]
+        }
+      }
+    },
+    "equipment_pref": null,
+    "flavor": null,
+    "max_level": 20,
+    "is_multiclass": false,
+    "sources": [
+      "phb"
+    ],
+    "tier_ratings": [
+      {
+        "level_min": 1,
+        "level_max": 4,
+        "rating": 4,
+        "note": "Best early healer with heavy armor at level 1"
+      },
+      {
+        "level_min": 5,
+        "level_max": 10,
+        "rating": 5,
+        "note": "Spirit Guardians plus healing dominance"
+      },
+      {
+        "level_min": 11,
+        "level_max": 16,
+        "rating": 4,
+        "note": "Strong sustained healing and support"
+      },
+      {
+        "level_min": 17,
+        "level_max": 20,
+        "rating": 4,
+        "note": "High-level spells keep it relevant"
+      }
+    ],
+    "id": "build:life-cleric"
+  },
+  {
+    "name": "Evocation Wizard",
+    "description": "A master of destructive arcane energy who sculpts area spells around allies. Potent Cantrip and Overchannel push damage output to extreme levels.",
+    "ruleset": "dnd5e",
+    "class_id": "class:wizard",
+    "subclass_id": "subclass:evocation",
+    "roles": [
+      "controller",
+      "striker"
+    ],
+    "race_prefs": {
+      "priority": "preferred",
+      "values": [
+        "race:variant-human",
+        "race:high-elf",
+        "race:rock-gnome"
+      ]
+    },
+    "background_pref": "bg:sage",
+    "stat_priority": [
+      "INT",
+      "CON",
+      "DEX",
+      "WIS",
+      "CHA",
+      "STR"
+    ],
+    "asi_priorities": [
+      {
+        "ability_id": "Intelligence",
+        "target": 20
+      },
+      {
+        "feat_id": "feat:war-caster"
+      },
+      {
+        "ability_id": "Constitution",
+        "target": 16
+      }
+    ],
+    "level_guides": [
+      {
+        "level": 1,
+        "class_id": "class:wizard",
+        "choices": {}
+      }
+    ],
+    "spell_prefs": {
+      "cantrips": {
+        "priority": "preferred",
+        "values": [
+          "Fire Bolt",
+          "Prestidigitation",
+          "Minor Illusion"
+        ]
+      },
+      "spells_by_level": {
+        "1": {
+          "priority": "preferred",
+          "values": [
+            "Magic Missile",
+            "Shield",
+            "Mage Armor",
+            "Find Familiar"
+          ]
+        },
+        "2": {
+          "priority": "preferred",
+          "values": [
+            "Misty Step",
+            "Shatter",
+            "Web"
+          ]
+        },
+        "3": {
+          "priority": "preferred",
+          "values": [
+            "Fireball",
+            "Counterspell"
+          ]
+        },
+        "4": {
+          "priority": "preferred",
+          "values": [
+            "Polymorph",
+            "Wall of Fire"
+          ]
+        },
+        "5": {
+          "priority": "preferred",
+          "values": [
+            "Wall of Force",
+            "Cone of Cold"
+          ]
+        }
+      }
+    },
+    "equipment_pref": null,
+    "flavor": null,
+    "max_level": 20,
+    "is_multiclass": false,
+    "sources": [
+      "phb"
+    ],
+    "tier_ratings": [
+      {
+        "level_min": 1,
+        "level_max": 4,
+        "rating": 3,
+        "note": "Fragile early but Magic Missile is reliable"
+      },
+      {
+        "level_min": 5,
+        "level_max": 10,
+        "rating": 4,
+        "note": "Fireball and Sculpt Spells transform encounters"
+      },
+      {
+        "level_min": 11,
+        "level_max": 16,
+        "rating": 5,
+        "note": "Overchannel and top-tier spell list"
+      },
+      {
+        "level_min": 17,
+        "level_max": 20,
+        "rating": 5,
+        "note": "Wizard spell list is unmatched at high levels"
+      }
+    ],
+    "id": "build:evocation-wizard"
+  },
+  {
+    "name": "College of Lore Bard",
+    "description": "A versatile support caster with unmatched skill breadth. Cutting Words and Additional Magical Secrets give this bard answers for every situation.",
+    "ruleset": "dnd5e",
+    "class_id": "class:bard",
+    "subclass_id": "subclass:college-of-lore",
+    "roles": [
+      "support",
+      "skill_monkey"
+    ],
+    "race_prefs": {
+      "priority": "preferred",
+      "values": [
+        "race:half-elf",
+        "race:variant-human",
+        "race:lightfoot-halfling"
+      ]
+    },
+    "background_pref": "bg:entertainer",
+    "stat_priority": [
+      "CHA",
+      "DEX",
+      "CON",
+      "WIS",
+      "INT",
+      "STR"
+    ],
+    "asi_priorities": [
+      {
+        "ability_id": "Charisma",
+        "target": 20
+      },
+      {
+        "ability_id": "Dexterity",
+        "target": 16
+      },
+      {
+        "feat_id": "feat:lucky"
+      }
+    ],
+    "level_guides": [
+      {
+        "level": 1,
+        "class_id": "class:bard",
+        "choices": {}
+      }
+    ],
+    "spell_prefs": {
+      "cantrips": {
+        "priority": "preferred",
+        "values": [
+          "Vicious Mockery",
+          "Minor Illusion"
+        ]
+      },
+      "spells_by_level": {
+        "1": {
+          "priority": "preferred",
+          "values": [
+            "Healing Word",
+            "Faerie Fire",
+            "Dissonant Whispers"
+          ]
+        },
+        "2": {
+          "priority": "preferred",
+          "values": [
+            "Heat Metal",
+            "Suggestion",
+            "Lesser Restoration"
+          ]
+        },
+        "3": {
+          "priority": "preferred",
+          "values": [
+            "Hypnotic Pattern",
+            "Dispel Magic"
+          ]
+        }
+      }
+    },
+    "equipment_pref": null,
+    "flavor": null,
+    "max_level": 20,
+    "is_multiclass": false,
+    "sources": [
+      "phb"
+    ],
+    "tier_ratings": [
+      {
+        "level_min": 1,
+        "level_max": 4,
+        "rating": 3,
+        "note": "Good support but limited spell slots early"
+      },
+      {
+        "level_min": 5,
+        "level_max": 10,
+        "rating": 5,
+        "note": "Cutting Words plus Magical Secrets at 6"
+      },
+      {
+        "level_min": 11,
+        "level_max": 16,
+        "rating": 5,
+        "note": "Full caster with the best spell-stealing in the game"
+      },
+      {
+        "level_min": 17,
+        "level_max": 20,
+        "rating": 5,
+        "note": "Unmatched versatility at high levels"
+      }
+    ],
+    "id": "build:college-of-lore-bard"
+  },
+  {
+    "name": "Circle of the Moon Druid",
+    "description": "A shapeshifting warrior-caster who uses Wild Shape as a primary combat tool. Enhanced beast forms provide durability while druid spells offer control and healing.",
+    "ruleset": "dnd5e",
+    "class_id": "class:druid",
+    "subclass_id": "subclass:circle-of-the-moon",
+    "roles": [
+      "tank",
+      "controller"
+    ],
+    "race_prefs": {
+      "priority": "preferred",
+      "values": [
+        "race:variant-human",
+        "race:wood-elf",
+        "race:hill-dwarf"
+      ]
+    },
+    "background_pref": "bg:hermit",
+    "stat_priority": [
+      "WIS",
+      "CON",
+      "DEX",
+      "INT",
+      "CHA",
+      "STR"
+    ],
+    "asi_priorities": [
+      {
+        "ability_id": "Wisdom",
+        "target": 20
+      },
+      {
+        "feat_id": "feat:war-caster"
+      },
+      {
+        "ability_id": "Constitution",
+        "target": 16
+      }
+    ],
+    "level_guides": [
+      {
+        "level": 1,
+        "class_id": "class:druid",
+        "choices": {}
+      }
+    ],
+    "spell_prefs": {
+      "cantrips": {
+        "priority": "preferred",
+        "values": [
+          "Produce Flame",
+          "Guidance"
+        ]
+      },
+      "spells_by_level": {
+        "1": {
+          "priority": "preferred",
+          "values": [
+            "Entangle",
+            "Healing Word",
+            "Faerie Fire"
+          ]
+        },
+        "2": {
+          "priority": "preferred",
+          "values": [
+            "Moonbeam",
+            "Pass without Trace"
+          ]
+        },
+        "3": {
+          "priority": "preferred",
+          "values": [
+            "Conjure Animals",
+            "Call Lightning"
+          ]
+        }
+      }
+    },
+    "equipment_pref": null,
+    "flavor": null,
+    "max_level": 20,
+    "is_multiclass": false,
+    "sources": [
+      "phb"
+    ],
+    "tier_ratings": [
+      {
+        "level_min": 1,
+        "level_max": 4,
+        "rating": 5,
+        "note": "CR 1 Wild Shape at level 2 is dominant"
+      },
+      {
+        "level_min": 5,
+        "level_max": 10,
+        "rating": 4,
+        "note": "Beast forms start falling behind but spells scale"
+      },
+      {
+        "level_min": 11,
+        "level_max": 16,
+        "rating": 3,
+        "note": "Elemental Wild Shape at 10 helps but gap widens"
+      },
+      {
+        "level_min": 17,
+        "level_max": 20,
+        "rating": 4,
+        "note": "High-level druid spells and unlimited Wild Shape"
+      }
+    ],
+    "id": "build:circle-of-the-moon-druid"
+  },
+  {
+    "name": "Devotion Paladin",
+    "description": "A holy warrior who combines martial prowess with divine magic. Sacred Weapon and Aura of Devotion protect allies while Divine Smite punishes enemies.",
+    "ruleset": "dnd5e",
+    "class_id": "class:paladin",
+    "subclass_id": "subclass:oath-of-devotion",
+    "roles": [
+      "tank",
+      "support",
+      "gish"
+    ],
+    "race_prefs": {
+      "priority": "preferred",
+      "values": [
+        "race:variant-human",
+        "race:half-elf",
+        "race:mountain-dwarf"
+      ]
+    },
+    "background_pref": "bg:noble",
+    "stat_priority": [
+      "STR",
+      "CHA",
+      "CON",
+      "WIS",
+      "DEX",
+      "INT"
+    ],
+    "asi_priorities": [
+      {
+        "ability_id": "Strength",
+        "target": 20
+      },
+      {
+        "ability_id": "Charisma",
+        "target": 16
+      },
+      {
+        "feat_id": "feat:sentinel"
+      }
+    ],
+    "level_guides": [
+      {
+        "level": 1,
+        "class_id": "class:paladin",
+        "choices": {}
+      },
+      {
+        "level": 2,
+        "class_id": "class:paladin",
+        "choices": {
+          "class:paladin-query-fighting_style": {
+            "priority": "required",
+            "values": [
+              "style:defense"
+            ]
+          }
+        }
+      }
+    ],
+    "spell_prefs": {
+      "cantrips": {
+        "priority": "any",
+        "values": []
+      },
+      "spells_by_level": {
+        "1": {
+          "priority": "preferred",
+          "values": [
+            "Shield of Faith",
+            "Thunderous Smite",
+            "Bless"
+          ]
+        },
+        "2": {
+          "priority": "preferred",
+          "values": [
+            "Find Steed",
+            "Aid"
+          ]
+        }
+      }
+    },
+    "equipment_pref": {
+      "prefer": [
+        "Shield"
+      ],
+      "avoid": []
+    },
+    "flavor": null,
+    "max_level": 20,
+    "is_multiclass": false,
+    "sources": [
+      "phb"
+    ],
+    "tier_ratings": [
+      {
+        "level_min": 1,
+        "level_max": 4,
+        "rating": 3,
+        "note": "Strong but few spell slots for smites"
+      },
+      {
+        "level_min": 5,
+        "level_max": 10,
+        "rating": 5,
+        "note": "Extra Attack plus Aura of Protection is game-changing"
+      },
+      {
+        "level_min": 11,
+        "level_max": 16,
+        "rating": 4,
+        "note": "Improved Divine Smite adds consistent damage"
+      },
+      {
+        "level_min": 17,
+        "level_max": 20,
+        "rating": 4,
+        "note": "High-level auras and spells keep it competitive"
+      }
+    ],
+    "id": "build:devotion-paladin"
+  },
+  {
+    "name": "Vengeance Paladin",
+    "description": "A relentless pursuer who channels divine wrath into single-target destruction. Vow of Enmity grants advantage against a chosen foe, making every smite count.",
+    "ruleset": "dnd5e",
+    "class_id": "class:paladin",
+    "subclass_id": "subclass:oath-of-vengeance",
+    "roles": [
+      "striker"
+    ],
+    "race_prefs": {
+      "priority": "preferred",
+      "values": [
+        "race:variant-human",
+        "race:half-orc",
+        "race:half-elf"
+      ]
+    },
+    "background_pref": "bg:soldier",
+    "stat_priority": [
+      "STR",
+      "CHA",
+      "CON",
+      "WIS",
+      "DEX",
+      "INT"
+    ],
+    "asi_priorities": [
+      {
+        "ability_id": "Strength",
+        "target": 20
+      },
+      {
+        "feat_id": "feat:great-weapon-master"
+      },
+      {
+        "ability_id": "Charisma",
+        "target": 16
+      }
+    ],
+    "level_guides": [
+      {
+        "level": 1,
+        "class_id": "class:paladin",
+        "choices": {}
+      },
+      {
+        "level": 2,
+        "class_id": "class:paladin",
+        "choices": {
+          "class:paladin-query-fighting_style": {
+            "priority": "required",
+            "values": [
+              "style:great-weapon-fighting"
+            ]
+          }
+        }
+      }
+    ],
+    "spell_prefs": {
+      "cantrips": {
+        "priority": "any",
+        "values": []
+      },
+      "spells_by_level": {
+        "1": {
+          "priority": "preferred",
+          "values": [
+            "Wrathful Smite",
+            "Shield of Faith",
+            "Bless"
+          ]
+        },
+        "2": {
+          "priority": "preferred",
+          "values": [
+            "Find Steed",
+            "Misty Step"
+          ]
+        }
+      }
+    },
+    "equipment_pref": {
+      "prefer": [
+        "two-handed"
+      ],
+      "avoid": [
+        "Shield"
+      ]
+    },
+    "flavor": null,
+    "max_level": 20,
+    "is_multiclass": false,
+    "sources": [
+      "phb"
+    ],
+    "tier_ratings": [
+      {
+        "level_min": 1,
+        "level_max": 4,
+        "rating": 3,
+        "note": "Solid martial with limited smite slots"
+      },
+      {
+        "level_min": 5,
+        "level_max": 10,
+        "rating": 5,
+        "note": "Vow of Enmity plus Extra Attack is devastating"
+      },
+      {
+        "level_min": 11,
+        "level_max": 16,
+        "rating": 5,
+        "note": "Relentless Avenger and improved smites"
+      },
+      {
+        "level_min": 17,
+        "level_max": 20,
+        "rating": 4,
+        "note": "Avenging Angel is strong but niche"
+      }
+    ],
+    "id": "build:vengeance-paladin"
+  },
+  {
+    "name": "Conquest Paladin",
+    "description": "A terrifying presence on the battlefield who locks enemies in place with fear. Conquering Presence and Aura of Conquest create a zone of control that few can escape.",
+    "ruleset": "dnd5e",
+    "class_id": "class:paladin",
+    "subclass_id": "subclass:oath-of-conquest",
+    "roles": [
+      "controller",
+      "tank"
+    ],
+    "race_prefs": {
+      "priority": "preferred",
+      "values": [
+        "race:variant-human",
+        "race:half-orc",
+        "race:mountain-dwarf"
+      ]
+    },
+    "background_pref": "bg:soldier",
+    "stat_priority": [
+      "STR",
+      "CHA",
+      "CON",
+      "WIS",
+      "DEX",
+      "INT"
+    ],
+    "asi_priorities": [
+      {
+        "ability_id": "Strength",
+        "target": 20
+      },
+      {
+        "ability_id": "Charisma",
+        "target": 18
+      },
+      {
+        "feat_id": "feat:sentinel"
+      }
+    ],
+    "level_guides": [
+      {
+        "level": 1,
+        "class_id": "class:paladin",
+        "choices": {}
+      },
+      {
+        "level": 2,
+        "class_id": "class:paladin",
+        "choices": {
+          "class:paladin-query-fighting_style": {
+            "priority": "required",
+            "values": [
+              "style:defense"
+            ]
+          }
+        }
+      }
+    ],
+    "spell_prefs": {
+      "cantrips": {
+        "priority": "any",
+        "values": []
+      },
+      "spells_by_level": {
+        "1": {
+          "priority": "preferred",
+          "values": [
+            "Wrathful Smite",
+            "Command",
+            "Shield of Faith"
+          ]
+        },
+        "2": {
+          "priority": "preferred",
+          "values": [
+            "Hold Person",
+            "Spiritual Weapon"
+          ]
+        }
+      }
+    },
+    "equipment_pref": {
+      "prefer": [
+        "Shield"
+      ],
+      "avoid": []
+    },
+    "flavor": null,
+    "max_level": 20,
+    "is_multiclass": false,
+    "sources": [
+      "xge"
+    ],
+    "tier_ratings": [
+      {
+        "level_min": 1,
+        "level_max": 4,
+        "rating": 3,
+        "note": "Standard paladin start"
+      },
+      {
+        "level_min": 5,
+        "level_max": 10,
+        "rating": 5,
+        "note": "Aura of Conquest at 7 is game-defining"
+      },
+      {
+        "level_min": 11,
+        "level_max": 16,
+        "rating": 5,
+        "note": "Fear lock plus Scornful Rebuke"
+      },
+      {
+        "level_min": 17,
+        "level_max": 20,
+        "rating": 4,
+        "note": "Invincible Conqueror is a strong capstone"
+      }
+    ],
+    "id": "build:conquest-paladin"
+  },
+  {
+    "name": "Battle Master Fighter",
+    "description": "A tactical combatant who controls the battlefield through superiority dice and maneuvers. Trip Attack, Riposte, and Precision Attack offer answers for every situation.",
+    "ruleset": "dnd5e",
+    "class_id": "class:fighter",
+    "subclass_id": "subclass:battle-master",
+    "roles": [
+      "striker",
+      "controller"
+    ],
+    "race_prefs": {
+      "priority": "preferred",
+      "values": [
+        "race:variant-human",
+        "race:mountain-dwarf",
+        "race:half-orc"
+      ]
+    },
+    "background_pref": "bg:soldier",
+    "stat_priority": [
+      "STR",
+      "CON",
+      "DEX",
+      "WIS",
+      "CHA",
+      "INT"
+    ],
+    "asi_priorities": [
+      {
+        "feat_id": "feat:great-weapon-master"
+      },
+      {
+        "ability_id": "Strength",
+        "target": 20
+      },
+      {
+        "ability_id": "Constitution",
+        "target": 18
+      }
+    ],
+    "level_guides": [
+      {
+        "level": 1,
+        "class_id": "class:fighter",
+        "choices": {
+          "class:fighter-query-fighting_style": {
+            "priority": "required",
+            "values": [
+              "style:great-weapon-fighting"
+            ]
+          }
+        }
+      }
+    ],
+    "spell_prefs": null,
+    "equipment_pref": {
+      "prefer": [
+        "two-handed"
+      ],
+      "avoid": [
+        "Shield"
+      ]
+    },
+    "flavor": null,
+    "max_level": 20,
+    "is_multiclass": false,
+    "sources": [
+      "phb"
+    ],
+    "tier_ratings": [
+      {
+        "level_min": 1,
+        "level_max": 4,
+        "rating": 4,
+        "note": "Maneuvers add tactical depth from level 3"
+      },
+      {
+        "level_min": 5,
+        "level_max": 10,
+        "rating": 5,
+        "note": "Extra Attack plus maneuvers is top-tier martial"
+      },
+      {
+        "level_min": 11,
+        "level_max": 16,
+        "rating": 4,
+        "note": "Third attack and more dice keep it strong"
+      },
+      {
+        "level_min": 17,
+        "level_max": 20,
+        "rating": 3,
+        "note": "Martial classes taper at high levels"
+      }
+    ],
+    "id": "build:battle-master-fighter"
+  },
+  {
+    "name": "Archery Fighter",
+    "description": "A ranged damage dealer who picks off targets from a distance. Archery fighting style and Sharpshooter feat combine for consistent, high-accuracy ranged output.",
+    "ruleset": "dnd5e",
+    "class_id": "class:fighter",
+    "subclass_id": null,
+    "roles": [
+      "striker"
+    ],
+    "race_prefs": {
+      "priority": "preferred",
+      "values": [
+        "race:variant-human",
+        "race:wood-elf",
+        "race:lightfoot-halfling"
+      ]
+    },
+    "background_pref": "bg:outlander",
+    "stat_priority": [
+      "DEX",
+      "CON",
+      "WIS",
+      "CHA",
+      "INT",
+      "STR"
+    ],
+    "asi_priorities": [
+      {
+        "feat_id": "feat:sharpshooter"
+      },
+      {
+        "ability_id": "Dexterity",
+        "target": 20
+      },
+      {
+        "ability_id": "Constitution",
+        "target": 16
+      }
+    ],
+    "level_guides": [
+      {
+        "level": 1,
+        "class_id": "class:fighter",
+        "choices": {
+          "class:fighter-query-fighting_style": {
+            "priority": "required",
+            "values": [
+              "style:archery"
+            ]
+          }
+        }
+      }
+    ],
+    "spell_prefs": null,
+    "equipment_pref": {
+      "prefer": [
+        "Ranged"
+      ],
+      "avoid": [
+        "Heavy"
+      ]
+    },
+    "flavor": null,
+    "max_level": 20,
+    "is_multiclass": false,
+    "sources": [
+      "phb"
+    ],
+    "tier_ratings": [
+      {
+        "level_min": 1,
+        "level_max": 4,
+        "rating": 4,
+        "note": "Archery style plus Sharpshooter is strong early"
+      },
+      {
+        "level_min": 5,
+        "level_max": 10,
+        "rating": 5,
+        "note": "Extra Attack with Sharpshooter is excellent DPR"
+      },
+      {
+        "level_min": 11,
+        "level_max": 16,
+        "rating": 4,
+        "note": "Third attack keeps ranged damage competitive"
+      },
+      {
+        "level_min": 17,
+        "level_max": 20,
+        "rating": 3,
+        "note": "Reliable but outscaled by casters"
+      }
+    ],
+    "id": "build:archery-fighter"
+  },
+  {
+    "name": "Divination Wizard",
+    "description": "A master of foresight who bends probability with Portent dice. Replacing key rolls with predetermined results gives unmatched control over critical moments.",
+    "ruleset": "dnd5e",
+    "class_id": "class:wizard",
+    "subclass_id": "subclass:divination",
+    "roles": [
+      "controller",
+      "support"
+    ],
+    "race_prefs": {
+      "priority": "preferred",
+      "values": [
+        "race:variant-human",
+        "race:high-elf",
+        "race:rock-gnome"
+      ]
+    },
+    "background_pref": "bg:sage",
+    "stat_priority": [
+      "INT",
+      "CON",
+      "DEX",
+      "WIS",
+      "CHA",
+      "STR"
+    ],
+    "asi_priorities": [
+      {
+        "ability_id": "Intelligence",
+        "target": 20
+      },
+      {
+        "feat_id": "feat:war-caster"
+      },
+      {
+        "ability_id": "Constitution",
+        "target": 16
+      }
+    ],
+    "level_guides": [
+      {
+        "level": 1,
+        "class_id": "class:wizard",
+        "choices": {}
+      }
+    ],
+    "spell_prefs": {
+      "cantrips": {
+        "priority": "preferred",
+        "values": [
+          "Mind Sliver",
+          "Minor Illusion",
+          "Prestidigitation"
+        ]
+      },
+      "spells_by_level": {
+        "1": {
+          "priority": "preferred",
+          "values": [
+            "Shield",
+            "Silvery Barbs",
+            "Find Familiar",
+            "Detect Magic"
+          ]
+        },
+        "2": {
+          "priority": "preferred",
+          "values": [
+            "Web",
+            "Misty Step",
+            "Suggestion"
+          ]
+        },
+        "3": {
+          "priority": "preferred",
+          "values": [
+            "Hypnotic Pattern",
+            "Counterspell",
+            "Slow"
+          ]
+        }
+      }
+    },
+    "equipment_pref": null,
+    "flavor": null,
+    "max_level": 20,
+    "is_multiclass": false,
+    "sources": [
+      "phb"
+    ],
+    "tier_ratings": [
+      {
+        "level_min": 1,
+        "level_max": 4,
+        "rating": 4,
+        "note": "Portent at level 2 is immediately impactful"
+      },
+      {
+        "level_min": 5,
+        "level_max": 10,
+        "rating": 5,
+        "note": "Portent plus save-or-suck spells is devastating"
+      },
+      {
+        "level_min": 11,
+        "level_max": 16,
+        "rating": 5,
+        "note": "Third eye and full wizard spell list"
+      },
+      {
+        "level_min": 17,
+        "level_max": 20,
+        "rating": 5,
+        "note": "Greater Portent at 14 plus high-level spells"
+      }
+    ],
+    "id": "build:divination-wizard"
+  },
+  {
+    "name": "Illusion Wizard",
+    "description": "A creative trickster who reshapes reality through illusions. Improved Illusions and Illusory Reality turn figments into tangible battlefield control.",
+    "ruleset": "dnd5e",
+    "class_id": "class:wizard",
+    "subclass_id": "subclass:illusion",
+    "roles": [
+      "controller"
+    ],
+    "race_prefs": {
+      "priority": "preferred",
+      "values": [
+        "race:variant-human",
+        "race:high-elf",
+        "race:forest-gnome"
+      ]
+    },
+    "background_pref": "bg:charlatan",
+    "stat_priority": [
+      "INT",
+      "CON",
+      "DEX",
+      "WIS",
+      "CHA",
+      "STR"
+    ],
+    "asi_priorities": [
+      {
+        "ability_id": "Intelligence",
+        "target": 20
+      },
+      {
+        "feat_id": "feat:war-caster"
+      },
+      {
+        "ability_id": "Constitution",
+        "target": 16
+      }
+    ],
+    "level_guides": [
+      {
+        "level": 1,
+        "class_id": "class:wizard",
+        "choices": {}
+      }
+    ],
+    "spell_prefs": {
+      "cantrips": {
+        "priority": "preferred",
+        "values": [
+          "Minor Illusion",
+          "Prestidigitation",
+          "Fire Bolt"
+        ]
+      },
+      "spells_by_level": {
+        "1": {
+          "priority": "preferred",
+          "values": [
+            "Silent Image",
+            "Shield",
+            "Find Familiar",
+            "Disguise Self"
+          ]
+        },
+        "2": {
+          "priority": "preferred",
+          "values": [
+            "Mirror Image",
+            "Phantasmal Force",
+            "Misty Step"
+          ]
+        },
+        "3": {
+          "priority": "preferred",
+          "values": [
+            "Major Image",
+            "Hypnotic Pattern",
+            "Counterspell"
+          ]
+        }
+      }
+    },
+    "equipment_pref": null,
+    "flavor": null,
+    "max_level": 20,
+    "is_multiclass": false,
+    "sources": [
+      "phb"
+    ],
+    "tier_ratings": [
+      {
+        "level_min": 1,
+        "level_max": 4,
+        "rating": 3,
+        "note": "Improved Minor Illusion is useful but limited"
+      },
+      {
+        "level_min": 5,
+        "level_max": 10,
+        "rating": 4,
+        "note": "Malleable Illusions adds real flexibility"
+      },
+      {
+        "level_min": 11,
+        "level_max": 16,
+        "rating": 5,
+        "note": "Illusory Reality at 14 is a game-changer"
+      },
+      {
+        "level_min": 17,
+        "level_max": 20,
+        "rating": 5,
+        "note": "Illusory Reality plus high-level illusion spells"
+      }
+    ],
+    "id": "build:illusion-wizard"
+  },
+  {
+    "name": "Order Cleric",
+    "description": "A commanding battlefield controller who grants allies extra attacks through Voice of Authority. Order spells and heavy armor create a durable support-controller hybrid.",
+    "ruleset": "dnd5e",
+    "class_id": "class:cleric",
+    "subclass_id": "domain:order",
+    "roles": [
+      "controller",
+      "support"
+    ],
+    "race_prefs": {
+      "priority": "preferred",
+      "values": [
+        "race:variant-human",
+        "race:hill-dwarf",
+        "race:half-elf"
+      ]
+    },
+    "background_pref": "bg:acolyte",
+    "stat_priority": [
+      "WIS",
+      "CON",
+      "CHA",
+      "STR",
+      "DEX",
+      "INT"
+    ],
+    "asi_priorities": [
+      {
+        "ability_id": "Wisdom",
+        "target": 20
+      },
+      {
+        "feat_id": "feat:war-caster"
+      },
+      {
+        "ability_id": "Constitution",
+        "target": 16
+      }
+    ],
+    "level_guides": [
+      {
+        "level": 1,
+        "class_id": "class:cleric",
+        "choices": {}
+      }
+    ],
+    "spell_prefs": {
+      "cantrips": {
+        "priority": "preferred",
+        "values": [
+          "Guidance",
+          "Sacred Flame",
+          "Toll the Dead"
+        ]
+      },
+      "spells_by_level": {
+        "1": {
+          "priority": "preferred",
+          "values": [
+            "Healing Word",
+            "Bless",
+            "Command"
+          ]
+        },
+        "2": {
+          "priority": "preferred",
+          "values": [
+            "Spiritual Weapon",
+            "Hold Person"
+          ]
+        },
+        "3": {
+          "priority": "preferred",
+          "values": [
+            "Spirit Guardians",
+            "Mass Healing Word"
+          ]
+        }
+      }
+    },
+    "equipment_pref": null,
+    "flavor": null,
+    "max_level": 20,
+    "is_multiclass": false,
+    "sources": [
+      "tce"
+    ],
+    "tier_ratings": [
+      {
+        "level_min": 1,
+        "level_max": 4,
+        "rating": 4,
+        "note": "Voice of Authority with Healing Word is action-efficient"
+      },
+      {
+        "level_min": 5,
+        "level_max": 10,
+        "rating": 5,
+        "note": "Spirit Guardians plus ally attack triggers"
+      },
+      {
+        "level_min": 11,
+        "level_max": 16,
+        "rating": 4,
+        "note": "Solid sustained control and support"
+      },
+      {
+        "level_min": 17,
+        "level_max": 20,
+        "rating": 4,
+        "note": "High-level cleric spells remain strong"
+      }
+    ],
+    "id": "build:order-cleric"
+  },
+  {
+    "name": "Bladesinger Wizard",
+    "description": "An elven sword-mage who weaves blade and spell together. Bladesong adds AC and concentration protection while maintaining full wizard casting progression.",
+    "ruleset": "dnd5e",
+    "class_id": "class:wizard",
+    "subclass_id": "subclass:bladesinging",
+    "roles": [
+      "tank",
+      "striker"
+    ],
+    "race_prefs": {
+      "priority": "preferred",
+      "values": [
+        "race:high-elf",
+        "race:variant-human",
+        "race:half-elf"
+      ]
+    },
+    "background_pref": "bg:sage",
+    "stat_priority": [
+      "INT",
+      "DEX",
+      "CON",
+      "WIS",
+      "CHA",
+      "STR"
+    ],
+    "asi_priorities": [
+      {
+        "ability_id": "Intelligence",
+        "target": 20
+      },
+      {
+        "ability_id": "Dexterity",
+        "target": 18
+      },
+      {
+        "feat_id": "feat:war-caster"
+      }
+    ],
+    "level_guides": [
+      {
+        "level": 1,
+        "class_id": "class:wizard",
+        "choices": {}
+      }
+    ],
+    "spell_prefs": {
+      "cantrips": {
+        "priority": "preferred",
+        "values": [
+          "Booming Blade",
+          "Green-Flame Blade",
+          "Minor Illusion"
+        ]
+      },
+      "spells_by_level": {
+        "1": {
+          "priority": "preferred",
+          "values": [
+            "Shield",
+            "Absorb Elements",
+            "Find Familiar"
+          ]
+        },
+        "2": {
+          "priority": "preferred",
+          "values": [
+            "Mirror Image",
+            "Misty Step",
+            "Shadow Blade"
+          ]
+        },
+        "3": {
+          "priority": "preferred",
+          "values": [
+            "Haste",
+            "Counterspell",
+            "Spirit Shroud"
+          ]
+        }
+      }
+    },
+    "equipment_pref": {
+      "prefer": [
+        "Finesse"
+      ],
+      "avoid": [
+        "Heavy"
+      ]
+    },
+    "flavor": null,
+    "max_level": 20,
+    "is_multiclass": false,
+    "sources": [
+      "tce"
+    ],
+    "tier_ratings": [
+      {
+        "level_min": 1,
+        "level_max": 4,
+        "rating": 4,
+        "note": "Bladesong AC is excellent, but fragile HP pool"
+      },
+      {
+        "level_min": 5,
+        "level_max": 10,
+        "rating": 5,
+        "note": "Extra Attack with cantrip at 6 is unique and powerful"
+      },
+      {
+        "level_min": 11,
+        "level_max": 16,
+        "rating": 5,
+        "note": "Full wizard list plus melee capability"
+      },
+      {
+        "level_min": 17,
+        "level_max": 20,
+        "rating": 5,
+        "note": "Song of Defense adds durability to wizard power"
+      }
+    ],
+    "id": "build:bladesinger-wizard"
+  },
+  {
+    "name": "Life Cleric / Moon Druid",
+    "description": "A one-level dip into Life Cleric supercharges all healing spells, then full Moon Druid progression adds Wild Shape tanking and nature magic. Disciple of Life applies to Healing Word and Goodberry alike.",
+    "ruleset": "dnd5e",
+    "class_id": "class:cleric",
+    "subclass_id": "domain:life",
+    "roles": [
+      "healer",
+      "tank"
+    ],
+    "race_prefs": {
+      "priority": "preferred",
+      "values": [
+        "race:variant-human",
+        "race:hill-dwarf",
+        "race:wood-elf"
+      ]
+    },
+    "background_pref": "bg:hermit",
+    "stat_priority": [
+      "WIS",
+      "CON",
+      "DEX",
+      "INT",
+      "CHA",
+      "STR"
+    ],
+    "asi_priorities": [
+      {
+        "ability_id": "Wisdom",
+        "target": 20
+      },
+      {
+        "feat_id": "feat:war-caster"
+      },
+      {
+        "ability_id": "Constitution",
+        "target": 16
+      }
+    ],
+    "level_guides": [
+      {
+        "level": 1,
+        "class_id": "class:cleric",
+        "choices": {}
+      },
+      {
+        "level": 2,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 3,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 4,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 5,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 6,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 7,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 8,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 9,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 10,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 11,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 12,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 13,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 14,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 15,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 16,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 17,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 18,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 19,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 20,
+        "class_id": "class:druid",
+        "choices": {}
+      }
+    ],
+    "spell_prefs": {
+      "cantrips": {
+        "priority": "preferred",
+        "values": [
+          "Produce Flame",
+          "Guidance"
+        ]
+      },
+      "spells_by_level": {
+        "1": {
+          "priority": "preferred",
+          "values": [
+            "Healing Word",
+            "Goodberry",
+            "Entangle"
+          ]
+        },
+        "2": {
+          "priority": "preferred",
+          "values": [
+            "Moonbeam",
+            "Pass without Trace"
+          ]
+        },
+        "3": {
+          "priority": "preferred",
+          "values": [
+            "Conjure Animals",
+            "Call Lightning"
+          ]
+        }
+      }
+    },
+    "equipment_pref": null,
+    "flavor": null,
+    "max_level": 20,
+    "is_multiclass": true,
+    "sources": [
+      "phb"
+    ],
+    "tier_ratings": [
+      {
+        "level_min": 1,
+        "level_max": 4,
+        "rating": 5,
+        "note": "Life Cleric 1 into Moon Druid 2 is immediately powerful"
+      },
+      {
+        "level_min": 5,
+        "level_max": 10,
+        "rating": 4,
+        "note": "Enhanced healing plus Wild Shape tanking"
+      },
+      {
+        "level_min": 11,
+        "level_max": 16,
+        "rating": 4,
+        "note": "Elemental forms and high-level druid spells"
+      },
+      {
+        "level_min": 17,
+        "level_max": 20,
+        "rating": 4,
+        "note": "Missing Druid 20 capstone but healing synergy compensates"
+      }
+    ],
+    "id": "build:life-cleric-moon-druid"
+  },
+  {
+    "name": "Barbearian",
+    "description": "Totem Barbarian 5 into Moon Druid for the rest. Rage works in Wild Shape, giving beast forms resistance to nearly all damage. Extra Attack at Barbarian 5 before switching.",
+    "ruleset": "dnd5e",
+    "class_id": "class:barbarian",
+    "subclass_id": "subclass:path-of-the-totem-warrior",
+    "roles": [
+      "tank"
+    ],
+    "race_prefs": {
+      "priority": "preferred",
+      "values": [
+        "race:variant-human",
+        "race:half-orc",
+        "race:hill-dwarf"
+      ]
+    },
+    "background_pref": "bg:outlander",
+    "stat_priority": [
+      "WIS",
+      "CON",
+      "STR",
+      "DEX",
+      "CHA",
+      "INT"
+    ],
+    "asi_priorities": [
+      {
+        "ability_id": "Wisdom",
+        "target": 18
+      },
+      {
+        "ability_id": "Constitution",
+        "target": 16
+      },
+      {
+        "feat_id": "feat:resilient"
+      }
+    ],
+    "level_guides": [
+      {
+        "level": 1,
+        "class_id": "class:barbarian",
+        "choices": {}
+      },
+      {
+        "level": 2,
+        "class_id": "class:barbarian",
+        "choices": {}
+      },
+      {
+        "level": 3,
+        "class_id": "class:barbarian",
+        "choices": {}
+      },
+      {
+        "level": 4,
+        "class_id": "class:barbarian",
+        "choices": {}
+      },
+      {
+        "level": 5,
+        "class_id": "class:barbarian",
+        "choices": {}
+      },
+      {
+        "level": 6,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 7,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 8,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 9,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 10,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 11,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 12,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 13,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 14,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 15,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 16,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 17,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 18,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 19,
+        "class_id": "class:druid",
+        "choices": {}
+      },
+      {
+        "level": 20,
+        "class_id": "class:druid",
+        "choices": {}
+      }
+    ],
+    "spell_prefs": {
+      "cantrips": {
+        "priority": "preferred",
+        "values": [
+          "Produce Flame",
+          "Guidance"
+        ]
+      },
+      "spells_by_level": {
+        "1": {
+          "priority": "preferred",
+          "values": [
+            "Entangle",
+            "Healing Word",
+            "Faerie Fire"
+          ]
+        },
+        "2": {
+          "priority": "preferred",
+          "values": [
+            "Moonbeam",
+            "Pass without Trace"
+          ]
+        },
+        "3": {
+          "priority": "preferred",
+          "values": [
+            "Conjure Animals",
+            "Call Lightning"
+          ]
+        }
+      }
+    },
+    "equipment_pref": {
+      "prefer": [
+        "two-handed"
+      ],
+      "avoid": [
+        "Shield"
+      ]
+    },
+    "flavor": null,
+    "max_level": 20,
+    "is_multiclass": true,
+    "sources": [
+      "phb"
+    ],
+    "tier_ratings": [
+      {
+        "level_min": 1,
+        "level_max": 4,
+        "rating": 4,
+        "note": "Strong barbarian start with Reckless Attack and rage"
+      },
+      {
+        "level_min": 5,
+        "level_max": 10,
+        "rating": 5,
+        "note": "Extra Attack at 5 then raging beast forms at 6"
+      },
+      {
+        "level_min": 11,
+        "level_max": 16,
+        "rating": 4,
+        "note": "Elemental forms with rage resistance"
+      },
+      {
+        "level_min": 17,
+        "level_max": 20,
+        "rating": 3,
+        "note": "Split levels mean neither class peaks fully"
+      }
+    ],
+    "id": "build:barbearian"
+  }
+]
