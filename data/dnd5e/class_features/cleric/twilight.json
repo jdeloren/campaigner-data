@@ -210,7 +210,7 @@
                 {
                   "name": "End Charmed or Frightened",
                   "effect": {
-                    "negate": ["charmed", "frightened"]
+                    "negate": ["status:charmed", "status:frightened"]
                   }
                 }
               ]

@@ -408,19 +408,19 @@
                 {
                   "event": ["status_applied"],
                   "status": {
-                    "name": "incapacitated"
+                    "id": "status:incapacitated"
                   }
                 },
                 {
                   "event": ["status_applied"],
                   "status": {
-                    "name": "silenced"
+                    "id": "status:silenced"
                   }
                 },
                 {
                   "event": ["status_removed"],
                   "status": {
-                    "name": "countercharm",
+                    "id": "status:countercharm",
                     "method": "voluntary"
                   }
                 }

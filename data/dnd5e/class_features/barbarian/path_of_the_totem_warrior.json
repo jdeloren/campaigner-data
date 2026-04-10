@@ -39,7 +39,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "raging"
+                "value": "status:raging"
               },
               {
                 "type": "inventory_item",
@@ -66,7 +66,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "raging"
+                "value": "status:raging"
               },
               {
                 "type": "equipment",
@@ -96,7 +96,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "raging"
+                "value": "status:raging"
               },
               {
                 "type": "equipment",
@@ -124,7 +124,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "raging"
+                "value": "status:raging"
               },
               {
                 "type": "equipment",
@@ -166,7 +166,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "raging"
+                "value": "status:raging"
               },
               {
                 "type": "inventory_item",
@@ -217,7 +217,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "raging"
+                "value": "status:raging"
               },
               {
                 "type": "inventory_item",
@@ -359,7 +359,7 @@
               },
               {
                 "type": "status",
-                "value": "incapacitated",
+                "value": "status:incapacitated",
                 "negate": true
               }
             ],
@@ -494,7 +494,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "raging"
+                "value": "status:raging"
               },
               {
                 "type": "inventory_item",
@@ -519,7 +519,7 @@
                       },
                       {
                         "type": "immunity",
-                        "to": "frightened",
+                        "to": "status:frightened",
                         "negate": true
                       }
                     ]
@@ -544,7 +544,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "raging"
+                "value": "status:raging"
               },
               {
                 "type": "inventory_item",
@@ -581,7 +581,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "raging"
+                "value": "status:raging"
               },
               {
                 "type": "inventory_item",
@@ -644,7 +644,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "raging"
+                "value": "status:raging"
               },
               {
                 "type": "inventory_item",
@@ -690,7 +690,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "raging"
+                "value": "status:raging"
               },
               {
                 "type": "inventory_item",

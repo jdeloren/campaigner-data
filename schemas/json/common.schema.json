@@ -10750,9 +10750,9 @@
     "TriggerStatus": {
       "description": "Status reference for status-based triggers.",
       "properties": {
-        "name": {
-          "description": "Name of the status",
-          "title": "Name",
+        "id": {
+          "description": "Status definition id (e.g., 'status:charmed')",
+          "title": "Id",
           "type": "string"
         },
         "on": {
@@ -10782,7 +10782,7 @@
           "title": "Method"
         }
       },
-      "required": ["name"],
+      "required": ["id"],
       "title": "TriggerStatus",
       "additionalProperties": false,
       "type": "object"

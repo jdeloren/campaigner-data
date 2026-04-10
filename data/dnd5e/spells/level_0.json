@@ -1267,7 +1267,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "mage_hand"
+            "value": "status:mage_hand"
           }
         ],
         "effects": [
@@ -1879,7 +1879,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "flame_produced"
+            "value": "status:flame_produced"
           }
         ],
         "ends_spell": true,

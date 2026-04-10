@@ -59,7 +59,7 @@
               {
                 "immunity": {
                   "category": "status",
-                  "status": ["sleep"],
+                  "status": ["status:sleep"],
                   "source": {
                     "origin": "magical"
                   }
@@ -414,7 +414,7 @@
               {
                 "immunity": {
                   "category": "status",
-                  "status": ["sleep"],
+                  "status": ["status:sleep"],
                   "source": {
                     "origin": "magical"
                   }

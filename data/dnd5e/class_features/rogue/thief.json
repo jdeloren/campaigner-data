@@ -156,7 +156,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "surprised",
+            "value": "status:surprised",
             "negate": true
           },
           {

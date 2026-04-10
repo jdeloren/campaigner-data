@@ -13,26 +13,11 @@
         "always_prepared": true,
         "scaling": {
           "by_level": {
-            "1": [
-              "spell:burning-hands",
-              "spell:faerie-fire"
-            ],
-            "3": [
-              "spell:flaming-sphere",
-              "spell:scorching-ray"
-            ],
-            "5": [
-              "spell:daylight",
-              "spell:fireball"
-            ],
-            "7": [
-              "spell:guardian-of-faith",
-              "spell:wall-of-fire"
-            ],
-            "9": [
-              "spell:flame-strike",
-              "spell:scrying"
-            ]
+            "1": ["spell:burning-hands", "spell:faerie-fire"],
+            "3": ["spell:flaming-sphere", "spell:scorching-ray"],
+            "5": ["spell:daylight", "spell:fireball"],
+            "7": ["spell:guardian-of-faith", "spell:wall-of-fire"],
+            "9": ["spell:flame-strike", "spell:scrying"]
           }
         }
       }
@@ -49,9 +34,7 @@
     "mechanics": [
       {
         "type": "granted_spells",
-        "spells": [
-          "spell:light"
-        ]
+        "spells": ["spell:light"]
       }
     ]
   },
@@ -67,9 +50,7 @@
       {
         "type": "reaction",
         "trigger": {
-          "event": [
-            "attacked_by"
-          ]
+          "event": ["attacked_by"]
         },
         "effects": [
           {
@@ -82,7 +63,7 @@
             "requirements": [
               {
                 "type": "immunity",
-                "to": "blinded",
+                "to": "status:blinded",
                 "negate": true
               },
               {
@@ -95,9 +76,7 @@
                 "type": "perception",
                 "observer": "character",
                 "subject": "attacker",
-                "senses": [
-                  "sight"
-                ]
+                "senses": ["sight"]
               }
             ]
           }
@@ -132,9 +111,7 @@
         "requirements": [
           {
             "type": "equipment",
-            "item": [
-              "holy symbol"
-            ]
+            "item": ["holy symbol"]
           }
         ],
         "effects": [
@@ -145,9 +122,7 @@
               "unit": "feet",
               "origin": "self"
             },
-            "negate": [
-              "magical_darkness"
-            ]
+            "negate": ["magical_darkness"]
           },
           {
             "target": {
@@ -164,9 +139,7 @@
               "cover": "total"
             },
             "saving_throw": {
-              "ability": [
-                "Constitution"
-              ],
+              "ability": ["Constitution"],
               "dc": {
                 "ref": "spell_save_dc"
               },
@@ -196,9 +169,7 @@
                       }
                     ]
                   },
-                  "type": [
-                    "radiant"
-                  ]
+                  "type": ["radiant"]
                 }
               }
             }
@@ -215,16 +186,12 @@
     "source": "phb",
     "ruleset": "dnd5e",
     "class": "domain:light",
-    "extends": [
-      "Warding Flare"
-    ],
+    "extends": ["Warding Flare"],
     "mechanics": [
       {
         "type": "reaction",
         "trigger": {
-          "event": [
-            "attack"
-          ]
+          "event": ["attack"]
         },
         "target": {
           "type": "creature"
@@ -240,7 +207,7 @@
             "requirements": [
               {
                 "type": "immunity",
-                "to": "blinded",
+                "to": "status:blinded",
                 "negate": true
               },
               {
@@ -253,9 +220,7 @@
                 "type": "perception",
                 "observer": "character",
                 "subject": "attacker",
-                "senses": [
-                  "sight"
-                ]
+                "senses": ["sight"]
               }
             ]
           }
@@ -275,9 +240,7 @@
       {
         "type": "damage_bonus",
         "trigger": {
-          "event": [
-            "cast_spell"
-          ],
+          "event": ["cast_spell"],
           "spell": {
             "level": {
               "minimum": 0,
@@ -347,20 +310,10 @@
               "origin": "self"
             },
             "disadvantage": {
-              "saving_throw": [
-                "Strength",
-                "Dexterity",
-                "Constitution",
-                "Intelligence",
-                "Wisdom",
-                "Charisma"
-              ],
+              "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
               "against": {
                 "effect_type": "spell",
-                "damage_type": [
-                  "fire",
-                  "radiant"
-                ]
+                "damage_type": ["fire", "radiant"]
               }
             }
           }

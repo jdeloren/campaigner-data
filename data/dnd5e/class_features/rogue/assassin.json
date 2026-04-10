@@ -56,7 +56,7 @@
           "requirements": [
             {
               "type": "status",
-              "value": "surprised"
+              "value": "status:surprised"
             }
           ]
         }

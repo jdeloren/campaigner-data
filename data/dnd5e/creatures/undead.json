@@ -9,17 +9,24 @@
     "hit_points": { "average": 22, "formula": "3d8+9" },
     "speed": { "base": 20 },
     "ability_scores": {
-      "Strength": 13, "Dexterity": 6, "Constitution": 16,
-      "Intelligence": 3, "Wisdom": 6, "Charisma": 5
+      "Strength": 13,
+      "Dexterity": 6,
+      "Constitution": 16,
+      "Intelligence": 3,
+      "Wisdom": 6,
+      "Charisma": 5
     },
     "saving_throws": { "Wisdom": 0 },
     "damage_immunities": ["poison"],
-    "condition_immunities": ["poisoned"],
+    "condition_immunities": ["status:poisoned"],
     "senses": { "darkvision": 60, "passive_perception": 8 },
     "languages": ["understands the languages it knew in life but can't speak"],
     "challenge_rating": 0.25,
     "traits": [
-      { "name": "Undead Fortitude", "description": "If damage reduces the zombie to 0 hit points, it must make a Constitution saving throw with a DC of 5 + the damage taken, unless the damage is radiant or from a critical hit. On a success, the zombie drops to 1 hit point instead." }
+      {
+        "name": "Undead Fortitude",
+        "description": "If damage reduces the zombie to 0 hit points, it must make a Constitution saving throw with a DC of 5 + the damage taken, unless the damage is radiant or from a critical hit. On a success, the zombie drops to 1 hit point instead."
+      }
     ],
     "actions": [
       {
@@ -42,12 +49,16 @@
     "hit_points": { "average": 13, "formula": "2d8+4" },
     "speed": { "base": 30 },
     "ability_scores": {
-      "Strength": 10, "Dexterity": 14, "Constitution": 15,
-      "Intelligence": 6, "Wisdom": 8, "Charisma": 5
+      "Strength": 10,
+      "Dexterity": 14,
+      "Constitution": 15,
+      "Intelligence": 6,
+      "Wisdom": 8,
+      "Charisma": 5
     },
     "damage_vulnerabilities": ["bludgeoning"],
     "damage_immunities": ["poison"],
-    "condition_immunities": ["exhaustion", "poisoned"],
+    "condition_immunities": ["status:exhaustion", "status:poisoned"],
     "senses": { "darkvision": 60, "passive_perception": 9 },
     "languages": ["understands the languages it knew in life but can't speak"],
     "challenge_rating": 0.25,

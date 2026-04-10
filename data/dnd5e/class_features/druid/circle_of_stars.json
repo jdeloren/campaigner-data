@@ -56,7 +56,7 @@
                   {
                     "event": ["status_removed"],
                     "status": {
-                      "name": "starry-form",
+                      "id": "status:starry-form",
                       "method": "voluntary"
                     }
                   }
@@ -114,7 +114,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "starry-form"
+                "value": "status:starry-form"
               }
             ],
             "damage": {
@@ -151,7 +151,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "starry-form"
+                "value": "status:starry-form"
               }
             ],
             "trigger": {
@@ -199,7 +199,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "starry-form"
+                "value": "status:starry-form"
               }
             ],
             "effects": [
@@ -319,7 +319,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "starry-form"
+            "value": "status:starry-form"
           }
         ],
         "effects": [
@@ -368,7 +368,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "starry-form"
+            "value": "status:starry-form"
           }
         ],
         "effects": [

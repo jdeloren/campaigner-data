@@ -331,7 +331,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "living-legend"
+                "value": "status:living-legend"
               }
             ],
             "effects": [
@@ -362,7 +362,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "living-legend"
+                "value": "status:living-legend"
               }
             ],
             "effects": [
@@ -396,7 +396,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "living-legend"
+                "value": "status:living-legend"
               }
             ],
             "effects": [

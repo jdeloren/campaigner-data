@@ -11,14 +11,14 @@
         "trigger": {
           "event": ["status_applied"],
           "status": {
-            "name": "raging",
+            "id": "status:raging",
             "on": "applied"
           }
         },
         "effects": [
           {
             "apply_status": {
-              "id": "status:frenzy",
+              "id": "status:frenzied",
               "duration": {
                 "value": 1,
                 "unit": "minutes",
@@ -27,13 +27,13 @@
                   {
                     "event": ["status_applied"],
                     "status": {
-                      "name": "unconscious"
+                      "id": "status:unconscious"
                     }
                   },
                   {
                     "event": ["status_removed"],
                     "status": {
-                      "name": "frenzy",
+                      "id": "status:frenzied",
                       "method": "voluntary"
                     }
                   }
@@ -54,7 +54,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "frenzy"
+            "value": "status:frenzied"
           }
         ],
         "grants": {
@@ -79,12 +79,12 @@
           {
             "immunity": {
               "category": "status",
-              "status": ["charmed", "frightened"],
+              "status": ["status:charmed", "status:frightened"],
               "modifier": "effects",
               "requirements": [
                 {
                   "type": "status",
-                  "value": "raging"
+                  "value": "status:raging"
                 }
               ]
             }

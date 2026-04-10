@@ -24,13 +24,13 @@
             {
               "event": ["status_applied"],
               "status": {
-                "name": "unconscious"
+                "id": "status:unconscious"
               }
             },
             {
               "event": ["status_removed"],
               "status": {
-                "name": "raging",
+                "id": "status:raging",
                 "method": "voluntary"
               }
             }
@@ -160,17 +160,17 @@
         "requirements": [
           {
             "type": "status",
-            "value": "blinded",
+            "value": "status:blinded",
             "negate": true
           },
           {
             "type": "status",
-            "value": "deafened",
+            "value": "status:deafened",
             "negate": true
           },
           {
             "type": "status",
-            "value": "incapacitated",
+            "value": "status:incapacitated",
             "negate": true
           }
         ]
@@ -410,17 +410,17 @@
         "requirements": [
           {
             "type": "status",
-            "value": "surprised"
+            "value": "status:surprised"
           },
           {
             "type": "status",
-            "value": "incapacitated",
+            "value": "status:incapacitated",
             "negate": true
           }
         ],
         "effects": [
           {
-            "negate": ["surprised"],
+            "negate": ["status:surprised"],
             "grants": {
               "name": "Rage",
               "interaction": {
@@ -449,7 +449,7 @@
         "trigger": {
           "event": ["status_applied"],
           "status": {
-            "name": "raging"
+            "id": "status:raging"
           }
         },
         "effects": [
@@ -538,7 +538,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "raging"
+            "value": "status:raging"
           },
           {
             "type": "attribute",
@@ -548,7 +548,7 @@
           },
           {
             "type": "status",
-            "value": "dead",
+            "value": "status:dead",
             "negate": true
           }
         ],
@@ -600,13 +600,13 @@
             {
               "event": ["status_applied"],
               "status": {
-                "name": "unconscious"
+                "id": "status:unconscious"
               }
             },
             {
               "event": ["status_removed"],
               "status": {
-                "name": "raging",
+                "id": "status:raging",
                 "method": "voluntary"
               }
             }

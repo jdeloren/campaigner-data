@@ -75,7 +75,7 @@
                 },
                 {
                   "type": "immunity",
-                  "to": "charmed",
+                  "to": "status:charmed",
                   "negate": true
                 }
               ]

@@ -254,7 +254,7 @@
           "requirements": [
             {
               "type": "status",
-              "value": "charmed",
+              "value": "status:charmed",
               "action": "Charm Animals and Plants",
               "source": "character"
             }

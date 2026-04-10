@@ -282,7 +282,7 @@
           {
             "immunity": {
               "category": "status",
-              "status": ["charmed", "frightened"]
+              "status": ["status:charmed", "status:frightened"]
             },
             "requirements": [
               {
@@ -294,7 +294,7 @@
           {
             "immunity": {
               "category": "status",
-              "status": ["poisoned"]
+              "status": ["status:poisoned"]
             }
           },
           {
@@ -306,7 +306,7 @@
           {
             "immunity": {
               "category": "status",
-              "status": ["diseased"]
+              "status": ["status:diseased"]
             }
           }
         ]

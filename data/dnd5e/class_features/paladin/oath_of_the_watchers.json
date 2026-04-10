@@ -166,7 +166,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "incapacitated",
+            "value": "status:incapacitated",
             "negate": true
           }
         ],
@@ -307,7 +307,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "mortal-bulwark"
+                "value": "status:mortal-bulwark"
               }
             ],
             "effects": [
@@ -338,7 +338,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "mortal-bulwark"
+                "value": "status:mortal-bulwark"
               },
               {
                 "type": "creature_type",
@@ -370,7 +370,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "mortal-bulwark"
+                "value": "status:mortal-bulwark"
               }
             ],
             "effects": [

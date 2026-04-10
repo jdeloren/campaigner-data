@@ -170,7 +170,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "emboldening-bond"
+            "value": "status:emboldening-bond"
           },
           {
             "type": "distance",

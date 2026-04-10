@@ -15,7 +15,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "wild-shape"
+            "value": "status:wild-shape"
           }
         ],
         "cost": [
@@ -91,7 +91,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "wild-shape"
+            "value": "status:wild-shape"
           }
         ],
         "effects": [
@@ -162,7 +162,7 @@
                   {
                     "event": ["status_removed"],
                     "status": {
-                      "name": "wild-shape",
+                      "id": "status:wild-shape",
                       "method": "voluntary"
                     }
                   }

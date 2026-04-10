@@ -216,7 +216,7 @@
           },
           {
             "type": "status",
-            "value": "incapacitated",
+            "value": "status:incapacitated",
             "negate": true
           }
         ],

@@ -102,7 +102,7 @@
                   {
                     "event": ["status_removed"],
                     "status": {
-                      "name": "wild-shape",
+                      "id": "status:wild-shape",
                       "method": "voluntary"
                     }
                   }

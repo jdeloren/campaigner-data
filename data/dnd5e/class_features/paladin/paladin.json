@@ -260,7 +260,7 @@
           {
             "immunity": {
               "category": "status",
-              "status": ["diseased"]
+              "status": ["status:diseased"]
             }
           }
         ]
@@ -407,7 +407,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "unconscious",
+            "value": "status:unconscious",
             "negate": true
           }
         ],
@@ -468,7 +468,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "unconscious",
+            "value": "status:unconscious",
             "negate": true
           }
         ],
@@ -485,7 +485,7 @@
               "grants": {
                 "immunity": {
                   "category": "status",
-                  "status": ["frightened"]
+                  "status": ["status:frightened"]
                 }
               }
             }

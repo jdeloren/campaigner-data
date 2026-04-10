@@ -71,17 +71,17 @@
         "requirements": [
           {
             "type": "status",
-            "value": "unconscious",
+            "value": "status:unconscious",
             "negate": true
           },
           {
             "type": "status",
-            "value": "surprised"
+            "value": "status:surprised"
           }
         ],
         "effects": [
           {
-            "negate": ["surprised"]
+            "negate": ["status:surprised"]
           }
         ]
       },
@@ -1092,7 +1092,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "grappled",
+            "value": "status:grappled",
             "source": "character"
           }
         ],
@@ -1110,7 +1110,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "grappled"
+            "value": "status:grappled"
           }
         ],
         "effects": [
@@ -1351,7 +1351,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "stabilized"
+            "value": "status:stabilized"
           }
         ],
         "effects": [
@@ -2620,7 +2620,7 @@
             "ignore_requirements": [
               {
                 "type": "status",
-                "value": "disengaged"
+                "value": "status:disengaged"
               }
             ]
           }
@@ -2861,7 +2861,7 @@
           },
           {
             "type": "status",
-            "value": "incapacitated",
+            "value": "status:incapacitated",
             "negate": true
           }
         ],
@@ -4493,7 +4493,7 @@
               "requirements": [
                 {
                   "type": "status",
-                  "value": "poisoned"
+                  "value": "status:poisoned"
                 }
               ]
             }
@@ -4832,7 +4832,7 @@
               "requirements": [
                 {
                   "type": "status",
-                  "value": "grappled"
+                  "value": "status:grappled"
                 }
               ]
             }
@@ -4843,7 +4843,7 @@
               "requirements": [
                 {
                   "type": "status",
-                  "value": "grappled"
+                  "value": "status:grappled"
                 }
               ]
             }
