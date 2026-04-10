@@ -2956,6 +2956,18 @@
           ],
           "default": null,
           "description": "Mirror this damage event to the linked entity (e.g., 'caster')"
+        },
+        "versatile": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Alternative damage dice when used two-handed (versatile weapons)"
         }
       },
       "title": "Damage",

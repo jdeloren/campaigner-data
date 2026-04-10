@@ -231,11 +231,12 @@
     "EquipmentProperty": {
       "description": "Valid equipment property or grip style value.",
       "enum": [
-        "Simple", "Martial", "Melee", "Ranged",
-        "Light", "Medium", "Heavy", "Shield",
-        "Finesse", "Loading", "Reach", "Special", "Ammunition", "Crossbow",
-        "one-handed", "two-handed",
-        "focus"
+        "prop:simple", "prop:martial", "prop:melee", "prop:ranged",
+        "prop:light", "prop:medium", "prop:heavy", "prop:shield",
+        "prop:finesse", "prop:loading", "prop:reach", "prop:special",
+        "prop:ammunition", "prop:crossbow",
+        "prop:one-handed", "prop:two-handed",
+        "prop:focus"
       ],
       "type": "string"
     },
