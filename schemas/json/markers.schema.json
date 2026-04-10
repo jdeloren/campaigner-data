@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Data Markers",
+  "description": "Maps application marker names to data property IDs. Every marker defined by the application must have an entry.",
+  "type": "object",
+  "properties": {
+    "melee": { "type": "string", "pattern": "^prop:" },
+    "ranged": { "type": "string", "pattern": "^prop:" },
+    "finesse": { "type": "string", "pattern": "^prop:" },
+    "two_handed": { "type": "string", "pattern": "^prop:" },
+    "versatile": { "type": "string", "pattern": "^prop:" },
+    "light": { "type": "string", "pattern": "^prop:" },
+    "medium": { "type": "string", "pattern": "^prop:" },
+    "heavy": { "type": "string", "pattern": "^prop:" },
+    "shield": { "type": "string", "pattern": "^prop:" }
+  },
+  "required": ["melee", "ranged", "finesse", "two_handed", "versatile", "light", "medium", "heavy", "shield"],
+  "additionalProperties": false
+}

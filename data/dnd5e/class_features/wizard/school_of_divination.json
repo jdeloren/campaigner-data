@@ -11,7 +11,10 @@
         "type": "passive",
         "name": "divination_savant",
         "requirements": [
-          { "type": "spell", "school": "Divination" }
+          {
+            "type": "spell",
+            "school": "Divination"
+          }
         ],
         "cost": [
           {
@@ -19,8 +22,13 @@
             "calculation": {
               "operation": "multiply",
               "operators": [
-                { "type": "integer", "value": 25 },
-                { "type": "spell_level_cast" }
+                {
+                  "type": "integer",
+                  "value": 25
+                },
+                {
+                  "type": "spell_level_cast"
+                }
               ]
             }
           }
@@ -149,7 +157,9 @@
           "event": ["cast_spell"],
           "spell": {
             "school": "Divination",
-            "level": { "minimum": 2 }
+            "level": {
+              "minimum": 2
+            }
           }
         },
         "effects": [
@@ -157,7 +167,9 @@
             "recover": {
               "target": "spell_slot",
               "count": 1,
-              "bounds": { "maximum": 5 },
+              "bounds": {
+                "maximum": 5
+              },
               "constraint": {
                 "comparison": "less_than",
                 "ref": "spell_level_cast"

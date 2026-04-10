@@ -7,12 +7,12 @@
     "primary_ability": ["Dexterity"],
     "saving_throw_proficiencies": ["Dexterity", "Intelligence"],
     "proficiencies": {
-      "armor": ["Light"],
-      "weapons": ["Simple", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
+      "armor": ["prop:light"],
+      "weapons": ["prop:simple", "equip:hand-crossbow", "equip:longsword", "equip:rapier", "equip:shortsword"],
       "tools": [
         {
           "type": "fixed",
-          "items": ["Thieves' Tools"]
+          "items": ["tool:thieves-tools"]
         }
       ],
       "skills": {
@@ -111,7 +111,9 @@
       {
         "type": "attribute",
         "attribute": "Dexterity",
-        "range": { "minimum": 13 }
+        "range": {
+          "minimum": 13
+        }
       }
     ]
   },
@@ -124,12 +126,12 @@
     "primary_ability": ["Dexterity"],
     "saving_throw_proficiencies": ["Dexterity", "Intelligence"],
     "proficiencies": {
-      "armor": ["Light"],
-      "weapons": ["Simple", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
+      "armor": ["prop:light"],
+      "weapons": ["prop:simple", "equip:hand-crossbow", "equip:longsword", "equip:rapier", "equip:shortsword"],
       "tools": [
         {
           "type": "fixed",
-          "items": ["Thieves' Tools"]
+          "items": ["tool:thieves-tools"]
         }
       ],
       "skills": {
@@ -160,12 +162,12 @@
     "primary_ability": ["Dexterity"],
     "saving_throw_proficiencies": ["Dexterity", "Intelligence"],
     "proficiencies": {
-      "armor": ["Light"],
-      "weapons": ["Simple", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
+      "armor": ["prop:light"],
+      "weapons": ["prop:simple", "equip:hand-crossbow", "equip:longsword", "equip:rapier", "equip:shortsword"],
       "tools": [
         {
           "type": "fixed",
-          "items": ["Thieves' Tools"]
+          "items": ["tool:thieves-tools"]
         }
       ],
       "skills": {
@@ -196,12 +198,12 @@
     "primary_ability": ["Dexterity", "Intelligence"],
     "saving_throw_proficiencies": ["Dexterity", "Intelligence"],
     "proficiencies": {
-      "armor": ["Light"],
-      "weapons": ["Simple", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
+      "armor": ["prop:light"],
+      "weapons": ["prop:simple", "equip:hand-crossbow", "equip:longsword", "equip:rapier", "equip:shortsword"],
       "tools": [
         {
           "type": "fixed",
-          "items": ["Thieves' Tools"]
+          "items": ["tool:thieves-tools"]
         }
       ],
       "skills": {
@@ -472,8 +474,8 @@
     "primary_ability": ["Strength"],
     "saving_throw_proficiencies": ["Strength", "Constitution"],
     "proficiencies": {
-      "armor": ["All", "Shields"],
-      "weapons": ["Simple", "Martial"],
+      "armor": ["prop:light", "prop:medium", "prop:heavy", "prop:shield"],
+      "weapons": ["prop:simple", "prop:martial"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -595,12 +597,16 @@
           {
             "type": "attribute",
             "attribute": "Strength",
-            "range": { "minimum": 13 }
+            "range": {
+              "minimum": 13
+            }
           },
           {
             "type": "attribute",
             "attribute": "Dexterity",
-            "range": { "minimum": 13 }
+            "range": {
+              "minimum": 13
+            }
           }
         ]
       }
@@ -615,8 +621,8 @@
     "primary_ability": ["Strength"],
     "saving_throw_proficiencies": ["Strength", "Constitution"],
     "proficiencies": {
-      "armor": ["All", "Shields"],
-      "weapons": ["Simple", "Martial"],
+      "armor": ["prop:light", "prop:medium", "prop:heavy", "prop:shield"],
+      "weapons": ["prop:simple", "prop:martial"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -642,8 +648,8 @@
     "primary_ability": ["Strength"],
     "saving_throw_proficiencies": ["Strength", "Constitution"],
     "proficiencies": {
-      "armor": ["All", "Shields"],
-      "weapons": ["Simple", "Martial"],
+      "armor": ["prop:light", "prop:medium", "prop:heavy", "prop:shield"],
+      "weapons": ["prop:simple", "prop:martial"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -662,8 +668,8 @@
     "primary_ability": ["Strength", "Intelligence"],
     "saving_throw_proficiencies": ["Strength", "Constitution"],
     "proficiencies": {
-      "armor": ["All", "Shields"],
-      "weapons": ["Simple", "Martial"],
+      "armor": ["prop:light", "prop:medium", "prop:heavy", "prop:shield"],
+      "weapons": ["prop:simple", "prop:martial"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -927,8 +933,8 @@
     "primary_ability": ["Wisdom"],
     "saving_throw_proficiencies": ["Wisdom", "Charisma"],
     "proficiencies": {
-      "armor": ["Light", "Medium", "Shields"],
-      "weapons": ["Simple"],
+      "armor": ["prop:light", "prop:medium", "prop:shield"],
+      "weapons": ["prop:simple"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -1029,7 +1035,9 @@
       {
         "type": "attribute",
         "attribute": "Wisdom",
-        "range": { "minimum": 13 }
+        "range": {
+          "minimum": 13
+        }
       }
     ],
     "spellcasting": {
@@ -1240,8 +1248,8 @@
     "primary_ability": ["Strength"],
     "saving_throw_proficiencies": ["Strength", "Constitution"],
     "proficiencies": {
-      "armor": ["Light", "Medium", "Shields"],
-      "weapons": ["Simple", "Martial"],
+      "armor": ["prop:light", "prop:medium", "prop:shield"],
+      "weapons": ["prop:simple", "prop:martial"],
       "tools": [
         {
           "type": "choice",
@@ -1304,7 +1312,9 @@
       {
         "type": "attribute",
         "attribute": "Strength",
-        "range": { "minimum": 13 }
+        "range": {
+          "minimum": 13
+        }
       }
     ]
   },
@@ -1317,8 +1327,8 @@
     "primary_ability": ["Strength"],
     "saving_throw_proficiencies": ["Strength", "Constitution"],
     "proficiencies": {
-      "armor": ["Light", "Medium", "Shields"],
-      "weapons": ["Simple", "Martial"],
+      "armor": ["prop:light", "prop:medium", "prop:shield"],
+      "weapons": ["prop:simple", "prop:martial"],
       "tools": [
         {
           "type": "choice",
@@ -1343,8 +1353,8 @@
     "primary_ability": ["Strength"],
     "saving_throw_proficiencies": ["Strength", "Constitution"],
     "proficiencies": {
-      "armor": ["Light", "Medium", "Shields"],
-      "weapons": ["Simple", "Martial"],
+      "armor": ["prop:light", "prop:medium", "prop:shield"],
+      "weapons": ["prop:simple", "prop:martial"],
       "tools": [
         {
           "type": "choice",
@@ -1368,8 +1378,8 @@
     "primary_ability": ["Charisma"],
     "saving_throw_proficiencies": ["Dexterity", "Charisma"],
     "proficiencies": {
-      "armor": ["Light"],
-      "weapons": ["Simple", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
+      "armor": ["prop:light"],
+      "weapons": ["prop:simple", "equip:hand-crossbow", "equip:longsword", "equip:rapier", "equip:shortsword"],
       "tools": [
         {
           "type": "choice",
@@ -1810,7 +1820,9 @@
       {
         "type": "attribute",
         "attribute": "Charisma",
-        "range": { "minimum": 13 }
+        "range": {
+          "minimum": 13
+        }
       }
     ]
   },
@@ -1823,8 +1835,8 @@
     "primary_ability": ["Charisma"],
     "saving_throw_proficiencies": ["Dexterity", "Charisma"],
     "proficiencies": {
-      "armor": ["Light"],
-      "weapons": ["Simple", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
+      "armor": ["prop:light"],
+      "weapons": ["prop:simple", "equip:hand-crossbow", "equip:longsword", "equip:rapier", "equip:shortsword"],
       "tools": [
         {
           "type": "choice",
@@ -1868,8 +1880,8 @@
     "primary_ability": ["Charisma"],
     "saving_throw_proficiencies": ["Dexterity", "Charisma"],
     "proficiencies": {
-      "armor": ["Light"],
-      "weapons": ["Simple", "Hand Crossbow", "Longsword", "Rapier", "Shortsword"],
+      "armor": ["prop:light"],
+      "weapons": ["prop:simple", "equip:hand-crossbow", "equip:longsword", "equip:rapier", "equip:shortsword"],
       "tools": [
         {
           "type": "choice",
@@ -1914,7 +1926,7 @@
     "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
     "proficiencies": {
       "armor": [],
-      "weapons": ["Dagger", "Dart", "Sling", "Quarterstaff", "Light Crossbow"],
+      "weapons": ["equip:dagger", "equip:dart", "equip:sling", "equip:quarterstaff", "equip:light-crossbow"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -1981,7 +1993,9 @@
       {
         "type": "attribute",
         "attribute": "Intelligence",
-        "range": { "minimum": 13 }
+        "range": {
+          "minimum": 13
+        }
       }
     ],
     "spellcasting": {
@@ -2206,7 +2220,7 @@
     "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
     "proficiencies": {
       "armor": [],
-      "weapons": ["Dagger", "Dart", "Sling", "Quarterstaff", "Light Crossbow"],
+      "weapons": ["equip:dagger", "equip:dart", "equip:sling", "equip:quarterstaff", "equip:light-crossbow"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -2226,7 +2240,7 @@
     "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
     "proficiencies": {
       "armor": [],
-      "weapons": ["Dagger", "Dart", "Sling", "Quarterstaff", "Light Crossbow"],
+      "weapons": ["equip:dagger", "equip:dart", "equip:sling", "equip:quarterstaff", "equip:light-crossbow"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -2246,7 +2260,7 @@
     "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
     "proficiencies": {
       "armor": [],
-      "weapons": ["Dagger", "Dart", "Sling", "Quarterstaff", "Light Crossbow"],
+      "weapons": ["equip:dagger", "equip:dart", "equip:sling", "equip:quarterstaff", "equip:light-crossbow"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -2266,7 +2280,7 @@
     "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
     "proficiencies": {
       "armor": [],
-      "weapons": ["Dagger", "Dart", "Sling", "Quarterstaff", "Light Crossbow"],
+      "weapons": ["equip:dagger", "equip:dart", "equip:sling", "equip:quarterstaff", "equip:light-crossbow"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -2286,7 +2300,7 @@
     "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
     "proficiencies": {
       "armor": [],
-      "weapons": ["Dagger", "Dart", "Sling", "Quarterstaff", "Light Crossbow"],
+      "weapons": ["equip:dagger", "equip:dart", "equip:sling", "equip:quarterstaff", "equip:light-crossbow"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -2306,7 +2320,7 @@
     "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
     "proficiencies": {
       "armor": [],
-      "weapons": ["Dagger", "Dart", "Sling", "Quarterstaff", "Light Crossbow"],
+      "weapons": ["equip:dagger", "equip:dart", "equip:sling", "equip:quarterstaff", "equip:light-crossbow"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -2319,14 +2333,14 @@
   {
     "id": "subclass:illusion",
     "name": "School of Illusion",
-    "description": "You focus your studies on magic that dazzles the senses, befuddles the mind, and tricks even the wisest folk. Your magic is subtle, but the illusions crafted by your keen mind make the impossible seem real. Some illusionists – including many gnome wizards – are benign tricksters who use their spells to entertain. Others are more sinister masters of deception, using their illusions to frighten and fool others for their personal gain.",
+    "description": "You focus your studies on magic that dazzles the senses, befuddles the mind, and tricks even the wisest folk. Your magic is subtle, but the illusions crafted by your keen mind make the impossible seem real. Some illusionists \u2013 including many gnome wizards \u2013 are benign tricksters who use their spells to entertain. Others are more sinister masters of deception, using their illusions to frighten and fool others for their personal gain.",
     "base_class": "class:wizard",
     "hit_die": 6,
     "primary_ability": ["Intelligence"],
     "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
     "proficiencies": {
       "armor": [],
-      "weapons": ["Dagger", "Dart", "Sling", "Quarterstaff", "Light Crossbow"],
+      "weapons": ["equip:dagger", "equip:dart", "equip:sling", "equip:quarterstaff", "equip:light-crossbow"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -2346,7 +2360,7 @@
     "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
     "proficiencies": {
       "armor": [],
-      "weapons": ["Dagger", "Dart", "Sling", "Quarterstaff", "Light Crossbow"],
+      "weapons": ["equip:dagger", "equip:dart", "equip:sling", "equip:quarterstaff", "equip:light-crossbow"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -2366,7 +2380,7 @@
     "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
     "proficiencies": {
       "armor": [],
-      "weapons": ["Dagger", "Dart", "Sling", "Quarterstaff", "Light Crossbow"],
+      "weapons": ["equip:dagger", "equip:dart", "equip:sling", "equip:quarterstaff", "equip:light-crossbow"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -2379,14 +2393,14 @@
   {
     "id": "subclass:war-magic",
     "name": "War Magic",
-    "description": "A variety of arcane colleges specialize in training wizards for war. The tradition of War Magic blends principles of evocation and abjuration, rather than specializing in either of those schools. It teaches techniques that empower a caster’s spells, while also providing methods for wizards to bolster their own defenses.\n\nFollowers of this tradition are known as war mages. They see their magic as both a weapon and armor, a resource superior to any piece of steel. War mages act fast in battle, using their spells to seize tactical control of a situation. Their spells strike hard, while their defensive skills foil their opponents’ attempts to counterattack. War mages are also adept at turning other spellcasters' magical energy against them.\n\nIn great battles, a war mage often works with evokers, abjurers, and other types of wizards. Evokers, in particular, sometimes tease war mages for splitting their attention between offense and defense. A war mage's typical response: \"What good is being able to throw a mighty Fireball if I die before I can cast it?\"",
+    "description": "A variety of arcane colleges specialize in training wizards for war. The tradition of War Magic blends principles of evocation and abjuration, rather than specializing in either of those schools. It teaches techniques that empower a caster\u2019s spells, while also providing methods for wizards to bolster their own defenses.\n\nFollowers of this tradition are known as war mages. They see their magic as both a weapon and armor, a resource superior to any piece of steel. War mages act fast in battle, using their spells to seize tactical control of a situation. Their spells strike hard, while their defensive skills foil their opponents\u2019 attempts to counterattack. War mages are also adept at turning other spellcasters' magical energy against them.\n\nIn great battles, a war mage often works with evokers, abjurers, and other types of wizards. Evokers, in particular, sometimes tease war mages for splitting their attention between offense and defense. A war mage's typical response: \"What good is being able to throw a mighty Fireball if I die before I can cast it?\"",
     "base_class": "class:wizard",
     "hit_die": 6,
     "primary_ability": ["Intelligence"],
     "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
     "proficiencies": {
       "armor": [],
-      "weapons": ["Dagger", "Dart", "Sling", "Quarterstaff", "Light Crossbow"],
+      "weapons": ["equip:dagger", "equip:dart", "equip:sling", "equip:quarterstaff", "equip:light-crossbow"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -2404,12 +2418,23 @@
     "primary_ability": ["Wisdom"],
     "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
     "proficiencies": {
-      "armor": ["Light", "Medium", "Shields"],
-      "weapons": ["Club", "Dagger", "Dart", "Javelin", "Mace", "Quarterstaff", "Scimitar", "Sickle", "Sling", "Spear"],
+      "armor": ["prop:light", "prop:medium", "prop:shield"],
+      "weapons": [
+        "equip:club",
+        "equip:dagger",
+        "equip:dart",
+        "equip:javelin",
+        "equip:mace",
+        "equip:quarterstaff",
+        "equip:scimitar",
+        "equip:sickle",
+        "equip:sling",
+        "equip:spear"
+      ],
       "tools": [
         {
           "type": "fixed",
-          "items": ["Herbalism Kit"]
+          "items": ["tool:herbalism-kit"]
         }
       ],
       "skills": {
@@ -2654,7 +2679,9 @@
       {
         "type": "attribute",
         "attribute": "Wisdom",
-        "range": { "minimum": 13 }
+        "range": {
+          "minimum": 13
+        }
       }
     ]
   },
@@ -2667,12 +2694,23 @@
     "primary_ability": ["Wisdom"],
     "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
     "proficiencies": {
-      "armor": ["Light", "Medium", "Shields"],
-      "weapons": ["Club", "Dagger", "Dart", "Javelin", "Mace", "Quarterstaff", "Scimitar", "Sickle", "Sling", "Spear"],
+      "armor": ["prop:light", "prop:medium", "prop:shield"],
+      "weapons": [
+        "equip:club",
+        "equip:dagger",
+        "equip:dart",
+        "equip:javelin",
+        "equip:mace",
+        "equip:quarterstaff",
+        "equip:scimitar",
+        "equip:sickle",
+        "equip:sling",
+        "equip:spear"
+      ],
       "tools": [
         {
           "type": "fixed",
-          "items": ["Herbalism Kit"]
+          "items": ["tool:herbalism-kit"]
         }
       ],
       "skills": {
@@ -2692,12 +2730,23 @@
     "primary_ability": ["Wisdom"],
     "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
     "proficiencies": {
-      "armor": ["Light", "Medium", "Shields"],
-      "weapons": ["Club", "Dagger", "Dart", "Javelin", "Mace", "Quarterstaff", "Scimitar", "Sickle", "Sling", "Spear"],
+      "armor": ["prop:light", "prop:medium", "prop:shield"],
+      "weapons": [
+        "equip:club",
+        "equip:dagger",
+        "equip:dart",
+        "equip:javelin",
+        "equip:mace",
+        "equip:quarterstaff",
+        "equip:scimitar",
+        "equip:sickle",
+        "equip:sling",
+        "equip:spear"
+      ],
       "tools": [
         {
           "type": "fixed",
-          "items": ["Herbalism Kit"]
+          "items": ["tool:herbalism-kit"]
         }
       ],
       "skills": {
@@ -2711,18 +2760,29 @@
   {
     "id": "subclass:circle-of-dreams",
     "name": "Circle of Dreams",
-    "description": "Druids who are members of the Circle of Dreams hail from regions that have strong ties to the Feywild and its dreamlike realms. The druids’ guardianship of the natural world makes for a natural alliance between them and good-aligned fey. These druids seek to fill the world with dreamy wonder. Their magic mends wounds and brings joy to downcast hearts, and the realms they protect are gleaming, fruitful places, where dream and reality blur together and where the weary can find rest.",
+    "description": "Druids who are members of the Circle of Dreams hail from regions that have strong ties to the Feywild and its dreamlike realms. The druids\u2019 guardianship of the natural world makes for a natural alliance between them and good-aligned fey. These druids seek to fill the world with dreamy wonder. Their magic mends wounds and brings joy to downcast hearts, and the realms they protect are gleaming, fruitful places, where dream and reality blur together and where the weary can find rest.",
     "base_class": "class:druid",
     "hit_die": 8,
     "primary_ability": ["Wisdom"],
     "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
     "proficiencies": {
-      "armor": ["Light", "Medium", "Shields"],
-      "weapons": ["Club", "Dagger", "Dart", "Javelin", "Mace", "Quarterstaff", "Scimitar", "Sickle", "Sling", "Spear"],
+      "armor": ["prop:light", "prop:medium", "prop:shield"],
+      "weapons": [
+        "equip:club",
+        "equip:dagger",
+        "equip:dart",
+        "equip:javelin",
+        "equip:mace",
+        "equip:quarterstaff",
+        "equip:scimitar",
+        "equip:sickle",
+        "equip:sling",
+        "equip:spear"
+      ],
       "tools": [
         {
           "type": "fixed",
-          "items": ["Herbalism Kit"]
+          "items": ["tool:herbalism-kit"]
         }
       ],
       "skills": {
@@ -2742,12 +2802,23 @@
     "primary_ability": ["Wisdom"],
     "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
     "proficiencies": {
-      "armor": ["Light", "Medium", "Shields"],
-      "weapons": ["Club", "Dagger", "Dart", "Javelin", "Mace", "Quarterstaff", "Scimitar", "Sickle", "Sling", "Spear"],
+      "armor": ["prop:light", "prop:medium", "prop:shield"],
+      "weapons": [
+        "equip:club",
+        "equip:dagger",
+        "equip:dart",
+        "equip:javelin",
+        "equip:mace",
+        "equip:quarterstaff",
+        "equip:scimitar",
+        "equip:sickle",
+        "equip:sling",
+        "equip:spear"
+      ],
       "tools": [
         {
           "type": "fixed",
-          "items": ["Herbalism Kit"]
+          "items": ["tool:herbalism-kit"]
         }
       ],
       "skills": {
@@ -2767,12 +2838,23 @@
     "primary_ability": ["Wisdom"],
     "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
     "proficiencies": {
-      "armor": ["Light", "Medium", "Shields"],
-      "weapons": ["Club", "Dagger", "Dart", "Javelin", "Mace", "Quarterstaff", "Scimitar", "Sickle", "Sling", "Spear"],
+      "armor": ["prop:light", "prop:medium", "prop:shield"],
+      "weapons": [
+        "equip:club",
+        "equip:dagger",
+        "equip:dart",
+        "equip:javelin",
+        "equip:mace",
+        "equip:quarterstaff",
+        "equip:scimitar",
+        "equip:sickle",
+        "equip:sling",
+        "equip:spear"
+      ],
       "tools": [
         {
           "type": "fixed",
-          "items": ["Herbalism Kit"]
+          "items": ["tool:herbalism-kit"]
         }
       ],
       "skills": {
@@ -2792,12 +2874,23 @@
     "primary_ability": ["Wisdom"],
     "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
     "proficiencies": {
-      "armor": ["Light", "Medium", "Shields"],
-      "weapons": ["Club", "Dagger", "Dart", "Javelin", "Mace", "Quarterstaff", "Scimitar", "Sickle", "Sling", "Spear"],
+      "armor": ["prop:light", "prop:medium", "prop:shield"],
+      "weapons": [
+        "equip:club",
+        "equip:dagger",
+        "equip:dart",
+        "equip:javelin",
+        "equip:mace",
+        "equip:quarterstaff",
+        "equip:scimitar",
+        "equip:sickle",
+        "equip:sling",
+        "equip:spear"
+      ],
       "tools": [
         {
           "type": "fixed",
-          "items": ["Herbalism Kit"]
+          "items": ["tool:herbalism-kit"]
         }
       ],
       "skills": {
@@ -2817,12 +2910,23 @@
     "primary_ability": ["Wisdom"],
     "saving_throw_proficiencies": ["Intelligence", "Wisdom"],
     "proficiencies": {
-      "armor": ["Light", "Medium", "Shields"],
-      "weapons": ["Club", "Dagger", "Dart", "Javelin", "Mace", "Quarterstaff", "Scimitar", "Sickle", "Sling", "Spear"],
+      "armor": ["prop:light", "prop:medium", "prop:shield"],
+      "weapons": [
+        "equip:club",
+        "equip:dagger",
+        "equip:dart",
+        "equip:javelin",
+        "equip:mace",
+        "equip:quarterstaff",
+        "equip:scimitar",
+        "equip:sickle",
+        "equip:sling",
+        "equip:spear"
+      ],
       "tools": [
         {
           "type": "fixed",
-          "items": ["Herbalism Kit"]
+          "items": ["tool:herbalism-kit"]
         }
       ],
       "skills": {
@@ -2841,8 +2945,8 @@
     "primary_ability": ["Charisma"],
     "saving_throw_proficiencies": ["Wisdom", "Charisma"],
     "proficiencies": {
-      "armor": ["Light", "Medium", "Heavy", "Shields"],
-      "weapons": ["Simple", "Martial"],
+      "armor": ["prop:light", "prop:medium", "prop:heavy", "prop:shield"],
+      "weapons": ["prop:simple", "prop:martial"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -3035,7 +3139,9 @@
       {
         "type": "attribute",
         "attribute": "Charisma",
-        "range": { "minimum": 13 }
+        "range": {
+          "minimum": 13
+        }
       }
     ]
   },
@@ -3048,8 +3154,8 @@
     "primary_ability": ["Charisma"],
     "saving_throw_proficiencies": ["Wisdom", "Charisma"],
     "proficiencies": {
-      "armor": ["Light", "Medium", "Heavy", "Shields"],
-      "weapons": ["Simple", "Martial"],
+      "armor": ["prop:light", "prop:medium", "prop:heavy", "prop:shield"],
+      "weapons": ["prop:simple", "prop:martial"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -3068,8 +3174,8 @@
     "primary_ability": ["Charisma"],
     "saving_throw_proficiencies": ["Wisdom", "Charisma"],
     "proficiencies": {
-      "armor": ["Light", "Medium", "Heavy", "Shields"],
-      "weapons": ["Simple", "Martial"],
+      "armor": ["prop:light", "prop:medium", "prop:heavy", "prop:shield"],
+      "weapons": ["prop:simple", "prop:martial"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -3082,14 +3188,14 @@
   {
     "id": "subclass:oath-of-vengeance",
     "name": "Oath of Vengeance",
-    "description": "The Oath of Vengeance is a solemn commitment to punish those who have committed a grievous sin. When evil forces slaughter helpless villagers, when an entire people turns against the will of the gods, when a thieves' guild grows too violent and powerful, when a dragon rampages through the countryside – at times like these, paladins arise and swear an Oath of Vengeance to set right that which has gone wrong. To these paladins - sometimes called avengers or dark knights - their own purity is not as important as delivering justice.",
+    "description": "The Oath of Vengeance is a solemn commitment to punish those who have committed a grievous sin. When evil forces slaughter helpless villagers, when an entire people turns against the will of the gods, when a thieves' guild grows too violent and powerful, when a dragon rampages through the countryside \u2013 at times like these, paladins arise and swear an Oath of Vengeance to set right that which has gone wrong. To these paladins - sometimes called avengers or dark knights - their own purity is not as important as delivering justice.",
     "base_class": "class:paladin",
     "hit_die": 8,
     "primary_ability": ["Charisma"],
     "saving_throw_proficiencies": ["Wisdom", "Charisma"],
     "proficiencies": {
-      "armor": ["Light", "Medium", "Heavy", "Shields"],
-      "weapons": ["Simple", "Martial"],
+      "armor": ["prop:light", "prop:medium", "prop:heavy", "prop:shield"],
+      "weapons": ["prop:simple", "prop:martial"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -3108,8 +3214,8 @@
     "primary_ability": ["Charisma"],
     "saving_throw_proficiencies": ["Wisdom", "Charisma"],
     "proficiencies": {
-      "armor": ["Light", "Medium", "Heavy", "Shields"],
-      "weapons": ["Simple", "Martial"],
+      "armor": ["prop:light", "prop:medium", "prop:heavy", "prop:shield"],
+      "weapons": ["prop:simple", "prop:martial"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -3122,14 +3228,14 @@
   {
     "id": "subclass:oath-of-conquest",
     "name": "Oath of Conquest",
-    "description": "The Oath of Conquest calls to paladins who seek glory in battle and the subjugation of their enemies. It isn’t enough for these paladins to establish order. They must crush the forces of chaos. Sometimes called knight tyrants or iron mongers, those who swear this oath gather into grim orders that serve gods or philosophies of war and well-ordered might.\n\nSome of these paladins go so far as to consort with the powers of the Nine Hells, valuing the rule of law over the balm of mercy. The archdevil Bel, warlord of Avernus, counts many of these paladins – called hell knights – as his most ardent supporters. Hell knights cover their armor with trophies taken from fallen enemies, a grim warning to any who dare oppose them and the decrees of their lords. These knights are often most fiercely resisted by other paladins of this oath, who believe that the hell knights have wandered too far into darkness.",
+    "description": "The Oath of Conquest calls to paladins who seek glory in battle and the subjugation of their enemies. It isn\u2019t enough for these paladins to establish order. They must crush the forces of chaos. Sometimes called knight tyrants or iron mongers, those who swear this oath gather into grim orders that serve gods or philosophies of war and well-ordered might.\n\nSome of these paladins go so far as to consort with the powers of the Nine Hells, valuing the rule of law over the balm of mercy. The archdevil Bel, warlord of Avernus, counts many of these paladins \u2013 called hell knights \u2013 as his most ardent supporters. Hell knights cover their armor with trophies taken from fallen enemies, a grim warning to any who dare oppose them and the decrees of their lords. These knights are often most fiercely resisted by other paladins of this oath, who believe that the hell knights have wandered too far into darkness.",
     "base_class": "class:paladin",
     "hit_die": 8,
     "primary_ability": ["Charisma"],
     "saving_throw_proficiencies": ["Wisdom", "Charisma"],
     "proficiencies": {
-      "armor": ["Light", "Medium", "Heavy", "Shields"],
-      "weapons": ["Simple", "Martial"],
+      "armor": ["prop:light", "prop:medium", "prop:heavy", "prop:shield"],
+      "weapons": ["prop:simple", "prop:martial"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -3148,8 +3254,8 @@
     "primary_ability": ["Charisma"],
     "saving_throw_proficiencies": ["Wisdom", "Charisma"],
     "proficiencies": {
-      "armor": ["Light", "Medium", "Heavy", "Shields"],
-      "weapons": ["Simple", "Martial"],
+      "armor": ["prop:light", "prop:medium", "prop:heavy", "prop:shield"],
+      "weapons": ["prop:simple", "prop:martial"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -3168,8 +3274,8 @@
     "primary_ability": ["Charisma"],
     "saving_throw_proficiencies": ["Wisdom", "Charisma"],
     "proficiencies": {
-      "armor": ["Light", "Medium", "Heavy", "Shields"],
-      "weapons": ["Simple", "Martial"],
+      "armor": ["prop:light", "prop:medium", "prop:heavy", "prop:shield"],
+      "weapons": ["prop:simple", "prop:martial"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -3188,8 +3294,8 @@
     "primary_ability": ["Charisma"],
     "saving_throw_proficiencies": ["Wisdom", "Charisma"],
     "proficiencies": {
-      "armor": ["Light", "Medium", "Heavy", "Shields"],
-      "weapons": ["Simple", "Martial"],
+      "armor": ["prop:light", "prop:medium", "prop:heavy", "prop:shield"],
+      "weapons": ["prop:simple", "prop:martial"],
       "tools": [],
       "skills": {
         "choose": 2,
@@ -3208,8 +3314,8 @@
     "primary_ability": ["Charisma"],
     "saving_throw_proficiencies": ["Wisdom", "Charisma"],
     "proficiencies": {
-      "armor": ["Light", "Medium", "Heavy", "Shields"],
-      "weapons": ["Simple", "Martial"],
+      "armor": ["prop:light", "prop:medium", "prop:heavy", "prop:shield"],
+      "weapons": ["prop:simple", "prop:martial"],
       "tools": [],
       "skills": {
         "choose": 2,

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Languages",
+  "description": "Language reference data with selectability for character creation.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^lang:",
+        "description": "Language ID"
+      },
+      "name": {
+        "type": "string",
+        "description": "Display name"
+      },
+      "selectable": {
+        "type": "boolean",
+        "default": true,
+        "description": "Whether this language can be chosen by players during character creation"
+      }
+    },
+    "required": ["id", "name"],
+    "additionalProperties": false
+  }
+}

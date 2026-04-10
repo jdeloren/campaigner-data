@@ -351,7 +351,7 @@
       {
         "type": "proficiency",
         "category": "tool",
-        "proficiencies": ["Cook's Utensils"]
+        "proficiencies": ["tool:cooks-utensils"]
       },
       {
         "type": "optional",
@@ -640,7 +640,7 @@
         "requirements": [
           {
             "type": "weapon_property",
-            "property": ["Finesse"],
+            "property": ["prop:finesse"],
             "proficient": true
           }
         ],
@@ -1219,7 +1219,7 @@
         "requirements": [
           {
             "type": "weapon_property",
-            "property": ["Heavy"],
+            "property": ["prop:heavy"],
             "proficient": true
           }
         ],
@@ -1283,7 +1283,7 @@
       {
         "type": "proficiency",
         "category": "weapon",
-        "proficiencies": ["Firearm"]
+        "proficiencies": ["prop:firearm"]
       },
       {
         "type": "passive",
@@ -1437,7 +1437,7 @@
       {
         "type": "proficiency",
         "category": "armor",
-        "proficiencies": ["Heavy"]
+        "proficiencies": ["prop:heavy"]
       }
     ],
     "source": "phb",
@@ -1643,7 +1643,7 @@
       {
         "type": "proficiency",
         "category": "armor",
-        "proficiencies": ["Light"]
+        "proficiencies": ["prop:light"]
       }
     ],
     "source": "phb",
@@ -2135,7 +2135,7 @@
       {
         "type": "proficiency",
         "category": "armor",
-        "proficiencies": ["Medium", "Shields"]
+        "proficiencies": ["prop:medium", "prop:shield"]
       }
     ],
     "source": "phb",
@@ -2336,7 +2336,7 @@
       {
         "type": "proficiency",
         "category": "tool",
-        "proficiencies": ["Poisoner's Kit"]
+        "proficiencies": ["tool:poisoners-kit"]
       },
       {
         "type": "action",
@@ -2780,7 +2780,7 @@
         "requirements": [
           {
             "type": "weapon_property",
-            "property": ["Ranged"],
+            "property": ["prop:ranged"],
             "proficient": true
           }
         ],
@@ -3293,7 +3293,7 @@
       {
         "type": "proficiency",
         "category": "weapon",
-        "proficiencies": ["Improvised"]
+        "proficiencies": ["prop:improvised"]
       },
       {
         "type": "passive",
@@ -4289,7 +4289,7 @@
       {
         "type": "proficiency",
         "category": "language",
-        "proficiencies": ["Sylvan"]
+        "proficiencies": ["lang:sylvan"]
       },
       {
         "type": "granted_spells",

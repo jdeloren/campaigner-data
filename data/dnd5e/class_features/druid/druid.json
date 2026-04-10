@@ -9,7 +9,7 @@
       {
         "type": "proficiency",
         "category": "language",
-        "proficiencies": ["Druidic"]
+        "proficiencies": ["lang:druidic"]
       }
     ],
     "source": "phb",
@@ -86,8 +86,14 @@
                 "calculation": {
                   "operation": "divide",
                   "operators": [
-                    { "type": "class_level", "class": "Druid" },
-                    { "type": "integer", "value": 2 }
+                    {
+                      "type": "class_level",
+                      "class": "Druid"
+                    },
+                    {
+                      "type": "integer",
+                      "value": 2
+                    }
                   ],
                   "rounding": "down"
                 },
@@ -177,8 +183,14 @@
                 "calculation": {
                   "operation": "divide",
                   "operators": [
-                    { "type": "class_level", "class": "Druid" },
-                    { "type": "integer", "value": 2 }
+                    {
+                      "type": "class_level",
+                      "class": "Druid"
+                    },
+                    {
+                      "type": "integer",
+                      "value": 2
+                    }
                   ],
                   "rounding": "down"
                 },
@@ -329,7 +341,12 @@
               "property": "Verbal",
               "calculation": {
                 "operation": "set",
-                "operators": [{ "type": "boolean", "value": false }]
+                "operators": [
+                  {
+                    "type": "boolean",
+                    "value": false
+                  }
+                ]
               }
             }
           },
@@ -339,7 +356,12 @@
               "property": "Somatic",
               "calculation": {
                 "operation": "set",
-                "operators": [{ "type": "boolean", "value": false }]
+                "operators": [
+                  {
+                    "type": "boolean",
+                    "value": false
+                  }
+                ]
               }
             }
           },
@@ -349,7 +371,12 @@
               "property": "Material",
               "calculation": {
                 "operation": "set",
-                "operators": [{ "type": "boolean", "value": false }]
+                "operators": [
+                  {
+                    "type": "boolean",
+                    "value": false
+                  }
+                ]
               }
             }
           }

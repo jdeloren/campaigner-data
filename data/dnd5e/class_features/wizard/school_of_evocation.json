@@ -11,7 +11,10 @@
         "type": "passive",
         "name": "evocation_savant",
         "requirements": [
-          { "type": "spell", "school": "Evocation" }
+          {
+            "type": "spell",
+            "school": "Evocation"
+          }
         ],
         "cost": [
           {
@@ -19,8 +22,13 @@
             "calculation": {
               "operation": "multiply",
               "operators": [
-                { "type": "integer", "value": 25 },
-                { "type": "spell_level_cast" }
+                {
+                  "type": "integer",
+                  "value": 25
+                },
+                {
+                  "type": "spell_level_cast"
+                }
               ]
             }
           }
@@ -65,8 +73,13 @@
             "calculation": {
               "operation": "add",
               "operators": [
-                { "type": "spell_level_cast" },
-                { "type": "integer", "value": 1 }
+                {
+                  "type": "spell_level_cast"
+                },
+                {
+                  "type": "integer",
+                  "value": 1
+                }
               ]
             },
             "roll_modifier": {
@@ -94,7 +107,10 @@
         "trigger": {
           "event": ["cast_spell"],
           "spell": {
-            "level": { "minimum": 0, "maximum": 0 }
+            "level": {
+              "minimum": 0,
+              "maximum": 0
+            }
           }
         },
         "effects": [
@@ -168,7 +184,10 @@
         "trigger": {
           "event": ["cast_spell"],
           "spell": {
-            "level": { "minimum": 1, "maximum": 5 }
+            "level": {
+              "minimum": 1,
+              "maximum": 5
+            }
           }
         },
         "uses": {

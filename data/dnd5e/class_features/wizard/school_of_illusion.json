@@ -10,13 +10,26 @@
       {
         "type": "passive",
         "name": "illusion_savant",
-        "requirements": [{ "type": "spell", "school": "Illusion" }],
+        "requirements": [
+          {
+            "type": "spell",
+            "school": "Illusion"
+          }
+        ],
         "cost": [
           {
             "currency": "GP",
             "calculation": {
               "operation": "multiply",
-              "operators": [{ "type": "integer", "value": 25 }, { "type": "spell_level_cast" }]
+              "operators": [
+                {
+                  "type": "integer",
+                  "value": 25
+                },
+                {
+                  "type": "spell_level_cast"
+                }
+              ]
             }
           }
         ]

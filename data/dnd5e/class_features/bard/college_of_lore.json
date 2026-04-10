@@ -34,17 +34,23 @@
         "trigger": [
           {
             "event": ["attack"],
-            "source": { "type": "creature" },
+            "source": {
+              "type": "creature"
+            },
             "timing": "after"
           },
           {
             "event": ["ability_check"],
-            "source": { "type": "creature" },
+            "source": {
+              "type": "creature"
+            },
             "timing": "after"
           },
           {
             "event": ["damage"],
-            "source": { "type": "creature" },
+            "source": {
+              "type": "creature"
+            },
             "timing": "after"
           }
         ],

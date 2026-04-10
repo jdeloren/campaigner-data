@@ -5,27 +5,13 @@
     "ruleset": "dnd5e",
     "class_id": "class:fighter",
     "subclass_id": "subclass:champion",
-    "roles": [
-      "tank",
-      "striker"
-    ],
+    "roles": ["tank", "striker"],
     "race_prefs": {
       "priority": "preferred",
-      "values": [
-        "race:variant-human",
-        "race:mountain-dwarf",
-        "race:half-orc"
-      ]
+      "values": ["race:variant-human", "race:mountain-dwarf", "race:half-orc"]
     },
     "background_pref": "bg:soldier",
-    "stat_priority": [
-      "STR",
-      "CON",
-      "DEX",
-      "WIS",
-      "CHA",
-      "INT"
-    ],
+    "stat_priority": ["STR", "CON", "DEX", "WIS", "CHA", "INT"],
     "asi_priorities": [
       {
         "feat_id": "feat:great-weapon-master"
@@ -46,28 +32,20 @@
         "choices": {
           "class:fighter-query-fighting_style": {
             "priority": "required",
-            "values": [
-              "style:great-weapon-fighting"
-            ]
+            "values": ["style:great-weapon-fighting"]
           }
         }
       }
     ],
     "spell_prefs": null,
     "equipment_pref": {
-      "prefer": [
-        "two-handed"
-      ],
-      "avoid": [
-        "Shield"
-      ]
+      "prefer": ["prop:two-handed"],
+      "avoid": ["prop:shield"]
     },
     "flavor": null,
     "max_level": 20,
     "is_multiclass": false,
-    "sources": [
-      "phb"
-    ],
+    "sources": ["phb"],
     "tier_ratings": [
       {
         "level_min": 1,
@@ -102,27 +80,13 @@
     "ruleset": "dnd5e",
     "class_id": "class:rogue",
     "subclass_id": "subclass:thief",
-    "roles": [
-      "striker",
-      "skill_monkey"
-    ],
+    "roles": ["striker", "skill_monkey"],
     "race_prefs": {
       "priority": "preferred",
-      "values": [
-        "race:lightfoot-halfling",
-        "race:variant-human",
-        "race:half-elf"
-      ]
+      "values": ["race:lightfoot-halfling", "race:variant-human", "race:half-elf"]
     },
     "background_pref": "bg:criminal",
-    "stat_priority": [
-      "DEX",
-      "CON",
-      "WIS",
-      "CHA",
-      "INT",
-      "STR"
-    ],
+    "stat_priority": ["DEX", "CON", "WIS", "CHA", "INT", "STR"],
     "asi_priorities": [
       {
         "ability_id": "Dexterity",
@@ -145,17 +109,13 @@
     ],
     "spell_prefs": null,
     "equipment_pref": {
-      "prefer": [
-        "Finesse"
-      ],
+      "prefer": ["prop:finesse"],
       "avoid": []
     },
     "flavor": null,
     "max_level": 20,
     "is_multiclass": false,
-    "sources": [
-      "phb"
-    ],
+    "sources": ["phb"],
     "tier_ratings": [
       {
         "level_min": 1,
@@ -190,26 +150,13 @@
     "ruleset": "dnd5e",
     "class_id": "class:barbarian",
     "subclass_id": "subclass:path-of-the-totem-warrior",
-    "roles": [
-      "tank"
-    ],
+    "roles": ["tank"],
     "race_prefs": {
       "priority": "preferred",
-      "values": [
-        "race:variant-human",
-        "race:half-orc",
-        "race:mountain-dwarf"
-      ]
+      "values": ["race:variant-human", "race:half-orc", "race:mountain-dwarf"]
     },
     "background_pref": "bg:outlander",
-    "stat_priority": [
-      "STR",
-      "CON",
-      "DEX",
-      "WIS",
-      "CHA",
-      "INT"
-    ],
+    "stat_priority": ["STR", "CON", "DEX", "WIS", "CHA", "INT"],
     "asi_priorities": [
       {
         "feat_id": "feat:great-weapon-master"
@@ -232,19 +179,13 @@
     ],
     "spell_prefs": null,
     "equipment_pref": {
-      "prefer": [
-        "two-handed"
-      ],
-      "avoid": [
-        "Shield"
-      ]
+      "prefer": ["prop:two-handed"],
+      "avoid": ["prop:shield"]
     },
     "flavor": null,
     "max_level": 20,
     "is_multiclass": false,
-    "sources": [
-      "phb"
-    ],
+    "sources": ["phb"],
     "tier_ratings": [
       {
         "level_min": 1,
@@ -279,27 +220,13 @@
     "ruleset": "dnd5e",
     "class_id": "class:cleric",
     "subclass_id": "domain:life",
-    "roles": [
-      "healer",
-      "support"
-    ],
+    "roles": ["healer", "support"],
     "race_prefs": {
       "priority": "preferred",
-      "values": [
-        "race:hill-dwarf",
-        "race:variant-human",
-        "race:wood-elf"
-      ]
+      "values": ["race:hill-dwarf", "race:variant-human", "race:wood-elf"]
     },
     "background_pref": "bg:acolyte",
-    "stat_priority": [
-      "WIS",
-      "CON",
-      "STR",
-      "DEX",
-      "CHA",
-      "INT"
-    ],
+    "stat_priority": ["WIS", "CON", "STR", "DEX", "CHA", "INT"],
     "asi_priorities": [
       {
         "ability_id": "Wisdom",
@@ -323,34 +250,20 @@
     "spell_prefs": {
       "cantrips": {
         "priority": "preferred",
-        "values": [
-          "Sacred Flame",
-          "Toll the Dead",
-          "Guidance"
-        ]
+        "values": ["Sacred Flame", "Toll the Dead", "Guidance"]
       },
       "spells_by_level": {
         "1": {
           "priority": "preferred",
-          "values": [
-            "Healing Word",
-            "Shield of Faith",
-            "Guiding Bolt"
-          ]
+          "values": ["Healing Word", "Shield of Faith", "Guiding Bolt"]
         },
         "2": {
           "priority": "preferred",
-          "values": [
-            "Spiritual Weapon",
-            "Prayer of Healing"
-          ]
+          "values": ["Spiritual Weapon", "Prayer of Healing"]
         },
         "3": {
           "priority": "preferred",
-          "values": [
-            "Spirit Guardians",
-            "Revivify"
-          ]
+          "values": ["Spirit Guardians", "Revivify"]
         }
       }
     },
@@ -358,9 +271,7 @@
     "flavor": null,
     "max_level": 20,
     "is_multiclass": false,
-    "sources": [
-      "phb"
-    ],
+    "sources": ["phb"],
     "tier_ratings": [
       {
         "level_min": 1,
@@ -395,27 +306,13 @@
     "ruleset": "dnd5e",
     "class_id": "class:wizard",
     "subclass_id": "subclass:evocation",
-    "roles": [
-      "controller",
-      "striker"
-    ],
+    "roles": ["controller", "striker"],
     "race_prefs": {
       "priority": "preferred",
-      "values": [
-        "race:variant-human",
-        "race:high-elf",
-        "race:rock-gnome"
-      ]
+      "values": ["race:variant-human", "race:high-elf", "race:rock-gnome"]
     },
     "background_pref": "bg:sage",
-    "stat_priority": [
-      "INT",
-      "CON",
-      "DEX",
-      "WIS",
-      "CHA",
-      "STR"
-    ],
+    "stat_priority": ["INT", "CON", "DEX", "WIS", "CHA", "STR"],
     "asi_priorities": [
       {
         "ability_id": "Intelligence",
@@ -439,50 +336,28 @@
     "spell_prefs": {
       "cantrips": {
         "priority": "preferred",
-        "values": [
-          "Fire Bolt",
-          "Prestidigitation",
-          "Minor Illusion"
-        ]
+        "values": ["Fire Bolt", "Prestidigitation", "Minor Illusion"]
       },
       "spells_by_level": {
         "1": {
           "priority": "preferred",
-          "values": [
-            "Magic Missile",
-            "Shield",
-            "Mage Armor",
-            "Find Familiar"
-          ]
+          "values": ["Magic Missile", "Shield", "Mage Armor", "Find Familiar"]
         },
         "2": {
           "priority": "preferred",
-          "values": [
-            "Misty Step",
-            "Shatter",
-            "Web"
-          ]
+          "values": ["Misty Step", "Shatter", "Web"]
         },
         "3": {
           "priority": "preferred",
-          "values": [
-            "Fireball",
-            "Counterspell"
-          ]
+          "values": ["Fireball", "Counterspell"]
         },
         "4": {
           "priority": "preferred",
-          "values": [
-            "Polymorph",
-            "Wall of Fire"
-          ]
+          "values": ["Polymorph", "Wall of Fire"]
         },
         "5": {
           "priority": "preferred",
-          "values": [
-            "Wall of Force",
-            "Cone of Cold"
-          ]
+          "values": ["Wall of Force", "Cone of Cold"]
         }
       }
     },
@@ -490,9 +365,7 @@
     "flavor": null,
     "max_level": 20,
     "is_multiclass": false,
-    "sources": [
-      "phb"
-    ],
+    "sources": ["phb"],
     "tier_ratings": [
       {
         "level_min": 1,
@@ -527,27 +400,13 @@
     "ruleset": "dnd5e",
     "class_id": "class:bard",
     "subclass_id": "subclass:college-of-lore",
-    "roles": [
-      "support",
-      "skill_monkey"
-    ],
+    "roles": ["support", "skill_monkey"],
     "race_prefs": {
       "priority": "preferred",
-      "values": [
-        "race:half-elf",
-        "race:variant-human",
-        "race:lightfoot-halfling"
-      ]
+      "values": ["race:half-elf", "race:variant-human", "race:lightfoot-halfling"]
     },
     "background_pref": "bg:entertainer",
-    "stat_priority": [
-      "CHA",
-      "DEX",
-      "CON",
-      "WIS",
-      "INT",
-      "STR"
-    ],
+    "stat_priority": ["CHA", "DEX", "CON", "WIS", "INT", "STR"],
     "asi_priorities": [
       {
         "ability_id": "Charisma",
@@ -571,34 +430,20 @@
     "spell_prefs": {
       "cantrips": {
         "priority": "preferred",
-        "values": [
-          "Vicious Mockery",
-          "Minor Illusion"
-        ]
+        "values": ["Vicious Mockery", "Minor Illusion"]
       },
       "spells_by_level": {
         "1": {
           "priority": "preferred",
-          "values": [
-            "Healing Word",
-            "Faerie Fire",
-            "Dissonant Whispers"
-          ]
+          "values": ["Healing Word", "Faerie Fire", "Dissonant Whispers"]
         },
         "2": {
           "priority": "preferred",
-          "values": [
-            "Heat Metal",
-            "Suggestion",
-            "Lesser Restoration"
-          ]
+          "values": ["Heat Metal", "Suggestion", "Lesser Restoration"]
         },
         "3": {
           "priority": "preferred",
-          "values": [
-            "Hypnotic Pattern",
-            "Dispel Magic"
-          ]
+          "values": ["Hypnotic Pattern", "Dispel Magic"]
         }
       }
     },
@@ -606,9 +451,7 @@
     "flavor": null,
     "max_level": 20,
     "is_multiclass": false,
-    "sources": [
-      "phb"
-    ],
+    "sources": ["phb"],
     "tier_ratings": [
       {
         "level_min": 1,
@@ -643,27 +486,13 @@
     "ruleset": "dnd5e",
     "class_id": "class:druid",
     "subclass_id": "subclass:circle-of-the-moon",
-    "roles": [
-      "tank",
-      "controller"
-    ],
+    "roles": ["tank", "controller"],
     "race_prefs": {
       "priority": "preferred",
-      "values": [
-        "race:variant-human",
-        "race:wood-elf",
-        "race:hill-dwarf"
-      ]
+      "values": ["race:variant-human", "race:wood-elf", "race:hill-dwarf"]
     },
     "background_pref": "bg:hermit",
-    "stat_priority": [
-      "WIS",
-      "CON",
-      "DEX",
-      "INT",
-      "CHA",
-      "STR"
-    ],
+    "stat_priority": ["WIS", "CON", "DEX", "INT", "CHA", "STR"],
     "asi_priorities": [
       {
         "ability_id": "Wisdom",
@@ -687,43 +516,31 @@
     "spell_prefs": {
       "cantrips": {
         "priority": "preferred",
-        "values": [
-          "Produce Flame",
-          "Guidance"
-        ]
+        "values": ["Produce Flame", "Guidance"]
       },
       "spells_by_level": {
         "1": {
           "priority": "preferred",
-          "values": [
-            "Entangle",
-            "Healing Word",
-            "Faerie Fire"
-          ]
+          "values": ["Entangle", "Healing Word", "Faerie Fire"]
         },
         "2": {
           "priority": "preferred",
-          "values": [
-            "Moonbeam",
-            "Pass without Trace"
-          ]
+          "values": ["Moonbeam", "Pass without Trace"]
         },
         "3": {
           "priority": "preferred",
-          "values": [
-            "Conjure Animals",
-            "Call Lightning"
-          ]
+          "values": ["Conjure Animals", "Call Lightning"]
         }
       }
     },
-    "equipment_pref": null,
+    "equipment_pref": {
+      "prefer": ["prop:shield"],
+      "avoid": []
+    },
     "flavor": null,
     "max_level": 20,
     "is_multiclass": false,
-    "sources": [
-      "phb"
-    ],
+    "sources": ["phb"],
     "tier_ratings": [
       {
         "level_min": 1,
@@ -758,28 +575,13 @@
     "ruleset": "dnd5e",
     "class_id": "class:paladin",
     "subclass_id": "subclass:oath-of-devotion",
-    "roles": [
-      "tank",
-      "support",
-      "gish"
-    ],
+    "roles": ["tank", "support", "gish"],
     "race_prefs": {
       "priority": "preferred",
-      "values": [
-        "race:variant-human",
-        "race:half-elf",
-        "race:mountain-dwarf"
-      ]
+      "values": ["race:variant-human", "race:half-elf", "race:mountain-dwarf"]
     },
     "background_pref": "bg:noble",
-    "stat_priority": [
-      "STR",
-      "CHA",
-      "CON",
-      "WIS",
-      "DEX",
-      "INT"
-    ],
+    "stat_priority": ["STR", "CHA", "CON", "WIS", "DEX", "INT"],
     "asi_priorities": [
       {
         "ability_id": "Strength",
@@ -805,9 +607,7 @@
         "choices": {
           "class:paladin-query-fighting_style": {
             "priority": "required",
-            "values": [
-              "style:defense"
-            ]
+            "values": ["style:defense"]
           }
         }
       }
@@ -820,33 +620,22 @@
       "spells_by_level": {
         "1": {
           "priority": "preferred",
-          "values": [
-            "Shield of Faith",
-            "Thunderous Smite",
-            "Bless"
-          ]
+          "values": ["Shield of Faith", "Thunderous Smite", "Bless"]
         },
         "2": {
           "priority": "preferred",
-          "values": [
-            "Find Steed",
-            "Aid"
-          ]
+          "values": ["Find Steed", "Aid"]
         }
       }
     },
     "equipment_pref": {
-      "prefer": [
-        "Shield"
-      ],
+      "prefer": ["prop:shield"],
       "avoid": []
     },
     "flavor": null,
     "max_level": 20,
     "is_multiclass": false,
-    "sources": [
-      "phb"
-    ],
+    "sources": ["phb"],
     "tier_ratings": [
       {
         "level_min": 1,
@@ -881,26 +670,13 @@
     "ruleset": "dnd5e",
     "class_id": "class:paladin",
     "subclass_id": "subclass:oath-of-vengeance",
-    "roles": [
-      "striker"
-    ],
+    "roles": ["striker"],
     "race_prefs": {
       "priority": "preferred",
-      "values": [
-        "race:variant-human",
-        "race:half-orc",
-        "race:half-elf"
-      ]
+      "values": ["race:variant-human", "race:half-orc", "race:half-elf"]
     },
     "background_pref": "bg:soldier",
-    "stat_priority": [
-      "STR",
-      "CHA",
-      "CON",
-      "WIS",
-      "DEX",
-      "INT"
-    ],
+    "stat_priority": ["STR", "CHA", "CON", "WIS", "DEX", "INT"],
     "asi_priorities": [
       {
         "ability_id": "Strength",
@@ -926,9 +702,7 @@
         "choices": {
           "class:paladin-query-fighting_style": {
             "priority": "required",
-            "values": [
-              "style:great-weapon-fighting"
-            ]
+            "values": ["style:great-weapon-fighting"]
           }
         }
       }
@@ -941,35 +715,22 @@
       "spells_by_level": {
         "1": {
           "priority": "preferred",
-          "values": [
-            "Wrathful Smite",
-            "Shield of Faith",
-            "Bless"
-          ]
+          "values": ["Wrathful Smite", "Shield of Faith", "Bless"]
         },
         "2": {
           "priority": "preferred",
-          "values": [
-            "Find Steed",
-            "Misty Step"
-          ]
+          "values": ["Find Steed", "Misty Step"]
         }
       }
     },
     "equipment_pref": {
-      "prefer": [
-        "two-handed"
-      ],
-      "avoid": [
-        "Shield"
-      ]
+      "prefer": ["prop:two-handed"],
+      "avoid": ["prop:shield"]
     },
     "flavor": null,
     "max_level": 20,
     "is_multiclass": false,
-    "sources": [
-      "phb"
-    ],
+    "sources": ["phb"],
     "tier_ratings": [
       {
         "level_min": 1,
@@ -1004,27 +765,13 @@
     "ruleset": "dnd5e",
     "class_id": "class:paladin",
     "subclass_id": "subclass:oath-of-conquest",
-    "roles": [
-      "controller",
-      "tank"
-    ],
+    "roles": ["controller", "tank"],
     "race_prefs": {
       "priority": "preferred",
-      "values": [
-        "race:variant-human",
-        "race:half-orc",
-        "race:mountain-dwarf"
-      ]
+      "values": ["race:variant-human", "race:half-orc", "race:mountain-dwarf"]
     },
     "background_pref": "bg:soldier",
-    "stat_priority": [
-      "STR",
-      "CHA",
-      "CON",
-      "WIS",
-      "DEX",
-      "INT"
-    ],
+    "stat_priority": ["STR", "CHA", "CON", "WIS", "DEX", "INT"],
     "asi_priorities": [
       {
         "ability_id": "Strength",
@@ -1050,9 +797,7 @@
         "choices": {
           "class:paladin-query-fighting_style": {
             "priority": "required",
-            "values": [
-              "style:defense"
-            ]
+            "values": ["style:defense"]
           }
         }
       }
@@ -1065,33 +810,22 @@
       "spells_by_level": {
         "1": {
           "priority": "preferred",
-          "values": [
-            "Wrathful Smite",
-            "Command",
-            "Shield of Faith"
-          ]
+          "values": ["Wrathful Smite", "Command", "Shield of Faith"]
         },
         "2": {
           "priority": "preferred",
-          "values": [
-            "Hold Person",
-            "Spiritual Weapon"
-          ]
+          "values": ["Hold Person", "Spiritual Weapon"]
         }
       }
     },
     "equipment_pref": {
-      "prefer": [
-        "Shield"
-      ],
+      "prefer": ["prop:shield"],
       "avoid": []
     },
     "flavor": null,
     "max_level": 20,
     "is_multiclass": false,
-    "sources": [
-      "xge"
-    ],
+    "sources": ["xge"],
     "tier_ratings": [
       {
         "level_min": 1,
@@ -1126,27 +860,13 @@
     "ruleset": "dnd5e",
     "class_id": "class:fighter",
     "subclass_id": "subclass:battle-master",
-    "roles": [
-      "striker",
-      "controller"
-    ],
+    "roles": ["striker", "controller"],
     "race_prefs": {
       "priority": "preferred",
-      "values": [
-        "race:variant-human",
-        "race:mountain-dwarf",
-        "race:half-orc"
-      ]
+      "values": ["race:variant-human", "race:mountain-dwarf", "race:half-orc"]
     },
     "background_pref": "bg:soldier",
-    "stat_priority": [
-      "STR",
-      "CON",
-      "DEX",
-      "WIS",
-      "CHA",
-      "INT"
-    ],
+    "stat_priority": ["STR", "CON", "DEX", "WIS", "CHA", "INT"],
     "asi_priorities": [
       {
         "feat_id": "feat:great-weapon-master"
@@ -1167,28 +887,20 @@
         "choices": {
           "class:fighter-query-fighting_style": {
             "priority": "required",
-            "values": [
-              "style:great-weapon-fighting"
-            ]
+            "values": ["style:great-weapon-fighting"]
           }
         }
       }
     ],
     "spell_prefs": null,
     "equipment_pref": {
-      "prefer": [
-        "two-handed"
-      ],
-      "avoid": [
-        "Shield"
-      ]
+      "prefer": ["prop:two-handed"],
+      "avoid": ["prop:shield"]
     },
     "flavor": null,
     "max_level": 20,
     "is_multiclass": false,
-    "sources": [
-      "phb"
-    ],
+    "sources": ["phb"],
     "tier_ratings": [
       {
         "level_min": 1,
@@ -1223,26 +935,13 @@
     "ruleset": "dnd5e",
     "class_id": "class:fighter",
     "subclass_id": null,
-    "roles": [
-      "striker"
-    ],
+    "roles": ["striker"],
     "race_prefs": {
       "priority": "preferred",
-      "values": [
-        "race:variant-human",
-        "race:wood-elf",
-        "race:lightfoot-halfling"
-      ]
+      "values": ["race:variant-human", "race:wood-elf", "race:lightfoot-halfling"]
     },
     "background_pref": "bg:outlander",
-    "stat_priority": [
-      "DEX",
-      "CON",
-      "WIS",
-      "CHA",
-      "INT",
-      "STR"
-    ],
+    "stat_priority": ["DEX", "CON", "WIS", "CHA", "INT", "STR"],
     "asi_priorities": [
       {
         "feat_id": "feat:sharpshooter"
@@ -1263,28 +962,20 @@
         "choices": {
           "class:fighter-query-fighting_style": {
             "priority": "required",
-            "values": [
-              "style:archery"
-            ]
+            "values": ["style:archery"]
           }
         }
       }
     ],
     "spell_prefs": null,
     "equipment_pref": {
-      "prefer": [
-        "Ranged"
-      ],
-      "avoid": [
-        "Heavy"
-      ]
+      "prefer": ["prop:ranged"],
+      "avoid": ["prop:heavy"]
     },
     "flavor": null,
     "max_level": 20,
     "is_multiclass": false,
-    "sources": [
-      "phb"
-    ],
+    "sources": ["phb"],
     "tier_ratings": [
       {
         "level_min": 1,
@@ -1319,27 +1010,13 @@
     "ruleset": "dnd5e",
     "class_id": "class:wizard",
     "subclass_id": "subclass:divination",
-    "roles": [
-      "controller",
-      "support"
-    ],
+    "roles": ["controller", "support"],
     "race_prefs": {
       "priority": "preferred",
-      "values": [
-        "race:variant-human",
-        "race:high-elf",
-        "race:rock-gnome"
-      ]
+      "values": ["race:variant-human", "race:high-elf", "race:rock-gnome"]
     },
     "background_pref": "bg:sage",
-    "stat_priority": [
-      "INT",
-      "CON",
-      "DEX",
-      "WIS",
-      "CHA",
-      "STR"
-    ],
+    "stat_priority": ["INT", "CON", "DEX", "WIS", "CHA", "STR"],
     "asi_priorities": [
       {
         "ability_id": "Intelligence",
@@ -1363,37 +1040,20 @@
     "spell_prefs": {
       "cantrips": {
         "priority": "preferred",
-        "values": [
-          "Mind Sliver",
-          "Minor Illusion",
-          "Prestidigitation"
-        ]
+        "values": ["Mind Sliver", "Minor Illusion", "Prestidigitation"]
       },
       "spells_by_level": {
         "1": {
           "priority": "preferred",
-          "values": [
-            "Shield",
-            "Silvery Barbs",
-            "Find Familiar",
-            "Detect Magic"
-          ]
+          "values": ["Shield", "Silvery Barbs", "Find Familiar", "Detect Magic"]
         },
         "2": {
           "priority": "preferred",
-          "values": [
-            "Web",
-            "Misty Step",
-            "Suggestion"
-          ]
+          "values": ["Web", "Misty Step", "Suggestion"]
         },
         "3": {
           "priority": "preferred",
-          "values": [
-            "Hypnotic Pattern",
-            "Counterspell",
-            "Slow"
-          ]
+          "values": ["Hypnotic Pattern", "Counterspell", "Slow"]
         }
       }
     },
@@ -1401,9 +1061,7 @@
     "flavor": null,
     "max_level": 20,
     "is_multiclass": false,
-    "sources": [
-      "phb"
-    ],
+    "sources": ["phb"],
     "tier_ratings": [
       {
         "level_min": 1,
@@ -1438,26 +1096,13 @@
     "ruleset": "dnd5e",
     "class_id": "class:wizard",
     "subclass_id": "subclass:illusion",
-    "roles": [
-      "controller"
-    ],
+    "roles": ["controller"],
     "race_prefs": {
       "priority": "preferred",
-      "values": [
-        "race:variant-human",
-        "race:high-elf",
-        "race:forest-gnome"
-      ]
+      "values": ["race:variant-human", "race:high-elf", "race:forest-gnome"]
     },
     "background_pref": "bg:charlatan",
-    "stat_priority": [
-      "INT",
-      "CON",
-      "DEX",
-      "WIS",
-      "CHA",
-      "STR"
-    ],
+    "stat_priority": ["INT", "CON", "DEX", "WIS", "CHA", "STR"],
     "asi_priorities": [
       {
         "ability_id": "Intelligence",
@@ -1481,37 +1126,20 @@
     "spell_prefs": {
       "cantrips": {
         "priority": "preferred",
-        "values": [
-          "Minor Illusion",
-          "Prestidigitation",
-          "Fire Bolt"
-        ]
+        "values": ["Minor Illusion", "Prestidigitation", "Fire Bolt"]
       },
       "spells_by_level": {
         "1": {
           "priority": "preferred",
-          "values": [
-            "Silent Image",
-            "Shield",
-            "Find Familiar",
-            "Disguise Self"
-          ]
+          "values": ["Silent Image", "Shield", "Find Familiar", "Disguise Self"]
         },
         "2": {
           "priority": "preferred",
-          "values": [
-            "Mirror Image",
-            "Phantasmal Force",
-            "Misty Step"
-          ]
+          "values": ["Mirror Image", "Phantasmal Force", "Misty Step"]
         },
         "3": {
           "priority": "preferred",
-          "values": [
-            "Major Image",
-            "Hypnotic Pattern",
-            "Counterspell"
-          ]
+          "values": ["Major Image", "Hypnotic Pattern", "Counterspell"]
         }
       }
     },
@@ -1519,9 +1147,7 @@
     "flavor": null,
     "max_level": 20,
     "is_multiclass": false,
-    "sources": [
-      "phb"
-    ],
+    "sources": ["phb"],
     "tier_ratings": [
       {
         "level_min": 1,
@@ -1556,27 +1182,13 @@
     "ruleset": "dnd5e",
     "class_id": "class:cleric",
     "subclass_id": "domain:order",
-    "roles": [
-      "controller",
-      "support"
-    ],
+    "roles": ["controller", "support"],
     "race_prefs": {
       "priority": "preferred",
-      "values": [
-        "race:variant-human",
-        "race:hill-dwarf",
-        "race:half-elf"
-      ]
+      "values": ["race:variant-human", "race:hill-dwarf", "race:half-elf"]
     },
     "background_pref": "bg:acolyte",
-    "stat_priority": [
-      "WIS",
-      "CON",
-      "CHA",
-      "STR",
-      "DEX",
-      "INT"
-    ],
+    "stat_priority": ["WIS", "CON", "CHA", "STR", "DEX", "INT"],
     "asi_priorities": [
       {
         "ability_id": "Wisdom",
@@ -1600,34 +1212,20 @@
     "spell_prefs": {
       "cantrips": {
         "priority": "preferred",
-        "values": [
-          "Guidance",
-          "Sacred Flame",
-          "Toll the Dead"
-        ]
+        "values": ["Guidance", "Sacred Flame", "Toll the Dead"]
       },
       "spells_by_level": {
         "1": {
           "priority": "preferred",
-          "values": [
-            "Healing Word",
-            "Bless",
-            "Command"
-          ]
+          "values": ["Healing Word", "Bless", "Command"]
         },
         "2": {
           "priority": "preferred",
-          "values": [
-            "Spiritual Weapon",
-            "Hold Person"
-          ]
+          "values": ["Spiritual Weapon", "Hold Person"]
         },
         "3": {
           "priority": "preferred",
-          "values": [
-            "Spirit Guardians",
-            "Mass Healing Word"
-          ]
+          "values": ["Spirit Guardians", "Mass Healing Word"]
         }
       }
     },
@@ -1635,9 +1233,7 @@
     "flavor": null,
     "max_level": 20,
     "is_multiclass": false,
-    "sources": [
-      "tce"
-    ],
+    "sources": ["tce"],
     "tier_ratings": [
       {
         "level_min": 1,
@@ -1672,27 +1268,13 @@
     "ruleset": "dnd5e",
     "class_id": "class:wizard",
     "subclass_id": "subclass:bladesinging",
-    "roles": [
-      "tank",
-      "striker"
-    ],
+    "roles": ["tank", "striker"],
     "race_prefs": {
       "priority": "preferred",
-      "values": [
-        "race:high-elf",
-        "race:variant-human",
-        "race:half-elf"
-      ]
+      "values": ["race:high-elf", "race:variant-human", "race:half-elf"]
     },
     "background_pref": "bg:sage",
-    "stat_priority": [
-      "INT",
-      "DEX",
-      "CON",
-      "WIS",
-      "CHA",
-      "STR"
-    ],
+    "stat_priority": ["INT", "DEX", "CON", "WIS", "CHA", "STR"],
     "asi_priorities": [
       {
         "ability_id": "Intelligence",
@@ -1716,53 +1298,31 @@
     "spell_prefs": {
       "cantrips": {
         "priority": "preferred",
-        "values": [
-          "Booming Blade",
-          "Green-Flame Blade",
-          "Minor Illusion"
-        ]
+        "values": ["Booming Blade", "Green-Flame Blade", "Minor Illusion"]
       },
       "spells_by_level": {
         "1": {
           "priority": "preferred",
-          "values": [
-            "Shield",
-            "Absorb Elements",
-            "Find Familiar"
-          ]
+          "values": ["Shield", "Absorb Elements", "Find Familiar"]
         },
         "2": {
           "priority": "preferred",
-          "values": [
-            "Mirror Image",
-            "Misty Step",
-            "Shadow Blade"
-          ]
+          "values": ["Mirror Image", "Misty Step", "Shadow Blade"]
         },
         "3": {
           "priority": "preferred",
-          "values": [
-            "Haste",
-            "Counterspell",
-            "Spirit Shroud"
-          ]
+          "values": ["Haste", "Counterspell", "Spirit Shroud"]
         }
       }
     },
     "equipment_pref": {
-      "prefer": [
-        "Finesse"
-      ],
-      "avoid": [
-        "Heavy"
-      ]
+      "prefer": ["prop:finesse"],
+      "avoid": ["prop:heavy"]
     },
     "flavor": null,
     "max_level": 20,
     "is_multiclass": false,
-    "sources": [
-      "tce"
-    ],
+    "sources": ["tce"],
     "tier_ratings": [
       {
         "level_min": 1,
@@ -1797,27 +1357,13 @@
     "ruleset": "dnd5e",
     "class_id": "class:cleric",
     "subclass_id": "domain:life",
-    "roles": [
-      "healer",
-      "tank"
-    ],
+    "roles": ["healer", "tank"],
     "race_prefs": {
       "priority": "preferred",
-      "values": [
-        "race:variant-human",
-        "race:hill-dwarf",
-        "race:wood-elf"
-      ]
+      "values": ["race:variant-human", "race:hill-dwarf", "race:wood-elf"]
     },
     "background_pref": "bg:hermit",
-    "stat_priority": [
-      "WIS",
-      "CON",
-      "DEX",
-      "INT",
-      "CHA",
-      "STR"
-    ],
+    "stat_priority": ["WIS", "CON", "DEX", "INT", "CHA", "STR"],
     "asi_priorities": [
       {
         "ability_id": "Wisdom",
@@ -1936,43 +1482,31 @@
     "spell_prefs": {
       "cantrips": {
         "priority": "preferred",
-        "values": [
-          "Produce Flame",
-          "Guidance"
-        ]
+        "values": ["Produce Flame", "Guidance"]
       },
       "spells_by_level": {
         "1": {
           "priority": "preferred",
-          "values": [
-            "Healing Word",
-            "Goodberry",
-            "Entangle"
-          ]
+          "values": ["Healing Word", "Goodberry", "Entangle"]
         },
         "2": {
           "priority": "preferred",
-          "values": [
-            "Moonbeam",
-            "Pass without Trace"
-          ]
+          "values": ["Moonbeam", "Pass without Trace"]
         },
         "3": {
           "priority": "preferred",
-          "values": [
-            "Conjure Animals",
-            "Call Lightning"
-          ]
+          "values": ["Conjure Animals", "Call Lightning"]
         }
       }
     },
-    "equipment_pref": null,
+    "equipment_pref": {
+      "prefer": ["prop:shield"],
+      "avoid": []
+    },
     "flavor": null,
     "max_level": 20,
     "is_multiclass": true,
-    "sources": [
-      "phb"
-    ],
+    "sources": ["phb"],
     "tier_ratings": [
       {
         "level_min": 1,
@@ -2007,26 +1541,13 @@
     "ruleset": "dnd5e",
     "class_id": "class:barbarian",
     "subclass_id": "subclass:path-of-the-totem-warrior",
-    "roles": [
-      "tank"
-    ],
+    "roles": ["tank"],
     "race_prefs": {
       "priority": "preferred",
-      "values": [
-        "race:variant-human",
-        "race:half-orc",
-        "race:hill-dwarf"
-      ]
+      "values": ["race:variant-human", "race:half-orc", "race:hill-dwarf"]
     },
     "background_pref": "bg:outlander",
-    "stat_priority": [
-      "WIS",
-      "CON",
-      "STR",
-      "DEX",
-      "CHA",
-      "INT"
-    ],
+    "stat_priority": ["WIS", "CON", "STR", "DEX", "CHA", "INT"],
     "asi_priorities": [
       {
         "ability_id": "Wisdom",
@@ -2145,50 +1666,31 @@
     "spell_prefs": {
       "cantrips": {
         "priority": "preferred",
-        "values": [
-          "Produce Flame",
-          "Guidance"
-        ]
+        "values": ["Produce Flame", "Guidance"]
       },
       "spells_by_level": {
         "1": {
           "priority": "preferred",
-          "values": [
-            "Entangle",
-            "Healing Word",
-            "Faerie Fire"
-          ]
+          "values": ["Entangle", "Healing Word", "Faerie Fire"]
         },
         "2": {
           "priority": "preferred",
-          "values": [
-            "Moonbeam",
-            "Pass without Trace"
-          ]
+          "values": ["Moonbeam", "Pass without Trace"]
         },
         "3": {
           "priority": "preferred",
-          "values": [
-            "Conjure Animals",
-            "Call Lightning"
-          ]
+          "values": ["Conjure Animals", "Call Lightning"]
         }
       }
     },
     "equipment_pref": {
-      "prefer": [
-        "two-handed"
-      ],
-      "avoid": [
-        "Shield"
-      ]
+      "prefer": ["prop:two-handed"],
+      "avoid": ["prop:shield"]
     },
     "flavor": null,
     "max_level": 20,
     "is_multiclass": true,
-    "sources": [
-      "phb"
-    ],
+    "sources": ["phb"],
     "tier_ratings": [
       {
         "level_min": 1,

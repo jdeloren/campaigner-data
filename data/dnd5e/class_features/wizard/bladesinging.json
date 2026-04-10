@@ -9,7 +9,7 @@
       {
         "type": "proficiency",
         "category": "armor",
-        "proficiencies": ["Light"]
+        "proficiencies": ["prop:light"]
       },
       {
         "type": "proficiency",
@@ -45,7 +45,9 @@
         "name": "Bladesong",
         "uses": {
           "calculation": "proficiency_bonus",
-          "bounds": { "minimum": 1 }
+          "bounds": {
+            "minimum": 1
+          }
         },
         "recharge": "long_rest",
         "duration": {
@@ -83,7 +85,9 @@
                     "ability": "Intelligence"
                   }
                 ],
-                "bounds": { "minimum": 1 }
+                "bounds": {
+                  "minimum": 1
+                }
               }
             }
           },
@@ -119,7 +123,9 @@
                     "ability": "Intelligence"
                   }
                 ],
-                "bounds": { "minimum": 1 }
+                "bounds": {
+                  "minimum": 1
+                }
               }
             },
             "trigger": {

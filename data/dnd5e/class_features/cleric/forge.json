@@ -35,12 +35,12 @@
       {
         "type": "proficiency",
         "category": "armor",
-        "proficiencies": ["Heavy"]
+        "proficiencies": ["prop:heavy"]
       },
       {
         "type": "proficiency",
         "category": "tool",
-        "proficiencies": ["Smith's Tools"]
+        "proficiencies": ["tool:smiths-tools"]
       }
     ]
   },

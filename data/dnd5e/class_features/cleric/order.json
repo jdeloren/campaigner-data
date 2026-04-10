@@ -35,7 +35,7 @@
       {
         "type": "proficiency",
         "category": "armor",
-        "proficiencies": ["Heavy"]
+        "proficiencies": ["prop:heavy"]
       },
       {
         "type": "choice",

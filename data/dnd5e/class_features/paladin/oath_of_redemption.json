@@ -248,7 +248,9 @@
                 ]
               }
             },
-            "target": { "type": "self" }
+            "target": {
+              "type": "self"
+            }
           }
         ]
       }

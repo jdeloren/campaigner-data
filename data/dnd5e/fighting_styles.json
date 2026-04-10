@@ -193,7 +193,7 @@
           },
           {
             "type": "weapon_property",
-            "property": ["Two-handed", "Versatile"]
+            "property": ["prop:two-handed", "prop:versatile"]
           }
         ]
       }

@@ -39,7 +39,9 @@
         "uses": {
           "value": 1,
           "calculation": "scores.charisma.modifier",
-          "bounds": { "minimum": 1 }
+          "bounds": {
+            "minimum": 1
+          }
         },
         "recharge": "long_rest"
       }
@@ -220,7 +222,9 @@
                     "type": "spell_level_cast"
                   }
                 ],
-                "bounds": { "maximum": 5 }
+                "bounds": {
+                  "maximum": 5
+                }
               },
               "type": ["radiant"]
             }
@@ -428,7 +432,9 @@
                         "ability": "Charisma"
                       }
                     ],
-                    "bounds": { "minimum": 1 }
+                    "bounds": {
+                      "minimum": 1
+                    }
                   }
                 }
               }
@@ -558,7 +564,9 @@
         ],
         "uses": {
           "calculation": "scores.charisma.modifier",
-          "bounds": { "minimum": 1 }
+          "bounds": {
+            "minimum": 1
+          }
         },
         "recharge": "long_rest"
       }

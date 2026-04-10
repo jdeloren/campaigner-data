@@ -57,7 +57,9 @@
                     "ability": "Charisma"
                   }
                 ],
-                "bounds": { "minimum": 1 }
+                "bounds": {
+                  "minimum": 1
+                }
               }
             }
           },

@@ -68,8 +68,18 @@
             "aura": {
               "origin": "self",
               "layers": [
-                { "type": "bright_light", "shape": "radius", "size": 10, "unit": "feet" },
-                { "type": "dim_light", "shape": "radius", "size": 10, "unit": "feet" }
+                {
+                  "type": "bright_light",
+                  "shape": "radius",
+                  "size": 10,
+                  "unit": "feet"
+                },
+                {
+                  "type": "dim_light",
+                  "shape": "radius",
+                  "size": 10,
+                  "unit": "feet"
+                }
               ]
             }
           }
@@ -112,7 +122,12 @@
               "type": ["radiant"],
               "bonus": {
                 "operation": "add",
-                "operators": [{ "type": "ability_modifier", "ability": "Wisdom" }]
+                "operators": [
+                  {
+                    "type": "ability_modifier",
+                    "ability": "Wisdom"
+                  }
+                ]
               }
             },
             "target": {
@@ -152,7 +167,12 @@
                   "dice": "1d8",
                   "bonus": {
                     "operation": "add",
-                    "operators": [{ "type": "ability_modifier", "ability": "Wisdom" }]
+                    "operators": [
+                      {
+                        "type": "ability_modifier",
+                        "ability": "Wisdom"
+                      }
+                    ]
                   }
                 },
                 "target": {
@@ -186,13 +206,17 @@
               {
                 "roll_modifier": {
                   "type": "ability_check",
-                  "bounds": { "minimum": 10 }
+                  "bounds": {
+                    "minimum": 10
+                  }
                 }
               },
               {
                 "roll_modifier": {
                   "type": "saving_throw",
-                  "bounds": { "minimum": 10 }
+                  "bounds": {
+                    "minimum": 10
+                  }
                 }
               }
             ]
@@ -316,7 +340,12 @@
               "property": "fly",
               "calculation": {
                 "operation": "set",
-                "operators": [{ "type": "integer", "value": 20 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 20
+                  }
+                ]
               }
             }
           }

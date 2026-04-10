@@ -35,12 +35,12 @@
       {
         "type": "proficiency",
         "category": "weapon",
-        "proficiencies": ["Martial"]
+        "proficiencies": ["prop:martial"]
       },
       {
         "type": "proficiency",
         "category": "armor",
-        "proficiencies": ["Heavy"]
+        "proficiencies": ["prop:heavy"]
       }
     ]
   },

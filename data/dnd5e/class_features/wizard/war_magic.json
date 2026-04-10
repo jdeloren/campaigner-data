@@ -25,7 +25,10 @@
               "bonus": {
                 "operation": "add",
                 "operators": [
-                  { "type": "integer", "value": 2 }
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
                 ]
               }
             }
@@ -125,7 +128,9 @@
         "count": {
           "type": "ability_modifier",
           "ability": "Intelligence",
-          "bounds": { "minimum": 1 }
+          "bounds": {
+            "minimum": 1
+          }
         },
         "recharge": "long_rest"
       },
@@ -247,7 +252,10 @@
               "bonus": {
                 "operation": "add",
                 "operators": [
-                  { "type": "integer", "value": 2 }
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
                 ]
               }
             }
@@ -259,7 +267,10 @@
               "bonus": {
                 "operation": "add",
                 "operators": [
-                  { "type": "integer", "value": 2 }
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
                 ]
               }
             }
@@ -271,7 +282,10 @@
               "bonus": {
                 "operation": "add",
                 "operators": [
-                  { "type": "integer", "value": 2 }
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
                 ]
               }
             }
@@ -283,7 +297,10 @@
               "bonus": {
                 "operation": "add",
                 "operators": [
-                  { "type": "integer", "value": 2 }
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
                 ]
               }
             }
@@ -295,7 +312,10 @@
               "bonus": {
                 "operation": "add",
                 "operators": [
-                  { "type": "integer", "value": 2 }
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
                 ]
               }
             }
@@ -307,7 +327,10 @@
               "bonus": {
                 "operation": "add",
                 "operators": [
-                  { "type": "integer", "value": 2 }
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
                 ]
               }
             }
@@ -319,7 +342,10 @@
               "bonus": {
                 "operation": "add",
                 "operators": [
-                  { "type": "integer", "value": 2 }
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
                 ]
               }
             }

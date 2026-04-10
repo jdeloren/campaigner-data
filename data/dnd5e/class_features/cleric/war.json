@@ -13,26 +13,11 @@
         "always_prepared": true,
         "scaling": {
           "by_level": {
-            "1": [
-              "spell:divine-favor",
-              "spell:shield-of-faith"
-            ],
-            "3": [
-              "spell:magic-weapon",
-              "spell:spiritual-weapon"
-            ],
-            "5": [
-              "spell:crusaders-mantle",
-              "spell:spirit-guardians"
-            ],
-            "7": [
-              "spell:freedom-of-movement",
-              "spell:stoneskin"
-            ],
-            "9": [
-              "spell:flame-strike",
-              "spell:hold-monster"
-            ]
+            "1": ["spell:divine-favor", "spell:shield-of-faith"],
+            "3": ["spell:magic-weapon", "spell:spiritual-weapon"],
+            "5": ["spell:crusaders-mantle", "spell:spirit-guardians"],
+            "7": ["spell:freedom-of-movement", "spell:stoneskin"],
+            "9": ["spell:flame-strike", "spell:hold-monster"]
           }
         }
       }
@@ -49,16 +34,12 @@
       {
         "type": "proficiency",
         "category": "armor",
-        "proficiencies": [
-          "Heavy"
-        ]
+        "proficiencies": ["prop:heavy"]
       },
       {
         "type": "proficiency",
         "category": "weapon",
-        "proficiencies": [
-          "Martial"
-        ]
+        "proficiencies": ["prop:martial"]
       }
     ],
     "description": "You gain proficiency with heavy armor and martial weapons."
@@ -75,9 +56,7 @@
       {
         "type": "bonus_action",
         "trigger": {
-          "event": [
-            "attack"
-          ],
+          "event": ["attack"],
           "source": {
             "type": "weapon"
           }
@@ -111,9 +90,7 @@
       {
         "type": "optional",
         "trigger": {
-          "event": [
-            "attack"
-          ]
+          "event": ["attack"]
         },
         "effects": [
           {
@@ -148,9 +125,7 @@
       {
         "type": "reaction",
         "trigger": {
-          "event": [
-            "attack"
-          ]
+          "event": ["attack"]
         },
         "target": {
           "type": "creature"
@@ -190,9 +165,7 @@
       {
         "type": "damage_bonus",
         "trigger": {
-          "event": [
-            "damage"
-          ],
+          "event": ["damage"],
           "source": {
             "type": "weapon"
           }
@@ -235,11 +208,7 @@
           {
             "damage_response": {
               "category": "resistance",
-              "to": [
-                "bludgeoning",
-                "piercing",
-                "slashing"
-              ],
+              "to": ["bludgeoning", "piercing", "slashing"],
               "source": {
                 "magical": false
               }

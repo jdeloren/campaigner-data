@@ -285,7 +285,9 @@
         ],
         "uses": {
           "calculation": "scores.charisma.modifier",
-          "bounds": { "minimum": 1 }
+          "bounds": {
+            "minimum": 1
+          }
         },
         "recharge": "long_rest"
       }
@@ -298,7 +300,7 @@
     "class": "subclass:oath-of-glory",
     "level": 20,
     "name": "Living Legend",
-    "description": "At 20th level, you can empower yourself with the legends — whether true or exaggerated — of your great deeds. As a bonus action, you gain the following benefits for 1 minute:\n\n- You are blessed with an otherworldly presence, gaining advantage on all Charisma checks.\n- Once on each of your turns when you make a weapon attack and miss, you can cause that attack to hit instead.\n- If you fail a saving throw, you can use your reaction to reroll it. You must use this new roll.",
+    "description": "At 20th level, you can empower yourself with the legends - whether true or exaggerated \u2014 of your great deeds. As a bonus action, you gain the following benefits for 1 minute:\n\n- You are blessed with an otherworldly presence, gaining advantage on all Charisma checks.\n- Once on each of your turns when you make a weapon attack and miss, you can cause that attack to hit instead.\n- If you fail a saving throw, you can use your reaction to reroll it. You must use this new roll.",
     "mechanics": [
       {
         "type": "bonus_action",
