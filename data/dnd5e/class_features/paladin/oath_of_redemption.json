@@ -216,7 +216,7 @@
           },
           {
             "type": "status",
-            "value": "incapacitated",
+            "value": "status:incapacitated",
             "negate": true
           }
         ],
@@ -248,7 +248,9 @@
                 ]
               }
             },
-            "target": { "type": "self" }
+            "target": {
+              "type": "self"
+            }
           }
         ]
       }

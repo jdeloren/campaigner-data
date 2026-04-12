@@ -1,0 +1,20 @@
+[
+  {"id": "lang:common", "name": "Common"},
+  {"id": "lang:dwarvish", "name": "Dwarvish"},
+  {"id": "lang:elvish", "name": "Elvish"},
+  {"id": "lang:giant", "name": "Giant"},
+  {"id": "lang:gnomish", "name": "Gnomish"},
+  {"id": "lang:goblin", "name": "Goblin"},
+  {"id": "lang:halfling", "name": "Halfling"},
+  {"id": "lang:orc", "name": "Orc"},
+  {"id": "lang:abyssal", "name": "Abyssal"},
+  {"id": "lang:celestial", "name": "Celestial"},
+  {"id": "lang:draconic", "name": "Draconic"},
+  {"id": "lang:deep-speech", "name": "Deep Speech"},
+  {"id": "lang:infernal", "name": "Infernal"},
+  {"id": "lang:primordial", "name": "Primordial"},
+  {"id": "lang:sylvan", "name": "Sylvan"},
+  {"id": "lang:undercommon", "name": "Undercommon"},
+  {"id": "lang:druidic", "name": "Druidic", "selectable": false},
+  {"id": "lang:thieves-cant", "name": "Thieves' Cant", "selectable": false}
+]

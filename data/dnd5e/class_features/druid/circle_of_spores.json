@@ -101,7 +101,7 @@
                   {
                     "event": ["status_removed"],
                     "status": {
-                      "name": "symbiotic_entity",
+                      "id": "status:symbiotic-entity",
                       "method": "voluntary"
                     }
                   }
@@ -226,7 +226,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "symbiotic-entity"
+            "value": "status:symbiotic-entity"
           }
         ],
         "effects": [
@@ -266,7 +266,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "incapacitated",
+            "value": "status:incapacitated",
             "negate": true
           }
         ],
@@ -274,7 +274,7 @@
           {
             "immunity": {
               "category": "status",
-              "status": ["blinded", "deafened", "frightened", "poisoned"]
+              "status": ["status:blinded", "status:deafened", "status:frightened", "status:poisoned"]
             }
           },
           {

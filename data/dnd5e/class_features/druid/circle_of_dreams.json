@@ -25,7 +25,9 @@
             "resource": "fey_energy",
             "choice_type": "resource",
             "minimum": 1,
-            "limit": { "scaling": "max_dice" }
+            "limit": {
+              "scaling": "max_dice"
+            }
           }
         ],
         "target": {
@@ -50,7 +52,12 @@
             "healing": {
               "calculation": {
                 "operation": "add",
-                "operators": [{ "type": "resource_die", "value": "fey_energy" }]
+                "operators": [
+                  {
+                    "type": "resource_die",
+                    "value": "fey_energy"
+                  }
+                ]
               }
             }
           },
@@ -62,7 +69,13 @@
               },
               "calculation": {
                 "operation": "set",
-                "operators": [{ "type": "resource", "value": "fey_energy", "property": "current" }]
+                "operators": [
+                  {
+                    "type": "resource",
+                    "value": "fey_energy",
+                    "property": "current"
+                  }
+                ]
               }
             }
           }
@@ -120,7 +133,12 @@
                   "target": "skill.Stealth",
                   "calculation": {
                     "operation": "add",
-                    "operators": [{ "type": "integer", "value": 5 }]
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 5
+                      }
+                    ]
                   }
                 }
               }
@@ -142,7 +160,12 @@
                   "target": "skill.Perception",
                   "calculation": {
                     "operation": "add",
-                    "operators": [{ "type": "integer", "value": 5 }]
+                    "operators": [
+                      {
+                        "type": "integer",
+                        "value": 5
+                      }
+                    ]
                   }
                 }
               }
@@ -168,7 +191,9 @@
         "count": {
           "type": "ability_modifier",
           "ability": "Wisdom",
-          "bounds": { "minimum": 1 }
+          "bounds": {
+            "minimum": 1
+          }
         },
         "recharge": "long_rest"
       },
@@ -186,7 +211,9 @@
               "type": "teleport",
               "distance": 60
             },
-            "target": { "type": "self" }
+            "target": {
+              "type": "self"
+            }
           }
         ]
       },

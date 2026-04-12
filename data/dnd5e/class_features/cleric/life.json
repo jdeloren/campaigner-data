@@ -13,26 +13,11 @@
         "always_prepared": true,
         "scaling": {
           "by_level": {
-            "1": [
-              "spell:bless",
-              "spell:cure-wounds"
-            ],
-            "3": [
-              "spell:lesser-restoration",
-              "spell:spiritual-weapon"
-            ],
-            "5": [
-              "spell:beacon-of-hope",
-              "spell:revivify"
-            ],
-            "7": [
-              "spell:death-ward",
-              "spell:guardian-of-faith"
-            ],
-            "9": [
-              "spell:mass-cure-wounds",
-              "spell:raise-dead"
-            ]
+            "1": ["spell:bless", "spell:cure-wounds"],
+            "3": ["spell:lesser-restoration", "spell:spiritual-weapon"],
+            "5": ["spell:beacon-of-hope", "spell:revivify"],
+            "7": ["spell:death-ward", "spell:guardian-of-faith"],
+            "9": ["spell:mass-cure-wounds", "spell:raise-dead"]
           }
         }
       }
@@ -49,9 +34,7 @@
       {
         "type": "proficiency",
         "category": "armor",
-        "proficiencies": [
-          "Heavy"
-        ]
+        "proficiencies": ["prop:heavy"]
       }
     ],
     "description": "You gain proficiency with heavy armor."
@@ -68,13 +51,9 @@
       {
         "type": "passive",
         "trigger": {
-          "event": [
-            "cast_spell"
-          ],
+          "event": ["cast_spell"],
           "spell": {
-            "effect": [
-              "healing"
-            ]
+            "effect": ["healing"]
           }
         },
         "requirements": [
@@ -126,9 +105,7 @@
         "requirements": [
           {
             "type": "equipment",
-            "item": [
-              "holy symbol"
-            ]
+            "item": ["holy symbol"]
           }
         ],
         "effects": [
@@ -139,10 +116,7 @@
               "requirements": [
                 {
                   "type": "creature_type",
-                  "value": [
-                    "Undead",
-                    "Construct"
-                  ],
+                  "value": ["Undead", "Construct"],
                   "negate": true
                 },
                 {
@@ -205,13 +179,9 @@
       {
         "type": "passive",
         "trigger": {
-          "event": [
-            "cast_spell"
-          ],
+          "event": ["cast_spell"],
           "spell": {
-            "effect": [
-              "healing"
-            ]
+            "effect": ["healing"]
           },
           "target": {
             "exclude": "self"
@@ -258,18 +228,14 @@
       {
         "type": "damage_bonus",
         "trigger": {
-          "event": [
-            "damage"
-          ],
+          "event": ["damage"],
           "source": {
             "type": "weapon"
           }
         },
         "damage": {
           "dice": "1d8",
-          "type": [
-            "radiant"
-          ]
+          "type": ["radiant"]
         },
         "scaling": {
           "components": {
@@ -302,13 +268,9 @@
       {
         "type": "passive",
         "trigger": {
-          "event": [
-            "cast_spell"
-          ],
+          "event": ["cast_spell"],
           "spell": {
-            "effect": [
-              "healing"
-            ]
+            "effect": ["healing"]
           }
         },
         "effects": [

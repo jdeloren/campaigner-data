@@ -56,7 +56,7 @@
                   {
                     "event": ["status_removed"],
                     "status": {
-                      "name": "starry-form",
+                      "id": "status:starry-form",
                       "method": "voluntary"
                     }
                   }
@@ -68,8 +68,18 @@
             "aura": {
               "origin": "self",
               "layers": [
-                { "type": "bright_light", "shape": "radius", "size": 10, "unit": "feet" },
-                { "type": "dim_light", "shape": "radius", "size": 10, "unit": "feet" }
+                {
+                  "type": "bright_light",
+                  "shape": "radius",
+                  "size": 10,
+                  "unit": "feet"
+                },
+                {
+                  "type": "dim_light",
+                  "shape": "radius",
+                  "size": 10,
+                  "unit": "feet"
+                }
               ]
             }
           }
@@ -104,7 +114,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "starry-form"
+                "value": "status:starry-form"
               }
             ],
             "damage": {
@@ -112,7 +122,12 @@
               "type": ["radiant"],
               "bonus": {
                 "operation": "add",
-                "operators": [{ "type": "ability_modifier", "ability": "Wisdom" }]
+                "operators": [
+                  {
+                    "type": "ability_modifier",
+                    "ability": "Wisdom"
+                  }
+                ]
               }
             },
             "target": {
@@ -136,7 +151,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "starry-form"
+                "value": "status:starry-form"
               }
             ],
             "trigger": {
@@ -152,7 +167,12 @@
                   "dice": "1d8",
                   "bonus": {
                     "operation": "add",
-                    "operators": [{ "type": "ability_modifier", "ability": "Wisdom" }]
+                    "operators": [
+                      {
+                        "type": "ability_modifier",
+                        "ability": "Wisdom"
+                      }
+                    ]
                   }
                 },
                 "target": {
@@ -179,20 +199,24 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "starry-form"
+                "value": "status:starry-form"
               }
             ],
             "effects": [
               {
                 "roll_modifier": {
                   "type": "ability_check",
-                  "bounds": { "minimum": 10 }
+                  "bounds": {
+                    "minimum": 10
+                  }
                 }
               },
               {
                 "roll_modifier": {
                   "type": "saving_throw",
-                  "bounds": { "minimum": 10 }
+                  "bounds": {
+                    "minimum": 10
+                  }
                 }
               }
             ]
@@ -295,7 +319,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "starry-form"
+            "value": "status:starry-form"
           }
         ],
         "effects": [
@@ -316,7 +340,12 @@
               "property": "fly",
               "calculation": {
                 "operation": "set",
-                "operators": [{ "type": "integer", "value": 20 }]
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 20
+                  }
+                ]
               }
             }
           }
@@ -339,7 +368,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "starry-form"
+            "value": "status:starry-form"
           }
         ],
         "effects": [

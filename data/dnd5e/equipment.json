@@ -24,10 +24,13 @@
       "type": ["bludgeoning"]
     },
     "weight": 2.0,
-    "properties": ["Simple", "Melee", "Light"],
+    "properties": ["prop:simple", "prop:melee", "prop:light"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "melee": 5
+    }
   },
   {
     "id": "equip:crossbow-bolts-20",
@@ -54,10 +57,17 @@
       "type": ["piercing"]
     },
     "weight": 1.0,
-    "properties": ["Simple", "Melee", "Finesse", "Light", "Thrown (20/60)"],
+    "properties": ["prop:simple", "prop:melee", "prop:finesse", "prop:light", "prop:thrown"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "thrown": {
+        "normal": 20,
+        "long": 60
+      },
+      "melee": 5
+    }
   },
   {
     "id": "equip:greatclub",
@@ -71,10 +81,13 @@
       "type": ["bludgeoning"]
     },
     "weight": 10.0,
-    "properties": ["Simple", "Melee", "Two-handed"],
+    "properties": ["prop:simple", "prop:melee", "prop:two-handed"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "melee": 5
+    }
   },
   {
     "id": "equip:handaxe",
@@ -88,10 +101,17 @@
       "type": ["slashing"]
     },
     "weight": 2.0,
-    "properties": ["Simple", "Melee", "Light", "Thrown (20/60)"],
+    "properties": ["prop:simple", "prop:melee", "prop:light", "prop:thrown"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "thrown": {
+        "normal": 20,
+        "long": 60
+      },
+      "melee": 5
+    }
   },
   {
     "id": "equip:javelin",
@@ -105,10 +125,17 @@
       "type": ["piercing"]
     },
     "weight": 2.0,
-    "properties": ["Simple", "Melee", "Thrown (30/120)"],
+    "properties": ["prop:simple", "prop:melee", "prop:thrown"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "thrown": {
+        "normal": 30,
+        "long": 120
+      },
+      "melee": 5
+    }
   },
   {
     "id": "equip:light-hammer",
@@ -122,10 +149,17 @@
       "type": ["bludgeoning"]
     },
     "weight": 2.0,
-    "properties": ["Simple", "Melee", "Light", "Thrown (20/60)"],
+    "properties": ["prop:simple", "prop:melee", "prop:light", "prop:thrown"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "thrown": {
+        "normal": 20,
+        "long": 60
+      },
+      "melee": 5
+    }
   },
   {
     "id": "equip:mace",
@@ -139,10 +173,13 @@
       "type": ["bludgeoning"]
     },
     "weight": 4.0,
-    "properties": ["Simple", "Melee"],
+    "properties": ["prop:simple", "prop:melee"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "melee": 5
+    }
   },
   {
     "id": "equip:quarterstaff",
@@ -153,13 +190,17 @@
     },
     "damage": {
       "dice": "1d6",
-      "type": ["bludgeoning"]
+      "type": ["bludgeoning"],
+      "versatile": "1d8"
     },
     "weight": 4.0,
-    "properties": ["Simple", "Melee", "Versatile (1d8)"],
+    "properties": ["prop:simple", "prop:melee", "prop:versatile"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "melee": 5
+    }
   },
   {
     "id": "equip:sickle",
@@ -173,10 +214,13 @@
       "type": ["slashing"]
     },
     "weight": 2.0,
-    "properties": ["Simple", "Melee", "Light"],
+    "properties": ["prop:simple", "prop:melee", "prop:light"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "melee": 5
+    }
   },
   {
     "id": "equip:sling-bullets-20",
@@ -200,13 +244,21 @@
     },
     "damage": {
       "dice": "1d6",
-      "type": ["piercing"]
+      "type": ["piercing"],
+      "versatile": "1d8"
     },
     "weight": 3.0,
-    "properties": ["Simple", "Melee", "Thrown (20/60)", "Versatile (1d8)"],
+    "properties": ["prop:simple", "prop:melee", "prop:thrown", "prop:versatile"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "thrown": {
+        "normal": 20,
+        "long": 60
+      },
+      "melee": 5
+    }
   },
   {
     "id": "equip:light-crossbow",
@@ -220,10 +272,24 @@
       "type": ["piercing"]
     },
     "weight": 5.0,
-    "properties": ["Simple", "Ranged", "Ammunition", "Crossbow", "Range (80/320)", "Loading", "Two-handed"],
+    "properties": [
+      "prop:simple",
+      "prop:ranged",
+      "prop:ammunition",
+      "prop:crossbow",
+      "prop:range",
+      "prop:loading",
+      "prop:two-handed"
+    ],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "ranged": {
+        "normal": 80,
+        "long": 320
+      }
+    }
   },
   {
     "id": "equip:dart",
@@ -237,10 +303,16 @@
       "type": ["piercing"]
     },
     "weight": 0.25,
-    "properties": ["Simple", "Ranged", "Finesse", "Thrown (20/60)"],
+    "properties": ["prop:simple", "prop:ranged", "prop:finesse", "prop:thrown"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "thrown": {
+        "normal": 20,
+        "long": 60
+      }
+    }
   },
   {
     "id": "equip:shortbow",
@@ -254,10 +326,16 @@
       "type": ["piercing"]
     },
     "weight": 2.0,
-    "properties": ["Simple", "Ranged", "Ammunition", "Range (80/320)", "Two-handed"],
+    "properties": ["prop:simple", "prop:ranged", "prop:ammunition", "prop:range", "prop:two-handed"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "ranged": {
+        "normal": 80,
+        "long": 320
+      }
+    }
   },
   {
     "id": "equip:sling",
@@ -271,10 +349,16 @@
       "type": ["bludgeoning"]
     },
     "weight": 0.0,
-    "properties": ["Simple", "Ranged", "Ammunition", "Range (30/120)"],
+    "properties": ["prop:simple", "prop:ranged", "prop:ammunition", "prop:range"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "ranged": {
+        "normal": 30,
+        "long": 120
+      }
+    }
   },
   {
     "id": "equip:padded",
@@ -293,7 +377,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": ["Light"]
+    "properties": ["prop:light"]
   },
   {
     "id": "equip:leather-armor",
@@ -312,7 +396,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": ["Light"]
+    "properties": ["prop:light"]
   },
   {
     "id": "equip:studded-leather",
@@ -331,7 +415,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": ["Light"]
+    "properties": ["prop:light"]
   },
   {
     "id": "equip:hide-armor",
@@ -350,7 +434,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": ["Medium"]
+    "properties": ["prop:medium"]
   },
   {
     "id": "equip:chain-shirt",
@@ -369,7 +453,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": ["Medium"]
+    "properties": ["prop:medium"]
   },
   {
     "id": "equip:scale-mail",
@@ -388,7 +472,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": ["Medium"]
+    "properties": ["prop:medium"]
   },
   {
     "id": "equip:spiked-armor",
@@ -407,7 +491,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": ["Medium"]
+    "properties": ["prop:medium"]
   },
   {
     "id": "equip:breastplate",
@@ -426,7 +510,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": ["Medium"]
+    "properties": ["prop:medium"]
   },
   {
     "id": "equip:halfplate",
@@ -445,7 +529,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": ["Medium"]
+    "properties": ["prop:medium"]
   },
   {
     "id": "equip:ring-mail",
@@ -464,7 +548,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": ["Heavy"]
+    "properties": ["prop:heavy"]
   },
   {
     "id": "equip:chain-mail",
@@ -492,7 +576,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": ["Heavy"]
+    "properties": ["prop:heavy"]
   },
   {
     "id": "equip:splint-mail",
@@ -520,7 +604,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": ["Heavy"]
+    "properties": ["prop:heavy"]
   },
   {
     "id": "equip:plate-mail",
@@ -548,7 +632,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": ["Heavy"]
+    "properties": ["prop:heavy"]
   },
   {
     "id": "equip:shield",
@@ -567,7 +651,7 @@
     "category": "armor",
     "source": "phb",
     "ruleset": "dnd5e",
-    "properties": ["Shield"]
+    "properties": ["prop:shield"]
   },
   {
     "id": "equip:burglars-pack",
@@ -636,7 +720,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:diplomats-pack",
@@ -693,7 +778,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:dungeoneers-pack",
@@ -742,7 +828,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:entertainers-pack",
@@ -783,7 +870,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:explorers-pack",
@@ -828,7 +916,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:priests-pack",
@@ -881,7 +970,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:scholars-pack",
@@ -922,7 +1012,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:abacus",
@@ -934,7 +1025,8 @@
     "weight": 2.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:alms-box",
@@ -944,7 +1036,8 @@
     "description": "A small box used to collect donations for the poor and for religious purposes.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:bag-of-sand",
@@ -954,7 +1047,8 @@
     "description": "A small bag of fine sand, useful for drying ink, testing for drafts, or marking surfaces.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:badge",
@@ -964,7 +1058,8 @@
     "description": "A small emblem or token identifying the wearer's affiliation with a faction or organization.",
     "category": "adventuring_gear",
     "source": "scag",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:banner",
@@ -974,7 +1069,8 @@
     "description": "A cloth banner bearing the symbol of a knightly order, faction, or noble house.",
     "category": "adventuring_gear",
     "source": "scag",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:bedroll",
@@ -986,7 +1082,8 @@
     "weight": 2.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:bell",
@@ -998,7 +1095,8 @@
     "weight": 0.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:belaying-pin",
@@ -1007,7 +1105,7 @@
     "weight": 1.0,
     "description": "A sturdy wooden pin used to secure ropes on sailing vessels. Can be used as an improvised club.",
     "category": "adventuring_gear",
-    "properties": ["Improvised"],
+    "properties": ["prop:improvised"],
     "source": "phb",
     "ruleset": "dnd5e"
   },
@@ -1021,7 +1119,8 @@
     "weight": 3.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:block-and-tackle",
@@ -1040,7 +1139,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:blue-quartz-gem",
@@ -1053,7 +1153,8 @@
     "description": "A small quartz gemstone shaped in a bevelled square. It is transparent pale blue in color.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:book",
@@ -1066,7 +1167,8 @@
     "description": "A book might contain poetry, historical accounts, information pertaining to a particular field of lore, diagrams and notes on gnomish contraptions, or just about anything else that can be represented sing text or pictures. A book of spells is a spellbook.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:brooch",
@@ -1076,7 +1178,8 @@
     "description": "A decorative pin or clasp worn as a fastener or ornament.",
     "category": "adventuring_gear",
     "source": "scag",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:candle",
@@ -1114,7 +1217,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:censer",
@@ -1124,7 +1228,8 @@
     "description": "A metal container used for burning incense during religious ceremonies. Suspended from chains and swung gently to disperse fragrant smoke.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:chain-10-ft",
@@ -1144,7 +1249,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:cestus",
@@ -1158,10 +1264,13 @@
       "type": ["bludgeoning"]
     },
     "weight": 0.5,
-    "properties": ["Simple", "Melee", "Finesse"],
+    "properties": ["prop:simple", "prop:melee", "prop:finesse"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "melee": 5
+    }
   },
   {
     "id": "equip:chalk-1-pc",
@@ -1173,7 +1282,8 @@
     "weight": 0.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:clothes-common",
@@ -1186,7 +1296,8 @@
     "description": "A simple set of clothes including a loose shirt, trousers, and basic footwear.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:clothes-common-dark",
@@ -1199,7 +1310,8 @@
     "description": "A simple set of dark-colored clothes, suitable for blending into shadows or nighttime activities.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:clothes-costume",
@@ -1212,7 +1324,8 @@
     "description": "A set of clothes suitable for a theatrical or festive costume, including accessories.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:clothes-fine",
@@ -1225,7 +1338,8 @@
     "description": "A set of fine clothes, suitable for high society. Includes a silk shirt, velvet coat, and other accessories.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:clothes-travelers",
@@ -1238,7 +1352,8 @@
     "description": "A sturdy set of clothes suitable for travel, including boots, a cloak, and practical garments.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:component-pouch",
@@ -1251,7 +1366,8 @@
     "description": "A component pouch is a small, watertight leather belt pouch that has compartments to hold all the material components and other special items you need to cast your spells, except for those components that have a specific cost (as indicated in a spell's description).",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:fishing-tackle",
@@ -1264,7 +1380,8 @@
     "description": "This kit includes a wooden rod, silken line, corkwood bobbers, steel hooks, lead sinkers, velvet lures, and narrow netting.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:grappling-hook",
@@ -1276,7 +1393,8 @@
     "weight": 4.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:hammer",
@@ -1288,7 +1406,8 @@
     "weight": 3.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:hempen-rope-50-ft.",
@@ -1321,7 +1440,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:hourglass",
@@ -1333,7 +1453,8 @@
     "weight": 1.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:hood",
@@ -1343,7 +1464,8 @@
     "description": "A simple cloth hood used to conceal the wearer's face.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:incense-block",
@@ -1353,7 +1475,8 @@
     "description": "A small block of aromatic incense, used in religious ceremonies and meditation.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:incense-stick",
@@ -1363,7 +1486,8 @@
     "description": "A thin stick of aromatic incense.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:ink-1-oz",
@@ -1375,7 +1499,8 @@
     "weight": 0.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:ink-pen",
@@ -1387,7 +1512,8 @@
     "weight": 0.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:ladder-10-ft",
@@ -1399,7 +1525,8 @@
     "weight": 25.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:lock",
@@ -1418,7 +1545,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:magnifying-glass",
@@ -1448,7 +1576,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:manacles",
@@ -1468,7 +1597,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:mess-kit",
@@ -1481,7 +1611,8 @@
     "description": "This tin box contains a cup and simple cutlery. The box clamps together, and one side can be used as a cooking pan and the other as a plate or shallow bowl.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:miners-pick",
@@ -1493,7 +1624,8 @@
     "weight": 10.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:paper-1-sheet",
@@ -1505,7 +1637,8 @@
     "weight": 0.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:parchment",
@@ -1517,7 +1650,8 @@
     "weight": 0.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:parchment-1-sheet",
@@ -1529,7 +1663,8 @@
     "weight": 0.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:perfume-vial",
@@ -1541,7 +1676,8 @@
     "weight": 0.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:piton",
@@ -1553,7 +1689,8 @@
     "weight": 0.25,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:pole-10-ft",
@@ -1565,7 +1702,8 @@
     "weight": 7.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:prayer-book",
@@ -1575,7 +1713,8 @@
     "description": "A bound volume of prayers, hymns, and sacred texts used in daily devotions and religious ceremonies.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:prayer-wheel",
@@ -1585,7 +1724,8 @@
     "description": "A cylindrical wheel on a spindle inscribed with prayers and mantras. Spinning the wheel is believed to have the same spiritual effect as reciting the prayers aloud.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:ram-portable",
@@ -1628,7 +1768,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:rations-1-day",
@@ -1641,7 +1782,8 @@
     "description": "Rations consist of dry foods suitable for extended travel, including jerky, dried fruit, hardtack, and nuts.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:rope-50-ft.",
@@ -1674,7 +1816,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:rope-silk-50-ft.",
@@ -1707,7 +1850,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:scholars-robes",
@@ -1717,7 +1861,8 @@
     "description": "Flowing robes traditionally worn by scholars and academics, often bearing the colors or insignia of a particular institution.",
     "category": "adventuring_gear",
     "source": "scag",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:sealing-wax",
@@ -1729,7 +1874,8 @@
     "weight": 0.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:shovel",
@@ -1741,7 +1887,8 @@
     "weight": 5.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:signal-horn",
@@ -1751,7 +1898,8 @@
     "description": "A simple horn used to signal for help or alert others. Not a musical instrument.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:signal-whistle",
@@ -1763,7 +1911,8 @@
     "weight": 0.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:seal",
@@ -1773,7 +1922,8 @@
     "description": "A wax or metal seal bearing an official emblem, used to authenticate documents and mark correspondence.",
     "category": "adventuring_gear",
     "source": "scag",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:signet",
@@ -1783,7 +1933,8 @@
     "description": "A small engraved stamp bearing the symbol of a knightly order or noble house, used to press into sealing wax or clay.",
     "category": "adventuring_gear",
     "source": "scag",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:signet-ring",
@@ -1795,7 +1946,8 @@
     "weight": 0.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:sledgehammer",
@@ -1807,7 +1959,8 @@
     "weight": 10.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:small-knife",
@@ -1817,7 +1970,8 @@
     "description": "A small utility knife used for cutting parchment, opening letters, and other mundane tasks. Not designed as a weapon.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:soap",
@@ -1829,7 +1983,8 @@
     "weight": 0.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:spellbook",
@@ -1842,7 +1997,8 @@
     "description": "Essential for wizards, a spellbook is a leather-bound tome with 100 blank vellum pages suitable for recording spells.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:spikes-iron-10",
@@ -1854,7 +2010,8 @@
     "weight": 5.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:spyglass",
@@ -1873,7 +2030,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:string-10-ft.",
@@ -1885,7 +2043,8 @@
     "weight": 0.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:tent-two-person",
@@ -1897,7 +2056,8 @@
     "weight": 20.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:uniform",
@@ -1907,7 +2067,8 @@
     "description": "A uniform identifying the wearer as a member of a particular military unit, city watch, or mercenary company.",
     "category": "adventuring_gear",
     "source": "scag",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:vestments",
@@ -1917,7 +2078,8 @@
     "description": "Ceremonial garments worn by clergy during religious services and rituals.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:whetstone",
@@ -1929,7 +2091,8 @@
     "weight": 1.0,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:work-clothes",
@@ -1939,7 +2102,8 @@
     "description": "Practical clothing suited to a particular trade or profession.",
     "category": "adventuring_gear",
     "source": "scag",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:woolen-blanket",
@@ -1952,7 +2116,8 @@
     "description": "A thick woolen blanket. Something like this is perfect for wrapping up during those long cold nights spent staring at a cave wall.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:writing-kit",
@@ -1962,7 +2127,8 @@
     "description": "A portable kit containing ink, a pen, and several sheets of parchment, stored in a small leather case.",
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:acid-vial",
@@ -1973,7 +2139,7 @@
     },
     "weight": 1.0,
     "description": "As an action, you can splash the contents of this vial onto a creature within 5 feet of you or throw the vial up to 20 feet, shattering it on impact. In either case, make a ranged attack against a creature or object, treating the acid as an improvised weapon. On a hit, the target takes 2d6 acid damage.",
-    "properties": ["Improvised"],
+    "properties": ["prop:improvised"],
     "mechanics": [
       {
         "type": "action",
@@ -2010,7 +2176,7 @@
     },
     "weight": 1.0,
     "description": "This sticky, adhesive fluid ignites when exposed to air. As an action, you can throw this flask up to 20 feet, shattering it on impact. Make a ranged attack against a creature or object, treating the alchemist's fire as an improvised weapon. On a hit, the target takes 1d4 fire damage at the start of each of its turns. A creature can end this damage by using its action to make a DC 10 Dexterity check to extinguish the flames.",
-    "properties": ["Improvised"],
+    "properties": ["prop:improvised"],
     "mechanics": [
       {
         "type": "action",
@@ -2077,7 +2243,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:ball-bearings-bag-of-1000",
@@ -2115,7 +2282,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:caltrops-bag-of-20",
@@ -2161,7 +2329,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:climbers-kit",
@@ -2180,7 +2349,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:crowbar",
@@ -2206,7 +2376,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:healers-kit",
@@ -2243,7 +2414,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:holy-water-flask",
@@ -2254,7 +2426,7 @@
     },
     "weight": 1.0,
     "description": "As an action, you can splash the contents of this flask onto a creature within 5 feet of you or throw it up to 20 feet, shattering it on impact. In either case, make a ranged attack against a target creature, treating the holy water as an improvised weapon. If the target is a fiend or undead, it takes 2d6 radiant damage.",
-    "properties": ["Improvised"],
+    "properties": ["prop:improvised"],
     "mechanics": [
       {
         "type": "action",
@@ -2333,7 +2505,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:lamp",
@@ -2371,7 +2544,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:lantern-bullseye",
@@ -2409,7 +2583,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:lantern-hooded",
@@ -2451,7 +2626,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:oil-flask",
@@ -2462,7 +2638,7 @@
     },
     "weight": 1.0,
     "description": "Oil usually comes in a clay flask that holds 1 pint. As an action, you can splash the oil in this flask onto a creature within 5 feet of you or throw it up to 20 feet, shattering it on impact. Make a ranged attack against a target creature or object, treating the oil as an improvised weapon. On a hit, the target is covered in oil. If the target takes any fire damage before the oil dries (after 1 minute), the target takes an additional 5 fire damage from the burning oil. You can also pour a flask of oil on the ground to cover a 5-foot-square area, provided that the surface is level. If lit, the oil burns for 2 rounds and deals 5 fire damage to any creature that enters the area or ends its turn in the area. A creature can take this damage only once per turn.",
-    "properties": ["Improvised"],
+    "properties": ["prop:improvised"],
     "mechanics": [
       {
         "type": "action",
@@ -2557,7 +2733,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:potion-of-healing-common",
@@ -2569,7 +2746,8 @@
     "weight": 0.5,
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:tinderbox",
@@ -2588,7 +2766,8 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:torch",
@@ -2599,7 +2778,7 @@
     },
     "weight": 1.0,
     "description": "A torch burns for 1 hour, providing bright light in a 20-foot radius and dim light for an additional 20 feet. If you make a melee attack with a burning torch and hit, it deals 1 fire damage.",
-    "properties": ["Improvised"],
+    "properties": ["prop:improvised"],
     "mechanics": [
       {
         "type": "passive",
@@ -2667,7 +2846,8 @@
     "description": "You can also strap items, such as a bedroll or a coil of rope, to the outside of a backpack.",
     "category": "container",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:barrel",
@@ -2689,7 +2869,8 @@
     "weight": 70.0,
     "category": "container",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:basket",
@@ -2711,7 +2892,8 @@
     "weight": 2.0,
     "category": "container",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:bucket",
@@ -2733,7 +2915,8 @@
     "weight": 2.0,
     "category": "container",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:case-crossbow-bolt",
@@ -2751,7 +2934,8 @@
     "weight": 1.0,
     "category": "container",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:case-map/scroll",
@@ -2764,7 +2948,8 @@
     "weight": 1.0,
     "category": "container",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:chest",
@@ -2786,7 +2971,8 @@
     "weight": 25.0,
     "category": "container",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:flask-or-tankard",
@@ -2804,7 +2990,8 @@
     "weight": 1.0,
     "category": "container",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:bottle-glass",
@@ -2822,7 +3009,8 @@
     "weight": 2.0,
     "category": "container",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:jug-or-pitcher",
@@ -2840,7 +3028,8 @@
     "weight": 4.0,
     "category": "container",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:pot-iron",
@@ -2858,7 +3047,8 @@
     "weight": 10.0,
     "category": "container",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:pouch",
@@ -2881,7 +3071,8 @@
     "description": "A cloth or leather pouch can hold up to 20 sling bullets or 50 blowgun needles, among other things. A compartmentalized pouch for holding spell components is called a component pouch.",
     "category": "container",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:quiver",
@@ -2899,7 +3090,8 @@
     "weight": 1.0,
     "category": "container",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:sack",
@@ -2921,7 +3113,8 @@
     "weight": 0.5,
     "category": "container",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:vial",
@@ -2939,7 +3132,8 @@
     "weight": 0.0,
     "category": "container",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:waterskin",
@@ -2957,7 +3151,8 @@
     "weight": 5.0,
     "category": "container",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:crystal",
@@ -2970,7 +3165,8 @@
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:orb",
@@ -2983,7 +3179,8 @@
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:rod",
@@ -2996,7 +3193,8 @@
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:staff",
@@ -3009,7 +3207,8 @@
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:wand",
@@ -3022,7 +3221,8 @@
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:sprig-of-mistletoe",
@@ -3035,7 +3235,8 @@
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:totem",
@@ -3048,7 +3249,8 @@
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:wooden-staff",
@@ -3061,7 +3263,8 @@
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:yew-wand",
@@ -3074,7 +3277,8 @@
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:amulet",
@@ -3087,7 +3291,8 @@
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:emblem",
@@ -3100,7 +3305,8 @@
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:reliquary",
@@ -3113,7 +3319,8 @@
     "category": "adventuring_gear",
     "is_focus": true,
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   },
   {
     "id": "equip:battleaxe",
@@ -3124,13 +3331,17 @@
     },
     "damage": {
       "dice": "1d8",
-      "type": ["slashing"]
+      "type": ["slashing"],
+      "versatile": "1d10"
     },
     "weight": 4.0,
-    "properties": ["Martial", "Melee", "Versatile (1d10)"],
+    "properties": ["prop:martial", "prop:melee", "prop:versatile"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "melee": 5
+    }
   },
   {
     "id": "equip:flail",
@@ -3144,10 +3355,13 @@
       "type": ["bludgeoning"]
     },
     "weight": 2.0,
-    "properties": ["Martial", "Melee"],
+    "properties": ["prop:martial", "prop:melee"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "melee": 5
+    }
   },
   {
     "id": "equip:glaive",
@@ -3161,10 +3375,13 @@
       "type": ["slashing"]
     },
     "weight": 6.0,
-    "properties": ["Martial", "Melee", "Heavy", "Reach", "Two-handed"],
+    "properties": ["prop:martial", "prop:melee", "prop:heavy", "prop:reach", "prop:two-handed"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "melee": 10
+    }
   },
   {
     "id": "equip:greataxe",
@@ -3178,10 +3395,13 @@
       "type": ["slashing"]
     },
     "weight": 7.0,
-    "properties": ["Martial", "Melee", "Heavy", "Two-handed"],
+    "properties": ["prop:martial", "prop:melee", "prop:heavy", "prop:two-handed"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "melee": 5
+    }
   },
   {
     "id": "equip:greatsword",
@@ -3195,10 +3415,13 @@
       "type": ["slashing"]
     },
     "weight": 6.0,
-    "properties": ["Martial", "Melee", "Heavy", "Two-handed"],
+    "properties": ["prop:martial", "prop:melee", "prop:heavy", "prop:two-handed"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "melee": 5
+    }
   },
   {
     "id": "equip:halberd",
@@ -3212,10 +3435,13 @@
       "type": ["slashing"]
     },
     "weight": 6.0,
-    "properties": ["Martial", "Melee", "Heavy", "Reach", "Two-handed"],
+    "properties": ["prop:martial", "prop:melee", "prop:heavy", "prop:reach", "prop:two-handed"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "melee": 10
+    }
   },
   {
     "id": "equip:lance",
@@ -3229,10 +3455,13 @@
       "type": ["piercing"]
     },
     "weight": 6.0,
-    "properties": ["Martial", "Melee", "Reach", "Special"],
+    "properties": ["prop:martial", "prop:melee", "prop:reach", "prop:special"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "melee": 10
+    }
   },
   {
     "id": "equip:longsword",
@@ -3243,13 +3472,17 @@
     },
     "damage": {
       "dice": "1d8",
-      "type": ["slashing"]
+      "type": ["slashing"],
+      "versatile": "1d10"
     },
     "weight": 3.0,
-    "properties": ["Martial", "Melee", "Versatile (1d10)"],
+    "properties": ["prop:martial", "prop:melee", "prop:versatile"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "melee": 5
+    }
   },
   {
     "id": "equip:maul",
@@ -3263,10 +3496,13 @@
       "type": ["bludgeoning"]
     },
     "weight": 10.0,
-    "properties": ["Martial", "Melee", "Heavy", "Two-handed"],
+    "properties": ["prop:martial", "prop:melee", "prop:heavy", "prop:two-handed"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "melee": 5
+    }
   },
   {
     "id": "equip:morningstar",
@@ -3280,10 +3516,13 @@
       "type": ["piercing"]
     },
     "weight": 4.0,
-    "properties": ["Martial", "Melee"],
+    "properties": ["prop:martial", "prop:melee"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "melee": 5
+    }
   },
   {
     "id": "equip:pike",
@@ -3297,10 +3536,13 @@
       "type": ["piercing"]
     },
     "weight": 18.0,
-    "properties": ["Martial", "Melee", "Heavy", "Reach", "Two-handed"],
+    "properties": ["prop:martial", "prop:melee", "prop:heavy", "prop:reach", "prop:two-handed"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "melee": 10
+    }
   },
   {
     "id": "equip:rapier",
@@ -3314,10 +3556,13 @@
       "type": ["piercing"]
     },
     "weight": 2.0,
-    "properties": ["Martial", "Melee", "Finesse"],
+    "properties": ["prop:martial", "prop:melee", "prop:finesse"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "melee": 5
+    }
   },
   {
     "id": "equip:scimitar",
@@ -3331,10 +3576,13 @@
       "type": ["slashing"]
     },
     "weight": 3.0,
-    "properties": ["Martial", "Melee", "Finesse", "Light"],
+    "properties": ["prop:martial", "prop:melee", "prop:finesse", "prop:light"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "melee": 5
+    }
   },
   {
     "id": "equip:shortsword",
@@ -3348,10 +3596,13 @@
       "type": ["piercing"]
     },
     "weight": 2.0,
-    "properties": ["Martial", "Melee", "Finesse", "Light"],
+    "properties": ["prop:martial", "prop:melee", "prop:finesse", "prop:light"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "melee": 5
+    }
   },
   {
     "id": "equip:trident",
@@ -3362,13 +3613,21 @@
     },
     "damage": {
       "dice": "1d6",
-      "type": ["piercing"]
+      "type": ["piercing"],
+      "versatile": "1d8"
     },
     "weight": 4.0,
-    "properties": ["Martial", "Melee", "Thrown (20/60)", "Versatile (1d8)"],
+    "properties": ["prop:martial", "prop:melee", "prop:thrown", "prop:versatile"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "thrown": {
+        "normal": 20,
+        "long": 60
+      },
+      "melee": 5
+    }
   },
   {
     "id": "equip:war-pick",
@@ -3382,10 +3641,13 @@
       "type": ["piercing"]
     },
     "weight": 2.0,
-    "properties": ["Martial", "Melee"],
+    "properties": ["prop:martial", "prop:melee"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "melee": 5
+    }
   },
   {
     "id": "equip:warhammer",
@@ -3396,13 +3658,17 @@
     },
     "damage": {
       "dice": "1d8",
-      "type": ["bludgeoning"]
+      "type": ["bludgeoning"],
+      "versatile": "1d10"
     },
     "weight": 2.0,
-    "properties": ["Martial", "Melee", "Versatile (1d10)"],
+    "properties": ["prop:martial", "prop:melee", "prop:versatile"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "melee": 5
+    }
   },
   {
     "id": "equip:whip",
@@ -3416,10 +3682,13 @@
       "type": ["slashing"]
     },
     "weight": 3.0,
-    "properties": ["Martial", "Melee", "Finesse", "Reach"],
+    "properties": ["prop:martial", "prop:melee", "prop:finesse", "prop:reach"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "melee": 10
+    }
   },
   {
     "id": "equip:blowgun",
@@ -3433,10 +3702,16 @@
       "type": ["piercing"]
     },
     "weight": 1.0,
-    "properties": ["Martial", "Ranged", "Ammunition", "Range (25/100)", "Loading"],
+    "properties": ["prop:martial", "prop:ranged", "prop:ammunition", "prop:range", "prop:loading"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "ranged": {
+        "normal": 25,
+        "long": 100
+      }
+    }
   },
   {
     "id": "equip:hand-crossbow",
@@ -3450,10 +3725,24 @@
       "type": ["piercing"]
     },
     "weight": 3.0,
-    "properties": ["Martial", "Ranged", "Ammunition", "Crossbow", "Range (30/120)", "Light", "Loading"],
+    "properties": [
+      "prop:martial",
+      "prop:ranged",
+      "prop:ammunition",
+      "prop:crossbow",
+      "prop:range",
+      "prop:light",
+      "prop:loading"
+    ],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "ranged": {
+        "normal": 30,
+        "long": 120
+      }
+    }
   },
   {
     "id": "equip:heavy-crossbow",
@@ -3467,10 +3756,25 @@
       "type": ["piercing"]
     },
     "weight": 18.0,
-    "properties": ["Martial", "Ranged", "Ammunition", "Crossbow", "Range (100/400)", "Heavy", "Loading", "Two-handed"],
+    "properties": [
+      "prop:martial",
+      "prop:ranged",
+      "prop:ammunition",
+      "prop:crossbow",
+      "prop:range",
+      "prop:heavy",
+      "prop:loading",
+      "prop:two-handed"
+    ],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "ranged": {
+        "normal": 100,
+        "long": 400
+      }
+    }
   },
   {
     "id": "equip:longbow",
@@ -3484,10 +3788,16 @@
       "type": ["piercing"]
     },
     "weight": 2.0,
-    "properties": ["Martial", "Ranged", "Ammunition", "Range (150/600)", "Heavy", "Two-handed"],
+    "properties": ["prop:martial", "prop:ranged", "prop:ammunition", "prop:range", "prop:heavy", "prop:two-handed"],
     "category": "weapon",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "range": {
+      "ranged": {
+        "normal": 150,
+        "long": 600
+      }
+    }
   },
   {
     "id": "equip:net",
@@ -3559,6 +3869,7 @@
     ],
     "category": "adventuring_gear",
     "source": "phb",
-    "ruleset": "dnd5e"
+    "ruleset": "dnd5e",
+    "properties": []
   }
 ]

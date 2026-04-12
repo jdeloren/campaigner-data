@@ -59,7 +59,7 @@
               {
                 "immunity": {
                   "category": "status",
-                  "status": ["sleep"],
+                  "status": ["status:sleep"],
                   "source": {
                     "origin": "magical"
                   }
@@ -73,11 +73,11 @@
     ],
     "languages": [
       {
-        "language": "Common",
+        "language": "lang:common",
         "choice": false
       },
       {
-        "language": "Elvish",
+        "language": "lang:elvish",
         "choice": false
       }
     ]
@@ -113,7 +113,7 @@
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": ["Longsword", "Shortsword", "Shortbow", "Longbow"]
+            "proficiencies": ["equip:longsword", "equip:shortsword", "equip:shortbow", "equip:longbow"]
           }
         ],
         "id": "trait:high-elf-elf-weapon-training"
@@ -123,13 +123,15 @@
         "description": "You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it.",
         "mechanics": [
           {
-            "type": "spellcasting",
-            "ability": "Intelligence",
+            "type": "choice",
+            "choice_type": "query",
+            "count": 1,
+            "name": "Cantrip",
             "query": {
               "source": "spells",
               "params": {
-                "level": 0,
-                "class": "class:wizard"
+                "class": "Wizard",
+                "level": 0
               }
             }
           }
@@ -182,7 +184,7 @@
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": ["Longsword", "Shortsword", "Shortbow", "Longbow"]
+            "proficiencies": ["equip:longsword", "equip:shortsword", "equip:shortbow", "equip:longbow"]
           }
         ],
         "id": "trait:wood-elf-elf-weapon-training"
@@ -317,7 +319,7 @@
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": ["Rapier", "Shortsword", "Hand Crossbow"]
+            "proficiencies": ["equip:rapier", "equip:shortsword", "equip:hand-crossbow"]
           }
         ],
         "id": "trait:drow-drow-weapon-training"
@@ -412,7 +414,7 @@
               {
                 "immunity": {
                   "category": "status",
-                  "status": ["sleep"],
+                  "status": ["status:sleep"],
                   "source": {
                     "origin": "magical"
                   }
@@ -473,11 +475,11 @@
     ],
     "languages": [
       {
-        "language": "Common",
+        "language": "lang:common",
         "choice": false
       },
       {
-        "language": "Elvish",
+        "language": "lang:elvish",
         "choice": false
       },
       {
@@ -572,7 +574,7 @@
           {
             "type": "proficiency",
             "category": "weapon",
-            "proficiencies": ["Battleaxe", "Handaxe", "Light Hammer", "Warhammer"]
+            "proficiencies": ["equip:battleaxe", "equip:handaxe", "equip:light-hammer", "equip:warhammer"]
           }
         ],
         "id": "trait:dwarf-dwarven-combat-training"
@@ -639,11 +641,11 @@
     ],
     "languages": [
       {
-        "language": "Common",
+        "language": "lang:common",
         "choice": false
       },
       {
-        "language": "Dwarvish",
+        "language": "lang:dwarvish",
         "choice": false
       }
     ]
@@ -732,7 +734,7 @@
           {
             "type": "proficiency",
             "category": "armor",
-            "proficiencies": ["Light", "Medium"]
+            "proficiencies": ["prop:light", "prop:medium"]
           }
         ],
         "id": "trait:mountain-dwarf-dwarven-armor-training"
@@ -778,11 +780,11 @@
     "traits": [],
     "languages": [
       {
-        "language": "Common",
+        "language": "lang:common",
         "choice": false
       },
       {
-        "language": "Draconic",
+        "language": "lang:draconic",
         "choice": false
       }
     ]
@@ -2000,7 +2002,7 @@
     ],
     "languages": [
       {
-        "language": "Common",
+        "language": "lang:common",
         "choice": false
       }
     ]
@@ -2246,11 +2248,11 @@
     ],
     "languages": [
       {
-        "language": "Common",
+        "language": "lang:common",
         "choice": false
       },
       {
-        "language": "Orc",
+        "language": "lang:orc",
         "choice": false
       }
     ]
@@ -2303,11 +2305,11 @@
     ],
     "languages": [
       {
-        "language": "Common",
+        "language": "lang:common",
         "choice": false
       },
       {
-        "language": "Gnomish",
+        "language": "lang:gnomish",
         "choice": false
       }
     ]
@@ -2446,7 +2448,7 @@
           {
             "type": "proficiency",
             "category": "tool",
-            "proficiencies": ["Tinker's Tools"]
+            "proficiencies": ["tool:tinkers-tools"]
           },
           {
             "type": "special",
@@ -2662,11 +2664,11 @@
     ],
     "languages": [
       {
-        "language": "Common",
+        "language": "lang:common",
         "choice": false
       },
       {
-        "language": "Halfling",
+        "language": "lang:halfling",
         "choice": false
       }
     ]
@@ -2810,11 +2812,11 @@
     ],
     "languages": [
       {
-        "language": "Common",
+        "language": "lang:common",
         "choice": false
       },
       {
-        "language": "Infernal",
+        "language": "lang:infernal",
         "choice": false
       }
     ]

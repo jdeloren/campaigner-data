@@ -76,7 +76,7 @@
       {
         "type": "proficiency",
         "category": "language",
-        "proficiencies": ["Thieves' Cant"]
+        "proficiencies": ["lang:thieves-cant"]
       }
     ],
     "source": "phb",
@@ -335,7 +335,9 @@
         "effects": [
           {
             "roll_modifier": {
-              "bounds": { "minimum": 10 }
+              "bounds": {
+                "minimum": 10
+              }
             }
           }
         ]
@@ -404,7 +406,7 @@
               "requirements": [
                 {
                   "type": "status",
-                  "value": "incapacitated",
+                  "value": "status:incapacitated",
                   "negate": true
                 }
               ]

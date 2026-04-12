@@ -1,0 +1,11 @@
+{
+  "melee": "prop:melee",
+  "ranged": "prop:ranged",
+  "finesse": "prop:finesse",
+  "two_handed": "prop:two-handed",
+  "versatile": "prop:versatile",
+  "light": "prop:light",
+  "medium": "prop:medium",
+  "heavy": "prop:heavy",
+  "shield": "prop:shield"
+}

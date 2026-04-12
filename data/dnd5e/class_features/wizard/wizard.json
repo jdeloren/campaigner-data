@@ -12,7 +12,9 @@
           {
             "recover": {
               "target": "spell_slot",
-              "bounds": { "maximum": 5 },
+              "bounds": {
+                "maximum": 5
+              },
               "budget": {
                 "calculation": "classes.Wizard.level",
                 "operation": "divide",
@@ -48,8 +50,13 @@
             "calculation": {
               "operation": "multiply",
               "operators": [
-                { "type": "integer", "value": 50 },
-                { "type": "spell_level_cast" }
+                {
+                  "type": "integer",
+                  "value": 50
+                },
+                {
+                  "type": "spell_level_cast"
+                }
               ]
             }
           }
@@ -64,7 +71,7 @@
     "class": "class:wizard",
     "level": 1,
     "name": "Replace Spellbook",
-    "description": "If you lose your spellbook, you can use the same procedure to transcribe the spells that you have prepared into a new spellbook. Filling out the remainder of your spellbook requires you to find new spells to do so, as normal. For this reason, many wizards keep backup spellbooks in a safe place. You can copy a spell from your own spellbook into another book — for example, if you want to make a backup copy of your spellbook. The cost is 10 gp per spell level, as you need only spend half the time and use less expensive materials when copying from your own notes.",
+    "description": "If you lose your spellbook, you can use the same procedure to transcribe the spells that you have prepared into a new spellbook. Filling out the remainder of your spellbook requires you to find new spells to do so, as normal. For this reason, many wizards keep backup spellbooks in a safe place. You can copy a spell from your own spellbook into another book - for example, if you want to make a backup copy of your spellbook. The cost is 10 gp per spell level, as you need only spend half the time and use less expensive materials when copying from your own notes.",
     "mechanics": [
       {
         "type": "special",
@@ -75,8 +82,13 @@
             "calculation": {
               "operation": "multiply",
               "operators": [
-                { "type": "integer", "value": 10 },
-                { "type": "spell_level_cast" }
+                {
+                  "type": "integer",
+                  "value": 10
+                },
+                {
+                  "type": "spell_level_cast"
+                }
               ]
             }
           }

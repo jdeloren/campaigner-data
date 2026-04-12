@@ -13,7 +13,9 @@
         "count": {
           "type": "ability_modifier",
           "ability": "Charisma",
-          "bounds": { "minimum": 1 }
+          "bounds": {
+            "minimum": 1
+          }
         },
         "recharge": "long_rest"
       },
@@ -86,8 +88,14 @@
                 "operation": "divide",
                 "rounding": "down",
                 "operators": [
-                  {"type": "attribute", "value": "proficiency_bonus"},
-                  {"type": "integer", "value": 2}
+                  {
+                    "type": "attribute",
+                    "value": "proficiency_bonus"
+                  },
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
                 ]
               }
             },
@@ -365,7 +373,7 @@
     "mechanics": [
       {
         "type": "action",
-        "name": "countercharm",
+        "name": "Countercharm",
         "effects": [
           {
             "target": {
@@ -400,19 +408,19 @@
                 {
                   "event": ["status_applied"],
                   "status": {
-                    "name": "incapacitated"
+                    "id": "status:incapacitated"
                   }
                 },
                 {
                   "event": ["status_applied"],
                   "status": {
-                    "name": "silenced"
+                    "id": "status:silenced"
                   }
                 },
                 {
                   "event": ["status_removed"],
                   "status": {
-                    "name": "countercharm",
+                    "id": "status:countercharm",
                     "method": "voluntary"
                   }
                 }

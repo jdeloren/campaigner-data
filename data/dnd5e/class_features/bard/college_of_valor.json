@@ -9,12 +9,12 @@
       {
         "type": "proficiency",
         "category": "armor",
-        "proficiencies": ["Medium", "Shields"]
+        "proficiencies": ["prop:medium", "prop:shield"]
       },
       {
         "type": "proficiency",
         "category": "weapon",
-        "proficiencies": ["Martial"]
+        "proficiencies": ["prop:martial"]
       }
     ],
     "source": "phb",

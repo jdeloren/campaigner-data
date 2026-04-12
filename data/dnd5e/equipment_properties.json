@@ -1,0 +1,22 @@
+[
+  {"id": "prop:simple", "name": "Simple"},
+  {"id": "prop:martial", "name": "Martial"},
+  {"id": "prop:firearm", "name": "Firearm"},
+  {"id": "prop:improvised", "name": "Improvised"},
+  {"id": "prop:melee", "name": "Melee"},
+  {"id": "prop:ranged", "name": "Ranged"},
+  {"id": "prop:finesse", "name": "Finesse"},
+  {"id": "prop:loading", "name": "Loading"},
+  {"id": "prop:reach", "name": "Reach"},
+  {"id": "prop:special", "name": "Special"},
+  {"id": "prop:ammunition", "name": "Ammunition"},
+  {"id": "prop:crossbow", "name": "Crossbow"},
+  {"id": "prop:light", "name": "Light"},
+  {"id": "prop:medium", "name": "Medium"},
+  {"id": "prop:heavy", "name": "Heavy"},
+  {"id": "prop:shield", "name": "Shield"},
+  {"id": "prop:two-handed", "name": "Two-handed"},
+  {"id": "prop:thrown", "name": "Thrown"},
+  {"id": "prop:versatile", "name": "Versatile"},
+  {"id": "prop:range", "name": "Range"}
+]

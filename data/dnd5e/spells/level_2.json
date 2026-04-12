@@ -684,7 +684,7 @@
                   {
                     "name": "Suppress",
                     "effect": {
-                      "negate": ["charmed", "frightened"]
+                      "negate": ["status:charmed", "status:frightened"]
                     }
                   },
                   {
@@ -2293,13 +2293,13 @@
                 {
                   "name": "End Disease",
                   "effect": {
-                    "negate": ["diseased"]
+                    "negate": ["status:diseased"]
                   }
                 },
                 {
                   "name": "End Condition",
                   "effect": {
-                    "negate": ["blinded", "deafened", "paralyzed", "poisoned"]
+                    "negate": ["status:blinded", "status:deafened", "status:paralyzed", "status:poisoned"]
                   }
                 }
               ]
@@ -3213,7 +3213,7 @@
         },
         "effects": [
           {
-            "negate": ["poisoned"]
+            "negate": ["status:poisoned"]
           },
           {
             "advantage": {
@@ -3957,7 +3957,7 @@
           "requirements": [
             {
               "type": "immunity",
-              "to": "charmed",
+              "to": "status:charmed",
               "negate": true
             }
           ]

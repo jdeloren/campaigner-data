@@ -43,7 +43,7 @@
                 "requirements": [
                   {
                     "type": "status",
-                    "value": "bonded"
+                    "value": "status:bonded"
                   }
                 ]
               }
@@ -51,7 +51,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": "incapacitated",
+                "value": "status:incapacitated",
                 "negate": true
               }
             ]
@@ -67,7 +67,7 @@
               "requirements": [
                 {
                   "type": "status",
-                  "value": "bonded"
+                  "value": "status:bonded"
                 }
               ]
             },
@@ -94,7 +94,10 @@
         "trigger": {
           "event": ["cast_spell"],
           "spell": {
-            "level": { "minimum": 0, "maximum": 0 }
+            "level": {
+              "minimum": 0,
+              "maximum": 0
+            }
           }
         },
         "effects": [

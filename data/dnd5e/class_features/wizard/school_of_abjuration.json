@@ -11,7 +11,10 @@
         "type": "passive",
         "name": "abjuration_savant",
         "requirements": [
-          { "type": "spell", "school": "Abjuration" }
+          {
+            "type": "spell",
+            "school": "Abjuration"
+          }
         ],
         "cost": [
           {
@@ -19,8 +22,13 @@
             "calculation": {
               "operation": "multiply",
               "operators": [
-                { "type": "integer", "value": 25 },
-                { "type": "spell_level_cast" }
+                {
+                  "type": "integer",
+                  "value": 25
+                },
+                {
+                  "type": "spell_level_cast"
+                }
               ]
             }
           }
@@ -45,7 +53,9 @@
           "event": ["cast_spell"],
           "spell": {
             "school": "Abjuration",
-            "level": { "minimum": 1 }
+            "level": {
+              "minimum": 1
+            }
           }
         },
         "effects": [
@@ -58,8 +68,14 @@
                     "type": "calculation",
                     "operation": "multiply",
                     "operators": [
-                      { "type": "class_level", "class": "class:wizard" },
-                      { "type": "integer", "value": 2 }
+                      {
+                        "type": "class_level",
+                        "class": "class:wizard"
+                      },
+                      {
+                        "type": "integer",
+                        "value": 2
+                      }
                     ]
                   },
                   {
@@ -89,7 +105,9 @@
           "event": ["cast_spell"],
           "spell": {
             "school": "Abjuration",
-            "level": { "minimum": 1 }
+            "level": {
+              "minimum": 1
+            }
           }
         },
         "effects": [
@@ -97,7 +115,15 @@
             "healing": {
               "calculation": {
                 "operation": "multiply",
-                "operators": [{ "type": "spell_level_cast" }, { "type": "integer", "value": 2 }]
+                "operators": [
+                  {
+                    "type": "spell_level_cast"
+                  },
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
+                ]
               },
               "barrier": {
                 "id": "arcane_ward",

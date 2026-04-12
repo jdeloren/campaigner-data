@@ -71,17 +71,17 @@
         "requirements": [
           {
             "type": "status",
-            "value": "unconscious",
+            "value": "status:unconscious",
             "negate": true
           },
           {
             "type": "status",
-            "value": "surprised"
+            "value": "status:surprised"
           }
         ],
         "effects": [
           {
-            "negate": ["surprised"]
+            "negate": ["status:surprised"]
           }
         ]
       },
@@ -351,7 +351,7 @@
       {
         "type": "proficiency",
         "category": "tool",
-        "proficiencies": ["Cook's Utensils"]
+        "proficiencies": ["tool:cooks-utensils"]
       },
       {
         "type": "optional",
@@ -640,7 +640,7 @@
         "requirements": [
           {
             "type": "weapon_property",
-            "property": ["Finesse"],
+            "property": ["prop:finesse"],
             "proficient": true
           }
         ],
@@ -1092,7 +1092,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "grappled",
+            "value": "status:grappled",
             "source": "character"
           }
         ],
@@ -1110,7 +1110,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "grappled"
+            "value": "status:grappled"
           }
         ],
         "effects": [
@@ -1219,7 +1219,7 @@
         "requirements": [
           {
             "type": "weapon_property",
-            "property": ["Heavy"],
+            "property": ["prop:heavy"],
             "proficient": true
           }
         ],
@@ -1283,7 +1283,7 @@
       {
         "type": "proficiency",
         "category": "weapon",
-        "proficiencies": ["Firearm"]
+        "proficiencies": ["prop:firearm"]
       },
       {
         "type": "passive",
@@ -1351,7 +1351,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "stabilized"
+            "value": "status:stabilized"
           }
         ],
         "effects": [
@@ -1437,7 +1437,7 @@
       {
         "type": "proficiency",
         "category": "armor",
-        "proficiencies": ["Heavy"]
+        "proficiencies": ["prop:heavy"]
       }
     ],
     "source": "phb",
@@ -1643,7 +1643,7 @@
       {
         "type": "proficiency",
         "category": "armor",
-        "proficiencies": ["Light"]
+        "proficiencies": ["prop:light"]
       }
     ],
     "source": "phb",
@@ -2135,7 +2135,7 @@
       {
         "type": "proficiency",
         "category": "armor",
-        "proficiencies": ["Medium", "Shield"]
+        "proficiencies": ["prop:medium", "prop:shield"]
       }
     ],
     "source": "phb",
@@ -2336,7 +2336,7 @@
       {
         "type": "proficiency",
         "category": "tool",
-        "proficiencies": ["Poisoner's Kit"]
+        "proficiencies": ["tool:poisoners-kit"]
       },
       {
         "type": "action",
@@ -2620,7 +2620,7 @@
             "ignore_requirements": [
               {
                 "type": "status",
-                "value": "disengaged"
+                "value": "status:disengaged"
               }
             ]
           }
@@ -2780,7 +2780,7 @@
         "requirements": [
           {
             "type": "weapon_property",
-            "property": ["Ranged"],
+            "property": ["prop:ranged"],
             "proficient": true
           }
         ],
@@ -2823,6 +2823,7 @@
       {
         "type": "bonus_action",
         "name": "Shield Bash",
+        "description": "If you take the Attack action on your turn, you can use a bonus action to try to shove a creature within 5 feet of you with your shield.",
         "requirements": [
           {
             "type": "equipment",
@@ -2860,7 +2861,7 @@
           },
           {
             "type": "status",
-            "value": "incapacitated",
+            "value": "status:incapacitated",
             "negate": true
           }
         ],
@@ -2881,6 +2882,7 @@
       {
         "type": "reaction",
         "name": "Shield Evasion",
+        "description": "If you aren't incapacitated, you can add your shield's AC bonus to any Dexterity saving throw you make against a spell or other harmful effect that targets only you.",
         "trigger": {
           "event": ["saving_throw"],
           "save": {
@@ -3291,7 +3293,7 @@
       {
         "type": "proficiency",
         "category": "weapon",
-        "proficiencies": ["Improvised"]
+        "proficiencies": ["prop:improvised"]
       },
       {
         "type": "passive",
@@ -4287,7 +4289,7 @@
       {
         "type": "proficiency",
         "category": "language",
-        "proficiencies": ["Sylvan"]
+        "proficiencies": ["lang:sylvan"]
       },
       {
         "type": "granted_spells",
@@ -4491,7 +4493,7 @@
               "requirements": [
                 {
                   "type": "status",
-                  "value": "poisoned"
+                  "value": "status:poisoned"
                 }
               ]
             }
@@ -4830,7 +4832,7 @@
               "requirements": [
                 {
                   "type": "status",
-                  "value": "grappled"
+                  "value": "status:grappled"
                 }
               ]
             }
@@ -4841,7 +4843,7 @@
               "requirements": [
                 {
                   "type": "status",
-                  "value": "grappled"
+                  "value": "status:grappled"
                 }
               ]
             }

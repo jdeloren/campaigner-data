@@ -9,7 +9,7 @@
       {
         "type": "proficiency",
         "category": "language",
-        "proficiencies": ["Sylvan"]
+        "proficiencies": ["lang:sylvan"]
       },
       {
         "type": "special",
@@ -47,7 +47,9 @@
                 "amount": 1
               }
             ],
-            "uses": { "value": 1 },
+            "uses": {
+              "value": 1
+            },
             "recharge": "short_rest",
             "effects": [
               {
@@ -80,8 +82,14 @@
                   "calculation": {
                     "operation": "add",
                     "operators": [
-                      { "type": "integer", "value": 5 },
-                      { "type": "class_level", "class": "Druid" }
+                      {
+                        "type": "integer",
+                        "value": 5
+                      },
+                      {
+                        "type": "class_level",
+                        "class": "Druid"
+                      }
                     ]
                   }
                 },
@@ -107,7 +115,9 @@
                 "amount": 1
               }
             ],
-            "uses": { "value": 1 },
+            "uses": {
+              "value": 1
+            },
             "recharge": "short_rest",
             "effects": [
               {
@@ -163,7 +173,9 @@
                 "amount": 1
               }
             ],
-            "uses": { "value": 1 },
+            "uses": {
+              "value": 1
+            },
             "recharge": "short_rest",
             "effects": [
               {
@@ -204,7 +216,10 @@
                   "calculation": {
                     "operation": "set",
                     "operators": [
-                      { "type": "class_level", "class": "Druid" }
+                      {
+                        "type": "class_level",
+                        "class": "Druid"
+                      }
                     ]
                   }
                 },
@@ -235,8 +250,14 @@
           {
             "operator": "or",
             "conditions": [
-              { "type": "creature_type", "value": ["Beast"] },
-              { "type": "creature_type", "value": ["Fey"] }
+              {
+                "type": "creature_type",
+                "value": ["Beast"]
+              },
+              {
+                "type": "creature_type",
+                "value": ["Fey"]
+              }
             ]
           }
         ],
@@ -247,7 +268,12 @@
               "property": "magical",
               "calculation": {
                 "operation": "set",
-                "operators": [{ "type": "boolean", "value": true }]
+                "operators": [
+                  {
+                    "type": "boolean",
+                    "value": true
+                  }
+                ]
               }
             }
           }
@@ -259,8 +285,14 @@
           {
             "operator": "or",
             "conditions": [
-              { "type": "creature_type", "value": ["Beast"] },
-              { "type": "creature_type", "value": ["Fey"] }
+              {
+                "type": "creature_type",
+                "value": ["Beast"]
+              },
+              {
+                "type": "creature_type",
+                "value": ["Fey"]
+              }
             ]
           }
         ],
@@ -271,13 +303,22 @@
               "calculation": {
                 "operation": "add",
                 "operators": [
-                  { "type": "attribute", "value": "hit_points.maximum" },
+                  {
+                    "type": "attribute",
+                    "value": "hit_points.maximum"
+                  },
                   {
                     "type": "calculation",
                     "operation": "multiply",
                     "operators": [
-                      { "type": "attribute", "value": "hit_dice.count" },
-                      { "type": "integer", "value": 2 }
+                      {
+                        "type": "attribute",
+                        "value": "hit_dice.count"
+                      },
+                      {
+                        "type": "integer",
+                        "value": 2
+                      }
                     ]
                   }
                 ]
@@ -307,8 +348,14 @@
               {
                 "operator": "or",
                 "conditions": [
-                  { "type": "creature_type", "value": ["Beast"] },
-                  { "type": "creature_type", "value": ["Fey"] }
+                  {
+                    "type": "creature_type",
+                    "value": ["Beast"]
+                  },
+                  {
+                    "type": "creature_type",
+                    "value": ["Fey"]
+                  }
                 ]
               }
             ]
@@ -320,8 +367,14 @@
               "calculation": {
                 "operation": "divide",
                 "operators": [
-                  { "type": "class_level", "class": "Druid" },
-                  { "type": "integer", "value": 2 }
+                  {
+                    "type": "class_level",
+                    "class": "Druid"
+                  },
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
                 ],
                 "rounding": "down"
               }
@@ -348,7 +401,9 @@
             "lethal": true
           }
         },
-        "uses": { "value": 1 },
+        "uses": {
+          "value": 1
+        },
         "recharge": "long_rest",
         "grants": {
           "name": "Faithful Summons",

@@ -13,26 +13,11 @@
         "always_prepared": true,
         "scaling": {
           "by_level": {
-            "1": [
-              "spell:command",
-              "spell:heroism"
-            ],
-            "3": [
-              "spell:hold-person",
-              "spell:zone-of-truth"
-            ],
-            "5": [
-              "spell:mass-healing-word",
-              "spell:slow"
-            ],
-            "7": [
-              "spell:compulsion",
-              "spell:locate-creature"
-            ],
-            "9": [
-              "spell:commune",
-              "spell:dominate-person"
-            ]
+            "1": ["spell:command", "spell:heroism"],
+            "3": ["spell:hold-person", "spell:zone-of-truth"],
+            "5": ["spell:mass-healing-word", "spell:slow"],
+            "7": ["spell:compulsion", "spell:locate-creature"],
+            "9": ["spell:commune", "spell:dominate-person"]
           }
         }
       }
@@ -50,9 +35,7 @@
       {
         "type": "proficiency",
         "category": "armor",
-        "proficiencies": [
-          "Heavy"
-        ]
+        "proficiencies": ["prop:heavy"]
       },
       {
         "type": "choice",
@@ -90,11 +73,9 @@
     "mechanics": [
       {
         "type": "passive",
-        "name": "voice_of_authority",
+        "name": "Voice of Authority",
         "trigger": {
-          "event": [
-            "cast_spell"
-          ],
+          "event": ["cast_spell"],
           "source": {
             "type": "spell",
             "level": {
@@ -132,7 +113,7 @@
     "mechanics": [
       {
         "type": "action",
-        "name": "orders_demand",
+        "name": "Order's Demand",
         "cost": [
           {
             "resource": "channel_divinity",
@@ -149,9 +130,7 @@
           "unit": "feet"
         },
         "saving_throw": {
-          "ability": [
-            "Wisdom"
-          ],
+          "ability": ["Wisdom"],
           "dc": {
             "ref": "spell_save_dc"
           }
@@ -164,9 +143,7 @@
               "value": 1,
               "unit": "turns",
               "timing": "end_turn",
-              "until": [
-                "damaged_by"
-              ]
+              "until": ["damaged_by"]
             }
           }
         }
@@ -184,7 +161,7 @@
     "mechanics": [
       {
         "type": "passive",
-        "name": "embodiment_of_the_law",
+        "name": "Embodiment of the Law",
         "requirements": [
           {
             "type": "spell",
@@ -230,9 +207,7 @@
         "type": "damage_bonus",
         "name": "divine_strike",
         "trigger": {
-          "event": [
-            "damage"
-          ],
+          "event": ["damage"],
           "source": {
             "type": "weapon"
           }
@@ -241,9 +216,7 @@
           {
             "damage_bonus": {
               "dice": "1d8",
-              "type": [
-                "psychic"
-              ]
+              "type": ["psychic"]
             }
           }
         ],
@@ -263,17 +236,13 @@
     "source": "tce",
     "ruleset": "dnd5e",
     "class": "domain:order",
-    "enhances": [
-      "feat:order-divine-strike"
-    ],
+    "enhances": ["feat:order-divine-strike"],
     "mechanics": [
       {
         "type": "passive",
         "name": "orders_wrath",
         "trigger": {
-          "event": [
-            "damage"
-          ],
+          "event": ["damage"],
           "source": {
             "type": "weapon"
           }
@@ -300,9 +269,7 @@
                         }
                       ]
                     },
-                    "type": [
-                      "psychic"
-                    ]
+                    "type": ["psychic"]
                   }
                 }
               ]

@@ -11,7 +11,10 @@
         "type": "passive",
         "name": "conjuration_savant",
         "requirements": [
-          { "type": "spell", "school": "Conjuration" }
+          {
+            "type": "spell",
+            "school": "Conjuration"
+          }
         ],
         "cost": [
           {
@@ -19,8 +22,13 @@
             "calculation": {
               "operation": "multiply",
               "operators": [
-                { "type": "integer", "value": 25 },
-                { "type": "spell_level_cast" }
+                {
+                  "type": "integer",
+                  "value": 25
+                },
+                {
+                  "type": "spell_level_cast"
+                }
               ]
             }
           }
@@ -94,10 +102,7 @@
           "requirements": [
             {
               "type": "size",
-              "value": [
-                "Small",
-                "Medium"
-              ]
+              "value": ["Small", "Medium"]
             }
           ]
         },
@@ -159,9 +164,7 @@
         "name": "durable_summons",
         "description": "Any creature you summon or create with a conjuration spell has 30 temporary hit points.",
         "trigger": {
-          "event": [
-            "cast_spell"
-          ],
+          "event": ["cast_spell"],
           "source": {
             "type": "spell",
             "school": "Conjuration"

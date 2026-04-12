@@ -13,26 +13,11 @@
         "always_prepared": true,
         "scaling": {
           "by_level": {
-            "1": [
-              "spell:animal-friendship",
-              "spell:speak-with-animals"
-            ],
-            "3": [
-              "spell:barkskin",
-              "spell:spike-growth"
-            ],
-            "5": [
-              "spell:plant-growth",
-              "spell:wind-wall"
-            ],
-            "7": [
-              "spell:dominate-beast",
-              "spell:grasping-vine"
-            ],
-            "9": [
-              "spell:insect-plague",
-              "spell:tree-stride"
-            ]
+            "1": ["spell:animal-friendship", "spell:speak-with-animals"],
+            "3": ["spell:barkskin", "spell:spike-growth"],
+            "5": ["spell:plant-growth", "spell:wind-wall"],
+            "7": ["spell:dominate-beast", "spell:grasping-vine"],
+            "9": ["spell:insect-plague", "spell:tree-stride"]
           }
         }
       },
@@ -84,9 +69,7 @@
       {
         "type": "proficiency",
         "category": "armor",
-        "proficiencies": [
-          "Heavy"
-        ]
+        "proficiencies": ["prop:heavy"]
       }
     ],
     "description": "You gain proficiency with heavy armor."
@@ -111,9 +94,7 @@
         "requirements": [
           {
             "type": "equipment",
-            "item": [
-              "holy symbol"
-            ]
+            "item": ["holy symbol"]
           }
         ],
         "effects": [
@@ -124,10 +105,7 @@
               "requirements": [
                 {
                   "type": "creature_type",
-                  "value": [
-                    "Beast",
-                    "Plant"
-                  ]
+                  "value": ["Beast", "Plant"]
                 }
               ]
             },
@@ -138,9 +116,7 @@
               "origin": "self"
             },
             "saving_throw": {
-              "ability": [
-                "Wisdom"
-              ],
+              "ability": ["Wisdom"],
               "dc": {
                 "ref": "spell_save_dc"
               },
@@ -152,9 +128,7 @@
                   "duration": {
                     "value": 1,
                     "unit": "minutes",
-                    "until": [
-                      "damaged_by"
-                    ]
+                    "until": ["damaged_by"]
                   }
                 }
               }
@@ -176,27 +150,16 @@
       {
         "type": "reaction",
         "trigger": {
-          "event": [
-            "damaged_by"
-          ],
+          "event": ["damaged_by"],
           "target": {
-            "type": [
-              "self",
-              "ally"
-            ],
+            "type": ["self", "ally"],
             "range": {
               "value": 30,
               "unit": "feet"
             }
           },
           "damage": {
-            "element": [
-              "acid",
-              "cold",
-              "fire",
-              "lightning",
-              "thunder"
-            ]
+            "element": ["acid", "cold", "fire", "lightning", "thunder"]
           }
         },
         "target": {
@@ -233,9 +196,7 @@
       {
         "type": "damage_bonus",
         "trigger": {
-          "event": [
-            "damage"
-          ],
+          "event": ["damage"],
           "source": {
             "type": "weapon"
           }
@@ -293,7 +254,7 @@
           "requirements": [
             {
               "type": "status",
-              "value": "charmed",
+              "value": "status:charmed",
               "action": "Charm Animals and Plants",
               "source": "character"
             }

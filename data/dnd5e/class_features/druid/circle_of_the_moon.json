@@ -15,7 +15,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "wild-shape"
+            "value": "status:wild-shape"
           }
         ],
         "cost": [
@@ -30,12 +30,19 @@
               "calculation": {
                 "operation": "multiply",
                 "operators": [
-                  { "type": "dice", "dice": "1d8" },
-                  { "type": "spell_level_cast" }
+                  {
+                    "type": "dice",
+                    "dice": "1d8"
+                  },
+                  {
+                    "type": "spell_level_cast"
+                  }
                 ]
               }
             },
-            "target": { "type": "self" }
+            "target": {
+              "type": "self"
+            }
           }
         ]
       }
@@ -84,7 +91,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "wild-shape"
+            "value": "status:wild-shape"
           }
         ],
         "effects": [
@@ -94,7 +101,12 @@
               "property": "magical",
               "calculation": {
                 "operation": "set",
-                "operators": [{ "type": "boolean", "value": true }]
+                "operators": [
+                  {
+                    "type": "boolean",
+                    "value": true
+                  }
+                ]
               }
             }
           }
@@ -134,8 +146,14 @@
                 "calculation": {
                   "operation": "divide",
                   "operators": [
-                    { "type": "class_level", "class": "Druid" },
-                    { "type": "integer", "value": 2 }
+                    {
+                      "type": "class_level",
+                      "class": "Druid"
+                    },
+                    {
+                      "type": "integer",
+                      "value": 2
+                    }
                   ],
                   "rounding": "down"
                 },
@@ -144,7 +162,7 @@
                   {
                     "event": ["status_removed"],
                     "status": {
-                      "name": "wild-shape",
+                      "id": "status:wild-shape",
                       "method": "voluntary"
                     }
                   }

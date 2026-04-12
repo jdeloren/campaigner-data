@@ -1091,7 +1091,7 @@
             },
             {
               "type": "status",
-              "value": ["unconscious"],
+              "value": ["status:unconscious"],
               "negate": true
             }
           ]
@@ -1998,7 +1998,7 @@
                     }
                   },
                   {
-                    "negate": ["invisible"]
+                    "negate": ["status:invisible"]
                   }
                 ]
               }
@@ -2095,7 +2095,7 @@
           "trigger": {
             "event": ["status_applied"],
             "status": {
-              "name": "falling",
+              "id": "status:falling",
               "on": "applied"
             },
             "target": {
@@ -2702,7 +2702,7 @@
           {
             "immunity": {
               "category": "status",
-              "status": ["frightened"]
+              "status": ["status:frightened"]
             }
           },
           {
@@ -3435,7 +3435,7 @@
             "requirements": [
               {
                 "type": "status",
-                "value": ["charmed", "frightened", "possessed"]
+                "value": ["status:charmed", "status:frightened", "status:possessed"]
               }
             ]
           }
@@ -3919,7 +3919,7 @@
           "requirements": [
             {
               "type": "status",
-              "value": ["unconscious"],
+              "value": ["status:unconscious"],
               "negate": true
             },
             {
@@ -3929,7 +3929,7 @@
             },
             {
               "type": "immunity",
-              "to": "charmed",
+              "to": "status:charmed",
               "negate": true
             }
           ]

@@ -148,7 +148,7 @@
           },
           {
             "type": "immunity",
-            "to": "charmed",
+            "to": "status:charmed",
             "negate": true
           }
         ],
@@ -254,7 +254,7 @@
           "requirements": [
             {
               "type": "status",
-              "value": "charmed",
+              "value": "status:charmed",
               "source": "character"
             }
           ]

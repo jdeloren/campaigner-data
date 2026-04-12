@@ -57,7 +57,9 @@
                     "ability": "Charisma"
                   }
                 ],
-                "bounds": { "minimum": 1 }
+                "bounds": {
+                  "minimum": 1
+                }
               }
             }
           },
@@ -200,7 +202,7 @@
         "requirements": [
           {
             "type": "status",
-            "value": "unconscious",
+            "value": "status:unconscious",
             "negate": true
           }
         ],
@@ -217,7 +219,7 @@
               "grants": {
                 "immunity": {
                   "category": "status",
-                  "status": ["charmed"]
+                  "status": ["status:charmed"]
                 }
               }
             }
