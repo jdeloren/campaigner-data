@@ -3324,5 +3324,107 @@
     },
     "source": "tce",
     "ruleset": "dnd5e"
+  },
+  {
+    "id": "class:ranger",
+    "name": "Ranger",
+    "description": "Far from the bustle of cities and towns, past the hedges that shelter the most distant farms from the terrors of the wild, amid the dense-packed trees of trackless forests and across wide and empty plains, rangers keep their unending watch.",
+    "hit_die": 10,
+    "primary_ability": ["Wisdom"],
+    "saving_throw_proficiencies": ["Strength", "Dexterity"],
+    "proficiencies": {
+      "armor": ["prop:light", "prop:medium", "prop:shield"],
+      "weapons": ["prop:simple", "prop:martial"],
+      "tools": [],
+      "skills": {
+        "choose": 3,
+        "from": [
+          "Animal Handling",
+          "Athletics",
+          "Insight",
+          "Investigation",
+          "Nature",
+          "Perception",
+          "Stealth",
+          "Survival"
+        ]
+      }
+    },
+    "starting_equipment": [
+      {
+        "choice_group": 1,
+        "type": "choice",
+        "options": [
+          {
+            "item": "Scale Mail",
+            "quantity": 1
+          },
+          {
+            "item": "Leather Armor",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "choice_group": 2,
+        "type": "choice",
+        "options": [
+          {
+            "item": "Shortsword",
+            "quantity": 2
+          },
+          {
+            "item": "any simple weapon",
+            "quantity": 2
+          }
+        ]
+      },
+      {
+        "choice_group": 3,
+        "type": "choice",
+        "options": [
+          {
+            "item": "Dungeoneer's Pack",
+            "quantity": 1
+          },
+          {
+            "item": "Explorer's Pack",
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "choice_group": 4,
+        "type": "fixed",
+        "items": [
+          {
+            "item": "Longbow",
+            "quantity": 1
+          },
+          {
+            "item": "Arrows",
+            "quantity": 20
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e",
+    "multiclassing": [
+      {
+        "type": "attribute",
+        "attribute": "Dexterity",
+        "range": {
+          "minimum": 13
+        }
+      },
+      {
+        "type": "attribute",
+        "attribute": "Wisdom",
+        "range": {
+          "minimum": 13
+        }
+      }
+    ]
   }
 ]

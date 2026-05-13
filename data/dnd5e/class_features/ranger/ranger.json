@@ -1,0 +1,658 @@
+[
+  {
+    "id": "feat:favored-enemy",
+    "class": "class:ranger",
+    "level": [1, 6, 14],
+    "name": "Favored Enemy",
+    "description": "Beginning at 1st level, you have significant experience studying, tracking, hunting, and even talking to a certain type of enemy.\n\nChoose a type of favored enemy: aberrations, beasts, celestials, constructs, dragons, elementals, fey, fiends, giants, monstrosities, oozes, plants, undead, or two races of humanoid (such as gnolls and orcs). You have advantage on Wisdom (Survival) checks to track your favored enemies, as well as on Intelligence checks to recall information about them.\n\nWhen you gain this feature, you also learn one language of your choice that is spoken by your favored enemies, if they speak one at all.\n\nYou choose one additional favored enemy, as well as an associated language, at 6th and 14th level. As your experience deepens, at 14th level you also gain a +3 bonus to damage rolls against your favored enemies.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "query",
+        "count": 1,
+        "query": {
+          "source": "creature_types"
+        }
+      },
+      {
+        "type": "proficiency",
+        "proficiency_type": "languages",
+        "choice": {
+          "count": 1,
+          "source": "languages"
+        }
+      },
+      {
+        "type": "passive",
+        "trigger": {
+          "event": ["ability_check"],
+          "check": {
+            "skill": "Survival",
+            "activity": "tracking"
+          }
+        },
+        "effects": [
+          {
+            "advantage": {
+              "ability_check": ["Wisdom"]
+            }
+          }
+        ],
+        "requirements": [
+          {
+            "type": "target",
+            "value": "favored_enemy"
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "trigger": {
+          "event": ["ability_check"],
+          "check": {
+            "type": "knowledge"
+          }
+        },
+        "effects": [
+          {
+            "advantage": {
+              "ability_check": ["Intelligence"]
+            }
+          }
+        ],
+        "requirements": [
+          {
+            "type": "target",
+            "value": "favored_enemy"
+          }
+        ]
+      },
+      {
+        "type": "damage_bonus",
+        "trigger": {
+          "event": ["damage"]
+        },
+        "effects": [
+          {
+            "damage_bonus": {
+              "bonus": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 3
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "requirements": [
+          {
+            "type": "target",
+            "value": "favored_enemy"
+          },
+          {
+            "type": "class_level",
+            "class": "class:ranger",
+            "minimum": 14
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:natural-explorer",
+    "class": "class:ranger",
+    "level": [1, 6, 10],
+    "name": "Natural Explorer",
+    "description": "You are particularly familiar with one type of natural environment and are adept at traveling and surviving in such regions. Choose one type of favored terrain: arctic, coast, desert, forest, grassland, mountain, swamp, or the Underdark.\n\nWhen you make an Intelligence or Wisdom check related to your favored terrain, your proficiency bonus is doubled if you are using a skill that you're proficient in.\n\nWhile traveling for an hour or more in your favored terrain, you gain the following benefits: difficult terrain doesn't slow your group's travel, your group can't become lost except by magical means, even when you are engaged in another activity while traveling you remain alert to danger, if you are traveling alone you can move stealthily at a normal pace, when you forage you find twice as much food as you normally would, and while tracking other creatures you also learn their exact number, their sizes, and how long ago they passed through the area.\n\nYou choose additional favored terrain types at 6th and 10th level.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "query",
+        "count": 1,
+        "query": {
+          "source": "terrain_types"
+        }
+      },
+      {
+        "type": "passive",
+        "name": "favored_terrain_expertise",
+        "effects": [
+          {
+            "attribute": {
+              "target": "proficiency_bonus.multiplier",
+              "calculation": {
+                "operation": "set",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 2
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "requirements": [
+          {
+            "type": "terrain",
+            "value": "favored_terrain"
+          },
+          {
+            "type": "ability_check",
+            "abilities": ["Intelligence", "Wisdom"],
+            "proficient": true
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "name": "favored_terrain_travel",
+        "effects": [
+          {
+            "attribute": {
+              "target": "travel.difficult_terrain_penalty",
+              "calculation": {
+                "operation": "set",
+                "operators": [
+                  {
+                    "type": "boolean",
+                    "value": false
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "attribute": {
+              "target": "travel.can_be_lost",
+              "calculation": {
+                "operation": "set",
+                "operators": [
+                  {
+                    "type": "boolean",
+                    "value": false
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "requirements": [
+          {
+            "type": "terrain",
+            "value": "favored_terrain"
+          },
+          {
+            "type": "activity",
+            "value": "traveling",
+            "duration": {
+              "minimum": 1,
+              "unit": "hours"
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:fighting-style",
+    "class": "class:ranger",
+    "level": 2,
+    "name": "Fighting Style",
+    "description": "At 2nd level, you adopt a particular style of fighting as your specialty. Choose one of the following options. You can't take a Fighting Style option more than once, even if you later get to choose again.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "query",
+        "query": {
+          "source": "fighting_styles",
+          "params": {
+            "class": "class:ranger"
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:ranger-spellcasting",
+    "class": "class:ranger",
+    "level": 2,
+    "name": "Spellcasting",
+    "description": "By the time you reach 2nd level, you have learned to use the magical essence of nature to cast spells, much as a druid does. See chapter 10 for the general rules of spellcasting and chapter 11 for the ranger spell list.\n\nYou use Wisdom whenever a spell refers to your spellcasting ability. In addition, you use your Wisdom modifier when setting the saving throw DC for a ranger spell you cast and when making an attack roll with one.",
+    "mechanics": [
+      {
+        "type": "spellcasting",
+        "ability": "Wisdom",
+        "spellcasting_type": "prepared",
+        "caster_multiplier": "half"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:primeval-awareness",
+    "class": "class:ranger",
+    "level": 3,
+    "name": "Primeval Awareness",
+    "description": "Beginning at 3rd level, you can use your action and expend one ranger spell slot to focus your awareness on the region around you. For 1 minute per level of the spell slot you expend, you can sense whether the following types of creatures are present within 1 mile of you (or within up to 6 miles if you are in your favored terrain): aberrations, celestials, dragons, elementals, fey, fiends, and undead. This feature doesn't reveal the creatures' location or number.",
+    "mechanics": [
+      {
+        "type": "action",
+        "cost": [
+          {
+            "resource": "spell_slot",
+            "amount": 1
+          }
+        ],
+        "duration": {
+          "value": 1,
+          "unit": "minutes",
+          "scaling": {
+            "type": "spell_slot_level"
+          }
+        },
+        "effects": [
+          {
+            "detection": {
+              "range": {
+                "value": 1,
+                "unit": "miles"
+              },
+              "detects": ["creatures"],
+              "creature_types": [
+                "aberrations",
+                "celestials",
+                "dragons",
+                "elementals",
+                "fey",
+                "fiends",
+                "undead"
+              ],
+              "reveals": ["presence"],
+              "extended_range": {
+                "value": 6,
+                "unit": "miles",
+                "condition": {
+                  "type": "terrain",
+                  "value": "favored_terrain"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:ranger-archetype",
+    "class": "class:ranger",
+    "level": 3,
+    "name": "Ranger Archetype",
+    "description": "At 3rd level, you choose an archetype that you strive to emulate: the Hunter that is detailed at the end of the class description or one from another source. Your choice grants you features at 3rd level and again at 7th, 11th, and 15th level.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "choice_type": "subclass"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:ability-score-improvement",
+    "class": "class:ranger",
+    "level": [4, 8, 12, 16, 19],
+    "name": "Ability Score Improvement",
+    "description": "When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
+    "mechanics": [
+      {
+        "type": "choice",
+        "options": [
+          {
+            "type": "nested",
+            "name": "Increase Ability Scores",
+            "choice": {
+              "choice_type": "ability_score",
+              "count": 2,
+              "value": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 1
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "type": "nested",
+            "name": "Gain a Feat",
+            "choice": {
+              "choice_type": "feat",
+              "count": 1
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:extra-attack",
+    "class": "class:ranger",
+    "level": 5,
+    "name": "Extra Attack",
+    "description": "Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.",
+    "mechanics": [
+      {
+        "type": "extra_attack",
+        "scaling": {
+          "components": {
+            "attacks": {
+              "by_level": {
+                "5": 2
+              }
+            }
+          }
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:lands-stride",
+    "class": "class:ranger",
+    "level": 8,
+    "name": "Land's Stride",
+    "description": "Starting at 8th level, moving through nonmagical difficult terrain costs you no extra movement. You can also pass through nonmagical plants without being slowed by them and without taking damage from them if they have thorns, spines, or a similar hazard.\n\nIn addition, you have advantage on saving throws against plants that are magically created or manipulated to impede movement, such as those created by the entangle spell.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "attribute": {
+              "target": "movement.difficult_terrain_penalty",
+              "calculation": {
+                "operation": "set",
+                "operators": [
+                  {
+                    "type": "boolean",
+                    "value": false
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "requirements": [
+          {
+            "type": "terrain",
+            "magical": false
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "trigger": {
+          "event": ["saving_throw"],
+          "source": {
+            "type": "plant",
+            "magical": true
+          }
+        },
+        "effects": [
+          {
+            "advantage": {
+              "saving_throw": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:hide-in-plain-sight",
+    "class": "class:ranger",
+    "level": 10,
+    "name": "Hide in Plain Sight",
+    "description": "Starting at 10th level, you can spend 1 minute creating camouflage for yourself. You must have access to fresh mud, dirt, plants, soot, and other naturally occurring materials with which to create your camouflage.\n\nOnce you are camouflaged in this way, you can try to hide by pressing yourself up against a solid surface, such as a tree or wall, that is at least as tall and wide as you are. You gain a +10 bonus to Dexterity (Stealth) checks as long as you remain there without moving or taking actions. Once you move or take an action or a reaction, you must camouflage yourself again to gain this benefit.",
+    "mechanics": [
+      {
+        "type": "special",
+        "name": "hide_in_plain_sight",
+        "cost": [
+          {
+            "time": {
+              "value": 1,
+              "unit": "minutes"
+            }
+          }
+        ],
+        "effects": [
+          {
+            "attribute": {
+              "target": "skills.Stealth.modifier",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "integer",
+                    "value": 10
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "conditions": {
+          "ends_on": ["move", "action", "reaction"]
+        }
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:vanish",
+    "class": "class:ranger",
+    "level": 14,
+    "name": "Vanish",
+    "description": "Starting at 14th level, you can use the Hide action as a bonus action on your turn. Also, you can't be tracked by nonmagical means, unless you choose to leave a trail.",
+    "mechanics": [
+      {
+        "type": "bonus_action",
+        "effects": [
+          {
+            "apply_status": {
+              "id": "status:hidden"
+            }
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "attribute": {
+              "target": "tracking.nonmagical",
+              "calculation": {
+                "operation": "set",
+                "operators": [
+                  {
+                    "type": "boolean",
+                    "value": false
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:feral-senses",
+    "class": "class:ranger",
+    "level": 18,
+    "name": "Feral Senses",
+    "description": "At 18th level, you gain preternatural senses that help you fight creatures you can't see. When you attack a creature you can't see, your inability to see it doesn't impose disadvantage on your attack rolls against it.\n\nYou are also aware of the location of any invisible creature within 30 feet of you, provided that the creature isn't hidden from you and you aren't blinded or deafened.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "attribute": {
+              "target": "attack.ignore_unseen_disadvantage",
+              "calculation": {
+                "operation": "set",
+                "operators": [
+                  {
+                    "type": "boolean",
+                    "value": true
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "passive",
+        "effects": [
+          {
+            "detection": {
+              "range": {
+                "value": 30,
+                "unit": "feet"
+              },
+              "detects": ["creatures"],
+              "ignores_status": ["invisible"],
+              "reveals": ["location"]
+            }
+          }
+        ]
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:foe-slayer",
+    "class": "class:ranger",
+    "level": 20,
+    "name": "Foe Slayer",
+    "description": "At 20th level, you become an unparalleled hunter of your enemies. Once on each of your turns, you can add your Wisdom modifier to the attack roll or the damage roll of an attack you make against one of your favored enemies. You can choose to use this feature before or after the roll, but before any effects of the roll are applied.",
+    "mechanics": [
+      {
+        "type": "passive",
+        "trigger": {
+          "event": ["attack"]
+        },
+        "effects": [
+          {
+            "attribute": {
+              "target": "attack_roll.modifier",
+              "calculation": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "ability_modifier",
+                    "ability": "Wisdom"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "requirements": [
+          {
+            "type": "target",
+            "value": "favored_enemy"
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "turn"
+      },
+      {
+        "type": "damage_bonus",
+        "trigger": {
+          "event": ["damage"]
+        },
+        "effects": [
+          {
+            "damage_bonus": {
+              "bonus": {
+                "operation": "add",
+                "operators": [
+                  {
+                    "type": "ability_modifier",
+                    "ability": "Wisdom"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "requirements": [
+          {
+            "type": "target",
+            "value": "favored_enemy"
+          }
+        ],
+        "uses": {
+          "value": 1
+        },
+        "recharge": "turn"
+      }
+    ],
+    "source": "phb",
+    "ruleset": "dnd5e"
+  },
+  {
+    "id": "feat:ranger-martial-versatility",
+    "class": "class:ranger",
+    "level": [4, 8, 12, 16, 19],
+    "name": "Martial Versatility",
+    "description": "Whenever you reach a level in this class that grants the Ability Score Improvement feature, you can replace a fighting style you know with another fighting style available to rangers.",
+    "triggered_by": "Ability Score Improvement",
+    "mechanics": [
+      {
+        "type": "retrain",
+        "name": "replace_fighting_style",
+        "attribute": "fighting_styles",
+        "operation": "replace",
+        "optional": true,
+        "source": {
+          "list": "fighting_styles",
+          "filter": {
+            "classes": "class:ranger"
+          },
+          "exclude": "character.fighting_styles"
+        }
+      }
+    ],
+    "source": "tce",
+    "ruleset": "dnd5e"
+  }
+]
